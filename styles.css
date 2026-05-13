@@ -1,3 +1,25 @@
+/* ── ACCESSIBILITY: Skip to content link ── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 9999;
+  padding: .6rem 1.2rem;
+  background: var(--ink);
+  color: var(--off-white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  letter-spacing: .05em;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  transition: top .2s ease;
+  outline: 2px solid var(--kili-accent);
+  outline-offset: 2px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 :root {
   --kili-dark:    #0d1f10;
   --kili-mid:     #1e5c28;
@@ -3620,4 +3642,57 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
   .price-ctx-vs { display: none; }
   .price-ctx-right { text-align: left; }
   .price-section { padding: 5rem 0 4rem; }
+}
+/* ── NAVIGATION: keyboard focus ring on chapter dots ── */
+.nav-dot:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(168, 216, 122, 0.3);
+}
+.nav-dot.rift-dot:focus-visible  { box-shadow: 0 0 0 4px rgba(185,60,45,.3); }
+.nav-dot.prep-dot:focus-visible  { box-shadow: 0 0 0 4px rgba(42,42,74,.3); }
+.nav-dot.zan-dot:focus-visible   { box-shadow: 0 0 0 4px rgba(127,216,232,.3); }
+
+/* ── NAVIGATION: aria-current active indicator ── */
+.nav-dot[aria-current="true"] {
+  font-weight: 600;
+}
+
+/* ── NAVIGATION: side-rail pip focus ── */
+.sr-pip:focus-visible {
+  outline: 2px solid rgba(255,255,255,.7);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+/* ── ACCESSIBILITY: reduce motion for users who prefer it ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── PERFORMANCE: font-display optimisation hint ── */
+/* Ensure body text is readable while custom fonts load */
+body {
+  font-display: optional;
+}
+
+/* ── ACCESSIBILITY: higher contrast for muted text ── */
+/* Ensure .muted (#6b6b60) has sufficient contrast on off-white (#faf8f4) */
+/* Ratio is ~3.8:1 — acceptable for large/UI text but improve for small labels */
+.nav-by,
+.price-ctx-label {
+  opacity: .65; /* was .5 — lifted for better legibility */
+}
+
+/* ── NAVIGATION: Zanzibar dot (zan-dot) was missing hover/active state in CSS ── */
+.nav-dot.zan-dot:hover, .nav-dot.zan-dot.active {
+  background: var(--zan-mid);
+  border-color: var(--zan-mid);
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(10,74,94,.25);
 }
