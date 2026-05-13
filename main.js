@@ -5,7 +5,7 @@
   const obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
-        e.target.classList.add('visible');   
+        e.target.classList.add('visible');
         obs.unobserve(e.target);
       }
     });
@@ -497,189 +497,274 @@ if(backTop) {
 })();
 
 
-// ── Live Travel Map — sticky companion ───────────────────────────────
+// ── Live Travel Map — full interactive rebuild ───────────────────────
 (function() {
   var map = document.getElementById('floatMap');
   if (!map) return;
 
-  // Chapter config — dot IDs match new SVG, hx/hy match new positions
+  // ── CHAPTER DATA ─────────────────────────────────────────────────────
+  // hx/hy = SVG coords in viewBox(0 0 300 260), used for pan/zoom centre
   var FM_CHAPTERS = [
     {
-      id: 'kili',     dotId: 'fm-dot-kili', lblId: 'fm-lbl-kili',
+      id: 'kili',
+      dotId: 'fm-dot-kili', stripId: 'fsn-kili',
       pipId: 'fmp-kili', pipClass: 'fmp-kili', pipActiveClass: 'fmp-active-kili',
-      hx: 152, hy: 18,   name: 'Kilimanjaro', numeral: 'I',
+      hx: 154, hy: 24,
+      // zoom: scale + translate so this stop fills the card nicely
+      zoom: { scale: 2.2, tx: -154, ty: -24 },
+      name: 'Kilimanjaro', numeral: 'I',
       color: '#a8d87a',  numColor: 'rgba(168,216,122,.55)',
-      statusColor: 'rgba(168,216,122,.7)',
-      barColor: 'linear-gradient(90deg,rgba(168,216,122,.5),rgba(168,216,122,.9))',
-      dateLabel: '3 – 5 jul', dateFill: '15%', dayStr: '3 jul'
+      statusColor: 'rgba(168,216,122,.8)',
+      barColor: 'linear-gradient(90deg,rgba(168,216,122,.5),rgba(168,216,122,.95))',
+      dateLabel: '3 – 5 jul', dateFill: '15%', dayStr: '3 jul',
+      nights: '2 noches',
+      detail: 'Llegada · Materuni · Cascadas & café'
     },
     {
-      id: 'savanna',  dotId: 'fm-dot-sav',  lblId: 'fm-lbl-sav',
+      id: 'savanna',
+      dotId: 'fm-dot-sav', stripId: 'fsn-sav',
       pipId: 'fmp-sav', pipClass: 'fmp-savanna', pipActiveClass: 'fmp-active-savanna',
-      hx: 112, hy: 88,   name: 'Sabana', numeral: 'II',
+      hx: 112, hy: 92,
+      zoom: { scale: 2.0, tx: -112, ty: -92 },
+      name: 'Sabana', numeral: 'II',
       color: '#c8872a',  numColor: 'rgba(200,135,42,.55)',
-      statusColor: 'rgba(200,135,42,.8)',
-      barColor: 'linear-gradient(90deg,rgba(200,135,42,.5),rgba(200,135,42,.9))',
-      dateLabel: '6 – 11 jul', dateFill: '42%', dayStr: '6 jul'
+      statusColor: 'rgba(200,135,42,.85)',
+      barColor: 'linear-gradient(90deg,rgba(200,135,42,.5),rgba(200,135,42,.95))',
+      dateLabel: '6 – 11 jul', dateFill: '42%', dayStr: '6 jul',
+      nights: '5 noches',
+      detail: 'Serengeti · Ngorongoro · Manyara · 4 parques'
     },
     {
-      id: 'rift',     dotId: 'fm-dot-rift', lblId: 'fm-lbl-rift',
+      id: 'rift',
+      dotId: 'fm-dot-rift', stripId: 'fsn-rift',
       pipId: 'fmp-rift', pipClass: 'fmp-rift', pipActiveClass: 'fmp-active-rift',
-      hx: 82,  hy: 140,  name: 'Rift Valley', numeral: 'III',
+      hx: 88, hy: 152,
+      zoom: { scale: 2.4, tx: -88, ty: -152 },
+      name: 'Rift Valley', numeral: 'III',
       color: '#b93c2d',  numColor: 'rgba(185,60,45,.55)',
-      statusColor: 'rgba(185,60,45,.8)',
-      barColor: 'linear-gradient(90deg,rgba(185,60,45,.5),rgba(185,60,45,.9))',
-      dateLabel: '12 jul', dateFill: '70%', dayStr: '12 jul'
+      statusColor: 'rgba(185,60,45,.85)',
+      barColor: 'linear-gradient(90deg,rgba(185,60,45,.5),rgba(185,60,45,.95))',
+      dateLabel: '12 jul', dateFill: '70%', dayStr: '12 jul',
+      nights: '1 noche',
+      detail: 'Mto wa Mbu · Selela · Experiencia cultural'
     },
     {
-      id: 'prep',     dotId: 'fm-dot-rift', lblId: 'fm-lbl-rift',
+      id: 'prep',
+      dotId: 'fm-dot-rift', stripId: 'fsn-rift',
       pipId: 'fmp-rift', pipClass: 'fmp-rift', pipActiveClass: 'fmp-active-rift',
-      hx: 82,  hy: 140,  name: 'Antes de salir', numeral: 'IV',
+      hx: 88, hy: 152,
+      zoom: { scale: 1.1, tx: -88, ty: -100 },
+      name: 'Antes de salir', numeral: 'IV',
       color: 'rgba(152,152,216,.9)', numColor: 'rgba(152,152,216,.5)',
-      statusColor: 'rgba(152,152,216,.7)',
+      statusColor: 'rgba(152,152,216,.75)',
       barColor: 'linear-gradient(90deg,rgba(152,152,216,.5),rgba(152,152,216,.9))',
-      dateLabel: 'Preparación', dateFill: '0%', dayStr: '—'
+      dateLabel: 'Preparación', dateFill: '0%', dayStr: '—',
+      nights: '—',
+      detail: 'Equipaje · Documentos · Tips del viaje'
     },
     {
-      id: 'zanzibar', dotId: 'fm-dot-zan',  lblId: 'fm-lbl-zan',
+      id: 'zanzibar',
+      dotId: 'fm-dot-zan', stripId: 'fsn-zan',
       pipId: 'fmp-zan', pipClass: 'fmp-zan', pipActiveClass: 'fmp-active-zan',
-      hx: 181, hy: 115,  name: 'Zanzíbar', numeral: 'V',
+      hx: 210, hy: 122,
+      zoom: { scale: 2.6, tx: -210, ty: -122 },
+      name: 'Zanzíbar', numeral: 'V',
       color: '#7fd8e8',  numColor: 'rgba(127,216,232,.55)',
-      statusColor: 'rgba(127,216,232,.7)',
-      barColor: 'linear-gradient(90deg,rgba(127,216,232,.5),rgba(127,216,232,.9))',
-      dateLabel: '13 – 14 jul', dateFill: '92%', dayStr: '13 jul'
+      statusColor: 'rgba(127,216,232,.8)',
+      barColor: 'linear-gradient(90deg,rgba(127,216,232,.5),rgba(127,216,232,.95))',
+      dateLabel: '13 – 14 jul', dateFill: '92%', dayStr: '13 jul',
+      nights: '2 noches',
+      detail: 'Nungwi · Océano Índico · Playa & descanso'
     },
   ];
 
-  var halo       = document.getElementById('fm-halo');
-  var fmName     = document.getElementById('fmChName');
-  var fmNum      = document.getElementById('fmChNum');
-  var fmDay      = document.getElementById('fmDayCounter');
-  var fmFill     = document.getElementById('fmDateFill');
-  var fmDateLbl  = document.getElementById('fmDateLabel');
-  var curChapter = null;
-
-  var statusDot = document.getElementById('fmStatusDot');
+  // ── DOM REFS ──────────────────────────────────────────────────────────
+  var halo        = document.getElementById('fm-halo');
+  var fmName      = document.getElementById('fmChName');
+  var fmNum       = document.getElementById('fmChNum');
+  var fmDay       = document.getElementById('fmDayCounter');
+  var fmFill      = document.getElementById('fmDateFill');
+  var fmDateLbl   = document.getElementById('fmDateLabel');
+  var statusDot   = document.getElementById('fmStatusDot');
   var headerTitle = document.getElementById('fmHeaderTitle');
+  var fmMapG      = document.getElementById('fmMapG');
+  var fmInfoDates  = document.getElementById('fmInfoDates');
+  var fmInfoNights = document.getElementById('fmInfoNights');
+  var fmInfoDetail = document.getElementById('fmInfoDetail');
+  var traveller   = document.getElementById('fmTraveller');
+  var travCore    = document.getElementById('fmTravCore');
+  var travGlow    = document.getElementById('fmTravGlow');
 
+  var curChapter = null;
+  var stripOrder = ['kili', 'savanna', 'rift', 'zanzibar'];
+
+  // ── PAN / ZOOM to active stop ─────────────────────────────────────────
+  // The SVG viewBox is 300×260. The card SVG renders at ~252px wide.
+  // We transform fmMapG so the active dot appears centred and zoomed.
+  // Formula: translate(cx*s - halfW, cy*s - halfH) where s=scale, half=half viewBox
+  function panZoom(cfg) {
+    if (!fmMapG) return;
+    var s  = cfg.zoom.scale;
+    var hw = 150; // half viewBox width
+    var hh = 130; // half viewBox height
+    var tx = hw - cfg.hx * s;
+    var ty = hh - cfg.hy * s;
+    fmMapG.style.transform = 'scale(' + s + ') translate(' + (tx/s).toFixed(1) + 'px,' + (ty/s).toFixed(1) + 'px)';
+  }
+
+  // ── STRIP: update visited / active state ─────────────────────────────
+  function updateStrip(cfg) {
+    var curIdx = stripOrder.indexOf(cfg.id === 'prep' ? 'rift' : cfg.id);
+    stripOrder.forEach(function(sid, i) {
+      var node = document.getElementById('fsn-' + sid);
+      if (!node) return;
+      node.classList.remove('fsn-active', 'fsn-visited');
+      if (i < curIdx)  node.classList.add('fsn-visited');
+      if (i === curIdx) node.classList.add('fsn-active');
+    });
+    // Lines
+    var lines = [
+      { el: document.getElementById('fsl-1'), threshold: 1 },
+      { el: document.getElementById('fsl-2'), threshold: 2 },
+      { el: document.getElementById('fsl-3'), threshold: 3 },
+    ];
+    lines.forEach(function(l) {
+      if (!l.el) return;
+      l.el.classList.toggle('fsl-visited', curIdx >= l.threshold);
+    });
+  }
+
+  // ── TRAVELLER: position the moving dot on the route ──────────────────
+  // We pre-define waypoints along the SVG paths matching key moments
+  var WAYPOINTS = {
+    kili:     { x: 154, y: 24 },
+    savanna:  { x: 112, y: 92 },
+    rift:     { x: 88,  y: 152 },
+    prep:     { x: 88,  y: 152 },
+    zanzibar: { x: 210, y: 122 },
+  };
+  function moveTraveller(cfg) {
+    if (!traveller) return;
+    var wp = WAYPOINTS[cfg.id];
+    if (!wp) return;
+    traveller.setAttribute('transform', 'translate(' + wp.x + ',' + wp.y + ')');
+    traveller.style.opacity = '1';
+    if (travCore) travCore.style.fill = cfg.color;
+    if (travGlow) travGlow.style.fill = cfg.color;
+  }
+
+  // ── ACTIVATE CHAPTER ─────────────────────────────────────────────────
   function activateChapter(cfg) {
     if (!cfg) return;
 
-    // label
-    if (fmName) { fmName.textContent = cfg.name; fmName.style.color = cfg.color; }
-    if (fmNum)  { fmNum.textContent  = cfg.numeral; fmNum.style.color = cfg.numColor; }
-    if (fmDay)  { fmDay.textContent  = cfg.dayStr; fmDay.style.color = cfg.color; }
-
-    // Status dot colour syncs with chapter
-    if (statusDot) {
-      statusDot.style.background = cfg.statusColor;
-      statusDot.style.boxShadow = '0 0 7px ' + cfg.statusColor;
-    }
+    // Header
+    if (fmDay)       { fmDay.textContent = cfg.dayStr; fmDay.style.color = cfg.color; }
+    if (statusDot)   { statusDot.style.background = cfg.statusColor; statusDot.style.boxShadow = '0 0 8px ' + cfg.statusColor; }
     if (headerTitle) { headerTitle.style.color = cfg.statusColor; }
 
-    // date bar
-    if (fmFill) {
-      fmFill.style.background = cfg.barColor;
-      fmFill.style.width      = cfg.dateFill;
-    }
-    if (fmDateLbl) {
-      fmDateLbl.textContent  = cfg.dateLabel;
-      fmDateLbl.style.color  = cfg.color;
+    // Info panel
+    if (fmNum)  { fmNum.textContent  = cfg.numeral; fmNum.style.color = cfg.numColor; }
+    if (fmName) { fmName.textContent = cfg.name;    fmName.style.color = cfg.color; }
+    if (fmInfoDates)  { fmInfoDates.textContent  = cfg.dateLabel; fmInfoDates.style.color = cfg.color; }
+    if (fmInfoNights) { fmInfoNights.textContent = cfg.nights; }
+    if (fmInfoDetail) {
+      fmInfoDetail.style.opacity = '0';
+      setTimeout(function() {
+        fmInfoDetail.textContent = cfg.detail;
+        fmInfoDetail.style.color = 'rgba(255,255,255,.28)';
+        fmInfoDetail.style.opacity = '1';
+      }, 200);
     }
 
-    // pips — mark passed ones and active
-    var order = ['kili','savanna','rift','zanzibar'];
-    var curIdx = order.indexOf(cfg.id === 'prep' ? 'rift' : cfg.id);
-    FM_CHAPTERS.forEach(function(c) {
-      var pip = document.getElementById(c.pipId);
-      if (!pip) return;
-      pip.className = 'fm-pip';
-      var idx = order.indexOf(c.id === 'prep' ? 'rift' : c.id);
-      if (idx < curIdx)  pip.classList.add(c.pipClass);
-      if (idx === curIdx && c.id === cfg.id) pip.classList.add(c.pipActiveClass);
-    });
+    // Footer bar
+    if (fmFill)    { fmFill.style.background = cfg.barColor; fmFill.style.width = cfg.dateFill; }
+    if (fmDateLbl) { fmDateLbl.textContent = cfg.dateLabel; fmDateLbl.style.color = cfg.color; }
 
-    // SVG dots — active / inactive
+    // SVG: dots active state
     FM_CHAPTERS.forEach(function(c) {
       var dot = document.getElementById(c.dotId);
       if (dot) dot.classList.toggle('fm-active', c.dotId === cfg.dotId && c.id === cfg.id);
     });
 
-    // stop labels — show only active
-    FM_CHAPTERS.forEach(function(c) {
-      var lbl = document.getElementById(c.lblId);
-      if (!lbl) return;
-      lbl.classList.toggle('fm-lbl-visible', c.lblId === cfg.lblId);
-    });
-
-    // halo
+    // SVG: halo
     if (halo) {
       halo.setAttribute('cx', cfg.hx);
       halo.setAttribute('cy', cfg.hy);
       halo.setAttribute('stroke', cfg.color);
       halo.classList.remove('fm-halo-on');
-      void halo.getBoundingClientRect(); // restart animation
+      void halo.getBoundingClientRect();
       halo.classList.add('fm-halo-on');
     }
 
-    // route reveal
+    // SVG: pan/zoom to active stop
+    panZoom(cfg);
+
+    // Traveller dot
+    moveTraveller(cfg);
+
+    // Strip
+    updateStrip(cfg);
+
+    // Route reveal
     revealRoutes(cfg.id);
   }
 
+  // ── ROUTE REVEAL ─────────────────────────────────────────────────────
   function revealRoutes(id) {
     var mainLine = document.getElementById('fm-main');
     var riftLine = document.getElementById('fm-rift');
     var zanLine  = document.getElementById('fm-zan');
     if (!mainLine) return;
-
     var ease = 'cubic-bezier(.22,.8,.32,1)';
 
     if (id === 'kili') {
-      // Show partial route from Kili heading south
-      mainLine.style.transition = 'stroke-dashoffset 2s ' + ease;
-      mainLine.style.strokeDashoffset = '200';
-      if (riftLine) riftLine.style.strokeDashoffset = '80';
-      if (zanLine)  zanLine.style.strokeDashoffset = '240';
+      mainLine.style.transition = 'stroke-dashoffset 2.2s ' + ease;
+      mainLine.style.strokeDashoffset = '220';
+      if (riftLine) { riftLine.style.transition = 'none'; riftLine.style.strokeDashoffset = '90'; }
+      if (zanLine)  { zanLine.style.transition = 'none';  zanLine.style.strokeDashoffset = '260'; }
     } else if (id === 'savanna') {
-      // Full green leg revealed
-      mainLine.style.transition = 'stroke-dashoffset 1.6s ' + ease;
+      mainLine.style.transition = 'stroke-dashoffset 1.8s ' + ease;
       mainLine.style.strokeDashoffset = '0';
-      if (riftLine) riftLine.style.strokeDashoffset = '80';
-      if (zanLine)  zanLine.style.strokeDashoffset = '240';
+      if (riftLine) { riftLine.style.transition = 'none'; riftLine.style.strokeDashoffset = '90'; }
+      if (zanLine)  { zanLine.style.transition = 'none';  zanLine.style.strokeDashoffset = '260'; }
     } else if (id === 'rift' || id === 'prep') {
-      mainLine.style.transition = 'stroke-dashoffset .5s ease';
+      mainLine.style.transition = 'stroke-dashoffset .4s ease';
       mainLine.style.strokeDashoffset = '0';
       if (riftLine) {
-        riftLine.style.transition = 'stroke-dashoffset 1.1s ' + ease;
+        riftLine.style.transition = 'stroke-dashoffset 1.2s ' + ease;
         riftLine.style.strokeDashoffset = '0';
       }
-      if (zanLine) zanLine.style.strokeDashoffset = '240';
+      if (zanLine) { zanLine.style.transition = 'none'; zanLine.style.strokeDashoffset = '260'; }
     } else if (id === 'zanzibar') {
       mainLine.style.strokeDashoffset = '0';
       if (riftLine) riftLine.style.strokeDashoffset = '0';
       if (zanLine) {
-        zanLine.style.transition = 'stroke-dashoffset 1.4s ' + ease;
+        zanLine.style.transition = 'stroke-dashoffset 1.6s ' + ease;
         zanLine.style.strokeDashoffset = '0';
       }
     }
   }
 
-  // Show panel after first meaningful scroll
+  // ── SHOW MAP after scroll ─────────────────────────────────────────────
   var shown = false;
   window.addEventListener('scroll', function() {
     if (!shown && window.scrollY > 200) {
       shown = true;
       map.classList.add('fm-visible');
-      // kick off initial route draw
+      // Boot route draw: partial green line from Kili
       setTimeout(function() {
         var m = document.getElementById('fm-main');
-        if (m) { m.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.22,.8,.32,1)'; m.style.strokeDashoffset = '180'; }
-      }, 400);
+        if (m) {
+          m.style.transition = 'stroke-dashoffset 2.4s cubic-bezier(.22,.8,.32,1)';
+          m.style.strokeDashoffset = '220';
+        }
+        if (traveller) traveller.style.opacity = '1';
+      }, 450);
     }
   }, { passive: true });
 
-  // Observe chapters
-  var fmObs = new IntersectionObserver(function(entries) {   
+  // ── OBSERVE CHAPTERS ─────────────────────────────────────────────────
+  var fmObs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (!e.isIntersecting) return;
       var cfg = FM_CHAPTERS.find(function(c) { return c.id === e.target.id; });
@@ -695,6 +780,6 @@ if(backTop) {
     if (el) fmObs.observe(el);
   });
 
-  // Boot state
+  // Boot state — Kilimanjaro
   activateChapter(FM_CHAPTERS[0]);
 })();
