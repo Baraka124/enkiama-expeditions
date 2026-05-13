@@ -1917,7 +1917,7 @@ Después de diez días en movimiento — safari, pueblo, escarpado, vuelo — es
 <!-- ── LIVE TRAVEL MAP (sticky companion) ── -->
 <div id="floatMap" aria-label="Mapa del itinerario en vivo">
 
-  <!-- ── HEADER: status + date ── -->
+  <!-- ── HEADER ── -->
   <div id="fmHeader">
     <div id="fmHeaderLeft">
       <span class="fm-status-dot" id="fmStatusDot"></span>
@@ -1935,175 +1935,282 @@ Después de diez días en movimiento — safari, pueblo, escarpado, vuelo — es
 
   <!-- ── PROGRESS PIPS ── -->
   <div id="fmPips">
-    <div class="fm-pip" id="fmp-kili"   data-ch="kili"    title="Kilimanjaro (3–5 jul)"></div>
+    <div class="fm-pip" id="fmp-kili"   title="Kilimanjaro · 3–5 jul"></div>
     <div class="fm-pip-line"></div>
-    <div class="fm-pip" id="fmp-sav"    data-ch="savanna" title="Sabana (6–11 jul)"></div>
+    <div class="fm-pip" id="fmp-sav"    title="Sabana · 6–11 jul"></div>
     <div class="fm-pip-line"></div>
-    <div class="fm-pip" id="fmp-rift"   data-ch="rift"    title="Rift Valley (12 jul)"></div>
+    <div class="fm-pip" id="fmp-rift"   title="Rift Valley · 12 jul"></div>
     <div class="fm-pip-line fm-pip-line-dashed"></div>
-    <div class="fm-pip" id="fmp-zan"    data-ch="zanzibar" title="Zanzíbar (13–14 jul)"></div>
+    <div class="fm-pip" id="fmp-zan"    title="Zanzíbar · 13–14 jul"></div>
   </div>
 
-  <!-- ── SVG MAP: Tanzania with accurate geography ── -->
-  <svg id="fmSvg" viewBox="0 0 210 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- ══ REDESIGNED SVG MAP ══
+       viewBox 240×200 — wider to show Zanzibar comfortably
+       Tanzania silhouette hand-traced from real geography
+       Coordinates scaled: 1 unit ≈ 18 km
+  -->
+  <svg id="fmSvg" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <filter id="fmGlow" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="3" result="blur"/>
+      <!-- Glow filter for dots and route -->
+      <filter id="fmGlow" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="3.5" result="blur"/>
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
-      <filter id="fmSoftGlow" x="-40%" y="-40%" width="180%" height="180%">
-        <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <filter id="fmGlowSoft" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="1.8" result="blur"/>
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
-      <!-- Terrain texture gradient -->
-      <radialGradient id="terrainGrad" cx="45%" cy="45%" r="60%">
-        <stop offset="0%" stop-color="rgba(30,92,40,.18)"/>
-        <stop offset="40%" stop-color="rgba(20,60,15,.12)"/>
-        <stop offset="100%" stop-color="rgba(8,20,6,.06)"/>
+      <!-- Tanzania terrain fill -->
+      <radialGradient id="tzGrad" cx="42%" cy="40%" r="65%">
+        <stop offset="0%"   stop-color="#1e5c28" stop-opacity=".22"/>
+        <stop offset="45%"  stop-color="#143d1a" stop-opacity=".14"/>
+        <stop offset="100%" stop-color="#0a1e0d" stop-opacity=".06"/>
       </radialGradient>
-      <!-- Ocean gradient -->
-      <linearGradient id="oceanGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="rgba(26,143,168,.12)"/>
-        <stop offset="100%" stop-color="rgba(10,74,94,.06)"/>
+      <!-- Serengeti warmth overlay -->
+      <radialGradient id="savannaGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#c8872a" stop-opacity=".10"/>
+        <stop offset="100%" stop-color="#c8872a" stop-opacity="0"/>
+      </radialGradient>
+      <!-- Ocean shimmer -->
+      <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#1a8fa8" stop-opacity=".18"/>
+        <stop offset="100%" stop-color="#0a4a5e" stop-opacity=".08"/>
       </linearGradient>
+      <!-- Route gradient green→amber→red→teal -->
+      <linearGradient id="routeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%"   stop-color="#a8d87a"/>
+        <stop offset="50%"  stop-color="#c8872a"/>
+        <stop offset="75%"  stop-color="#b93c2d"/>
+        <stop offset="100%" stop-color="#7fd8e8"/>
+      </linearGradient>
+      <!-- Clip path for map area -->
+      <clipPath id="mapClip">
+        <rect x="0" y="0" width="240" height="200"/>
+      </clipPath>
     </defs>
 
-    <!-- Ocean background (east side) -->
-    <rect x="148" y="60" width="62" height="120" rx="4" fill="url(#oceanGrad)" opacity=".8"/>
+    <!-- ── OCEAN (east of Tanzania) ── -->
+    <rect x="0" y="0" width="240" height="200" fill="url(#oceanGrad)" opacity=".4"/>
 
-    <!-- Tanzania mainland — accurate silhouette -->
-    <path d="M52,10 L60,7 L74,5 L88,6 L100,4 L114,5 L127,4 L140,6 L152,9 L158,15 L158,24
-             L154,34 L150,44 L146,55 L142,66 L137,76 L132,86 L126,96 L120,105 L113,113
-             L107,120 L100,128 L96,135 L92,142 L90,152 L88,160 L84,164 L78,166 L70,163
-             L65,156 L62,147 L59,137 L55,126 L50,115 L45,104 L40,92 L36,81 L32,70
-             L29,58 L28,48 L30,38 L34,28 L40,19 L48,13 L52,10Z"
-      fill="url(#terrainGrad)" stroke="rgba(168,216,122,.1)" stroke-width="0.8"/>
+    <!-- ── TANZANIA MAINLAND SILHOUETTE ──
+         Real geographic shape: wide flat top, narrows south,
+         western arm extends, long southern coast curves east
+    -->
+    <path id="fmTanzania"
+      d="M 58,8
+         L 66,5  L 80,3  L 94,4  L 108,2  L 122,3  L 136,2  L 150,5  L 160,8
+         L 164,14  L 163,22  L 159,32  L 155,43  L 151,54  L 147,65
+         L 142,76  L 136,87  L 130,97  L 123,106  L 116,114
+         L 109,121  L 102,128  L 97,135  L 93,142  L 91,150
+         L 89,158  L 86,164  L 80,167  L 73,165  L 67,159
+         L 63,151  L 60,142  L 57,131  L 53,120  L 48,109
+         L 43,97   L 38,85   L 34,73   L 30,61   L 28,50
+         L 29,40   L 32,30   L 37,21   L 45,13   L 52,9  L 58,8Z"
+      fill="url(#tzGrad)"
+      stroke="rgba(168,216,122,.12)"
+      stroke-width="0.8"/>
 
-    <!-- Serengeti plateau — subtle highlight -->
-    <ellipse cx="90" cy="78" rx="28" ry="20" transform="rotate(-10,90,78)"
-      fill="rgba(90,158,58,.07)" stroke="rgba(90,158,58,.08)" stroke-width="0.5"/>
+    <!-- ── SERENGETI / SABANA warmth ── -->
+    <ellipse cx="92" cy="75" rx="34" ry="24" transform="rotate(-8,92,75)"
+      fill="url(#savannaGrad)"/>
 
-    <!-- Ngorongoro crater — small ring -->
-    <circle cx="96" cy="98" r="7" fill="none" stroke="rgba(200,135,42,.15)" stroke-width="0.6" stroke-dasharray="2 2"/>
+    <!-- ── NGORONGORO CRATER ring ── -->
+    <circle cx="99" cy="100" r="9"
+      fill="none"
+      stroke="rgba(200,135,42,.18)"
+      stroke-width="0.7"
+      stroke-dasharray="2.5 2"/>
+    <text x="99" y="100" font-family="Outfit,sans-serif" font-size="3.8"
+      fill="rgba(200,135,42,.28)" text-anchor="middle" dominant-baseline="middle"
+      letter-spacing="0.04em">NGO</text>
 
-    <!-- Kilimanjaro marker area (NE corner) -->
-    <circle cx="148" cy="22" r="16" fill="rgba(168,216,122,.04)" stroke="none"/>
+    <!-- ── LAKE VICTORIA (NW corner, partially off-map) ── -->
+    <ellipse cx="14" cy="58" rx="20" ry="26" transform="rotate(8,14,58)"
+      fill="rgba(26,143,168,.22)"
+      stroke="rgba(127,216,232,.2)"
+      stroke-width="0.6"/>
+    <text x="20" y="56" font-family="Outfit,sans-serif" font-size="4"
+      fill="rgba(127,216,232,.32)" text-anchor="middle" letter-spacing="0.05em">Victoria</text>
 
-    <!-- Lake Victoria (NW) -->
-    <ellipse cx="24" cy="62" rx="16" ry="20" transform="rotate(10,24,62)"
-      fill="rgba(26,143,168,.18)" stroke="rgba(26,143,168,.2)" stroke-width="0.6"/>
-    <text x="22" y="63" font-family="Outfit,sans-serif" font-size="4.5" fill="rgba(127,216,232,.35)"
-      text-anchor="middle" letter-spacing="0.04em">Victoria</text>
+    <!-- ── LAKE TANGANYIKA (W border, thin vertical) ── -->
+    <ellipse cx="26" cy="118" rx="5" ry="28" transform="rotate(-5,26,118)"
+      fill="rgba(26,143,168,.16)"
+      stroke="rgba(26,143,168,.15)"
+      stroke-width="0.5"/>
 
-    <!-- Lake Manyara — thin sliver -->
-    <ellipse cx="82" cy="116" rx="3" ry="10" transform="rotate(-5,82,116)"
-      fill="rgba(26,143,168,.22)" stroke="rgba(26,143,168,.18)" stroke-width="0.5"/>
+    <!-- ── LAKE MANYARA (near Rift, thin sliver) ── -->
+    <ellipse cx="84" cy="118" rx="2.5" ry="9" transform="rotate(-3,84,118)"
+      fill="rgba(26,143,168,.28)"
+      stroke="rgba(26,143,168,.2)"
+      stroke-width="0.5"/>
 
-    <!-- Zanzibar island — correct shape -->
-    <path d="M168,106 L173,104 L178,106 L180,112 L179,120 L176,128 L171,132 L166,130 L163,124 L163,116 L165,110 L168,106Z"
-      fill="rgba(10,40,52,.85)" stroke="rgba(127,216,232,.3)" stroke-width="0.8"/>
+    <!-- ── KILIMANJARO snow cap indicator ── -->
+    <ellipse cx="152" cy="18" rx="7" ry="4" transform="rotate(-5,152,18)"
+      fill="rgba(255,255,255,.07)"
+      stroke="rgba(255,255,255,.1)"
+      stroke-width="0.5"/>
 
-    <!-- Indian Ocean waves -->
-    <path d="M152,118 Q163,115 180,120" stroke="rgba(26,143,168,.25)" stroke-width="0.6" fill="none"/>
-    <path d="M154,128 Q165,126 182,130" stroke="rgba(26,143,168,.18)" stroke-width="0.5" fill="none"/>
-    <path d="M155,138 Q167,136 183,140" stroke="rgba(26,143,168,.12)" stroke-width="0.4" fill="none"/>
-    <text x="190" y="112" font-family="Outfit,sans-serif" font-size="5" fill="rgba(26,143,168,.4)"
-      letter-spacing="0.1em" text-anchor="middle" transform="rotate(90,190,112)">ÍNDICO</text>
+    <!-- ── ZANZIBAR ISLAND (accurate elongated shape) ── -->
+    <path d="M 180,98  L 185,96  L 190,98  L 192,104  L 192,113
+             L 190,122  L 186,130  L 181,134  L 176,132  L 173,126
+             L 172,117  L 173,108  L 176,102  L 180,98Z"
+      fill="rgba(8,34,46,.88)"
+      stroke="rgba(127,216,232,.35)"
+      stroke-width="0.9"/>
+    <!-- Zanzibar beach glow -->
+    <path d="M 180,98  L 185,96  L 190,98  L 192,104  L 192,113
+             L 190,122  L 186,130  L 181,134  L 176,132  L 173,126
+             L 172,117  L 173,108  L 176,102  L 180,98Z"
+      fill="none"
+      stroke="rgba(127,216,232,.12)"
+      stroke-width="4"
+      filter="url(#fmGlowSoft)"/>
 
-    <!-- ── ROUTE: glow shadow ── -->
-    <path d="M148,22 C150,32 150,44 147,56 Q142,70 126,82 Q108,94 94,100 Q82,106 80,116"
-      fill="none" stroke="rgba(255,255,255,.06)" stroke-width="4"
+    <!-- ── INDIAN OCEAN atmosphere ── -->
+    <path d="M 168,120 Q 178,116 194,122" stroke="rgba(26,143,168,.22)" stroke-width="0.6" fill="none"/>
+    <path d="M 170,132 Q 180,128 196,134" stroke="rgba(26,143,168,.15)" stroke-width="0.5" fill="none"/>
+    <path d="M 172,144 Q 182,140 198,146" stroke="rgba(26,143,168,.10)" stroke-width="0.4" fill="none"/>
+    <!-- "ÍNDICO" label rotated -->
+    <text font-family="Outfit,sans-serif" font-size="5.5" fill="rgba(26,143,168,.38)"
+      letter-spacing="0.16em" text-anchor="middle"
+      transform="translate(218,145) rotate(-90)">ÍNDICO</text>
+
+    <!-- ── ROUTE SHADOW (depth layer) ── -->
+    <path d="M152,18 C154,30 153,46 149,60 Q143,75 126,88 Q107,100 95,108 Q84,114 82,122"
+      fill="none" stroke="rgba(0,0,0,.25)" stroke-width="5"
       stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M80,116 Q80,128 80,134"
-      fill="none" stroke="rgba(185,60,45,.07)" stroke-width="4" stroke-linecap="round"/>
-    <path d="M80,134 Q110,128 171,118"
-      fill="none" stroke="rgba(127,216,232,.06)" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M82,122 L82,140"
+      fill="none" stroke="rgba(0,0,0,.2)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M82,140 Q112,132 181,115"
+      fill="none" stroke="rgba(0,0,0,.15)" stroke-width="4" stroke-linecap="round"/>
 
-    <!-- ── ROUTE: main animated lines ── -->
-    <!-- Kili → Serengeti → Ngorongoro: green -->
+    <!-- ── MAIN ROUTE: Kili → Serengeti → Ngorongoro (green) ── -->
     <path id="fm-main"
-      d="M148,22 C150,32 150,44 147,56 Q142,70 126,82 Q108,94 94,100 Q82,106 80,116"
-      fill="none" stroke="rgba(168,216,122,.8)" stroke-width="1.8"
-      stroke-linecap="round" stroke-linejoin="round"
-      stroke-dasharray="360" stroke-dashoffset="360"/>
-    <!-- Ngorongoro → Rift Valley (Selela): red -->
-    <path id="fm-rift"
-      d="M80,116 Q80,126 80,134"
-      fill="none" stroke="rgba(185,60,45,.8)" stroke-width="1.8"
+      d="M152,18 C154,30 153,46 149,60 Q143,75 126,88 Q107,100 95,108 Q84,114 82,122"
+      fill="none"
+      stroke="rgba(168,216,122,.85)"
+      stroke-width="2"
       stroke-linecap="round"
-      stroke-dasharray="70" stroke-dashoffset="70"/>
-    <!-- Rift → Zanzibar: dashed teal (sea crossing) -->
+      stroke-linejoin="round"
+      stroke-dasharray="400"
+      stroke-dashoffset="400"/>
+
+    <!-- ── RIFT LEG: Ngorongoro → Selela/Rift (red) ── -->
+    <path id="fm-rift"
+      d="M82,122 L82,140"
+      fill="none"
+      stroke="rgba(185,60,45,.85)"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-dasharray="80"
+      stroke-dashoffset="80"/>
+
+    <!-- ── ZANZIBAR LEG: Rift → Zanzibar (dashed teal = sea) ── -->
     <path id="fm-zan"
-      d="M80,134 Q106,128 171,118"
-      fill="none" stroke="rgba(127,216,232,.7)" stroke-width="1.4"
-      stroke-linecap="round" stroke-dasharray="7 5"
-      stroke-dashoffset="220"/>
+      d="M82,140 Q112,132 181,115"
+      fill="none"
+      stroke="rgba(127,216,232,.75)"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-dasharray="8 5"
+      stroke-dashoffset="240"/>
 
-    <!-- ── STOP DOTS ── -->
+    <!-- ══ STOP DOTS — each with outer pulse ring, mid halo, core ══ -->
 
-    <!-- Kilimanjaro (NE, Moshi area) -->
+    <!-- ❶ KILIMANJARO — NE, Moshi foothills -->
     <g id="fm-dot-kili" class="fm-dot fm-kili">
-      <circle cx="148" cy="22" r="12" fill="rgba(168,216,122,.05)" stroke="rgba(168,216,122,.18)" stroke-width="0.8"/>
-      <circle cx="148" cy="22" r="5.5" fill="rgba(168,216,122,.2)" stroke="#a8d87a" stroke-width="1.2"/>
-      <circle cx="148" cy="22" r="2.5" fill="#a8d87a"/>
+      <circle cx="152" cy="18" r="13" fill="rgba(168,216,122,.05)" stroke="rgba(168,216,122,.15)" stroke-width="0.7"/>
+      <circle cx="152" cy="18" r="6"   fill="rgba(168,216,122,.22)" stroke="#a8d87a" stroke-width="1.3"/>
+      <circle cx="152" cy="18" r="2.8" fill="#a8d87a"/>
     </g>
     <g class="fm-stop-label" id="fm-lbl-kili">
-      <text x="148" y="12" font-family="Outfit,sans-serif" font-size="6.5" fill="rgba(168,216,122,.85)"
-        letter-spacing="0.07em" text-anchor="middle" font-weight="500">KILIMANJARO</text>
-      <text x="148" y="20" font-family="Outfit,sans-serif" font-size="5" fill="rgba(168,216,122,.45)"
-        letter-spacing="0.05em" text-anchor="middle">3 – 5 jul</text>
+      <rect x="120" y="3" width="64" height="13" rx="3"
+        fill="rgba(168,216,122,.08)" stroke="rgba(168,216,122,.18)" stroke-width="0.5"/>
+      <text x="152" y="11.5" font-family="Outfit,sans-serif" font-size="6.5"
+        fill="rgba(168,216,122,.95)" letter-spacing="0.08em"
+        text-anchor="middle" font-weight="500">KILIMANJARO</text>
+      <text x="152" y="22" font-family="Outfit,sans-serif" font-size="5"
+        fill="rgba(168,216,122,.5)" letter-spacing="0.05em" text-anchor="middle">3 – 5 jul</text>
     </g>
 
-    <!-- Sabana (Serengeti centre) -->
+    <!-- ❷ SABANA — Serengeti / Ndutu centre -->
     <g id="fm-dot-sav" class="fm-dot fm-sav">
-      <circle cx="110" cy="80" r="12" fill="rgba(200,135,42,.05)" stroke="rgba(200,135,42,.18)" stroke-width="0.8"/>
-      <circle cx="110" cy="80" r="5.5" fill="rgba(200,135,42,.2)" stroke="#c8872a" stroke-width="1.2"/>
-      <circle cx="110" cy="80" r="2.5" fill="#c8872a"/>
+      <circle cx="112" cy="88" r="13" fill="rgba(200,135,42,.05)" stroke="rgba(200,135,42,.15)" stroke-width="0.7"/>
+      <circle cx="112" cy="88" r="6"   fill="rgba(200,135,42,.22)" stroke="#c8872a" stroke-width="1.3"/>
+      <circle cx="112" cy="88" r="2.8" fill="#c8872a"/>
     </g>
     <g class="fm-stop-label" id="fm-lbl-sav">
-      <text x="122" y="74" font-family="Outfit,sans-serif" font-size="6.5" fill="rgba(200,135,42,.85)"
-        letter-spacing="0.07em" font-weight="500">SABANA</text>
-      <text x="122" y="82" font-family="Outfit,sans-serif" font-size="5" fill="rgba(200,135,42,.45)"
-        letter-spacing="0.05em">6 – 11 jul</text>
+      <rect x="120" y="76" width="60" height="24" rx="3"
+        fill="rgba(200,135,42,.08)" stroke="rgba(200,135,42,.18)" stroke-width="0.5"/>
+      <text x="150" y="87" font-family="Outfit,sans-serif" font-size="6.5"
+        fill="rgba(200,135,42,.95)" letter-spacing="0.08em"
+        text-anchor="middle" font-weight="500">SABANA</text>
+      <text x="150" y="95" font-family="Outfit,sans-serif" font-size="5"
+        fill="rgba(200,135,42,.5)" letter-spacing="0.05em" text-anchor="middle">6 – 11 jul</text>
     </g>
 
-    <!-- Rift Valley / Selela (south of Ngorongoro) -->
+    <!-- ❸ RIFT VALLEY — Selela / Lake Manyara area -->
     <g id="fm-dot-rift" class="fm-dot fm-rift">
-      <circle cx="80" cy="134" r="12" fill="rgba(185,60,45,.05)" stroke="rgba(185,60,45,.18)" stroke-width="0.8"/>
-      <circle cx="80" cy="134" r="5.5" fill="rgba(185,60,45,.2)" stroke="#b93c2d" stroke-width="1.2"/>
-      <circle cx="80" cy="134" r="2.5" fill="#b93c2d"/>
+      <circle cx="82" cy="140" r="13" fill="rgba(185,60,45,.05)" stroke="rgba(185,60,45,.15)" stroke-width="0.7"/>
+      <circle cx="82" cy="140" r="6"   fill="rgba(185,60,45,.22)" stroke="#b93c2d" stroke-width="1.3"/>
+      <circle cx="82" cy="140" r="2.8" fill="#b93c2d"/>
     </g>
     <g class="fm-stop-label" id="fm-lbl-rift">
-      <text x="56" y="128" font-family="Outfit,sans-serif" font-size="6.5" fill="rgba(185,60,45,.85)"
-        letter-spacing="0.07em" text-anchor="middle" font-weight="500">RIFT</text>
-      <text x="56" y="136" font-family="Outfit,sans-serif" font-size="5" fill="rgba(185,60,45,.45)"
-        letter-spacing="0.05em" text-anchor="middle">12 jul</text>
+      <rect x="2" y="130" width="60" height="24" rx="3"
+        fill="rgba(185,60,45,.08)" stroke="rgba(185,60,45,.18)" stroke-width="0.5"/>
+      <text x="32" y="141" font-family="Outfit,sans-serif" font-size="6.5"
+        fill="rgba(185,60,45,.95)" letter-spacing="0.08em"
+        text-anchor="middle" font-weight="500">RIFT VALLEY</text>
+      <text x="32" y="149" font-family="Outfit,sans-serif" font-size="5"
+        fill="rgba(185,60,45,.5)" letter-spacing="0.05em" text-anchor="middle">12 jul · Selela</text>
     </g>
 
-    <!-- Zanzíbar island -->
+    <!-- ❹ ZANZÍBAR — island centre -->
     <g id="fm-dot-zan" class="fm-dot fm-zan">
-      <circle cx="171" cy="118" r="12" fill="rgba(127,216,232,.05)" stroke="rgba(127,216,232,.18)" stroke-width="0.8"/>
-      <circle cx="171" cy="118" r="5.5" fill="rgba(127,216,232,.18)" stroke="#7fd8e8" stroke-width="1.2"/>
-      <circle cx="171" cy="118" r="2.5" fill="#7fd8e8"/>
+      <circle cx="181" cy="115" r="13" fill="rgba(127,216,232,.05)" stroke="rgba(127,216,232,.15)" stroke-width="0.7"/>
+      <circle cx="181" cy="115" r="6"   fill="rgba(127,216,232,.2)"  stroke="#7fd8e8" stroke-width="1.3"/>
+      <circle cx="181" cy="115" r="2.8" fill="#7fd8e8"/>
     </g>
     <g class="fm-stop-label" id="fm-lbl-zan">
-      <text x="171" y="108" font-family="Outfit,sans-serif" font-size="6.5" fill="rgba(127,216,232,.85)"
-        letter-spacing="0.07em" text-anchor="middle" font-weight="500">ZANZÍBAR</text>
-      <text x="171" y="116" font-family="Outfit,sans-serif" font-size="5" fill="rgba(127,216,232,.45)"
-        letter-spacing="0.05em" text-anchor="middle">13 – 14 jul</text>
+      <rect x="148" y="150" width="68" height="24" rx="3"
+        fill="rgba(127,216,232,.08)" stroke="rgba(127,216,232,.18)" stroke-width="0.5"/>
+      <text x="182" y="161" font-family="Outfit,sans-serif" font-size="6.5"
+        fill="rgba(127,216,232,.95)" letter-spacing="0.08em"
+        text-anchor="middle" font-weight="500">ZANZÍBAR</text>
+      <text x="182" y="169" font-family="Outfit,sans-serif" font-size="5"
+        fill="rgba(127,216,232,.5)" letter-spacing="0.05em" text-anchor="middle">13 – 14 jul</text>
     </g>
 
-    <!-- Active halo -->
-    <circle id="fm-halo" cx="148" cy="22" r="15" fill="none" stroke="#a8d87a"
-      stroke-width="1" opacity="0" stroke-dasharray="4 3"/>
+    <!-- ── ACTIVE HALO (spins around current stop) ── -->
+    <circle id="fm-halo" cx="152" cy="18" r="16"
+      fill="none" stroke="#a8d87a"
+      stroke-width="1" opacity="0"
+      stroke-dasharray="5 3"/>
+
+    <!-- ── STOP NUMBER BADGES (always visible, tiny) ── -->
+    <g opacity="0.55">
+      <circle cx="152" cy="18" r="4.5" fill="rgba(0,0,0,.5)" stroke="rgba(168,216,122,.4)" stroke-width="0.6"/>
+      <text x="152" y="21" font-family="Outfit,sans-serif" font-size="5.5" fill="#a8d87a"
+        text-anchor="middle" font-weight="600">I</text>
+
+      <circle cx="112" cy="88" r="4.5" fill="rgba(0,0,0,.5)" stroke="rgba(200,135,42,.4)" stroke-width="0.6"/>
+      <text x="112" y="91" font-family="Outfit,sans-serif" font-size="5" fill="#c8872a"
+        text-anchor="middle" font-weight="600">II</text>
+
+      <circle cx="82" cy="140" r="4.5" fill="rgba(0,0,0,.5)" stroke="rgba(185,60,45,.4)" stroke-width="0.6"/>
+      <text x="82" y="143" font-family="Outfit,sans-serif" font-size="5" fill="#b93c2d"
+        text-anchor="middle" font-weight="600">III</text>
+
+      <circle cx="181" cy="115" r="4.5" fill="rgba(0,0,0,.5)" stroke="rgba(127,216,232,.4)" stroke-width="0.6"/>
+      <text x="181" y="118" font-family="Outfit,sans-serif" font-size="4.5" fill="#7fd8e8"
+        text-anchor="middle" font-weight="600">V</text>
+    </g>
+
   </svg>
 
   <!-- ── DAYS FOOTER ── -->
-
   <div id="fmFooter">
-    <div id="fmDateBar">
-      <div id="fmDateFill"></div>
-    </div>
+    <div id="fmDateBar"><div id="fmDateFill"></div></div>
     <span id="fmDateLabel">3 – 5 jul</span>
   </div>
 
@@ -2119,266 +2226,215 @@ Después de diez días en movimiento — safari, pueblo, escarpado, vuelo — es
   top: 50%;
   right: 56px;
   transform: translateY(-50%) translateX(24px) scale(.96);
-  width: 210px;
-  /* Glass: transparent enough to let the landscape breathe through */
-  background: rgba(4,10,3,.62);
-  border: 1px solid rgba(168,216,122,.16);
+  width: 224px;
+  background: rgba(4,9,3,.55);
+  border: 1px solid rgba(168,216,122,.14);
   border-radius: 18px;
-  backdrop-filter: blur(28px) saturate(1.4);
-  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  backdrop-filter: blur(32px) saturate(1.5) brightness(1.1);
+  -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(1.1);
   overflow: hidden;
   z-index: 200;
   opacity: 0;
   transition: opacity .7s ease, transform .7s cubic-bezier(.22,.8,.32,1);
   pointer-events: none;
   box-shadow:
-    0 32px 72px rgba(0,0,0,.5),
+    0 28px 72px rgba(0,0,0,.48),
     0 0 0 1px rgba(255,255,255,.05) inset,
     0 1px 0 rgba(168,216,122,.1) inset,
-    0 -1px 0 rgba(0,0,0,.3) inset;
+    0 -1px 0 rgba(0,0,0,.25) inset;
 }
-
 #floatMap.fm-visible {
   opacity: 1;
   transform: translateY(-50%) translateX(0) scale(1);
   pointer-events: auto;
 }
 
-/* ── header ── */
+/* ── HEADER ── */
 #fmHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 12px 5px;
+  padding: 10px 13px 5px;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 #fmHeaderLeft {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
-/* Animated status dot */
 .fm-status-dot {
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border-radius: 50%;
-  background: rgba(168,216,122,.7);
-  box-shadow: 0 0 6px rgba(168,216,122,.6);
-  animation: fmStatusPulse 2.5s ease-in-out infinite;
+  background: rgba(168,216,122,.75);
+  box-shadow: 0 0 7px rgba(168,216,122,.65);
+  animation: fmStatusPulse 2.6s ease-in-out infinite;
   flex-shrink: 0;
-  transition: background .4s ease, box-shadow .4s ease;
+  transition: background .5s ease, box-shadow .5s ease;
 }
 @keyframes fmStatusPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: .5; transform: scale(.75); }
+  0%, 100% { opacity: 1;  transform: scale(1); }
+  50%       { opacity: .4; transform: scale(.72); }
 }
 #fmHeaderTitle {
   font-family: 'Outfit', sans-serif;
   font-size: 7.5px;
-  letter-spacing: .26em;
+  letter-spacing: .3em;
   text-transform: uppercase;
   color: rgba(168,216,122,.55);
-  transition: color .4s ease;
+  transition: color .5s ease;
 }
 #fmDayCounter {
   font-family: 'Outfit', sans-serif;
   font-size: 8px;
   letter-spacing: .14em;
-  color: rgba(255,255,255,.35);
   text-transform: uppercase;
-  transition: color .4s ease;
+  color: rgba(255,255,255,.32);
+  transition: color .5s ease;
 }
 
-/* ── chapter label ── */
+/* ── CHAPTER LABEL ── */
 #fmLabel {
   display: flex;
   align-items: baseline;
   gap: 5px;
-  padding: 6px 12px 4px;
+  padding: 6px 13px 4px;
   font-family: 'Outfit', sans-serif;
-  font-size: 9.5px;
+  font-size: 10px;
   letter-spacing: .15em;
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
 }
-#fmChNum {
-  font-size: 8.5px;
-  color: rgba(255,255,255,.25);
-  flex-shrink: 0;
-  transition: color .45s ease;
-}
-#fmChSep {
-  font-size: 7.5px;
-  color: rgba(255,255,255,.15);
-  flex-shrink: 0;
-}
+#fmChNum  { font-size: 9px; color: rgba(255,255,255,.22); flex-shrink:0; transition: color .5s ease; }
+#fmChSep  { font-size: 8px; color: rgba(255,255,255,.13); flex-shrink:0; }
 #fmChName {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: rgba(255,255,255,.8);
-  transition: color .45s ease;
-  font-weight: 500;
-  flex: 1;
+  overflow: hidden; text-overflow: ellipsis;
+  color: rgba(255,255,255,.82); font-weight: 500;
+  transition: color .5s ease; flex: 1;
 }
 
-/* ── pip progress row ── */
+/* ── PROGRESS PIPS ── */
 #fmPips {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  padding: 5px 12px 7px;
+  display: flex; align-items: center;
+  padding: 5px 13px 7px;
 }
 .fm-pip {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.11);
   flex-shrink: 0;
   transition: all .45s cubic-bezier(.22,.8,.32,1);
-  cursor: default;
 }
-.fm-pip.fmp-kili    { background: rgba(168,216,122,.15); border-color: rgba(168,216,122,.3); }
-.fm-pip.fmp-savanna { background: rgba(200,135,42,.15);  border-color: rgba(200,135,42,.3); }
-.fm-pip.fmp-rift    { background: rgba(185,60,45,.15);   border-color: rgba(185,60,45,.3); }
-.fm-pip.fmp-zan     { background: rgba(127,216,232,.15); border-color: rgba(127,216,232,.3); }
+.fm-pip.fmp-kili    { background: rgba(168,216,122,.14); border-color: rgba(168,216,122,.28); }
+.fm-pip.fmp-savanna { background: rgba(200,135,42,.14);  border-color: rgba(200,135,42,.28); }
+.fm-pip.fmp-rift    { background: rgba(185,60,45,.14);   border-color: rgba(185,60,45,.28); }
+.fm-pip.fmp-zan     { background: rgba(127,216,232,.14); border-color: rgba(127,216,232,.28); }
 
-.fm-pip.fmp-active-kili    { background: #a8d87a; border-color: #a8d87a; box-shadow: 0 0 8px rgba(168,216,122,.8); width:10px; height:10px; }
-.fm-pip.fmp-active-savanna { background: #c8872a; border-color: #c8872a; box-shadow: 0 0 8px rgba(200,135,42,.8);  width:10px; height:10px; }
-.fm-pip.fmp-active-rift    { background: #b93c2d; border-color: #b93c2d; box-shadow: 0 0 8px rgba(185,60,45,.8);   width:10px; height:10px; }
-.fm-pip.fmp-active-zan     { background: #7fd8e8; border-color: #7fd8e8; box-shadow: 0 0 8px rgba(127,216,232,.8); width:10px; height:10px; }
+.fm-pip.fmp-active-kili    { background: #a8d87a; border-color: #a8d87a; box-shadow: 0 0 9px rgba(168,216,122,.85); width:11px; height:11px; }
+.fm-pip.fmp-active-savanna { background: #c8872a; border-color: #c8872a; box-shadow: 0 0 9px rgba(200,135,42,.85);  width:11px; height:11px; }
+.fm-pip.fmp-active-rift    { background: #b93c2d; border-color: #b93c2d; box-shadow: 0 0 9px rgba(185,60,45,.85);   width:11px; height:11px; }
+.fm-pip.fmp-active-zan     { background: #7fd8e8; border-color: #7fd8e8; box-shadow: 0 0 9px rgba(127,216,232,.85); width:11px; height:11px; }
 
 .fm-pip-line {
-  flex: 1;
-  height: 1px;
-  background: rgba(255,255,255,.1);
+  flex: 1; height: 1px;
+  background: rgba(255,255,255,.09);
   margin: 0 2px;
 }
 .fm-pip-line-dashed {
   background: repeating-linear-gradient(
     90deg,
-    rgba(127,216,232,.3) 0, rgba(127,216,232,.3) 4px,
+    rgba(127,216,232,.28) 0, rgba(127,216,232,.28) 4px,
     transparent 4px, transparent 8px
   );
 }
 
-/* ── SVG map ── */
+/* ── MAP SVG ── */
 #fmSvg {
   display: block;
   width: 100%;
-  padding: 0 4px 4px;
+  padding: 0 5px 4px;
 }
 
-/* ── stop label text ── */
+/* ── STOP LABELS: hidden by default, shown when chapter active ── */
 .fm-stop-label {
   opacity: 0;
-  transition: opacity .4s ease;
+  transition: opacity .5s ease;
 }
-.fm-stop-label.fm-lbl-visible {
-  opacity: 1;
-}
+.fm-stop-label.fm-lbl-visible { opacity: 1; }
 
-/* ── dot states ── */
+/* ── DOT PULSE ── */
 .fm-dot circle:first-child {
-  animation: fmPulse 3s ease-in-out infinite;
+  animation: fmPulse 3.2s ease-in-out infinite;
 }
 @keyframes fmPulse {
-  0%, 100% { opacity: .4; r: 11; }
-  50%       { opacity: .08; r: 8; }
-}
-
-/* active dot */
-.fm-dot.fm-active circle:nth-child(1) {
-  animation: fmActivePulse 2s ease-in-out infinite;
-  opacity: 1;
-}
-.fm-dot.fm-active circle:nth-child(2) { r: 6.5; }
-.fm-dot.fm-active circle:nth-child(3) { r: 3; }
-
-@keyframes fmActivePulse {
-  0%, 100% { opacity: .25; r: 13; }
+  0%, 100% { opacity: .35; r: 13; }
   50%       { opacity: .06; r: 9; }
 }
-
-/* ── halo spin ── */
-@keyframes fmHaloSpin {
-  to { stroke-dashoffset: -56; }
+.fm-dot.fm-active circle:nth-child(1) {
+  animation: fmActivePulse 2.2s ease-in-out infinite;
 }
+.fm-dot.fm-active circle:nth-child(2) { r: 7; }
+.fm-dot.fm-active circle:nth-child(3) { r: 3.2; }
+@keyframes fmActivePulse {
+  0%, 100% { opacity: .3; r: 15; }
+  50%       { opacity: .06; r: 10; }
+}
+
+/* ── HALO SPIN ── */
+@keyframes fmHaloSpin { to { stroke-dashoffset: -64; } }
 #fm-halo.fm-halo-on {
-  animation: fmHaloSpin 5s linear infinite;
-  opacity: .75;
+  animation: fmHaloSpin 6s linear infinite;
+  opacity: .7;
 }
 
-/* ── footer date bar ── */
+/* ── FOOTER DATE BAR ── */
 #fmFooter {
-  padding: 5px 12px 11px;
+  padding: 5px 13px 12px;
   border-top: 1px solid rgba(255,255,255,.06);
 }
 #fmDateBar {
-  height: 2px;
-  border-radius: 1px;
+  height: 2px; border-radius: 1px;
   background: rgba(255,255,255,.07);
-  overflow: hidden;
-  margin-bottom: 5px;
+  overflow: hidden; margin-bottom: 5px;
 }
 #fmDateFill {
-  height: 100%;
-  width: 0%;
-  border-radius: 1px;
-  background: linear-gradient(90deg, rgba(168,216,122,.5), rgba(168,216,122,.95));
+  height: 100%; width: 0%; border-radius: 1px;
+  background: linear-gradient(90deg,rgba(168,216,122,.5),rgba(168,216,122,.95));
   transition: width .9s cubic-bezier(.22,.8,.32,1), background .6s ease;
 }
 #fmDateLabel {
   font-family: 'Outfit', sans-serif;
-  font-size: 8px;
-  letter-spacing: .16em;
+  font-size: 8px; letter-spacing: .16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.32);
-  display: block;
-  transition: color .4s ease;
+  color: rgba(255,255,255,.3);
+  display: block; transition: color .5s ease;
 }
 
-/* ══ MOBILE: collapse to bottom strip ══ */
+/* ══ TABLET ══ */
+@media (min-width: 901px) and (max-width: 1200px) {
+  #floatMap { width: 190px; right: 48px; }
+}
+
+/* ══ MOBILE: full-width bottom bar ══ */
 @media (max-width: 900px) {
   #floatMap {
-    top: auto;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    transform: translateY(105%);
+    top: auto; right: 0; left: 0; bottom: 0;
+    transform: translateY(106%);
     width: 100%;
-    border-radius: 14px 14px 0 0;
+    border-radius: 16px 16px 0 0;
+    border-bottom: none; border-left: none; border-right: none;
+    border-top: 1px solid rgba(168,216,122,.2);
+    background: rgba(4,9,3,.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     flex-direction: row;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid rgba(168,216,122,.18);
-    background: rgba(6,14,5,.82);
   }
-  #floatMap.fm-visible {
-    transform: translateY(0);
-  }
+  #floatMap.fm-visible { transform: translateY(0); }
   #fmHeader, #fmFooter { display: none; }
   #fmSvg { display: none; }
-  #fmLabel {
-    padding: 10px 16px;
-    font-size: 9px;
-  }
-  #fmPips {
-    padding: 10px 16px;
-    gap: 0;
-    flex: 1;
-  }
-  .fm-pip { width: 11px; height: 11px; }
-}
-
-/* ══ TABLET: medium sidebar ══ */
-@media (min-width: 901px) and (max-width: 1200px) {
-  #floatMap {
-    width: 180px;
-    right: 48px;
-  }
+  #fmLabel { padding: 11px 18px; font-size: 9.5px; }
+  #fmPips  { padding: 11px 18px; flex: 1; }
+  .fm-pip  { width: 11px; height: 11px; }
 }
 </style>
 
@@ -2401,7 +2457,7 @@ Después de diez días en movimiento — safari, pueblo, escarpado, vuelo — es
   font-family:'Outfit',sans-serif;font-size:12px;
   letter-spacing:.18em;text-transform:uppercase;
   color:rgba(168,216,122,.85);margin-bottom:1.4rem;
-}
+}    
 </style>
 <script src="main.js"></script>
 </body>
