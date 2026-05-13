@@ -507,7 +507,7 @@ if(backTop) {
     {
       id: 'kili',     dotId: 'fm-dot-kili', lblId: 'fm-lbl-kili',
       pipId: 'fmp-kili', pipClass: 'fmp-kili', pipActiveClass: 'fmp-active-kili',
-      hx: 148, hy: 22,   name: 'Kilimanjaro', numeral: 'I',
+      hx: 152, hy: 18,   name: 'Kilimanjaro', numeral: 'I',
       color: '#a8d87a',  numColor: 'rgba(168,216,122,.55)',
       statusColor: 'rgba(168,216,122,.7)',
       barColor: 'linear-gradient(90deg,rgba(168,216,122,.5),rgba(168,216,122,.9))',
@@ -516,7 +516,7 @@ if(backTop) {
     {
       id: 'savanna',  dotId: 'fm-dot-sav',  lblId: 'fm-lbl-sav',
       pipId: 'fmp-sav', pipClass: 'fmp-savanna', pipActiveClass: 'fmp-active-savanna',
-      hx: 110, hy: 80,   name: 'Sabana', numeral: 'II',
+      hx: 112, hy: 88,   name: 'Sabana', numeral: 'II',
       color: '#c8872a',  numColor: 'rgba(200,135,42,.55)',
       statusColor: 'rgba(200,135,42,.8)',
       barColor: 'linear-gradient(90deg,rgba(200,135,42,.5),rgba(200,135,42,.9))',
@@ -525,7 +525,7 @@ if(backTop) {
     {
       id: 'rift',     dotId: 'fm-dot-rift', lblId: 'fm-lbl-rift',
       pipId: 'fmp-rift', pipClass: 'fmp-rift', pipActiveClass: 'fmp-active-rift',
-      hx: 80,  hy: 134,  name: 'Rift Valley', numeral: 'III',
+      hx: 82,  hy: 140,  name: 'Rift Valley', numeral: 'III',
       color: '#b93c2d',  numColor: 'rgba(185,60,45,.55)',
       statusColor: 'rgba(185,60,45,.8)',
       barColor: 'linear-gradient(90deg,rgba(185,60,45,.5),rgba(185,60,45,.9))',
@@ -534,7 +534,7 @@ if(backTop) {
     {
       id: 'prep',     dotId: 'fm-dot-rift', lblId: 'fm-lbl-rift',
       pipId: 'fmp-rift', pipClass: 'fmp-rift', pipActiveClass: 'fmp-active-rift',
-      hx: 80,  hy: 134,  name: 'Antes de salir', numeral: 'IV',
+      hx: 82,  hy: 140,  name: 'Antes de salir', numeral: 'IV',
       color: 'rgba(152,152,216,.9)', numColor: 'rgba(152,152,216,.5)',
       statusColor: 'rgba(152,152,216,.7)',
       barColor: 'linear-gradient(90deg,rgba(152,152,216,.5),rgba(152,152,216,.9))',
@@ -543,7 +543,7 @@ if(backTop) {
     {
       id: 'zanzibar', dotId: 'fm-dot-zan',  lblId: 'fm-lbl-zan',
       pipId: 'fmp-zan', pipClass: 'fmp-zan', pipActiveClass: 'fmp-active-zan',
-      hx: 171, hy: 118,  name: 'Zanzíbar', numeral: 'V',
+      hx: 181, hy: 115,  name: 'Zanzíbar', numeral: 'V',
       color: '#7fd8e8',  numColor: 'rgba(127,216,232,.55)',
       statusColor: 'rgba(127,216,232,.7)',
       barColor: 'linear-gradient(90deg,rgba(127,216,232,.5),rgba(127,216,232,.9))',
@@ -632,24 +632,33 @@ if(backTop) {
     var zanLine  = document.getElementById('fm-zan');
     if (!mainLine) return;
 
+    var ease = 'cubic-bezier(.22,.8,.32,1)';
+
     if (id === 'kili') {
-      mainLine.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(.22,.8,.32,1)';
-      mainLine.style.strokeDashoffset = '180';
+      // Show partial route from Kili heading south
+      mainLine.style.transition = 'stroke-dashoffset 2s ' + ease;
+      mainLine.style.strokeDashoffset = '200';
+      if (riftLine) riftLine.style.strokeDashoffset = '80';
+      if (zanLine)  zanLine.style.strokeDashoffset = '240';
     } else if (id === 'savanna') {
-      mainLine.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(.22,.8,.32,1)';
+      // Full green leg revealed
+      mainLine.style.transition = 'stroke-dashoffset 1.6s ' + ease;
       mainLine.style.strokeDashoffset = '0';
+      if (riftLine) riftLine.style.strokeDashoffset = '80';
+      if (zanLine)  zanLine.style.strokeDashoffset = '240';
     } else if (id === 'rift' || id === 'prep') {
-      mainLine.style.transition = 'stroke-dashoffset .6s ease';
+      mainLine.style.transition = 'stroke-dashoffset .5s ease';
       mainLine.style.strokeDashoffset = '0';
       if (riftLine) {
-        riftLine.style.transition = 'stroke-dashoffset 1s cubic-bezier(.22,.8,.32,1)';
+        riftLine.style.transition = 'stroke-dashoffset 1.1s ' + ease;
         riftLine.style.strokeDashoffset = '0';
       }
+      if (zanLine) zanLine.style.strokeDashoffset = '240';
     } else if (id === 'zanzibar') {
       mainLine.style.strokeDashoffset = '0';
       if (riftLine) riftLine.style.strokeDashoffset = '0';
       if (zanLine) {
-        zanLine.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.22,.8,.32,1)';
+        zanLine.style.transition = 'stroke-dashoffset 1.4s ' + ease;
         zanLine.style.strokeDashoffset = '0';
       }
     }
@@ -670,7 +679,7 @@ if(backTop) {
   }, { passive: true });
 
   // Observe chapters
-  var fmObs = new IntersectionObserver(function(entries) {
+  var fmObs = new IntersectionObserver(function(entries) {   
     entries.forEach(function(e) {
       if (!e.isIntersecting) return;
       var cfg = FM_CHAPTERS.find(function(c) { return c.id === e.target.id; });
