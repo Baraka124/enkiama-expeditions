@@ -56,20 +56,9 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      // Use requestIdleCallback for non-critical entrance animations
-      if (window.requestIdleCallback) {
-        requestIdleCallback(initScrollAnimations, { timeout: 500 });
-      } else {
-        initScrollAnimations();
-      }
-    });
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
   } else {
-    if (window.requestIdleCallback) {
-      requestIdleCallback(initScrollAnimations, { timeout: 500 });
-    } else {
-      initScrollAnimations();
-    }
+    initScrollAnimations();
   }
 
   function toggleDay(id, triggerEl) {
@@ -79,8 +68,6 @@
     body.classList.toggle('open', !isOpen);
     triggerEl.classList.toggle('is-open', !isOpen);
     lbl.textContent = isOpen ? 'ver el día completo' : 'cerrar';
-    // Accessibility: update aria-expanded on trigger
-    triggerEl.setAttribute('aria-expanded', (!isOpen).toString());
     if (!isOpen) {
       setTimeout(function() {
         var rect = body.getBoundingClientRect();
@@ -208,16 +195,7 @@
       if (mid >= top && mid < bot) active = s.id;
     });
     navSections.forEach(function(s) {
-      var isActive = s.id === active;
-      if (s.dot) {
-        s.dot.classList.toggle('active', isActive);
-        // Accessibility: communicate current chapter to screen readers
-        if (isActive) {
-          s.dot.setAttribute('aria-current', 'true');
-        } else {
-          s.dot.removeAttribute('aria-current');
-        }
-      }
+      if (s.dot) s.dot.classList.toggle('active', s.id === active);
     });
   }
 
@@ -529,41 +507,46 @@ if(backTop) {
     {
       id: 'kili',     dotId: 'fm-dot-kili', lblId: 'fm-lbl-kili',
       pipId: 'fmp-kili', pipClass: 'fmp-kili', pipActiveClass: 'fmp-active-kili',
-      hx: 138, hy: 24,   name: 'Kilimanjaro', numeral: 'I',
+      hx: 148, hy: 22,   name: 'Kilimanjaro', numeral: 'I',
       color: '#a8d87a',  numColor: 'rgba(168,216,122,.55)',
-      barColor: 'linear-gradient(90deg,rgba(168,216,122,.5),rgba(168,216,122,.85))',
+      statusColor: 'rgba(168,216,122,.7)',
+      barColor: 'linear-gradient(90deg,rgba(168,216,122,.5),rgba(168,216,122,.9))',
       dateLabel: '3 – 5 jul', dateFill: '15%', dayStr: '3 jul'
     },
     {
       id: 'savanna',  dotId: 'fm-dot-sav',  lblId: 'fm-lbl-sav',
       pipId: 'fmp-sav', pipClass: 'fmp-savanna', pipActiveClass: 'fmp-active-savanna',
-      hx: 104, hy: 86,   name: 'Sabana', numeral: 'II',
+      hx: 110, hy: 80,   name: 'Sabana', numeral: 'II',
       color: '#c8872a',  numColor: 'rgba(200,135,42,.55)',
-      barColor: 'linear-gradient(90deg,rgba(200,135,42,.5),rgba(200,135,42,.85))',
-      dateLabel: '6 – 10 jul', dateFill: '42%', dayStr: '6 jul'
+      statusColor: 'rgba(200,135,42,.8)',
+      barColor: 'linear-gradient(90deg,rgba(200,135,42,.5),rgba(200,135,42,.9))',
+      dateLabel: '6 – 11 jul', dateFill: '42%', dayStr: '6 jul'
     },
     {
       id: 'rift',     dotId: 'fm-dot-rift', lblId: 'fm-lbl-rift',
       pipId: 'fmp-rift', pipClass: 'fmp-rift', pipActiveClass: 'fmp-active-rift',
-      hx: 76,  hy: 128,  name: 'Rift Valley', numeral: 'III',
+      hx: 80,  hy: 134,  name: 'Rift Valley', numeral: 'III',
       color: '#b93c2d',  numColor: 'rgba(185,60,45,.55)',
-      barColor: 'linear-gradient(90deg,rgba(185,60,45,.5),rgba(185,60,45,.85))',
+      statusColor: 'rgba(185,60,45,.8)',
+      barColor: 'linear-gradient(90deg,rgba(185,60,45,.5),rgba(185,60,45,.9))',
       dateLabel: '12 jul', dateFill: '70%', dayStr: '12 jul'
     },
     {
       id: 'prep',     dotId: 'fm-dot-rift', lblId: 'fm-lbl-rift',
       pipId: 'fmp-rift', pipClass: 'fmp-rift', pipActiveClass: 'fmp-active-rift',
-      hx: 76,  hy: 128,  name: 'Antes de salir', numeral: 'IV',
-      color: 'rgba(152,152,216,.85)', numColor: 'rgba(152,152,216,.5)',
-      barColor: 'linear-gradient(90deg,rgba(152,152,216,.5),rgba(152,152,216,.85))',
+      hx: 80,  hy: 134,  name: 'Antes de salir', numeral: 'IV',
+      color: 'rgba(152,152,216,.9)', numColor: 'rgba(152,152,216,.5)',
+      statusColor: 'rgba(152,152,216,.7)',
+      barColor: 'linear-gradient(90deg,rgba(152,152,216,.5),rgba(152,152,216,.9))',
       dateLabel: 'Preparación', dateFill: '0%', dayStr: '—'
     },
     {
       id: 'zanzibar', dotId: 'fm-dot-zan',  lblId: 'fm-lbl-zan',
       pipId: 'fmp-zan', pipClass: 'fmp-zan', pipActiveClass: 'fmp-active-zan',
-      hx: 168, hy: 118,  name: 'Zanzíbar', numeral: 'V',
+      hx: 171, hy: 118,  name: 'Zanzíbar', numeral: 'V',
       color: '#7fd8e8',  numColor: 'rgba(127,216,232,.55)',
-      barColor: 'linear-gradient(90deg,rgba(127,216,232,.5),rgba(127,216,232,.85))',
+      statusColor: 'rgba(127,216,232,.7)',
+      barColor: 'linear-gradient(90deg,rgba(127,216,232,.5),rgba(127,216,232,.9))',
       dateLabel: '13 – 14 jul', dateFill: '92%', dayStr: '13 jul'
     },
   ];
@@ -576,6 +559,9 @@ if(backTop) {
   var fmDateLbl  = document.getElementById('fmDateLabel');
   var curChapter = null;
 
+  var statusDot = document.getElementById('fmStatusDot');
+  var headerTitle = document.getElementById('fmHeaderTitle');
+
   function activateChapter(cfg) {
     if (!cfg) return;
 
@@ -583,6 +569,13 @@ if(backTop) {
     if (fmName) { fmName.textContent = cfg.name; fmName.style.color = cfg.color; }
     if (fmNum)  { fmNum.textContent  = cfg.numeral; fmNum.style.color = cfg.numColor; }
     if (fmDay)  { fmDay.textContent  = cfg.dayStr; fmDay.style.color = cfg.color; }
+
+    // Status dot colour syncs with chapter
+    if (statusDot) {
+      statusDot.style.background = cfg.statusColor;
+      statusDot.style.boxShadow = '0 0 7px ' + cfg.statusColor;
+    }
+    if (headerTitle) { headerTitle.style.color = cfg.statusColor; }
 
     // date bar
     if (fmFill) {
