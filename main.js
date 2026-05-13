@@ -56,9 +56,20 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    document.addEventListener('DOMContentLoaded', function() {
+      // Use requestIdleCallback for non-critical entrance animations
+      if (window.requestIdleCallback) {
+        requestIdleCallback(initScrollAnimations, { timeout: 500 });
+      } else {
+        initScrollAnimations();
+      }
+    });
   } else {
-    initScrollAnimations();
+    if (window.requestIdleCallback) {
+      requestIdleCallback(initScrollAnimations, { timeout: 500 });
+    } else {
+      initScrollAnimations();
+    }
   }
 
   function toggleDay(id, triggerEl) {
@@ -68,6 +79,8 @@
     body.classList.toggle('open', !isOpen);
     triggerEl.classList.toggle('is-open', !isOpen);
     lbl.textContent = isOpen ? 'ver el día completo' : 'cerrar';
+    // Accessibility: update aria-expanded on trigger
+    triggerEl.setAttribute('aria-expanded', (!isOpen).toString());
     if (!isOpen) {
       setTimeout(function() {
         var rect = body.getBoundingClientRect();
@@ -195,7 +208,16 @@
       if (mid >= top && mid < bot) active = s.id;
     });
     navSections.forEach(function(s) {
-      if (s.dot) s.dot.classList.toggle('active', s.id === active);
+      var isActive = s.id === active;
+      if (s.dot) {
+        s.dot.classList.toggle('active', isActive);
+        // Accessibility: communicate current chapter to screen readers
+        if (isActive) {
+          s.dot.setAttribute('aria-current', 'true');
+        } else {
+          s.dot.removeAttribute('aria-current');
+        }
+      }
     });
   }
 
