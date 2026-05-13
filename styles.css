@@ -1,25 +1,3 @@
-/* ── ACCESSIBILITY: Skip to content link ── */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  z-index: 9999;
-  padding: .6rem 1.2rem;
-  background: var(--ink);
-  color: var(--off-white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  letter-spacing: .05em;
-  border-radius: 0 0 6px 6px;
-  text-decoration: none;
-  transition: top .2s ease;
-  outline: 2px solid var(--kili-accent);
-  outline-offset: 2px;
-}
-.skip-link:focus {
-  top: 0;
-}
-
 :root {
   --kili-dark:    #0d1f10;
   --kili-mid:     #1e5c28;
@@ -392,7 +370,6 @@ footer span { color: rgba(255,255,255,.28); }
   opacity: 0;
   transition: opacity .6s ease, transform .6s ease;
   pointer-events: none;
-  /* keep translateY(-50%) as base; JS adds translateY offset for traveller */
 }
 .side-rail.sr-visible {
   opacity: 1;
@@ -455,22 +432,25 @@ footer span { color: rgba(255,255,255,.28); }
   bottom: -7px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  background: rgba(250,248,244,.9);
-  border: 2px solid rgba(0,0,0,.15);
+  background: rgba(10,12,8,.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,.2);
   z-index: 2;
   cursor: pointer;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
 }
 .sr-pip:hover {
-  transform: translateX(-50%) scale(1.55);
+  transform: translateX(-50%) scale(1.5);
   border-color: currentColor;
+  background: rgba(10,12,8,.75);
 }
 [data-chapter="kili"]    .sr-pip { color: var(--kili-bright); }
 [data-chapter="savanna"] .sr-pip { color: var(--sav-warm); }
@@ -503,15 +483,17 @@ footer span { color: rgba(255,255,255,.28); }
 /* tooltip */
 .sr-tooltip {
   position: absolute;
-  right: calc(100% + 16px);
+  right: calc(100% + 14px);
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(14,14,10,.88);
-  backdrop-filter: blur(12px);
-  color: rgba(250,248,244,.9);
+  background: rgba(6,10,5,.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.08);
+  color: rgba(250,248,244,.88);
   font-family: 'Outfit', sans-serif;
-  font-size: 10px;
-  letter-spacing: .18em;
+  font-size: 9.5px;
+  letter-spacing: .2em;
   text-transform: uppercase;
   white-space: nowrap;
   padding: 5px 10px;
@@ -546,8 +528,8 @@ footer span { color: rgba(255,255,255,.28); }
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   pointer-events: none;
   z-index: 5;
   top: 0; /* driven by JS */
@@ -558,14 +540,14 @@ footer span { color: rgba(255,255,255,.28); }
   inset: 5px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 0 1.5px rgba(0,0,0,.2);
+  box-shadow: 0 0 0 1.5px rgba(0,0,0,.15), 0 2px 6px rgba(0,0,0,.3);
   transition: background .4s ease;
 }
 .sr-trav-glow {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  opacity: .55;
+  opacity: .5;
   animation: srGlowPulse 2.4s ease-in-out infinite;
   transition: background .4s ease;
 }
@@ -3637,62 +3619,9 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
 }
 
 @media (max-width: 680px) {
-  .price-includes { grid-template-columns: 1fr; }
+  .price-includes { grid-template-columns: 1fr; }   
   .price-context { grid-template-columns: 1fr; gap: 1rem; }
   .price-ctx-vs { display: none; }
   .price-ctx-right { text-align: left; }
   .price-section { padding: 5rem 0 4rem; }
-}
-/* ── NAVIGATION: keyboard focus ring on chapter dots ── */
-.nav-dot:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(168, 216, 122, 0.3);
-}
-.nav-dot.rift-dot:focus-visible  { box-shadow: 0 0 0 4px rgba(185,60,45,.3); }
-.nav-dot.prep-dot:focus-visible  { box-shadow: 0 0 0 4px rgba(42,42,74,.3); }
-.nav-dot.zan-dot:focus-visible   { box-shadow: 0 0 0 4px rgba(127,216,232,.3); }
-
-/* ── NAVIGATION: aria-current active indicator ── */
-.nav-dot[aria-current="true"] {
-  font-weight: 600;
-}
-
-/* ── NAVIGATION: side-rail pip focus ── */
-.sr-pip:focus-visible {
-  outline: 2px solid rgba(255,255,255,.7);
-  outline-offset: 3px;
-  border-radius: 50%;
-}
-
-/* ── ACCESSIBILITY: reduce motion for users who prefer it ── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ── PERFORMANCE: font-display optimisation hint ── */
-/* Ensure body text is readable while custom fonts load */
-body {
-  font-display: optional;
-}
-
-/* ── ACCESSIBILITY: higher contrast for muted text ── */
-/* Ensure .muted (#6b6b60) has sufficient contrast on off-white (#faf8f4) */
-/* Ratio is ~3.8:1 — acceptable for large/UI text but improve for small labels */
-.nav-by,
-.price-ctx-label {
-  opacity: .65; /* was .5 — lifted for better legibility */
-}
-
-/* ── NAVIGATION: Zanzibar dot (zan-dot) was missing hover/active state in CSS ── */
-.nav-dot.zan-dot:hover, .nav-dot.zan-dot.active {
-  background: var(--zan-mid);
-  border-color: var(--zan-mid);
-  color: #fff;
-  box-shadow: 0 0 0 3px rgba(10,74,94,.25);
 }
