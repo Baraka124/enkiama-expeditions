@@ -344,7 +344,21 @@ footer span { color: rgba(255,255,255,.28); }
 .day-body.open { box-shadow: 0 6px 24px rgba(0,0,0,.07); }
 .day-body { min-width: 0; }
 
-.shuka-trigger { width: 100%; height: 34px; position: relative; cursor: pointer; border: none; border-top: 1px solid rgba(0,0,0,.055); padding: 0; background: none; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: .8rem; border-radius: 0 0 20px 20px; flex-shrink: 0; transition: background .2s; }
+.shuka-trigger {
+  width: 100%;
+  height: 42px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,.08);
+  padding: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background .25s ease;
+}
 .shuka-fabric { position: absolute; inset: 0; opacity: .3; transition: opacity .28s; }
 .shuka-fabric-kili { background: repeating-linear-gradient(90deg,#1e5c28 0,#1e5c28 10px,#c0e898 10px,#c0e898 12px,#080200 12px,#080200 13px,#1e5c28 13px,#1e5c28 23px,#c0e898 23px,#c0e898 25px,#080200 25px,#080200 26px,#7a1508 26px,#7a1508 36px,#f5ede0 36px,#f5ede0 38px); }
 .shuka-fabric-sav  { background: repeating-linear-gradient(90deg,#7a1508 0,#7a1508 10px,#f5ede0 10px,#f5ede0 12px,#080200 12px,#080200 13px,#7a1508 13px,#7a1508 23px,#f5ede0 23px,#f5ede0 25px,#080200 25px,#080200 26px,#1e5c28 26px,#1e5c28 36px,#c0e898 36px,#c0e898 38px); }
@@ -3474,4 +3488,66 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
   .price-ctx-vs { display: none; }
   .price-ctx-right { text-align: left; }
   .price-section { padding: 5rem 0 4rem; }
+}
+
+
+/* ── CHAPTER-COLOURED CARD ACCENTS ── */
+.ch-kili .day-body { border-left: 3px solid rgba(74,170,90,.35); }
+.ch-sav  .day-body { border-left: 3px solid rgba(200,135,42,.35); }
+.ch-rift .day-body { border-left: 3px solid rgba(212,66,42,.35); }
+.ch-zan  .day-body { border-left: 3px solid rgba(127,216,232,.35); }
+
+.ch-kili .day-body:hover { border-left-color: rgba(74,170,90,.7); }
+.ch-sav  .day-body:hover { border-left-color: rgba(200,135,42,.7); }
+.ch-rift .day-body:hover { border-left-color: rgba(212,66,42,.7); }
+.ch-zan  .day-body:hover { border-left-color: rgba(127,216,232,.7); }
+
+/* Day marker number */
+.day-marker {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,.35);
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  flex-shrink: 0;
+  transition: all .3s ease;
+}
+.day-row:hover .day-marker {
+  color: rgba(255,255,255,.7);
+  border-color: rgba(255,255,255,.3);
+}
+.day-row.dc-open .day-marker {
+  background: rgba(168,216,122,.15);
+  border-color: rgba(168,216,122,.4);
+  color: rgba(168,216,122,.9);
+}
+
+/* Log block inside dark card desc */
+.day-desc .log-block {
+  background: rgba(255,200,0,.06);
+  border-color: rgba(255,200,0,.4);
+}
+.day-desc .log-block span:not(.log-icon) {
+  color: rgba(0,0,0,.7);
+}
+.day-desc .log-block strong {
+  color: rgba(140,100,0,.9);
+}
+
+/* Dtag pills */
+.dtag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  padding: .25rem .65rem;
+  border-radius: 20px;
+  border: 1px solid;
 }
