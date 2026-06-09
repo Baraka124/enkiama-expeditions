@@ -3729,3 +3729,20 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
 .zan-dot  .nav-arc circle { stroke: var(--zan-bright); }
 .nav-dot { transition: transform .2s ease; }
 .nav-dot:hover { transform: scale(1.15); }
+
+/* ── ZANZIBAR CARDS — force white ── */
+.ch-zan .day-body {
+  background: #fff !important;
+  color: rgba(0,0,0,.8) !important;
+}
+.ch-zan .day-date { color: rgba(0,0,0,.3) !important; }
+.ch-zan .day-loc  { color: var(--zan-mid) !important; }
+.ch-zan .day-accent { color: rgba(0,0,0,.38) !important; }
+.ch-zan .day-title { color: rgba(0,0,0,.82) !important; font-style: normal !important; }
+.ch-zan .day-preview { color: rgba(0,0,0,.5) !important; }
+.ch-zan .day-desc { color: rgba(0,0,0,.7) !important; }
+.ch-zan .shuka-lbl { color: rgba(0,0,0,.5) !important; }
+
+.ch-zan .hero-day .day-body {
+  background: #fff !important;
+}
