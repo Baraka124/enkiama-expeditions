@@ -1419,7 +1419,7 @@ body.light-mode .dark-toggle svg path { fill:#14140f; }
 .prep-card.cat-tech .prep-card-title   { color: var(--kili-mid) !important; }
 .prep-card.cat-cultural .prep-card-title { color: var(--rift-mid) !important; }
 
-/* ── #10  STICKY ROUTE ATLAS ─────────────────────────────────────── */
+
 .atlas-rail {
   position: fixed;
   right: 1.4rem;
