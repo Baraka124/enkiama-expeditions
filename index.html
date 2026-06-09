@@ -1259,9 +1259,7 @@ Es el último día entero del viaje.
           <div class="day-accent">Vuelo de regreso · ZNZ → DAR → JRO</div>
           <div class="day-title">La vuelta</div>
           <div class="day-preview">Salida ~03:30 desde Babalao. Transfer 80 min al aeropuerto ZNZ. Vuelo ZNZ→DAR→JRO. Llegada Kilimanjaro 10:15.</div>
-          <div class="day-collapsible"><div class="day-collapsible-inner"><div class="day-desc">El aeropuerto de Zanzíbar está a 80 minutos de Nungwi. El vuelo sale a las 07:30. La aritmética obliga a salir del hotel alrededor de las 03:30–04:00.
-
-La noche del 14: cena temprana y descanso.
+          <div class="day-collapsible"><div class="day-collapsible-inner"><div class="day-desc">La noche del 14: cena temprana y descanso.
 
 <strong>Traslado:</strong> Babalao → Aeropuerto ZNZ · salida <strong>~03:30</strong>
 
@@ -1271,7 +1269,7 @@ Escala en Dar es Salaam: 1 hora · traslado propio — hay que recoger el equipa
 <strong>DAR → JRO</strong> · Precision Air H11956 · <strong>09:00 → 10:15</strong> · 1h15min
 Llegada a Kilimanjaro International Airport · 10:15.
 
-El Kilimanjaro que os recibió el día 1 os despide hoy. El círculo se cierra donde empezó — bajo la montaña más alta de África.</div>
+</div>
           <div class="day-tags"><span class="dtag dtag-am">Salida 03:30</span><span class="dtag dtag-am">ZNZ→DAR→JRO</span><span class="dtag dtag-am">Llegada JRO 10:15</span><span class="dtag dtag-cu">El Kilimanjaro despide</span></div></div></div>
           <button class="shuka-trigger" id="tdc14" onclick="toggleDay('dc14',this)" aria-label="Ver día completo">
             <div class="shuka-fabric" style="background:linear-gradient(135deg,#0a2a35,#1a5c6e);"></div>
@@ -1454,6 +1452,75 @@ El Kilimanjaro que os recibió el día 1 os despide hoy. El círculo se cierra d
 </style>
 
 <style>
+
+/* ── DAY CARD INTERIOR ── */
+.day-desc {
+  font-family: 'EB Garamond', 'Cormorant Garamond', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(0,0,0,.72);
+  padding: 1.2rem 1.6rem 0;
+  white-space: pre-line;
+}
+.day-desc strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.75);
+  display: inline-block;
+  margin-right: .2rem;
+}
+.day-collapsible-inner {
+  padding: 0;
+}
+.day-collapsible.dc-open .day-collapsible-inner {
+  padding-bottom: .4rem;
+}
+/* Day date style */
+.day-date {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.35);
+  margin-bottom: .3rem;
+}
+.day-loc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+  margin-bottom: .4rem;
+}
+.day-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: rgba(0,0,0,.82);
+  line-height: 1.25;
+  margin-bottom: .6rem;
+}
+.day-accent {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: rgba(0,0,0,.38);
+  margin-bottom: .5rem;
+}
+/* Tag row */
+.day-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  padding: .8rem 1.6rem 1rem;
+  border-top: 1px solid rgba(0,0,0,.04);
+  margin-top: .8rem;
+}
+
 /* ── SCROLL ENTRANCE ANIMATIONS ── */
 .fade-up {
   opacity: 0;
@@ -1541,6 +1608,64 @@ El Kilimanjaro que os recibió el día 1 os despide hoy. El círculo se cierra d
   transform: rotate(180deg);
 }
 </style>
+
+
+/* ── IMPROVED EXPAND BUTTON ── */
+.shuka-trigger {
+  background: rgba(0,0,0,.02);
+}
+.shuka-trigger:hover {
+  background: rgba(0,0,0,.05);
+}
+.shuka-trigger.is-open {
+  background: rgba(168,216,122,.06);
+  border-top: 1px solid rgba(168,216,122,.2);
+}
+.shuka-pill {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.shuka-lbl {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.45);
+  transition: color .2s ease;
+}
+.shuka-trigger:hover .shuka-lbl {
+  color: rgba(0,0,0,.7);
+}
+.shuka-trigger.is-open .shuka-lbl {
+  color: rgba(60,120,40,.8);
+}
+.shuka-chevron {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  transition: transform .32s cubic-bezier(.4,0,.2,1);
+  color: rgba(0,0,0,.4);
+}
+.shuka-trigger.is-open .shuka-chevron {
+  transform: rotate(180deg);
+  color: rgba(60,120,40,.8);
+}
+/* Shimmer on hover */
+.shuka-trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(168,216,122,.08) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform .5s ease;
+}
+.shuka-trigger:hover::before {
+  transform: translateX(100%);
+}
 
 /* ── COLLAPSIBLE IMPROVEMENTS ── */
 .day-body { position: relative; }
