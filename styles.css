@@ -206,10 +206,10 @@ body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: v
 
 .day-date   { font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgba(0,0,0,.52); margin-bottom: 4px; }
 .day-loc    { font-size: 12.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 5px; }
-.ch-kili .day-loc { color: var(--kili-mid); }
-.ch-sav  .day-loc { color: var(--sav-mid); }
-.ch-rift .day-loc { color: var(--rift-mid); }
-.ch-prep .day-loc { color: var(--prep-mid); }
+.ch-kili .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--kili-mid); }
+.ch-sav  .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--sav-mid); }
+.ch-rift .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--rift-mid); }
+.ch-prep .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--prep-mid); }
 .day-accent { font-family: 'Cormorant Garamond', serif; font-size: 13.5px; font-style: italic; color: rgba(0,0,0,.48); margin-bottom: .4rem; letter-spacing: .03em; }
 .day-title  { font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 500; margin-bottom: .55rem; line-height: 1.25; color: var(--ink); }
 .day-desc   { font-size: 13.5px; font-weight: 300; line-height: 1.82; color: #3c3c32; }
@@ -602,7 +602,7 @@ footer span { color: rgba(255,255,255,.28); }
 .day-desc { font-size: 15px; line-height: 1.9; }
 .day-accent { font-size: 13.5px; }
 
-.day-loc { font-size: 12.5px; }
+.day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size: 12.5px; }
 .dtag { font-size: 13px; padding: .28rem .85rem; }
 
 /* day marker rings */
@@ -3392,7 +3392,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   margin-bottom: .2rem !important;
   padding: 1.2rem 1.6rem 0 !important;
 }
-.day-loc {
+.day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   font-family: 'Outfit', sans-serif !important;
   font-size: 11px !important;
   font-weight: 700 !important;
@@ -3401,10 +3401,10 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   padding: 0 1.6rem !important;
   margin-bottom: .5rem !important;
 }
-.ch-kili .day-loc { color: var(--kili-mid) !important; }
-.ch-sav  .day-loc { color: var(--sav-warm) !important; }
-.ch-rift .day-loc { color: var(--rift-mid) !important; }
-.ch-zan  .day-loc { color: var(--zan-mid) !important; }
+.ch-kili .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--kili-mid) !important; }
+.ch-sav  .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--sav-warm) !important; }
+.ch-rift .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--rift-mid) !important; }
+.ch-zan  .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--zan-mid) !important; }
 
 /* Accent line */
 .day-accent {
@@ -3665,7 +3665,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   color: rgba(0,0,0,.35);
   margin-bottom: .3rem;
 }
-.day-loc {
+.day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -3819,10 +3819,10 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 }
 /* hero-day individual element colours handled below */
 /* Keep loc colour per chapter */
-.ch-kili .day-row.hero-day .day-loc { color: var(--kili-mid) !important; }
-.ch-sav  .day-row.hero-day .day-loc { color: var(--sav-warm) !important; }
-.ch-rift .day-row.hero-day .day-loc { color: var(--rift-mid) !important; }
-.ch-zan  .day-row.hero-day .day-loc { color: var(--zan-mid) !important; }
+.ch-kili .day-row.hero-day .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--kili-mid) !important; }
+.ch-sav  .day-row.hero-day .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--sav-warm) !important; }
+.ch-rift .day-row.hero-day .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--rift-mid) !important; }
+.ch-zan  .day-row.hero-day .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--zan-mid) !important; }
 .day-row.hero-day .day-title { color: rgba(0,0,0,.88) !important; }
 .day-row.hero-day .day-accent { color: rgba(0,0,0,.5) !important; }
 .day-row.hero-day .day-preview { color: rgba(0,0,0,.55) !important; }
@@ -3861,10 +3861,10 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 .shuka-trigger.is-open { background: rgba(74,170,90,.06) !important; border-top-color: rgba(74,170,90,.2) !important; }
 
 /* Chapter loc colours preserved */
-.ch-kili .day-body .day-loc { color: #2d7a3a !important; }
-.ch-sav  .day-body .day-loc { color: #a05c10 !important; }
-.ch-rift .day-body .day-loc { color: #8b1a0a !important; }
-.ch-zan  .day-body .day-loc { color: #0a5c6e !important; }
+.ch-kili .day-body .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: #2d7a3a !important; }
+.ch-sav  .day-body .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: #a05c10 !important; }
+.ch-rift .day-body .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: #8b1a0a !important; }
+.ch-zan  .day-body .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: #0a5c6e !important; }
 
 /* ── HERO REDESIGN ─────────────────────────── */
 
@@ -3885,9 +3885,10 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(
     to top,
-    rgba(8,4,2,.82) 0%,
-    rgba(8,4,2,.55) 28%,
-    rgba(8,4,2,.15) 55%,
+    rgba(8,4,2,.88) 0%,
+    rgba(8,4,2,.72) 30%,
+    rgba(8,4,2,.40) 55%,
+    rgba(8,4,2,.12) 75%,
     transparent 100%
   );
 }
@@ -3937,7 +3938,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   line-height: 1;
   color: #fff;
   margin: 0 0 1rem;
-  text-shadow: 0 2px 30px rgba(0,0,0,.4);
+  text-shadow: 0 2px 20px rgba(0,0,0,.65), 0 0 60px rgba(0,0,0,.3);
 }
 
 /* Tagline */
@@ -4042,7 +4043,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 3.5rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 .farewell-bag {
@@ -4055,12 +4056,14 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   width: 110px;
   height: auto;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,.5));
+  mix-blend-mode: lighten;
   transition: transform .4s ease;
 }
 .farewell-suitcase img {
   width: 140px;
   height: auto;
   filter: drop-shadow(0 12px 32px rgba(0,0,0,.55));
+  mix-blend-mode: lighten;
   transition: transform .4s ease;
 }
 .farewell-backpack:hover img,
@@ -4154,3 +4157,124 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   .farewell-suitcase img { width: 110px; }
 }
 /* ── END FAREWELL ───────────────────────────────── */
+
+.farewell-bags-caption {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(200,135,42,.45);
+  margin: .4rem 0 0;
+}
+
+/* ── RESPONSIVE NAV REDESIGN ───────────────────── */
+
+/* Desktop dots row */
+.nav-dots-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  transition: all .25s;
+  position: relative;
+}
+.nav-dot:hover {
+  border-color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.85);
+  transform: scale(1.1);
+}
+.nav-dot.nav-active {
+  color: #fff;
+  border-color: transparent;
+}
+.kili-dot.nav-active  { background: var(--kili-mid,  #3d8b45); }
+.sav-dot.nav-active   { background: var(--sav-warm,  #c8872a); }
+.rift-dot.nav-active  { background: var(--rift-mid,  #8b3a2a); }
+.prep-dot.nav-active  { background: var(--prep-mid,  #5a4a7a); }
+.zan-dot.nav-active   { background: var(--zan-mid,   #2a7a8b); }
+
+/* Mobile pill — hidden on desktop */
+.nav-ch-pill {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+.nav-ch-prev, .nav-ch-next {
+  color: rgba(255,255,255,.4);
+  font-size: 1.1rem;
+  line-height: 1;
+  text-decoration: none;
+  padding: 2px 4px;
+  transition: color .2s;
+}
+.nav-ch-prev:hover, .nav-ch-next:hover { color: rgba(255,255,255,.85); }
+.nav-ch-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  white-space: nowrap;
+  min-width: 120px;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .nav-dots-row { display: none; }
+  .nav-ch-pill  { display: flex; }
+}
+@media (max-width: 400px) {
+  .nav-ch-label { min-width: 90px; font-size: 9px; }
+}
+/* ── END RESPONSIVE NAV ────────────────────────── */
+
+.day-loc { max-width:100%; overflow:hidden; text-overflow:ellipsis; }
+
+/* ── DÍA DESTACADO BADGE ─────────────── */
+.day-body[data-destacado]::after {
+  content: 'DÍA DESTACADO';
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: rgba(200,135,42,.8);
+  border: 1px solid rgba(200,135,42,.25);
+  border-radius: 20px;
+  padding: .2rem .65rem;
+  background: rgba(200,135,42,.06);
+  pointer-events: none;
+}
+/* today highlight */
+.today-card {
+  box-shadow: 0 0 0 2px rgba(168,216,122,.5), 0 8px 32px rgba(168,216,122,.15) !important;
+}
+.today-card::before {
+  content: 'HOY';
+  position: absolute;
+  top: 1rem; left: 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 8px; font-weight: 700;
+  letter-spacing: .2em;
+  color: rgba(168,216,122,.9);
+  background: rgba(168,216,122,.12);
+  border: 1px solid rgba(168,216,122,.3);
+  border-radius: 20px;
+  padding: .2rem .6rem;
+}
+/* ── END BADGES ─────────────────────── */
+
+.day-marker { overflow: hidden; }
+.day-row { overflow: hidden; }
