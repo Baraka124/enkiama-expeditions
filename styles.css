@@ -4230,7 +4230,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 }
 
 @media (max-width: 620px) {
-  .nav-dots-row { display: none; }
+  /* .nav-dots-row display:none removed — was hiding desktop dots */
   .nav-ch-pill  { display: flex; }
 }
 @media (max-width: 400px) {
@@ -4258,7 +4258,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   border-radius: 20px;
   padding: .2rem .6rem;
 }
-/* ── END BADGES ─────────────────────── */
+/* ── END BADGES ─────────────────────── */   
 
 .day-marker { overflow: hidden; }
 .day-row { overflow: hidden; }
