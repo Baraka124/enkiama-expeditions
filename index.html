@@ -437,9 +437,75 @@
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,31,16,.08) 0%,transparent 35%,rgba(13,31,16,.35) 100%);pointer-events:none;"></div>
 </div>
 
-<div class="days-grid ch-sav">
+<div class="days-grid ch-sav" style="padding-left:clamp(1rem,5vw,4rem);padding-right:clamp(1rem,5vw,4rem);">
     <div class="days-track">
       <div class="track-line"></div>
+
+
+      <!-- Day 1 — JRO → Materuni -->
+      <div class="day-row hero-day fade-up">
+        <div class="day-marker">1</div>
+        <div class="day-body" id="dc1">
+          <div class="day-date">Viernes 3 de Julio</div>
+          <div class="day-loc">Aterrizaje · Laderas del Kilimanjaro</div>
+          <div class="day-accent">Conexión con la comunidad chagga desde la primera noche</div>
+          <div class="day-title">La primera noche bajo la montaña</div>
+          <div class="day-preview">Llegada a Kilimanjaro International. Sadiq espera en llegadas con panel con los cinco nombres. Traslado a Materuni.</div>
+          <div class="day-collapsible"><div class="day-collapsible-inner"><div class="day-desc">Llegada a Kilimanjaro International Airport. En la zona de llegadas internacionales, <strong>Sadiq espera con un panel con los cinco nombres</strong>. Traslado directo al alojamiento.
+
+Una hora aproximada de carretera hasta Materuni Homes, en las laderas del Kilimanjaro. La comunidad chagga os recibe. Cena suave esperándoos. Cama lista.
+
+La primera mirada de la mañana ya será la cumbre del Kilimanjaro.</div>
+          <div class="day-tags"><span class="dtag dtag-am">JRO · llegadas</span><span class="dtag dtag-rh">Materuni Homes</span><span style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;padding:.2rem .6rem;border-radius:20px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);color:rgba(0,0,0,.45);">Inmersión local</span></div></div></div>
+          <button class="shuka-trigger" id="tdc1" onclick="toggleDay('dc1',this)" aria-label="Ver día completo">
+            <div class="shuka-pill"><span class="shuka-lbl"><span id="lbldc1">ver el día completo</span><svg class="shuka-chevron" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1,3.5 5.5,7.5 10,3.5"/></svg></span></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Day 2 — Chagga village → Moshi → Tulivu -->
+      <div class="day-row fade-up">
+        <div class="day-marker">2</div>
+        <div class="day-body" id="dc2">
+          <div class="day-date">Sábado 4 de Julio</div>
+          <div class="day-loc">Materuni · Moshi · Tulivu Retreat</div>
+          <div class="day-accent">Cascada glaciar, café chagga y la ciudad de Moshi</div>
+          <div class="day-title">La cascada y el café</div>
+          <div class="day-preview">Mañana en la aldea chagga. Cascada de Materuni, experiencia de café completa. Almuerzo en Moshi. Tarde libre para recuerdos.</div>
+          <div class="day-collapsible"><div class="day-collapsible-inner"><div class="day-desc">Mañana en la aldea chagga con los vecinos de Materuni como guías. <strong>Cascada de Materuni</strong> — agua glaciar del Kilimanjaro sobre roca volcánica. Se puede entrar.
+
+Experiencia de café completa: del árbol a la taza, procesado a mano.
+
+Hacia el mediodía, bajada a <strong>Moshi</strong>. Almuerzo y tarde libre — mejor momento para recuerdos: artesanía, café, especias. Comprad aquí, no en el aeropuerto.
+
+Al atardecer, traslado a <strong>Tulivu Kilimanjaro Retreat</strong> — jardines tropicales, piscina y vistas al Kilimanjaro.</div>
+          <div class="day-tags"><span class="dtag dtag-cu">Aldea chagga</span><span class="dtag dtag-am">Cascada de Materuni</span><span class="dtag dtag-fo">Experiencia de café</span><span style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;padding:.2rem .6rem;border-radius:20px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);color:rgba(0,0,0,.45);">Retiro · Kilimanjaro</span></div></div></div>
+          <button class="shuka-trigger" id="tdc2" onclick="toggleDay('dc2',this)" aria-label="Ver día completo">
+            <div class="shuka-pill"><span class="shuka-lbl"><span id="lbldc2">ver el día completo</span><svg class="shuka-chevron" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1,3.5 5.5,7.5 10,3.5"/></svg></span></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Day 3 — Moshi → Kibosho → Chemka → Arusha -->
+      <div class="day-row fade-up">
+        <div class="day-marker">3</div>
+        <div class="day-body" id="dc3">
+          <div class="day-date">Domingo 5 de Julio</div>
+          <div class="day-loc">Moshi · Kibosho · Chemka · Arusha</div>
+          <div class="day-accent">Aguas termales, ruta por Kibosho y última noche antes del safari</div>
+          <div class="day-title">Chemka — el paréntesis antes de la sabana</div>
+          <div class="day-preview">Mañana libre en Moshi. Ruta por Kibosho. Día completo en Chemka Hot Springs. Baraka se incorpora. Arusha al atardecer.</div>
+          <div class="day-collapsible"><div class="day-collapsible-inner"><div class="day-desc">Mañana libre en Moshi para últimas compras. Después, ruta por <strong>Kibosho</strong> — aldeas, campos de maíz, vida rural al borde del asfalto.
+
+<strong>Chemka Hot Springs</strong>: manantial geotérmico de agua turquesa, diez metros de profundidad, temperatura perfecta todo el año. El día entero aquí antes del safari.
+
+Baraka se incorpora al grupo. Al atardecer, salida hacia <strong>Uyoga House, Arusha</strong> — villa con jardín y piscina. Última noche urbana antes de la sabana.</div>
+          <div class="day-tags"><span class="dtag dtag-sp">Chemka Hot Springs</span><span class="dtag dtag-cu">Ruta Kibosho</span><span class="dtag dtag-rh">Uyoga House · Arusha</span><span style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;padding:.2rem .6rem;border-radius:20px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);color:rgba(0,0,0,.45);">Villa boutique</span></div></div></div>
+          <button class="shuka-trigger" id="tdc3" onclick="toggleDay('dc3',this)" aria-label="Ver día completo">
+            <div class="shuka-pill"><span class="shuka-lbl"><span id="lbldc3">ver el día completo</span><svg class="shuka-chevron" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1,3.5 5.5,7.5 10,3.5"/></svg></span></div>
+          </button>
+        </div>
+      </div>
 
       <!-- Day 4 — Tarangire → Karatu -->
       <div class="day-row fade-up">
@@ -658,7 +724,7 @@ Alojamiento preparado para el grupo.</div>
 
   
 
-  <div class="days-grid ch-rift">
+  <div class="days-grid ch-rift" style="padding-left:clamp(1rem,5vw,4rem);padding-right:clamp(1rem,5vw,4rem);">
     <div class="days-track">
       <div class="track-line"></div>
 
@@ -950,7 +1016,7 @@ Nota: este tour cultural reemplaza el día de lago Manyara, una mañana entre m�
     <div class="ch-badge">Stone Town · Mzingani · Nungwi · Babalao · <span style="opacity:.6;">Días 11–15</span></div>
   </div>
 
-  <div class="days-grid ch-zan">
+  <div class="days-grid ch-zan" style="padding-left:clamp(1rem,5vw,4rem);padding-right:clamp(1rem,5vw,4rem);">
     <div class="days-track">
       <div class="track-line"></div>
 
