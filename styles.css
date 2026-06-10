@@ -8,7 +8,7 @@
   --sav-bright:   #5a9e3a;
   --sav-warm:     #c8872a;
   --rift-dark:    #180a04;
-  --rift-mid:     #7a2008;  
+  --rift-mid:     #7a2008;
   --rift-bright:  #d4422a;
   --rift-accent:  #f0a060;
   --prep-dark:    #0e0e18;
@@ -198,8 +198,8 @@ body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: v
 .arrival-note-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; opacity: .6; }
 
 /* ── DAYS GRID ── */
-.days-grid { padding: 3.5rem clamp(1rem,4vw,3rem) 5rem; max-width: 1100px; margin: 0 auto; }
-.days-track { position: relative; }
+.days-grid { padding: 3.5rem clamp(1.5rem,5vw,5rem) 5rem; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+.days-track { position: relative; width: 100%; }
 .track-line { position: absolute; left: 27px; top: 60px; bottom: 0; width: 2px; border-radius: 2px; }
 .ch-kili .track-line { background: linear-gradient(to bottom, rgba(30,92,40,.55), transparent); }
 .ch-sav  .track-line { background: linear-gradient(to bottom, rgba(46,84,36,.55), transparent); }
@@ -2827,24 +2827,25 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
   border: 0 !important;
 }
 .day-row.hero-day .day-body {
-  background: transparent !important;
+  background: #fff !important;
+  color: rgba(0,0,0,.85) !important;
 }
 .day-row.hero-day .day-title {
-  font-family: 'Fraunces', serif !important;
-  font-size: clamp(1.7rem, 3.6vw, 2.4rem) !important;
-  font-style: italic !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
+  font-style: normal !important;
   font-weight: 400 !important;
-  letter-spacing: -.012em;
-  line-height: 1.12 !important;
-  color: #fff !important;
+  letter-spacing: -.01em;
+  line-height: 1.2 !important;
+  color: rgba(0,0,0,.88) !important;
   margin-top: .6rem !important;
   margin-bottom: 1rem !important;
 }
 .day-row.hero-day .day-accent {
-  color: var(--sav-warm) !important;
-  font-style: italic;
-  font-size: 1.05rem !important;
-  font-family: 'EB Garamond', serif !important;
+  color: rgba(0,0,0,.5) !important;
+  font-style: normal !important;
+  font-size: 11px !important;
+  font-family: 'Outfit', sans-serif !important;
 }
 .day-row.hero-day::after {
   content: 'Día destacado';
@@ -3980,3 +3981,74 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
 .photo-spread img, .photo-strip img {
   max-width: 100%;
 }
+
+/* ── FORCE WHITE CARDS ACROSS ALL CHAPTERS ── */
+.ch-kili .day-body,
+.ch-sav .day-body,
+.ch-rift .day-body,
+.ch-zan .day-body {
+  background: #fff !important;
+}
+.ch-kili .day-row.hero-day .day-body,
+.ch-sav .day-row.hero-day .day-body,
+.ch-rift .day-row.hero-day .day-body,
+.ch-zan .day-row.hero-day .day-body {
+  background: #fff !important;
+}
+/* All text inside day cards must be dark */
+.day-body .day-date,
+.day-body .day-loc,
+.day-body .day-accent,
+.day-body .day-title,
+.day-body .day-preview,
+.day-body .day-desc {
+  color: inherit;
+}
+/* hero-day individual element colours handled below */
+/* Keep loc colour per chapter */
+.ch-kili .day-row.hero-day .day-loc { color: var(--kili-mid) !important; }
+.ch-sav  .day-row.hero-day .day-loc { color: var(--sav-warm) !important; }
+.ch-rift .day-row.hero-day .day-loc { color: var(--rift-mid) !important; }
+.ch-zan  .day-row.hero-day .day-loc { color: var(--zan-mid) !important; }
+.day-row.hero-day .day-title { color: rgba(0,0,0,.88) !important; }
+.day-row.hero-day .day-accent { color: rgba(0,0,0,.5) !important; }
+.day-row.hero-day .day-preview { color: rgba(0,0,0,.55) !important; }
+.day-row.hero-day .day-desc { color: rgba(0,0,0,.75) !important; }
+
+/* ════ FINAL VISIBILITY OVERRIDES ════ */
+/* All day cards — guaranteed readable on white */
+.day-body .day-date   { color: rgba(0,0,0,.45) !important; }
+.day-body .day-loc    { font-weight: 700 !important; }
+.day-body .day-accent { color: rgba(0,0,0,.55) !important; font-style: normal !important; }
+.day-body .day-title  { color: rgba(0,0,0,.88) !important; font-style: normal !important; }
+.day-body .day-preview { color: rgba(0,0,0,.6) !important; }
+.day-body .day-desc   { color: rgba(0,0,0,.78) !important; }
+
+/* Hero day — same but slightly different size */
+.day-row.hero-day .day-title {
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem) !important;
+  font-style: normal !important;
+  color: rgba(0,0,0,.88) !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Button — make it clearly visible */
+.shuka-trigger {
+  border-top: 1px solid rgba(0,0,0,.1) !important;
+  background: rgba(0,0,0,.025) !important;
+}
+.shuka-lbl {
+  color: rgba(0,0,0,.6) !important;
+  font-size: 11px !important;
+  letter-spacing: .2em !important;
+}
+.shuka-trigger:hover .shuka-lbl { color: rgba(0,0,0,.85) !important; }
+.shuka-trigger:hover { background: rgba(0,0,0,.05) !important; }
+.shuka-trigger.is-open .shuka-lbl { color: rgba(40,120,50,.85) !important; }
+.shuka-trigger.is-open { background: rgba(74,170,90,.06) !important; border-top-color: rgba(74,170,90,.2) !important; }
+
+/* Chapter loc colours preserved */
+.ch-kili .day-body .day-loc { color: #2d7a3a !important; }
+.ch-sav  .day-body .day-loc { color: #a05c10 !important; }
+.ch-rift .day-body .day-loc { color: #8b1a0a !important; }
+.ch-zan  .day-body .day-loc { color: #0a5c6e !important; }
