@@ -4235,7 +4235,8 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   align-items: center;
   gap: 8px;
 }
-.nav-ch-prev, .nav-ch-next {
+.nav-ch-prev, ..nav-ch-pill .nav-ch-prev,
+.nav-ch-pill .nav-ch-next {
   color: rgba(40,30,15,.4);
   font-size: 1.1rem;
   line-height: 1;
@@ -4243,7 +4244,8 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   padding: 2px 4px;
   transition: color .2s;
 }
-.nav-ch-prev:hover, .nav-ch-next:hover { color: rgba(40,30,15,.85); }
+.nav-ch-prev:hover, ..nav-ch-pill .nav-ch-prev:hover,
+.nav-ch-pill .nav-ch-next:hover { color: rgba(40,30,15,.85); }
 .nav-ch-label {
   font-family: 'Outfit', sans-serif;
   font-size: 10px;
@@ -4365,7 +4367,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   line-height: 1.6;
   color: rgba(250,248,244,.62);
 }
-.farewell-notes-icon-large {   
+.farewell-notes-icon-large {
   font-size: 1.3rem;
   color: rgba(200,135,42,.5);
   flex-shrink: 0;
