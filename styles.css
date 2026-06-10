@@ -6,7 +6,7 @@
   --sav-dark:     #141f12;
   --sav-mid:      #2a5424;   
   --sav-bright:   #5a9e3a;
-  --sav-warm:     #c8872a;  
+  --sav-warm:     #c8872a;
   --rift-dark:    #180a04;
   --rift-mid:     #7a2008;
   --rift-bright:  #d4422a;
@@ -979,24 +979,7 @@ body.light-mode .dark-toggle svg path { fill:#14140f; }
   box-shadow: none !important;
   border-left-color: var(--kili-mid) !important;
 }
-.day-body {
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  border-left: 3px solid rgba(0,0,0,.08) !important;
-  padding-left: 1.5rem !important;
-}
-.day-row:hover .day-body,
-.day-body.open {
-  border-left-color: currentColor !important;
-  box-shadow: none !important;
-  transform: none !important;
-}
-.ch-kili .day-body { border-left-color: var(--kili-mid) !important; }
-.ch-sav  .day-body { border-left-color: var(--sav-mid) !important; }
-.ch-rift .day-body { border-left-color: var(--rift-mid) !important; }
-.ch-zan  .day-body { border-left-color: var(--zan-mid) !important; }
-.ch-prep .day-body { border-left-color: var(--prep-mid) !important; }
+/* left-border colours per chapter */
 
 
 /* Packing list text colors (dark card) */
