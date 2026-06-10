@@ -38,11 +38,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: v
   background: rgba(250,248,244,.96); backdrop-filter: blur(20px);
   width: 100%; box-sizing: border-box;
 }
-.top-nav::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='3'%3E%3Crect width='48' height='3' fill='%237a1508'/%3E%3Crect x='48' width='48' height='3' fill='%231e5c28'/%3E%3Crect y='1' width='96' height='1' fill='%23f0e0c8' opacity='.5'/%3E%3C/svg%3E") repeat-x;
-  opacity: .2;
-}
+/* top-nav::after stripe removed */
 .nav-logo { display: flex; align-items: center; max-width: 55%; flex-shrink: 0; }
 .nav-logo img { height: 36px; width: auto; max-width: 100%; display: block; mix-blend-mode: multiply; }
 .nav-right { display: flex; align-items: center; gap: 16px; }
@@ -204,15 +200,27 @@ body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: v
 .ch-rift .day-body::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='48'%3E%3Crect width='5' height='48' fill='%238B1A0A'/%3E%3Crect x='0' y='18' width='5' height='6' fill='%23f5ede0' opacity='.9'/%3E%3Crect x='0' y='8' width='5' height='2' fill='%23f5ede0' opacity='.5'/%3E%3Crect x='0' y='38' width='5' height='2' fill='%23f5ede0' opacity='.5'/%3E%3Crect x='0' y='14' width='5' height='2' fill='%230d0500' opacity='.6'/%3E%3Crect x='0' y='26' width='5' height='2' fill='%230d0500' opacity='.6'/%3E%3C/svg%3E") repeat-y; }
 .ch-prep .day-body::before { background: linear-gradient(to bottom, rgba(152,152,216,.5), rgba(42,42,74,.4)); }
 
-.day-date   { font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgba(0,0,0,.52); margin-bottom: 4px; }
+.day-date   { font-size: 11px; font-weight: 600; letter-spacing: .20em; text-transform: uppercase; color: rgba(0,0,0,.38); margin-bottom: 5px; }
 .day-loc    { font-size: 12.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 5px; }
 .ch-kili .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--kili-mid); }
 .ch-sav  .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--sav-mid); }
 .ch-rift .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--rift-mid); }
 .ch-prep .day-loc { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color: var(--prep-mid); }
-.day-accent { font-family: 'Cormorant Garamond', serif; font-size: 13.5px; font-style: italic; color: rgba(0,0,0,.48); margin-bottom: .4rem; letter-spacing: .03em; }
+.day-accent { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: rgba(0,0,0,.52); margin-bottom: .45rem; letter-spacing: .03em; }
 .day-title  { font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 500; margin-bottom: .55rem; line-height: 1.25; color: var(--ink); }
-.day-desc   { font-size: 13.5px; font-weight: 300; line-height: 1.82; color: #3c3c32; }
+.day-desc {
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(30,25,15,.78);
+}
+.day-desc p,
+.day-desc > br + br { margin-top: .75rem; }
+.day-desc strong {
+  font-weight: 600;
+  color: rgba(30,25,15,.92);
+  letter-spacing: .01em;
+}
 .day-tags   { display: flex; flex-wrap: wrap; gap: 5px; margin-top: .8rem; }
 .dtag { font-size: 12px; font-weight: 500; padding: .24rem .75rem; border-radius: 100px; letter-spacing: .04em; }
 .dtag-gr { background: #eef6e8; color: #1e5c28; }
@@ -293,6 +301,9 @@ footer span { color: rgba(255,255,255,.28); }
   grid-template-rows: 1fr;
 }
 .day-collapsible-inner {
+  border-top: 1px solid rgba(0,0,0,.06);
+  margin-top: 1rem;
+  padding-top: 1.2rem;
   overflow: hidden;
   min-height: 0;
 }
@@ -312,11 +323,13 @@ footer span { color: rgba(255,255,255,.28); }
   padding-bottom: .2rem;
 }
 .day-preview {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: #3a3830;
-  margin-top: .5rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.72;
+  color: rgba(30,25,15,.68);
+  margin-top: .55rem;
   transition: opacity .22s ease;
   opacity: 1;
 }
@@ -2634,10 +2647,30 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 }
 .day-row.hero-day::before { display: none; }
 .day-row.hero-day .day-marker {
-  background: linear-gradient(135deg, var(--sav-warm), var(--sav-bright)) !important;
+  background: linear-gradient(160deg, var(--sav-warm), var(--sav-bright)) !important;
   color: #fff !important;
-  box-shadow: 0 6px 24px rgba(200,135,42,.35);
+  box-shadow: 0 6px 24px rgba(200,135,42,.32);
   border: 0 !important;
+  width: 56px;
+  height: auto;
+  min-height: 56px;
+  border-radius: 28px;
+  flex-direction: column;
+  gap: 2px;
+  padding: .5rem .2rem;
+  font-size: 14px;
+  font-weight: 700;
+}
+.hero-day .day-marker::after {
+  content: 'DESTACADO';
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 6.5px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.78);
+  line-height: 1;
+  margin-top: 1px;
 }
 .day-row.hero-day .day-body {
   background: #fff !important;
@@ -2660,21 +2693,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   font-size: 11px !important;
   font-family: 'Outfit', sans-serif !important;
 }
-.day-row.hero-day::after {
-  content: 'DÍA DESTACADO';
-  position: absolute;
-  top: 1rem; right: 1rem;
-  font-family: 'Outfit', sans-serif;
-  font-size: 8.5px; font-weight: 700;
-  letter-spacing: .22em;
-  color: rgba(200,135,42,.85);
-  border: 1px solid rgba(200,135,42,.3);
-  border-radius: 20px;
-  padding: .22rem .7rem;
-  background: rgba(200,135,42,.07);
-  pointer-events: none;
-  z-index: 5;
-}
+.day-row/* DÍA DESTACADO now merged into day-marker */
 /* Hide the expand button on hero days — the description shows fully */
 .day-row.hero-day .shuka-trigger { display: none !important; }
 .day-row.hero-day 
@@ -3325,9 +3344,17 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 
 /* Log block inside dark card desc */
 .day-desc .log-block {
-  background: rgba(255,200,0,.06);
-  border-color: rgba(255,200,0,.4);
+  background: rgba(255,200,0,.05);
+  border: 1px solid rgba(255,200,0,.25);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-top: 1.1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px;
+  letter-spacing: .01em;
 }
+.log-icon { font-size: 13px; flex-shrink: 0; width: 18px; text-align: center; }
+.log-icon-warn { color: #c4882a; }
 .day-desc .log-block span:not(.log-icon) {
   color: rgba(0,0,0,.7);
 }
@@ -4230,7 +4257,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 }
 
 @media (max-width: 620px) {
-  /* .nav-dots-row display:none removed — was hiding desktop dots */
+  .nav-dots-row { display: none; }
   .nav-ch-pill  { display: flex; }
 }
 @media (max-width: 400px) {
@@ -4258,7 +4285,92 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   border-radius: 20px;
   padding: .2rem .6rem;
 }
-/* ── END BADGES ─────────────────────── */   
+/* ── END BADGES ─────────────────────── */
 
 .day-marker { overflow: hidden; }
 .day-row { overflow: hidden; }
+
+/* ── FAREWELL PRACTICAL NOTES ─────────────────────────── */
+.farewell-notes {
+  width: 100%;
+  max-width: 780px;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+}
+.farewell-notes-inner {
+  border: 1px solid rgba(200,135,42,.2);
+  border-radius: 16px;
+  padding: 2.2rem 2.5rem;
+  background: rgba(200,135,42,.04);
+}
+.farewell-notes-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(200,135,42,.7);
+  margin: 0 0 1.8rem;
+}
+.farewell-notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem 2rem;
+}
+.farewell-note-item {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+}
+.farewell-note-icon {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+  opacity: .75;
+  margin-top: .1rem;
+}
+.farewell-note-item strong {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(250,248,244,.88);
+  display: block;
+  margin-bottom: .3rem;
+}
+.farewell-note-item p {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(250,248,244,.52);
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .farewell-notes-grid { grid-template-columns: 1fr; }
+  .farewell-notes-inner { padding: 1.6rem 1.4rem; }
+}
+
+/* Paragraph spacing in day-desc plain text */
+.day-desc br + br { display: block; margin-top: .65rem; content: ""; }
+
+/* Farewell notes full-width bottom row */
+.farewell-notes-full {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(200,135,42,.12);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(250,248,244,.62);
+}
+.farewell-notes-icon-large {
+  font-size: 1.3rem;
+  color: rgba(200,135,42,.5);
+  flex-shrink: 0;
+}
+.farewell-notes-full strong {
+  color: rgba(250,248,244,.88);
+  font-weight: 600;
+}
