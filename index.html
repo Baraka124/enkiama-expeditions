@@ -1580,8 +1580,8 @@ document.addEventListener('DOMContentLoaded', buildPackList);
     var h = document.getElementById('cd-hours');
     var m = document.getElementById('cd-mins');
     if (d) d.textContent = days;
-    if (h) h.textContent = String(hours).padStart(2,'0');
-    if (m) m.textContent = String(mins).padStart(2,'0');  
+    if (h) h.textContent = String(hours).padStart(2,'0');    
+    if (m) m.textContent = String(mins).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 30000);
