@@ -4365,7 +4365,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   line-height: 1.6;
   color: rgba(250,248,244,.62);
 }
-.farewell-notes-icon-large {
+.farewell-notes-icon-large {   
   font-size: 1.3rem;
   color: rgba(200,135,42,.5);
   flex-shrink: 0;
