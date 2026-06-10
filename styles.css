@@ -3746,3 +3746,228 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
 .ch-zan .hero-day .day-body {
   background: #fff !important;
 }
+
+
+/* ════════════════════════════════════
+   MOVED FROM INLINE HTML
+   ════════════════════════════════════ */
+
+/* Block 1 */
+.atl-stop circle:first-child { transition: r .35s, opacity .35s; }
+.atl-stop.atl-active circle:nth-child(1) { opacity: 1; }
+@keyframes atlPulse { 0%,100%{opacity:.55} 50%{opacity:.15} }
+.atl-stop circle:nth-child(1) { animation: atlPulse 2.6s ease-in-out infinite; }
+.atl-stop.atl-active circle:nth-child(2) { r: 11; }
+.atl-stop.atl-active circle:nth-child(3) { r: 4.8; }
+
+
+
+/* Prep card — all done banner */
+.prep-done-banner {
+  display:flex;align-items:center;gap:.6rem;
+  background:rgba(168,216,122,.1);
+  border:1px solid rgba(168,216,122,.3);
+  border-radius:8px;padding:.7rem 1rem;
+  font-family:'Outfit',sans-serif;font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(168,216,122,.85);margin-bottom:1.4rem;
+}
+
+<style>
+/* ── LOGISTICS HIGHLIGHT ── */
+.log-highlight {
+  display:inline;
+  background:rgba(255,200,0,.18);
+  color:#fff;
+  padding:.1rem .4rem;
+  border-radius:3px;
+  font-weight:600;
+}
+.log-block {
+  background:#1a1a0a;
+  border:1px solid rgba(255,200,0,.25);
+  border-left:3px solid rgba(255,200,0,.75);
+  border-radius:0 8px 8px 0;
+  padding:.8rem 1.1rem;
+  margin:.9rem 0;
+  font-family:'Outfit',sans-serif;
+  font-size:13px;
+  line-height:1.75;
+}
+.log-block strong {
+  color:rgba(255,215,50,1);
+  font-weight:600;
+}
+.log-block span:not(.log-icon) {
+  color:rgba(255,255,255,.8);
+}
+.log-block .log-row {
+  display:flex;
+  align-items:baseline;
+  gap:.6rem;
+  margin-bottom:.35rem;
+}
+.log-block .log-row:last-child { margin-bottom:0; }
+.log-icon {
+  font-size:12px;
+  flex-shrink:0;
+  opacity:.85;
+}
+
+
+
+
+/* ── DAY CARD INTERIOR ── */
+.day-desc {
+  font-family: 'EB Garamond', 'Cormorant Garamond', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(0,0,0,.72);
+  padding: 1.2rem 1.6rem 0;
+  white-space: pre-line;
+}
+.day-desc strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.75);
+  display: inline-block;
+  margin-right: .2rem;
+}
+.day-collapsible-inner {
+  padding: 0;
+}
+.day-collapsible.dc-open .day-collapsible-inner {
+  padding-bottom: .4rem;
+}
+/* Day date style */
+.day-date {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.35);
+  margin-bottom: .3rem;
+}
+.day-loc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+  margin-bottom: .4rem;
+}
+.day-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: rgba(0,0,0,.82);
+  line-height: 1.25;
+  margin-bottom: .6rem;
+}
+.day-accent {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: rgba(0,0,0,.38);
+  margin-bottom: .5rem;
+}
+/* Tag row */
+.day-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  padding: .8rem 1.6rem 1rem;
+  border-top: 1px solid rgba(0,0,0,.04);
+  margin-top: .8rem;
+}
+
+/* ── SCROLL ENTRANCE ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.4,0,.2,1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up.delay-1 { transition-delay: .1s; }
+.fade-up.delay-2 { transition-delay: .2s; }
+.fade-up.delay-3 { transition-delay: .3s; }
+
+
+/* ── LODGE PHOTO CAPTION ── */
+.lodge-v2-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+.lodge-v2-photo::after {
+  content: attr(data-caption);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: .6rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 100%);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.lodge-v2:hover .lodge-v2-photo::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── LODGE IMAGE ZOOM ON HOVER ── */
+.lodge-v2-photo img {
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.lodge-v2:hover .lodge-v2-photo img {
+  transform: scale(1.04);
+}
+
+/* ── CHAPTER HEADER FADE ── */
+.ch-num, .ch-title, .ch-sub, .ch-badge {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1);
+}
+.ch-animated .ch-num { opacity:1; transform:none; transition-delay:.05s; }
+.ch-animated .ch-title { opacity:1; transform:none; transition-delay:.15s; }
+.ch-animated .ch-sub { opacity:1; transform:none; transition-delay:.25s; }
+.ch-animated .ch-badge { opacity:1; transform:none; transition-delay:.35s; }
+
+
+
+/* ── COLLAPSIBLE FIX ── */
+.day-collapsible { 
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .38s cubic-bezier(.4,0,.2,1);
+}
+.day-collapsible.dc-open { 
+  grid-template-rows: 1fr; 
+}
+.day-collapsible-inner { 
+  overflow: hidden; 
+  min-height: 0; 
+  padding: 0;
+  transition: padding .38s cubic-bezier(.4,0,.2,1);
+}
+.day-collapsible.dc-open .day-collapsible-inner {
+  padding-bottom: 1.2rem;
+}
+.shuka-chevron {
+  transition: transform .32s cubic-bezier(.4,0,.2,1);
+}
+.shuka-trigger.is-open .shuka-chevron {
+  transform: rotate(180deg);
+}
