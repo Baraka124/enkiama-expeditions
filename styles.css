@@ -2788,21 +2788,13 @@ h1, h2, h3, h4, .lodge-name, .bp-title, .lodges-title, .lodges-title em,
 /* ─── Hero day variants (Phase 3) ─── */
 .day-row.hero-day {
   position: relative;
-  background: linear-gradient(135deg, rgba(255,255,255,.015) 0%, rgba(255,255,255,.005) 100%);
-  border-radius: 16px;
-  padding: 1.4rem 1rem 1.4rem 0;
+  border-radius: 0;
+  padding: 0;
   margin: 2.2rem 0;
-  border: 1px solid rgba(200,135,42,.12);
+  border: none;
+  background: transparent;
 }
-.day-row.hero-day::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(200,135,42,.2), transparent 30%, transparent 70%, rgba(200,135,42,.18));
-  z-index: -1;
-  opacity: .4;
-}
+.day-row.hero-day::before { display: none; }
 .day-row.hero-day .day-marker {
   background: linear-gradient(135deg, var(--sav-warm), var(--sav-bright)) !important;
   color: #fff !important;
