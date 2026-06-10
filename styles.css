@@ -4376,3 +4376,21 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   color: rgba(250,248,244,.88);
   font-weight: 600;
 }
+
+/* Chapter header background patterns */
+.kili-pattern {
+  background: linear-gradient(160deg, #0d1f10 0%, #1a3d1f 50%, #0a1a0c 100%);
+}
+.sav-pattern {
+  background: linear-gradient(160deg, #1a0f00 0%, #3d2200 50%, #1a0e00 100%);
+}
+
+/* ── KILI + SAV CHAPTER HEADER BACKGROUNDS ──────── */
+.kili-pattern {
+  background: linear-gradient(155deg,
+    #061508 0%, #0d2410 35%, #061a0a 70%, #030e04 100%);
+}
+.sav-pattern {
+  background: linear-gradient(155deg,
+    #100700 0%, #2a1500 35%, #1a0d00 70%, #0d0500 100%);
+}
