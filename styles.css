@@ -279,7 +279,7 @@ footer span { color: rgba(255,255,255,.28); }
 @keyframes pulse  { 0%, 100% { opacity: .28; } 50% { opacity: .85; } }
 
 @media (max-width: 680px) {
-  .chapter-header { padding: 5rem 1.6rem 2.8rem; }
+  /* padding handled in main ch-header rule */
   .days-grid   { padding: 2.2rem 1.2rem 3.5rem; }
   .prep-grid   { padding: 2rem 1.2rem 3rem; grid-template-columns: 1fr; }
   .ch-num      { font-size: 5.5rem; top: 1.5rem; right: 1.5rem; }
@@ -633,11 +633,11 @@ footer span { color: rgba(255,255,255,.28); }
 /* responsive */
 @media (max-width: 900px) {
   .days-grid { padding: 2.5rem 1.8rem 4rem; }
-  .chapter-header { padding: 5rem 2.5rem 3rem; }
+  /* padding handled in main ch-header rule */
 }
 @media (max-width: 640px) {
   .days-grid { padding: 2rem 1rem 3rem; }
-  .chapter-header { padding: 5rem 1.4rem 2.4rem; }
+  /* padding handled in main ch-header rule */
   .day-row { gap: 11px; }
   .day-marker { width: 40px; height: 40px; font-size: 12.5px; }
   .day-body { padding: 1rem .9rem 1rem 1.3rem; }
@@ -4561,15 +4561,16 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   min-height: clamp(420px, 52vh, 620px) !important;
   justify-content: flex-end;
   padding: 5rem clamp(1.5rem, 5vw, 4rem) 3.5rem !important;
+  overflow: hidden !important;
 }
 
 /* Giant ghost word — large background typography texture */
 .ch-ghost-word {
   position: absolute;
-  bottom: -0.15em;
-  right: -0.05em;
+  bottom: -0.1em;
+  right: -0.02em;
   font-family: 'Fraunces', serif;
-  font-size: clamp(9rem, 22vw, 18rem);
+  font-size: clamp(7rem, 16vw, 13rem);
   font-weight: 600;
   line-height: 1;
   color: rgba(255,255,255,.04);
@@ -4578,6 +4579,8 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   white-space: nowrap;
   z-index: 1;
   letter-spacing: -.02em;
+  overflow: hidden;
+  max-width: 100%;
 }
 .ch-kili  .ch-ghost-word { color: rgba(168,216,122,.05); }
 .ch-sav   .ch-ghost-word { color: rgba(200,135,42,.06);  }
@@ -4587,16 +4590,16 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 /* Vertical side text — rotated editorial label */
 .ch-vert {
   position: absolute;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: center center;
+  top: 3rem;
+  right: -2.5rem;
+  transform: rotate(90deg);
+  transform-origin: left center;
   font-family: 'Outfit', sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: .3em;
+  letter-spacing: .28em;
   text-transform: uppercase;
-  opacity: .22;
+  opacity: .18;
   white-space: nowrap;
   z-index: 2;
   pointer-events: none;
@@ -4606,7 +4609,10 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 .ch-content-block {
   position: relative;
   z-index: 3;
-  max-width: 640px;
+  max-width: min(640px, 75%);
+}
+@media (max-width: 700px) {
+  .ch-content-block { max-width: 100%; }
 }
 
 /* Chapter quote — new italic line above the sub */
@@ -4696,9 +4702,20 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 
 /* Mobile: smaller ghost word, hide vertical text */
 @media (max-width: 600px) {
-  .ch-ghost-word { font-size: clamp(6rem, 28vw, 10rem); }
+  .ch-ghost-word  { font-size: clamp(5rem, 24vw, 8rem); }
   .ch-vert        { display: none; }
-  .ch-stats       { gap: 1.2rem; }
-  .ch-meta-row    { gap: 1.2rem; }
-  .ch-stat-val    { font-size: 1.2rem; }
+  .ch-stats       { gap: 1rem; flex-wrap: wrap; }
+  .ch-meta-row    { gap: 1rem; flex-wrap: wrap; }
+  .ch-stat-val    { font-size: 1.15rem; }
+  .ch-dots        { padding-left: .6rem; }
+  .ch-content-block { max-width: 100%; }
+}
+
+/* ── CHAPTER HEADER: break out of grid padding ────────────────────────── */
+/* The days-grid has padding-left/right; header stretches full width */
+.chapter-header {
+  margin-left:  calc(-1 * clamp(1rem, 5vw, 4rem));
+  margin-right: calc(-1 * clamp(1rem, 5vw, 4rem));
+  width: calc(100% + 2 * clamp(1rem, 5vw, 4rem));
+  box-sizing: border-box;
 }
