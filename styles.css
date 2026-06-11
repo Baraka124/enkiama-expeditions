@@ -27,7 +27,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; width: 100%; overflow-x: hidden; box-sizing: border-box; }
+html { scroll-behavior: auto; font-size: 16px; width: 100%; overflow-x: hidden; box-sizing: border-box; }
 body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; width: 100%; max-width: 100%; position: relative; }
 
 /* ── NAV ── */
@@ -297,7 +297,7 @@ footer span { color: rgba(255,255,255,.28); }
   grid-template-rows: 0fr;
   transition: grid-template-rows .32s cubic-bezier(.4,0,.2,1);
 }
-.day-body.open .day-collapsible.dc-open {
+.day-collapsible.dc-open {
   grid-template-rows: 1fr;
 }
 .day-collapsible-inner {
@@ -4546,4 +4546,4 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   .lodge-v2-title { font-size: .95rem !important; }
   .lodge-v2-body  { padding: 1.1rem 1.2rem 1.3rem !important; }
   .lodge-v2-desc  { font-size: 12.5px !important; }
-}  
+}
