@@ -4295,8 +4295,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 }
 /* ── END BADGES ─────────────────────── */
 
-.day-marker { overflow: hidden; }
-.day-row { overflow: hidden; }
+/* overflow:hidden removed from .day-row — it breaks position:sticky on .day-marker */
 
 /* ── FAREWELL PRACTICAL NOTES ─────────────────────────── */
 .farewell-notes {
@@ -4976,7 +4975,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 /* During trip / after trip messages */
 .cs-trip-msg {
   font-family: 'Fraunces', serif;
-  font-size: clamp(1rem, 2.2vw, 1.3rem);  
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
   font-weight: 500;
   color: rgba(200,135,42,.95);
   letter-spacing: .04em;
