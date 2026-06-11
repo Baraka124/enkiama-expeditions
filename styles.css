@@ -4394,3 +4394,122 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   background: linear-gradient(155deg,
     #100700 0%, #2a1500 35%, #1a0d00 70%, #0d0500 100%);
 }
+
+
+/* ══════════════════════════════════════════════════
+   FINAL QUALITY PASS
+   ══════════════════════════════════════════════════ */
+
+/* 1. ZANZIBAR missing track + marker colours */
+.ch-zan .track-line {
+  background: linear-gradient(to bottom, rgba(10,74,94,.65) 0%, rgba(10,74,94,.15) 100%);
+}
+.ch-zan .day-marker {
+  background: var(--zan-dark, #041820);
+  border: 1.5px solid rgba(26,143,168,.45);
+  color: var(--zan-accent, #7fd8e8);
+}
+
+/* 2. CARD OPEN STATE — visual feedback when expanded */
+.day-body.dc-open {
+  border-color: rgba(0,0,0,.10);
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+}
+.ch-kili .day-body.dc-open  { border-left: 2px solid var(--kili-mid, #2d7a3a); }
+.ch-sav  .day-body.dc-open  { border-left: 2px solid var(--sav-warm, #c8782a); }
+.ch-rift .day-body.dc-open  { border-left: 2px solid var(--rift-mid, #8b3a2a); }
+.ch-zan  .day-body.dc-open  { border-left: 2px solid var(--zan-mid,  #0a4a5e); }
+.ch-prep .day-body.dc-open  { border-left: 2px solid var(--prep-mid, #5a4a7a); }
+
+/* 3. CARD BORDER — slightly more visible baseline */
+.day-body { border: 1px solid rgba(0,0,0,.07) !important; }
+
+/* 4. CHAPTER LEFT ACCENT on cards — subtle coloured left edge */
+.ch-kili .day-body { border-left: 2px solid rgba(45,122,58,.18) !important; }
+.ch-sav  .day-body { border-left: 2px solid rgba(200,120,42,.18) !important; }
+.ch-rift .day-body { border-left: 2px solid rgba(139,58,42,.18) !important; }
+.ch-zan  .day-body { border-left: 2px solid rgba(10,74,94,.18) !important; }
+
+/* 5. DAY NUMBER — slightly richer */
+.day-marker {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+/* 6. LODGE CARDS — chapter-tinted border per section */
+.ch-rift  .lodge-v2,
+.ch-rift  .lodge-v2:hover { border-color: rgba(139,58,42,.2); }
+.ch-zan   .lodge-v2,
+.ch-zan   .lodge-v2:hover { border-color: rgba(10,74,94,.2); }
+
+/* 7. DAY TITLE — slightly larger, more presence */
+.day-title {
+  font-size: 1.22rem !important;
+  line-height: 1.22;
+}
+
+/* 8. PREVIEW LINE — a little more breathing room */
+.day-preview { margin-bottom: .2rem; }
+
+/* 9. SHUKA TRIGGER (expand button) — cleaner */
+.shuka-trigger { border-radius: 0 0 16px 16px; }
+.shuka-trigger:hover { background: rgba(0,0,0,.03) !important; }
+
+/* 10. CHAPTER HEADER — richer for kili/sav (they use gradient bgs) */
+.chapter-header.ch-kili { background: linear-gradient(155deg, #061508 0%, #0d2410 40%, #061a0a 100%); }
+.chapter-header.ch-sav  { background: linear-gradient(155deg, #100700 0%, #2a1500 40%, #0d0500 100%); }
+
+/* 11. LODGE NIGHT LABEL — bolder */
+.lodge-v2-night {
+  font-weight: 600 !important;
+  letter-spacing: .14em !important;
+}
+
+/* 12. FAREWELL NOTES grid — more card-like */
+.farewell-notes-inner {
+  border-radius: 20px !important;
+}
+
+/* 13. MOBILE: day cards slightly more compact */
+@media (max-width: 500px) {
+  .day-body { padding: 1.2rem 1.3rem 0 1.4rem !important; }
+  .day-title { font-size: 1.08rem !important; }
+}
+
+/* ══ TRANSPORT MODE PILL ══════════════════════════════ */
+.day-transport {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-bottom: .55rem;
+  padding: .22rem .75rem .22rem .55rem;
+  border-radius: 20px;
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.07);
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(30,25,15,.52);
+  transition: background .2s;
+}
+.day-transport-icon {
+  font-size: 13px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+/* Chapter colour tint on the pill */
+.ch-kili  .day-transport { border-color: rgba(45,122,58,.22);  color: rgba(28,80,35,.65);  background: rgba(45,122,58,.05);  }
+.ch-sav   .day-transport { border-color: rgba(200,120,42,.22); color: rgba(140,80,20,.65); background: rgba(200,120,42,.05); }
+.ch-rift  .day-transport { border-color: rgba(139,58,42,.22);  color: rgba(100,40,25,.65); background: rgba(139,58,42,.05);  }
+.ch-zan   .day-transport { border-color: rgba(10,74,94,.22);   color: rgba(8,58,74,.65);   background: rgba(10,74,94,.05);   }
+.ch-prep  .day-transport { border-color: rgba(90,74,122,.22);  color: rgba(70,55,100,.65); background: rgba(90,74,122,.05);  }
+
+/* Flight days: slightly warmer amber pill */
+.day-transport.has-flight {
+  border-color: rgba(200,135,42,.3);
+  color: rgba(150,90,15,.7);
+  background: rgba(200,135,42,.07);
+}
