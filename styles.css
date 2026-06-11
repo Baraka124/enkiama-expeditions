@@ -222,7 +222,15 @@ body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: v
   letter-spacing: .01em;
 }
 .day-tags   { display: flex; flex-wrap: wrap; gap: 5px; margin-top: .8rem; }
-.dtag { font-size: 12px; font-weight: 500; padding: .24rem .75rem; border-radius: 100px; letter-spacing: .04em; }
+.dtag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: .22rem .72rem;
+  border-radius: 100px;
+  letter-spacing: .06em;
+  display: inline-block;
+  line-height: 1.4;
+}
 .dtag-gr { background: #eef6e8; color: #1e5c28; }
 .dtag-am { background: #f0f7ee; color: #2a5424; }
 .dtag-cu { background: #fdf3e3; color: #7a3c10; }
@@ -4979,7 +4987,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 /* Mobile: hide labels, keep numbers */
 @media (max-width: 600px) {
   .cs-label-left  { display: none; }
-  .cs-label-right { display: none; }
+  .cs-label-right { display: none; }     
   .cs-inner       { gap: 1rem; justify-content: center; padding: .9rem 1.5rem; }
   .cs-num         { font-size: 1.8rem; }
   .cs-divider     { font-size: 1.1rem; }
