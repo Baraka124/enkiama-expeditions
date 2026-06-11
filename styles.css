@@ -185,7 +185,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: v
 .ch-prep .track-line { background: linear-gradient(to bottom, rgba(42,42,74,.55), transparent); }
 
 .day-row { display: flex; gap: 24px; margin-bottom: 18px; position: relative; align-items: flex-start; }
-.day-marker { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12.5px; font-weight: 500; position: relative; z-index: 1; transition: transform .2s; font-family: 'Outfit', sans-serif; }
+.day-marker { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12.5px; font-weight: 500; position: sticky; top: 1.2rem; align-self: flex-start; z-index: 1; transition: transform .2s; font-family: 'Outfit', sans-serif; }
 .day-row:hover .day-marker { transform: scale(1.08); }
 .ch-kili .day-marker { background: var(--kili-dark); border: 1.5px solid rgba(30,92,40,.65);   color: var(--kili-accent); }
 .ch-sav  .day-marker { background: var(--sav-dark);  border: 1.5px solid rgba(46,84,36,.65);   color: var(--sav-bright); }
@@ -3546,7 +3546,9 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  position: relative !important;
+  position: sticky !important;
+  top: 1.2rem !important;
+  align-self: flex-start !important;
   z-index: 2 !important;
   transition: transform .25s ease, box-shadow .25s ease !important;
   margin-top: 4px;
@@ -4974,7 +4976,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 /* During trip / after trip messages */
 .cs-trip-msg {
   font-family: 'Fraunces', serif;
-  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);  
   font-weight: 500;
   color: rgba(200,135,42,.95);
   letter-spacing: .04em;
