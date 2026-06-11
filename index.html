@@ -1142,12 +1142,15 @@ function toggleDay(id, btn) {
     if (row) row.classList.add('dc-open');
     if (lbl) lbl.textContent = 'cerrar';
 
-    // Smooth scroll after animation
+    // Scroll only if card top is above the visible viewport
     setTimeout(function() {
       if (!dayBody) return;
-      var top = dayBody.getBoundingClientRect().top + window.pageYOffset - 90;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-    }, 400);
+      var rect = dayBody.getBoundingClientRect();
+      if (rect.top < 80) {
+        var top = rect.top + window.pageYOffset - 90;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }, 350);
   }
 }
 
@@ -1480,7 +1483,7 @@ document.addEventListener('DOMContentLoaded', buildPackList);
     {id:'savanna',  title:'Sabana · Karibu Tanzania'},
     {id:'rift',     title:'Rift Valley · Karibu Tanzania'},
     {id:'prep',     title:'Antes de salir · Karibu Tanzania'},
-    {id:'zanzibar', title:'Zanzíbar · Karibu Tanzania'}
+    {id:'zanzibar', title:'Zanzíbar · Karibu Tanzania'}  
   ];
   window.addEventListener('scroll', function() {
     chapters.forEach(function(ch) {
@@ -1496,4 +1499,4 @@ document.addEventListener('DOMContentLoaded', buildPackList);
 
 </script>
 </body>
-</html>  
+</html>
