@@ -1483,7 +1483,7 @@ document.addEventListener('DOMContentLoaded', buildPackList);
       var el = document.getElementById(ch.id);
       if (!el) return;
       var rect = el.getBoundingClientRect();
-      if (rect.top <= window.innerHeight*0.5 && rect.bottom >= 0) {
+      if (rect.top <= window.innerHeight*0.5 && rect.bottom >= 0) {   
         if (document.title !== ch.title) document.title = ch.title;
       }
     });
