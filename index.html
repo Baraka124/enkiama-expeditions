@@ -1627,7 +1627,7 @@ document.addEventListener('DOMContentLoaded', buildPackList);
     {id:'zanzibar', title:'Zanzíbar · Karibu Tanzania'}
   ];
   window.addEventListener('scroll', function() {
-    chapters.forEach(function(ch) {
+    chapters.forEach(function(ch) {  
       var el = document.getElementById(ch.id);
       if (!el) return;
       var rect = el.getBoundingClientRect();
