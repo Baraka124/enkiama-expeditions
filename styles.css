@@ -2160,8 +2160,8 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 /* ── LODGE CARDS V2 (character-based, no brand names) ──────── */
 .lodges-v2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.6rem;
   margin: 2rem 0 0;
 }
 .lodge-v2 {
@@ -2177,12 +2177,17 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   position: relative;
   width: 100%;
   height: 300px;
-  background: linear-gradient(135deg, rgba(20,31,18,.5), rgba(13,31,16,.8));
+  background: #0a0f0a;
   overflow: hidden;
+  border-radius: 12px 12px 0 0;
 }
 .lodge-v2-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 50%;
-  transition: transform .8s ease;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 50%;
+  display: block;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
 }
 .lodge-v2:hover .lodge-v2-photo img { transform: scale(1.04); }
 .lodge-v2-photo-placeholder {
@@ -3742,12 +3747,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 
 
 /* ── LODGE PHOTO CAPTION ── */
-.lodge-v2-photo {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-  height: 300px;
-}
+/* lodge-v2-photo border-radius merged into main rule */
 .lodge-v2-photo::after {
   content: attr(data-caption);
   position: absolute;
@@ -3769,13 +3769,7 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   transform: translateY(0);
 }
 
-/* ── LODGE IMAGE ZOOM ON HOVER ── */
-.lodge-v2-photo img {
-  transition: transform .5s cubic-bezier(.4,0,.2,1);
-}
-.lodge-v2:hover .lodge-v2-photo img {
-  transform: scale(1.04);
-}
+/* lodge hover zoom handled in main rule */
 
 /* ── CHAPTER HEADER FADE ── */
 .ch-num, .ch-title, .ch-sub, .ch-badge {
@@ -4514,4 +4508,42 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
   border-color: rgba(200,135,42,.3);
   color: rgba(150,90,15,.7);
   background: rgba(200,135,42,.07);
+}
+
+/* Transport pill colour by mode */
+.day-transport .day-transport-icon { margin-right: .3rem; }
+/* Flight days already have .has-flight styling */
+/* Safari Jeep — give it a safari-amber tint outside chapter context */
+.day-transport:not(.has-flight) .day-transport-icon { filter: none; }
+
+/* Lodge body polish */
+.lodge-v2-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 500;
+  margin-bottom: .3rem;
+  line-height: 1.2;
+}
+.lodge-v2-loc {
+  font-size: 11px !important;
+  letter-spacing: .14em !important;
+  opacity: .65;
+  margin-bottom: .6rem !important;
+}
+.lodge-v2-desc {
+  font-size: 13.5px !important;
+  line-height: 1.62 !important;
+  color: rgba(250,248,244,.62) !important;
+}
+.lodge-v2-night {
+  font-size: 10px !important;
+  letter-spacing: .18em !important;
+  margin-bottom: .6rem !important;
+}
+
+/* Mobile lodge card adjustments */
+@media (max-width: 500px) {
+  .lodge-v2-title { font-size: .95rem !important; }
+  .lodge-v2-body  { padding: 1.1rem 1.2rem 1.3rem !important; }
+  .lodge-v2-desc  { font-size: 12.5px !important; }
 }  
