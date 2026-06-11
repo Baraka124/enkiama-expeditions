@@ -4544,11 +4544,161 @@ body, p, span, div, td, th, li, blockquote, label, input, button {
 /* Mobile lodge card adjustments */
 @media (max-width: 500px) {
   .lodge-v2-title { font-size: .95rem !important; }
-  .lodge-v2-body  { padding: 1.1rem 1.2rem 1.3rem !important; }  
+  .lodge-v2-body  { padding: 1.1rem 1.2rem 1.3rem !important; }
   .lodge-v2-desc  { font-size: 12.5px !important; }
 }
 
 /* Rift chapter — no photo, clean dark gradient */
 .chapter-header.ch-rift {
   background: linear-gradient(155deg, #180a04 0%, #3a1205 35%, #1a0800 70%, #0e0400 100%);
+}
+
+
+/* ══ CHAPTER HEADER CREATIVE REDESIGN ══════════════════════════════════ */
+
+/* Reduce height — content fills it now */
+.chapter-header {
+  min-height: clamp(420px, 52vh, 620px) !important;
+  justify-content: flex-end;
+  padding: 5rem clamp(1.5rem, 5vw, 4rem) 3.5rem !important;
+}
+
+/* Giant ghost word — large background typography texture */
+.ch-ghost-word {
+  position: absolute;
+  bottom: -0.15em;
+  right: -0.05em;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(9rem, 22vw, 18rem);
+  font-weight: 600;
+  line-height: 1;
+  color: rgba(255,255,255,.04);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1;
+  letter-spacing: -.02em;
+}
+.ch-kili  .ch-ghost-word { color: rgba(168,216,122,.05); }
+.ch-sav   .ch-ghost-word { color: rgba(200,135,42,.06);  }
+.ch-rift  .ch-ghost-word { color: rgba(240,160,96,.06);  }
+.ch-zan   .ch-ghost-word { color: rgba(127,216,232,.05); }
+
+/* Vertical side text — rotated editorial label */
+.ch-vert {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  opacity: .22;
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Content block — all text in one positioned group */
+.ch-content-block {
+  position: relative;
+  z-index: 3;
+  max-width: 640px;
+}
+
+/* Chapter quote — new italic line above the sub */
+.ch-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-style: italic;
+  color: rgba(255,255,255,.82);
+  margin: .8rem 0 .4rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+.ch-kili  .ch-quote { color: rgba(168,216,122,.9); }
+.ch-sav   .ch-quote { color: rgba(220,165,80,.9);  }
+.ch-rift  .ch-quote { color: rgba(240,160,96,.9);  }
+.ch-zan   .ch-quote { color: rgba(127,216,232,.9); }
+
+/* Sub text — increase opacity */
+.ch-sub {
+  color: rgba(255,255,255,.55) !important;
+  margin-top: .6rem !important;
+  font-size: clamp(.95rem, 1.6vw, 1.1rem) !important;
+}
+
+/* Meta row — stats + dots side by side */
+.ch-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Stats block */
+.ch-stats {
+  display: flex;
+  gap: 1.6rem;
+}
+.ch-stat {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
+.ch-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+.ch-stat-lbl {
+  font-family: 'Outfit', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+}
+
+/* Day dots — one per day in chapter */
+.ch-dots {
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255,255,255,.1);
+}
+.ch-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Badge — tighter now */
+.ch-badge {
+  margin-top: 1.2rem !important;
+}
+
+/* ch-label — eyebrow */
+.ch-label {
+  font-size: 11px !important;
+  opacity: .6;
+  letter-spacing: .22em;
+}
+
+/* Mobile: smaller ghost word, hide vertical text */
+@media (max-width: 600px) {
+  .ch-ghost-word { font-size: clamp(6rem, 28vw, 10rem); }
+  .ch-vert        { display: none; }
+  .ch-stats       { gap: 1.2rem; }
+  .ch-meta-row    { gap: 1.2rem; }
+  .ch-stat-val    { font-size: 1.2rem; }
 }
