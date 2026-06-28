@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The family — Enkiama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08110C;--ink2:#0E1A14;--bone:#EDE6D6;--bone2:#E4DCC8;--ochre:#1D9E75;--earth:#C79E5A;--muted:#6A6258;--rule:rgba(199,158,90,0.11);--rule-md:rgba(199,158,90,0.18);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.038;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;}
+body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.eye{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;font-weight:400;letter-spacing:0.18em;color:var(--earth);line-height:1;}
+.dim{font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:14px;line-height:2;color:rgba(237,230,214,0.48);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(0.16,1,0.3,1),transform .9s cubic-bezier(0.16,1,0.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;border-bottom:1px solid var(--rule);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);}
+.n-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:18px;font-weight:400;letter-spacing:0.06em;color:var(--bone);text-decoration:none;}
+.n-links{display:flex;gap:2.25rem;list-style:none;}
+.n-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;transition:color .25s;position:relative;padding-bottom:3px;}
+.n-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ochre);transition:width .3s;}
+.n-links a:hover{color:var(--bone);}.n-links a:hover::after,.n-links a.active::after{width:100%;}.n-links a.active{color:var(--bone);}
+.n-begin{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;padding:6px 18px;border:1px solid rgba(29,158,117,0.6);color:var(--ochre);background:none;text-decoration:none;display:inline-block;transition:all .25s;}
+.n-begin:hover{border-color:var(--ochre);background:var(--ochre);color:var(--ink);}
+.btn-primary{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;padding:14px 34px;border:1px solid var(--ochre);color:var(--ink);background:var(--ochre);text-decoration:none;display:inline-block;transition:all .3s;}
+.btn-primary:hover{background:transparent;color:var(--ochre);}
+.btn-ghost{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;color:var(--muted);text-decoration:none;position:relative;padding-bottom:3px;transition:color .25s;}
+.btn-ghost::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .35s;}
+.btn-ghost:hover{color:var(--bone);}.btn-ghost:hover::after{width:100%;}
+.ochre-rule{width:24px;height:1px;background:var(--ochre);opacity:0.38;margin:2rem 0;}
+
+/* PAGE HEADER */
+.ph{padding:11rem 3rem 8rem;margin-top:28px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
+.ph-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(130px,22vw,340px);font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.032);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
+.ph-inner{position:relative;z-index:2;}
+.ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(56px,10vw,138px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--bone);margin:2.5rem 0 1.5rem;}
+.ph-hed em{font-style:italic;color:var(--ochre);}
+.ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.44);line-height:1.55;max-width:660px;}
+
+/* ENKIAMA INTRO */
+.enkiama-intro{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.ei-l{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);}
+.ei-r{padding:8rem 3rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:500px;}
+.ei-film{width:100%;height:100%;background:linear-gradient(148deg,#1c1814 0%,#0e0b09 60%,#080606 100%);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.ei-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 32%,rgba(4,9,6,0.72) 100%);}
+.film-hint{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(199,158,90,0.06);z-index:1;position:relative;}
+.ei-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.ei-hl em{font-style:italic;color:var(--ochre);}
+
+/* PARTNER PORTRAITS */
+.portraits{}
+.portrait{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.portrait.flip{direction:rtl;}
+.portrait.flip>*{direction:ltr;}
+.portrait-photo{min-height:540px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.p1 .portrait-photo{background:linear-gradient(148deg,#1a1a0e 0%,#0d0d08 60%,#080806 100%);}
+.p2 .portrait-photo{background:linear-gradient(148deg,#1e1a0a 0%,#120f06 60%,#090706 100%);}
+.p3 .portrait-photo{background:linear-gradient(148deg,#141c14 0%,#0b1008 60%,#060806 100%);}
+.p4 .portrait-photo{background:linear-gradient(148deg,#0c1018 0%,#090e14 60%,#060810 100%);}
+.portrait-photo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(4,9,6,0.72) 100%);}
+.photo-lbl{position:absolute;bottom:1.75rem;left:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.24em;color:rgba(199,158,90,0.2);}
+.photo-tag{position:absolute;top:1.75rem;right:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.18em;padding:5px 12px;border:1px solid rgba(199,158,90,0.12);color:rgba(199,158,90,0.32);}
+.portrait-txt{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.pt-ghost{position:absolute;bottom:-0.05em;left:-0.02em;font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(100px,13vw,180px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.04);pointer-events:none;letter-spacing:-0.025em;line-height:1;}
+.pt-inner{position:relative;z-index:2;}
+.pt-role{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.2em;color:var(--ochre);margin-bottom:1.5rem;}
+.pt-name{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(32px,5vw,68px);font-weight:900;color:var(--bone);line-height:0.88;letter-spacing:-0.025em;margin-bottom:0.5rem;}
+.pt-world{font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:16px;color:var(--earth);display:block;margin-bottom:2rem;font-weight:300;}
+.pt-rule{width:18px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.75rem;}
+.pt-q{padding:2rem 2.25rem;border-left:2px solid var(--ochre);background:rgba(29,158,117,0.03);margin-bottom:2rem;}
+.pt-q p{font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:17px;font-weight:300;color:rgba(237,230,214,0.62);line-height:1.75;}
+.pt-years{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.18em;color:var(--muted);}
+
+/* ASILI — cream inversion */
+.asili-gap{height:80px;background:var(--ink);}
+.asili{background:var(--bone2);color:var(--ink);padding:10rem 3rem 11rem;clip-path:polygon(0 80px,100% 0,100% calc(100% - 80px),0 100%);margin:-80px 0;position:relative;overflow:hidden;}
+.asili-pg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(100px,18vw,280px);font-weight:900;color:rgba(8,17,12,0.038);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
+.asili-inner{position:relative;z-index:2;}
+.asili-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(44px,8vw,108px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--ink);margin:2.5rem 0 5rem;}
+.asili-hed em{font-style:italic;color:var(--ochre);}
+.asili-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(8,17,12,0.08);}
+.asili-c{background:var(--bone2);padding:4rem 3rem;}
+.sw-lg{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(32px,5vw,56px);font-weight:900;font-style:italic;color:var(--ochre);line-height:1;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+.sw-en{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.16em;color:rgba(8,17,12,0.4);margin-bottom:1.75rem;}
+.sw-rule{width:14px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.5rem;}
+.sw-body{font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(8,17,12,0.46);line-height:1.9;}
+
+/* CTA */
+.cta-strip{border-top:1px solid var(--rule);margin-top:80px;display:grid;grid-template-columns:2fr 1fr;}
+.cta-s-l{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);}
+.cta-s-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.cta-s-hl em{font-style:italic;color:var(--ochre);}
+.cta-s-r{padding:8rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;}
+footer{border-top:1px solid var(--rule);padding:3rem;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:2rem;}
+.f-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:17px;font-weight:400;letter-spacing:0.06em;color:rgba(237,230,214,0.18);}
+.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.14);margin-top:5px;}
+.f-links{display:flex;gap:1.75rem;list-style:none;justify-content:center;flex-wrap:wrap;}
+.f-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;opacity:0.38;transition:opacity .2s;}
+.f-links a:hover{opacity:1;}
+.f-right{text-align:right;}
+.f-copy{font-family:'Instrument Sans',sans-serif;font-size:9px;color:var(--muted);opacity:0.18;letter-spacing:0.12em;}
+.f-contact{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.22);margin-bottom:5px;}
+@media(max-width:860px){
+  nav{padding:0 1.5rem;}.n-links{display:none;}
+  .ph,.ei-l,.cta-s-l,.cta-s-r{padding-left:1.5rem;padding-right:1.5rem;}
+  .ph{padding-top:8rem;padding-bottom:5rem;}
+  .enkiama-intro{grid-template-columns:1fr;}.ei-l{border-right:none;border-bottom:1px solid var(--rule);padding:5rem 1.5rem;}.ei-r{min-height:55vw;}
+  .portrait{grid-template-columns:1fr;}.portrait.flip{direction:ltr;}
+  .portrait-photo{min-height:56vw;}.portrait-txt{padding:4rem 1.5rem;}
+  .asili-gap{height:40px;}.asili{padding:7rem 1.5rem;clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%);}
+  .asili-grid{grid-template-columns:1fr;}.asili-c{padding:3rem 1.5rem;}
+  .cta-strip{grid-template-columns:1fr;margin-top:40px;}.cta-s-l{border-right:none;padding:5rem 1.5rem;}.cta-s-r{padding:0 1.5rem 5rem;}
+  footer{grid-template-columns:1fr;padding:2.5rem 1.5rem;}.f-right{text-align:left;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="n-logo">Enkiama</a>
+  <ul class="n-links">
+    <li><a href="tanzania.html">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html" class="active">The family</a></li>
+    <li><a href="notes.html">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <a href="begin.html" class="n-begin">Begin &rarr;</a>
+</nav>
+<!-- EDITORIAL ISSUE BAR -->
+<div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(199,158,90,0.11);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
+  <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(199,158,90,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(199,158,90,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+</div>
+
+
+<section class="ph">
+  <div class="ph-ghost">ndugu</div>
+  <div class="ph-inner">
+    <p class="eye" style="margin-bottom:2.5rem;">The people behind every journey</p>
+    <h1 class="ph-hed reveal">The family<br>behind every<br><em>journey.</em></h1>
+    <p class="ph-sub reveal">Not a team page. Not credentials. An introduction to the people whose knowledge, warmth, and belonging to Tanzania&rsquo;s worlds make every Enkiama journey possible.</p>
+  </div>
+</section>
+
+<!-- ENKIAMA INTRO -->
+<section class="enkiama-intro">
+  <div class="ei-l">
+    <p class="eye" style="margin-bottom:2rem;">Enkiama</p>
+    <h2 class="ei-hl reveal">Small roster.<br>Wide reach.<br><em>Exact</em> people.</h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">Our core family is deliberately small &mdash; a handful of guides, lodges, and cultural partners whose knowledge and warmth we can genuinely stand behind. But the journeys we design routinely draw from beyond that core: local guides who know a single village better than anyone we could bring, niche operators with twenty years in a specific ecosystem, community specialists whose access to a particular place is entirely their own and cannot be contracted away.</p>
+    <p class="dim reveal" style="margin-top:1rem;">We bring them in by name, with an explanation, transparently costed. Not because it is the ethical thing to do &mdash; though it is &mdash; but because the morning they make possible is a better morning. The two arguments happen to be the same argument.</p>
+    <p class="dim reveal" style="margin-top:1rem;">We travel with every group. We make every introduction personally. What we are is not a tour operator. It is closer to a very well-connected, very honest friend who happens to know Tanzania deeply and wants you to feel it properly.</p>
+  </div>
+  <div class="ei-r">
+    <div class="ei-film"><span class="film-hint">[ Enkiama — arrival moment, first welcome ]</span></div>
+  </div>
+</section>
+
+
+<!-- EDITORIAL STATEMENT -->
+<section style="padding:10rem 3rem;border-bottom:1px solid rgba(199,158,90,0.11);position:relative;overflow:hidden;background:#0E1A14;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,18vw,280px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.028);pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-0.03em;">belong</div>
+  <blockquote style="position:relative;z-index:2;max-width:900px;">
+    <p style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(30px,5vw,66px);font-weight:700;line-height:0.97;letter-spacing:-0.025em;color:rgba(237,230,214,0.88);" class="reveal">The guide who built a school on the crater rim<br>shows you a different crater.<br><em style="font-style:italic;color:#1D9E75;">That is the access.</em></p>
+  </blockquote>
+</section>
+
+<!-- PARTNER PORTRAITS -->
+<section class="portraits">
+
+  <div class="portrait p1">
+    <div class="portrait-photo">
+      <span class="film-hint">[ Joseph — Serengeti, wide plain, guide ]</span>
+      <span class="photo-tag">Serengeti naturalist</span>
+      <span class="photo-lbl">Northern Serengeti &middot; 30 years on the plain</span>
+    </div>
+    <div class="portrait-txt">
+      <div class="pt-ghost">J</div>
+      <div class="pt-inner">
+        <p class="pt-role">Savanna &middot; Wildlife &middot; Migration</p>
+        <h2 class="pt-name reveal">Joseph</h2>
+        <span class="pt-world">Serengeti &mdash; thirty years, one plain</span>
+        <div class="pt-rule"></div>
+        <div class="pt-q reveal">
+          <p>&ldquo;I have made the same descent into the northern corridor five hundred times. I have never once not felt it. The migration does not become ordinary. The plain does not become ordinary. If it does, you should leave.&rdquo;</p>
+        </div>
+        <p class="dim reveal">Joseph has guided the Serengeti&rsquo;s northern corridor since the late 1990s. He knows where the lion will be at first light, which crossing point the wildebeest will choose, and how to read a sky that is about to produce an afternoon that guests will spend the rest of their lives describing.</p>
+        <p class="dim reveal" style="margin-top:1rem;">He also knows when to say nothing. The most extraordinary guides understand that silence, at the right moment, is the best interpretation.</p>
+        <p class="pt-years reveal">Thirty years in the field &middot; Northern Serengeti &middot; Mara crossing specialist</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="portrait p2 flip">
+    <div class="portrait-photo">
+      <span class="film-hint">[ Daniel — Maasai, crater rim, landscape ]</span>
+      <span class="photo-tag">Maasai cultural guide</span>
+      <span class="photo-lbl">Ngorongoro &middot; Maasai community school</span>
+    </div>
+    <div class="portrait-txt" style="padding:6rem 4rem 6rem 3rem;">
+      <div class="pt-ghost">D</div>
+      <div class="pt-inner">
+        <p class="pt-role">Crater &middot; Culture &middot; Maasai tradition</p>
+        <h2 class="pt-name reveal">Daniel</h2>
+        <span class="pt-world">Ngorongoro &mdash; the rim and what lies below</span>
+        <div class="pt-rule"></div>
+        <div class="pt-q reveal">
+          <p>&ldquo;Tourists come to photograph Maasai. My guests come to understand us. There is a difference that I can feel in the first five minutes of meeting someone. Enkiama always sends the second kind.&rdquo;</p>
+        </div>
+        <p class="dim reveal">Daniel was born on the crater rim. He built a school there with income from guiding &mdash; not as philanthropy, but because he believes the community that raises guides should benefit from what they produce. His students are the next generation of people who will show visitors the crater. That continuity is why his knowledge is still deepening after thirty years. He guides the crater itself, the Maasai bomas on its rim, and the cultural world that most safari itineraries treat as a backdrop.</p>
+        <p class="dim reveal" style="margin-top:1rem;">He speaks Maa, Swahili, English, and enough Italian to make Roman guests feel seen.</p>
+        <p class="pt-years reveal">Ngorongoro Crater &middot; Maasai boma host &middot; Community school founder</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="portrait p3">
+    <div class="portrait-photo">
+      <span class="film-hint">[ Kibosho family — coffee farm, morning mist, mountain ]</span>
+      <span class="photo-tag">Chagga mountain partners</span>
+      <span class="photo-lbl">Kibosho &middot; 1,700m &middot; Kilimanjaro foothills</span>
+    </div>
+    <div class="portrait-txt">
+      <div class="pt-ghost">K</div>
+      <div class="pt-inner">
+        <p class="pt-role">Mountain &middot; Culture &middot; Coffee &middot; Homestay</p>
+        <h2 class="pt-name reveal">The Kibosho family</h2>
+        <span class="pt-world">Kilimanjaro foothills &mdash; four generations, one farm</span>
+        <div class="pt-rule"></div>
+        <div class="pt-q reveal">
+          <p>&ldquo;When guests sit at our table, we are not performing hospitality for them. They are simply eating with us. The table is always set like this. We always cook this much food. That is ukarimu &mdash; it is not for visitors. It is just how we live.&rdquo;</p>
+        </div>
+        <p class="dim reveal">A Chagga family in Kibosho who have farmed Kilimanjaro&rsquo;s southern slopes for four generations. Their coffee grows at 1,700 metres in volcanic red soil. Their banana grove predates every lodge in the national park. Their home, which guests occasionally share for a night, is the warmest building in any Enkiama journey.</p>
+        <p class="pt-years reveal">Kibosho village &middot; 1,700m &middot; Coffee &amp; banana cultivation &middot; Homestay hosts</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="portrait p4 flip" style="border-bottom:none;">
+    <div class="portrait-photo">
+      <span class="film-hint">[ Fatima — Stone Town, historic alley, Zanzibar ]</span>
+      <span class="photo-tag">Stone Town historian</span>
+      <span class="photo-lbl">Zanzibar &middot; Stone Town &middot; Swahili heritage</span>
+    </div>
+    <div class="portrait-txt" style="padding:6rem 4rem 6rem 3rem;">
+      <div class="pt-ghost">F</div>
+      <div class="pt-inner">
+        <p class="pt-role">Coast &middot; Swahili history &middot; Stone Town</p>
+        <h2 class="pt-name reveal">Fatima</h2>
+        <span class="pt-world">Stone Town &mdash; seven centuries, one guide</span>
+        <div class="pt-rule"></div>
+        <div class="pt-q reveal">
+          <p>&ldquo;Every door in Stone Town has a story. Every wall. The tourists walk past them looking for the spice market. I try to give them the walls. Because the walls are older than any market, and more interesting, and no one photographs them.&rdquo;</p>
+        </div>
+        <p class="dim reveal">Fatima grew up in Stone Town&rsquo;s Malindi neighbourhood, the oldest continuously inhabited quarter in the city. She studied Swahili architectural history at the University of Dar es Salaam and returned to Stone Town to guide it &mdash; because she found that no one else was doing it the way she knew it deserved.</p>
+        <p class="dim reveal" style="margin-top:1rem;">She knows every building by its century. She knows whose family owned which house. She knows which courtyard garden is still tended and by whom. Stone Town with Fatima is a completely different place to Stone Town without her.</p>
+        <p class="pt-years reveal">Stone Town, Zanzibar &middot; Swahili architectural history &middot; Malindi quarter specialist</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ASILI — cream inversion, three Swahili values -->
+<div class="asili-gap"></div>
+<section class="asili">
+  <div class="asili-pg">asili</div>
+  <div class="asili-inner">
+    <p class="eye" style="color:var(--ochre);margin-bottom:2rem;">The values we share</p>
+    <h2 class="asili-hed reveal">Three words<br>that hold the<br><em>family together.</em></h2>
+    <div class="asili-grid">
+      <div class="asili-c reveal">
+        <div class="sw-lg">Ndugu</div>
+        <p class="sw-en">Family by shared values</p>
+        <div class="sw-rule"></div>
+        <p class="sw-body">Brother, sister, kin &mdash; in Tanzania, anyone bound to you by shared values rather than blood. The people we work with are not selected from a roster. They were chosen one by one, over years, because of specific things they know and specific ways they are with people. That selection is the product. Everything else follows from it.</p>
+      </div>
+      <div class="asili-c reveal">
+        <div class="sw-lg">Ukarimu</div>
+        <p class="sw-en">Hospitality as a way of life</p>
+        <div class="sw-rule"></div>
+        <p class="sw-body">The deep Tanzanian value of hospitality &mdash; not as a service offering, but as a way of being in the world. The Kibosho family does not perform ukarimu for guests. They simply live it, and guests happen to be present. That is the difference between something curated and something real. Our entire network is built around people who already live this.</p>
+      </div>
+      <div class="asili-c reveal">
+        <div class="sw-lg">Asili</div>
+        <p class="sw-en">Origin, authenticity, source</p>
+        <div class="sw-rule"></div>
+        <p class="sw-body">The origin of something &mdash; its authentic nature, what it is from its source. The word we reach for when trying to describe what separates a guide who belongs to a place from one who has learned to describe it. Joseph&rsquo;s thirty years of attention to the plain. Daniel&rsquo;s genuine pride in the school he built on the rim. Fatima&rsquo;s actual love for the city she grew up inside. Asili is not achievable. It is either present or it is not. We look for it first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="cta-s-l">
+    <p class="eye" style="margin-bottom:2rem;">Meet them in person</p>
+    <h2 class="cta-s-hl reveal">You have met them<br>here. You will meet<br>them <em>in Tanzania.</em></h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">Every partner in the Enkiama network is introduced personally at the start of the element they guide. There are no surprises. No strangers. By the time you arrive in the Serengeti, you already know who Joseph is. By the time you sit at the Kibosho table, you know whose family you are joining.</p>
+    <p class="dim reveal" style="margin-top:1rem;">That introduction begins the moment you contact us. We tell you who we are thinking of for your journey and why. You tell us if something feels right. The family assembles around your group &mdash; not the other way around.</p>
+  </div>
+  <div class="cta-s-r">
+    <a href="begin.html" class="btn-primary">Begin the conversation</a>
+    <a href="stories.html" class="btn-ghost">Read guest stories &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div><div class="f-logo">Enkiama</div><div class="f-tagline">Not a tour. An experience built only for you.</div></div>
+  <ul class="f-links">
+    <li><a href="tanzania.html">Tanzania</a></li><li><a href="how.html">How we work</a></li><li><a href="family.html">The family</a></li><li><a href="notes.html">Field notes</a></li><li><a href="stories.html">Stories</a></li><li><a href="journeys.html">Journeys</a></li><li><a href="begin.html">Begin</a></li>
+  </ul>
+  <div class="f-right"><div class="f-contact">hola@enkiama.com</div><div class="f-copy">Year&ndash;round &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; &copy; 2025 Enkiama</div></div>
+</footer>
+<script>
+(function(){if(!window.IntersectionObserver)return;const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.07,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6)*0.06+'s';io.observe(el);});})();
+</script>
+</body>
+</html>

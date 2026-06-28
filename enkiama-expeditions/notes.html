@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field notes — Enkiama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08110C;--ink2:#0E1A14;--bone:#EDE6D6;--bone2:#E4DCC8;--ochre:#1D9E75;--earth:#C79E5A;--muted:#6A6258;--rule:rgba(199,158,90,0.11);--rule-md:rgba(199,158,90,0.18);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.038;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;}
+body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.eye{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;font-weight:400;letter-spacing:0.18em;color:var(--earth);line-height:1;}
+.dim{font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:14px;line-height:2;color:rgba(237,230,214,0.48);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(0.16,1,0.3,1),transform .9s cubic-bezier(0.16,1,0.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;border-bottom:1px solid var(--rule);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);}
+.n-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:18px;font-weight:400;letter-spacing:0.06em;color:var(--bone);text-decoration:none;}
+.n-links{display:flex;gap:2.25rem;list-style:none;}
+.n-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;transition:color .25s;position:relative;padding-bottom:3px;}
+.n-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ochre);transition:width .3s;}
+.n-links a:hover{color:var(--bone);}.n-links a:hover::after,.n-links a.active::after{width:100%;}.n-links a.active{color:var(--bone);}
+.n-begin{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;padding:6px 18px;border:1px solid rgba(29,158,117,0.6);color:var(--ochre);background:none;text-decoration:none;display:inline-block;transition:all .25s;}
+.n-begin:hover{border-color:var(--ochre);background:var(--ochre);color:var(--ink);}
+.btn-primary{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;padding:14px 34px;border:1px solid var(--ochre);color:var(--ink);background:var(--ochre);text-decoration:none;display:inline-block;transition:all .3s;}
+.btn-primary:hover{background:transparent;color:var(--ochre);}
+.btn-ghost{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;color:var(--muted);text-decoration:none;position:relative;padding-bottom:3px;transition:color .25s;}
+.btn-ghost::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .35s;}
+.btn-ghost:hover{color:var(--bone);}.btn-ghost:hover::after{width:100%;}
+.ochre-rule{width:24px;height:1px;background:var(--ochre);opacity:0.38;margin:2rem 0;}
+.film-hint{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(199,158,90,0.06);z-index:1;position:relative;}
+
+/* PAGE HEADER */
+.ph{padding:11rem 3rem 8rem;margin-top:28px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
+.ph-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,19vw,300px);font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.03);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
+.ph-inner{position:relative;z-index:2;}
+.ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(56px,10vw,136px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--bone);margin:2.5rem 0 1.5rem;}
+.ph-hed em{font-style:italic;color:var(--ochre);}
+.ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.44);line-height:1.55;max-width:640px;}
+
+/* FEATURED DISPATCH */
+.featured{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.fd-film{min-height:70vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#1a1a0e 0%,#0e0e08 55%,#080806 100%);}
+.fd-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,transparent 28%,rgba(4,9,6,0.78) 100%);}
+.fd-film-lbl{position:absolute;bottom:1.75rem;left:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.24em;color:rgba(199,158,90,0.2);}
+.fd-film-tag{position:absolute;top:1.75rem;right:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.18em;padding:5px 12px;border:1px solid rgba(199,158,90,0.12);color:rgba(199,158,90,0.3);}
+.fd-txt{padding:7rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.fd-issue{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.22em;color:var(--muted);opacity:0.45;margin-bottom:2rem;}
+.fd-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(36px,5.5vw,72px);font-weight:900;line-height:0.9;letter-spacing:-0.025em;color:var(--bone);margin-bottom:2rem;}
+.fd-hed em{font-style:italic;color:var(--ochre);}
+.fd-body{font-size:15px;font-weight:300;color:rgba(237,230,214,0.52);line-height:2;max-width:440px;}
+.fd-attr{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule);display:flex;align-items:center;gap:2rem;}
+.fd-attr-name{font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:400;color:rgba(237,230,214,0.5);}
+.fd-attr-meta{font-family:'Instrument Sans',sans-serif;font-size:11px;color:var(--muted);}
+
+/* DISPATCH GRID */
+.dispatches{display:grid;grid-template-columns:repeat(3,1fr);}
+.dc{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;}
+.dc:nth-child(3n){border-right:none;}
+.dc:nth-last-child(-n+3){border-bottom:none;}
+.dc-film{height:240px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.dc1{background:linear-gradient(148deg,#1e1a0c 0%,#120f06 55%,#090706 100%);}
+.dc2{background:linear-gradient(148deg,#101810 0%,#0a1008 55%,#060806 100%);}
+.dc3{background:linear-gradient(148deg,#1c1c14 0%,#0e0e0a 55%,#080806 100%);}
+.dc4{background:linear-gradient(148deg,#0c1018 0%,#090e14 55%,#060810 100%);}
+.dc5{background:linear-gradient(148deg,#1a1408 0%,#110d06 55%,#090706 100%);}
+.dc6{background:linear-gradient(148deg,#0e0e1a 0%,#09091 0 55%,#060610 100%);}
+.dc-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 25%,rgba(4,9,6,0.75) 100%);}
+.dc-film-lbl{position:absolute;bottom:12px;left:16px;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8px;letter-spacing:0.22em;color:rgba(199,158,90,0.2);}
+.dc-body{padding:3rem;flex:1;display:flex;flex-direction:column;}
+.dc-world{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.2em;color:var(--ochre);margin-bottom:1rem;}
+.dc-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(19px,2.5vw,28px);font-weight:700;line-height:1.08;letter-spacing:-0.012em;color:var(--bone);margin-bottom:1rem;}
+.dc-hed em{font-style:italic;}
+.dc-lede{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:16px;font-style:italic;font-weight:300;color:rgba(237,230,214,0.58);line-height:1.6;margin-bottom:1.25rem;}
+.dc-rule{width:14px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.25rem;}
+.dc-date{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.16em;color:var(--muted);margin-top:auto;padding-top:1.5rem;}
+
+/* FULL DISPATCH (rich text) */
+.dispatch-full{border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;background:var(--ink2);}
+.df-txt{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);}
+.df-issue{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.22em;color:var(--muted);opacity:0.4;margin-bottom:2rem;}
+.df-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(26px,3.8vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2.5rem;}
+.df-hed em{font-style:italic;color:var(--ochre);}
+.df-body p{font-size:15px;font-weight:300;color:rgba(237,230,214,0.5);line-height:2;margin-bottom:1.5rem;}
+.df-body em{font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:rgba(237,230,214,0.72);}
+.df-attr{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule);}
+.df-attr-by{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.18em;color:var(--muted);}
+.df-film{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(148deg,#101810 0%,#0a1008 55%,#060806 100%);}
+.df-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 28%,rgba(4,9,6,0.72) 100%);}
+.df-film-lbl{position:absolute;bottom:1.75rem;left:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.24em;color:rgba(199,158,90,0.2);}
+
+/* CTA */
+.cta-strip{border-top:1px solid var(--rule);display:grid;grid-template-columns:2fr 1fr;}
+.cta-s-l{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);}
+.cta-s-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.cta-s-hl em{font-style:italic;color:var(--ochre);}
+.cta-s-r{padding:8rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;}
+footer{border-top:1px solid var(--rule);padding:3rem;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:2rem;}
+.f-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:17px;font-weight:400;letter-spacing:0.06em;color:rgba(237,230,214,0.18);}
+.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.14);margin-top:5px;}
+.f-links{display:flex;gap:1.75rem;list-style:none;justify-content:center;flex-wrap:wrap;}
+.f-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;opacity:0.38;transition:opacity .2s;}
+.f-links a:hover{opacity:1;}
+.f-right{text-align:right;}
+.f-copy{font-family:'Instrument Sans',sans-serif;font-size:9px;color:var(--muted);opacity:0.18;letter-spacing:0.12em;}
+.f-contact{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.22);margin-bottom:5px;}
+
+@media(max-width:860px){
+  nav{padding:0 1.5rem;}.n-links{display:none;}
+  .ph{padding:8rem 1.5rem 5rem;}
+  .featured{grid-template-columns:1fr;}.fd-film{min-height:55vw;}.fd-txt{padding:4rem 1.5rem;}
+  .dispatches{grid-template-columns:1fr;}.dc{border-right:none;}.dc:nth-last-child(-n+3){border-bottom:1px solid var(--rule);}.dc:last-child{border-bottom:none;}.dc-body{padding:2.5rem 1.5rem;}
+  .dispatch-full{grid-template-columns:1fr;}.df-txt{border-right:none;border-bottom:1px solid var(--rule);padding:5rem 1.5rem;}.df-film{min-height:55vw;}
+  .cta-strip{grid-template-columns:1fr;}.cta-s-l{border-right:none;padding:5rem 1.5rem;}.cta-s-r{padding:0 1.5rem 5rem;}
+  footer{grid-template-columns:1fr;padding:2.5rem 1.5rem;}.f-right{text-align:left;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="n-logo">Enkiama</a>
+  <ul class="n-links">
+    <li><a href="tanzania.html">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html">The family</a></li>
+    <li><a href="notes.html" class="active">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <a href="begin.html" class="n-begin">Begin &rarr;</a>
+</nav>
+<!-- EDITORIAL ISSUE BAR -->
+<div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(199,158,90,0.11);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
+  <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(199,158,90,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(199,158,90,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+</div>
+
+
+<section class="ph">
+  <div class="ph-ghost">mazungumzo</div>
+  <div class="ph-inner">
+    <p class="eye" style="margin-bottom:2.5rem;">From the field &nbsp;&middot;&nbsp; Dispatches &nbsp;&middot;&nbsp; Specific moments</p>
+    <h1 class="ph-hed reveal">Field<br><em>notes.</em></h1>
+    <p class="ph-sub reveal">Not reviews. Not highlights. Specific things that happened &mdash; written close to the moment so the detail doesn&rsquo;t flatten into impression. The kind of thing that requires the right introduction to arrive at. Which is what the whole enterprise is for.</p>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured">
+  <div class="fd-film">
+    <span class="film-hint">[ Serengeti — wildebeest crossing, Mara River, dust ]</span>
+    <span class="fd-film-tag">The migration</span>
+    <span class="fd-film-lbl">Mara River &middot; Northern Serengeti &middot; July 2024</span>
+  </div>
+  <div class="fd-txt">
+    <p class="fd-issue">Field note &nbsp;&middot;&nbsp; Savanna &nbsp;&middot;&nbsp; July 2024</p>
+    <h2 class="fd-hed reveal">The crossing<br>that took <em>four<br>hours</em> to begin.</h2>
+    <p class="fd-body reveal">We had been watching the bank for three hours when Joseph said, quietly, &ldquo;Now.&rdquo; Not the crossing &mdash; just the decision forming in the herd. The sound before the sound. The wildebeest at the front turning and turning. Then the first one went in.</p>
+    <p class="fd-body reveal" style="margin-top:1rem;">What nobody tells you about the Mara crossing is not the spectacle &mdash; you have seen photographs of the spectacle. It is the sound. The combined weight of fifteen thousand animals entering water simultaneously produces something between a roar and a percussion and a bass note that you feel in your chest before you hear it with your ears. Then silence. Then it happens again.</p>
+    <div class="fd-attr reveal">
+      <div>
+        <p class="fd-attr-name">Joseph &mdash; Serengeti naturalist</p>
+        <p class="fd-attr-meta">Northern Serengeti &middot; July 2024 &middot; With Marina, Blanca, Patricia, Casilda, Sevi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISPATCH GRID -->
+<section class="dispatches">
+
+  <div class="dc reveal">
+    <div class="dc-film dc1">
+      <span class="film-hint">[ Tarangire — elephants at river, baobab ]</span>
+      <span class="dc-film-lbl">Tarangire &middot; August &middot; The return</span>
+    </div>
+    <div class="dc-body">
+      <p class="dc-world">Savanna &nbsp;&middot;&nbsp; Tarangire</p>
+      <h3 class="dc-hed">The elephants <em>always</em> come back</h3>
+      <p class="dc-lede">Forty-three elephants at the Tarangire River, three mornings in a row, always arriving from the same direction.</p>
+      <div class="dc-rule"></div>
+      <p class="dim">By the third morning, Joseph knew which matriarch was leading. We had watched her route twice. On the third morning he parked two hundred metres from her usual approach and we waited in complete silence for twenty minutes before she appeared through the acacia. Her family filed past the vehicle close enough to hear their breathing.</p>
+      <p class="dc-date">August 2024 &nbsp;&middot;&nbsp; Tarangire National Park</p>
+    </div>
+  </div>
+
+  <div class="dc reveal">
+    <div class="dc-film dc2">
+      <span class="film-hint">[ Ngorongoro — lion in mist, crater floor ]</span>
+      <span class="dc-film-lbl">Ngorongoro &middot; July &middot; First light</span>
+    </div>
+    <div class="dc-body">
+      <p class="dc-world">Crater &nbsp;&middot;&nbsp; Ngorongoro</p>
+      <h3 class="dc-hed">The lion in the <em>mist</em></h3>
+      <p class="dc-lede">We descended into the crater at 6am. By 6:40 the mist had not lifted. Daniel said: good.</p>
+      <div class="dc-rule"></div>
+      <p class="dim">The crater floor in morning mist is a completely different place to the crater floor in daylight. The sounds arrive before anything does. We heard the lion before we saw her &mdash; two hundred metres, sitting perfectly still in the grass, watching something we could not see. She remained there for forty minutes. The mist came and went around her. She never moved.</p>
+      <p class="dc-date">July 2024 &nbsp;&middot;&nbsp; Ngorongoro Crater</p>
+    </div>
+  </div>
+
+  <div class="dc reveal">
+    <div class="dc-film dc3">
+      <span class="film-hint">[ Kibosho — coffee farm, morning mist, family ]</span>
+      <span class="dc-film-lbl">Kibosho &middot; 1,700m &middot; Morning</span>
+    </div>
+    <div class="dc-body">
+      <p class="dc-world">Mountain &nbsp;&middot;&nbsp; Kibosho</p>
+      <h3 class="dc-hed">Coffee at <em>1,700</em> metres</h3>
+      <p class="dc-lede">The Kibosho family served coffee that had been harvested from the farm we could see from the window two months earlier.</p>
+      <div class="dc-rule"></div>
+      <p class="dim">There is a specific quality to altitude coffee drunk at altitude &mdash; the air thinner, the warmth of the cup more necessary, the taste carrying something of the volcanic soil it grew in. The family sat with us. The grandmother spoke no Spanish and we spoke no Chagga. We understood everything.</p>
+      <p class="dc-date">August 2024 &nbsp;&middot;&nbsp; Kibosho village, 1,700m</p>
+    </div>
+  </div>
+
+  <div class="dc reveal">
+    <div class="dc-film dc4">
+      <span class="film-hint">[ Stone Town — narrow alley, evening light ]</span>
+      <span class="dc-film-lbl">Stone Town &middot; Zanzibar &middot; Maghrib</span>
+    </div>
+    <div class="dc-body">
+      <p class="dc-world">Coast &nbsp;&middot;&nbsp; Stone Town</p>
+      <h3 class="dc-hed">The call to prayer<br>through <em>seven centuries</em></h3>
+      <p class="dc-lede">Fatima stopped walking mid-sentence when the Maghrib azan began. She didn&rsquo;t apologise. She just listened.</p>
+      <div class="dc-rule"></div>
+      <p class="dim">That pause, in a narrow alley in Malindi quarter, while the call to prayer moved through the stone and the last light fell across the carved wooden door Fatima had just been telling us about — that moment is what Stone Town actually is. Not the spice market. Not the harbour. The prayer through the stone.</p>
+      <p class="dc-date">July 2024 &nbsp;&middot;&nbsp; Malindi quarter, Stone Town</p>
+    </div>
+  </div>
+
+  <div class="dc reveal">
+    <div class="dc-film dc5">
+      <span class="film-hint">[ Serengeti — night sky above camp, stars ]</span>
+      <span class="dc-film-lbl">Northern Serengeti &middot; No moon &middot; 10pm</span>
+    </div>
+    <div class="dc-body">
+      <p class="dc-world">Savanna &nbsp;&middot;&nbsp; Serengeti</p>
+      <h3 class="dc-hed">The sky after <em>dark</em></h3>
+      <p class="dc-lede">There is no moon in the first week of July in the northern Serengeti. The sky that replaces it is incomprehensible.</p>
+      <div class="dc-rule"></div>
+      <p class="dim">We had finished dinner. The fire was low. Someone said &ldquo;look up&rdquo; and nobody moved for forty minutes. The Milky Way at that latitude, at that altitude, on a moonless night with no light pollution in any direction, is not the sky you know from home. It is something your brain has no prior category for. The savanna sounds continue beneath it — completely indifferent to the spectacle above.</p>
+      <p class="dc-date">July 2024 &nbsp;&middot;&nbsp; Northern Serengeti</p>
+    </div>
+  </div>
+
+  <div class="dc reveal">
+    <div class="dc-film dc6" style="background:linear-gradient(148deg,#1a1410 0%,#0e0b08 55%,#080606 100%);">
+      <span class="film-hint">[ Local elder guiding — village path, genuine moment ]</span>
+      <span class="dc-film-lbl">Ngorongoro highlands &middot; The person who was born here</span>
+    </div>
+    <div class="dc-body">
+      <p class="dc-world">Culture &nbsp;&middot;&nbsp; Ngorongoro highlands</p>
+      <h3 class="dc-hed">The guide no one else <em>can hire</em></h3>
+      <p class="dc-lede">We always bring a local guide when we enter a community. Not alongside our host guide &mdash; with him. There is a distinction between knowing a place and belonging to it. The person who belongs to it notices different things.</p>
+      <div class="dc-rule"></div>
+      <p class="dim">On the Ngorongoro rim, there is an elder who has spent his entire life within a few kilometres of the boma where he was born. He does not guide professionally. He guided for us once &mdash; walked the same path Daniel walks with every group, and pointed at things Daniel did not know to point at. A stone with a specific history. The way the grass had grown back after a fire thirty years ago. A tree whose name only exists in Maa. The morning opened in a way a scheduled cultural visit never does. His fee went directly to him. He decided what it was.</p>
+      <p class="dc-date">August 2024 &nbsp;&middot;&nbsp; Ngorongoro highlands, crater rim</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- EDITORIAL STATEMENT -->
+<section style="padding:10rem 3rem;border-top:1px solid rgba(199,158,90,0.11);border-bottom:1px solid rgba(199,158,90,0.11);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,19vw,290px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.028);pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-0.03em;">arrive</div>
+  <blockquote style="position:relative;z-index:2;max-width:860px;">
+    <p style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(28px,4.8vw,62px);font-weight:700;line-height:0.97;letter-spacing:-0.025em;color:rgba(237,230,214,0.85);" class="reveal">The person who knows this specific grove<br>is the person who was born near it.<br>We find that person.<br><em style="font-style:italic;color:#1D9E75;">Every time.</em></p>
+  </blockquote>
+</section>
+
+<!-- FULL DISPATCH -->
+<section class="dispatch-full">
+  <div class="df-txt">
+    <p class="df-issue">Dispatch &nbsp;&middot;&nbsp; The mountain &nbsp;&middot;&nbsp; Kilimanjaro</p>
+    <h2 class="df-hed reveal">What the summit<br>teaches you about<br><em>the foothills.</em></h2>
+    <div class="df-body reveal">
+      <p>The standard narrative about Kilimanjaro places all the drama at the summit. This is understandable &mdash; 5,895 metres, the roof of Africa, a glacier that may not survive the century. The photography supports this. The Instagram evidence is overwhelming.</p>
+      <p>But the guests who carry the mountain most completely home are not always the ones who reached the top. They are often the ones who spent a morning in the Kibosho farms, who walked the lower slopes through cloud forest still thick enough to silence the world above, who sat with a Chagga family at a table that was not set for visitors.</p>
+      <p>The summit gives you altitude. The foothills give you the mountain. <em>Both are Kilimanjaro.</em> We help you decide which one &mdash; or whether, if you have the time and the inclination, you might carry both.</p>
+    </div>
+    <div class="df-attr reveal">
+      <p class="df-attr-by">Enkiama &nbsp;&middot;&nbsp; Field note &nbsp;&middot;&nbsp; Kilimanjaro corridor</p>
+    </div>
+  </div>
+  <div class="df-film">
+    <span class="film-hint">[ Kilimanjaro foothills — cloud forest or farm path ]</span>
+    <span class="df-film-lbl">Kilimanjaro lower slopes &middot; Cloud forest &middot; 1,800m</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="cta-s-l">
+    <p class="eye" style="margin-bottom:2rem;">Your dispatch awaits</p>
+    <h2 class="cta-s-hl reveal">Every journey<br>produces moments<br>like <em>these.</em></h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">The crossing, the lion, the coffee at 1,700 metres, the prayer through coral stone, the elder who pointed at the grass. None of these was in an itinerary. All of them required an introduction &mdash; to the right guide, the right family, the right person who was simply born in the right place and agreed to spend a morning with us. The conditions that make these moments possible are what we spend our time building.</p>
+  </div>
+  <div class="cta-s-r">
+    <a href="begin.html" class="btn-primary">Begin the conversation</a>
+    <a href="stories.html" class="btn-ghost">Read guest stories &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div><div class="f-logo">Enkiama</div><div class="f-tagline">Not a tour. An experience built only for you.</div></div>
+  <ul class="f-links">
+    <li><a href="tanzania.html">Tanzania</a></li><li><a href="how.html">How we work</a></li><li><a href="family.html">The family</a></li><li><a href="notes.html">Field notes</a></li><li><a href="stories.html">Stories</a></li><li><a href="journeys.html">Journeys</a></li><li><a href="begin.html">Begin</a></li>
+  </ul>
+  <div class="f-right"><div class="f-contact">hola@enkiama.com</div><div class="f-copy">Year&ndash;round &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; &copy; 2025 Enkiama</div></div>
+</footer>
+<script>
+(function(){if(!window.IntersectionObserver)return;const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.07,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6)*0.06+'s';io.observe(el);});})();
+</script>
+</body>
+</html>

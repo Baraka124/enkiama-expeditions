@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journeys &mdash; Enkiama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08110C;--ink2:#0E1A14;--bone:#EDE6D6;--bone2:#E4DCC8;--ochre:#1D9E75;--earth:#C79E5A;--muted:#6A6258;--rule:rgba(199,158,90,0.11);--rule-md:rgba(199,158,90,0.18);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.038;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;}
+body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.eye{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;font-weight:400;letter-spacing:0.18em;color:var(--earth);line-height:1;}
+.dim{font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:14px;line-height:2;color:rgba(237,230,214,0.48);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(0.16,1,0.3,1),transform .9s cubic-bezier(0.16,1,0.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;border-bottom:1px solid var(--rule);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);}
+.n-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:18px;font-weight:400;letter-spacing:0.06em;color:var(--bone);text-decoration:none;}
+.n-links{display:flex;gap:2.25rem;list-style:none;}
+.n-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;transition:color .25s;position:relative;padding-bottom:3px;}
+.n-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ochre);transition:width .3s;}
+.n-links a:hover{color:var(--bone);}.n-links a:hover::after,.n-links a.active::after{width:100%;}.n-links a.active{color:var(--bone);}
+.n-begin{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;padding:6px 18px;border:1px solid rgba(29,158,117,0.6);color:var(--ochre);background:none;text-decoration:none;display:inline-block;transition:all .25s;}
+.n-begin:hover{border-color:var(--ochre);background:var(--ochre);color:var(--ink);}
+.btn-primary{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;padding:14px 34px;border:1px solid var(--ochre);color:var(--ink);background:var(--ochre);text-decoration:none;display:inline-block;transition:all .3s;}
+.btn-primary:hover{background:transparent;color:var(--ochre);}
+.btn-ghost{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;color:var(--muted);text-decoration:none;position:relative;padding-bottom:3px;transition:color .25s;}
+.btn-ghost::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .35s;}
+.btn-ghost:hover{color:var(--bone);}.btn-ghost:hover::after{width:100%;}
+.ochre-rule{width:24px;height:1px;background:var(--ochre);opacity:0.38;margin:2rem 0;}
+.film-hint{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(199,158,90,0.06);z-index:1;position:relative;}
+
+/* PAGE HEADER */
+.ph{padding:11rem 3rem 8rem;margin-top:28px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
+.ph-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,19vw,300px);font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.03);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
+.ph-inner{position:relative;z-index:2;}
+.ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(56px,10vw,136px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--bone);margin:2.5rem 0 1.5rem;}
+.ph-hed em{font-style:italic;color:var(--ochre);}
+.ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.44);line-height:1.55;max-width:640px;}
+
+/* FEATURED STORY */
+.featured-story{border-bottom:1px solid var(--rule);}
+.fs-top{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.fs-quote{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);background:var(--ink2);position:relative;}
+.fs-mark{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:100px;font-weight:900;color:var(--ochre);opacity:0.14;line-height:0.65;margin-bottom:2rem;display:block;}
+.fs-q{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(19px,2.4vw,28px);font-weight:300;font-style:italic;color:var(--bone);line-height:1.58;}
+.fs-attr{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule);}
+.fs-name{font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:500;color:rgba(237,230,214,0.55);}
+.fs-meta{font-family:'Instrument Sans',sans-serif;font-size:11px;color:var(--muted);margin-top:4px;}
+.fs-analysis{padding:8rem 3rem;display:flex;flex-direction:column;justify-content:center;}
+.fs-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.18em;color:var(--earth);margin-bottom:1.5rem;}
+.fs-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(22px,3vw,38px);font-weight:700;line-height:1.08;letter-spacing:-0.015em;color:var(--bone);margin-bottom:2rem;}
+.fs-hed em{font-style:italic;color:var(--ochre);}
+.fs-bottom{padding:6rem 3rem;background:var(--ink2);display:grid;grid-template-columns:1fr 2fr;gap:5rem;}
+.fs-worlds{display:flex;flex-direction:column;gap:1rem;}
+.fw-item{display:flex;align-items:center;gap:14px;padding:0.75rem 0;border-bottom:1px solid var(--rule);}
+.fw-dot{width:5px;height:5px;background:var(--ochre);opacity:0.6;flex-shrink:0;}
+.fw-name{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--muted);}
+
+/* STORY GRID */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);}
+.sg{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;}
+.sg:nth-child(2n){border-right:none;}
+.sg:nth-last-child(-n+2){border-bottom:none;}
+.sg-film{height:280px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.s1{background:linear-gradient(148deg,#1c1c14 0%,#0e0e0a 55%,#080806 100%);}
+.s2{background:linear-gradient(148deg,#1e1a0c 0%,#120f06 55%,#090706 100%);}
+.s3{background:linear-gradient(148deg,#101810 0%,#0a1008 55%,#060806 100%);}
+.s4{background:linear-gradient(148deg,#0c1018 0%,#090e14 55%,#060810 100%);}
+.sg-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 28%,rgba(4,9,6,0.75) 100%);}
+.sg-lbl{position:absolute;bottom:12px;left:16px;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8px;letter-spacing:0.22em;color:rgba(199,158,90,0.22);}
+.sg-body{padding:4rem;flex:1;display:flex;flex-direction:column;}
+.sg-mark{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:52px;font-weight:900;color:var(--ochre);opacity:0.14;line-height:0.7;margin-bottom:1.5rem;}
+.sg-q{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(16px,2vw,21px);font-weight:300;font-style:italic;color:var(--bone);line-height:1.55;margin-bottom:2rem;}
+.sg-attr{margin-top:auto;padding-top:1.75rem;border-top:1px solid var(--rule);}
+.sg-name{font-family:'Instrument Sans',sans-serif;font-size:12px;font-weight:500;color:rgba(237,230,214,0.5);}
+.sg-meta{font-family:'Instrument Sans',sans-serif;font-size:10px;color:var(--muted);margin-top:3px;}
+.sg-worlds{margin-top:1rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(199,158,90,0.32);}
+
+/* SPEAK TO A GUEST — cream inversion */
+.speak-gap{height:80px;background:var(--ink);}
+.speak{background:var(--bone2);color:var(--ink);padding:10rem 3rem 11rem;clip-path:polygon(0 80px,100% 0,100% calc(100% - 80px),0 100%);margin:-80px 0;position:relative;overflow:hidden;}
+.speak-pg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(80px,15vw,220px);font-weight:900;color:rgba(8,17,12,0.038);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
+.speak-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.speak-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(38px,6.5vw,86px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--ink);}
+.speak-hed em{font-style:italic;color:var(--ochre);}
+.speak-body{}
+.speak-body p{font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:300;color:rgba(8,17,12,0.52);line-height:2;margin-bottom:1rem;}
+.speak-btn{display:inline-block;margin-top:1.5rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;padding:14px 34px;border:1px solid var(--ochre);color:var(--ink);background:var(--ochre);text-decoration:none;transition:all .3s;}
+.speak-btn:hover{background:transparent;color:var(--ochre);}
+
+/* CTA */
+.cta-strip{border-top:1px solid var(--rule);margin-top:80px;display:grid;grid-template-columns:2fr 1fr;}
+.cta-s-l{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);}
+.cta-s-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.cta-s-hl em{font-style:italic;color:var(--ochre);}
+.cta-s-r{padding:8rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;}
+footer{border-top:1px solid var(--rule);padding:3rem;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:2rem;}
+.f-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:17px;font-weight:400;letter-spacing:0.06em;color:rgba(237,230,214,0.18);}
+.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.14);margin-top:5px;}
+.f-links{display:flex;gap:1.75rem;list-style:none;justify-content:center;flex-wrap:wrap;}
+.f-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;opacity:0.38;transition:opacity .2s;}
+.f-links a:hover{opacity:1;}
+.f-right{text-align:right;}
+.f-copy{font-family:'Instrument Sans',sans-serif;font-size:9px;color:var(--muted);opacity:0.18;letter-spacing:0.12em;}
+.f-contact{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.22);margin-bottom:5px;}
+@media(max-width:860px){
+  nav{padding:0 1.5rem;}.n-links{display:none;}
+  .ph{padding:8rem 1.5rem 5rem;}
+  .fs-top{grid-template-columns:1fr;}.fs-quote{border-right:none;border-bottom:1px solid var(--rule);padding:5rem 1.5rem;}.fs-analysis{padding:4rem 1.5rem;}
+  .fs-bottom{grid-template-columns:1fr;gap:2rem;padding:4rem 1.5rem;}
+  .story-grid{grid-template-columns:1fr;}.sg{border-right:none;}.sg:nth-last-child(-n+2){border-bottom:1px solid var(--rule);}.sg:last-child{border-bottom:none;}.sg-body{padding:3rem 1.5rem;}
+  .speak-gap{height:40px;}.speak{padding:7rem 1.5rem;clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%);}
+  .speak-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .cta-strip{grid-template-columns:1fr;margin-top:40px;}.cta-s-l{border-right:none;padding:5rem 1.5rem;}.cta-s-r{padding:0 1.5rem 5rem;}
+  footer{grid-template-columns:1fr;padding:2.5rem 1.5rem;}.f-right{text-align:left;}
+}
+</style>
+
+<style>
+.jr-grid{display:grid;grid-template-columns:1fr 1fr;}
+.jr{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;display:flex;flex-direction:column;}
+.jr:nth-child(2n){border-right:none;}
+.jr-film{height:300px;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
+.j1{background:linear-gradient(150deg,#1c1c14 0%,#0e0e0a 55%,#080806 100%);}
+.j2{background:linear-gradient(150deg,#1e1a0c 0%,#120f06 55%,#090706 100%);}
+.j3{background:linear-gradient(150deg,#101810 0%,#0a1008 55%,#060806 100%);}
+.j4{background:linear-gradient(150deg,#0c1018 0%,#090e14 55%,#060810 100%);}
+.jr-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 25%,rgba(4,9,6,0.72) 100%);}
+.jr-route{position:relative;z-index:2;padding:1.5rem 2rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.18em;color:rgba(199,158,90,0.55);}
+.jr-body{padding:3rem 2.5rem 3.5rem;flex:1;display:flex;flex-direction:column;}
+.jr-meta{display:flex;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.jr-stat{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:var(--earth);}
+.jr-stat strong{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-weight:500;font-size:15px;color:var(--bone);margin-right:5px;font-variant-caps:normal;}
+.jr-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(22px,2.8vw,34px);font-weight:700;line-height:1.05;letter-spacing:-0.018em;color:var(--bone);margin-bottom:1rem;}
+.jr-title em{font-style:italic;color:var(--ochre);}
+.jr-desc{font-size:14px;font-weight:300;color:rgba(237,230,214,0.46);line-height:1.9;margin-bottom:1.75rem;}
+.jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(199,158,90,0.4);padding-top:1.5rem;border-top:1px solid var(--rule);}
+@media(max-width:860px){
+  .jr-grid{grid-template-columns:1fr;}
+  .jr{border-right:none;}
+  .jr-body{padding:2.5rem 1.5rem 3rem;}
+}
+</style>
+<style>@media(max-width:860px){.cta-wrap{grid-template-columns:1fr !important;gap:2.5rem !important;padding:6rem 1.5rem !important;}}</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="n-logo">Enkiama</a>
+  <ul class="n-links">
+    <li><a href="tanzania.html">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html">The family</a></li>
+    <li><a href="notes.html">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html" class="active">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <a href="begin.html" class="n-begin">Begin &rarr;</a>
+</nav>
+<!-- EDITORIAL ISSUE BAR -->
+<div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(199,158,90,0.11);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
+  <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(199,158,90,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(199,158,90,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+</div>
+
+
+<section class="ph">
+  <div class="ph-ghost">hadithi</div>
+  <div class="ph-inner">
+    <p class="eye" style="margin-bottom:2.5rem;">Guest stories &nbsp;&middot;&nbsp; What people carry home</p>
+    <h1 class="ph-hed reveal">What people<br>carry <em>home.</em></h1>
+    <p class="ph-sub reveal">Not testimonials. Not star ratings. What guests said months later, when the photographs had faded and what remained was the specific thing they still couldn&rsquo;t fully explain to people who hadn&rsquo;t been there.</p>
+  </div>
+</section>
+
+
+<!-- PAGE HEADER -->
+<section class="ph">
+  <div class="ph-ghost">journeys</div>
+  <div class="ph-inner">
+    <p class="eye" style="margin-bottom:2.5rem;">Journeys composed &nbsp;&middot;&nbsp; Never repeated</p>
+    <h1 class="ph-hed reveal">What a journey<br>actually <em>looks like.</em></h1>
+    <p class="ph-sub reveal">Every Enkiama journey is built from scratch for one group and never offered again. These are the shapes of a few we have composed &mdash; the routes, the rhythms, the worlds they moved through. The detail of each lives in a private document we share only with the people travelling. If one of these resembles what is pulling at you, ask us to walk you through it in full.</p>
+  </div>
+</section>
+
+<!-- JOURNEY SHAPES -->
+<section class="jr-grid b-rule">
+
+  <div class="jr">
+    <div class="jr-film j1">
+      <span class="jr-route">Kilimanjaro &rarr; Serengeti &rarr; Rift Valley &rarr; Zanzibar</span>
+    </div>
+    <div class="jr-body">
+      <div class="jr-meta reveal">
+        <span class="jr-stat"><strong>13</strong> nights</span>
+        <span class="jr-stat"><strong>4</strong> worlds</span>
+        <span class="jr-stat"><strong>9</strong> lodges</span>
+        <span class="jr-stat"><strong>3</strong> guides</span>
+      </div>
+      <h2 class="jr-title reveal">Five friends,<br>first time in <em>Tanzania.</em></h2>
+      <p class="jr-desc reveal">A group of five who wanted the whole arc &mdash; mountain culture, the migration on the open plain, the descent into the crater, and the slow exhale of the coast to finish. Composed around their pace and their appetite for both spectacle and stillness, with a cultural day in Mto wa Mbu in place of a fourth park. July, peak migration.</p>
+      <p class="jr-worlds reveal">Mountain &middot; Savanna &middot; Rift Valley &middot; Coast &nbsp;&middot;&nbsp; July 2026</p>
+    </div>
+  </div>
+
+  <div class="jr">
+    <div class="jr-film j2">
+      <span class="jr-route">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span>
+    </div>
+    <div class="jr-body">
+      <div class="jr-meta reveal">
+        <span class="jr-stat"><strong>8</strong> nights</span>
+        <span class="jr-stat"><strong>3</strong> worlds</span>
+        <span class="jr-stat"><strong>2</strong> guides</span>
+      </div>
+      <h2 class="jr-title reveal">A wildlife journey,<br>nothing <em>but the land.</em></h2>
+      <p class="jr-desc reveal">A couple who came for one thing &mdash; animals, and the people who can read them. No coast, no cities. Tarangire&rsquo;s elephants, the northern Serengeti at the height of the crossing season, and a full day in the crater. Slow mornings, long game drives, a guide who had spent thirty years on that plain.</p>
+      <p class="jr-worlds reveal">Savanna &middot; Crater &nbsp;&middot;&nbsp; August</p>
+    </div>
+  </div>
+
+  <div class="jr">
+    <div class="jr-film j3">
+      <span class="jr-route">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span>
+    </div>
+    <div class="jr-body">
+      <div class="jr-meta reveal">
+        <span class="jr-stat"><strong>6</strong> nights</span>
+        <span class="jr-stat"><strong>2</strong> worlds</span>
+        <span class="jr-stat"><strong>1</strong> family host</span>
+      </div>
+      <h2 class="jr-title reveal">The mountain,<br>without the <em>summit.</em></h2>
+      <p class="jr-desc reveal">A journey for travellers who wanted the mountain&rsquo;s culture rather than its peak &mdash; the Chagga coffee farms at 1,700 metres, a homestay with a family who have worked the same slopes for four generations, the cloud forest, and an evening in Moshi that no itinerary planned. Quiet, human, and completely unlike a safari.</p>
+      <p class="jr-worlds reveal">Mountain &middot; Culture &nbsp;&middot;&nbsp; June</p>
+    </div>
+  </div>
+
+  <div class="jr">
+    <div class="jr-film j4">
+      <span class="jr-route">Serengeti &rarr; Stone Town &rarr; Pemba</span>
+    </div>
+    <div class="jr-body">
+      <div class="jr-meta reveal">
+        <span class="jr-stat"><strong>11</strong> nights</span>
+        <span class="jr-stat"><strong>2</strong> worlds</span>
+        <span class="jr-stat"><strong>2</strong> guides</span>
+      </div>
+      <h2 class="jr-title reveal">Plain and ocean,<br>one <em>long exhale.</em></h2>
+      <p class="jr-desc reveal">A journey built on contrast &mdash; the intensity of the savanna followed by the slow rhythm of the coast. Days on the open plain, then a flight to Zanzibar: Stone Town&rsquo;s seven centuries of Swahili history with a historian who knows every doorway, and the untouched reefs of Pemba to finish. The two halves spoke to each other.</p>
+      <p class="jr-worlds reveal">Savanna &middot; Coast &nbsp;&middot;&nbsp; September</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- INVITATION -->
+<section class="b-rule" style="background:var(--ink2);">
+  <div style="padding:9rem 3rem;display:grid;grid-template-columns:2fr 1fr;gap:5rem;" class="cta-wrap">
+    <div>
+      <p class="eye" style="margin-bottom:2rem;">See one in full</p>
+      <h2 style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;" class="reveal">The shape is public.<br>The detail is <em style="font-style:italic;color:var(--ochre);">private.</em></h2>
+      <div style="width:24px;height:1px;background:var(--ochre);opacity:0.5;margin:2rem 0;"></div>
+      <p class="dim reveal">Each full itinerary &mdash; the day-by-day, the lodges, the practical detail &mdash; lives in a private document we send only to the people travelling. We keep them private out of respect for our guests. But if one of these journeys resembles what you have in mind, ask us, and we will walk you through a complete sample so you can see exactly how an Enkiama journey is composed.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:1.5rem;" class="cta-btns">
+      <a href="begin.html" class="btn-primary">Ask to see a sample</a>
+      <a href="stories.html" class="btn-ghost">Read what guests felt &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="f-logo">Enkiama</div><div class="f-tagline">Not a tour. An experience built only for you.</div></div>
+  <ul class="f-links">
+    <li><a href="tanzania.html">Tanzania</a></li><li><a href="how.html">How we work</a></li><li><a href="family.html">The family</a></li><li><a href="notes.html">Field notes</a></li><li><a href="stories.html">Stories</a></li><li><a href="journeys.html">Journeys</a></li><li><a href="begin.html">Begin</a></li>
+  </ul>
+  <div class="f-right"><div class="f-contact">hola@enkiama.com</div><div class="f-copy">Year&ndash;round &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; &copy; 2025 Enkiama</div></div>
+</footer>
+<script>
+(function(){if(!window.IntersectionObserver)return;const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.07,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6)*0.06+'s';io.observe(el);});})();
+</script>
+</body>
+</html>

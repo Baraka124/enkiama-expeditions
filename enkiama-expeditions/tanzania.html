@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanzania — Enkiama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08110C;--ink2:#0E1A14;--bone:#EDE6D6;--bone2:#E4DCC8;--ochre:#1D9E75;--forest:#1C3325;--sage:#7A9470;--earth:#C79E5A;--muted:#6A6258;--rule:rgba(199,158,90,0.11);--rule-md:rgba(199,158,90,0.18);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.038;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;}
+body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.eye{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;font-weight:400;letter-spacing:0.18em;color:var(--earth);line-height:1;}
+.dim{font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:14px;line-height:2;color:rgba(237,230,214,0.48);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(0.16,1,0.3,1),transform .9s cubic-bezier(0.16,1,0.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;border-bottom:1px solid var(--rule);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);}
+.n-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:18px;font-weight:400;letter-spacing:0.06em;color:var(--bone);text-decoration:none;}
+.n-links{display:flex;gap:2.25rem;list-style:none;}
+.n-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;transition:color .25s;position:relative;padding-bottom:3px;}
+.n-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ochre);transition:width .3s;}
+.n-links a:hover{color:var(--bone);}
+.n-links a:hover::after,.n-links a.active::after{width:100%;}
+.n-links a.active{color:var(--bone);}
+.n-begin{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;padding:6px 18px;border:1px solid rgba(29,158,117,0.6);color:var(--ochre);background:none;text-decoration:none;display:inline-block;transition:all .25s;}
+.n-begin:hover{border-color:var(--ochre);background:var(--ochre);color:var(--ink);}
+
+/* PAGE HEADER */
+.ph{padding:11rem 3rem 8rem;margin-top:28px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
+.ph-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(160px,28vw,420px);font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.035);white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-0.03em;line-height:1;}
+.ph-inner{position:relative;z-index:2;}
+.ph-issue{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.22em;color:rgba(199,158,90,0.28);margin-bottom:2.5rem;}
+.ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(56px,10vw,140px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--bone);margin-bottom:1.5rem;}
+.ph-hed em{font-style:italic;color:var(--ochre);}
+.ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,28px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.44);line-height:1.55;max-width:680px;margin-top:2rem;}
+
+/* OPENER — full-bleed editorial */
+.opener{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.opener-film{position:relative;overflow:hidden;min-height:65vh;background:linear-gradient(160deg,#1a1a10 0%,#0c0c07 60%,#080806 100%);display:flex;align-items:center;justify-content:center;}
+.opener-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,transparent 30%,rgba(4,9,6,0.75) 100%);}
+.opener-film-lbl{position:absolute;bottom:1.75rem;left:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.26em;color:rgba(199,158,90,0.2);}
+.film-hint{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(199,158,90,0.06);z-index:1;position:relative;}
+.opener-txt{padding:7rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.opener-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(30px,4vw,54px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.opener-hl em{font-style:italic;color:var(--ochre);}
+.ochre-rule{width:24px;height:1px;background:var(--ochre);opacity:0.38;margin:2rem 0;}
+
+/* STAT STRIP */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule);}
+.ss-c{padding:3.5rem 3rem;border-right:1px solid var(--rule);}
+.ss-c:last-child{border-right:none;}
+.ss-num{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(52px,7vw,88px);font-weight:900;line-height:1;letter-spacing:-0.025em;color:var(--bone);display:block;}
+.ss-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--muted);margin-top:8px;display:block;}
+
+/* WORLDS DEEP DIVE */
+.worlds-deep{border-bottom:1px solid var(--rule);}
+.wd-hdr{padding:7rem 3rem 4rem;display:grid;grid-template-columns:1fr 2fr;gap:5rem;border-bottom:1px solid var(--rule);}
+.wd-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(44px,7vw,96px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;}
+.wd-hl em{font-style:italic;color:var(--ochre);}
+.wd-intro{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.5);line-height:1.6;}
+.world-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.world-row:last-child{border-bottom:none;}
+.world-row.flip{direction:rtl;}
+.world-row.flip>*{direction:ltr;}
+.wr-film{min-height:520px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.w-m .wr-film{background:linear-gradient(148deg,#1c1c16 0%,#0e0e0a 60%,#080806 100%);}
+.w-s .wr-film{background:linear-gradient(148deg,#201a0e 0%,#130e06 60%,#090706 100%);}
+.w-c .wr-film{background:linear-gradient(148deg,#121a12 0%,#0a100a 60%,#060806 100%);}
+.w-cu .wr-film{background:linear-gradient(148deg,#1c1408 0%,#110d06 60%,#090706 100%);}
+.w-co .wr-film{background:linear-gradient(148deg,#0e1018 0%,#0a101a 60%,#080a12 100%);}
+.wr-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 28%,rgba(4,9,6,0.7) 100%);}
+.wr-film-tag{position:absolute;top:2rem;right:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.2em;padding:5px 12px;border:1px solid rgba(199,158,90,0.14);color:rgba(199,158,90,0.38);}
+.wr-film-lbl{position:absolute;bottom:1.75rem;left:2rem;z-index:2;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.24em;color:rgba(199,158,90,0.18);}
+.wr-txt{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.wr-ghost{position:absolute;bottom:-0.06em;left:-0.02em;font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(100px,14vw,200px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.042);pointer-events:none;line-height:1;letter-spacing:-0.025em;}
+.wr-inner{position:relative;z-index:2;}
+.wr-idx{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(72px,11vw,140px);font-weight:900;color:rgba(199,158,90,0.05);line-height:1;letter-spacing:-0.03em;margin-bottom:0.25rem;}
+.wr-eye{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.18em;color:var(--ochre);margin-bottom:1.25rem;}
+.wr-name{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(34px,5.5vw,72px);font-weight:900;color:var(--bone);line-height:0.88;letter-spacing:-0.025em;margin-bottom:0.5rem;}
+.wr-sw{font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:16px;color:var(--earth);display:block;font-weight:300;margin-bottom:2rem;}
+.wr-rule{width:18px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.75rem;}
+.wr-desc{font-size:14px;font-weight:300;color:rgba(237,230,214,0.46);line-height:2;max-width:380px;}
+.wr-detail{margin-top:2rem;padding-top:2rem;border-top:1px solid var(--rule);}
+.wr-detail-item{display:flex;gap:12px;margin-bottom:1rem;}
+.wr-di-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.16em;color:var(--earth);min-width:72px;flex-shrink:0;padding-top:2px;}
+.wr-di-val{font-size:12px;font-weight:300;color:rgba(237,230,214,0.32);line-height:1.7;}
+
+/* SEASONS — cream inversion */
+.seasons-gap{height:80px;background:var(--ink);}
+.seasons{background:var(--bone2);color:var(--ink);padding:10rem 3rem 11rem;clip-path:polygon(0 80px,100% 0,100% calc(100% - 80px),0 100%);margin:-80px 0;position:relative;overflow:hidden;}
+.seasons-pg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(100px,18vw,280px);font-weight:900;color:rgba(8,17,12,0.04);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
+.seasons-inner{position:relative;z-index:2;}
+.seasons-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(44px,7.5vw,100px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--ink);margin:2.5rem 0 5rem;}
+.seasons-hed em{font-style:italic;color:var(--ochre);}
+.seasons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(8,17,12,0.08);}
+.sea-c{background:var(--bone2);padding:3rem 2.5rem;}
+.sea-month{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(40px,5.5vw,72px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+.sea-tag{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.18em;color:var(--ochre);margin-bottom:1.25rem;}
+.sea-desc{font-size:13px;font-weight:300;color:rgba(8,17,12,0.48);line-height:1.85;}
+.sea-worlds{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(8,17,12,0.08);font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:9px;letter-spacing:0.14em;color:rgba(8,17,12,0.35);}
+
+/* ECOLOGY */
+.ecology{border-top:1px solid var(--rule);margin-top:80px;display:grid;grid-template-columns:1fr 1fr;}
+.eco-l{padding:8rem 4rem 8rem 3rem;border-right:1px solid var(--rule);}
+.eco-r{padding:8rem 3rem;}
+.eco-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.eco-hl em{font-style:italic;color:var(--ochre);}
+
+/* PEOPLE */
+.people{border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(3,1fr);}
+.ppl-c{padding:6rem 3rem;border-right:1px solid var(--rule);position:relative;overflow:hidden;}
+.ppl-c:last-child{border-right:none;}
+.ppl-name{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(24px,3.5vw,44px);font-weight:700;line-height:1;letter-spacing:-0.015em;color:var(--bone);margin-bottom:0.75rem;}
+.ppl-rule{width:16px;height:1px;background:var(--ochre);opacity:0.35;margin:1.5rem 0;}
+.ppl-pg{position:absolute;bottom:-0.05em;right:-0.02em;font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(80px,11vw,150px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(199,158,90,0.04);pointer-events:none;letter-spacing:-0.025em;}
+
+/* CTA STRIP */
+.cta-strip{border-top:1px solid var(--rule);display:grid;grid-template-columns:2fr 1fr;background:var(--ink2);}
+.cta-s-l{padding:7rem 4rem 7rem 3rem;border-right:1px solid var(--rule);}
+.cta-s-hl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;}
+.cta-s-hl em{font-style:italic;color:var(--ochre);}
+.cta-s-r{padding:7rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--rule);padding:3rem;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:2rem;}
+.f-logo{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:17px;font-weight:400;letter-spacing:0.06em;color:rgba(237,230,214,0.18);}
+.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.14);letter-spacing:0.04em;margin-top:5px;}
+.f-links{display:flex;gap:1.75rem;list-style:none;justify-content:center;flex-wrap:wrap;}
+.f-links a{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--muted);text-decoration:none;opacity:0.38;transition:opacity .2s;}
+.f-links a:hover{opacity:1;}
+.f-right{text-align:right;}
+.f-copy{font-family:'Instrument Sans',sans-serif;font-size:9px;color:var(--muted);opacity:0.18;letter-spacing:0.12em;}
+.f-contact{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.22);margin-bottom:5px;}
+
+/* BTN */
+.btn-primary{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;padding:14px 34px;border:1px solid var(--ochre);color:var(--ink);background:var(--ochre);text-decoration:none;display:inline-block;transition:all .3s;}
+.btn-primary:hover{background:transparent;color:var(--ochre);}
+.btn-ghost{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;color:var(--muted);text-decoration:none;position:relative;padding-bottom:3px;transition:color .25s;}
+.btn-ghost::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .35s cubic-bezier(0.4,0,0.2,1);}
+.btn-ghost:hover{color:var(--bone);}
+.btn-ghost:hover::after{width:100%;}
+
+@media(max-width:860px){
+  nav{padding:0 1.5rem;}
+  .n-links{display:none;}
+  .ph,.opener-txt,.wd-hdr,.eco-l,.eco-r,.cta-s-l,.cta-s-r{padding-left:1.5rem;padding-right:1.5rem;}
+  .opener{grid-template-columns:1fr;}.opener-film{min-height:55vw;}
+  .stat-strip{grid-template-columns:1fr 1fr;}.ss-c{border-bottom:1px solid var(--rule);}
+  .wd-hdr{grid-template-columns:1fr;gap:2.5rem;}
+  .world-row{grid-template-columns:1fr;}.world-row.flip{direction:ltr;}
+  .wr-film{min-height:56vw;}.wr-txt{padding:4rem 1.5rem;}
+  .seasons-gap{height:40px;}.seasons{clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%);padding:7rem 1.5rem;}
+  .seasons-grid{grid-template-columns:1fr 1fr;}
+  .ecology{grid-template-columns:1fr;margin-top:40px;}.eco-l{border-right:none;border-bottom:1px solid var(--rule);padding:5rem 1.5rem;}.eco-r{padding:5rem 1.5rem;}
+  .people{grid-template-columns:1fr;}.ppl-c{border-right:none;border-bottom:1px solid var(--rule);padding:4rem 1.5rem;}
+  .cta-strip{grid-template-columns:1fr;}.cta-s-l{border-right:none;padding:5rem 1.5rem;}.cta-s-r{padding:0 1.5rem 5rem;}
+  footer{grid-template-columns:1fr;gap:1.5rem;padding:2.5rem 1.5rem;}.f-right{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="n-logo">Enkiama</a>
+  <ul class="n-links">
+    <li><a href="tanzania.html" class="active">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html">The family</a></li>
+    <li><a href="notes.html">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <a href="begin.html" class="n-begin">Begin &rarr;</a>
+</nav>
+<!-- EDITORIAL ISSUE BAR -->
+<div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(199,158,90,0.11);background:rgba(8,17,12,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
+  <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(199,158,90,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(199,158,90,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+</div>
+
+
+<!-- PAGE HEADER -->
+<section class="ph">
+  <div class="ph-ghost">Tanzania</div>
+  <div class="ph-inner">
+    <p class="ph-issue eye">A world &nbsp;&middot;&nbsp; Five worlds &nbsp;&middot;&nbsp; One country</p>
+    <h1 class="ph-hed reveal">A world,<br>not a <em>destination.</em></h1>
+    <p class="ph-sub reveal">Tanzania holds more distinct ecosystems, more geological eras, more living cultural traditions in one set of borders than almost anywhere on earth. It is not a place you visit once. It is a place you return to, because each world you enter reveals another you missed.</p>
+  </div>
+</section>
+
+<!-- OPENER -->
+<section class="opener">
+  <div class="opener-film">
+    <span class="film-hint">[ Kilimanjaro at dawn — summit emerging from cloud ]</span>
+    <span class="opener-film-lbl">Africa&rsquo;s highest point &middot; 5,895m &middot; Kilimanjaro</span>
+  </div>
+  <div class="opener-txt">
+    <p class="eye" style="margin-bottom:2rem;">Why Tanzania</p>
+    <h2 class="opener-hl reveal">The scale is the <em>first</em> thing. Then, slowly, the intimacy.</h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">Tanzania has the Serengeti. It has Kilimanjaro. It has Zanzibar. These are things that belong to any atlas. What an atlas cannot capture is the quality of light in the dry season, the silence after a herd passes, the altitude smell of the Kilimanjaro foothills, the warmth of a Swahili greeting on the coast.</p>
+    <p class="dim reveal" style="margin-top:1rem;">Most people who travel here for the first time come for one of those three things. Most people who return come for something else entirely &mdash; the human warmth, the cultural depth, the feeling that they belong to this place in a way they cannot quite explain.</p>
+    <p class="dim reveal" style="margin-top:1rem;">That is what we are here to help you find, whichever world you enter through.</p>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="ss-c reveal"><span class="ss-num">945k</span><span class="ss-lbl">km² of protected land</span></div>
+  <div class="ss-c reveal"><span class="ss-num">5,895</span><span class="ss-lbl">Metres — Kilimanjaro summit</span></div>
+  <div class="ss-c reveal"><span class="ss-num">120+</span><span class="ss-lbl">Ethnic groups &amp; languages</span></div>
+  <div class="ss-c reveal"><span class="ss-num">1.5M</span><span class="ss-lbl">Wildebeest — the migration</span></div>
+</div>
+
+<!-- FIVE WORLDS DEEP -->
+<section class="worlds-deep">
+  <div class="wd-hdr">
+    <h2 class="wd-hl reveal">One country,<br>many <em>registers.</em></h2>
+    <p class="wd-intro reveal">Tanzania is not a set of destinations to be selected from a list. It is one continuous place &mdash; geologically connected, culturally layered, ecologically whole &mdash; that happens to speak in several registers. The names below are a vocabulary, not a menu. They are words you might reach for when trying to describe what is pulling at you. Which of them belong in your journey is not a choice you make from a catalogue. It is something we work out together.</p>
+  </div>
+
+  <!-- 01 Mountain -->
+  <div class="world-row w-m">
+    <div class="wr-film">
+      <span class="film-hint">[ Kilimanjaro — Lemosho route or Kibosho farm ]</span>
+      <span class="wr-film-tag">5,895m</span>
+      <span class="wr-film-lbl">Kilimanjaro &middot; Kibosho corridor &middot; Chagga highlands</span>
+    </div>
+    <div class="wr-txt">
+      <div class="wr-ghost">Mlima</div>
+      <div class="wr-inner">
+        <p class="wr-eye">Trekking &middot; Highland culture &middot; Coffee farms</p>
+        <h2 class="wr-name reveal">The mountain</h2>
+        <span class="wr-sw">Mlima &mdash; the peak that changes you</span>
+        <div class="wr-rule"></div>
+        <p class="wr-desc reveal">Africa&rsquo;s highest peak and the Chagga cultural corridor winding through its lower slopes. At 1,700 metres, the coffee farms begin. The banana groves. The volcanic red soil. The Chagga people, who have farmed this mountain for generations and receive guests at their tables as a matter of course.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">You do not need to summit to be changed by Kilimanjaro. The mountain rearranges your sense of scale whether you reach the top or not. The silence above the cloud line is unlike anything the savanna offers.</p>
+        <div class="wr-detail reveal">
+          <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">Year-round; each season offers a different mountain</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Routes</span><span class="wr-di-val">Lemosho, Marangu, Rongai &mdash; we advise based on your group</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Culture</span><span class="wr-di-val">Chagga homestays, coffee farms, Kibosho families</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Savanna -->
+  <div class="world-row w-s flip">
+    <div class="wr-txt" style="padding:6rem 4rem 6rem 3rem;">
+      <div class="wr-ghost">Nyika</div>
+      <div class="wr-inner">
+        <p class="wr-eye">Wildlife &middot; Migration &middot; Open plain</p>
+        <h2 class="wr-name reveal">The savanna</h2>
+        <span class="wr-sw">Nyika &mdash; the plain that never ends</span>
+        <div class="wr-rule"></div>
+        <p class="wr-desc reveal">Two entirely different moods. The Serengeti &mdash; defined by the greatest land migration on earth, where 1.5 million wildebeest and 350,000 zebra move in a cycle as old as the ecosystem itself. And Tarangire &mdash; quieter, denser, defined by elephant highways and ancient baobabs and a silence the more famous parks have lost.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">Our guides have followed both for decades. They know where the lion will be at dawn. They know which baobab the elephants return to. That knowledge is the difference between watching and belonging.</p>
+        <div class="wr-detail reveal">
+          <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">Year-round; the migration moves, the plain never empties</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Serengeti</span><span class="wr-di-val">Migration, big cats, vast plain, northern corridor</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Tarangire</span><span class="wr-di-val">Elephants, baobabs, ancient quiet, fewer crowds</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wr-film">
+      <span class="film-hint">[ Serengeti — migration crossing or golden hour plain ]</span>
+      <span class="wr-film-tag">The great migration</span>
+      <span class="wr-film-lbl">Serengeti &middot; Tarangire &middot; Northern corridor</span>
+    </div>
+  </div>
+
+  <!-- 03 Crater -->
+  <div class="world-row w-c">
+    <div class="wr-film">
+      <span class="film-hint">[ Ngorongoro — crater floor at dawn, mist ]</span>
+      <span class="wr-film-tag">600m deep</span>
+      <span class="wr-film-lbl">Ngorongoro Crater &middot; Ancient caldera &middot; 25,000 animals</span>
+    </div>
+    <div class="wr-txt">
+      <div class="wr-ghost">Bonde</div>
+      <div class="wr-inner">
+        <p class="wr-eye">Wildlife &middot; Geology &middot; Ancient world</p>
+        <h2 class="wr-name reveal">The crater</h2>
+        <span class="wr-sw">Bonde &mdash; the valley that remembers</span>
+        <div class="wr-rule"></div>
+        <p class="wr-desc reveal">A collapsed volcano three million years in the making, now a self-contained ecosystem holding 25,000 animals within its walls. You descend through cloud forest, drop 600 metres, and emerge into a world that operates entirely by its own logic.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">The alkaline lakes are pink with flamingos. The lions have never learned to leave. The landscape is ancient &mdash; the kind of ancientness that makes your own timeline feel brief and unimportant in the best possible way.</p>
+        <div class="wr-detail reveal">
+          <div class="wr-detail-item"><span class="wr-di-lbl">Geology</span><span class="wr-di-val">3 million year old volcanic caldera, 260km² floor</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Wildlife</span><span class="wr-di-val">Lion, elephant, black rhino, flamingo, hippo</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Descent</span><span class="wr-di-val">Through cloud forest — one of the great arrivals</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 Culture -->
+  <div class="world-row w-cu flip">
+    <div class="wr-txt" style="padding:6rem 4rem 6rem 3rem;">
+      <div class="wr-ghost">Utamaduni</div>
+      <div class="wr-inner">
+        <p class="wr-eye">Culture &middot; Homestays &middot; Community life</p>
+        <h2 class="wr-name reveal">The culture</h2>
+        <span class="wr-sw">Utamaduni &mdash; the life that is already there</span>
+        <div class="wr-rule"></div>
+        <p class="wr-desc reveal">The world most safari itineraries treat as backdrop or bonus. Homestays with Chagga families at altitude. Evenings in Maasai bomas on the crater rim, introduced by a guide who is also a community member and whose relationship with the family precedes ours by years. Night markets in Moshi where nobody knows you are a tourist until you order badly.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">When we enter a village, we bring the local guide &mdash; the person who was born there, whose access to the specific elder, the specific grove, the specific story is entirely their own. Not as a gesture. Because that morning is otherwise unavailable to anyone.</p>
+        <div class="wr-detail reveal">
+          <div class="wr-detail-item"><span class="wr-di-lbl">Maasai</span><span class="wr-di-val">Community visits, crater rim bomas, warrior tradition</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Chagga</span><span class="wr-di-val">Homestays, coffee farms, mountain families</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Cities</span><span class="wr-di-val">Moshi, Arusha — nightlife, markets, real Tanzanian life</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wr-film">
+      <span class="film-hint">[ Maasai boma or Chagga family — genuine, warm ]</span>
+      <span class="wr-film-tag">Ukarimu</span>
+      <span class="wr-film-lbl">Maasai &middot; Chagga &middot; Swahili culture</span>
+    </div>
+  </div>
+
+  <!-- 05 Coast -->
+  <div class="world-row w-co" style="border-bottom:none;">
+    <div class="wr-film">
+      <span class="film-hint">[ Zanzibar — Stone Town alley or coral coast ]</span>
+      <span class="wr-film-tag">Indian Ocean</span>
+      <span class="wr-film-lbl">Zanzibar &middot; Pemba &middot; Stone Town</span>
+    </div>
+    <div class="wr-txt">
+      <div class="wr-ghost">Pwani</div>
+      <div class="wr-inner">
+        <p class="wr-eye">Coast &middot; Indian Ocean &middot; Swahili history</p>
+        <h2 class="wr-name reveal">The coast</h2>
+        <span class="wr-sw">Pwani &mdash; the shore where everything slows</span>
+        <div class="wr-rule"></div>
+        <p class="wr-desc reveal">Stone Town&rsquo;s narrow streets hold seven centuries of Swahili, Arab, Persian, Indian, and Portuguese history layered on top of each other. Zanzibar&rsquo;s spice farms. Pemba&rsquo;s untouched coral gardens. Warm water and a rhythm entirely different from the savanna &mdash; one hour&rsquo;s flight from the Serengeti and another world entirely.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">Many groups come for the safari and discover the coast on their last days. Many return for the coast alone. The Indian Ocean does something to the rhythm of a journey that no amount of spectacular wildlife can replicate.</p>
+        <div class="wr-detail reveal">
+          <div class="wr-detail-item"><span class="wr-di-lbl">Stone Town</span><span class="wr-di-val">UNESCO heritage, spice history, Swahili architecture</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Zanzibar</span><span class="wr-di-val">Coral reefs, spice farms, white coast, warm water</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Pemba</span><span class="wr-di-val">Untouched diving, clove forests, very few visitors</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS — cream inversion -->
+<div class="seasons-gap"></div>
+<section class="seasons">
+  <div class="seasons-pg">Season</div>
+  <div class="seasons-inner">
+    <p class="eye" style="color:var(--ochre);margin-bottom:2rem;">No off-season &mdash; only different gifts</p>
+    <h2 class="seasons-hed reveal">Tanzania is worth<br>travelling in <em>every<br>month of the year.</em></h2>
+    <p style="font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.9;color:rgba(8,17,12,0.52);max-width:620px;margin:-3rem 0 4rem;" class="reveal">The idea of a single &ldquo;safari season&rdquo; is a convenience invented for catalogues. The land does not stop being extraordinary in November. It simply changes register &mdash; greener, quieter, full of newborn animals, lit differently. The right time to come depends entirely on what you want to witness. Here is the year, honestly.</p>
+    <div class="seasons-grid">
+      <div class="sea-c reveal">
+        <div class="sea-month">Dry</div>
+        <p class="sea-tag">June &ndash; October</p>
+        <p class="sea-desc">Grass dries to gold, animals gather at shrinking water, the air clears, Kilimanjaro sheds its cloud. The Mara crossings peak in July and August. The classic image of Tanzania &mdash; and the busiest, which is its only drawback.</p>
+        <p class="sea-worlds">The migration &middot; Clear summits &middot; Concentrated wildlife</p>
+      </div>
+      <div class="sea-c reveal">
+        <div class="sea-month">Short</div>
+        <p class="sea-tag">November</p>
+        <p class="sea-desc">The short rains arrive in brief afternoon bursts that clear as fast as they come. The dust settles, the light turns cinematic, the crowds thin dramatically. One of the most underrated months in the entire calendar &mdash; and one of our favourites.</p>
+        <p class="sea-worlds">Dramatic skies &middot; Fewer travellers &middot; Lower rates</p>
+      </div>
+      <div class="sea-c reveal">
+        <div class="sea-month">Green</div>
+        <p class="sea-tag">December &ndash; March</p>
+        <p class="sea-desc">The southern Serengeti turns emerald. The wildebeest calve &mdash; hundreds of thousands of births in a few weeks, and the predators that follow them. The coast is warm and clear. A completely different Tanzania to the dry season, and a profoundly alive one.</p>
+        <p class="sea-worlds">The calving &middot; Green plains &middot; Coast at its best</p>
+      </div>
+      <div class="sea-c reveal">
+        <div class="sea-month">Long</div>
+        <p class="sea-tag">April &ndash; May</p>
+        <p class="sea-desc">The long rains. The least-travelled window &mdash; and for the right person, the most rewarding. The land is at its most lush, the light at its softest, the camps at their quietest, the rates at their gentlest. For travellers who want Tanzania almost to themselves.</p>
+        <p class="sea-worlds">Solitude &middot; Lush landscape &middot; The quiet country</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOLOGY -->
+<section class="ecology">
+  <div class="eco-l">
+    <p class="eye" style="margin-bottom:2rem;">Geology</p>
+    <h2 class="eco-hl reveal">Formed by <em>fire,</em><br>shaped by water,<br>held by the Rift.</h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">The East African Rift Valley runs through Tanzania like a spine &mdash; a geological seam that has been pulling the continent apart for thirty million years. Ngorongoro is its collapsed offspring. Kilimanjaro rose independently, a volcanic anomaly sitting at the edge of the rift&rsquo;s shoulder. The Serengeti sits on a ancient craton that has not moved in half a billion years.</p>
+    <p class="dim reveal" style="margin-top:1rem;">Understanding the geology changes the experience. When you understand why the crater exists, descending into it becomes something else entirely. When you know what the rift means, the scale of the savanna makes a different kind of sense.</p>
+  </div>
+  <div class="eco-r">
+    <p class="eye" style="margin-bottom:2rem;">Ecology</p>
+    <h2 class="eco-hl reveal">Six biomes.<br>One country.<br><em>Extraordinary</em> density.</h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">Montane forest, cloud forest, moorland, alpine desert, and summit ice on Kilimanjaro alone. Acacia savanna, dry woodland, and riverine forest on the plains. Mangrove, coral reef, and open ocean on the coast. No other country of similar size holds this concentration of distinct ecological zones.</p>
+    <p class="dim reveal" style="margin-top:1rem;">This is why Tanzania rewards the traveller who moves across worlds rather than staying in one. Each transition is a complete change of register &mdash; of light, sound, smell, temperature, and the kind of attention the landscape asks of you.</p>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="people">
+  <div class="ppl-c reveal">
+    <div class="ppl-pg">M</div>
+    <p class="eye" style="margin-bottom:1.5rem;">The plateau people</p>
+    <h3 class="ppl-name">Maasai</h3>
+    <div class="ppl-rule"></div>
+    <p class="dim">Seminomadic pastoralists whose traditional territory spans the crater rim and the open savanna. A warrior culture built around cattle, land, and a relationship with the ecosystem that long predates any national park boundary. Our Maasai partners carry this knowledge in everything they do.</p>
+  </div>
+  <div class="ppl-c reveal">
+    <div class="ppl-pg">C</div>
+    <p class="eye" style="margin-bottom:1.5rem;">The mountain people</p>
+    <h3 class="ppl-name">Chagga</h3>
+    <div class="ppl-rule"></div>
+    <p class="dim">Bantu farmers who have cultivated the southern slopes of Kilimanjaro for centuries &mdash; one of the most intensively farmed mountain environments on the continent. The Kibosho corridor, where our family partner lives, produces some of the finest coffee in Africa from volcanic soil at 1,700 metres.</p>
+  </div>
+  <div class="ppl-c reveal">
+    <div class="ppl-pg">S</div>
+    <p class="eye" style="margin-bottom:1.5rem;">The coast people</p>
+    <h3 class="ppl-name">Swahili</h3>
+    <div class="ppl-rule"></div>
+    <p class="dim">A maritime culture formed at the intersection of the African interior, the Arab world, Persia, India, and Portugal across a thousand years of Indian Ocean trade. Stone Town is their most legible monument. The Swahili language, now Tanzania&rsquo;s national tongue, was their most enduring creation &mdash; and one of the warmest you will ever encounter.</p>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-s-l">
+    <p class="eye" style="margin-bottom:2rem;">Begin here</p>
+    <h2 class="cta-s-hl reveal">You now have the vocabulary.<br><em>Tell us the sentence</em><br>you want to write.</h2>
+    <div class="ochre-rule"></div>
+    <p class="dim reveal">Most groups move across two or three worlds &mdash; shaped by who they are, what they&rsquo;re ready for, and what the season makes possible. Tell us which worlds pull at you. We will tell you who we know in them, what the right time of year looks like, and which local specialists could extend what our core partners offer. No quotation. Just a conversation, honest in both directions.</p>
+  </div>
+  <div class="cta-s-r">
+    <a href="begin.html" class="btn-primary">Begin the conversation</a>
+    <a href="how.html" class="btn-ghost">How we work &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="f-logo">Enkiama</div>
+    <div class="f-tagline">Not a tour. An experience built only for you.</div>
+  </div>
+  <ul class="f-links">
+    <li><a href="tanzania.html">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html">The family</a></li>
+    <li><a href="notes.html">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <div class="f-right">
+    <div class="f-contact">hola@enkiama.com</div>
+    <div class="f-copy">Year&ndash;round &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; &copy; 2025 Enkiama</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(!window.IntersectionObserver)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.07,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(i%6)*0.06+'s';
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

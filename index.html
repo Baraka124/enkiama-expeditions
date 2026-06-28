@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enkiama — Tanzania, curated</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root {
+  --ink:      #08110C;
+  --ink2:     #0E1A14;
+  --ink3:     #13211A;
+  --bone:     #EDE6D6;
+  --bone2:    #E4DCC8;
+  --bone3:    #D6CCB6;
+  --ochre:    #1D9E75;
+  --ochre-lt: rgba(29,158,117,0.12);
+  --forest:   #1C3325;
+  --sage:     #7A9470;
+  --earth:    #C79E5A;
+  --earth-dim:rgba(199,158,90,0.5);
+  --muted:    #6A6258;
+  --rule:     rgba(199,158,90,0.11);
+  --rule-md:  rgba(199,158,90,0.18);
+  --gap:      1px;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content:'';
+  position:fixed;inset:0;z-index:9999;
+  pointer-events:none;
+  opacity:0.038;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:256px 256px;
+}
+
+body {
+  background:var(--ink);
+  color:var(--bone);
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── TYPE PRIMITIVES ── */
+.fr   { font-family:'Fraunces',serif; font-optical-sizing:auto; }
+.fr9  { font-family:'Fraunces',serif; font-variation-settings:'opsz' 9; }
+.fr144{ font-family:'Fraunces',serif; font-variation-settings:'opsz' 144; }
+.ins  { font-family:'Instrument Sans',sans-serif; }
+.sc   { font-variant-caps:all-small-caps; letter-spacing:0.14em; }
+.eye  { font-family:'Instrument Sans',sans-serif; font-variant-caps:all-small-caps; font-size:11px; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--earth); line-height:1; }
+.dim  { font-family:'Instrument Sans',sans-serif; font-weight:300; font-size:14px; line-height:2; color:rgba(237,230,214,0.48); }
+.oc   { color:var(--ochre); }
+
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;
+  border-bottom:1px solid var(--rule);
+  background:rgba(8,17,12,0.97);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+}
+.n-logo {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:18px;font-weight:400;letter-spacing:0.06em;
+  color:var(--bone);text-decoration:none;
+}
+.n-links { display:flex;gap:2.25rem;list-style:none; }
+.n-links a {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:11px;letter-spacing:0.14em;
+  color:var(--muted);text-decoration:none;
+  transition:color .25s;
+  position:relative;padding-bottom:3px;
+}
+.n-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ochre);transition:width .3s cubic-bezier(0.4,0,0.2,1);}
+.n-links a:hover{color:var(--bone);}
+.n-links a:hover::after,.n-links a.active::after{width:100%;}
+.n-links a.active{color:var(--bone);}
+.n-begin {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:11px;letter-spacing:0.16em;
+  padding:6px 18px;
+  border:1px solid rgba(29,158,117,0.6);
+  color:var(--ochre);background:none;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:border-color .25s,background .25s,color .25s,letter-spacing .25s;
+}
+.n-begin:hover { border-color:var(--ochre);background:var(--ochre);color:var(--ink);letter-spacing:0.2em; }
+.n-active { color:var(--bone) !important; border-bottom:1px solid var(--ochre); padding-bottom:2px; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 3rem 8rem;
+  position:relative;overflow:hidden;
+}
+/* film-grade placeholder treatment */
+.hero-film {
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 60%, rgba(30,43,28,0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(29,158,117,0.06) 0%, transparent 55%),
+    linear-gradient(168deg, #050403 0%, #08110C 40%, #13211A 75%, #08110C 100%);
+}
+.hero-film-label {
+  position:absolute;bottom:3.5rem;left:3rem;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.28em;
+  color:rgba(199,158,90,0.18);
+  writing-mode:horizontal-tb;
+  z-index:3;
+}
+.hero-side {
+  position:absolute;top:90px;right:3rem;
+  writing-mode:vertical-rl;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.28em;
+  color:rgba(199,158,90,0.1);
+  z-index:3;
+}
+/* parallax ghost — opsz 144 makes Fraunces bloom */
+.hero-ghost {
+  position:absolute;
+  top:48%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(200px,34vw,500px);
+  font-weight:900;font-style:italic;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(199,158,90,0.04);
+  white-space:nowrap;pointer-events:none;user-select:none;
+  line-height:1;letter-spacing:-0.03em;
+  will-change:transform;
+}
+/* diagonal tear */
+.hero::after {
+  content:'';position:absolute;bottom:-1px;left:0;right:0;
+  height:110px;background:var(--ink);
+  clip-path:polygon(0 62%,100% 0%,100% 100%,0 100%);
+  z-index:2;pointer-events:none;
+}
+.hero-content { position:relative;z-index:3;max-width:960px; }
+.hero-eye {
+  margin-bottom:2.25rem;
+  opacity:0;transition:opacity .8s ease;
+}
+.hero-eye.in { opacity:1; }
+/* opsz 144 hero headline — this is where Fraunces becomes extraordinary */
+.hero-hed {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(56px,10.5vw,148px);
+  font-weight:900;line-height:0.88;
+  letter-spacing:-0.03em;
+  color:var(--bone);
+  margin-bottom:3.5rem;
+  opacity:0;transform:translateY(36px);
+  transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1);
+}
+.hero-hed.in { opacity:1;transform:translateY(0); }
+.hero-hed em { font-style:italic;color:var(--ochre); }
+.hero-hed .whisper {
+  display:block;
+  font-variation-settings:'opsz' 9;
+  font-size:0.32em;font-weight:300;font-style:italic;
+  color:rgba(237,230,214,0.3);
+  letter-spacing:0.02em;margin-top:0.8em;
+  line-height:1.4;
+}
+.hero-sub {
+  max-width:460px;margin-bottom:4rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .8s ease 1.1s,transform .8s ease 1.1s;
+}
+.hero-sub.in { opacity:1;transform:translateY(0); }
+.hero-acts {
+  display:flex;align-items:center;gap:3rem;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .8s ease 1.4s,transform .8s ease 1.4s;
+}
+.hero-acts.in { opacity:1;transform:translateY(0); }
+
+/* CTA buttons — luxury treatment */
+.btn-primary {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:11px;letter-spacing:0.18em;
+  padding:14px 34px;
+  border:1px solid var(--ochre);
+  color:var(--ink);background:var(--ochre);
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:background .3s,color .3s,letter-spacing .3s,border-color .3s;
+  position:relative;overflow:hidden;
+}
+.btn-primary::after {
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0.08);
+  opacity:0;transition:opacity .3s;
+}
+.btn-primary:hover { background:transparent;color:var(--ochre);letter-spacing:0.22em; }
+.btn-primary:hover::after { opacity:1; }
+
+.btn-ghost {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:11px;letter-spacing:0.16em;
+  color:var(--muted);text-decoration:none;
+  position:relative;padding-bottom:3px;
+  transition:color .25s,letter-spacing .25s;
+}
+.btn-ghost::after {
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;background:var(--bone);
+  transition:width .35s cubic-bezier(0.4,0,0.2,1);
+}
+.btn-ghost:hover { color:var(--bone);letter-spacing:0.2em; }
+.btn-ghost:hover::after { width:100%; }
+
+.hero-scroll {
+  position:absolute;bottom:3rem;right:3rem;z-index:3;
+  display:flex;align-items:center;gap:12px;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.28em;
+  color:var(--muted);opacity:0.22;
+}
+.scr-ln { width:40px;height:1px;background:var(--muted); }
+
+/* ── THESIS ── */
+.thesis {
+  padding:11rem 3rem 10rem;
+  position:relative;overflow:hidden;
+  border-top:1px solid var(--rule);
+}
+.thesis-pg {
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(120px,22vw,320px);
+  font-weight:900;font-style:italic;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(199,158,90,0.032);
+  white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-0.03em;
+}
+.thesis-grid {
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 2.2fr;gap:7rem;
+}
+.thesis-stats { display:flex;flex-direction:column;gap:3.5rem;padding-top:8px; }
+.t-stat {}
+.t-stat-num {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(56px,7vw,96px);
+  font-weight:900;color:var(--bone);
+  line-height:1;letter-spacing:-0.025em;
+  display:block;
+}
+.t-stat-lbl {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:10px;letter-spacing:0.14em;
+  color:var(--muted);margin-top:6px;display:block;
+}
+.thesis-rule { width:28px;height:1px;background:var(--rule-md);margin:2.5rem 0; }
+.thesis-body .stmt {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:clamp(26px,3vw,42px);
+  font-weight:300;line-height:1.42;
+  color:var(--bone);margin-bottom:2.5rem;
+}
+.thesis-body .stmt em { font-style:italic;color:var(--ochre); }
+.sw-pill {
+  display:inline-flex;align-items:center;gap:16px;
+  margin-top:3rem;padding:14px 22px;
+  border:1px solid var(--rule-md);
+  background:rgba(199,158,90,0.025);
+}
+.sw-word {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:22px;font-style:italic;color:var(--ochre);
+}
+.sw-div { width:1px;height:24px;background:var(--rule-md); }
+.sw-def { font-size:11px;letter-spacing:0.08em;color:var(--muted);line-height:1.55; }
+
+/* ── ALREADY IS — cream inversion with gap ── */
+.already-gap { height:80px;background:var(--ink); }
+.already {
+  background:var(--bone2);color:var(--ink);
+  padding:11rem 3rem 12rem;
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 80px,100% 0,100% calc(100% - 80px),0 100%);
+  margin:-80px 0;
+}
+.already-pg {
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(100px,18vw,260px);font-weight:900;
+  color:rgba(8,17,12,0.038);white-space:nowrap;
+  pointer-events:none;user-select:none;letter-spacing:-0.03em;
+}
+.already-inner { position:relative;z-index:2; }
+.already-eye { color:var(--ochre); }
+.already-hed {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(44px,8vw,110px);
+  font-weight:900;line-height:0.88;
+  letter-spacing:-0.03em;color:var(--ink);
+  margin:2.5rem 0 5rem;max-width:900px;
+}
+.already-hed em { font-style:italic;color:var(--ochre); }
+.already-cols {
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;
+  border-top:1px solid rgba(8,17,12,0.09);padding-top:4rem;
+}
+.already-col p {
+  font-family:'Instrument Sans',sans-serif;
+  font-size:15px;font-weight:300;
+  color:rgba(8,17,12,0.55);line-height:2;margin-bottom:1.75rem;
+}
+.already-col p:last-child { margin-bottom:0; }
+.already-col em {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-style:italic;font-size:1.04em;color:rgba(8,17,12,0.82);
+}
+
+/* ── LOCAL + WORLDLY ── */
+.lw { border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;margin-top:80px; }
+.lw-h { padding:7rem 3rem; }
+.lw-h:first-child { border-right:1px solid var(--rule);background:var(--ink2); }
+.lw-tag { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.16em;color:var(--earth);margin-bottom:1.75rem;display:block; }
+.lw-hl {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:clamp(28px,3.8vw,52px);
+  font-weight:700;color:var(--bone);
+  line-height:1.05;letter-spacing:-0.018em;margin-bottom:1.5rem;
+}
+.lw-rule { width:24px;height:1px;background:var(--ochre);opacity:0.4;margin-bottom:1.5rem; }
+
+/* ── FIVE WORLDS ── */
+.worlds-intro {
+  border-top:1px solid var(--rule);
+  padding:9rem 3rem 4rem;
+}
+.worlds-intro-grid { display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:end; }
+.worlds-hl {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(48px,7.5vw,104px);
+  font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--bone);
+}
+.worlds-hl em { font-style:italic;color:var(--ochre); }
+.worlds-intro-body {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:clamp(18px,1.9vw,24px);
+  font-weight:300;font-style:italic;
+  color:rgba(237,230,214,0.52);line-height:1.62;
+}
+
+/* horizontal scroll track */
+.worlds-track-wrap { position:relative;border-top:1px solid var(--rule);margin-top:3rem; }
+.worlds-track {
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  cursor:grab;
+}
+.worlds-track::-webkit-scrollbar { display:none; }
+.worlds-track.grabbing { cursor:grabbing; }
+
+.world-panel {
+  flex:0 0 100vw;min-height:88vh;
+  scroll-snap-align:start;
+  display:grid;grid-template-columns:1fr 1fr;
+  border-right:1px solid var(--rule);
+}
+.wp-text {
+  padding:6rem 4rem 6rem 3rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+  border-right:1px solid var(--rule);
+}
+/* film-grade world photo treatment */
+.wp-photo {
+  position:relative;overflow:hidden;
+}
+.wp-photo-film {
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+/* each world gets a distinct film negative feel */
+.w1 .wp-photo-film { background:linear-gradient(152deg,#1a1a14 0%,#0e0e09 55%,#0a0a06 100%); }
+.w2 .wp-photo-film { background:linear-gradient(152deg,#1e1a0c 0%,#120f06 55%,#090806 100%); }
+.w3 .wp-photo-film { background:linear-gradient(152deg,#101810 0%,#0a1008 55%,#060806 100%); }
+.w4 .wp-photo-film { background:linear-gradient(152deg,#1a1408 0%,#110d06 55%,#090706 100%); }
+.w5 .wp-photo-film { background:linear-gradient(152deg,#0c1018 0%,#08101a 55%,#060a10 100%); }
+/* vignette */
+.wp-photo-film::after {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,transparent 30%,rgba(4,9,6,0.65) 100%);
+}
+.wp-photo-note {
+  position:absolute;bottom:1.75rem;left:2rem;z-index:2;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.26em;
+  color:rgba(199,158,90,0.22);
+}
+.wp-photo-tag {
+  position:absolute;top:1.75rem;right:2rem;z-index:2;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.18em;
+  padding:5px 12px;
+  border:1px solid rgba(199,158,90,0.15);
+  color:rgba(199,158,90,0.4);
+}
+.wp-ph-hint {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.16em;
+  color:rgba(199,158,90,0.055);
+  z-index:1;position:relative;
+}
+/* ghost in world panel */
+.wp-ghost {
+  position:absolute;bottom:-0.06em;left:-0.03em;
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(120px,16vw,220px);
+  font-weight:900;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(199,158,90,0.048);
+  pointer-events:none;user-select:none;
+  line-height:1;letter-spacing:-0.025em;
+  will-change:transform;
+}
+.wp-inner { position:relative;z-index:2; }
+.wp-idx {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(88px,13vw,160px);
+  font-weight:900;
+  color:rgba(199,158,90,0.06);
+  line-height:1;margin-bottom:0.4rem;letter-spacing:-0.03em;
+}
+.wp-tag { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.18em;color:var(--ochre);margin-bottom:1.25rem; }
+.wp-name {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(38px,6vw,76px);
+  font-weight:900;color:var(--bone);
+  line-height:0.9;letter-spacing:-0.025em;margin-bottom:0.65rem;
+}
+.wp-sw {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 9;
+  font-style:italic;font-size:17px;
+  color:var(--earth);margin-bottom:2.25rem;display:block;font-weight:300;
+}
+.wp-rule { width:20px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.75rem; }
+.wp-desc { font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:300;color:rgba(237,230,214,0.48);line-height:1.95;max-width:360px; }
+
+/* worlds nav */
+.worlds-nav {
+  display:flex;align-items:center;gap:2rem;
+  padding:1.5rem 3rem;
+  border-top:1px solid var(--rule);
+  background:rgba(8,17,12,0.97);
+}
+.wn-btn {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:10px;letter-spacing:0.14em;
+  background:none;border:none;cursor:pointer;
+  color:var(--muted);padding:4px 0;
+  border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s,letter-spacing .2s;
+}
+.wn-btn.active,.wn-btn:hover { color:var(--bone);border-bottom-color:var(--ochre);letter-spacing:0.18em; }
+.wn-arrows { margin-left:auto;display:flex;gap:6px; }
+.wn-arr {
+  width:34px;height:34px;
+  border:1px solid var(--rule-md);
+  background:none;cursor:pointer;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.wn-arr:hover { border-color:var(--earth);color:var(--bone);background:rgba(199,158,90,0.05); }
+
+.worlds-note {
+  padding:4rem 3rem;border-top:1px solid var(--rule);background:var(--ink2);
+}
+.worlds-note p {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:clamp(18px,2.2vw,26px);
+  font-style:italic;font-weight:300;
+  color:rgba(237,230,214,0.48);line-height:1.62;max-width:860px;
+}
+.worlds-note em { font-style:normal;color:var(--earth); }
+
+/* ── NDUGU ── */
+.ndugu { border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr; }
+.ndugu-l {
+  padding:8rem 4rem 8rem 3rem;
+  border-right:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.ndugu-pg {
+  position:absolute;bottom:-0.04em;left:-0.03em;
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(120px,18vw,260px);font-weight:900;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(199,158,90,0.038);
+  pointer-events:none;user-select:none;line-height:1;letter-spacing:-0.025em;
+}
+.ndugu-inner { position:relative;z-index:2; }
+.ndugu-hl {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:clamp(30px,4.5vw,58px);
+  font-weight:700;line-height:1.04;letter-spacing:-0.018em;margin-bottom:2.5rem;
+}
+.ndugu-hl em { font-style:italic;color:var(--ochre); }
+.ndugu-rule { width:24px;height:1px;background:var(--ochre);opacity:0.38;margin:2.5rem 0; }
+.ndugu-q {
+  padding:2rem 2.25rem;
+  border-left:2px solid var(--ochre);
+  background:rgba(29,158,117,0.035);
+}
+.ndugu-q p {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 9;
+  font-size:17px;font-style:italic;font-weight:300;
+  color:rgba(237,230,214,0.62);line-height:1.75;
+}
+.ndugu-r { display:grid;grid-template-rows:1fr 1fr;gap:var(--gap);background:var(--ink); }
+.nph { position:relative;background:var(--ink2);overflow:hidden;display:flex;align-items:center;justify-content:center; }
+.nph-film {
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#1c1814 0%,#0d0b09 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.nph-film::after { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,rgba(4,9,6,0.6) 100%); }
+.nph-lbl {
+  position:absolute;bottom:14px;left:18px;z-index:2;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.24em;
+  color:rgba(199,158,90,0.2);
+}
+
+/* ── CURATION ENGINE ── */
+.curate {
+  border-top:1px solid var(--rule);
+  background:var(--forest);
+  padding:9rem 3rem;
+  position:relative;overflow:hidden;
+}
+.curate-pg {
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(100px,17vw,240px);font-weight:900;font-style:italic;
+  color:rgba(122,148,112,0.055);white-space:nowrap;
+  pointer-events:none;user-select:none;letter-spacing:-0.03em;
+}
+.curate-inner { position:relative;z-index:2;max-width:840px;margin:0 auto; }
+.curate-eye { color:var(--sage);margin-bottom:2.5rem; }
+.curate-hl {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:clamp(32px,4.5vw,58px);
+  font-weight:700;color:var(--bone);
+  line-height:1.04;letter-spacing:-0.018em;margin-bottom:1.5rem;
+}
+.curate-hl em { font-style:italic;color:var(--sage); }
+.curate-sub { font-size:14px;color:rgba(237,230,214,0.44);margin-bottom:4rem;max-width:520px;line-height:2; }
+.curate-progress { display:flex;gap:8px;margin-bottom:3rem;align-items:center; }
+.cp-dot {
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(122,148,112,0.2);
+  transition:background .4s,transform .4s;
+}
+.cp-dot.done { background:var(--sage); }
+.cp-dot.current { background:var(--ochre);transform:scale(1.4); }
+.curate-step { display:none; }
+.curate-step.active { display:block; }
+.curate-prompt {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:clamp(20px,2.5vw,30px);
+  font-weight:300;font-style:italic;
+  color:var(--bone);line-height:1.52;margin-bottom:3rem;
+}
+.curate-options { display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2rem; }
+.c-opt {
+  padding:12px 22px;
+  border:1px solid rgba(122,148,112,0.2);
+  background:none;cursor:pointer;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:13px;font-weight:300;
+  color:rgba(237,230,214,0.48);
+  transition:border-color .25s,color .25s,background .25s,letter-spacing .25s;
+  text-align:left;line-height:1.5;
+}
+.c-opt:hover,.c-opt.picked {
+  border-color:var(--sage);color:var(--bone);
+  background:rgba(122,148,112,0.07);
+}
+.curate-response { display:none; }
+.curate-response.show { display:block; }
+.cr-divider { width:32px;height:1px;background:var(--sage);opacity:0.4;margin-bottom:2.5rem; }
+.cr-label { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.18em;color:var(--sage);margin-bottom:1.5rem; }
+.cr-text {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:clamp(18px,2.2vw,26px);
+  font-weight:300;font-style:italic;
+  color:var(--bone);line-height:1.65;min-height:140px;
+}
+.cr-cursor {
+  display:inline-block;width:2px;height:0.9em;
+  background:var(--ochre);vertical-align:middle;
+  animation:blink 1s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.cr-cta { margin-top:3rem;display:flex;align-items:center;gap:2rem; }
+.cr-reset {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:10px;letter-spacing:0.16em;
+  color:var(--muted);background:none;border:none;cursor:pointer;
+  transition:color .2s;position:relative;padding-bottom:2px;
+}
+.cr-reset::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .3s; }
+.cr-reset:hover { color:var(--bone); }
+.cr-reset:hover::after { width:100%; }
+.cr-loading { display:none;align-items:center;gap:10px;margin-bottom:1.5rem; }
+.cr-loading.show { display:flex; }
+.cr-dot { width:5px;height:5px;border-radius:50%;background:var(--sage);animation:pulse 1.2s ease-in-out infinite; }
+.cr-dot:nth-child(2){animation-delay:.2s;}
+.cr-dot:nth-child(3){animation-delay:.4s;}
+@keyframes pulse{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:1;transform:scale(1.3);}}
+
+/* ── TRANSPARENCY ── */
+.transp { border-top:1px solid var(--rule);background:var(--ink2); }
+.transp-hdr {
+  display:grid;grid-template-columns:1fr 2fr;gap:5rem;
+  padding:8rem 3rem 5rem;border-bottom:1px solid var(--rule);
+}
+.transp-lead {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:clamp(20px,2.2vw,28px);
+  font-weight:300;color:var(--bone);line-height:1.55;margin-bottom:1.25rem;
+}
+.transp-grid { display:grid;grid-template-columns:repeat(4,1fr); }
+.tr { padding:4rem 3rem;border-right:1px solid var(--rule); }
+.tr:last-child { border-right:none; }
+.tr-mark {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.2em;color:var(--ochre);
+  margin-bottom:1.75rem;display:flex;align-items:center;gap:12px;
+}
+.tr-mark::before { content:'';width:14px;height:1px;background:var(--ochre);opacity:0.4; }
+.tr-title {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:19px;font-weight:700;
+  color:var(--bone);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em;
+}
+.pledge { padding:2.5rem 3rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap; }
+.pl { display:flex;align-items:center;gap:12px;padding:0.8rem 2.5rem 0.8rem 0;min-width:260px; }
+.pl-mark {
+  width:14px;height:14px;
+  border:1px solid rgba(29,158,117,0.32);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pl-mark::after { content:'';width:5px;height:5px;background:var(--ochre);opacity:0.6; }
+.pl-txt { font-family:'Instrument Sans',sans-serif;font-size:12px;font-weight:300;color:rgba(237,230,214,0.38); }
+
+/* ── INTEL ── */
+.intel { border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(3,1fr); }
+.i-c { padding:5rem 3rem;border-right:1px solid var(--rule); }
+.i-c:last-child { border-right:none; }
+.i-src {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:9px;letter-spacing:0.22em;color:var(--earth);margin-bottom:1.75rem;
+}
+.i-rule { width:16px;height:1px;background:var(--earth);opacity:0.35;margin-bottom:1.75rem; }
+.i-title {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:22px;font-weight:700;
+  color:var(--bone);line-height:1.15;margin-bottom:1.25rem;letter-spacing:-0.01em;
+}
+
+/* ── PASSION — cream inversion ── */
+.passion-gap { height:80px;background:var(--ink); }
+.passion {
+  background:var(--bone);color:var(--ink);
+  padding:11rem 3rem 12rem;
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 80px,100% 0,100% calc(100% - 80px),0 100%);
+  margin:-80px 0;text-align:center;
+}
+.passion-pg {
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(80px,14vw,200px);font-weight:900;
+  color:rgba(8,17,12,0.035);white-space:nowrap;
+  pointer-events:none;user-select:none;letter-spacing:-0.03em;
+}
+.passion-inner { position:relative;z-index:2; }
+.passion-mark {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:88px;font-weight:900;color:var(--ochre);
+  opacity:0.18;line-height:0.5;margin-bottom:3rem;display:block;
+}
+.passion-txt {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:clamp(26px,3.5vw,48px);
+  font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.38;
+  max-width:900px;margin:0 auto 2rem;letter-spacing:-0.015em;
+}
+.passion-sub { font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:300;color:rgba(8,17,12,0.46);max-width:540px;margin:0 auto 3.5rem;line-height:2; }
+.p-sw { display:flex;align-items:center;justify-content:center;gap:1.5rem; }
+.psw-w {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 9;
+  font-size:22px;font-style:italic;font-weight:300;color:var(--ochre);
+}
+.psw-d { width:1px;height:22px;background:rgba(8,17,12,0.12); }
+.psw-f { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.16em;color:rgba(8,17,12,0.36); }
+
+/* ── STORY ── */
+.story { border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;margin-top:80px; }
+.story-d {
+  background:var(--ink2);padding:8rem 3rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.story-mark {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:120px;font-weight:900;
+  color:var(--ochre);opacity:0.12;
+  line-height:0.7;display:block;margin-bottom:2.5rem;
+}
+.story-q {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:clamp(18px,2.2vw,26px);
+  font-weight:300;font-style:italic;
+  color:var(--bone);line-height:1.62;
+}
+.story-attr { margin-top:3rem; }
+.story-name { font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:500;color:rgba(237,230,214,0.58); }
+.story-meta { font-family:'Instrument Sans',sans-serif;font-size:11px;color:var(--muted);margin-top:4px; }
+.story-r { padding:8rem 3rem;display:flex;flex-direction:column;justify-content:center; }
+.story-rlbl { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.18em;color:var(--earth);margin-bottom:1.5rem; }
+.story-rule { width:16px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.5rem; }
+
+/* ── CTA ── */
+.cta-wrap { border-top:1px solid var(--rule); }
+.cta-main { display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule); }
+.cta-l {
+  padding:8rem 4rem 8rem 3rem;
+  border-right:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  background:var(--ink2);
+}
+.cta-bg {
+  position:absolute;top:42%;left:42%;
+  transform:translate(-45%,-50%) rotate(-5deg);
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(140px,24vw,340px);
+  font-weight:900;font-style:italic;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(29,158,117,0.058);
+  pointer-events:none;user-select:none;line-height:1;letter-spacing:-0.03em;
+}
+.cta-l-in { position:relative;z-index:2; }
+.rafiki-hed {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(34px,5.5vw,72px);
+  font-weight:700;line-height:1.04;
+  letter-spacing:-0.02em;color:var(--bone);margin-bottom:3rem;
+}
+.rafiki-hed em { font-style:italic;color:var(--ochre); }
+.rafiki-tr { display:flex;align-items:center;gap:14px;margin-bottom:2.5rem; }
+.rafiki-dash { width:30px;height:1px;background:var(--ochre);opacity:0.35; }
+.rafiki-def {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:10px;letter-spacing:0.14em;color:var(--muted);
+}
+.cta-r { padding:8rem 3rem;display:flex;flex-direction:column;gap:2.5rem;justify-content:center; }
+.cta-chs { display:flex;flex-direction:column; }
+.cta-ch { display:flex;align-items:flex-start;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid rgba(199,158,90,0.08); }
+.cta-ch:first-child { border-top:1px solid rgba(199,158,90,0.08); }
+.cta-lbl { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.14em;color:var(--earth);min-width:72px;padding-top:2px;flex-shrink:0; }
+.cta-val { font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(237,230,214,0.4);line-height:1.75; }
+.season { display:flex;align-items:center;gap:14px; }
+.sea-ln { width:22px;height:1px;background:var(--ochre);opacity:0.28; }
+.sea-txt { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.16em;color:var(--muted); }
+
+/* ask */
+.ask { display:grid;grid-template-columns:repeat(3,1fr);background:var(--ink2); }
+.ask-c { padding:5rem 3rem;border-right:1px solid var(--rule);position:relative;overflow:hidden; }
+.ask-c:last-child { border-right:none; }
+.ask-pg {
+  position:absolute;bottom:-0.08em;right:-0.04em;
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 144;
+  font-size:clamp(80px,11vw,150px);font-weight:900;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(199,158,90,0.04);
+  pointer-events:none;user-select:none;line-height:1;letter-spacing:-0.025em;
+}
+.ask-in { position:relative;z-index:2; }
+.ask-tag { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:10px;letter-spacing:0.18em;color:var(--ochre);margin-bottom:1.25rem; }
+.ask-rule { width:14px;height:1px;background:var(--ochre);opacity:0.35;margin-bottom:1.25rem; }
+.ask-title {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 36;
+  font-size:20px;font-weight:700;
+  color:var(--bone);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em;
+}
+.ask-lnk {
+  display:inline-block;margin-top:1.75rem;
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:10px;letter-spacing:0.16em;
+  color:var(--earth);text-decoration:none;
+  position:relative;padding-bottom:2px;
+  transition:color .25s,letter-spacing .25s;
+}
+.ask-lnk::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .35s cubic-bezier(0.4,0,0.2,1); }
+.ask-lnk:hover { color:var(--bone);letter-spacing:0.2em; }
+.ask-lnk:hover::after { width:100%; }
+
+/* footer */
+footer {
+  border-top:1px solid var(--rule);
+  padding:3rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.f-logo {
+  font-family:'Fraunces',serif;
+  font-variation-settings:'opsz' 72;
+  font-size:17px;font-weight:400;letter-spacing:0.06em;
+  color:rgba(237,230,214,0.18);
+}
+.f-links { display:flex;gap:2rem;list-style:none; }
+.f-links a {
+  font-family:'Instrument Sans',sans-serif;
+  font-variant-caps:all-small-caps;
+  font-size:10px;letter-spacing:0.14em;
+  color:var(--muted);text-decoration:none;opacity:0.32;
+  transition:opacity .2s,letter-spacing .2s;
+}
+.f-links a:hover { opacity:1;letter-spacing:0.18em; }
+.f-copy { font-family:'Instrument Sans',sans-serif;font-size:9px;color:var(--muted);opacity:0.14; }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity:0;transform:translateY(32px);
+  transition:opacity .9s cubic-bezier(0.16,1,0.3,1),transform .9s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.in { opacity:1;transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .transp-grid { grid-template-columns:1fr 1fr; }
+  .tr { border-bottom:1px solid var(--rule); }
+}
+@media(max-width:860px){
+  nav { padding:0 1.5rem; }
+  .n-links { display:none; }
+  .hero,.thesis,.worlds-intro,.curate,.transp-hdr { padding-left:1.5rem;padding-right:1.5rem; }
+  .hero { padding-bottom:5rem; }
+  .thesis { padding-top:7rem;padding-bottom:7rem; }
+  .thesis-grid { grid-template-columns:1fr;gap:3rem; }
+  .already { padding:7rem 1.5rem;clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%);margin:-40px 0; }
+  .already-hed { font-size:clamp(40px,9vw,72px); }
+  .already-cols { grid-template-columns:1fr;gap:2.5rem; }
+  .already-gap { height:40px; }
+  .lw { grid-template-columns:1fr;margin-top:40px; }
+  .lw-h:first-child { border-right:none;border-bottom:1px solid var(--rule); }
+  .lw-h { padding:5rem 1.5rem; }
+  .worlds-intro { padding:6rem 1.5rem 3rem; }
+  .worlds-intro-grid { grid-template-columns:1fr;gap:2.5rem; }
+  .world-panel { grid-template-columns:1fr;min-height:auto; }
+  .wp-text { padding:4rem 1.5rem; }
+  .wp-photo { height:280px;border-left:none;border-top:1px solid var(--rule); }
+  .worlds-note { padding:3rem 1.5rem; }
+  .worlds-nav { padding:1.25rem 1.5rem;gap:1.25rem; }
+  .ndugu { grid-template-columns:1fr; }
+  .ndugu-l { border-right:none;border-bottom:1px solid var(--rule);padding:5rem 1.5rem; }
+  .ndugu-r { height:300px;grid-template-rows:1fr; }
+  .curate { padding:7rem 1.5rem; }
+  .transp-hdr { grid-template-columns:1fr;gap:2rem;padding:6rem 1.5rem 3.5rem; }
+  .transp-grid { grid-template-columns:1fr; }
+  .tr { padding:3rem 1.5rem; }
+  .pledge { padding:2rem 1.5rem; }
+  .intel { grid-template-columns:1fr; }
+  .i-c { border-right:none;border-bottom:1px solid var(--rule);padding:4rem 1.5rem; }
+  .i-c:last-child { border-bottom:none; }
+  .passion-gap { height:40px; }
+  .passion { padding:8rem 1.5rem;clip-path:polygon(0 40px,100% 0,100% calc(100% - 40px),0 100%);margin:-40px 0; }
+  .story { grid-template-columns:1fr;margin-top:40px; }
+  .story-d { border-right:none;border-bottom:1px solid var(--rule);padding:5rem 1.5rem; }
+  .story-r { padding:5rem 1.5rem; }
+  .cta-main { grid-template-columns:1fr; }
+  .cta-l { border-right:none;padding:5rem 1.5rem; }
+  .cta-r { padding:0 1.5rem 5rem; }
+  .ask { grid-template-columns:1fr; }
+  .ask-c { border-right:none;border-bottom:1px solid var(--rule);padding:4rem 1.5rem; }
+  .ask-c:last-child { border-bottom:none; }
+  footer { flex-direction:column;gap:2rem;text-align:center;padding:2.5rem 1.5rem; }
+  .f-links { flex-wrap:wrap;justify-content:center; }
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal { opacity:1;transform:none;transition:none; }
+  .hero-ghost,.ndugu-pg,.thesis-pg { display:none; }
+  .cr-cursor { animation:none; }
+  .hero-eye,.hero-hed,.hero-sub,.hero-acts { opacity:1;transform:none;transition:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="n-logo">Enkiama</a>
+  <ul class="n-links">
+    <li><a href="tanzania.html">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html">The family</a></li>
+    <li><a href="notes.html">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <a href="begin.html" class="n-begin">Begin &rarr;</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-film"></div>
+  <div class="hero-film-label">[ Full&#8209;bleed photography &mdash; Kilimanjaro or Serengeti at dawn ]</div>
+  <span class="hero-side">[ Photography &mdash; Tanzania ]</span>
+  <div class="hero-ghost" id="heroGhost">Tanzania</div>
+
+  <div class="hero-content">
+    <p class="eye hero-eye" id="hEye">
+      Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; One unrepeatable journey
+    </p>
+    <h1 class="hero-hed" id="hHed">
+      Tanzania already<br>
+      knows how to<br>
+      receive <em>you.</em>
+      <span class="whisper">We just make sure you arrive.</span>
+    </h1>
+    <p class="dim hero-sub" id="hSub">
+      The mountain, the plain, the crater, the coast, the life lived between them &mdash; one country, many registers, and a family of people who have spent their lives belonging to it. We compose from all of it, around your group alone, and build something that has never existed before and will not exist again.
+    </p>
+    <div class="hero-acts" id="hActs">
+      <a href="#curate" class="btn-primary">Begin your journey</a>
+      <a href="#worlds" class="btn-ghost">See the range of the country</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span class="scr-ln"></span>&nbsp;Scroll</div>
+</section>
+
+<!-- ── THESIS ── -->
+<section class="thesis" id="about">
+  <div class="thesis-pg">ndugu</div>
+  <div class="thesis-grid">
+    <div class="thesis-stats reveal">
+      <div class="t-stat">
+        <span class="t-stat-num">5</span>
+        <span class="t-stat-lbl">Worlds in one country</span>
+      </div>
+      <div class="thesis-rule"></div>
+      <div class="t-stat">
+        <span class="t-stat-num">&#8734;</span>
+        <span class="t-stat-lbl">Possible journeys</span>
+      </div>
+      <div class="thesis-rule"></div>
+      <div class="t-stat">
+        <span class="t-stat-num">8</span>
+        <span class="t-stat-lbl">Guests &mdash; always</span>
+      </div>
+    </div>
+    <div class="thesis-body reveal">
+      <p class="stmt">The hospitality you will experience is not something we designed. <em>It is something Tanzania already is.</em></p>
+      <p class="dim">The warmth, the generosity, the instinct to receive a stranger as family &mdash; these values belong to the land and its people. They were here before any tour operator arrived. Our work is not to produce them. It is to make sure you arrive close enough to feel them &mdash; in the right company, with the right introduction, at the right depth.</p>
+      <p class="dim" style="margin-top:1rem;">The guide who has spent thirty years on the Serengeti plain is not a product. He is a relationship &mdash; earned over time, held with care, shared exclusively. The family in Kibosho who sit with guests at their table do not do it for tourism. They do it because the introduction is trusted. That trust is what we build, slowly and deliberately, and it is the only thing that makes the access real.</p>
+      <div class="sw-pill">
+        <span class="sw-word">Ndugu</span>
+        <div class="sw-div"></div>
+        <span class="sw-def">Brother, sister, kin &mdash; in Tanzania,<br>anyone bound to you by shared values, not blood</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TANZANIA ALREADY IS ── -->
+<div class="already-gap"></div>
+<section class="already">
+  <div class="already-pg">ujamaa</div>
+  <div class="already-inner">
+    <p class="eye already-eye">Tanzania already is</p>
+    <h2 class="already-hed reveal">The family feeling<br>is not something<br>we <em>sell.</em></h2>
+    <div class="already-cols">
+      <div class="already-col reveal">
+        <p>The Swahili word <em>ujamaa</em> &mdash; communal family, shared humanity &mdash; was Julius Nyerere&rsquo;s founding philosophy for Tanzania. It describes something already present in how Tanzanian people live: the instinct to receive strangers as <em>ndugu</em>, to share what they have, to make you feel you were expected before you arrived.</p>
+        <p>The tour industry markets Tanzania&rsquo;s wildlife and its landscapes. It largely misses this &mdash; the human texture, the radical generosity, the warmth that belongs to the place itself. That is what most guests never reach. It is what Enkiama exists to close the distance to.</p>
+      </div>
+      <div class="already-col reveal">
+        <p>Through guides who belong to the ecosystems they show you. Through cultural partners embedded in communities, not visiting them. Through lodges chosen because they carry the same spirit &mdash; rooted in the land, aligned with its values. A country with thousands of things to see, experienced through a lens shaped entirely around who you are.</p>
+        <p>When we say <em>family</em>, we do not mean a brand promise. We mean the authentic Tanzanian value of <em>ukarimu</em> &mdash; hospitality as a way of life &mdash; experienced across the whole of a journey, end to end, without interruption.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCAL + WORLDLY ── -->
+<section class="lw">
+  <div class="lw-h">
+    <span class="lw-tag">Rooted</span>
+    <h2 class="lw-hl reveal">Local depth.<br>Local knowledge.<br>Local soul.</h2>
+    <div class="lw-rule"></div>
+    <p class="dim reveal">Our guides live in the ecosystems they show you. Our cultural partners belong to the communities they open. Our lodges are part of the landscape, not placed in it. The access we provide is only possible because the people who provide it have spent their lives earning it.</p>
+  </div>
+  <div class="lw-h">
+    <span class="lw-tag">World&#8209;class</span>
+    <h2 class="lw-hl reveal">Global values.<br>Total transparency.<br>No compromise.</h2>
+    <div class="lw-rule"></div>
+    <p class="dim reveal">We operate with the standards of the best travel experiences anywhere. Full transparency on cost. No hidden top-ups. No surprises. You know what to expect from day one &mdash; and you are 100% in charge of every decision from the first conversation onwards.</p>
+  </div>
+</section>
+
+<!-- ── FIVE WORLDS ── -->
+<section id="worlds">
+  <div class="worlds-intro">
+    <div class="worlds-intro-grid">
+      <h2 class="worlds-hl reveal">One<br>country.<br>Many<br><em>registers.</em></h2>
+      <p class="worlds-intro-body reveal">No one holds all of Tanzania in a single visit &mdash; that is the point, and the reason a trusted guide matters. What follows is not a menu to choose from. It is the range of one country, so you can begin to feel which of its registers are calling to you. Drag to move through it.</p>
+    </div>
+  </div>
+
+  <div class="worlds-track-wrap">
+    <div class="worlds-track" id="wTrack">
+
+      <div class="world-panel w1">
+        <div class="wp-text">
+          <div class="wp-ghost">Mlima</div>
+          <div class="wp-inner">
+            <div class="wp-tag">Trekking &amp; highland culture</div>
+            <div class="wp-name">The<br>mountain</div>
+            <span class="wp-sw">Mlima &mdash; the peak that changes you</span>
+            <div class="wp-rule"></div>
+            <p class="wp-desc">Africa&rsquo;s highest peak and the Chagga cultural corridor winding through its lower slopes. Trekking routes from Marangu to Lemosho. Coffee farms at 1,700 metres. Banana groves, volcanic soil, and a summit that alters your sense of scale whether you reach it or not.</p>
+          </div>
+        </div>
+        <div class="wp-photo">
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Kilimanjaro &mdash; summit ridge or foothills farm ]</span></div>
+          <span class="wp-photo-tag">5,895m</span>
+          <span class="wp-photo-note">Kilimanjaro &middot; Kibosho corridor</span>
+        </div>
+      </div>
+
+      <div class="world-panel w2">
+        <div class="wp-photo" style="border-right:1px solid var(--rule);">
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Serengeti &mdash; migration or golden hour plain ]</span></div>
+          <span class="wp-photo-tag">The great migration</span>
+          <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
+        </div>
+        <div class="wp-text" style="padding:6rem 3rem 6rem 4rem;">
+          <div class="wp-ghost">Nyika</div>
+          <div class="wp-inner">
+            <div class="wp-tag">Wildlife &middot; Safari &middot; Open plain</div>
+            <div class="wp-name">The<br>savanna</div>
+            <span class="wp-sw">Nyika &mdash; the plain that never ends</span>
+            <div class="wp-rule"></div>
+            <p class="wp-desc">The Serengeti and Tarangire &mdash; two entirely different moods. One defined by the greatest land migration on earth. The other by elephant highways, ancient baobabs, and a silence the more famous parks have lost. Our guides have followed both for decades.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="world-panel w3">
+        <div class="wp-text">
+          <div class="wp-ghost">Bonde</div>
+          <div class="wp-inner">
+            <div class="wp-tag">Wildlife &middot; Geology &middot; Ancient world</div>
+            <div class="wp-name">The<br>crater</div>
+            <span class="wp-sw">Bonde &mdash; the valley that remembers</span>
+            <div class="wp-rule"></div>
+            <p class="wp-desc">A collapsed volcano that became a self-contained ecosystem &mdash; 25,000 animals, alkaline lakes, ancient geological memory. You descend through cloud and emerge into something the word &ldquo;safari&rdquo; was never built to describe. Our guides have made this descent hundreds of times. It never becomes ordinary.</p>
+          </div>
+        </div>
+        <div class="wp-photo">
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Ngorongoro &mdash; crater floor, dawn mist ]</span></div>
+          <span class="wp-photo-tag">600m deep</span>
+          <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
+        </div>
+      </div>
+
+      <div class="world-panel w4">
+        <div class="wp-photo" style="border-right:1px solid var(--rule);">
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Maasai boma or Chagga family table ]</span></div>
+          <span class="wp-photo-tag">Ukarimu</span>
+          <span class="wp-photo-note">Maasai &middot; Chagga &middot; Swahili coast</span>
+        </div>
+        <div class="wp-text" style="padding:6rem 3rem 6rem 4rem;">
+          <div class="wp-ghost">Utamaduni</div>
+          <div class="wp-inner">
+            <div class="wp-tag">Culture &middot; Homestays &middot; Nightlife</div>
+            <div class="wp-name">The<br>culture</div>
+            <span class="wp-sw">Utamaduni &mdash; the life that is already there</span>
+            <div class="wp-rule"></div>
+            <p class="wp-desc">Homestays. Nightlife in Moshi or Arusha. Meals at tables that were not set for tourists. Maasai bomas on the crater rim. Chagga farms above the cloud line. A night market in a coastal town. This is the world most itineraries skip entirely &mdash; and the one our guests remember most completely.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="world-panel w5">
+        <div class="wp-text">
+          <div class="wp-ghost">Pwani</div>
+          <div class="wp-inner">
+            <div class="wp-tag">Coast &middot; Ocean &middot; Stone Town</div>
+            <div class="wp-name">The<br>coast</div>
+            <span class="wp-sw">Pwani &mdash; the shore where everything slows</span>
+            <div class="wp-rule"></div>
+            <p class="wp-desc">Zanzibar&rsquo;s spice markets and coral reefs. Pemba&rsquo;s untouched marine life. Stone Town&rsquo;s layered Swahili, Arab, and Portuguese history. Warm water, slow rhythm, centuries of trade compressed into narrow streets. A completely different sensory world &mdash; and only an hour&rsquo;s flight from the savanna.</p>
+          </div>
+        </div>
+        <div class="wp-photo">
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Zanzibar &mdash; Stone Town or coral coast ]</span></div>
+          <span class="wp-photo-tag">Indian Ocean</span>
+          <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="worlds-nav">
+      <button class="wn-btn active" data-w="0">Mountain</button>
+      <button class="wn-btn" data-w="1">Savanna</button>
+      <button class="wn-btn" data-w="2">Crater</button>
+      <button class="wn-btn" data-w="3">Culture</button>
+      <button class="wn-btn" data-w="4">Coast</button>
+      <div class="wn-arrows">
+        <button class="wn-arr" id="wPrev">&larr;</button>
+        <button class="wn-arr" id="wNext">&rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="worlds-note">
+    <p>Most journeys move through two or three of these registers &mdash; the combination shaped entirely around who is travelling, what they are ready for, and what the country offers when they come. These names are a vocabulary, not a catalogue. <em>Your journey is the sentence only you can write &mdash; and we write it with you, never from a shelf.</em></p>
+  </div>
+</section>
+
+<!-- ── CURATION ENGINE ── -->
+<section class="curate" id="curate">
+  <div class="curate-pg">imagine</div>
+  <div class="curate-inner">
+    <p class="eye curate-eye">Your journey begins here</p>
+    <h2 class="curate-hl reveal">Tell us what <em>pulls</em> at you.<br>We&rsquo;ll find the words<br>for what you imagine.</h2>
+    <p class="curate-sub reveal">Not a form. Not a quiz. Three questions that begin a conversation &mdash; and a glimpse of what your journey might feel like. Enkiama&rsquo;s curation starts the moment you answer.</p>
+
+    <div class="curate-engine">
+      <div class="curate-progress">
+        <div class="cp-dot current" id="dot0"></div>
+        <div class="cp-dot" id="dot1"></div>
+        <div class="cp-dot" id="dot2"></div>
+      </div>
+
+      <div class="curate-step active" id="step0">
+        <p class="curate-prompt">&ldquo;What kind of silence do you want &mdash; the silence of altitude, or the silence after a herd passes?&rdquo;</p>
+        <div class="curate-options">
+          <button class="c-opt" data-val="altitude">The silence of altitude &mdash; cold air, few people, a summit somewhere above the clouds</button>
+          <button class="c-opt" data-val="herd">The silence after a herd passes &mdash; vast space, animal presence, the savanna breathing</button>
+          <button class="c-opt" data-val="ocean">The silence of the ocean &mdash; warm water, slow rhythm, a different kind of vastness</button>
+          <button class="c-opt" data-val="human">The silence between conversations &mdash; a shared table, a family&rsquo;s home, the sound of another life</button>
+        </div>
+      </div>
+
+      <div class="curate-step" id="step1">
+        <p class="curate-prompt">&ldquo;When you travel, what do you want to understand more deeply &mdash; a place, a people, or yourself?&rdquo;</p>
+        <div class="curate-options">
+          <button class="c-opt" data-val="place">A place &mdash; its geology, its ecosystems, why it looks like this and no other</button>
+          <button class="c-opt" data-val="people">A people &mdash; how they live, what they value, what they would tell you if you stayed long enough</button>
+          <button class="c-opt" data-val="self">Myself &mdash; I want the kind of experience that rearranges what I thought I knew about what matters</button>
+          <button class="c-opt" data-val="all">All three &mdash; I want a journey that holds all of it at once</button>
+        </div>
+      </div>
+
+      <div class="curate-step" id="step2">
+        <p class="curate-prompt">&ldquo;What would make you feel the journey was everything it could have been?&rdquo;</p>
+        <div class="curate-options">
+          <button class="c-opt" data-val="moment">One unrepeatable moment that I couldn&rsquo;t have planned or found alone</button>
+          <button class="c-opt" data-val="people2">The people I met &mdash; guides, families, partners &mdash; who showed me something real</button>
+          <button class="c-opt" data-val="changed">Coming home feeling genuinely different &mdash; not just rested, but changed</button>
+          <button class="c-opt" data-val="together">Experiencing it with people I love, in a way that brought us closer</button>
+        </div>
+      </div>
+
+      <div class="curate-response" id="curateResponse">
+        <div class="cr-divider"></div>
+        <p class="cr-label">Your journey, imagined</p>
+        <div class="cr-loading" id="crLoading">
+          <div class="cr-dot"></div><div class="cr-dot"></div><div class="cr-dot"></div>
+        </div>
+        <p class="cr-text" id="crText"></p>
+        <div class="cr-cta" id="crCta" style="display:none;">
+          <a href="mailto:hola@enkiama.com" class="btn-primary">Begin this conversation</a>
+          <button class="cr-reset" id="crReset">Start again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NDUGU ── -->
+<section class="ndugu" id="family">
+  <div class="ndugu-l">
+    <div class="ndugu-pg">ndugu</div>
+    <div class="ndugu-inner">
+      <p class="eye" style="margin-bottom:2.5rem;">The Enkiama family</p>
+      <h2 class="ndugu-hl reveal">You are not passed<br>between operators.<br><em>You are welcomed<br>by family.</em></h2>
+      <div class="ndugu-rule"></div>
+      <p class="dim reveal">Most operators fragment. The energy is strong at the start &mdash; then a lodge takes over, a guide changes, and something shifts. The warmth drops. You feel the join.</p>
+      <p class="dim reveal" style="margin-top:1rem;">At Enkiama, every partner we bring in has been chosen because they already carry Tanzania&rsquo;s values. Not vendors who signed a contract &mdash; people who receive every guest as <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span>, because that is how they live, not because we asked them to.</p>
+      <div class="ndugu-q reveal">
+        <p>&ldquo;The family is larger than it appears. Beyond our core network &mdash; guides, lodges, cultural partners &mdash; sits a wider world of local specialists, niche operators, and community guides whose knowledge of specific places cannot be replicated. When a journey enters their world, we bring them in. By name. Transparently. Because the experience they make possible is the experience we promised. They carry Tanzania&rsquo;s ukarimu &mdash; and we chose them because they already did.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+  <div class="ndugu-r">
+    <div class="nph">
+      <div class="nph-film"><span class="wp-ph-hint">[ arrival at camp &mdash; warm welcome ]</span></div>
+      <span class="nph-lbl">A welcome that never changes register</span>
+    </div>
+    <div class="nph">
+      <div class="nph-film"><span class="wp-ph-hint">[ lodge evening &mdash; partners ]</span></div>
+      <span class="nph-lbl">Partners chosen for who they already are</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRANSPARENCY ── -->
+<section class="transp" id="transparency">
+  <div class="transp-hdr">
+    <div><p class="eye" style="padding-top:5px;">How we work</p></div>
+    <div>
+      <p class="transp-lead reveal">From day one, you know exactly what your journey costs, what it covers, and what every day will feel like. No hidden top-ups. No surprises. No moments where the quality shifts.</p>
+      <p class="dim reveal">We operate with a worldly standard of transparency because trust is the foundation of a remarkable experience &mdash; and because our pride is entirely measured by yours.</p>
+    </div>
+  </div>
+  <div class="transp-grid">
+    <div class="tr reveal"><div class="tr-mark">No hidden costs</div><h3 class="tr-title">What we quote is what you pay</h3><p class="dim">Every element costed and explained before you commit. No top-ups. No additions. The number we give you is the number &mdash; always.</p></div>
+    <div class="tr reveal"><div class="tr-mark">No surprises</div><h3 class="tr-title">The price is honest and final</h3><p class="dim">What we quote is what you pay. No top-ups on arrival, no markups discovered later, nothing added once you have committed. Transparency, to us, is not a spreadsheet you audit. It is the absence of any unpleasant surprise.</p></div>
+    <div class="tr reveal"><div class="tr-mark">Seamless quality</div><h3 class="tr-title">The standard never wavers</h3><p class="dim">From arrival to departure, across every register of the journey, the experience is held at the same level. You never feel the handoff because the values that hold it together belong to everyone in it.</p></div>
+    <div class="tr reveal"><div class="tr-mark">Complete control</div><h3 class="tr-title">100% in charge from day&nbsp;one</h3><p class="dim">You know what to expect before you arrive. Every day, every partner, every transition. If something changes &mdash; the land sometimes does &mdash; you hear from us directly, immediately.</p></div>
+  </div>
+  <div class="pledge">
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">No hidden top-ups, ever</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Full cost breakdown before any commitment</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Partner transparency &mdash; you know who and why</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Same quality held end to end, across all worlds</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Small groups by nature &mdash; the journey is built around yours alone</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">The price is honest, complete, and final</span></div>
+  </div>
+</section>
+
+<!-- ── INTELLIGENCE ── -->
+<section class="intel">
+  <div class="i-c reveal">
+    <p class="i-src">Source I</p>
+    <div class="i-rule"></div>
+    <h3 class="i-title">Our own experience across the whole country</h3>
+    <p class="dim">Years of travel and relationship-building &mdash; from Kilimanjaro&rsquo;s glaciers to Zanzibar&rsquo;s coral gardens. What works in which season. Which doors open to those who have earned them.</p>
+  </div>
+  <div class="i-c reveal">
+    <p class="i-src">Source II</p>
+    <div class="i-rule"></div>
+    <h3 class="i-title">What past guests and friends have taught us</h3>
+    <p class="dim">Every group teaches us something. What moves different people across different worlds. What they carry home. That knowledge compounds into every journey that follows.</p>
+  </div>
+  <div class="i-c reveal">
+    <p class="i-src">Source III</p>
+    <div class="i-rule"></div>
+    <h3 class="i-title">What our <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span> discover every season</h3>
+    <p class="dim">Our local family is on the ground year-round &mdash; on the mountain, the savanna, the coast. They see what changes, what opens, what closes. Their presence keeps our curation honest and alive.</p>
+  </div>
+</section>
+
+<!-- ── PASSION ── -->
+<div class="passion-gap"></div>
+<section class="passion">
+  <div class="passion-pg">kwa moyo wote</div>
+  <div class="passion-inner">
+    <span class="passion-mark">&ldquo;</span>
+    <p class="passion-txt reveal">The hospitality you will experience is not something we designed. It is something Tanzania already is. Our work is simply to make sure you arrive close enough to feel it.</p>
+    <p class="passion-sub reveal">We love what we do. Every guide we choose, every world we design a journey through, every conversation before you leave &mdash; it is all in service of one thing: that you return changed, cared for, and certain that what you experienced was real. Our pride is entirely your positive, valued experience.</p>
+    <div class="p-sw">
+      <span class="psw-w">Kwa moyo wote</span>
+      <div class="psw-d"></div>
+      <span class="psw-f">With our whole heart</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── STORY ── -->
+<section class="story" id="stories" style="margin-top:80px;">
+  <div class="story-d">
+    <div>
+      <span class="story-mark">&ldquo;</span>
+      <p class="story-q">What Enkiama gave us was something entirely different &mdash; not because of the places, though the places were extraordinary. Because of the people. Every guide, every lodge, every partner felt like they genuinely wanted us there. Like we had been expected. Like we belonged.</p>
+    </div>
+    <div class="story-attr">
+      <p class="story-name">Marina V.</p>
+      <p class="story-meta">Serengeti, Ngorongoro &amp; Kilimanjaro &nbsp;&middot;&nbsp; July 2024 &nbsp;&middot;&nbsp; Group of five</p>
+    </div>
+  </div>
+  <div class="story-r">
+    <p class="story-rlbl">Why this journey worked</p>
+    <div class="story-rule"></div>
+    <p class="dim reveal">Marina&rsquo;s group moved across three worlds in twelve days. The family we assembled included a Serengeti naturalist with thirty years on the plain, a Maasai cultural guide who runs a community school on the crater rim, and a Chagga partner in Kibosho whose family has farmed the mountain for four generations. Every person felt the journey had been built for them. It had been &mdash; because it was built from who they were, not from a template.</p>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-wrap" id="contact">
+  <div class="cta-main">
+    <div class="cta-l">
+      <div class="cta-bg">rafiki</div>
+      <div class="cta-l-in">
+        <p class="eye" style="margin-bottom:2.5rem;">Begin your adventure</p>
+        <div class="rafiki-hed">
+          Let&rsquo;s create your<br>adventure together,<br><em>rafiki.</em>
+        </div>
+        <div class="rafiki-tr">
+          <div class="rafiki-dash"></div>
+          <span class="rafiki-def">Rafiki &mdash; friend, companion, fellow traveller</span>
+        </div>
+        <p class="dim">No packages. No price lists. No surprises. Tell us which worlds call to you &mdash; your group, your curiosities, your season, your budget &mdash; and we will think about what is possible together. Honestly. Completely. With our whole heart.</p>
+      </div>
+    </div>
+    <div class="cta-r">
+      <div class="cta-chs">
+        <div class="cta-ch">
+          <span class="cta-lbl">WhatsApp</span>
+          <span class="cta-val">Our preferred channel. We respond within 24&nbsp;hours, often sooner &mdash; the fastest way to understand if we are the right fit for each other.</span>
+        </div>
+        <div class="cta-ch">
+          <span class="cta-lbl">Email</span>
+          <span class="cta-val">hola@enkiama.com &mdash; for longer introductions, or anything easier to set out in full before we speak.</span>
+        </div>
+      </div>
+      <div class="season">
+        <div class="sea-ln"></div>
+        <span class="sea-txt">Year&ndash;round &nbsp;&middot;&nbsp; Composed for your group alone &nbsp;&middot;&nbsp; Never repeated</span>
+      </div>
+      <a href="mailto:hola@enkiama.com" class="btn-primary" style="text-align:center;">Write to us, rafiki</a>
+    </div>
+  </div>
+
+  <div class="ask">
+    <div class="ask-c">
+      <div class="ask-pg">?</div>
+      <div class="ask-in">
+        <p class="ask-tag">Past guests</p>
+        <div class="ask-rule"></div>
+        <h3 class="ask-title">Ask us about people who have travelled with us</h3>
+        <p class="dim">We don&rsquo;t use ratings. We use relationships. Ask about past guests &mdash; where they went, what they experienced, what they said when they came home.</p>
+        <a href="mailto:hola@enkiama.com?subject=Past%20guests" class="ask-lnk">Ask about past guests &rarr;</a>
+      </div>
+    </div>
+    <div class="ask-c">
+      <div class="ask-pg">&rarr;</div>
+      <div class="ask-in">
+        <p class="ask-tag">Destinations</p>
+        <div class="ask-rule"></div>
+        <h3 class="ask-title">Ask us which world &mdash; or combination &mdash; is right for you</h3>
+        <p class="dim">The mountain in June feels different to October. The coast after the savanna lands differently than before it. Ask us &mdash; we&rsquo;ll tell you what we honestly think.</p>
+        <a href="mailto:hola@enkiama.com?subject=Destinations" class="ask-lnk">Ask about destinations &rarr;</a>
+      </div>
+    </div>
+    <div class="ask-c">
+      <div class="ask-pg">&nearr;</div>
+      <div class="ask-in">
+        <p class="ask-tag">Your journey</p>
+        <div class="ask-rule"></div>
+        <h3 class="ask-title">Ask us for a conversation, not a quotation</h3>
+        <p class="dim">We don&rsquo;t send price lists. We have a conversation first &mdash; about your group, what draws you, what you&rsquo;re ready for. The quotation comes after, fully costed, no surprises.</p>
+        <a href="mailto:hola@enkiama.com?subject=Our%20journey" class="ask-lnk">Start the conversation &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Enkiama</span>
+  <ul class="f-links">
+    <li><a href="tanzania.html">Tanzania</a></li>
+    <li><a href="how.html">How we work</a></li>
+    <li><a href="family.html">The family</a></li>
+    <li><a href="notes.html">Field notes</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="begin.html">Begin</a></li>
+  </ul>
+  <span class="f-copy">&copy; 2025 Enkiama &nbsp;&middot;&nbsp; hola@enkiama.com &nbsp;&middot;&nbsp; Tanzania, curated</span>
+</footer>
+
+<script>
+/* ── HERO ASSEMBLY ── */
+(function(){
+  const eye=document.getElementById('hEye');
+  const hed=document.getElementById('hHed');
+  const sub=document.getElementById('hSub');
+  const acts=document.getElementById('hActs');
+  setTimeout(()=>eye.classList.add('in'),250);
+  setTimeout(()=>hed.classList.add('in'),600);
+  setTimeout(()=>sub.classList.add('in'),1150);
+  setTimeout(()=>acts.classList.add('in'),1450);
+})();
+
+/* ── PARALLAX GHOST ── */
+(function(){
+  const g=document.getElementById('heroGhost');
+  if(!g)return;
+  let raf=false;
+  window.addEventListener('scroll',()=>{
+    if(raf)return;
+    requestAnimationFrame(()=>{
+      g.style.transform=`translate(-50%,calc(-50% + ${window.scrollY*0.28}px))`;
+      raf=false;
+    });
+    raf=true;
+  },{passive:true});
+})();
+
+/* ── SCROLL REVEALS ── */
+(function(){
+  if(!window.IntersectionObserver)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(i%5)*0.07+'s';
+    io.observe(el);
+  });
+})();
+
+/* ── WORLDS HORIZONTAL SCROLL ── */
+(function(){
+  const track=document.getElementById('wTrack');
+  const btns=document.querySelectorAll('.wn-btn');
+  const prev=document.getElementById('wPrev');
+  const next=document.getElementById('wNext');
+  let cur=0;const total=5;
+
+  function goTo(i,smooth=true){
+    cur=Math.max(0,Math.min(total-1,i));
+    track.scrollTo({left:cur*track.clientWidth,behavior:smooth?'smooth':'instant'});
+    btns.forEach((b,j)=>b.classList.toggle('active',j===cur));
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.w)));
+  prev.addEventListener('click',()=>goTo(cur-1));
+  next.addEventListener('click',()=>goTo(cur+1));
+
+  // drag to scroll
+  let drag=false,sx=0,sl=0;
+  track.addEventListener('mousedown',e=>{drag=true;sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;track.classList.add('grabbing');});
+  ['mouseleave','mouseup'].forEach(ev=>track.addEventListener(ev,()=>{drag=false;track.classList.remove('grabbing');}));
+  track.addEventListener('mousemove',e=>{if(!drag)return;e.preventDefault();track.scrollLeft=sl-(e.pageX-track.offsetLeft-sx)*1.6;});
+
+  // sync dots on scroll
+  track.addEventListener('scroll',()=>{
+    const idx=Math.round(track.scrollLeft/track.clientWidth);
+    if(idx!==cur){cur=idx;btns.forEach((b,j)=>b.classList.toggle('active',j===cur));}
+  },{passive:true});
+
+  // keyboard
+  document.addEventListener('keydown',e=>{
+    const w=document.getElementById('worlds');
+    const r=w.getBoundingClientRect();
+    if(r.top<window.innerHeight&&r.bottom>0){
+      if(e.key==='ArrowRight'){e.preventDefault();goTo(cur+1);}
+      if(e.key==='ArrowLeft'){e.preventDefault();goTo(cur-1);}
+    }
+  });
+})();
+
+/* ── CURATION ENGINE ── */
+(function(){
+  const answers={};
+  let step=0;
+  const steps=document.querySelectorAll('.curate-step');
+  const dots=[document.getElementById('dot0'),document.getElementById('dot1'),document.getElementById('dot2')];
+  const response=document.getElementById('curateResponse');
+  const loading=document.getElementById('crLoading');
+  const crText=document.getElementById('crText');
+  const crCta=document.getElementById('crCta');
+
+  function setDots(s){
+    dots.forEach((d,i)=>{
+      d.className='cp-dot';
+      if(i<s)d.classList.add('done');
+      else if(i===s)d.classList.add('current');
+    });
+  }
+
+  document.querySelectorAll('.c-opt').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const ps=this.closest('.curate-step');
+      ps.querySelectorAll('.c-opt').forEach(b=>b.classList.remove('picked'));
+      this.classList.add('picked');
+      answers['q'+(step+1)]=this.dataset.val;
+
+      setTimeout(()=>{
+        steps[step].style.cssText='opacity:0;transform:translateY(-14px);transition:opacity .35s ease,transform .35s ease';
+        setTimeout(()=>{
+          steps[step].classList.remove('active');
+          step++;
+          if(step<3){
+            setDots(step);
+            steps[step].classList.add('active');
+            steps[step].style.cssText='opacity:0;transform:translateY(14px)';
+            setTimeout(()=>{steps[step].style.cssText='opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .5s cubic-bezier(0.16,1,0.3,1)';},30);
+          } else {
+            setDots(3);
+            showResponse();
+          }
+        },380);
+      },260);
+    });
+  });
+
+  function showResponse(){
+    response.classList.add('show');
+    loading.classList.add('show');
+    crText.textContent='';
+    crCta.style.display='none';
+    const text=buildJourney();
+    setTimeout(()=>{
+      loading.classList.remove('show');
+      typeText(text,crText,()=>{crCta.style.display='flex';});
+    },1600);
+  }
+
+  const silenceMap={
+    altitude:"Your journey begins on the mountain — not necessarily at the summit, but high enough that the air changes, the world below disappears, and you understand for the first time what silence feels like when it has altitude behind it.",
+    herd:"Your journey begins on the open plain — in the Serengeti or Tarangire, where the scale of animal life quietly rewrites your sense of what is ordinary and what is extraordinary.",
+    ocean:"Your journey finds its rhythm on the coast — the warm slow world of Zanzibar or Pemba, where the ocean sets the pace and the history runs deeper than the water.",
+    human:"Your journey begins at a table — a family's table, in a home in the Kilimanjaro foothills or on the crater rim, where the conversation happens in three languages and no one is performing hospitality."
+  };
+  const understandMap={
+    place:"You want to understand the land — its geology, its ecosystems, why this particular arrangement of rock and water and life exists here and nowhere else. Tanzania will give you that, slowly, if you go with people who have spent their lives reading it.",
+    people:"You want to understand the people — the Maasai, the Chagga, the Swahili communities of the coast. You want to sit with them long enough that something real is exchanged, not observed.",
+    self:"You want the kind of experience that reorganises you — that makes the thing you thought you knew about what matters look smaller, or larger, or entirely different than before.",
+    all:"You want all of it at once — the land, the people, the reorganisation. Tanzania is one of the few places on earth that can hold that ambition in a single journey."
+  };
+  const endMap={
+    moment:"The moment you will carry home is one we cannot predict — it will find you in the field, in the dark, at someone's table. Our work is to put you in the conditions where it becomes possible.",
+    people2:"The people you meet will be the journey. Our guides, our partners, the families and communities we are trusted to introduce you to — they are why this works. They are why no two Enkiama journeys are the same.",
+    changed:"You will come home different. Not because we planned it that way, but because Tanzania does that — when you go slowly enough, with the right people, and arrive close enough to feel what it actually is.",
+    together:"The journey will bring you closer — to the people you travel with, and to something in yourself that the pace of ordinary life doesn't leave room for. Tanzania, at its depth, is extraordinarily good at that."
+  };
+
+  function buildJourney(){
+    const q1=answers.q1||'herd';
+    const q2=answers.q2||'all';
+    const q3=answers.q3||'moment';
+    return `${silenceMap[q1]}\n\n${understandMap[q2]}\n\n${endMap[q3]}\n\nTell us when you want to travel, and who you're bringing. We'll take it from there.`;
+  }
+
+  function typeText(text,el,onDone){
+    const cursor=document.createElement('span');
+    cursor.className='cr-cursor';
+    el.appendChild(cursor);
+    const chars=text.split('');
+    let i=0;
+    function tick(){
+      if(i<chars.length){
+        const c=chars[i++];
+        if(c==='\n'){cursor.insertAdjacentHTML('beforebegin','<br>');}
+        else{cursor.insertAdjacentText('beforebegin',c);}
+        setTimeout(tick,c==='\n'?90:18);
+      } else {cursor.remove();if(onDone)onDone();}
+    }
+    tick();
+  }
+
+  document.getElementById('crReset').addEventListener('click',()=>{
+    step=0;answers.q1=answers.q2=answers.q3=null;
+    setDots(0);
+    steps.forEach(s=>{s.classList.remove('active');s.style.cssText='';});
+    steps[0].classList.add('active');
+    document.querySelectorAll('.c-opt').forEach(b=>b.classList.remove('picked'));
+    response.classList.remove('show');
+    crText.innerHTML='';
+    loading.classList.remove('show');
+    crCta.style.display='none';
+  });
+})();
+</script>
+</body>
+</html>
