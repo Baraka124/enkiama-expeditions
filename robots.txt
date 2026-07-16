@@ -1,4 +1,15 @@
+# Enkiama Expeditions — robots.txt
 User-agent: *
+Allow: /
+
+# Block nothing public; the private journeys/ folder stays unlisted
+# (not disallowed here, so its existence isn't advertised)
+
+# Major crawlers explicitly welcomed
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://enkiama.com/sitemap.xml
