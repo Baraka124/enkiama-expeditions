@@ -5,8 +5,8 @@ drop-in replacement for your repo. Deploy it as one batch.
 
 ## What's in this batch (all 11 pages + support)
 
-**Pages (11):**
-index · tanzania · how · family · notes · stories · journeys · begin · parks · faq · compose
+**Pages (12):**
+index · tanzania · how · family · notes · stories · journeys · begin · parks · faq · compose · 404
 
 **What changed since the last live version:**
 - New brand palette (ink & bone + muted olive, antique brass; no emerald)
