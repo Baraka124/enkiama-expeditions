@@ -112,7 +112,7 @@ body {
 .oc   { color:var(--ochre); }
 
 /* ── NAV ── */
-nav {
+.old-nav-defunct{
   position:fixed;top:0;left:0;right:0;z-index:500;
   height:100px;
   display:flex;align-items:center;justify-content:space-between;
@@ -1085,7 +1085,7 @@ footer {
   .tr { border-bottom:1px solid var(--rule); }
 }
 @media(max-width:860px){
-  nav { padding:0 1.5rem; }
+  .old-nav-defunct{ padding:0 1.5rem; }
   .n-links { display:none; }
   .n-util { display:none; }
   .n-right .n-begin { display:none; }
@@ -1265,12 +1265,12 @@ footer {
 nav.scrolled .n-links a, nav.scrolled .n-drop-t { letter-spacing:0.14em; }
 
 /* #4 more breathing room around the lockup on wide screens */
-nav { padding:0 3.5rem; }
-@media(min-width:1200px){ nav { padding:0 4rem; } }
+.old-nav-defunct{ padding:0 3.5rem; }
+@media(min-width:1200px){ .old-nav-defunct{ padding:0 4rem; } }
 .n-right { gap:2.4rem; }
 
 /* #3 hairline is DRAWN center-out, not switched on */
-nav { border-bottom:0; position:fixed; }
+.old-nav-defunct{ border-bottom:0; position:fixed; }
 nav::after{
   content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);
   width:0;height:1px;background:var(--rule-md);
@@ -1644,14 +1644,15 @@ body.eh-locked{overflow:hidden;}
 .eh-watermark{position:absolute;bottom:-6vw;right:44%;font-family:'Fraunces',serif;font-size:24vw;line-height:.8;color:rgba(190,158,104,0.028);pointer-events:none;user-select:none;font-style:italic;z-index:0;}
 
 /* LEFT: index block, composed as one unit */
-.eh-left{display:flex;flex-direction:column;justify-content:center;gap:0;padding:6rem clamp(3rem,7vw,8rem);position:relative;z-index:2;min-height:100vh;box-sizing:border-box;}
-.eh-nav{display:block;}
+.eh-left{display:flex;flex-direction:column;justify-content:center;gap:2rem;padding:5rem clamp(3rem,7vw,8rem);position:relative;z-index:2;height:100vh;overflow-y:auto;box-sizing:border-box;}
+.eh-nav{display:block;flex:none;}
+.eh-secondary{flex:none;}
 
 .eh-nav-eyebrow{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.36em;font-size:11px;color:var(--earth,#BE9E68);margin:0 0 1.3rem 0;padding-bottom:1rem;border-bottom:1px solid rgba(190,158,104,0.16);opacity:0;transform:translateY(14px);}
 .eh-overlay.open .eh-nav-eyebrow{opacity:1;transform:translateY(0);transition:opacity .7s ease .15s,transform .7s cubic-bezier(.16,1,.3,1) .15s;}
 .eh-nav ul{list-style:none;margin:0;padding:0;}
 .eh-nav li{overflow:hidden;display:block;}
-.eh-nav li a{display:flex;align-items:baseline;gap:1.5rem;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.5rem,2.8vw,2.4rem);line-height:1;color:var(--bone,#EDE6D6);text-decoration:none;padding:.6rem 0;transition:color .45s cubic-bezier(.16,1,.3,1),padding-left .5s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(120%);}
+.eh-nav li a{display:flex;align-items:baseline;gap:1.5rem;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.5rem,2.8vw,2.4rem);line-height:1;color:var(--bone,#EDE6D6);text-decoration:none;padding:.5rem 0;transition:color .45s cubic-bezier(.16,1,.3,1),padding-left .5s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(120%);}
 .eh-overlay.open .eh-nav li a{opacity:1;transform:translateY(0);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);}
 .eh-overlay.open .eh-nav li:nth-child(1) a{transition-delay:.20s;}
 .eh-overlay.open .eh-nav li:nth-child(2) a{transition-delay:.26s;}
@@ -1667,7 +1668,7 @@ body.eh-locked{overflow:hidden;}
 .eh-nav li a:hover .eh-idx{color:var(--earth);}
 
 /* secondary "Also" links — clearly discrete, NOT a sentence */
-.eh-secondary{margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid rgba(190,158,104,0.12);
+.eh-secondary{padding-top:0;border-top:1px solid rgba(190,158,104,0.12);
   display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 2.2rem;opacity:0;transition:opacity .7s ease .6s;}
 .eh-overlay.open .eh-secondary{opacity:1;}
 .eh-secondary .eh-sec-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:10px;color:var(--muted,#95907F);margin-right:.5rem;}
@@ -1699,6 +1700,18 @@ body.eh-locked{overflow:hidden;}
 .eh-close .x::before,.eh-close .x::after{content:'';position:absolute;top:50%;left:0;width:100%;height:1px;background:currentColor;}
 .eh-close .x::before{transform:rotate(45deg);}
 .eh-close .x::after{transform:rotate(-45deg);}
+
+
+
+@media(max-height:840px){
+  .eh-left{gap:1.4rem;padding:4.5rem clamp(3rem,7vw,8rem);}
+  .eh-nav li a{font-size:clamp(1.3rem,2.3vw,1.95rem);padding:.42rem 0;}
+  .eh-nav-eyebrow{margin-bottom:1rem;padding-bottom:.8rem;}
+}
+@media(max-height:700px){
+  .eh-left{gap:1rem;padding:3.5rem clamp(3rem,7vw,8rem);justify-content:flex-start;}
+  .eh-nav li a{font-size:clamp(1.15rem,2vw,1.6rem);padding:.32rem 0;}
+}
 @media(max-width:820px){
   .eh-overlay{grid-template-columns:1fr;}
   .eh-aside{display:none;}
@@ -2509,13 +2522,13 @@ body.eh-locked{overflow:hidden;}
   })();
   /* ── HEADER JS ── */
   (function(){
-    var nav=(((((((((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}});
+    var nav=(((((((((((((((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}});
     // scroll-condense
     function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
     window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
     // mobile menu
-    var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((((((((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+    var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((((((((((((((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
     function toggleMenu(open){
       burger.classList.toggle('open',open); mob.classList.toggle('open',open);
       burger.setAttribute('aria-expanded',open?'true':'false');
