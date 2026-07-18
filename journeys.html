@@ -1095,5 +1095,139 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 
+<!-- ENKIAMA_TIER1_START -->
+<style>
+/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
+
+/* Custom cursor */
+@media (hover:hover) and (pointer:fine){
+  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
+    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
+    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
+    mix-blend-mode:difference;will-change:transform;}
+  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
+  .t1-cursor.t1-hide{opacity:0;}
+  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
+    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
+    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
+  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
+  /* hide default cursor on interactive elements when custom is active */
+  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
+}
+
+/* Split-text reveal: each word/line rises into place */
+.t1-line{display:block;overflow:hidden;}
+.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
+  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
+.t1-word.t1-in{transform:translateY(0);opacity:1;}
+
+/* Magnetic buttons */
+.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
+
+@media (prefers-reduced-motion:reduce){
+  .t1-word{transform:none;opacity:1;transition:none;}
+  .t1-cursor,.t1-ring{display:none;}
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ── 1. LENIS SMOOTH SCROLL ── */
+  function initLenis(){
+    if(reduce || typeof Lenis==='undefined') return null;
+    try{
+      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
+      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
+      requestAnimationFrame(raf);
+      // keep anchor links working
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
+      });
+      return lenis;
+    }catch(e){return null;}
+  }
+  // wait for Lenis script to load
+  if(document.readyState!=='loading') setTimeout(initLenis,50);
+  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
+
+  /* ── 2. CUSTOM CURSOR ── */
+  if(fine && !reduce){
+    var dot=document.createElement('div');dot.className='t1-cursor';
+    var ring=document.createElement('div');ring.className='t1-ring';
+    document.body.appendChild(dot);document.body.appendChild(ring);
+    document.body.classList.add('t1-cursor-on');
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
+    // grow over interactive elements
+    function bindHover(){
+      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
+        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
+        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
+        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
+      });
+    }
+    bindHover();
+    // hide when leaving window
+    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
+    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
+    // re-bind after menu opens (dynamic content)
+    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
+  }
+
+  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
+  if(!reduce){
+    // target the big serif headings; wrap words in spans
+    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
+    heads.forEach(function(h){
+      if(h.dataset.t1split)return;h.dataset.t1split=1;
+      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
+      var html=h.innerHTML;
+      // split on spaces but keep tags intact - simple approach: wrap text between tags
+      var parts=html.split(/(<[^>]+>)/);
+      var out=parts.map(function(p){
+        if(p.startsWith('<')||p.trim()==='')return p;
+        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
+      }).join('');
+      h.innerHTML=out;
+    });
+    var words=document.querySelectorAll('.t1-word');
+    if(words.length){
+      var wo=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
+            var idx=siblings.indexOf(e.target);
+            e.target.style.transitionDelay=(idx*0.04)+'s';
+            e.target.classList.add('t1-in');
+            wo.unobserve(e.target);
+          }
+        });
+      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
+      words.forEach(function(w){wo.observe(w);});
+    }
+  }
+
+  /* ── 4. MAGNETIC BUTTONS ── */
+  if(fine && !reduce){
+    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
+      btn.classList.add('t1-magnetic');
+      btn.addEventListener('mousemove',function(e){
+        var r=btn.getBoundingClientRect();
+        var x=(e.clientX-r.left-r.width/2)*0.25;
+        var y=(e.clientY-r.top-r.height/2)*0.25;
+        btn.style.transform='translate('+x+'px,'+y+'px)';
+      });
+      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
+    });
+  }
+})();
+</script>
+<!-- ENKIAMA_TIER1_END -->
+
 </body>
 </html>
