@@ -667,6 +667,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -830,7 +834,7 @@ body.eh-locked{overflow:hidden;}
 <!-- EDITORIAL ISSUE BAR -->
 <div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(190,158,104,0.11);background:rgba(15,23,18,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
   <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(190,158,104,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
-  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama. Tanzania, curated</span>
 </div>
 
 
@@ -840,7 +844,7 @@ body.eh-locked{overflow:hidden;}
   <div class="ph-inner">
     <p class="eye" style="margin-bottom:2.5rem;">Journeys composed &nbsp;&middot;&nbsp; Never repeated</p>
     <h1 class="ph-hed reveal">What a journey<br>actually <em>looks like.</em></h1>
-    <p class="ph-sub reveal">Every Enkiama journey is built from scratch for one group and never offered again. These are the shapes of a few we have composed &mdash; the routes, the rhythms, the worlds they moved through. The detail of each lives in a private document we share only with the people travelling. If one of these resembles what is pulling at you, ask us to walk you through it in full.</p>
+    <p class="ph-sub reveal">Every Enkiama journey is built from scratch for one group and never offered again. These are the shapes of a few we have composed: the routes, the rhythms, the worlds they moved through. The detail of each lives in a private document we share only with the people travelling. If one of these resembles what is pulling at you, ask us to walk you through it in full.</p>
   </div>
 </section>
 
@@ -859,7 +863,7 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat"><strong>3</strong> guides</span>
       </div>
       <h2 class="jr-title reveal">Five friends,<br>first time in <em>Tanzania.</em></h2>
-      <p class="jr-desc reveal">A group of five who wanted the whole arc &mdash; mountain culture, the migration on the open plain, the descent into the crater, and the slow exhale of the coast to finish. Composed around their pace and their appetite for both spectacle and stillness, with a cultural day in Mto wa Mbu in place of a fourth park. July, peak migration.</p>
+      <p class="jr-desc reveal">A group of five who wanted the whole arc: mountain culture, the migration on the open plain, the descent into the crater, and the slow exhale of the coast to finish. Composed around their pace and their appetite for both spectacle and stillness, with a cultural day in Mto wa Mbu in place of a fourth park. July, peak migration.</p>
       <p class="jr-worlds reveal">Mountain &middot; Savanna &middot; Rift Valley &middot; Coast &nbsp;&middot;&nbsp; July 2026</p>
     </div>
   </div>
@@ -875,7 +879,7 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat"><strong>2</strong> guides</span>
       </div>
       <h2 class="jr-title reveal">A wildlife journey,<br>nothing <em>but the land.</em></h2>
-      <p class="jr-desc reveal">A couple who came for one thing &mdash; animals, and the people who can read them. No coast, no cities. Tarangire&rsquo;s elephants, the northern Serengeti at the height of the crossing season, and a full day in the crater. Slow mornings, long game drives, a guide who had spent thirty years on that plain.</p>
+      <p class="jr-desc reveal">A couple who came for one thing: animals, and the people who can read them. No coast, no cities. Tarangire&rsquo;s elephants, the northern Serengeti at the height of the crossing season, and a full day in the crater. Slow mornings, long game drives, a guide who had spent thirty years on that plain.</p>
       <p class="jr-worlds reveal">Savanna &middot; Crater &nbsp;&middot;&nbsp; August</p>
     </div>
   </div>
@@ -891,7 +895,7 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat"><strong>1</strong> family host</span>
       </div>
       <h2 class="jr-title reveal">The mountain,<br>without the <em>summit.</em></h2>
-      <p class="jr-desc reveal">A journey for travellers who wanted the mountain&rsquo;s culture rather than its peak &mdash; the Chagga coffee farms at 1,700 metres, a homestay with a family who have worked the same slopes for four generations, the cloud forest, and an evening in Moshi that no itinerary planned. Quiet, human, and completely unlike a safari.</p>
+      <p class="jr-desc reveal">A journey for travellers who wanted the mountain&rsquo;s culture rather than its peak: the Chagga coffee farms at 1,700 metres, a homestay with a family who have worked the same slopes for four generations, the cloud forest, and an evening in Moshi that no itinerary planned. Quiet, human, and completely unlike a safari.</p>
       <p class="jr-worlds reveal">Mountain &middot; Culture &nbsp;&middot;&nbsp; June</p>
     </div>
   </div>
@@ -907,7 +911,7 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat"><strong>2</strong> guides</span>
       </div>
       <h2 class="jr-title reveal">Plain and ocean,<br>one <em>long exhale.</em></h2>
-      <p class="jr-desc reveal">A journey built on contrast &mdash; the intensity of the savanna followed by the slow rhythm of the coast. Days on the open plain, then a flight to Zanzibar: Stone Town&rsquo;s seven centuries of Swahili history with a historian who knows every doorway, and the untouched reefs of Pemba to finish. The two halves spoke to each other.</p>
+      <p class="jr-desc reveal">A journey built on contrast: the intensity of the savanna followed by the slow rhythm of the coast. Days on the open plain, then a flight to Zanzibar: Stone Town&rsquo;s seven centuries of Swahili history with a historian who knows every doorway, and the untouched reefs of Pemba to finish. The two halves spoke to each other.</p>
       <p class="jr-worlds reveal">Savanna &middot; Coast &nbsp;&middot;&nbsp; September</p>
     </div>
   </div>
@@ -943,10 +947,10 @@ body.eh-locked{overflow:hidden;}
 <script>
 /* ── HEADER JS (shared) ── */
 (function(){
-  var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
+  var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
   function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
   function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
     burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
   if(burger&&mob){

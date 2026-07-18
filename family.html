@@ -635,6 +635,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -798,7 +802,7 @@ body.eh-locked{overflow:hidden;}
 <!-- EDITORIAL ISSUE BAR -->
 <div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(190,158,104,0.11);background:rgba(15,23,18,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
   <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(190,158,104,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
-  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama. Tanzania, curated</span>
 </div>
 
 
@@ -817,7 +821,7 @@ body.eh-locked{overflow:hidden;}
     <p class="eye" style="margin-bottom:2rem;">Enkiama</p>
     <h2 class="ei-hl reveal">Small roster.<br>Wide reach.<br><em>Exact</em> people.</h2>
     <div class="ochre-rule"></div>
-    <p class="dim reveal">Our core family is deliberately small &mdash; a handful of guides, lodges, and cultural partners whose knowledge and warmth we can genuinely stand behind. But the journeys we design routinely draw from beyond that core: local guides who know a single village better than anyone we could bring, niche operators with twenty years in a specific ecosystem, community specialists whose access to a particular place is entirely their own and cannot be contracted away.</p>
+    <p class="dim reveal">Our core family is deliberately small: a handful of guides, lodges, and cultural partners whose knowledge and warmth we can genuinely stand behind. But the journeys we design routinely draw from beyond that core: local guides who know a single village better than anyone we could bring, niche operators with twenty years in a specific ecosystem, community specialists whose access to a particular place is entirely their own and cannot be contracted away.</p>
     <p class="dim reveal" style="margin-top:1rem;">We bring them in by name, with an explanation, transparently costed. Not because it is the ethical thing to do &mdash; though it is &mdash; but because the morning they make possible is a better morning. The two arguments happen to be the same argument.</p>
     <p class="dim reveal" style="margin-top:1rem;">We travel with every group. We make every introduction personally. What we are is not a tour operator. It is closer to a very well-connected, very honest friend who happens to know Tanzania deeply and wants you to feel it properly.</p>
   </div>
@@ -849,7 +853,7 @@ body.eh-locked{overflow:hidden;}
       <div class="pt-inner">
         <p class="pt-role">Savanna &middot; Wildlife &middot; Migration</p>
         <h2 class="pt-name reveal">Joseph</h2>
-        <span class="pt-world">Serengeti &mdash; thirty years, one plain</span>
+        <span class="pt-world">Serengeti: thirty years, one plain</span>
         <div class="pt-rule"></div>
         <div class="pt-q reveal">
           <p>&ldquo;I have made the same descent into the northern corridor five hundred times. I have never once not felt it. The migration does not become ordinary. The plain does not become ordinary. If it does, you should leave.&rdquo;</p>
@@ -872,12 +876,12 @@ body.eh-locked{overflow:hidden;}
       <div class="pt-inner">
         <p class="pt-role">Crater &middot; Culture &middot; Maasai tradition</p>
         <h2 class="pt-name reveal">Daniel</h2>
-        <span class="pt-world">Ngorongoro &mdash; the rim and what lies below</span>
+        <span class="pt-world">Ngorongoro: the rim and what lies below</span>
         <div class="pt-rule"></div>
         <div class="pt-q reveal">
           <p>&ldquo;Tourists come to photograph Maasai. My guests come to understand us. There is a difference that I can feel in the first five minutes of meeting someone. Enkiama always sends the second kind.&rdquo;</p>
         </div>
-        <p class="dim reveal">Daniel was born on the crater rim. He built a school there with income from guiding &mdash; not as philanthropy, but because he believes the community that raises guides should benefit from what they produce. His students are the next generation of people who will show visitors the crater. That continuity is why his knowledge is still deepening after thirty years. He guides the crater itself, the Maasai bomas on its rim, and the cultural world that most safari itineraries treat as a backdrop.</p>
+        <p class="dim reveal">Daniel was born on the crater rim. He built a school there with income from guiding: not as philanthropy, but because he believes the community that raises guides should benefit from what they produce. His students are the next generation of people who will show visitors the crater. That continuity is why his knowledge is still deepening after thirty years. He guides the crater itself, the Maasai bomas on its rim, and the cultural world that most safari itineraries treat as a backdrop.</p>
         <p class="dim reveal" style="margin-top:1rem;">He speaks Maa, Swahili, English, and enough Italian to make Roman guests feel seen.</p>
         <p class="pt-years reveal">Ngorongoro Crater &middot; Maasai boma host &middot; Community school founder</p>
       </div>
@@ -895,10 +899,10 @@ body.eh-locked{overflow:hidden;}
       <div class="pt-inner">
         <p class="pt-role">Mountain &middot; Culture &middot; Coffee &middot; Homestay</p>
         <h2 class="pt-name reveal">The Kibosho family</h2>
-        <span class="pt-world">Kilimanjaro foothills &mdash; four generations, one farm</span>
+        <span class="pt-world">Kilimanjaro foothills: four generations, one farm</span>
         <div class="pt-rule"></div>
         <div class="pt-q reveal">
-          <p>&ldquo;When guests sit at our table, we are not performing hospitality for them. They are simply eating with us. The table is always set like this. We always cook this much food. That is ukarimu &mdash; it is not for visitors. It is just how we live.&rdquo;</p>
+          <p>&ldquo;When guests sit at our table, we are not performing hospitality for them. They are simply eating with us. The table is always set like this. We always cook this much food. That is ukarimu: it is not for visitors. It is just how we live.&rdquo;</p>
         </div>
         <p class="dim reveal">A Chagga family in Kibosho who have farmed Kilimanjaro&rsquo;s southern slopes for four generations. Their coffee grows at 1,700 metres in volcanic red soil. Their banana grove predates every lodge in the national park. Their home, which guests occasionally share for a night, is the warmest building in any Enkiama journey.</p>
         <p class="pt-years reveal">Kibosho village &middot; 1,700m &middot; Coffee &amp; banana cultivation &middot; Homestay hosts</p>
@@ -917,7 +921,7 @@ body.eh-locked{overflow:hidden;}
       <div class="pt-inner">
         <p class="pt-role">Coast &middot; Swahili history &middot; Stone Town</p>
         <h2 class="pt-name reveal">Fatima</h2>
-        <span class="pt-world">Stone Town &mdash; seven centuries, one guide</span>
+        <span class="pt-world">Stone Town: seven centuries, one guide</span>
         <div class="pt-rule"></div>
         <div class="pt-q reveal">
           <p>&ldquo;Every door in Stone Town has a story. Every wall. The tourists walk past them looking for the spice market. I try to give them the walls. Because the walls are older than any market, and more interesting, and no one photographs them.&rdquo;</p>
@@ -943,19 +947,19 @@ body.eh-locked{overflow:hidden;}
         <div class="sw-lg">Ndugu</div>
         <p class="sw-en">Family by shared values</p>
         <div class="sw-rule"></div>
-        <p class="sw-body">Brother, sister, kin &mdash; in Tanzania, anyone bound to you by shared values rather than blood. The people we work with are not selected from a roster. They were chosen one by one, over years, because of specific things they know and specific ways they are with people. That selection is the product. Everything else follows from it.</p>
+        <p class="sw-body">Brother, sister, kin: in Tanzania, anyone bound to you by shared values rather than blood. The people we work with are not selected from a roster. They were chosen one by one, over years, because of specific things they know and specific ways they are with people. That selection is the product. Everything else follows from it.</p>
       </div>
       <div class="asili-c reveal">
         <div class="sw-lg">Ukarimu</div>
         <p class="sw-en">Hospitality as a way of life</p>
         <div class="sw-rule"></div>
-        <p class="sw-body">The deep Tanzanian value of hospitality &mdash; not as a service offering, but as a way of being in the world. The Kibosho family does not perform ukarimu for guests. They simply live it, and guests happen to be present. That is the difference between something curated and something real. Our entire network is built around people who already live this.</p>
+        <p class="sw-body">The deep Tanzanian value of hospitality: not as a service offering, but as a way of being in the world. The Kibosho family does not perform ukarimu for guests. They simply live it, and guests happen to be present. That is the difference between something curated and something real. Our entire network is built around people who already live this.</p>
       </div>
       <div class="asili-c reveal">
         <div class="sw-lg">Asili</div>
         <p class="sw-en">Origin, authenticity, source</p>
         <div class="sw-rule"></div>
-        <p class="sw-body">The origin of something &mdash; its authentic nature, what it is from its source. The word we reach for when trying to describe what separates a guide who belongs to a place from one who has learned to describe it. Joseph&rsquo;s thirty years of attention to the plain. Daniel&rsquo;s genuine pride in the school he built on the rim. Fatima&rsquo;s actual love for the city she grew up inside. Asili is not achievable. It is either present or it is not. We look for it first.</p>
+        <p class="sw-body">The origin of something: its authentic nature, what it is from its source. The word we reach for when trying to describe what separates a guide who belongs to a place from one who has learned to describe it. Joseph&rsquo;s thirty years of attention to the plain. Daniel&rsquo;s genuine pride in the school he built on the rim. Fatima&rsquo;s actual love for the city she grew up inside. Asili is not achievable. It is either present or it is not. We look for it first.</p>
       </div>
     </div>
   </div>
@@ -968,7 +972,7 @@ body.eh-locked{overflow:hidden;}
     <h2 class="cta-s-hl reveal">You have met them<br>here. You will meet<br>them <em>in Tanzania.</em></h2>
     <div class="ochre-rule"></div>
     <p class="dim reveal">Every partner in the Enkiama network is introduced personally at the start of the element they guide. There are no surprises. No strangers. By the time you arrive in the Serengeti, you already know who Joseph is. By the time you sit at the Kibosho table, you know whose family you are joining.</p>
-    <p class="dim reveal" style="margin-top:1rem;">That introduction begins the moment you contact us. We tell you who we are thinking of for your journey and why. You tell us if something feels right. The family assembles around your group &mdash; not the other way around.</p>
+    <p class="dim reveal" style="margin-top:1rem;">That introduction begins the moment you contact us. We tell you who we are thinking of for your journey and why. You tell us if something feels right. The family assembles around your group: not the other way around.</p>
   </div>
   <div class="cta-s-r">
     <a href="begin.html" class="btn-primary">Begin the conversation</a>
@@ -989,10 +993,10 @@ body.eh-locked{overflow:hidden;}
 <script>
 /* ── HEADER JS (shared) ── */
 (function(){
-  var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
+  var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
   function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
   function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
     burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
   if(burger&&mob){

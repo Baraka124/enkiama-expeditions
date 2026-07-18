@@ -456,6 +456,10 @@ nav.scrolled::before{ opacity:.035; }
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -619,7 +623,7 @@ body.eh-locked{overflow:hidden;}
 <!-- EDITORIAL ISSUE BAR -->
 <div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(190,158,104,0.11);background:rgba(15,23,18,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
   <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(190,158,104,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
-  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama. Tanzania, curated</span>
 </div>
 
 
@@ -791,10 +795,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 <script>
 /* ── HEADER JS (shared) ── */
 (function(){
-  var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
+  var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
   function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
   function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
     burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
   if(burger&&mob){

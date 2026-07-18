@@ -801,6 +801,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -964,7 +968,7 @@ body.eh-locked{overflow:hidden;}
 <!-- EDITORIAL ISSUE BAR -->
 <div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(190,158,104,0.11);background:rgba(15,23,18,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
   <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(190,158,104,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
-  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama. Tanzania, curated</span>
 </div>
 
 
@@ -974,7 +978,7 @@ body.eh-locked{overflow:hidden;}
   <div class="ph-inner">
     <p class="eye" style="margin-bottom:2.5rem;">The wild &nbsp;&middot;&nbsp; Park by park &nbsp;&middot;&nbsp; World by world</p>
     <h1 class="ph-hed reveal">The land changes<br>as you <em>cross it.</em></h1>
-    <p class="ph-sub reveal">Tanzania is not one landscape. In a single journey the ground shifts beneath you: cloud forest to soda lake, rift wall to open plain, ancient crater to river delta. Each world keeps different animals, different light, different silence. This is the country the way it actually arrives &mdash; not a checklist of parks, but a sequence of worlds, each one the reason to see the next.</p>
+    <p class="ph-sub reveal">Tanzania is not one landscape. In a single journey the ground shifts beneath you: cloud forest to soda lake, rift wall to open plain, ancient crater to river delta. Each world keeps different animals, different light, different silence. This is the country the way it actually arrives: not a checklist of parks, but a sequence of worlds, each one the reason to see the next.</p>
   </div>
 </section>
 
@@ -994,7 +998,7 @@ body.eh-locked{overflow:hidden;}
   <!-- 1 · KILIMANJARO -->
   <div class="world-row w-m">
     <div class="wr-film" style="background-image:url('assets/images/kilimanjaro.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Kilimanjaro &mdash; summit above the cloud line ]</span>
+      <span class="film-hint">[ Kilimanjaro: summit above the cloud line ]</span>
       <span class="wr-film-tag">5,895m</span>
       <span class="wr-film-lbl">Kilimanjaro National Park &middot; Chagga highlands</span>
     </div>
@@ -1017,7 +1021,7 @@ body.eh-locked{overflow:hidden;}
   <!-- 2 · TARANGIRE -->
   <div class="world-row w-s">
     <div class="wr-film" style="background-image:url('assets/images/tarangire.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Tarangire &mdash; elephant herd beneath a baobab ]</span>
+      <span class="film-hint">[ Tarangire: elephant herd beneath a baobab ]</span>
       <span class="wr-film-tag">Baobab country</span>
       <span class="wr-film-lbl">Tarangire National Park</span>
     </div>
@@ -1028,7 +1032,7 @@ body.eh-locked{overflow:hidden;}
         <h2 class="wr-name reveal">Tarangire</h2>
         <span class="wr-sw">the elephant country</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">Then the ground opens into ancient baobab and seasonal swamp. In the dry months the Tarangire River becomes the only water for miles, and the elephants come to it in numbers seen almost nowhere else in Tanzania &mdash; hundreds at once, families crossing the riverbed at dusk. Quieter than the famous parks, and often the one guests did not expect to love most.</p>
+        <p class="wr-desc reveal">Then the ground opens into ancient baobab and seasonal swamp. In the dry months the Tarangire River becomes the only water for miles, and the elephants come to it in numbers seen almost nowhere else in Tanzania: hundreds at once, families crossing the riverbed at dusk. Quieter than the famous parks, and often the one guests did not expect to love most.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Known for</span><span class="wr-di-val">The largest elephant gatherings in the north; baobabs; big cats and wild dog</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">At its best in the dry season, Jun&ndash;Oct</span></div>
@@ -1040,7 +1044,7 @@ body.eh-locked{overflow:hidden;}
   <!-- 3 · LAKE MANYARA -->
   <div class="world-row w-s">
     <div class="wr-film" style="background-image:url('assets/images/manyara.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Lake Manyara &mdash; flamingos on the soda lake ]</span>
+      <span class="film-hint">[ Lake Manyara: flamingos on the soda lake ]</span>
       <span class="wr-film-tag">Soda lake</span>
       <span class="wr-film-lbl">Lake Manyara National Park</span>
     </div>
@@ -1063,7 +1067,7 @@ body.eh-locked{overflow:hidden;}
   <!-- 4 · NGORONGORO -->
   <div class="world-row w-c">
     <div class="wr-film" style="background-image:url('assets/images/ngorongoro.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Ngorongoro &mdash; the crater floor at first light ]</span>
+      <span class="film-hint">[ Ngorongoro: the crater floor at first light ]</span>
       <span class="wr-film-tag">The caldera</span>
       <span class="wr-film-lbl">Ngorongoro Conservation Area</span>
     </div>
@@ -1074,7 +1078,7 @@ body.eh-locked{overflow:hidden;}
         <h2 class="wr-name reveal">Ngorongoro</h2>
         <span class="wr-sw">a whole world inside one wall</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">The road climbs to a rim, and then the land simply falls away. Inside the largest intact volcanic caldera on earth, a self-contained world turns beneath you: grassland, soda lake, forest and swamp, walled by six hundred metres of crater wall. Almost every large animal lives here, including some of the last black rhino in the north &mdash; and the Maasai still graze cattle across the highlands above.</p>
+        <p class="wr-desc reveal">The road climbs to a rim, and then the land simply falls away. Inside the largest intact volcanic caldera on earth, a self-contained world turns beneath you: grassland, soda lake, forest and swamp, walled by six hundred metres of crater wall. Almost every large animal lives here, including some of the last black rhino in the north: and the Maasai still graze cattle across the highlands above.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Known for</span><span class="wr-di-val">The Big Five in one descent; black rhino; the Maasai cultural landscape</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">Year-round; mornings are the crater&rsquo;s best hour</span></div>
@@ -1086,7 +1090,7 @@ body.eh-locked{overflow:hidden;}
   <!-- 5 · SERENGETI -->
   <div class="world-row w-s">
     <div class="wr-film" style="background-image:url('assets/images/serengeti.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Serengeti &mdash; the migration crossing the plain ]</span>
+      <span class="film-hint">[ Serengeti: the migration crossing the plain ]</span>
       <span class="wr-film-tag">Endless plains</span>
       <span class="wr-film-lbl">Serengeti National Park</span>
     </div>
@@ -1097,7 +1101,7 @@ body.eh-locked{overflow:hidden;}
         <h2 class="wr-name reveal">Serengeti</h2>
         <span class="wr-sw">the plain that gives the country its name</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">And then the walls fall away entirely. <em>Siringet</em> &mdash; the place where the land runs on. More than a million wildebeest and zebra move across it through the year, followed by everything that hunts them, in the greatest wildlife spectacle left on the planet. But even without the migration, the Serengeti is the platonic idea of Africa: lions on a kopje, a cheetah reading the grass, a horizon with nothing on it but weather.</p>
+        <p class="wr-desc reveal">And then the walls fall away entirely. <em>Siringet</em>: the place where the land runs on. More than a million wildebeest and zebra move across it through the year, followed by everything that hunts them, in the greatest wildlife spectacle left on the planet. But even without the migration, the Serengeti is the platonic idea of Africa: lions on a kopje, a cheetah reading the grass, a horizon with nothing on it but weather.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Known for</span><span class="wr-di-val">The Great Migration; the highest lion density in Africa; the open plain</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">Migration moves with the seasons; calving Dec&ndash;Mar, river crossings Jul&ndash;Oct</span></div>
@@ -1109,7 +1113,7 @@ body.eh-locked{overflow:hidden;}
   <!-- 6 · ARUSHA -->
   <div class="world-row w-m">
     <div class="wr-film" style="background-image:url('assets/images/arusha.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Arusha National Park &mdash; Mount Meru and the lakes ]</span>
+      <span class="film-hint">[ Arusha National Park. Mount Meru and the lakes ]</span>
       <span class="wr-film-tag">The gateway</span>
       <span class="wr-film-lbl">Arusha National Park</span>
     </div>
@@ -1136,7 +1140,7 @@ body.eh-locked{overflow:hidden;}
   <div class="ph-inner" style="text-align:center;max-width:800px;margin:0 auto;">
     <p class="eye" style="margin-bottom:2rem;">Chapter two &nbsp;&middot;&nbsp; Beyond the North</p>
     <h2 class="ph-hed reveal" style="font-size:clamp(2rem,5vw,3.4rem);">There is another<br>Tanzania. <em>Wilder.</em></h2>
-    <p class="ph-sub reveal" style="margin:2rem auto 0;">South and west, the country empties out. Fewer roads, fewer camps, almost no other vehicles &mdash; and rivers and woodlands the northern circuit simply does not have. This is where people go when they come back a second time, and want the wilderness to themselves.</p>
+    <p class="ph-sub reveal" style="margin:2rem auto 0;">South and west, the country empties out. Fewer roads, fewer camps, almost no other vehicles: and rivers and woodlands the northern circuit simply does not have. This is where people go when they come back a second time, and want the wilderness to themselves.</p>
   </div>
 </section>
 
@@ -1144,7 +1148,7 @@ body.eh-locked{overflow:hidden;}
   <!-- RUAHA -->
   <div class="world-row w-s">
     <div class="wr-film" style="background-image:url('assets/images/ruaha.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Ruaha &mdash; baobabs and the Great Ruaha River ]</span>
+      <span class="film-hint">[ Ruaha: baobabs and the Great Ruaha River ]</span>
       <span class="wr-film-tag">The wild west</span>
       <span class="wr-film-lbl">Ruaha National Park</span>
     </div>
@@ -1167,7 +1171,7 @@ body.eh-locked{overflow:hidden;}
   <!-- NYERERE / SELOUS -->
   <div class="world-row w-c">
     <div class="wr-film" style="background-image:url('assets/images/nyerere.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Nyerere &mdash; boat safari on the Rufiji River ]</span>
+      <span class="film-hint">[ Nyerere: boat safari on the Rufiji River ]</span>
       <span class="wr-film-tag">River delta</span>
       <span class="wr-film-lbl">Nyerere National Park &middot; formerly Selous</span>
     </div>
@@ -1178,10 +1182,10 @@ body.eh-locked{overflow:hidden;}
         <h2 class="wr-name reveal">Nyerere</h2>
         <span class="wr-sw">the water you cannot find in the north</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">Africa&rsquo;s largest national park, built around the meandering Rufiji River and its lakes. Here the safari changes shape: you go by boat as much as by vehicle, drifting past hippo pods and basking crocodiles, past some of the last great populations of African wild dog on the continent. Walking, night drives, water &mdash; a different grammar of wilderness entirely.</p>
+        <p class="wr-desc reveal">Africa&rsquo;s largest national park, built around the meandering Rufiji River and its lakes. Here the safari changes shape: you go by boat as much as by vehicle, drifting past hippo pods and basking crocodiles, past some of the last great populations of African wild dog on the continent. Walking, night drives, water: a different grammar of wilderness entirely.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Known for</span><span class="wr-di-val">Boat safaris on the Rufiji; wild dog; space and solitude</span></div>
-          <div class="wr-detail-item"><span class="wr-di-lbl">Access</span><span class="wr-di-val">A short flight from Zanzibar or Dar &mdash; easy bush-and-beach</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Access</span><span class="wr-di-val">A short flight from Zanzibar or Dar: easy bush-and-beach</span></div>
         </div>
       </div>
     </div>
@@ -1190,7 +1194,7 @@ body.eh-locked{overflow:hidden;}
   <!-- MAHALE -->
   <div class="world-row w-s">
     <div class="wr-film" style="background-image:url('assets/images/mahale.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Mahale &mdash; forested peaks meeting Lake Tanganyika ]</span>
+      <span class="film-hint">[ Mahale: forested peaks meeting Lake Tanganyika ]</span>
       <span class="wr-film-tag">Chimpanzees</span>
       <span class="wr-film-lbl">Mahale Mountains National Park</span>
     </div>
@@ -1201,7 +1205,7 @@ body.eh-locked{overflow:hidden;}
         <h2 class="wr-name reveal">Mahale</h2>
         <span class="wr-sw">where the forest meets an inland sea</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">The most remote world of all, and for many the most moving. Forested mountains drop straight into the impossibly clear water of Lake Tanganyika, and in that forest live around a thousand wild chimpanzees. You trek in on foot to sit with a habituated family &mdash; and end the day swimming in the lake with no road for a hundred miles. Nothing else in Tanzania feels like this.</p>
+        <p class="wr-desc reveal">The most remote world of all, and for many the most moving. Forested mountains drop straight into the impossibly clear water of Lake Tanganyika, and in that forest live around a thousand wild chimpanzees. You trek in on foot to sit with a habituated family: and end the day swimming in the lake with no road for a hundred miles. Nothing else in Tanzania feels like this.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Known for</span><span class="wr-di-val">Wild chimpanzee trekking; Lake Tanganyika; deep wilderness</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">Access</span><span class="wr-di-val">Fly-in only; for those who want the far edge</span></div>
@@ -1213,7 +1217,7 @@ body.eh-locked{overflow:hidden;}
   <!-- ZANZIBAR / MARINE -->
   <div class="world-row w-co">
     <div class="wr-film" style="background-image:url('assets/images/zanzibar.jpg');background-size:cover;background-position:center;">
-      <span class="film-hint">[ Zanzibar &mdash; reef and dhow on turquoise water ]</span>
+      <span class="film-hint">[ Zanzibar: reef and dhow on turquoise water ]</span>
       <span class="wr-film-tag">The coast</span>
       <span class="wr-film-lbl">Zanzibar &amp; the marine parks</span>
     </div>
@@ -1224,7 +1228,7 @@ body.eh-locked{overflow:hidden;}
         <h2 class="wr-name reveal">The coast</h2>
         <span class="wr-sw">where the journey finally rests</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">And then the land runs out into the Indian Ocean. The Zanzibar archipelago closes almost every long journey &mdash; Stone Town&rsquo;s seven centuries of Swahili history, and offshore, the coral gardens of Mnemba and the untouched reefs of Pemba. After the dust and the drama of the plains, the ocean is not an afterthought. It is the exhale the whole journey was building toward.</p>
+        <p class="wr-desc reveal">And then the land runs out into the Indian Ocean. The Zanzibar archipelago closes almost every long journey. Stone Town&rsquo;s seven centuries of Swahili history, and offshore, the coral gardens of Mnemba and the untouched reefs of Pemba. After the dust and the drama of the plains, the ocean is not an afterthought. It is the exhale the whole journey was building toward.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Known for</span><span class="wr-di-val">Reefs, dhows, spice farms, Stone Town; dolphins and, in season, whale sharks off Mafia</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">Year-round; a natural end to any safari</span></div>
@@ -1242,7 +1246,7 @@ body.eh-locked{overflow:hidden;}
     <h2 class="ph-hed reveal" style="font-size:clamp(2rem,5vw,3.2rem);">Everything you<br>came to <em>see.</em></h2>
     <p class="ph-sub reveal" style="margin:2rem auto 3rem;">The Big Five move through these pages &mdash; lion, leopard, elephant, buffalo, rhino &mdash; but they are only the opening cast. Cheetah reading the plain. Wild dog on the hunt, rarer than almost any of them. Giraffe against the acacia, hippo pods, the great river crocodiles. And over all of it, one of the richest bird lives on earth.</p>
     <div class="wr-rule" style="margin:0 auto 3rem;max-width:120px;"></div>
-    <p class="ph-sub reveal" style="margin:0 auto;">More than <span class="cu-figure">eleven hundred bird species</span> live in Tanzania &mdash; flamingos turning a lake pink, crowned cranes stepping through the grass, the lilac-breasted roller opening into impossible colour, fish eagles calling over the Rufiji. You do not have to be a birder to be undone by it. You simply notice, somewhere around the third day, that the air itself is alive.</p>
+    <p class="ph-sub reveal" style="margin:0 auto;">More than <span class="cu-figure">eleven hundred bird species</span> live in Tanzania: flamingos turning a lake pink, crowned cranes stepping through the grass, the lilac-breasted roller opening into impossible colour, fish eagles calling over the Rufiji. You do not have to be a birder to be undone by it. You simply notice, somewhere around the third day, that the air itself is alive.</p>
   </div>
 </section>
 
@@ -1250,7 +1254,7 @@ body.eh-locked{overflow:hidden;}
 <section class="worlds" style="padding:5rem 0 7rem;">
   <div class="worlds-note" style="max-width:780px;margin:0 auto;text-align:center;">
     <p class="eye" style="margin-bottom:1.5rem;">And the people of the land</p>
-    <p style="font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.7;">The worlds are not empty. The Maasai on the Ngorongoro highlands, the Chagga on Kilimanjaro&rsquo;s slopes, the Hadzabe still hunting near Lake Eyasi as they have for millennia, the Swahili of the coast. Tanzania&rsquo;s wildlife and its people share the same ground, and the best days of a journey are often the ones spent among the second. <em>That is the part the brochures leave out &mdash; and the part we build every journey around.</em></p>
+    <p style="font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.7;">The worlds are not empty. The Maasai on the Ngorongoro highlands, the Chagga on Kilimanjaro&rsquo;s slopes, the Hadzabe still hunting near Lake Eyasi as they have for millennia, the Swahili of the coast. Tanzania&rsquo;s wildlife and its people share the same ground, and the best days of a journey are often the ones spent among the second. <em>That is the part the brochures leave out: and the part we build every journey around.</em></p>
   </div>
 </section>
 
@@ -1301,10 +1305,10 @@ body.eh-locked{overflow:hidden;}
 <script>
 /* ── HEADER JS (shared) ── */
 (function(){
-  var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
+  var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
   function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
   function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
     burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
   if(burger&&mob){

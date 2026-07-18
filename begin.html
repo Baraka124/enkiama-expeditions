@@ -719,6 +719,10 @@ nav.scrolled::before{ opacity:.035; }
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -882,7 +886,7 @@ body.eh-locked{overflow:hidden;}
 <!-- EDITORIAL ISSUE BAR -->
 <div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(190,158,104,0.11);background:rgba(15,23,18,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
   <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(190,158,104,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
-  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama. Tanzania, curated</span>
 </div>
 
 
@@ -893,7 +897,7 @@ body.eh-locked{overflow:hidden;}
   <div class="ph-inner">
     <p class="ph-issue eye">Open a conversation &nbsp;&middot;&nbsp; No obligation &nbsp;&middot;&nbsp; No price lists</p>
     <h1 class="ph-hed reveal">Let&rsquo;s create<br>your adventure<br>together, <em>rafiki.</em></h1>
-    <p class="ph-sub reveal">There is no form. No automated response. No consultant pulling from a brief. Just a conversation &mdash; unhurried, honest, and without obligation. We write back ourselves, within a day, and we ask more than we tell. That is where every Enkiama journey begins.</p>
+    <p class="ph-sub reveal">There is no form. No automated response. No consultant pulling from a brief. Just a conversation: unhurried, honest, and without obligation. We write back ourselves, within a day, and we ask more than we tell. That is where every Enkiama journey begins.</p>
   </div>
 </section>
 
@@ -906,7 +910,7 @@ body.eh-locked{overflow:hidden;}
       <span class="ch-preferred">Preferred channel</span>
       <h2 class="ch-hl reveal">Write to us<br>on <em>WhatsApp.</em></h2>
       <div class="ochre-rule"></div>
-      <p class="dim reveal">Most people begin here. It is faster than email and more honest in tone &mdash; conversations that move quickly tend to get to the point more directly. We respond within a few hours during our working day. Voice notes are fine.</p>
+      <p class="dim reveal">Most people begin here. It is faster than email and more honest in tone: conversations that move quickly tend to get to the point more directly. We respond within a few hours during our working day. Voice notes are fine.</p>
       <p class="dim reveal" style="margin-top:1rem;">You do not need an itinerary in your head before writing. The first message can be as vague as a feeling: <em style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:rgba(237,230,214,0.7);">&ldquo;Tanzania keeps pulling at me and I don&rsquo;t quite know why.&rdquo;</em> We can work with that. We usually find it more useful than a detailed brief.</p>
       <span class="ch-wa-num reveal">+34 &nbsp; · · · &nbsp; · · · &nbsp; · · · ·</span>
       <a href="https://wa.me/34659447627" class="btn-primary reveal">Open WhatsApp &rarr;</a>
@@ -949,12 +953,12 @@ body.eh-locked{overflow:hidden;}
     <div class="byw-item reveal">
       <div class="byw-n">02</div>
       <h3 class="byw-q">Is there a minimum budget?</h3>
-      <p class="byw-a">We do not publish prices, because we do not have products to price. Your budget is not a hurdle to clear &mdash; it is the cloth the journey is cut from. Tell us what this is worth to you, and we compose the most extraordinary thing that figure can hold. Different budgets compose into genuinely different journeys, each one whole, none a stripped version of another. We are honest, early, when a figure cannot hold what you are imagining.</p>
+      <p class="byw-a">We do not publish prices, because we do not have products to price. Your budget is not a hurdle to clear: it is the cloth the journey is cut from. Tell us what this is worth to you, and we compose the most extraordinary thing that figure can hold. Different budgets compose into genuinely different journeys, each one whole, none a stripped version of another. We are honest, early, when a figure cannot hold what you are imagining.</p>
     </div>
     <div class="byw-item reveal">
       <div class="byw-n">03</div>
       <h3 class="byw-q">How far in advance?</h3>
-      <p class="byw-a">The earlier the better &mdash; not because of a season, but because composing something properly takes time. Tanzania rewards travel in every month of the year, and the right window depends entirely on what you want to see and feel. The migration, the calving, the green season, the dry: each is its own country. Tell us when you are thinking, and we will tell you honestly what that time of year makes possible, and how soon we would need to begin.</p>
+      <p class="byw-a">The earlier the better: not because of a season, but because composing something properly takes time. Tanzania rewards travel in every month of the year, and the right window depends entirely on what you want to see and feel. The migration, the calving, the green season, the dry: each is its own country. Tell us when you are thinking, and we will tell you honestly what that time of year makes possible, and how soon we would need to begin.</p>
     </div>
   </div>
 </section>
@@ -1049,7 +1053,7 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
-      <p class="commit-txt">We tell you when something is not right for your group &mdash; including when that means suggesting a different operator who can do it better</p>
+      <p class="commit-txt">We tell you when something is not right for your group: including when that means suggesting a different operator who can do it better</p>
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
@@ -1057,11 +1061,11 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
-      <p class="commit-txt">Year-round &mdash; every season in Tanzania has something the others do not</p>
+      <p class="commit-txt">Year-round: every season in Tanzania has something the others do not</p>
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
-      <p class="commit-txt">Partners selected for what they know, who they are, and how they are with people &mdash; not for availability or margin</p>
+      <p class="commit-txt">Partners selected for what they know, who they are, and how they are with people: not for availability or margin</p>
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
@@ -1069,7 +1073,7 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
-      <p class="commit-txt">When a village has a local guide whose knowledge exceeds ours, we bring them in &mdash; by name, at a fair fee, transparently</p>
+      <p class="commit-txt">When a village has a local guide whose knowledge exceeds ours, we bring them in: by name, at a fair fee, transparently</p>
     </div>
     <div class="commit-item reveal">
       <div class="commit-mark"></div>
@@ -1191,7 +1195,7 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 <footer>
   <div>
     <div class="f-logo"><img src="/assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
-    <div class="f-tagline">Not a tour. An experience built only for you &mdash; kwa moyo wote.</div>
+    <div class="f-tagline">Not a tour. An experience built only for you: kwa moyo wote.</div>
   </div>
   <ul class="f-links">
     <li><a href="tanzania.html">Tanzania</a></li>
@@ -1223,10 +1227,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 <script>
 /* ── HEADER JS (shared) ── */
 (function(){
-  var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
+  var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
   function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
   function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
     burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
   if(burger&&mob){

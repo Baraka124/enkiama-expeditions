@@ -689,6 +689,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -852,7 +856,7 @@ body.eh-locked{overflow:hidden;}
 <!-- EDITORIAL ISSUE BAR -->
 <div style="position:fixed;top:52px;left:0;right:0;z-index:499;height:28px;border-bottom:1px solid rgba(190,158,104,0.11);background:rgba(15,23,18,0.97);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 3rem;gap:0;overflow:hidden;">
   <span style="font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:8.5px;letter-spacing:0.22em;color:rgba(190,158,104,0.22);white-space:nowrap;">Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; Year&ndash;round &nbsp;&middot;&nbsp; kwa moyo wote</span>
-  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama &mdash; Tanzania, curated</span>
+  <span style="margin-left:auto;font-family:'Fraunces',serif;font-variation-settings:'opsz' 9;font-style:italic;font-size:9px;color:rgba(190,158,104,0.15);white-space:nowrap;">Enkiama. Tanzania, curated</span>
 </div>
 
 
@@ -877,7 +881,7 @@ body.eh-locked{overflow:hidden;}
     <h2 class="opener-hl reveal">The scale is the <em>first</em> thing. Then, slowly, the intimacy.</h2>
     <div class="ochre-rule"></div>
     <p class="dim reveal">Tanzania has the Serengeti. It has Kilimanjaro. It has Zanzibar. These are things that belong to any atlas. What an atlas cannot capture is the quality of light in the dry season, the silence after a herd passes, the altitude smell of the Kilimanjaro foothills, the warmth of a Swahili greeting on the coast.</p>
-    <p class="dim reveal" style="margin-top:1rem;">Most people who travel here for the first time come for one of those three things. Most people who return come for something else entirely &mdash; the human warmth, the cultural depth, the feeling that they belong to this place in a way they cannot quite explain.</p>
+    <p class="dim reveal" style="margin-top:1rem;">Most people who travel here for the first time come for one of those three things. Most people who return come for something else entirely: the human warmth, the cultural depth, the feeling that they belong to this place in a way they cannot quite explain.</p>
     <p class="dim reveal" style="margin-top:1rem;">That is what we are here to help you find, whichever world you enter through.</p>
   </div>
 </section>
@@ -909,13 +913,13 @@ body.eh-locked{overflow:hidden;}
       <div class="wr-inner">
         <p class="wr-eye">Trekking &middot; Highland culture &middot; Coffee farms</p>
         <h2 class="wr-name reveal">The mountain</h2>
-        <span class="wr-sw">Mlima &mdash; the peak that changes you</span>
+        <span class="wr-sw">Mlima: the peak that changes you</span>
         <div class="wr-rule"></div>
         <p class="wr-desc reveal">Africa&rsquo;s highest peak and the Chagga cultural corridor winding through its lower slopes. At 1,700 metres, the coffee farms begin. The banana groves. The volcanic red soil. The Chagga people, who have farmed this mountain for generations and receive guests at their tables as a matter of course.</p>
         <p class="wr-desc reveal" style="margin-top:1rem;">You do not need to summit to be changed by Kilimanjaro. The mountain rearranges your sense of scale whether you reach the top or not. The silence above the cloud line is unlike anything the savanna offers.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">When</span><span class="wr-di-val">Year-round; each season offers a different mountain</span></div>
-          <div class="wr-detail-item"><span class="wr-di-lbl">Routes</span><span class="wr-di-val">Lemosho, Marangu, Rongai &mdash; we advise based on your group</span></div>
+          <div class="wr-detail-item"><span class="wr-di-lbl">Routes</span><span class="wr-di-val">Lemosho, Marangu, Rongai: we advise based on your group</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">Culture</span><span class="wr-di-val">Chagga homestays, coffee farms, Kibosho families</span></div>
         </div>
       </div>
@@ -929,7 +933,7 @@ body.eh-locked{overflow:hidden;}
       <div class="wr-inner">
         <p class="wr-eye">Wildlife &middot; Migration &middot; Open plain</p>
         <h2 class="wr-name reveal">The savanna</h2>
-        <span class="wr-sw">Nyika &mdash; the plain that never ends</span>
+        <span class="wr-sw">Nyika: the plain that never ends</span>
         <div class="wr-rule"></div>
         <p class="wr-desc reveal">Two entirely different moods. The Serengeti &mdash; defined by the greatest land migration on earth, where 1.5 million wildebeest and 350,000 zebra move in a cycle as old as the ecosystem itself. And Tarangire &mdash; quieter, denser, defined by elephant highways and ancient baobabs and a silence the more famous parks have lost.</p>
         <p class="wr-desc reveal" style="margin-top:1rem;">Our guides have followed both for decades. They know where the lion will be at dawn. They know which baobab the elephants return to. That knowledge is the difference between watching and belonging.</p>
@@ -959,10 +963,10 @@ body.eh-locked{overflow:hidden;}
       <div class="wr-inner">
         <p class="wr-eye">Wildlife &middot; Geology &middot; Ancient world</p>
         <h2 class="wr-name reveal">The crater</h2>
-        <span class="wr-sw">Bonde &mdash; the valley that remembers</span>
+        <span class="wr-sw">Bonde: the valley that remembers</span>
         <div class="wr-rule"></div>
         <p class="wr-desc reveal">A collapsed volcano three million years in the making, now a self-contained ecosystem holding 25,000 animals within its walls. You descend through cloud forest, drop 600 metres, and emerge into a world that operates entirely by its own logic.</p>
-        <p class="wr-desc reveal" style="margin-top:1rem;">The alkaline lakes are pink with flamingos. The lions have never learned to leave. The landscape is ancient &mdash; the kind of ancientness that makes your own timeline feel brief and unimportant in the best possible way.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">The alkaline lakes are pink with flamingos. The lions have never learned to leave. The landscape is ancient: the kind of ancientness that makes your own timeline feel brief and unimportant in the best possible way.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Geology</span><span class="wr-di-val">3 million year old volcanic caldera, 260km² floor</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">Wildlife</span><span class="wr-di-val">Lion, elephant, black rhino, flamingo, hippo</span></div>
@@ -979,10 +983,10 @@ body.eh-locked{overflow:hidden;}
       <div class="wr-inner">
         <p class="wr-eye">Culture &middot; Homestays &middot; Community life</p>
         <h2 class="wr-name reveal">The culture</h2>
-        <span class="wr-sw">Utamaduni &mdash; the life that is already there</span>
+        <span class="wr-sw">Utamaduni: the life that is already there</span>
         <div class="wr-rule"></div>
         <p class="wr-desc reveal">The world most safari itineraries treat as backdrop or bonus. Homestays with Chagga families at altitude. Evenings in Maasai bomas on the crater rim, introduced by a guide who is also a community member and whose relationship with the family precedes ours by years. Night markets in Moshi where nobody knows you are a tourist until you order badly.</p>
-        <p class="wr-desc reveal" style="margin-top:1rem;">When we enter a village, we bring the local guide &mdash; the person who was born there, whose access to the specific elder, the specific grove, the specific story is entirely their own. Not as a gesture. Because that morning is otherwise unavailable to anyone.</p>
+        <p class="wr-desc reveal" style="margin-top:1rem;">When we enter a village, we bring the local guide: the person who was born there, whose access to the specific elder, the specific grove, the specific story is entirely their own. Not as a gesture. Because that morning is otherwise unavailable to anyone.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Maasai</span><span class="wr-di-val">Community visits, crater rim bomas, warrior tradition</span></div>
           <div class="wr-detail-item"><span class="wr-di-lbl">Chagga</span><span class="wr-di-val">Homestays, coffee farms, mountain families</span></div>
@@ -1009,9 +1013,9 @@ body.eh-locked{overflow:hidden;}
       <div class="wr-inner">
         <p class="wr-eye">Coast &middot; Indian Ocean &middot; Swahili history</p>
         <h2 class="wr-name reveal">The coast</h2>
-        <span class="wr-sw">Pwani &mdash; the shore where everything slows</span>
+        <span class="wr-sw">Pwani: the shore where everything slows</span>
         <div class="wr-rule"></div>
-        <p class="wr-desc reveal">Stone Town&rsquo;s narrow streets hold seven centuries of Swahili, Arab, Persian, Indian, and Portuguese history layered on top of each other. Zanzibar&rsquo;s spice farms. Pemba&rsquo;s untouched coral gardens. Warm water and a rhythm entirely different from the savanna &mdash; one hour&rsquo;s flight from the Serengeti and another world entirely.</p>
+        <p class="wr-desc reveal">Stone Town&rsquo;s narrow streets hold seven centuries of Swahili, Arab, Persian, Indian, and Portuguese history layered on top of each other. Zanzibar&rsquo;s spice farms. Pemba&rsquo;s untouched coral gardens. Warm water and a rhythm entirely different from the savanna: one hour&rsquo;s flight from the Serengeti and another world entirely.</p>
         <p class="wr-desc reveal" style="margin-top:1rem;">Many groups come for the safari and discover the coast on their last days. Many return for the coast alone. The Indian Ocean does something to the rhythm of a journey that no amount of spectacular wildlife can replicate.</p>
         <div class="wr-detail reveal">
           <div class="wr-detail-item"><span class="wr-di-lbl">Stone Town</span><span class="wr-di-val">UNESCO heritage, spice history, Swahili architecture</span></div>
@@ -1028,9 +1032,9 @@ body.eh-locked{overflow:hidden;}
 <section class="seasons">
   <div class="seasons-pg">Season</div>
   <div class="seasons-inner">
-    <p class="eye" style="color:var(--ochre);margin-bottom:2rem;">No off-season &mdash; only different gifts</p>
+    <p class="eye" style="color:var(--ochre);margin-bottom:2rem;">No off-season: only different gifts</p>
     <h2 class="seasons-hed reveal">Tanzania is worth<br>travelling in <em>every<br>month of the year.</em></h2>
-    <p style="font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.9;color:rgba(15,23,18,0.52);max-width:620px;margin:-3rem 0 4rem;" class="reveal">The idea of a single &ldquo;safari season&rdquo; is a convenience invented for catalogues. The land does not stop being extraordinary in November. It simply changes register &mdash; greener, quieter, full of newborn animals, lit differently. The right time to come depends entirely on what you want to witness. Here is the year, honestly.</p>
+    <p style="font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.9;color:rgba(15,23,18,0.52);max-width:620px;margin:-3rem 0 4rem;" class="reveal">The idea of a single &ldquo;safari season&rdquo; is a convenience invented for catalogues. The land does not stop being extraordinary in November. It simply changes register: greener, quieter, full of newborn animals, lit differently. The right time to come depends entirely on what you want to witness. Here is the year, honestly.</p>
     <div class="seasons-grid">
       <div class="sea-c reveal">
         <div class="sea-month">Dry</div>
@@ -1047,7 +1051,7 @@ body.eh-locked{overflow:hidden;}
       <div class="sea-c reveal">
         <div class="sea-month">Green</div>
         <p class="sea-tag">December &ndash; March</p>
-        <p class="sea-desc">The southern Serengeti turns emerald. The wildebeest calve &mdash; hundreds of thousands of births in a few weeks, and the predators that follow them. The coast is warm and clear. A completely different Tanzania to the dry season, and a profoundly alive one.</p>
+        <p class="sea-desc">The southern Serengeti turns emerald. The wildebeest calve: hundreds of thousands of births in a few weeks, and the predators that follow them. The coast is warm and clear. A completely different Tanzania to the dry season, and a profoundly alive one.</p>
         <p class="sea-worlds">The calving &middot; Green plains &middot; Coast at its best</p>
       </div>
       <div class="sea-c reveal">
@@ -1066,7 +1070,7 @@ body.eh-locked{overflow:hidden;}
     <p class="eye" style="margin-bottom:2rem;">Geology</p>
     <h2 class="eco-hl reveal">Formed by <em>fire,</em><br>shaped by water,<br>held by the Rift.</h2>
     <div class="ochre-rule"></div>
-    <p class="dim reveal">The East African Rift Valley runs through Tanzania like a spine &mdash; a geological seam that has been pulling the continent apart for thirty million years. Ngorongoro is its collapsed offspring. Kilimanjaro rose independently, a volcanic anomaly sitting at the edge of the rift&rsquo;s shoulder. The Serengeti sits on a ancient craton that has not moved in half a billion years.</p>
+    <p class="dim reveal">The East African Rift Valley runs through Tanzania like a spine: a geological seam that has been pulling the continent apart for thirty million years. Ngorongoro is its collapsed offspring. Kilimanjaro rose independently, a volcanic anomaly sitting at the edge of the rift&rsquo;s shoulder. The Serengeti sits on a ancient craton that has not moved in half a billion years.</p>
     <p class="dim reveal" style="margin-top:1rem;">Understanding the geology changes the experience. When you understand why the crater exists, descending into it becomes something else entirely. When you know what the rift means, the scale of the savanna makes a different kind of sense.</p>
   </div>
   <div class="eco-r">
@@ -1074,7 +1078,7 @@ body.eh-locked{overflow:hidden;}
     <h2 class="eco-hl reveal">Six biomes.<br>One country.<br><em>Extraordinary</em> density.</h2>
     <div class="ochre-rule"></div>
     <p class="dim reveal">Montane forest, cloud forest, moorland, alpine desert, and summit ice on Kilimanjaro alone. Acacia savanna, dry woodland, and riverine forest on the plains. Mangrove, coral reef, and open ocean on the coast. No other country of similar size holds this concentration of distinct ecological zones.</p>
-    <p class="dim reveal" style="margin-top:1rem;">This is why Tanzania rewards the traveller who moves across worlds rather than staying in one. Each transition is a complete change of register &mdash; of light, sound, smell, temperature, and the kind of attention the landscape asks of you.</p>
+    <p class="dim reveal" style="margin-top:1rem;">This is why Tanzania rewards the traveller who moves across worlds rather than staying in one. Each transition is a complete change of register: of light, sound, smell, temperature, and the kind of attention the landscape asks of you.</p>
   </div>
 </section>
 
@@ -1092,7 +1096,7 @@ body.eh-locked{overflow:hidden;}
     <p class="eye" style="margin-bottom:1.5rem;">The mountain people</p>
     <h3 class="ppl-name">Chagga</h3>
     <div class="ppl-rule"></div>
-    <p class="dim">Bantu farmers who have cultivated the southern slopes of Kilimanjaro for centuries &mdash; one of the most intensively farmed mountain environments on the continent. The Kibosho corridor, where our family partner lives, produces some of the finest coffee in Africa from volcanic soil at 1,700 metres.</p>
+    <p class="dim">Bantu farmers who have cultivated the southern slopes of Kilimanjaro for centuries: one of the most intensively farmed mountain environments on the continent. The Kibosho corridor, where our family partner lives, produces some of the finest coffee in Africa from volcanic soil at 1,700 metres.</p>
   </div>
   <div class="ppl-c reveal">
     <div class="ppl-pg">S</div>
@@ -1109,7 +1113,7 @@ body.eh-locked{overflow:hidden;}
     <p class="eye" style="margin-bottom:2rem;">Begin here</p>
     <h2 class="cta-s-hl reveal">You now have the vocabulary.<br><em>Tell us the sentence</em><br>you want to write.</h2>
     <div class="ochre-rule"></div>
-    <p class="dim reveal">Most groups move across two or three worlds &mdash; shaped by who they are, what they&rsquo;re ready for, and what the season makes possible. Tell us which worlds pull at you. We will tell you who we know in them, what the right time of year looks like, and which local specialists could extend what our core partners offer. No quotation. Just a conversation, honest in both directions.</p>
+    <p class="dim reveal">Most groups move across two or three worlds: shaped by who they are, what they&rsquo;re ready for, and what the season makes possible. Tell us which worlds pull at you. We will tell you who we know in them, what the right time of year looks like, and which local specialists could extend what our core partners offer. No quotation. Just a conversation, honest in both directions.</p>
   </div>
   <div class="cta-s-r">
     <a href="begin.html" class="btn-primary">Begin the conversation</a>
@@ -1152,10 +1156,10 @@ body.eh-locked{overflow:hidden;}
 <script>
 /* ── HEADER JS (shared) ── */
 (function(){
-  var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
+  var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
   function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
   function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
     burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
   if(burger&&mob){

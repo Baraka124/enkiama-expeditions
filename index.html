@@ -1622,6 +1622,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
 .eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
 .eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
@@ -1786,8 +1790,8 @@ body.eh-locked{overflow:hidden;}
 <section class="hero" id="home">
   <div class="hero-film"></div>
   <div class="hero-dawn"></div>
-  <div class="hero-film-label">[ Full&#8209;bleed photography &mdash; Kilimanjaro or Serengeti at dawn ]</div>
-  <span class="hero-side">[ Photography &mdash; Tanzania ]</span>
+  <div class="hero-film-label">[ Full&#8209;bleed photography. Kilimanjaro or Serengeti at dawn ]</div>
+  <span class="hero-side">[ Photography. Tanzania ]</span>
   <div class="hero-ghost" id="heroGhost">Tanzania</div>
 
   <div class="hero-content">
@@ -1801,7 +1805,7 @@ body.eh-locked{overflow:hidden;}
       <span class="whisper">We just make sure you arrive.</span>
     </h1>
     <p class="dim hero-sub" id="hSub">
-      The mountain, the plain, the crater, the coast, and the life lived between them. One country in many registers, and a family of people who have spent their lives belonging to it. We compose from all of it, around your group alone.
+      Mountain, plain, crater, coast, and the life between them. One country, many worlds. We compose a journey through it for your group alone.
     </p>
     <div class="hero-acts" id="hActs">
       <a href="compose.html" class="btn-primary">Compose your journey</a>
@@ -1828,7 +1832,7 @@ body.eh-locked{overflow:hidden;}
       <div class="thesis-rule"></div>
       <div class="t-stat">
         <span class="t-stat-num">8</span>
-        <span class="t-stat-lbl">Guests &mdash; always</span>
+        <span class="t-stat-lbl">Guests: always</span>
       </div>
     </div>
     <div class="thesis-body reveal">
@@ -1838,7 +1842,7 @@ body.eh-locked{overflow:hidden;}
       <div class="sw-pill">
         <span class="sw-word">Ndugu</span>
         <div class="sw-div"></div>
-        <span class="sw-def">Brother, sister, kin &mdash; in Tanzania,<br>anyone bound to you by shared values, not blood</span>
+        <span class="sw-def">Brother, sister, kin: in Tanzania,<br>anyone bound to you by shared values, not blood</span>
       </div>
     </div>
   </div>
@@ -1854,10 +1858,10 @@ body.eh-locked{overflow:hidden;}
     <div class="already-cols">
       <div class="already-col reveal">
         <p>The Swahili word <em>ujamaa</em> &mdash; communal family, shared humanity &mdash; was Julius Nyerere&rsquo;s founding philosophy for Tanzania. It describes something already present in how Tanzanian people live: the instinct to receive strangers as <em>ndugu</em>, to share what they have, to make you feel you were expected before you arrived.</p>
-        <p>The tour industry markets Tanzania&rsquo;s wildlife and its landscapes. It largely misses this &mdash; the human texture, the radical generosity, the warmth that belongs to the place itself. That is what most guests never reach. It is what Enkiama exists to close the distance to.</p>
+        <p>The tour industry markets Tanzania&rsquo;s wildlife and landscapes. It misses this: the human texture, the radical generosity, the warmth that belongs to the place itself. That is what most guests never reach. It is what Enkiama exists to close the distance to.</p>
       </div>
       <div class="already-col reveal">
-        <p>Through guides who belong to the ecosystems they show you. Through cultural partners embedded in communities, not visiting them. Through lodges chosen because they carry the same spirit &mdash; rooted in the land, aligned with its values. A country with thousands of things to see, experienced through a lens shaped entirely around who you are.</p>
+        <p>Through guides who belong to the ecosystems they show you. Through cultural partners embedded in communities, not visiting them. Through lodges chosen because they carry the same spirit: rooted in the land, aligned with its values. A country with thousands of things to see, experienced through a lens shaped entirely around who you are.</p>
         <p>When we say <em>family</em>, we do not mean a brand promise. We mean the authentic Tanzanian value of <em>ukarimu</em> &mdash; hospitality as a way of life &mdash; experienced across the whole of a journey, end to end, without interruption.</p>
       </div>
     </div>
@@ -1873,10 +1877,10 @@ body.eh-locked{overflow:hidden;}
     <p class="dim reveal">Our guides live in the ecosystems they show you. Our cultural partners belong to the communities they open. Our lodges are part of the landscape, not placed in it. The access we provide is only possible because the people who provide it have spent their lives earning it.</p>
   </div>
   <div class="lw-h">
-    <span class="lw-tag">World&#8209;class</span>
-    <h2 class="lw-hl reveal">Global values.<br>Total transparency.<br>No compromise.</h2>
+    <span class="lw-tag">Earned</span>
+    <h2 class="lw-hl reveal">Years on the ground.<br>Doors that open<br>only to friends.</h2>
     <div class="lw-rule"></div>
-    <p class="dim reveal">We operate with the standards of the best travel experiences anywhere. Full transparency on cost. No hidden top-ups. No surprises. You know what to expect from day one. You are 100% in charge of every decision from the first conversation onwards.</p>
+    <p class="dim reveal">From Kilimanjaro&rsquo;s glaciers to Zanzibar&rsquo;s coral gardens, we know what works in which season and which doors open to those who have earned them. Our <span style="font-family:'Fraunces',serif;font-style:italic;color:var(--earth);">ndugu</span> are on the ground year-round, seeing what changes, what opens, what closes. That knowledge keeps every journey honest and alive.</p>
   </div>
 </section>
 
@@ -1885,7 +1889,7 @@ body.eh-locked{overflow:hidden;}
   <div class="worlds-intro">
     <div class="worlds-intro-grid">
       <h2 class="worlds-hl reveal">One<br>country.<br>Many<br><em>registers.</em></h2>
-      <p class="worlds-intro-body reveal">No one holds all of Tanzania in a single visit &mdash; that is the point, and the reason a trusted guide matters. What follows is not a menu to choose from. It is the range of one country, so you can begin to feel which of its registers are calling to you. Drag to move through it.</p>
+      <p class="worlds-intro-body reveal">No one holds all of Tanzania in a single visit. That is the point, and the reason a trusted guide matters. What follows is not a menu to choose from. It is the range of one country, so you can begin to feel which of its registers are calling to you. Drag to move through it.</p>
     </div>
   </div>
 
@@ -1898,13 +1902,13 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-inner">
             <div class="wp-tag">Trekking &amp; highland culture</div>
             <div class="wp-name">The<br>mountain</div>
-            <span class="wp-sw">Mlima &mdash; the peak that changes you</span>
+            <span class="wp-sw">Mlima: the peak that changes you</span>
             <div class="wp-rule"></div>
             <p class="wp-desc">Africa&rsquo;s highest peak and the Chagga cultural corridor winding through its lower slopes. Trekking routes from Marangu to Lemosho. Coffee farms at 1,700 metres. Banana groves, volcanic soil, and a summit that alters your sense of scale whether you reach it or not.</p>
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Kilimanjaro &mdash; summit ridge or foothills farm ]</span></div>
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Kilimanjaro: summit ridge or foothills farm ]</span></div>
           <span class="wp-photo-tag">5,895m</span>
           <span class="wp-photo-note">Kilimanjaro &middot; Kibosho corridor</span>
         </div>
@@ -1912,7 +1916,7 @@ body.eh-locked{overflow:hidden;}
 
       <div class="world-panel w2">
         <div class="wp-photo" style="border-right:1px solid var(--rule);">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Serengeti &mdash; migration or golden hour plain ]</span></div>
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Serengeti: migration or golden hour plain ]</span></div>
           <span class="wp-photo-tag">The great migration</span>
           <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
         </div>
@@ -1921,9 +1925,9 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-inner">
             <div class="wp-tag">Wildlife &middot; Safari &middot; Open plain</div>
             <div class="wp-name">The<br>savanna</div>
-            <span class="wp-sw">Nyika &mdash; the plain that never ends</span>
+            <span class="wp-sw">Nyika: the plain that never ends</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">The Serengeti and Tarangire &mdash; two entirely different moods. One defined by the greatest land migration on earth. The other by elephant highways, ancient baobabs, and a silence the more famous parks have lost. Our guides have followed both for decades.</p>
+            <p class="wp-desc">The Serengeti and Tarangire: two different moods. One is the greatest land migration on earth. The other, elephant highways, ancient baobabs, and a silence the more famous parks have lost. Our guides have followed both for decades.</p>
           </div>
         </div>
       </div>
@@ -1934,13 +1938,13 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-inner">
             <div class="wp-tag">Wildlife &middot; Geology &middot; Ancient world</div>
             <div class="wp-name">The<br>crater</div>
-            <span class="wp-sw">Bonde &mdash; the valley that remembers</span>
+            <span class="wp-sw">Bonde: the valley that remembers</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">A collapsed volcano that became a self-contained ecosystem &mdash; 25,000 animals, alkaline lakes, ancient geological memory. You descend through cloud and emerge into something the word &ldquo;safari&rdquo; was never built to describe. Our guides have made this descent hundreds of times. It never becomes ordinary.</p>
+            <p class="wp-desc">A collapsed volcano that became a self-contained ecosystem: 25,000 animals, alkaline lakes, ancient geological memory. You descend through cloud and emerge into something the word &ldquo;safari&rdquo; was never built to describe. Our guides have made this descent hundreds of times. It never becomes ordinary.</p>
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Ngorongoro &mdash; crater floor, dawn mist ]</span></div>
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Ngorongoro: crater floor, dawn mist ]</span></div>
           <span class="wp-photo-tag">600m deep</span>
           <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
         </div>
@@ -1957,7 +1961,7 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-inner">
             <div class="wp-tag">Culture &middot; Homestays &middot; Nightlife</div>
             <div class="wp-name">The<br>culture</div>
-            <span class="wp-sw">Utamaduni &mdash; the life that is already there</span>
+            <span class="wp-sw">Utamaduni: the life that is already there</span>
             <div class="wp-rule"></div>
             <p class="wp-desc">Homestays. Nightlife in Moshi or Arusha. Meals at tables that were not set for tourists. Maasai bomas on the crater rim. Chagga farms above the cloud line. A night market in a coastal town. This is the world most itineraries skip entirely. It is the one our guests remember most completely.</p>
           </div>
@@ -1970,13 +1974,13 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-inner">
             <div class="wp-tag">Coast &middot; Ocean &middot; Stone Town</div>
             <div class="wp-name">The<br>coast</div>
-            <span class="wp-sw">Pwani &mdash; the shore where everything slows</span>
+            <span class="wp-sw">Pwani: the shore where everything slows</span>
             <div class="wp-rule"></div>
             <p class="wp-desc">Zanzibar&rsquo;s spice markets and coral reefs. Pemba&rsquo;s untouched marine life. Stone Town&rsquo;s layered Swahili, Arab, and Portuguese history. Warm water, slow rhythm, centuries of trade compressed into narrow streets. A completely different sensory world, only an hour&rsquo;s flight from the savanna.</p>
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Zanzibar &mdash; Stone Town or coral coast ]</span></div>
+          <div class="wp-photo-film"><span class="wp-ph-hint">[ Zanzibar. Stone Town or coral coast ]</span></div>
           <span class="wp-photo-tag">Indian Ocean</span>
           <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
         </div>
@@ -1998,7 +2002,7 @@ body.eh-locked{overflow:hidden;}
   </div>
 
   <div class="worlds-note">
-    <p>Most journeys move through two or three of these registers &mdash; the combination shaped entirely around who is travelling, what they are ready for, and what the country offers when they come. These names are a vocabulary, not a catalogue. <em>Your journey is the sentence only you can write, and we write it with you, never from a shelf.</em></p>
+    <p>Most journeys move through two or three of these worlds, shaped around who is travelling, what they are ready for, and what the country offers when they come. These names are a vocabulary, not a catalogue. <em>Your journey is a sentence only you can write. We write it with you, never from a shelf.</em></p>
   </div>
 
   <div class="route-wrap">
@@ -2032,7 +2036,7 @@ body.eh-locked{overflow:hidden;}
   <div class="curate-inner">
     <p class="eye curate-eye">Your journey begins here</p>
     <h2 class="curate-hl reveal">Tell us what <em>pulls</em> at you.<br>We&rsquo;ll find the words<br>for what you imagine.</h2>
-    <p class="curate-sub reveal">Not a form. Not a quiz. Three questions that begin a conversation, and a glimpse of what your journey might feel like. Enkiama&rsquo;s curation starts the moment you answer.</p>
+    <p class="curate-sub reveal">Three questions, not a form. They begin a conversation, and show you what your journey could feel like.</p>
 
     <div class="curate-engine">
       <div class="curate-progress">
@@ -2042,22 +2046,22 @@ body.eh-locked{overflow:hidden;}
       </div>
 
       <div class="curate-step active" id="step0">
-        <p class="curate-prompt">&ldquo;What kind of silence do you want &mdash; the silence of altitude, or the silence after a herd passes?&rdquo;</p>
+        <p class="curate-prompt">&ldquo;What kind of silence do you want: the silence of altitude, or the silence after a herd passes?&rdquo;</p>
         <div class="curate-options">
-          <button class="c-opt" data-val="altitude">The silence of altitude &mdash; cold air, few people, a summit somewhere above the clouds</button>
-          <button class="c-opt" data-val="herd">The silence after a herd passes &mdash; vast space, animal presence, the savanna breathing</button>
-          <button class="c-opt" data-val="ocean">The silence of the ocean &mdash; warm water, slow rhythm, a different kind of vastness</button>
-          <button class="c-opt" data-val="human">The silence between conversations &mdash; a shared table, a family&rsquo;s home, the sound of another life</button>
+          <button class="c-opt" data-val="altitude">The silence of altitude: cold air, few people, a summit somewhere above the clouds</button>
+          <button class="c-opt" data-val="herd">The silence after a herd passes: vast space, animal presence, the savanna breathing</button>
+          <button class="c-opt" data-val="ocean">The silence of the ocean: warm water, slow rhythm, a different kind of vastness</button>
+          <button class="c-opt" data-val="human">The silence between conversations: a shared table, a family&rsquo;s home, the sound of another life</button>
         </div>
       </div>
 
       <div class="curate-step" id="step1">
-        <p class="curate-prompt">&ldquo;When you travel, what do you want to understand more deeply &mdash; a place, a people, or yourself?&rdquo;</p>
+        <p class="curate-prompt">&ldquo;When you travel, what do you want to understand more deeply: a place, a people, or yourself?&rdquo;</p>
         <div class="curate-options">
-          <button class="c-opt" data-val="place">A place &mdash; its geology, its ecosystems, why it looks like this and no other</button>
-          <button class="c-opt" data-val="people">A people &mdash; how they live, what they value, what they would tell you if you stayed long enough</button>
-          <button class="c-opt" data-val="self">Myself &mdash; I want the kind of experience that rearranges what I thought I knew about what matters</button>
-          <button class="c-opt" data-val="all">All three &mdash; I want a journey that holds all of it at once</button>
+          <button class="c-opt" data-val="place">A place: its geology, its ecosystems, why it looks like this and no other</button>
+          <button class="c-opt" data-val="people">A people: how they live, what they value, what they would tell you if you stayed long enough</button>
+          <button class="c-opt" data-val="self">Myself. I want the kind of experience that rearranges what I thought I knew about what matters</button>
+          <button class="c-opt" data-val="all">All three. I want a journey that holds all of it at once</button>
         </div>
       </div>
 
@@ -2066,7 +2070,7 @@ body.eh-locked{overflow:hidden;}
         <div class="curate-options">
           <button class="c-opt" data-val="moment">One unrepeatable moment that I couldn&rsquo;t have planned or found alone</button>
           <button class="c-opt" data-val="people2">The people I met &mdash; guides, families, partners &mdash; who showed me something real</button>
-          <button class="c-opt" data-val="changed">Coming home feeling genuinely different &mdash; not just rested, but changed</button>
+          <button class="c-opt" data-val="changed">Coming home feeling genuinely different: not just rested, but changed</button>
           <button class="c-opt" data-val="together">Experiencing it with people I love, in a way that brought us closer</button>
         </div>
       </div>
@@ -2095,8 +2099,8 @@ body.eh-locked{overflow:hidden;}
       <p class="eye" style="margin-bottom:2.5rem;">The Enkiama family</p>
       <h2 class="ndugu-hl reveal">You are not passed<br>between operators.<br><em>You are welcomed<br>by family.</em></h2>
       <div class="ndugu-rule"></div>
-      <p class="dim reveal">Most operators fragment. The energy is strong at the start &mdash; then a lodge takes over, a guide changes, and something shifts. The warmth drops. You feel the join.</p>
-      <p class="dim reveal" style="margin-top:1rem;">At Enkiama, every partner we bring in has been chosen because they already carry Tanzania&rsquo;s values. Not vendors who signed a contract &mdash; people who receive every guest as <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span>, because that is how they live, not because we asked them to.</p>
+      <p class="dim reveal">Most operators fragment. The start is strong, then a lodge takes over, a guide changes, and something shifts. The warmth drops. You feel the join.</p>
+      <p class="dim reveal" style="margin-top:1rem;">At Enkiama, every partner we bring in has been chosen because they already carry Tanzania&rsquo;s values. Not vendors who signed a contract: people who receive every guest as <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span>, because that is how they live, not because we asked them to.</p>
       <div class="ndugu-q reveal">
         <p>&ldquo;The family is larger than it appears. Beyond our core network &mdash; guides, lodges, cultural partners &mdash; sits a wider world of local specialists, niche operators, and community guides whose knowledge of specific places cannot be replicated. When a journey enters their world, we bring them in. By name. Transparently. Because the experience they make possible is the experience we promised. They carry Tanzania&rsquo;s ukarimu. We chose them because they already did.&rdquo;</p>
       </div>
@@ -2104,11 +2108,11 @@ body.eh-locked{overflow:hidden;}
   </div>
   <div class="ndugu-r">
     <div class="nph">
-      <div class="nph-film"><span class="wp-ph-hint">[ arrival at camp &mdash; warm welcome ]</span></div>
+      <div class="nph-film"><span class="wp-ph-hint">[ arrival at camp: warm welcome ]</span></div>
       <span class="nph-lbl">A welcome that never changes register</span>
     </div>
     <div class="nph">
-      <div class="nph-film"><span class="wp-ph-hint">[ lodge evening &mdash; partners ]</span></div>
+      <div class="nph-film"><span class="wp-ph-hint">[ lodge evening: partners ]</span></div>
       <span class="nph-lbl">Partners chosen for who they already are</span>
     </div>
   </div>
@@ -2127,48 +2131,27 @@ body.eh-locked{overflow:hidden;}
   <div class="transp-hdr">
     <div><p class="eye" style="padding-top:5px;">How we work</p></div>
     <div>
-      <p class="transp-lead reveal">From day one, you know exactly what your journey costs, what it covers, and what every day will feel like. No hidden top-ups. No surprises. No moments where the quality shifts.</p>
-      <p class="dim reveal">We operate with a worldly standard of transparency because trust is the foundation of a remarkable experience, because our pride is entirely measured by yours.</p>
+      <p class="transp-lead reveal">From day one you know what your journey costs, what it covers, and how each day will feel. No surprises, no moments where the quality shifts.</p>
+      <p class="dim reveal">We work with full transparency, because trust is the foundation of a remarkable experience. Our pride is measured by yours.</p>
     </div>
   </div>
   <div class="transp-grid">
-    <div class="tr reveal"><div class="tr-mark">No hidden costs</div><h3 class="tr-title">What we quote is what you pay</h3><p class="dim">Every element costed and explained before you commit. No top-ups. No additions. The number we give you is the number &mdash; always.</p></div>
-    <div class="tr reveal"><div class="tr-mark">No surprises</div><h3 class="tr-title">The price is honest and final</h3><p class="dim">What we quote is what you pay. No top-ups on arrival, no markups discovered later, nothing added once you have committed. Transparency, to us, is not a spreadsheet you audit. It is the absence of any unpleasant surprise.</p></div>
+    <div class="tr reveal"><div class="tr-mark">No hidden costs</div><h3 class="tr-title">What we quote is what you pay</h3><p class="dim">Every element costed and explained before you commit. The number we give you is the number you pay.</p></div>
+    <div class="tr reveal"><div class="tr-mark">No surprises</div><h3 class="tr-title">The price is honest and final</h3><p class="dim">What we quote is what you pay. Nothing added on arrival, nothing discovered later. Transparency, to us, is not a spreadsheet you audit. It is the absence of any unpleasant surprise.</p></div>
     <div class="tr reveal"><div class="tr-mark">Seamless quality</div><h3 class="tr-title">The standard never wavers</h3><p class="dim">From arrival to departure, across every register of the journey, the experience is held at the same level. You never feel the handoff because the values that hold it together belong to everyone in it.</p></div>
-    <div class="tr reveal"><div class="tr-mark">Complete control</div><h3 class="tr-title">100% in charge from day&nbsp;one</h3><p class="dim">You know what to expect before you arrive. Every day, every partner, every transition. If something changes &mdash; the land sometimes does &mdash; you hear from us directly, immediately.</p></div>
+    <div class="tr reveal"><div class="tr-mark">Complete control</div><h3 class="tr-title">100% in charge from day&nbsp;one</h3><p class="dim">You know what to expect before you arrive: every day, every partner, every transition. If the land changes, as it sometimes does, you hear from us directly, immediately.</p></div>
   </div>
   <div class="pledge">
     <div class="pl"><div class="pl-mark"></div><span class="pl-txt">No hidden top-ups, ever</span></div>
     <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Full cost breakdown before any commitment</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Partner transparency &mdash; you know who and why</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Partner transparency: you know who and why</span></div>
     <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Same quality held end to end, across all worlds</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Small groups by nature &mdash; the journey is built around yours alone</span></div>
+    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Small groups by nature: the journey is built around yours alone</span></div>
     <div class="pl"><div class="pl-mark"></div><span class="pl-txt">The price is honest, complete, and final</span></div>
   </div>
 </section>
 
 <!-- ── INTELLIGENCE ── -->
-<section class="intel">
-  <div class="i-c reveal">
-    <p class="i-src">Source I</p>
-    <div class="i-rule"></div>
-    <h3 class="i-title">Our own experience across the whole country</h3>
-    <p class="dim">Years of travel and relationship-building &mdash; from Kilimanjaro&rsquo;s glaciers to Zanzibar&rsquo;s coral gardens. What works in which season. Which doors open to those who have earned them.</p>
-  </div>
-  <div class="i-c reveal">
-    <p class="i-src">Source II</p>
-    <div class="i-rule"></div>
-    <h3 class="i-title">What past guests and friends have taught us</h3>
-    <p class="dim">Every group teaches us something. What moves different people across different worlds. What they carry home. That knowledge compounds into every journey that follows.</p>
-  </div>
-  <div class="i-c reveal">
-    <p class="i-src">Source III</p>
-    <div class="i-rule"></div>
-    <h3 class="i-title">What our <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span> discover every season</h3>
-    <p class="dim">Our local family is on the ground year-round &mdash; on the mountain, the savanna, the coast. They see what changes, what opens, what closes. Their presence keeps our curation honest and alive.</p>
-  </div>
-</section>
-
 <!-- ── PASSION ── -->
 <div class="passion-gap"></div>
 <section class="passion">
@@ -2190,7 +2173,7 @@ body.eh-locked{overflow:hidden;}
   <div class="story-d">
     <div>
       <span class="story-mark">&ldquo;</span>
-      <p class="story-q">What Enkiama gave us was something entirely different &mdash; not because of the places, though the places were extraordinary. Because of the people. Every guide, every lodge, every partner felt like they genuinely wanted us there. Like we had been expected. Like we belonged.</p>
+      <p class="story-q">What Enkiama gave us was something entirely different: not because of the places, though the places were extraordinary. Because of the people. Every guide, every lodge, every partner felt like they genuinely wanted us there. Like we had been expected. Like we belonged.</p>
     </div>
     <div class="story-attr">
       <p class="story-name">Marina V.</p>
@@ -2200,7 +2183,7 @@ body.eh-locked{overflow:hidden;}
   <div class="story-r">
     <p class="story-rlbl">Why this journey worked</p>
     <div class="story-rule"></div>
-    <p class="dim reveal">Marina&rsquo;s group moved across three worlds in twelve days. The family we assembled included a Serengeti naturalist with thirty years on the plain, a Maasai cultural guide who runs a community school on the crater rim, and a Chagga partner in Kibosho whose family has farmed the mountain for four generations. Every person felt the journey had been built for them. It had been &mdash; because it was built from who they were, not from a template.</p>
+    <p class="dim reveal">Marina&rsquo;s group moved across three worlds in twelve days. The family we assembled included a Serengeti naturalist with thirty years on the plain, a Maasai cultural guide who runs a community school on the crater rim, and a Chagga partner in Kibosho whose family has farmed the mountain for four generations. Every person felt the journey had been built for them. It had been: because it was built from who they were, not from a template.</p>
   </div>
 </section>
 
@@ -2216,9 +2199,9 @@ body.eh-locked{overflow:hidden;}
         </div>
         <div class="rafiki-tr">
           <div class="rafiki-dash"></div>
-          <span class="rafiki-def">Rafiki &mdash; friend, companion, fellow traveller</span>
+          <span class="rafiki-def">Rafiki: friend, companion, fellow traveller</span>
         </div>
-        <p class="dim">No packages. No price lists. No surprises. Tell us which worlds call to you &mdash; your group, your curiosities, your season, your budget. We will think about what is possible together. Honestly. Completely. With our whole heart.</p>
+        <p class="dim">No packages. No price lists. No surprises. Tell us which worlds call to you: your group, your curiosities, your season, your budget. We will think about what is possible together. Honestly. Completely. With our whole heart.</p>
       </div>
     </div>
     <div class="cta-r">
@@ -2229,7 +2212,7 @@ body.eh-locked{overflow:hidden;}
         </div>
         <div class="cta-ch">
           <span class="cta-lbl">Email</span>
-          <span class="cta-val">hola@enkiama.com &mdash; for longer introductions, or anything easier to set out in full before we speak.</span>
+          <span class="cta-val">hola@enkiama.com: for longer introductions, or anything easier to set out in full before we speak.</span>
         </div>
       </div>
       <div class="season">
@@ -2247,7 +2230,7 @@ body.eh-locked{overflow:hidden;}
         <p class="ask-tag">Past guests</p>
         <div class="ask-rule"></div>
         <h3 class="ask-title">Ask us about people who have travelled with us</h3>
-        <p class="dim">We don&rsquo;t use ratings. We use relationships. Ask about past guests &mdash; where they went, what they experienced, what they said when they came home.</p>
+        <p class="dim">We don&rsquo;t use ratings. We use relationships. Ask about past guests: where they went, what they experienced, what they said when they came home.</p>
         <a href="mailto:hola@enkiama.com?subject=Past%20guests" class="ask-lnk">Ask about past guests &rarr;</a>
       </div>
     </div>
@@ -2257,7 +2240,7 @@ body.eh-locked{overflow:hidden;}
         <p class="ask-tag">Destinations</p>
         <div class="ask-rule"></div>
         <h3 class="ask-title">Ask us which world &mdash; or combination &mdash; is right for you</h3>
-        <p class="dim">The mountain in June feels different to October. The coast after the savanna lands differently than before it. Ask us &mdash; we&rsquo;ll tell you what we honestly think.</p>
+        <p class="dim">The mountain in June feels different to October. The coast after the savanna lands differently than before it. Ask us: we&rsquo;ll tell you what we honestly think.</p>
         <a href="mailto:hola@enkiama.com?subject=Destinations" class="ask-lnk">Ask about destinations &rarr;</a>
       </div>
     </div>
@@ -2267,7 +2250,7 @@ body.eh-locked{overflow:hidden;}
         <p class="ask-tag">Your journey</p>
         <div class="ask-rule"></div>
         <h3 class="ask-title">Ask us for a conversation, not a quotation</h3>
-        <p class="dim">We don&rsquo;t send price lists. We have a conversation first &mdash; about your group, what draws you, what you&rsquo;re ready for. The quotation comes after, fully costed, no surprises.</p>
+        <p class="dim">We don&rsquo;t send price lists. We have a conversation first: about your group, what draws you, what you&rsquo;re ready for. The quotation comes after, fully costed, no surprises.</p>
         <a href="mailto:hola@enkiama.com?subject=Our%20journey" class="ask-lnk">Start the conversation &rarr;</a>
       </div>
     </div>
@@ -2522,13 +2505,13 @@ body.eh-locked{overflow:hidden;}
   })();
   /* ── HEADER JS ── */
   (function(){
-    var nav=(((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}});
+    var nav=((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}});
     // scroll-condense
     function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
     window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
     // mobile menu
-    var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=(((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
+    var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
     function toggleMenu(open){
       burger.classList.toggle('open',open); mob.classList.toggle('open',open);
       burger.setAttribute('aria-expanded',open?'true':'false');
