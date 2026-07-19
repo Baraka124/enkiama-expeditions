@@ -1192,12 +1192,20 @@ footer {
    with a slow fade of each word as it enters. */
 .breath {
   position:relative;
-  padding:14rem 3rem;
+  padding:22rem 3rem;
+  min-height:80vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
   background:
     radial-gradient(ellipse 70% 90% at 50% 50%, rgba(30,43,28,0.35) 0%, transparent 70%),
     var(--ink);
   text-align:center;overflow:hidden;
 }
+/* the whole glow breathes, slowly */
+.breath::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 50% 60% at 50% 50%, rgba(85,107,68,0.10), transparent 65%);
+  animation:breathe 9s ease-in-out infinite;}
+@keyframes breathe{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:1;transform:scale(1.08);}}
+@media(prefers-reduced-motion:reduce){.breath::after{animation:none;}}
 .breath-line {
   font-family:'Fraunces',serif;
   font-variation-settings:'opsz' 144;
@@ -1211,6 +1219,7 @@ footer {
   opacity:0;transform:translateY(14px);
   transition:opacity 1.1s ease,transform 1.1s ease;
 }
+.breath-line{font-size:clamp(1.6rem,4vw,3rem) !important;letter-spacing:0.02em;position:relative;z-index:2;}
 .breath-line span.in { opacity:1;transform:translateY(0); }
 .breath-tr {
   margin-top:3rem;
@@ -1329,7 +1338,7 @@ nav.scrolled::before{ opacity:.035; }
 .skip-link:focus-visible, .n-burger:focus-visible{
   outline:none;
   box-shadow:0 0 0 2px var(--ink), 0 0 0 3px var(--earth-dim), 0 0 12px rgba(190,158,104,.25);
-  border-radius:3px;
+  border-radius:2px;
 }
 .n-wa:focus-visible{ border-radius:50%; }
 
@@ -1353,11 +1362,11 @@ nav.scrolled::before{ opacity:.035; }
 
 /* ── real photography layer (drop files in assets/images/) ── */
 .hero-film .ph-frame{position:absolute;inset:0;}
-.w1 .wp-photo-film{background-image:url('assets/images/kilimanjaro.jpg'),linear-gradient(152deg,#1a1a14,#0a0a06);background-size:cover;background-position:center;}
-.w2 .wp-photo-film{background-image:url('assets/images/serengeti.jpg'),linear-gradient(152deg,#1e1a0c,#090806);background-size:cover;background-position:center;}
-.w3 .wp-photo-film{background-image:url('assets/images/ngorongoro.jpg'),linear-gradient(152deg,#101810,#060806);background-size:cover;background-position:center;}
-.w4 .wp-photo-film{background-image:url('assets/images/maasai.jpg'),linear-gradient(152deg,#1a1408,#090706);background-size:cover;background-position:center;}
-.w5 .wp-photo-film{background-image:url('assets/images/zanzibar.jpg'),linear-gradient(152deg,#0c1018,#060a10);background-size:cover;background-position:center;}
+.w1 .wp-photo-film{background-image:linear-gradient(152deg,#1a1a14,#0a0a06);background-size:cover;background-position:center;}
+.w2 .wp-photo-film{background-image:linear-gradient(152deg,#1e1a0c,#090806);background-size:cover;background-position:center;}
+.w3 .wp-photo-film{background-image:linear-gradient(152deg,#101810,#060806);background-size:cover;background-position:center;}
+.w4 .wp-photo-film{background-image:linear-gradient(152deg,#1a1408,#090706);background-size:cover;background-position:center;}
+.w5 .wp-photo-film{background-image:linear-gradient(152deg,#0c1018,#060a10);background-size:cover;background-position:center;}
 /* ── end photography layer ── */
 /* ══════════ MOTION & PHOTO ENHANCEMENTS ══════════ */
 
@@ -1515,6 +1524,57 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 .n-right{gap:2.5rem;}
 .n-links{gap:2.4rem;}
 @media(min-width:1200px){ .n-links{gap:2.75rem;} .n-right{gap:2.75rem;} }
+
+/* ══════ JOURNEY MAP ══════ */
+.jmap-section{padding:8rem clamp(1.5rem,5vw,4rem);position:relative;}
+.jmap-eyebrow{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.3em;font-size:11px;color:var(--earth);text-align:center;margin-bottom:1.2rem;}
+.jmap-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--bone);text-align:center;margin:0 0 4rem;font-weight:400;}
+.jmap-wrap{max-width:900px;margin:0 auto;position:relative;}
+.jmap-svg{width:100%;height:auto;display:block;overflow:visible;}
+
+/* the route path draws itself */
+.jmap-route{fill:none;stroke:var(--earth);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
+  transition:stroke-dashoffset 2.8s cubic-bezier(.45,.05,.2,1);}
+.jmap-section.drawn .jmap-route{stroke-dashoffset:0;}
+
+/* country outline - faint */
+.jmap-country{fill:rgba(85,107,68,0.06);stroke:rgba(190,158,104,0.18);stroke-width:1;}
+
+/* stops */
+.jmap-stop{opacity:0;transition:opacity .6s ease;}
+.jmap-section.drawn .jmap-stop{opacity:1;}
+.jmap-stop-dot{fill:var(--earth);}
+.jmap-stop-ring{fill:none;stroke:var(--earth);stroke-width:1;opacity:.4;}
+.jmap-stop-label{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.12em;font-size:12px;fill:var(--bone);}
+.jmap-stop-sub{font-family:'Instrument Sans',sans-serif;font-size:9px;letter-spacing:.1em;fill:var(--muted);text-transform:uppercase;}
+
+/* stagger the stops */
+.jmap-section.drawn .jmap-stop:nth-child(1){transition-delay:.4s;}
+.jmap-section.drawn .jmap-stop:nth-child(2){transition-delay:.9s;}
+.jmap-section.drawn .jmap-stop:nth-child(3){transition-delay:1.4s;}
+.jmap-section.drawn .jmap-stop:nth-child(4){transition-delay:1.9s;}
+.jmap-section.drawn .jmap-stop:nth-child(5){transition-delay:2.4s;}
+
+@media(prefers-reduced-motion:reduce){
+  .jmap-route{transition:none;stroke-dashoffset:0;}
+  .jmap-stop{opacity:1;transition:none;}
+}
+
+
+/* ══════ SCROLL COLOR SHIFT ══════ */
+.ambient-tint{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.5s ease, background 1.5s ease;}
+.ambient-tint.active{opacity:1;}
+/* each world tints the ambient differently - very subtle */
+body[data-world="mountain"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 70% 20%, rgba(120,140,160,0.05), transparent 60%);opacity:1;}
+body[data-world="savanna"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 50% 40%, rgba(190,158,104,0.06), transparent 60%);opacity:1;}
+body[data-world="crater"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 40% 50%, rgba(85,107,68,0.07), transparent 60%);opacity:1;}
+body[data-world="culture"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 60% 60%, rgba(160,110,70,0.05), transparent 60%);opacity:1;}
+body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 70% 40%, rgba(70,130,140,0.06), transparent 60%);opacity:1;}
+@media(prefers-reduced-motion:reduce){.ambient-tint{transition:none;}}
+
+/* ══════ HIDE PLACEHOLDER HINTS (photo-direction notes) ══════ */
+.film-hint,.hero-film-label,.hero-side,.wp-ph-hint{display:none !important;}
 </style>
 
 <!-- ── structured data + hreflang ── -->
@@ -1617,6 +1677,7 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 <!-- ── end structured data ── -->
 </head>
 <body data-page="home">
+<div class="ambient-tint" aria-hidden="true"></div>
 <!-- ENKIAMA_HEADER_START -->
 <style>
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
@@ -1626,7 +1687,7 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
   background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
   opacity:1;transition:opacity .5s ease;}
 .eh-bar.scrolled::before{opacity:0;}
-.eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+.eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(13,19,15,0.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid rgba(190,158,104,0.07);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
 .eh-trigger{display:flex;align-items:center;gap:.85rem;background:none;border:0;cursor:pointer;
@@ -1879,7 +1940,7 @@ body.eh-locked{overflow:hidden;}
       </div>
       <div class="already-col reveal">
         <p>Through guides who belong to the ecosystems they show you. Through cultural partners embedded in communities, not visiting them. Through lodges chosen because they carry the same spirit: rooted in the land, aligned with its values. A country with thousands of things to see, experienced through a lens shaped entirely around who you are.</p>
-        <p>When we say <em>family</em>, we do not mean a brand promise. We mean the authentic Tanzanian value of <em>ukarimu</em> &mdash; hospitality as a way of life &mdash; experienced across the whole of a journey, end to end, without interruption.</p>
+        <p>When we say <em>family</em>, we do not mean a brand promise. We mean the Tanzanian value of <em>ukarimu</em> &mdash; hospitality as a way of life &mdash; experienced across the whole of a journey, end to end, without interruption.</p>
       </div>
     </div>
   </div>
@@ -1925,7 +1986,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Kilimanjaro: summit ridge or foothills farm ]</span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded"><img data-src="assets/images/kilimanjaro.jpg" alt=""><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint">[ Kilimanjaro: summit ridge or foothills farm ]</span></div>
           <span class="wp-photo-tag">5,895m</span>
           <span class="wp-photo-note">Kilimanjaro &middot; Kibosho corridor</span>
         </div>
@@ -1933,7 +1994,7 @@ body.eh-locked{overflow:hidden;}
 
       <div class="world-panel w2">
         <div class="wp-photo" style="border-right:1px solid var(--rule);">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Serengeti: migration or golden hour plain ]</span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded"><img data-src="assets/images/serengeti.jpg" alt=""><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint">[ Serengeti: migration or golden hour plain ]</span></div>
           <span class="wp-photo-tag">The great migration</span>
           <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
         </div>
@@ -1961,7 +2022,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Ngorongoro: crater floor, dawn mist ]</span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded"><img data-src="assets/images/ngorongoro.jpg" alt=""><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint">[ Ngorongoro: crater floor, dawn mist ]</span></div>
           <span class="wp-photo-tag">600m deep</span>
           <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
         </div>
@@ -1969,7 +2030,7 @@ body.eh-locked{overflow:hidden;}
 
       <div class="world-panel w4">
         <div class="wp-photo" style="border-right:1px solid var(--rule);">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Maasai boma or Chagga family table ]</span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded"><img data-src="assets/images/maasai.jpg" alt=""><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint">[ Maasai boma or Chagga family table ]</span></div>
           <span class="wp-photo-tag">Ukarimu</span>
           <span class="wp-photo-note">Maasai &middot; Chagga &middot; Swahili coast</span>
         </div>
@@ -1997,7 +2058,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><span class="wp-ph-hint">[ Zanzibar. Stone Town or coral coast ]</span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded"><img data-src="assets/images/zanzibar.jpg" alt=""><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint">[ Zanzibar. Stone Town or coral coast ]</span></div>
           <span class="wp-photo-tag">Indian Ocean</span>
           <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
         </div>
@@ -2048,12 +2109,56 @@ body.eh-locked{overflow:hidden;}
 </section>
 
 <!-- ── CURATION ENGINE ── -->
+<section class="jmap-section" id="jmapSection">
+  <p class="jmap-eyebrow">The shape of a journey</p>
+  <h2 class="jmap-title">One country, drawn as you'd travel it</h2>
+  <div class="jmap-wrap">
+    <svg class="jmap-svg" viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+      <!-- simplified Tanzania outline -->
+      <path class="jmap-country" d="M 120 180 L 380 140 L 640 130 L 760 210 L 800 340 L 720 470 L 560 540 L 380 560 L 220 520 L 130 400 L 100 280 Z"/>
+      <!-- the route: mountain(NE) -> savanna(N) -> crater(N-central) -> culture -> coast(E) -->
+      <path class="jmap-route" id="jmapRoute" d="M 660 200 C 560 220, 480 200, 420 240 S 340 320, 300 360 S 360 440, 480 460 S 680 440, 740 380"/>
+      <!-- stops -->
+      <g class="jmap-stop">
+        <circle class="jmap-stop-ring" cx="660" cy="200" r="14"/>
+        <circle class="jmap-stop-dot" cx="660" cy="200" r="4"/>
+        <text class="jmap-stop-label" x="660" y="178" text-anchor="middle">Kilimanjaro</text>
+        <text class="jmap-stop-sub" x="660" y="228" text-anchor="middle">The mountain</text>
+      </g>
+      <g class="jmap-stop">
+        <circle class="jmap-stop-ring" cx="420" cy="240" r="14"/>
+        <circle class="jmap-stop-dot" cx="420" cy="240" r="4"/>
+        <text class="jmap-stop-label" x="420" y="218" text-anchor="middle">Serengeti</text>
+        <text class="jmap-stop-sub" x="420" y="268" text-anchor="middle">The savanna</text>
+      </g>
+      <g class="jmap-stop">
+        <circle class="jmap-stop-ring" cx="300" cy="360" r="14"/>
+        <circle class="jmap-stop-dot" cx="300" cy="360" r="4"/>
+        <text class="jmap-stop-label" x="300" y="338" text-anchor="middle">Ngorongoro</text>
+        <text class="jmap-stop-sub" x="300" y="388" text-anchor="middle">The crater</text>
+      </g>
+      <g class="jmap-stop">
+        <circle class="jmap-stop-ring" cx="480" cy="460" r="14"/>
+        <circle class="jmap-stop-dot" cx="480" cy="460" r="4"/>
+        <text class="jmap-stop-label" x="480" y="438" text-anchor="middle">Arusha</text>
+        <text class="jmap-stop-sub" x="480" y="488" text-anchor="middle">The culture</text>
+      </g>
+      <g class="jmap-stop">
+        <circle class="jmap-stop-ring" cx="740" cy="380" r="14"/>
+        <circle class="jmap-stop-dot" cx="740" cy="380" r="4"/>
+        <text class="jmap-stop-label" x="740" y="358" text-anchor="middle">Zanzibar</text>
+        <text class="jmap-stop-sub" x="740" y="408" text-anchor="middle">The coast</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
 <section class="curate" id="curate">
   <div class="curate-pg">imagine</div>
   <div class="curate-inner">
     <p class="eye curate-eye">Your journey begins here</p>
     <h2 class="curate-hl reveal">Tell us what <em>pulls</em> at you.<br>We&rsquo;ll find the words<br>for what you imagine.</h2>
-    <p class="curate-sub reveal">Three questions, not a form. They begin a conversation, and show you what your journey could feel like.</p>
+    <p class="curate-sub reveal">Three questions, not a form. They begin a conversation, and show you what your journey could feel like &mdash; along with the honest reasoning behind it: why we would start you in one place and not another, what we would gently steer you away from, where the real tradeoffs lie. The judgment is the thing we are actually offering.</p>
 
     <div class="curate-engine">
       <div class="curate-progress">
@@ -2119,7 +2224,7 @@ body.eh-locked{overflow:hidden;}
       <p class="dim reveal">Most operators fragment. The start is strong, then a lodge takes over, a guide changes, and something shifts. The warmth drops. You feel the join.</p>
       <p class="dim reveal" style="margin-top:1rem;">At Enkiama, every partner we bring in has been chosen because they already carry Tanzania&rsquo;s values. Not vendors who signed a contract: people who receive every guest as <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span>, because that is how they live, not because we asked them to.</p>
       <div class="ndugu-q reveal">
-        <p>&ldquo;The family is larger than it appears. Beyond our core network &mdash; guides, lodges, cultural partners &mdash; sits a wider world of local specialists, niche operators, and community guides whose knowledge of specific places cannot be replicated. When a journey enters their world, we bring them in. By name. Transparently. Because the experience they make possible is the experience we promised. They carry Tanzania&rsquo;s ukarimu. We chose them because they already did.&rdquo;</p>
+        <p>&ldquo;The family is larger than it appears. Beyond our core network &mdash; guides, lodges, cultural partners &mdash; sits a wider world of local specialists, niche operators, and community guides whose knowledge of specific places cannot be replicated. When a journey enters their world, we bring them in. By name. Transparently. Because what they make possible is what we promised. They carry Tanzania&rsquo;s ukarimu. We chose them because they already did.&rdquo;</p>
       </div>
     </div>
   </div>
@@ -2149,13 +2254,13 @@ body.eh-locked{overflow:hidden;}
     <div><p class="eye" style="padding-top:5px;">How we work</p></div>
     <div>
       <p class="transp-lead reveal">From day one you know what your journey costs, what it covers, and how each day will feel. No surprises, no moments where the quality shifts.</p>
-      <p class="dim reveal">We work with full transparency, because trust is the foundation of everything that follows. Our pride is measured by yours.</p>
+      <p class="dim reveal">We work with full transparency, because trust is the foundation of everything that follows. Our pride is measured by yours. Everyone who touches your journey is fairly paid, and what remains goes back into the journey itself &mdash; not into margin.</p>
     </div>
   </div>
   <div class="transp-grid">
     <div class="tr reveal"><div class="tr-mark">No hidden costs</div><h3 class="tr-title">What we quote is what you pay</h3><p class="dim">Every element costed and explained before you commit. The number we give you is the number you pay.</p></div>
     <div class="tr reveal"><div class="tr-mark">No surprises</div><h3 class="tr-title">The price is honest and final</h3><p class="dim">What we quote is what you pay. Nothing added on arrival, nothing discovered later. Transparency, to us, is not a spreadsheet you audit. It is the absence of any unpleasant surprise.</p></div>
-    <div class="tr reveal"><div class="tr-mark">Seamless quality</div><h3 class="tr-title">The standard never wavers</h3><p class="dim">From arrival to departure, across every register of the journey, the experience is held at the same level. You never feel the handoff because the values that hold it together belong to everyone in it.</p></div>
+    <div class="tr reveal"><div class="tr-mark">Seamless quality</div><h3 class="tr-title">The standard never wavers</h3><p class="dim">From arrival to departure, across every register of the journey, the care never drops. You never feel the handoff because the values that hold it together belong to everyone in it.</p></div>
     <div class="tr reveal"><div class="tr-mark">Complete control</div><h3 class="tr-title">100% in charge from day&nbsp;one</h3><p class="dim">You know what to expect before you arrive: every day, every partner, every transition. If the land changes, as it sometimes does, you hear from us directly, immediately.</p></div>
   </div>
   <div class="pledge">
@@ -2176,7 +2281,7 @@ body.eh-locked{overflow:hidden;}
   <div class="passion-inner">
     <span class="passion-mark">&ldquo;</span>
     <p class="passion-txt reveal">Our work is simply to make sure you arrive close enough to feel what is already here.</p>
-    <p class="passion-sub reveal">We love what we do. Every guide we choose, every world we compose a journey through, every conversation before you leave serves one thing: that you return changed, cared for, and certain that what you felt was real. Our pride is your experience, entirely.</p>
+    <p class="passion-sub reveal">We love what we do. Every guide we choose, every world we compose a journey through, every conversation before you leave serves one thing: that you return changed, cared for, and certain that what you felt was real. Our pride is your journey, entirely.</p>
     <div class="p-sw">
       <span class="psw-w">Kwa moyo wote</span>
       <div class="psw-d"></div>
@@ -2498,9 +2603,9 @@ body.eh-locked{overflow:hidden;}
         var el=e.target;
         if(el.id==='breathLine'){
           var sp=el.querySelectorAll('span');
-          sp.forEach(function(s,i){setTimeout(function(){s.classList.add('in');},i*260);});
+          sp.forEach(function(s,i){setTimeout(function(){s.classList.add('in');},i*700);});
           var tr=document.getElementById('breathTr');
-          if(tr)setTimeout(function(){tr.classList.add('in');},sp.length*260+200);
+          if(tr)setTimeout(function(){tr.classList.add('in');},sp.length*700+600);
         } else if(el.id==='routeSvg'){
           var path=document.getElementById('routePath');
           if(path)path.classList.add('in');
@@ -2866,6 +2971,11 @@ html{hanging-punctuation:first last;}
 body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 /* Tighten big display serifs a touch more (tier-1 look) */
 .hero-hed,.ph-hed{letter-spacing:-0.035em;}
+
+/* worlds ph-frame integration */
+.wp-photo-film{position:relative;overflow:hidden;}
+.wp-photo-film .ph-frame{position:absolute;inset:0;z-index:0;}
+.wp-photo-film > *:not(.ph-frame){position:relative;z-index:2;}
 </style>
 
 <script>
@@ -2915,6 +3025,116 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 })();
 </script>
 <!-- ENKIAMA_PHOTOSYS_END -->
+
+<script>
+(function(){
+  var route=document.getElementById('jmapRoute');
+  if(route){var len=route.getTotalLength();route.style.setProperty('--len',len);}
+  var section=document.getElementById('jmapSection');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){section.classList.add('drawn');io.unobserve(section);}});},{threshold:0.3});
+    io.observe(section);
+  } else { section.classList.add('drawn'); }
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce)return;
+  var worlds={'w1':'mountain','w2':'savanna','w3':'crater','w4':'culture','w5':'coast'};
+  var panels=document.querySelectorAll('.world-panel');
+  if(!panels.length)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var cls=[].slice.call(e.target.classList).find(function(c){return worlds[c];});
+        if(cls)document.body.setAttribute('data-world',worlds[cls]);
+      }
+    });
+  },{threshold:0.5});
+  panels.forEach(function(p){io.observe(p);});
+  // clear when leaving worlds section
+  var worldsSection=document.getElementById('worlds');
+  if(worldsSection){
+    var so=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)document.body.removeAttribute('data-world');});},{threshold:0});
+    so.observe(worldsSection);
+  }
+})();
+</script>
+<!-- ENKIAMA_PAGETRANS_START -->
+<style>
+/* Native cross-document view transitions - purely additive, ignored by unsupporting browsers.
+   Cannot break navigation: if unsupported, links work normally. */
+@view-transition{navigation:auto;}
+::view-transition-old(root){animation:pt-fade-out .4s cubic-bezier(.4,0,.2,1) both;}
+::view-transition-new(root){animation:pt-fade-in .5s cubic-bezier(.16,1,.3,1) both;}
+@keyframes pt-fade-out{to{opacity:0;transform:translateY(-6px);}}
+@keyframes pt-fade-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none;}
+}
+</style>
+<!-- ENKIAMA_PAGETRANS_END -->
+
+<!-- ENKIAMA_LINES_START -->
+<style>
+/* ══════════ EXPRESSIVE LINE SYSTEM ══════════ */
+/* Accent hairlines: draw themselves on scroll, gradient-fade at the far end.
+   The luxury signal is intention + restraint, not decoration. */
+.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,
+.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
+}
+/* gradient character so the line dissolves rather than cuts */
+.thesis-rule{background:linear-gradient(90deg,var(--rule-strong,rgba(190,158,104,0.85)),rgba(190,158,104,0.12)) !important;}
+.lw-rule,.wp-rule{background:linear-gradient(90deg,var(--ochre,#556B44),rgba(85,107,68,0.1)) !important;}
+.story-rule,.ndugu-rule,.ask-rule,.ppl-rule,.pt-rule,.wr-rule,.dc-rule,.b-rule,.sw-rule,.ochre-rule{
+  background:linear-gradient(90deg,var(--earth,#BE9E68),rgba(190,158,104,0.1)) !important;}
+/* drawn state */
+.line-draw.drawn{transform:scaleX(1);}
+
+/* centered rules (breath, dividers that sit centered) draw from center */
+.breath-line,.cr-divider{transform-origin:center;background:linear-gradient(90deg,transparent,var(--earth,#BE9E68),transparent) !important;}
+
+/* Structural borders: keep calm, but refine — a whisper of gradient so grid lines feel intentional.
+   These do NOT animate (animating structure would be busy = un-luxury). Just a softer, considered edge. */
+@media (prefers-reduced-motion:reduce){
+  .thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,
+  .dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
+    transform:scaleX(1);transition:none;}
+}
+
+/* ══════ SELECTIVE REVEALS (de-cliché the uniform fade-up) ══════ */
+/* Body text, dim text, and secondary elements appear instantly — 
+   reveals reserved for primary headings so they feel intentional, not templated. */
+.dim.reveal,.thesis-body.reveal,.transp-lead.reveal,.worlds-intro-body.reveal,
+.passion-txt.reveal,.tr.reveal{
+  opacity:1 !important;transform:none !important;transition:none !important;
+}
+</style>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var sel='.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line';
+  var rules=document.querySelectorAll(sel);
+  if(!rules.length)return;
+  rules.forEach(function(r){r.classList.add('line-draw');});
+  if(reduce){rules.forEach(function(r){r.classList.add('drawn');});return;}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
+      });
+    },{threshold:0.9,rootMargin:'0px 0px -8% 0px'});
+    rules.forEach(function(r){io.observe(r);});
+  } else {
+    rules.forEach(function(r){r.classList.add('drawn');});
+  }
+})();
+</script>
+<!-- ENKIAMA_LINES_END -->
 
 </body>
 </html>

@@ -412,7 +412,7 @@ nav.scrolled::before{ opacity:.035; }
 .skip-link:focus-visible, .n-burger:focus-visible{
   outline:none;
   box-shadow:0 0 0 2px var(--ink), 0 0 0 3px var(--earth-dim), 0 0 12px rgba(190,158,104,.25);
-  border-radius:3px;
+  border-radius:2px;
 }
 .n-wa:focus-visible{ border-radius:50%; }
 
@@ -576,6 +576,9 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 .n-right{gap:2.5rem;}
 .n-links{gap:2.4rem;}
 @media(min-width:1200px){ .n-links{gap:2.75rem;} .n-right{gap:2.75rem;} }
+
+/* ══════ HIDE PLACEHOLDER HINTS (photo-direction notes) ══════ */
+.film-hint,.hero-film-label,.hero-side,.wp-ph-hint{display:none !important;}
 </style>
 
 <!-- ── structured data + hreflang ── -->
@@ -805,7 +808,7 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
   background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
   opacity:1;transition:opacity .5s ease;}
 .eh-bar.scrolled::before{opacity:0;}
-.eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(15,23,18,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+.eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(13,19,15,0.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid rgba(190,158,104,0.07);}
 .eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
 .eh-bar.scrolled .eh-logo img{height:36px;}
 .eh-trigger{display:flex;align-items:center;gap:.85rem;background:none;border:0;cursor:pointer;
@@ -1011,7 +1014,7 @@ body.eh-locked{overflow:hidden;}
 <footer>
   <div>
     <div class="f-logo"><img src="/assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
-    <div class="f-tagline">Not a tour. An experience built only for you.</div>
+    <div class="f-tagline">Not a tour. A journey composed for you alone.</div>
   </div>
   <ul class="f-links">
     <li><a href="tanzania.html">Tanzania</a></li>
@@ -1322,6 +1325,81 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 })();
 </script>
 <!-- ENKIAMA_TIER1_END -->
+
+<!-- ENKIAMA_PAGETRANS_START -->
+<style>
+/* Native cross-document view transitions - purely additive, ignored by unsupporting browsers.
+   Cannot break navigation: if unsupported, links work normally. */
+@view-transition{navigation:auto;}
+::view-transition-old(root){animation:pt-fade-out .4s cubic-bezier(.4,0,.2,1) both;}
+::view-transition-new(root){animation:pt-fade-in .5s cubic-bezier(.16,1,.3,1) both;}
+@keyframes pt-fade-out{to{opacity:0;transform:translateY(-6px);}}
+@keyframes pt-fade-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none;}
+}
+</style>
+<!-- ENKIAMA_PAGETRANS_END -->
+
+<!-- ENKIAMA_LINES_START -->
+<style>
+/* ══════════ EXPRESSIVE LINE SYSTEM ══════════ */
+/* Accent hairlines: draw themselves on scroll, gradient-fade at the far end.
+   The luxury signal is intention + restraint, not decoration. */
+.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,
+.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
+}
+/* gradient character so the line dissolves rather than cuts */
+.thesis-rule{background:linear-gradient(90deg,var(--rule-strong,rgba(190,158,104,0.85)),rgba(190,158,104,0.12)) !important;}
+.lw-rule,.wp-rule{background:linear-gradient(90deg,var(--ochre,#556B44),rgba(85,107,68,0.1)) !important;}
+.story-rule,.ndugu-rule,.ask-rule,.ppl-rule,.pt-rule,.wr-rule,.dc-rule,.b-rule,.sw-rule,.ochre-rule{
+  background:linear-gradient(90deg,var(--earth,#BE9E68),rgba(190,158,104,0.1)) !important;}
+/* drawn state */
+.line-draw.drawn{transform:scaleX(1);}
+
+/* centered rules (breath, dividers that sit centered) draw from center */
+.breath-line,.cr-divider{transform-origin:center;background:linear-gradient(90deg,transparent,var(--earth,#BE9E68),transparent) !important;}
+
+/* Structural borders: keep calm, but refine — a whisper of gradient so grid lines feel intentional.
+   These do NOT animate (animating structure would be busy = un-luxury). Just a softer, considered edge. */
+@media (prefers-reduced-motion:reduce){
+  .thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,
+  .dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
+    transform:scaleX(1);transition:none;}
+}
+
+/* ══════ SELECTIVE REVEALS (de-cliché the uniform fade-up) ══════ */
+/* Body text, dim text, and secondary elements appear instantly — 
+   reveals reserved for primary headings so they feel intentional, not templated. */
+.dim.reveal,.thesis-body.reveal,.transp-lead.reveal,.worlds-intro-body.reveal,
+.passion-txt.reveal,.tr.reveal{
+  opacity:1 !important;transform:none !important;transition:none !important;
+}
+</style>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var sel='.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line';
+  var rules=document.querySelectorAll(sel);
+  if(!rules.length)return;
+  rules.forEach(function(r){r.classList.add('line-draw');});
+  if(reduce){rules.forEach(function(r){r.classList.add('drawn');});return;}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
+      });
+    },{threshold:0.9,rootMargin:'0px 0px -8% 0px'});
+    rules.forEach(function(r){io.observe(r);});
+  } else {
+    rules.forEach(function(r){r.classList.add('drawn');});
+  }
+})();
+</script>
+<!-- ENKIAMA_LINES_END -->
 
 </body>
 </html>
