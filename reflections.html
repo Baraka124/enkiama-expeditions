@@ -53,7 +53,10 @@ body{
 .r-anchor-dot{fill:var(--earth);transition:r .4s ease;filter:drop-shadow(0 0 4px rgba(190,158,104,0.5));}
 .r-anchor-ring{fill:none;stroke:var(--earth);stroke-width:1;opacity:.35;transform-origin:center;animation:pulse 3s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:.15;r:12px;}50%{opacity:.45;r:18px;}}
-.r-anchor:hover .r-anchor-dot{r:6px;}
+.r-anchor:hover .r-anchor-dot{r:6.5px;filter:drop-shadow(0 0 10px rgba(190,158,104,0.8));}
+.r-anchor:hover .r-anchor-ring{opacity:.6;stroke-width:1.5;}
+.r-anchor-place{transition:fill .4s ease;}
+.r-anchor:hover .r-anchor-place{fill:var(--earth);}
 .r-anchor-place{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:11px;fill:var(--bone);}
 /* the floating fragment */
 .r-fragment{font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;fill:var(--bone3);opacity:0.32;transition:opacity .5s ease,fill .5s ease;pointer-events:none;}
@@ -673,6 +676,17 @@ var REFLECTIONS = [
   .dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
     transform:scaleX(1);transition:none;}
 }
+
+/* ══════ TREMBLE-PROOFING (stable, non-jittery hovers) ══════ */
+/* buttons that shift letter-spacing on hover: keep them from reflowing/edge-flickering */
+.btn-primary,.btn-ghost,.n-begin,.wn-btn,.ask-lnk,.f-links a{
+  display:inline-block;will-change:letter-spacing,transform;backface-visibility:hidden;}
+/* logo hover: scale from a fixed origin so the edge never crosses the cursor */
+.n-logo,.eh-logo{transform-origin:left center;backface-visibility:hidden;}
+/* any transform-scale hover gets GPU-stable rendering to kill sub-pixel shimmer */
+.n-logo:hover,.eh-logo:hover{transform:scale(1.03);}
+/* map anchors: stable hover, no layout shift */
+.r-anchor,.r-anchor *{will-change:transform,opacity;}
 </style>
 <script>
 (function(){

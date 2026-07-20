@@ -173,7 +173,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
   text-decoration:none;display:inline-block;
   transition:border-color .35s ease,background .35s ease,color .35s ease,letter-spacing .35s ease;
 }
-.n-begin:hover { background:var(--ochre);border-color:var(--ochre);color:var(--ink);letter-spacing:0.22em; }
+.n-begin:hover{ background:var(--ochre);border-color:var(--ochre);color:var(--ink); }
 .n-active { color:var(--bone) !important; }
 
 /* hamburger */
@@ -1296,6 +1296,17 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 .passion-txt.reveal,.tr.reveal{
   opacity:1 !important;transform:none !important;transition:none !important;
 }
+
+/* ══════ TREMBLE-PROOFING (stable, non-jittery hovers) ══════ */
+/* buttons that shift letter-spacing on hover: keep them from reflowing/edge-flickering */
+.btn-primary,.btn-ghost,.n-begin,.wn-btn,.ask-lnk,.f-links a{
+  display:inline-block;will-change:letter-spacing,transform;backface-visibility:hidden;}
+/* logo hover: scale from a fixed origin so the edge never crosses the cursor */
+.n-logo,.eh-logo{transform-origin:left center;backface-visibility:hidden;}
+/* any transform-scale hover gets GPU-stable rendering to kill sub-pixel shimmer */
+.n-logo:hover,.eh-logo:hover{transform:scale(1.03);}
+/* map anchors: stable hover, no layout shift */
+.r-anchor,.r-anchor *{will-change:transform,opacity;}
 </style>
 <script>
 (function(){
