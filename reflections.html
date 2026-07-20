@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barua — Letters from those who went — Enkiama Tanzania</title>
+<meta name="description" content="Letters from travellers who have been to Tanzania with Enkiama — written the way you'd write to a friend who asked how it was.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1712; --ink2:#131C16; --ink3:#18231B;
+  --bone:#EDE6D6; --bone2:#E4DBC7; --bone3:#D6CCB6;
+  --earth:#BE9E68; --ochre:#556B44; --sage:#7A9470; --muted:#95907F;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;hanging-punctuation:first last;scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(30,43,28,0.28) 0%, transparent 55%),
+    linear-gradient(168deg,#0C1410 0%,#0F1712 50%,#131C16 100%);
+  color:var(--bone);font-family:'Instrument Sans',sans-serif;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+}
+
+/* header */
+.r-head{text-align:center;padding:clamp(4rem,10vh,7rem) 1.5rem 2rem;}
+.r-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.34em;font-size:11px;color:var(--earth);margin-bottom:1.4rem;}
+.r-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance;margin-bottom:1.4rem;}
+.r-title em{font-style:italic;color:var(--sage);}
+.r-lede{font-size:clamp(1rem,2.2vw,1.1rem);line-height:1.7;color:var(--bone3);max-width:46ch;margin:0 auto;text-wrap:pretty;}
+
+/* view toggle */
+.r-toggle{display:flex;justify-content:center;gap:.4rem;margin:2.5rem 0 1rem;}
+.r-toggle button{background:none;border:1px solid rgba(190,158,104,0.2);color:var(--muted);
+  font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:11px;
+  padding:.6rem 1.3rem;border-radius:2px;cursor:pointer;transition:all .35s ease;}
+.r-toggle button.active{color:var(--bone);border-color:rgba(190,158,104,0.5);background:rgba(190,158,104,0.06);}
+.r-toggle button:hover{color:var(--bone3);}
+
+/* ═══ MAP VIEW ═══ */
+.r-map-wrap{max-width:1000px;margin:1rem auto 4rem;padding:0 1.5rem;position:relative;}
+.r-map{width:100%;height:auto;display:block;overflow:visible;}
+.r-country{fill:rgba(85,107,68,0.05);stroke:rgba(190,158,104,0.15);stroke-width:1;}
+.r-route{fill:none;stroke:rgba(190,158,104,0.35);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 2.6s cubic-bezier(.45,.05,.2,1);}
+.r-map-wrap.drawn .r-route{stroke-dashoffset:0;}
+
+.r-anchor{cursor:pointer;opacity:0;transition:opacity .6s ease;}
+.r-map-wrap.drawn .r-anchor{opacity:1;}
+.r-anchor-dot{fill:var(--earth);transition:r .4s ease;filter:drop-shadow(0 0 4px rgba(190,158,104,0.5));}
+.r-anchor-ring{fill:none;stroke:var(--earth);stroke-width:1;opacity:.35;transform-origin:center;animation:pulse 3s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.15;r:12px;}50%{opacity:.45;r:18px;}}
+.r-anchor:hover .r-anchor-dot{r:6px;}
+.r-anchor-place{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:11px;fill:var(--bone);}
+/* the floating fragment */
+.r-fragment{font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;fill:var(--bone3);opacity:0.32;transition:opacity .5s ease,fill .5s ease;pointer-events:none;}
+.r-anchor:hover .r-fragment{opacity:1;fill:var(--bone);}
+.r-map-hint{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--bone3);margin-top:2rem;opacity:0.75;}
+
+@keyframes pulse{0%,100%{opacity:.12;}50%{opacity:.4;}}
+
+/* ═══ LETTERS VIEW (slow scroll anthology) ═══ */
+.r-letters{display:none;max-width:660px;margin:1rem auto 5rem;padding:0 1.5rem;}
+.r-letters.show{display:block;}
+.r-letter{padding:clamp(3rem,8vh,5.5rem) 0;border-bottom:1px solid rgba(190,158,104,0.08);
+  opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.r-letter.in{opacity:1;transform:translateY(0);}
+.r-letter:last-child{border-bottom:none;}
+.r-letter-place{font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;}
+.r-letter-body{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.2rem,2.8vw,1.55rem);line-height:1.62;color:var(--bone);text-wrap:pretty;}
+.r-letter-body p{margin-bottom:1.2rem;}
+.r-letter-attr{margin-top:2rem;font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:11px;color:var(--muted);}
+
+.r-map-view{display:block;}
+.r-map-view.hide{display:none;}
+
+/* ═══ LETTER MODAL (opened from map fragment) ═══ */
+.r-modal{position:fixed;inset:0;z-index:1000;background:rgba(9,15,11,0.92);backdrop-filter:blur(6px);
+  opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s;
+  display:flex;align-items:center;justify-content:center;padding:2rem 1.5rem;overflow-y:auto;}
+.r-modal.open{opacity:1;visibility:visible;}
+.r-modal-inner{max-width:580px;width:100%;transform:translateY(20px) scale(0.98);transition:transform .7s cubic-bezier(.16,1,.3,1);
+  padding:clamp(2.5rem,5vw,3.5rem) clamp(2rem,5vw,3.5rem);position:relative;
+  background:linear-gradient(168deg, rgba(24,35,27,0.5), rgba(15,23,18,0.3));
+  border:1px solid rgba(190,158,104,0.14);border-radius:2px;}
+.r-modal-inner::before{content:'';position:absolute;top:0;left:clamp(2rem,5vw,3.5rem);right:clamp(2rem,5vw,3.5rem);height:1px;
+  background:linear-gradient(90deg,transparent,var(--earth),transparent);opacity:0;transition:opacity .8s ease .3s;}
+.r-modal.open .r-modal-inner::before{opacity:0.5;}
+.r-modal.open .r-modal-inner{transform:translateY(0) scale(1);}
+.r-modal-place{font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;text-align:center;}
+.r-modal-body{font-family:'Fraunces',serif;font-size:clamp(1.25rem,3vw,1.6rem);line-height:1.6;color:var(--bone);text-wrap:pretty;}
+.r-modal-body p{margin-bottom:1.2rem;}
+.r-modal-attr{margin-top:2.5rem;font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:11px;color:var(--muted);text-align:center;}
+.r-modal-close{position:absolute;top:1.8rem;right:2rem;background:none;border:none;color:var(--bone3);cursor:pointer;
+  font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;display:flex;align-items:center;gap:.5rem;transition:color .3s;}
+.r-modal-close:hover{color:var(--bone);}
+.r-modal-close .x{width:14px;height:14px;position:relative;}
+.r-modal-close .x::before,.r-modal-close .x::after{content:'';position:absolute;top:50%;left:0;width:100%;height:1px;background:currentColor;}
+.r-modal-close .x::before{transform:rotate(45deg);}
+.r-modal-close .x::after{transform:rotate(-45deg);}
+
+/* invitation footer */
+.r-invite{text-align:center;padding:4rem 1.5rem 6rem;border-top:1px solid rgba(190,158,104,0.08);max-width:600px;margin:0 auto;}
+.r-invite-txt{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.4rem);line-height:1.5;color:var(--bone3);text-wrap:pretty;margin-bottom:2rem;}
+.r-invite-note{font-size:13px;color:var(--muted);line-height:1.6;}
+.r-back{display:inline-block;margin-top:3rem;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;color:var(--earth);text-decoration:none;transition:opacity .3s;}
+.r-back:hover{opacity:.7;}
+
+@media (max-width:640px){
+  .r-fragment{display:none;} /* on mobile, tap opens directly; no hover fragments */
+  .r-anchor-place{font-size:10px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .r-route{transition:none;stroke-dashoffset:0;}
+  .r-anchor,.r-letter{opacity:1;transform:none;transition:none;}
+  .r-anchor-ring{animation:none;}
+}
+
+/* grain texture (site-consistent) */
+.grain-layer{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.02;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");}
+</style>
+</head>
+<body>
+<div class="grain-layer"></div>
+<header class="r-head">
+  <p class="r-eyebrow">Barua &mdash; letters from those who went</p>
+  <h1 class="r-title">What people carry <em>home</em></h1>
+  <p class="r-lede">Not reviews. Letters &mdash; written by travellers who have been, in their own words, shared with their blessing. A selection, kept small on purpose.</p>
+  <div class="r-toggle">
+    <button id="tabMap" class="active">On the land</button>
+    <button id="tabLetters">As letters</button>
+  </div>
+</header>
+
+<!-- ═══ MAP VIEW ═══ -->
+<div class="r-map-view" id="mapView">
+  <div class="r-map-wrap" id="rMapWrap">
+    <svg class="r-map" viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg">
+      <path class="r-country" d="M 140 190 L 420 150 L 700 140 L 830 220 L 870 360 L 780 500 L 600 570 L 400 590 L 240 550 L 150 420 L 120 300 Z"/>
+      <path class="r-route" id="rRoute" d="M 720 210 C 600 235, 500 215, 440 255 S 350 340, 320 380 S 400 470, 540 490 S 780 460, 810 400"/>
+      <!-- anchors: place + fragment; data-id maps to full letter -->
+      <g class="r-anchor" data-id="serengeti">
+        <circle class="r-anchor-ring" cx="440" cy="255" r="12"/>
+        <circle class="r-anchor-dot" cx="440" cy="255" r="4"/>
+        <text class="r-anchor-place" x="440" y="233" text-anchor="middle">Serengeti</text>
+        <text class="r-fragment" x="440" y="290" text-anchor="middle">&ldquo;no one said a word for an hour&rdquo;</text>
+      </g>
+      <g class="r-anchor" data-id="ngorongoro">
+        <circle class="r-anchor-ring" cx="320" cy="380" r="12"/>
+        <circle class="r-anchor-dot" cx="320" cy="380" r="4"/>
+        <text class="r-anchor-place" x="320" y="358" text-anchor="middle">Ngorongoro</text>
+        <text class="r-fragment" x="320" y="415" text-anchor="middle">&ldquo;the whole world, in one bowl&rdquo;</text>
+      </g>
+      <g class="r-anchor" data-id="kilimanjaro">
+        <circle class="r-anchor-ring" cx="720" cy="210" r="12"/>
+        <circle class="r-anchor-dot" cx="720" cy="210" r="4"/>
+        <text class="r-anchor-place" x="720" y="188" text-anchor="middle">Kilimanjaro</text>
+        <text class="r-fragment" x="720" y="245" text-anchor="middle">&ldquo;coffee, mist, and no hurry&rdquo;</text>
+      </g>
+      <g class="r-anchor" data-id="zanzibar">
+        <circle class="r-anchor-ring" cx="810" cy="400" r="12"/>
+        <circle class="r-anchor-dot" cx="810" cy="400" r="4"/>
+        <text class="r-anchor-place" x="810" y="378" text-anchor="middle">Zanzibar</text>
+        <text class="r-fragment" x="810" y="435" text-anchor="middle">&ldquo;the call to prayer, through stone&rdquo;</text>
+      </g>
+    </svg>
+    <p class="r-map-hint">Touch a place to read what someone carried home from it.</p>
+  </div>
+</div>
+
+<!-- ═══ LETTERS VIEW ═══ -->
+<div class="r-letters" id="lettersView">
+  <!-- rendered from the same data -->
+</div>
+
+<!-- invitation -->
+<div class="r-invite">
+  <p class="r-invite-txt">Every letter here began as a journey we were trusted to compose. If yours is still ahead of you, that is where we&rsquo;d begin.</p>
+  <p class="r-invite-note">These letters are shared with each traveller&rsquo;s blessing. We keep the collection small &mdash; a few, chosen with care, rather than many.</p>
+  <a class="r-back" href="index.html">&larr; Return to Enkiama</a>
+</div>
+
+<!-- modal -->
+<div class="r-modal" id="rModal" role="dialog" aria-modal="true">
+  <button class="r-modal-close" id="rModalClose"><span>Close</span><span class="x"></span></button>
+  <div class="r-modal-inner">
+    <p class="r-modal-place" id="rModalPlace"></p>
+    <div class="r-modal-body" id="rModalBody"></div>
+    <p class="r-modal-attr" id="rModalAttr"></p>
+  </div>
+</div>
+
+<script>
+/* ─────────────────────────────────────────────
+   REFLECTIONS DATA
+   When Supabase is connected: replace this array with a fetch of
+   `approved` rows. Shape: {id, place, fragment, body:[paragraphs], attr}
+   ───────────────────────────────────────────── */
+var REFLECTIONS = [
+  {
+    id:'serengeti', place:'The northern Serengeti',
+    fragment:'no one said a word for an hour',
+    body:[
+      "I thought I was going to see animals. I came back having been somewhere quieter than I knew existed.",
+      "The morning the migration crossed the river, no one in our vehicle said a word for an hour. Our guide didn\u2019t narrate it. He just let it happen to us. I understood, watching him, that he had seen it five hundred times and it had never once become ordinary to him. That was the thing I brought home \u2014 not the crossing, but the way he still felt it."
+    ],
+    attr:'Marina \u00b7 Madrid \u00b7 after twelve days'
+  },
+  {
+    id:'ngorongoro', place:'Ngorongoro',
+    fragment:'the whole world, in one bowl',
+    body:[
+      "You descend through cloud and then the whole world is just\u2026 there. In one bowl. Lions, flamingos, an elephant older than any of us, all of it held inside the walls of a volcano that fell in on itself two million years ago.",
+      "I am not a person who cries at scenery. I cried at Ngorongoro. Quietly, so no one would see. I think our guide saw anyway, and had the grace to look the other way."
+    ],
+    attr:'A traveller \u00b7 after the crater'
+  },
+  {
+    id:'kilimanjaro', place:'The Kilimanjaro foothills',
+    fragment:'coffee, mist, and no hurry',
+    body:[
+      "We didn\u2019t climb it. We sat at its feet, on a coffee farm in the mist at 1,700 metres, and a family showed us how the beans they grow become the cup you drink.",
+      "There was no hurry to any of it. Pole pole, they kept saying \u2014 slowly, slowly. By the third day I had stopped reaching for my phone to photograph everything. I just drank the coffee. That, it turned out, was the whole point."
+    ],
+    attr:'Two travellers \u00b7 Kibosho'
+  },
+  {
+    id:'zanzibar', place:'Stone Town, Zanzibar',
+    fragment:'the call to prayer, through stone',
+    body:[
+      "Our guide stopped walking mid-sentence when the call to prayer began. We stood in a narrow alley in the old quarter while the sound moved through the stone and the last light fell across a carved wooden door she had just been telling us about.",
+      "She grew up on that street. Stone Town with someone who belongs to it is a completely different place. I have been a tourist in many cities. In Zanzibar, for a week, I was something closer to a guest."
+    ],
+    attr:'Patricia \u00b7 after the coast'
+  }
+];
+
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* draw route on view */
+  var route=document.getElementById('rRoute');
+  if(route){route.style.setProperty('--len', route.getTotalLength());}
+  var mapWrap=document.getElementById('rMapWrap');
+  if('IntersectionObserver' in window){
+    var mo=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){mapWrap.classList.add('drawn');mo.unobserve(mapWrap);}});},{threshold:0.3});
+    mo.observe(mapWrap);
+  } else { mapWrap.classList.add('drawn'); }
+
+  /* build a lookup */
+  var byId={}; REFLECTIONS.forEach(function(r){byId[r.id]=r;});
+
+  /* modal open/close */
+  var modal=document.getElementById('rModal');
+  function openLetter(r){
+    document.getElementById('rModalPlace').textContent=r.place;
+    document.getElementById('rModalBody').innerHTML=r.body.map(function(p){return '<p>'+p+'</p>';}).join('');
+    document.getElementById('rModalAttr').textContent=r.attr;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeLetter(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('rModalClose').addEventListener('click',closeLetter);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeLetter();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLetter();});
+
+  /* map anchors open letters */
+  document.querySelectorAll('.r-anchor').forEach(function(a){
+    a.addEventListener('click',function(){var r=byId[a.getAttribute('data-id')];if(r)openLetter(r);});
+  });
+
+  /* render the letters view */
+  var lv=document.getElementById('lettersView');
+  lv.innerHTML=REFLECTIONS.map(function(r){
+    return '<article class="r-letter"><p class="r-letter-place">'+r.place+'</p>'+
+      '<div class="r-letter-body">'+r.body.map(function(p){return '<p>'+p+'</p>';}).join('')+'</div>'+
+      '<p class="r-letter-attr">'+r.attr+'</p></article>';
+  }).join('');
+
+  /* letters reveal on scroll */
+  if(!reduce && 'IntersectionObserver' in window){
+    var lo=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');lo.unobserve(e.target);}});},{threshold:0.2});
+    setTimeout(function(){lv.querySelectorAll('.r-letter').forEach(function(el){lo.observe(el);});},100);
+  } else {
+    lv.querySelectorAll('.r-letter').forEach(function(el){el.classList.add('in');});
+  }
+
+  /* view toggle */
+  var tabMap=document.getElementById('tabMap'), tabLetters=document.getElementById('tabLetters');
+  var mapView=document.getElementById('mapView');
+  tabMap.addEventListener('click',function(){
+    tabMap.classList.add('active');tabLetters.classList.remove('active');
+    mapView.classList.remove('hide');lv.classList.remove('show');
+  });
+  tabLetters.addEventListener('click',function(){
+    tabLetters.classList.add('active');tabMap.classList.remove('active');
+    mapView.classList.add('hide');lv.classList.add('show');
+    lv.querySelectorAll('.r-letter').forEach(function(el){el.classList.add('in');});
+  });
+})();
+</script>
+<!-- ENKIAMA_TIER1_START -->
+<style>
+/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
+
+/* Custom cursor */
+@media (hover:hover) and (pointer:fine){
+  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
+    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
+    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
+    mix-blend-mode:difference;will-change:transform;}
+  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
+  .t1-cursor.t1-hide{opacity:0;}
+  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
+    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
+    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
+  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
+  /* hide default cursor on interactive elements when custom is active */
+  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
+}
+
+/* Split-text reveal: each word/line rises into place */
+.t1-line{display:block;overflow:hidden;}
+.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
+  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
+.t1-word.t1-in{transform:translateY(0);opacity:1;}
+
+/* Magnetic buttons */
+.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
+
+@media (prefers-reduced-motion:reduce){
+  .t1-word{transform:none;opacity:1;transition:none;}
+  .t1-cursor,.t1-ring{display:none;}
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ── 1. LENIS SMOOTH SCROLL ── */
+  function initLenis(){
+    if(reduce || typeof Lenis==='undefined') return null;
+    try{
+      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
+      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
+      requestAnimationFrame(raf);
+      // keep anchor links working
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
+      });
+      return lenis;
+    }catch(e){return null;}
+  }
+  // wait for Lenis script to load
+  if(document.readyState!=='loading') setTimeout(initLenis,50);
+  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
+
+  /* ── 2. CUSTOM CURSOR ── */
+  if(fine && !reduce){
+    var dot=document.createElement('div');dot.className='t1-cursor';
+    var ring=document.createElement('div');ring.className='t1-ring';
+    document.body.appendChild(dot);document.body.appendChild(ring);
+    document.body.classList.add('t1-cursor-on');
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
+    // grow over interactive elements
+    function bindHover(){
+      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
+        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
+        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
+        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
+      });
+    }
+    bindHover();
+    // hide when leaving window
+    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
+    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
+    // re-bind after menu opens (dynamic content)
+    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
+  }
+
+  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
+  if(!reduce){
+    // target the big serif headings; wrap words in spans
+    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
+    heads.forEach(function(h){
+      if(h.dataset.t1split)return;h.dataset.t1split=1;
+      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
+      var html=h.innerHTML;
+      // split on spaces but keep tags intact - simple approach: wrap text between tags
+      var parts=html.split(/(<[^>]+>)/);
+      var out=parts.map(function(p){
+        if(p.startsWith('<')||p.trim()==='')return p;
+        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
+      }).join('');
+      h.innerHTML=out;
+    });
+    var words=document.querySelectorAll('.t1-word');
+    if(words.length){
+      var wo=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
+            var idx=siblings.indexOf(e.target);
+            e.target.style.transitionDelay=(idx*0.04)+'s';
+            e.target.classList.add('t1-in');
+            wo.unobserve(e.target);
+          }
+        });
+      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
+      words.forEach(function(w){wo.observe(w);});
+    }
+  }
+
+  /* ── 4. MAGNETIC BUTTONS ── */
+  if(fine && !reduce){
+    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
+      btn.classList.add('t1-magnetic');
+      btn.addEventListener('mousemove',function(e){
+        var r=btn.getBoundingClientRect();
+        var x=(e.clientX-r.left-r.width/2)*0.25;
+        var y=(e.clientY-r.top-r.height/2)*0.25;
+        btn.style.transform='translate('+x+'px,'+y+'px)';
+      });
+      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
+    });
+  }
+})();
+</script>
+<!-- ENKIAMA_TIER1_END -->
+
+<!-- ENKIAMA_PAGETRANS_START -->
+<style>
+/* Native cross-document view transitions - purely additive, ignored by unsupporting browsers.
+   Cannot break navigation: if unsupported, links work normally. */
+@view-transition{navigation:auto;}
+::view-transition-old(root){animation:pt-fade-out .4s cubic-bezier(.4,0,.2,1) both;}
+::view-transition-new(root){animation:pt-fade-in .5s cubic-bezier(.16,1,.3,1) both;}
+@keyframes pt-fade-out{to{opacity:0;transform:translateY(-6px);}}
+@keyframes pt-fade-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none;}
+}
+</style>
+<!-- ENKIAMA_PAGETRANS_END -->
+<!-- ENKIAMA_LINES_START -->
+<style>
+/* ══════════ EXPRESSIVE LINE SYSTEM ══════════ */
+/* Accent hairlines: draw themselves on scroll, gradient-fade at the far end.
+   The luxury signal is intention + restraint, not decoration. */
+.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,
+.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
+}
+/* gradient character so the line dissolves rather than cuts */
+.thesis-rule{background:linear-gradient(90deg,var(--rule-strong,rgba(190,158,104,0.85)),rgba(190,158,104,0.12)) !important;}
+.lw-rule,.wp-rule{background:linear-gradient(90deg,var(--ochre,#556B44),rgba(85,107,68,0.1)) !important;}
+.story-rule,.ndugu-rule,.ask-rule,.ppl-rule,.pt-rule,.wr-rule,.dc-rule,.b-rule,.sw-rule,.ochre-rule{
+  background:linear-gradient(90deg,var(--earth,#BE9E68),rgba(190,158,104,0.1)) !important;}
+/* drawn state */
+.line-draw.drawn{transform:scaleX(1);}
+
+/* centered rules (breath, dividers that sit centered) draw from center */
+.breath-line,.cr-divider{transform-origin:center;background:linear-gradient(90deg,transparent,var(--earth,#BE9E68),transparent) !important;}
+
+/* Structural borders: keep calm, but refine — a whisper of gradient so grid lines feel intentional.
+   These do NOT animate (animating structure would be busy = un-luxury). Just a softer, considered edge. */
+@media (prefers-reduced-motion:reduce){
+  .thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,
+  .dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line{
+    transform:scaleX(1);transition:none;}
+}
+</style>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var sel='.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line';
+  var rules=document.querySelectorAll(sel);
+  if(!rules.length)return;
+  rules.forEach(function(r){r.classList.add('line-draw');});
+  if(reduce){rules.forEach(function(r){r.classList.add('drawn');});return;}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
+      });
+    },{threshold:0.9,rootMargin:'0px 0px -8% 0px'});
+    rules.forEach(function(r){io.observe(r);});
+  } else {
+    rules.forEach(function(r){r.classList.add('drawn');});
+  }
+})();
+</script>
+<!-- ENKIAMA_LINES_END -->
+
+</body>
+</html>
