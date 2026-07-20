@@ -41,6 +41,8 @@ body{
 
 /* ═══ MAP VIEW ═══ */
 .r-map-wrap{max-width:1000px;margin:1rem auto 4rem;padding:0 1.5rem;position:relative;}
+.r-map-wrap::before{content:'';position:absolute;inset:10% 20%;z-index:-1;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(190,158,104,0.05), transparent 70%);pointer-events:none;}
 .r-map{width:100%;height:auto;display:block;overflow:visible;}
 .r-country{fill:rgba(85,107,68,0.05);stroke:rgba(190,158,104,0.15);stroke-width:1;}
 .r-route{fill:none;stroke:rgba(190,158,104,0.35);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 2.6s cubic-bezier(.45,.05,.2,1);}
@@ -88,6 +90,7 @@ body{
   background:linear-gradient(90deg,transparent,var(--earth),transparent);opacity:0;transition:opacity .8s ease .3s;}
 .r-modal.open .r-modal-inner::before{opacity:0.5;}
 .r-modal.open .r-modal-inner{transform:translateY(0) scale(1);}
+.r-modal-kicker{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--muted);text-align:center;margin-bottom:.5rem;}
 .r-modal-place{font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;text-align:center;}
 .r-modal-body{font-family:'Fraunces',serif;font-size:clamp(1.25rem,3vw,1.6rem);line-height:1.6;color:var(--bone);text-wrap:pretty;}
 .r-modal-body p{margin-bottom:1.2rem;}
@@ -166,7 +169,7 @@ body{
         <text class="r-fragment" x="810" y="435" text-anchor="middle">&ldquo;the call to prayer, through stone&rdquo;</text>
       </g>
     </svg>
-    <p class="r-map-hint">Touch a place to read what someone carried home from it.</p>
+    <p class="r-map-hint">Each place holds a letter. Touch one to read what someone carried home.</p>
   </div>
 </div>
 
@@ -186,6 +189,7 @@ body{
 <div class="r-modal" id="rModal" role="dialog" aria-modal="true">
   <button class="r-modal-close" id="rModalClose"><span>Close</span><span class="x"></span></button>
   <div class="r-modal-inner">
+    <p class="r-modal-kicker">A letter from</p>
     <p class="r-modal-place" id="rModalPlace"></p>
     <div class="r-modal-body" id="rModalBody"></div>
     <p class="r-modal-attr" id="rModalAttr"></p>
