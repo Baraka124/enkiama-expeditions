@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Companions — Open Journeys & travelling together — Enkiama Tanzania</title>
+<meta name="description" content="Some journeys are composed for one group. Others open a few seats to the right company. For the traveller who wants Tanzania, and the right people to share it with.">
+<link rel="canonical" href="https://enkiama.com/companions.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1712; --ink2:#131C16; --ink3:#18231B;
+  --bone:#EDE6D6; --bone2:#E4DBC7; --bone3:#D6CCB6;
+  --earth:#BE9E68; --ochre:#556B44; --sage:#7A9470; --muted:#95907F;
+  --rule:rgba(190,158,104,0.11);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;hanging-punctuation:first last;scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(30,43,28,0.28) 0%, transparent 55%),
+    linear-gradient(168deg,#0C1410 0%,#0F1712 50%,#131C16 100%);
+  color:var(--bone);font-family:'Instrument Sans',sans-serif;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+}
+::selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
+::-moz-selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:1px solid rgba(190,158,104,0.5);outline-offset:3px;}
+
+/* ── HERO ── */
+.c-hero{text-align:center;padding:clamp(6rem,14vh,10rem) 1.5rem 3rem;max-width:760px;margin:0 auto;}
+.c-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.34em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;}
+.c-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance;margin-bottom:1.8rem;}
+.c-title em{font-style:italic;color:var(--sage);}
+.c-lede{font-size:clamp(1.05rem,2.3vw,1.18rem);line-height:1.75;color:var(--bone3);max-width:52ch;margin:0 auto;text-wrap:pretty;}
+
+/* the thesis line */
+.c-thesis{text-align:center;padding:clamp(3rem,7vh,5rem) 1.5rem;max-width:640px;margin:0 auto;}
+.c-thesis p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,2rem);line-height:1.4;color:var(--bone);text-wrap:balance;}
+
+/* ── section shell ── */
+.c-section{max-width:900px;margin:0 auto;padding:clamp(3rem,7vh,5rem) clamp(1.5rem,4vw,2rem);}
+.c-sec-head{max-width:620px;margin:0 auto 3.5rem;text-align:center;}
+.c-sec-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.28em;font-size:11px;color:var(--earth);margin-bottom:1.3rem;}
+.c-sec-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.18;letter-spacing:-0.02em;color:var(--bone);text-wrap:balance;margin-bottom:1.3rem;}
+.c-sec-body{font-size:clamp(1rem,2.2vw,1.1rem);line-height:1.75;color:var(--bone3);text-wrap:pretty;}
+.c-divider{width:1px;height:60px;margin:0 auto;background:linear-gradient(var(--earth),transparent);opacity:.4;}
+
+/* ── OPEN JOURNEYS cards ── */
+.oj-grid{display:flex;flex-direction:column;gap:2.5rem;}
+.oj-card{border:1px solid var(--rule);border-radius:2px;padding:clamp(1.8rem,4vw,2.6rem);
+  background:linear-gradient(168deg, rgba(24,35,27,0.35), rgba(15,23,18,0.15));
+  position:relative;overflow:hidden;transition:border-color .5s ease;}
+.oj-card:hover{border-color:rgba(190,158,104,0.28);}
+.oj-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--earth),transparent);transform:scaleX(0);transform-origin:left;
+  transition:transform 1s cubic-bezier(.16,1,.3,1);}
+.oj-card.in::before{transform:scaleX(1);}
+.oj-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.8rem;margin-bottom:1.3rem;}
+.oj-season{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--earth);}
+.oj-seats{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--muted);}
+.oj-name{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.25;color:var(--bone);margin-bottom:1rem;letter-spacing:-0.01em;}
+.oj-for{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.05rem,2.3vw,1.2rem);line-height:1.5;color:var(--sage);margin-bottom:1.4rem;}
+.oj-desc{font-size:1rem;line-height:1.7;color:var(--bone3);margin-bottom:1.8rem;text-wrap:pretty;}
+.oj-route{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1.8rem;}
+.oj-stop{font-variant-caps:all-small-caps;letter-spacing:.12em;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:1rem;}
+.oj-stop:not(:last-child)::after{content:'·';color:var(--earth);opacity:.5;}
+.oj-ask{display:inline-flex;align-items:center;gap:.5rem;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;
+  color:var(--earth);text-decoration:none;position:relative;padding-bottom:3px;}
+.oj-ask::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0.2));transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.oj-ask:hover::after{transform:scaleX(1);}
+.oj-none{text-align:center;font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:1.1rem;line-height:1.6;}
+
+/* ── SEEKING COMPANIONS form ── */
+.sc-wrap{max-width:640px;margin:0 auto;}
+.sc-note{text-align:center;font-family:'Fraunces',serif;font-style:italic;color:var(--bone3);font-size:clamp(1rem,2.2vw,1.15rem);line-height:1.7;margin-bottom:3rem;text-wrap:pretty;}
+.sc-form{display:flex;flex-direction:column;gap:1.6rem;}
+.sc-row{display:flex;gap:1.6rem;flex-wrap:wrap;}
+.sc-row .sc-field{flex:1;min-width:200px;}
+.sc-label{display:block;font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--earth);margin-bottom:.7rem;}
+.sc-in{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(190,158,104,0.22);border-radius:0;
+  color:var(--bone);font-family:'Instrument Sans',sans-serif;font-size:1.05rem;padding:.8rem .2rem;
+  transition:border-color .5s cubic-bezier(.16,1,.3,1);}
+.sc-in::placeholder{color:var(--muted);opacity:.55;}
+.sc-in:focus{outline:none;border-color:rgba(190,158,104,0.6);}
+textarea.sc-in{font-family:'Fraunces',serif;font-size:clamp(1.1rem,2.5vw,1.25rem);line-height:1.7;resize:none;min-height:120px;
+  border:1px solid rgba(190,158,104,0.14);border-radius:2px;padding:1.2rem 1.3rem;background:rgba(20,28,22,0.35);}
+textarea.sc-in::placeholder{font-style:italic;}
+textarea.sc-in:focus{border-color:rgba(190,158,104,0.4);background:rgba(24,35,27,0.55);}
+.sc-send{align-self:center;margin-top:1rem;background:none;border:none;color:var(--bone);cursor:pointer;
+  font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;
+  padding:.6rem 0;position:relative;transition:color .4s;}
+.sc-send::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0.2));transform:scaleX(0);transform-origin:left;
+  transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.sc-send:hover{color:var(--earth);}
+.sc-send:hover::after{transform:scaleX(1);}
+.sc-send:disabled{opacity:.4;cursor:not-allowed;}
+.sc-promise{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;line-height:1.7;color:var(--muted);margin-top:1.8rem;max-width:46ch;margin-left:auto;margin-right:auto;}
+
+/* thank-you */
+.sc-thanks{display:none;text-align:center;padding:3rem 0;}
+.sc-thanks.show{display:block;}
+.sc-thanks-mark{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--sage);line-height:1.3;margin-bottom:1.2rem;text-wrap:balance;}
+.sc-thanks-txt{font-size:1.05rem;line-height:1.7;color:var(--bone3);max-width:44ch;margin:0 auto;}
+
+/* how-it-works trust row */
+.c-trust{max-width:820px;margin:0 auto;padding:clamp(3rem,7vh,5rem) clamp(1.5rem,4vw,2rem);}
+.c-trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.5rem;}
+.c-trust-item{}
+.c-trust-n{font-family:'Fraunces',serif;font-style:italic;color:var(--earth);font-size:1.3rem;margin-bottom:.8rem;}
+.c-trust-h{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--bone);margin-bottom:.6rem;line-height:1.3;}
+.c-trust-p{font-size:.95rem;line-height:1.65;color:var(--bone3);}
+
+/* footer return */
+.c-foot{text-align:center;padding:4rem 1.5rem 6rem;border-top:1px solid var(--rule);max-width:600px;margin:0 auto;}
+.c-foot-txt{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.35rem);line-height:1.5;color:var(--bone3);margin-bottom:2rem;text-wrap:pretty;}
+.c-back{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;color:var(--earth);text-decoration:none;transition:opacity .3s;}
+.c-back:hover{opacity:.7;}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  .oj-card::before{transform:scaleX(1);}
+}
+</style>
+</head>
+<body>
+<!-- ENKIAMA_HEADER_START -->
+<style>
+/* ══════════ PREMIUM OVERLAY HEADER ══════════ */
+.eh-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
+  padding:2rem clamp(1.5rem,4vw,3.5rem);transition:padding .5s cubic-bezier(.16,1,.3,1),background .5s ease;}
+.eh-bar::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,20,16,0.5) 0%,rgba(12,20,16,0) 100%);
+  opacity:1;transition:opacity .5s ease;}
+.eh-bar.scrolled::before{opacity:0;}
+.eh-bar.scrolled{padding:1.1rem clamp(1.5rem,4vw,3.5rem);background:rgba(13,19,15,0.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid rgba(190,158,104,0.07);}
+.eh-logo img{height:46px;transition:height .5s cubic-bezier(.16,1,.3,1);display:block;}
+.eh-bar.scrolled .eh-logo img{height:36px;}
+.eh-trigger{display:flex;align-items:center;gap:.85rem;background:none;border:0;cursor:pointer;
+  font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;
+  font-size:13px;color:var(--bone,#EDE6D6);padding:.3rem 0;transition:color .3s;}
+.eh-trigger:hover{color:var(--earth,#BE9E68);}
+.eh-trigger .eh-mark{position:relative;width:26px;height:9px;display:inline-block;}
+.eh-trigger .eh-mark span{position:absolute;left:0;height:1px;width:100%;background:currentColor;transition:transform .5s cubic-bezier(.16,1,.3,1),width .5s ease;}
+.eh-trigger .eh-mark span:nth-child(1){top:0;}
+.eh-trigger .eh-mark span:nth-child(2){bottom:0;width:70%;}
+.eh-trigger:hover .eh-mark span:nth-child(2){width:100%;}
+.eh-overlay{position:fixed;inset:0;z-index:1001;background:linear-gradient(155deg,#0C1410 0%,#0F1712 60%,#111d16 100%);opacity:0;visibility:hidden;transition:opacity .7s cubic-bezier(.16,1,.3,1),visibility .7s;display:grid;grid-template-columns:1fr 1fr;}
+.eh-overlay.open{opacity:1;visibility:visible;}
+body.eh-locked{overflow:hidden;}
+.eh-watermark{position:absolute;bottom:-6vw;right:44%;font-family:'Fraunces',serif;font-size:24vw;line-height:.8;color:rgba(190,158,104,0.028);pointer-events:none;user-select:none;font-style:italic;z-index:0;}
+
+/* LEFT: index block, composed as one unit */
+.eh-left{display:flex;flex-direction:column;justify-content:center;gap:2rem;padding:5rem clamp(3rem,7vw,8rem);position:relative;z-index:2;height:100vh;overflow-y:auto;box-sizing:border-box;}
+.eh-nav{display:block;flex:none;}
+.eh-secondary{flex:none;}
+
+.eh-nav-eyebrow{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.36em;font-size:11px;color:var(--earth,#BE9E68);margin:0 0 1.3rem 0;padding-bottom:1rem;border-bottom:1px solid rgba(190,158,104,0.16);opacity:0;transform:translateY(14px);}
+.eh-overlay.open .eh-nav-eyebrow{opacity:1;transform:translateY(0);transition:opacity .7s ease .15s,transform .7s cubic-bezier(.16,1,.3,1) .15s;}
+.eh-nav ul{list-style:none;margin:0;padding:0;}
+.eh-nav li{overflow:hidden;display:block;}
+.eh-nav li a{display:flex;align-items:baseline;gap:1.5rem;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.2vw,2.9rem);line-height:1;color:var(--bone,#EDE6D6);text-decoration:none;padding:.62rem 0;transition:color .45s cubic-bezier(.16,1,.3,1),padding-left .5s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(120%);}
+.eh-overlay.open .eh-nav li a{opacity:1;transform:translateY(0);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);}
+.eh-overlay.open .eh-nav li:nth-child(1) a{transition-delay:.22s;}
+.eh-overlay.open .eh-nav li:nth-child(2) a{transition-delay:.32s;}
+.eh-overlay.open .eh-nav li:nth-child(3) a{transition-delay:.42s;}
+.eh-overlay.open .eh-nav li:nth-child(4) a{transition-delay:.52s;}
+.eh-overlay.open .eh-nav li:nth-child(5) a{transition-delay:.62s;}
+.eh-overlay.open .eh-nav li:nth-child(6) a{transition-delay:.72s;}
+.eh-nav li a:hover{color:var(--earth,#BE9E68);}
+.eh-nav li a:hover .eh-lnk{transform:translateX(6px);}
+.eh-nav li a.eh-active .eh-lnk{color:var(--sage,#7A9470);}
+.eh-nav li a .eh-lnk{display:inline-block;transition:transform .4s cubic-bezier(.16,1,.3,1);}
+.eh-nav li a .eh-idx{font-family:'Instrument Sans',sans-serif;font-size:13px;letter-spacing:.14em;color:rgba(190,158,104,0.65);width:1.8rem;flex-shrink:0;transition:color .4s;}
+.eh-nav li a:hover .eh-idx{color:var(--earth);}
+
+/* secondary "Also" links — clearly discrete, NOT a sentence */
+.eh-secondary{padding-top:0;border-top:1px solid rgba(190,158,104,0.12);
+  display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 2.2rem;opacity:0;transition:opacity .7s ease .6s;}
+.eh-overlay.open .eh-secondary{opacity:1;}
+.eh-secondary .eh-sec-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.26em;font-size:11px;color:rgba(190,158,104,0.7);margin-right:.7rem;}
+.eh-secondary a{font-family:'Instrument Sans',sans-serif;font-size:13.5px;letter-spacing:.05em;color:rgba(237,230,214,0.78);text-decoration:none;position:relative;transition:color .3s;}
+.eh-secondary a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--earth,#BE9E68);transition:width .35s ease;}
+.eh-secondary a:hover{color:var(--bone);}
+.eh-secondary a:hover::after{width:100%;}
+
+/* RIGHT: photo/statement panel */
+.eh-aside{position:relative;overflow:hidden;}
+.eh-aside-photo{position:absolute;inset:0;background-size:cover;background-position:center;
+  background-image:radial-gradient(ellipse 100% 80% at 65% 25%,rgba(85,107,68,0.14),transparent 62%),linear-gradient(158deg,#16211a,#0b120e);
+  transform:scale(1.06);opacity:0;transition:opacity 1.1s ease .2s,transform 7s ease;}
+.eh-overlay.open .eh-aside-photo{opacity:1;transform:scale(1);}
+.eh-aside-scrim{position:absolute;inset:0;background:linear-gradient(205deg,rgba(12,20,16,0.35) 0%,rgba(12,20,16,0.82) 78%);}
+.eh-aside-inner{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);padding:clamp(2.5rem,4.5vw,5rem);z-index:2;opacity:0;}
+.eh-overlay.open .eh-aside-inner{opacity:1;transform:translateY(-50%);transition:opacity .8s ease .5s;}
+.eh-aside-eyebrow{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.3em;font-size:11px;color:var(--earth,#BE9E68);margin:0 0 1.5rem;}
+.eh-aside-q{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.6rem,2.4vw,2.2rem);color:var(--bone,#EDE6D6);line-height:1.4;margin:0 0 2.8rem;max-width:24ch;padding-bottom:2.8rem;border-bottom:1px solid rgba(190,158,104,0.14);}
+.eh-aside-contact{display:flex;flex-direction:column;gap:.4rem;font-family:'Instrument Sans',sans-serif;font-size:13px;}
+.eh-aside-contact a{color:var(--earth,#BE9E68);text-decoration:none;width:fit-content;transition:opacity .3s;}
+.eh-aside-contact a:hover{opacity:.7;}
+.eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#95907F);margin-top:1rem;}
+
+.eh-close{position:absolute;top:2rem;right:clamp(1.5rem,4vw,3.5rem);z-index:3;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:.7rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;color:var(--bone,#EDE6D6);opacity:0;transition:color .3s,opacity .5s ease .4s;}
+.eh-overlay.open .eh-close{opacity:1;}
+.eh-close:hover{color:var(--earth);}
+.eh-close .x{position:relative;width:16px;height:16px;}
+.eh-close .x::before,.eh-close .x::after{content:'';position:absolute;top:50%;left:0;width:100%;height:1px;background:currentColor;}
+.eh-close .x::before{transform:rotate(45deg);}
+.eh-close .x::after{transform:rotate(-45deg);}
+
+
+
+@media(max-height:840px){
+  .eh-left{gap:1.4rem;padding:4.5rem clamp(3rem,7vw,8rem);}
+  .eh-nav li a{font-size:clamp(1.4rem,2.5vw,2.1rem);padding:.48rem 0;}
+  .eh-nav-eyebrow{margin-bottom:1rem;padding-bottom:.8rem;}
+}
+@media(max-height:700px){
+  .eh-left{gap:1rem;padding:3.5rem clamp(3rem,7vw,8rem);justify-content:flex-start;}
+  .eh-nav li a{font-size:clamp(1.25rem,2.1vw,1.7rem);padding:.36rem 0;}
+}
+@media(max-width:820px){
+  .eh-overlay{grid-template-columns:1fr;}
+  .eh-aside{display:none;}
+  .eh-left{padding:0 8vw;justify-content:center;}
+  .eh-nav li a{font-size:clamp(1.8rem,8vw,2.6rem);}
+  .eh-secondary{gap:.5rem 1.4rem;}
+  .eh-bar{padding:1.3rem 1.5rem;}
+  .eh-watermark{display:none;}
+}
+@media(prefers-reduced-motion:reduce){.eh-nav li a,.eh-nav-eyebrow,.eh-aside-photo,.eh-aside-inner,.eh-close{transition:opacity .3s !important;transform:none !important;}}
+</style>
+
+<div class="eh-bar" id="ehBar">
+  <a href="index.html" class="eh-logo" aria-label="Enkiama — home"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
+  <button class="eh-trigger" id="ehTrigger" aria-expanded="false" aria-controls="ehOverlay"><span>Índice</span><span class="eh-mark"><span></span><span></span></span></button>
+</div>
+
+<div class="eh-overlay" id="ehOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="eh-close" id="ehClose" aria-label="Close menu"><span>Cerrar</span><span class="x"></span></button>
+  <div class="eh-watermark" aria-hidden="true">karibu</div>
+
+  <div class="eh-left">
+    <nav class="eh-nav">
+      <p class="eh-nav-eyebrow">The index</p>
+      <ul>
+        <li><a href="tanzania.html" data-nav="tanzania"><span class="eh-idx">01</span><span class="eh-lnk">Tanzania</span></a></li>
+        <li><a href="parks.html" data-nav="parks"><span class="eh-idx">02</span><span class="eh-lnk">Wild Tanzania</span></a></li>
+        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">03</span><span class="eh-lnk">Journeys</span></a></li>
+        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">04</span><span class="eh-lnk">Compose your journey</span></a></li>
+        <li><a href="family.html" data-nav="family"><span class="eh-idx">05</span><span class="eh-lnk">The family</span></a></li>
+        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">06</span><span class="eh-lnk">Begin</span></a></li>
+      </ul>
+    </nav>
+    <div class="eh-secondary">
+      <span class="eh-sec-lbl">Also</span>
+      <a href="how.html">How we work</a>
+      <a href="notes.html">Field notes</a>
+      <a href="stories.html">Stories</a>
+      <a href="reflections.html">Letters</a>
+      <a href="companions.html">Companions</a>
+      <a href="faq.html">Safari FAQ</a>
+    </div>
+  </div>
+
+  <aside class="eh-aside">
+    <div class="eh-aside-photo" id="ehAsidePhoto"></div>
+    <div class="eh-aside-scrim"></div>
+    <div class="eh-aside-inner">
+      <p class="eh-aside-eyebrow">Curated, never sold</p>
+      <p class="eh-aside-q">Tanzania already knows how to receive you. We just make sure you arrive.</p>
+      <div class="eh-aside-contact">
+        <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
+        <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
+        <span class="eh-aside-place" id="ehPlace">Arusha &middot; Tanzania</span>
+      </div>
+    </div>
+  </aside>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('ehBar'),trg=document.getElementById('ehTrigger'),ov=document.getElementById('ehOverlay'),cl=document.getElementById('ehClose'),photo=document.getElementById('ehAsidePhoto');
+  if(!bar||!trg||!ov) return;
+  var lastFocus=null;
+  function focusables(){return ov.querySelectorAll('a[href],button');}
+  function open(){
+    ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
+    lastFocus=document.activeElement;
+    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
+    setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
+  }
+  function close(){ov.classList.remove('open');document.body.classList.remove('eh-locked');trg.setAttribute('aria-expanded','false');if(lastFocus)lastFocus.focus();}
+  trg.addEventListener('click',open);cl.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&ov.classList.contains('open'))close();
+    // focus trap
+    if(e.key==='Tab'&&ov.classList.contains('open')){
+      var f=focusables();if(!f.length)return;var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+  // active state
+  var page=document.body.getAttribute('data-page');
+  if(page){var a=ov.querySelector('.eh-nav a[data-nav="'+page+'"]');if(a)a.classList.add('eh-active');}
+  // scroll condense
+  var ticking=false;
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){bar.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
+})();
+</script>
+<!-- ENKIAMA_HEADER_END -->
+
+
+<section class="c-hero">
+  <p class="c-eyebrow">Companions</p>
+  <h1 class="c-title">Some journeys are composed for one group.<br>Others open a few seats to <em>the right company.</em></h1>
+  <p class="c-lede">For the traveller who wants Tanzania, and the right people to share it with. We compose the company as carefully as we compose the journey.</p>
+</section>
+
+<div class="c-thesis">
+  <p>Not a group tour. A small circle of people who would have chosen each other, had they met first.</p>
+</div>
+
+<div class="c-divider"></div>
+
+<!-- ── OPEN JOURNEYS ── -->
+<section class="c-section">
+  <div class="c-sec-head reveal">
+    <p class="c-sec-eyebrow">Open journeys</p>
+    <h2 class="c-sec-title">A few composed journeys, with room for the right people.</h2>
+    <p class="c-sec-body">Now and then we compose a journey with a particular character &mdash; a season, a pace, a way of seeing &mdash; and open two or three seats. Because the journey&rsquo;s spirit is set, the people who join tend to belong together. These are rare, and small, and never a catalogue.</p>
+    <p class="c-sec-body" style="margin-top:1rem;font-style:italic;color:var(--muted);font-size:0.95rem;">The journeys below show the kind we open. When a season is live, its seats are real &mdash; write to us and we will tell you what is open now.</p>
+  </div>
+
+  <div class="oj-grid" id="ojGrid">
+    <!-- rendered from data -->
+  </div>
+</section>
+
+<div class="c-divider"></div>
+
+<!-- ── SEEKING COMPANIONS ── -->
+<section class="c-section">
+  <div class="c-sec-head reveal">
+    <p class="c-sec-eyebrow">Journeys seeking companions</p>
+    <h2 class="c-sec-title">Composing a journey, and open to company?</h2>
+    <p class="c-sec-body">If you are planning a journey of your own and would welcome the right people alongside you, tell us. We hold these quietly, and introduce travellers only where we sense a genuine fit &mdash; in temperament, in pace, in what pulls them to Tanzania. You are never posted to a board. You are considered, by a person, with care.</p>
+  </div>
+
+  <div class="sc-wrap">
+    <div class="sc-writing" id="scWriting">
+      <p class="sc-note">Tell us a little about the journey you imagine, and the kind of company that would make it richer.</p>
+      <div class="sc-form">
+        <div class="sc-row">
+          <div class="sc-field">
+            <label class="sc-label" for="scName">Your name</label>
+            <input class="sc-in" id="scName" type="text" placeholder="How you'd like to be known">
+          </div>
+          <div class="sc-field">
+            <label class="sc-label" for="scContact">Email or WhatsApp</label>
+            <input class="sc-in" id="scContact" type="text" placeholder="However you prefer">
+          </div>
+        </div>
+        <div class="sc-field">
+          <label class="sc-label" for="scJourney">The journey you imagine</label>
+          <textarea class="sc-in" id="scJourney" placeholder="A season, a pace, the worlds that call to you, who you are travelling as &mdash; and the kind of company you'd hope to find."></textarea>
+        </div>
+        <button class="sc-send" id="scSend">Send to Baraka</button>
+        <p class="sc-promise">Baraka reads every message personally. We introduce people only where the fit feels real &mdash; and speak with each traveller first. Nothing is ever automated, and no one is ever posted publicly.</p>
+      </div>
+    </div>
+
+    <div class="sc-thanks" id="scThanks">
+      <p class="sc-thanks-mark">Your journey is with us.</p>
+      <p class="sc-thanks-txt">We will sit with it, and write back &mdash; whether that is an introduction, an open journey that might suit you, or simply the beginning of composing your own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS / TRUST ── -->
+<div class="c-trust reveal">
+  <div class="c-trust-grid">
+    <div class="c-trust-item">
+      <p class="c-trust-n">i</p>
+      <p class="c-trust-h">We match on character, not convenience</p>
+      <p class="c-trust-p">Temperament, pace, and what draws someone to Tanzania matter more than dates. The company is composed, not assembled.</p>
+    </div>
+    <div class="c-trust-item">
+      <p class="c-trust-n">ii</p>
+      <p class="c-trust-h">A person, never a platform</p>
+      <p class="c-trust-p">Every introduction is made by hand, after a conversation with each traveller. There is no board, no listing, no algorithm.</p>
+    </div>
+    <div class="c-trust-item">
+      <p class="c-trust-n">iii</p>
+      <p class="c-trust-h">You are always free to say no</p>
+      <p class="c-trust-p">An introduction is only ever an introduction. If the fit is not right for you, it does not happen. Your own journey remains yours.</p>
+    </div>
+  </div>
+</div>
+
+<div class="c-foot">
+  <p class="c-foot-txt">Whether you travel alone, as two, or as a circle still forming &mdash; the journey begins the same way.</p>
+  <a class="c-back" href="begin.html">Begin a conversation &rarr;</a>
+</div>
+
+<script>
+/* ─────────────────────────────────────────────
+   OPEN JOURNEYS DATA
+   When Supabase is connected: replace this array with a fetch of
+   `open_journeys` where status = 'open'. Shape below.
+   For now, these are illustrative — replace with real ones as they open.
+   ───────────────────────────────────────────── */
+var OPEN_JOURNEYS = [
+  {
+    season:'October', name:'A slow Serengeti, for those who\u2019d rather watch than tick.',
+    forWhom:'For unhurried travellers who came for the quiet, not the checklist.',
+    seats:'Two seats remain', 
+    desc:'Ten days composed around stillness \u2014 long mornings in the northern corridor, afternoons that are allowed to go nowhere, and the migration met without a schedule. A pace for people who understand that the best moments cannot be hurried.',
+    route:['Serengeti','Ngorongoro','a Chagga table'],
+    status:'open'
+  },
+  {
+    season:'February', name:'Kilimanjaro\u2019s foothills and the coast, gently.',
+    forWhom:'For a small circle drawn to culture and coffee more than the summit.',
+    seats:'Three seats remain',
+    desc:'Not a climb \u2014 a journey around the mountain\u2019s life: the coffee farms of Kibosho, the people who grow what you drink, and then the slow exhale of Zanzibar. Composed for those who travel to understand a place, not to conquer it.',
+    route:['Kibosho','Materuni','Zanzibar'],
+    status:'open'
+  }
+];
+
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* render open journeys */
+  var grid = document.getElementById('ojGrid');
+  var open = OPEN_JOURNEYS.filter(function(j){return j.status==='open';});
+  if (open.length === 0){
+    grid.innerHTML = '<p class="oj-none">No open journeys at this moment. Tell us what you imagine, and we will let you know when one aligns \u2014 or compose one around you.</p>';
+  } else {
+    grid.innerHTML = open.map(function(j){
+      return '<article class="oj-card reveal">'
+        + '<div class="oj-top"><span class="oj-season">'+j.season+'</span><span class="oj-seats">'+j.seats+'</span></div>'
+        + '<h3 class="oj-name">'+j.name+'</h3>'
+        + '<p class="oj-for">'+j.forWhom+'</p>'
+        + '<p class="oj-desc">'+j.desc+'</p>'
+        + '<div class="oj-route">'+j.route.map(function(s){return '<span class="oj-stop">'+s+'</span>';}).join('')+'</div>'
+        + '<a class="oj-ask" href="begin.html">Ask about this journey &rarr;</a>'
+        + '</article>';
+    }).join('');
+  }
+
+  /* reveal on scroll */
+  function observeReveals(){
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('in');}); return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+  observeReveals();
+
+  /* seeking-companions submit */
+  var send = document.getElementById('scSend');
+  var journey = document.getElementById('scJourney');
+  function upd(){ send.disabled = journey.value.trim().length < 15; }
+  journey.addEventListener('input', upd); upd();
+
+  send.addEventListener('click', function(){
+    var payload = {
+      name: document.getElementById('scName').value.trim(),
+      contact: document.getElementById('scContact').value.trim(),
+      journey: journey.value.trim(),
+      submitted_at: new Date().toISOString()
+    };
+    // ── BACKEND HOOK ──
+    // When Supabase is connected: POST payload to a `companions` table (status:'pending'),
+    // and notify Baraka. For now, open a pre-filled message to Enkiama.
+    var subject = 'Journeys seeking companions'+(payload.name?' — '+payload.name:'');
+    var body = (payload.name||'Someone')+' is composing a journey and open to company.\n\n'
+      + 'Reach them at: '+(payload.contact||'(not given)')+'\n\n'
+      + 'The journey they imagine:\n'+(payload.journey||'(left open)');
+    window.location.href = 'mailto:hola@enkiama.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    // show the thank-you
+    document.getElementById('scWriting').style.display='none';
+    document.getElementById('scThanks').classList.add('show');
+    window.scrollTo({top: document.querySelector('.sc-wrap').offsetTop - 120, behavior:'smooth'});
+  });
+})();
+</script>
+<style>
+.grain-layer{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.02;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");}
+</style>
+<script>
+(function(){
+  if(!document.querySelector('.grain-layer')){
+    var el=document.createElement('div');el.className='grain-layer';document.body.appendChild(el);
+  }
+})();
+</script>
+
+<!-- ENKIAMA_TIER1_START -->
+<style>
+/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
+
+/* Custom cursor */
+@media (hover:hover) and (pointer:fine){
+  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
+    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
+    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
+    mix-blend-mode:difference;will-change:transform;}
+  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
+  .t1-cursor.t1-hide{opacity:0;}
+  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
+    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
+    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
+  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
+  /* hide default cursor on interactive elements when custom is active */
+  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
+}
+
+/* Split-text reveal: each word/line rises into place */
+.t1-line{display:block;overflow:hidden;}
+.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
+  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
+.t1-word.t1-in{transform:translateY(0);opacity:1;}
+
+/* Magnetic buttons */
+.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
+
+@media (prefers-reduced-motion:reduce){
+  .t1-word{transform:none;opacity:1;transition:none;}
+  .t1-cursor,.t1-ring{display:none;}
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ── 1. LENIS SMOOTH SCROLL ── */
+  function initLenis(){
+    if(reduce || typeof Lenis==='undefined') return null;
+    try{
+      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
+      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
+      requestAnimationFrame(raf);
+      // keep anchor links working
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
+      });
+      return lenis;
+    }catch(e){return null;}
+  }
+  // wait for Lenis script to load
+  if(document.readyState!=='loading') setTimeout(initLenis,50);
+  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
+
+  /* ── 2. CUSTOM CURSOR ── */
+  if(fine && !reduce){
+    var dot=document.createElement('div');dot.className='t1-cursor';
+    var ring=document.createElement('div');ring.className='t1-ring';
+    document.body.appendChild(dot);document.body.appendChild(ring);
+    document.body.classList.add('t1-cursor-on');
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
+    // grow over interactive elements
+    function bindHover(){
+      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
+        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
+        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
+        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
+      });
+    }
+    bindHover();
+    // hide when leaving window
+    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
+    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
+    // re-bind after menu opens (dynamic content)
+    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
+  }
+
+  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
+  if(!reduce){
+    // target the big serif headings; wrap words in spans
+    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
+    heads.forEach(function(h){
+      if(h.dataset.t1split)return;h.dataset.t1split=1;
+      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
+      var html=h.innerHTML;
+      // split on spaces but keep tags intact - simple approach: wrap text between tags
+      var parts=html.split(/(<[^>]+>)/);
+      var out=parts.map(function(p){
+        if(p.startsWith('<')||p.trim()==='')return p;
+        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
+      }).join('');
+      h.innerHTML=out;
+    });
+    var words=document.querySelectorAll('.t1-word');
+    if(words.length){
+      var wo=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
+            var idx=siblings.indexOf(e.target);
+            e.target.style.transitionDelay=(idx*0.04)+'s';
+            e.target.classList.add('t1-in');
+            wo.unobserve(e.target);
+          }
+        });
+      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
+      words.forEach(function(w){wo.observe(w);});
+    }
+  }
+
+  /* ── 4. MAGNETIC BUTTONS ── */
+  if(fine && !reduce){
+    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
+      btn.classList.add('t1-magnetic');
+      btn.addEventListener('mousemove',function(e){
+        var r=btn.getBoundingClientRect();
+        var x=(e.clientX-r.left-r.width/2)*0.25;
+        var y=(e.clientY-r.top-r.height/2)*0.25;
+        btn.style.transform='translate('+x+'px,'+y+'px)';
+      });
+      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
+    });
+  }
+})();
+</script>
+<!-- ENKIAMA_TIER1_END -->
+
+<!-- ENKIAMA_PAGETRANS_START -->
+<style>
+/* Cross-document view transitions (modern browsers) */
+@view-transition{navigation:auto;}
+::view-transition-old(root){animation:pt-fade-out .4s cubic-bezier(.4,0,.2,1) both;}
+::view-transition-new(root){animation:pt-fade-in .5s cubic-bezier(.16,1,.3,1) both;}
+@keyframes pt-fade-out{to{opacity:0;transform:translateY(-8px);}}
+@keyframes pt-fade-in{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* JS-fallback fade veil for browsers without cross-doc VT */
+.pt-veil{position:fixed;inset:0;z-index:99990;background:var(--ink,#0F1712);opacity:0;pointer-events:none;
+  transition:opacity .45s cubic-bezier(.4,0,.2,1);}
+.pt-veil.pt-show{opacity:1;pointer-events:all;}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none;}
+  .pt-veil{transition:none;}
+}
+</style>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  // If browser supports cross-document view transitions, the @view-transition CSS handles it. Done.
+  var supportsCrossDoc = 'CSSViewTransitionRule' in window || (window.CSS && CSS.supports && CSS.supports('view-transition-name: none'));
+  // Fallback: for internal links, fade out via veil before navigating
+  if(reduce) return;
+  var veil=document.createElement('div');veil.className='pt-veil';document.body.appendChild(veil);
+  // only intercept same-origin internal .html links
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a');
+    if(!a)return;
+    var href=a.getAttribute('href');
+    if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')||a.target==='_blank')return;
+    // only .html or internal pages
+    if(!/\.html($|\?|#)/.test(href) && href!=='/' && !href.startsWith('/'))return;
+    // if cross-doc VT is natively supported, let the browser handle it (don't double up)
+    if(document.startViewTransition && supportsCrossDoc) return;
+    // otherwise do the veil fade
+    e.preventDefault();
+    veil.classList.add('pt-show');
+    setTimeout(function(){window.location.href=href;},420);
+  });
+  // fade veil OUT on page load (arriving)
+  window.addEventListener('pageshow',function(){veil.classList.remove('pt-show');});
+})();
+</script>
+<!-- ENKIAMA_PAGETRANS_END -->
+
+</body>
+</html>
