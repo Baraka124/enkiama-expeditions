@@ -2454,6 +2454,29 @@ body.eh-locked{overflow:hidden;}
   prev.addEventListener('click',()=>goTo(cur-1));
   next.addEventListener('click',()=>goTo(cur+1));
 
+  // ── AMBIENT START: the worlds greet you differently by the hour, and vary by visit ──
+  // Not an auto-carousel — just where the gallery *begins*. The visitor stays in full control.
+  (function ambientStart(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hr = new Date().getHours();
+    // time-of-day affinity: which world suits the light right now
+    // dawn(cool mountain) · midday(open savanna) · afternoon(deep crater) · dusk(warm culture) · night(coast under stars)
+    var byHour;
+    if (hr < 8)       byHour = 0;   // Mountain — cool dawn
+    else if (hr < 12) byHour = 1;   // Savanna — bright morning
+    else if (hr < 16) byHour = 2;   // Crater — deep afternoon
+    else if (hr < 20) byHour = 3;   // Culture — warm dusk
+    else              byHour = 4;   // Coast — night by the water
+    // gentle per-visit variation so a returning visitor isn't always met by the same world:
+    // nudge by a day-seed, but keep it near the hour's affinity (±1), never jarring
+    var daySeed = new Date().getDate() % 3;      // 0,1,2
+    var start = (byHour + (daySeed === 2 ? 1 : 0)) % total;
+    if (start !== 0) {
+      // jump instantly to the chosen starting world (no animation on load)
+      goTo(start, false);
+    }
+  })();
+
   // drag to scroll
   let drag=false,sx=0,sl=0;
   track.addEventListener('mousedown',e=>{drag=true;sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;track.classList.add('grabbing');});
