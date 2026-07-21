@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Companions — Open Journeys & travelling together — Enkiama Tanzania</title>
-<meta name="description" content="Some journeys are composed for one group. Others open a few seats to the right company. For the traveller who wants Tanzania, and the right people to share it with.">
-<link rel="canonical" href="https://enkiama.com/companions.html">
+<title>Kilimanjaro — climbed the right way — Enkiama Tanzania</title>
+<meta name="description" content="An ethical, unhurried Kilimanjaro climb: more days, proper acclimatisation, honest route advice, and a crew paid fairly and named. Fewer people, done well — not the most people, done fast.">
+<link rel="canonical" href="https://enkiama.com/kilimanjaro.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -20,114 +20,79 @@
 html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;hanging-punctuation:first last;scroll-behavior:smooth;}
 body{
   background:
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(30,43,28,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(120,140,160,0.06) 0%, transparent 55%),
     linear-gradient(168deg,#0C1410 0%,#0F1712 50%,#131C16 100%);
   color:var(--bone);font-family:'Instrument Sans',sans-serif;
   font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
 }
 ::selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
 ::-moz-selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:1px solid rgba(190,158,104,0.5);outline-offset:3px;}
+a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);outline-offset:3px;}
 
 /* ── HERO ── */
-.c-hero{text-align:center;padding:clamp(6rem,14vh,10rem) 1.5rem 3rem;max-width:760px;margin:0 auto;}
-.c-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.34em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;}
-.c-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance;margin-bottom:1.8rem;}
-.c-title em{font-style:italic;color:var(--sage);}
-.c-lede{font-size:clamp(1.05rem,2.3vw,1.18rem);line-height:1.75;color:var(--bone3);max-width:52ch;margin:0 auto;text-wrap:pretty;}
+.k-hero{position:relative;min-height:78vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(3rem,8vh,6rem) clamp(1.5rem,5vw,4rem) clamp(3rem,7vh,5rem);overflow:hidden;}
+.k-hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.k-hero-photo .ph-frame{position:absolute;inset:0;}
+.k-hero-photo .ph-frame img{width:100%;height:100%;object-fit:cover;}
+.k-hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(0deg, rgba(8,12,9,0.85) 0%, rgba(8,12,9,0.4) 45%, rgba(8,12,9,0.25) 100%);}
+.k-hero-inner{position:relative;z-index:2;max-width:820px;}
+.k-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.32em;font-size:11px;color:var(--earth);margin-bottom:1.5rem;}
+.k-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.3rem,7vw,4.4rem);line-height:1.05;letter-spacing:-0.03em;text-wrap:balance;margin-bottom:1.6rem;}
+.k-title em{font-style:italic;color:var(--sage);}
+.k-hero-lede{font-size:clamp(1.05rem,2.3vw,1.2rem);line-height:1.7;color:var(--bone2);max-width:54ch;text-wrap:pretty;}
 
-/* the thesis line */
-.c-thesis{text-align:center;padding:clamp(3rem,7vh,5rem) 1.5rem;max-width:640px;margin:0 auto;}
-.c-thesis p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,2rem);line-height:1.4;color:var(--bone);text-wrap:balance;}
+/* ── generic section ── */
+.k-sec{max-width:760px;margin:0 auto;padding:clamp(4rem,9vh,7rem) clamp(1.5rem,4vw,2rem);}
+.k-sec-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.28em;font-size:11px;color:var(--earth);margin-bottom:1.4rem;}
+.k-sec-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,4.5vw,2.7rem);line-height:1.15;letter-spacing:-0.02em;color:var(--bone);text-wrap:balance;margin-bottom:1.8rem;}
+.k-sec-title em{font-style:italic;color:var(--sage);}
+.k-p{font-size:clamp(1.05rem,2.3vw,1.18rem);line-height:1.8;color:var(--bone3);margin-bottom:1.5rem;text-wrap:pretty;}
+.k-p:last-child{margin-bottom:0;}
+.k-p strong{color:var(--bone);font-weight:400;}
+.k-rule{width:60px;height:1px;background:linear-gradient(90deg,var(--earth),transparent);margin:0 0 2.2rem;}
 
-/* ── section shell ── */
-.c-section{max-width:900px;margin:0 auto;padding:clamp(3rem,7vh,5rem) clamp(1.5rem,4vw,2rem);}
-.c-sec-head{max-width:620px;margin:0 auto 3.5rem;text-align:center;}
-.c-sec-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.28em;font-size:11px;color:var(--earth);margin-bottom:1.3rem;}
-.c-sec-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.18;letter-spacing:-0.02em;color:var(--bone);text-wrap:balance;margin-bottom:1.3rem;}
-.c-sec-body{font-size:clamp(1rem,2.2vw,1.1rem);line-height:1.75;color:var(--bone3);text-wrap:pretty;}
-.c-divider{width:1px;height:60px;margin:0 auto;background:linear-gradient(var(--earth),transparent);opacity:.4;}
+/* the stance — a pulled statement */
+.k-stance{background:rgba(24,35,27,0.3);border-left:1px solid rgba(190,158,104,0.3);
+  padding:clamp(1.8rem,4vw,2.6rem) clamp(1.8rem,4vw,2.8rem);margin:2.5rem 0;}
+.k-stance p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.45;color:var(--bone);text-wrap:pretty;}
 
-/* ── OPEN JOURNEYS cards ── */
-.oj-grid{display:flex;flex-direction:column;gap:2.5rem;}
-.oj-card{border:1px solid var(--rule);border-radius:2px;padding:clamp(1.8rem,4vw,2.6rem);
-  background:linear-gradient(168deg, rgba(24,35,27,0.35), rgba(15,23,18,0.15));
-  position:relative;overflow:hidden;transition:border-color .5s ease;}
-.oj-card:hover{border-color:rgba(190,158,104,0.28);}
-.oj-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;
-  background:linear-gradient(90deg,var(--earth),transparent);transform:scaleX(0);transform-origin:left;
-  transition:transform 1s cubic-bezier(.16,1,.3,1);}
-.oj-card.in::before{transform:scaleX(1);}
-.oj-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.8rem;margin-bottom:1.3rem;}
-.oj-season{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--earth);}
-.oj-seats{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--muted);}
-.oj-name{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.25;color:var(--bone);margin-bottom:1rem;letter-spacing:-0.01em;}
-.oj-for{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.05rem,2.3vw,1.2rem);line-height:1.5;color:var(--sage);margin-bottom:1.4rem;}
-.oj-desc{font-size:1rem;line-height:1.7;color:var(--bone3);margin-bottom:1.8rem;text-wrap:pretty;}
-.oj-route{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1.8rem;}
-.oj-stop{font-variant-caps:all-small-caps;letter-spacing:.12em;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:1rem;}
-.oj-stop:not(:last-child)::after{content:'·';color:var(--earth);opacity:.5;}
-.oj-ask{display:inline-flex;align-items:center;gap:.5rem;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;
+/* porter welfare — the wedge, given weight */
+.k-porters{background:linear-gradient(168deg, rgba(24,35,27,0.4), rgba(15,23,18,0.2));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+
+/* the honest-route + days comparison */
+.k-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2rem;margin-top:2.5rem;}
+.k-col{border:1px solid var(--rule);border-radius:2px;padding:1.8rem;}
+.k-col-h{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--bone);margin-bottom:.9rem;line-height:1.3;}
+.k-col-p{font-size:.98rem;line-height:1.65;color:var(--bone3);}
+.k-col-tag{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:10px;color:var(--earth);margin-bottom:1rem;}
+
+/* commitments list */
+.k-commit{list-style:none;display:flex;flex-direction:column;gap:1.3rem;margin-top:2rem;}
+.k-commit li{display:flex;gap:1.1rem;align-items:flex-start;font-size:clamp(1rem,2.2vw,1.1rem);line-height:1.6;color:var(--bone3);}
+.k-commit li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--earth);margin-top:.6rem;opacity:.7;}
+.k-commit strong{color:var(--bone);font-weight:400;}
+
+/* CTA */
+.k-cta{text-align:center;padding:clamp(4rem,9vh,7rem) 1.5rem;border-top:1px solid var(--rule);max-width:640px;margin:0 auto;}
+.k-cta-txt{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.5;color:var(--bone3);margin-bottom:2.2rem;text-wrap:balance;}
+.k-cta-links{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;}
+.k-link{display:inline-flex;align-items:center;gap:.5rem;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;
   color:var(--earth);text-decoration:none;position:relative;padding-bottom:3px;}
-.oj-ask::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+.k-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
   background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0.2));transform:scaleX(0);transform-origin:left;
   transition:transform .5s cubic-bezier(.16,1,.3,1);}
-.oj-ask:hover::after{transform:scaleX(1);}
-.oj-none{text-align:center;font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:1.1rem;line-height:1.6;}
-
-/* ── SEEKING COMPANIONS form ── */
-.sc-wrap{max-width:640px;margin:0 auto;}
-.sc-note{text-align:center;font-family:'Fraunces',serif;font-style:italic;color:var(--bone3);font-size:clamp(1rem,2.2vw,1.15rem);line-height:1.7;margin-bottom:3rem;text-wrap:pretty;}
-.sc-form{display:flex;flex-direction:column;gap:1.6rem;}
-.sc-row{display:flex;gap:1.6rem;flex-wrap:wrap;}
-.sc-row .sc-field{flex:1;min-width:200px;}
-.sc-label{display:block;font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--earth);margin-bottom:.7rem;}
-.sc-in{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(190,158,104,0.22);border-radius:0;
-  color:var(--bone);font-family:'Instrument Sans',sans-serif;font-size:1.05rem;padding:.8rem .2rem;
-  transition:border-color .5s cubic-bezier(.16,1,.3,1);}
-.sc-in::placeholder{color:var(--muted);opacity:.55;}
-.sc-in:focus{outline:none;border-color:rgba(190,158,104,0.6);}
-textarea.sc-in{font-family:'Fraunces',serif;font-size:clamp(1.1rem,2.5vw,1.25rem);line-height:1.7;resize:none;min-height:120px;
-  border:1px solid rgba(190,158,104,0.14);border-radius:2px;padding:1.2rem 1.3rem;background:rgba(20,28,22,0.35);}
-textarea.sc-in::placeholder{font-style:italic;}
-textarea.sc-in:focus{border-color:rgba(190,158,104,0.4);background:rgba(24,35,27,0.55);}
-.sc-send{align-self:center;margin-top:1rem;background:none;border:none;color:var(--bone);cursor:pointer;
-  font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;
-  padding:.6rem 0;position:relative;transition:color .4s;}
-.sc-send::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
-  background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0.2));transform:scaleX(0);transform-origin:left;
-  transition:transform .6s cubic-bezier(.16,1,.3,1);}
-.sc-send:hover{color:var(--earth);}
-.sc-send:hover::after{transform:scaleX(1);}
-.sc-send:disabled{opacity:.4;cursor:not-allowed;}
-.sc-promise{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;line-height:1.7;color:var(--muted);margin-top:1.8rem;max-width:46ch;margin-left:auto;margin-right:auto;}
-
-/* thank-you */
-.sc-thanks{display:none;text-align:center;padding:3rem 0;}
-.sc-thanks.show{display:block;}
-.sc-thanks-mark{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--sage);line-height:1.3;margin-bottom:1.2rem;text-wrap:balance;}
-.sc-thanks-txt{font-size:1.05rem;line-height:1.7;color:var(--bone3);max-width:44ch;margin:0 auto;}
-
-/* how-it-works trust row */
-.c-trust{max-width:820px;margin:0 auto;padding:clamp(3rem,7vh,5rem) clamp(1.5rem,4vw,2rem);}
-.c-trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.5rem;}
-.c-trust-item{}
-.c-trust-n{font-family:'Fraunces',serif;font-style:italic;color:var(--earth);font-size:1.3rem;margin-bottom:.8rem;}
-.c-trust-h{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--bone);margin-bottom:.6rem;line-height:1.3;}
-.c-trust-p{font-size:.95rem;line-height:1.65;color:var(--bone3);}
-
-/* footer return */
-.c-foot{text-align:center;padding:4rem 1.5rem 6rem;border-top:1px solid var(--rule);max-width:600px;margin:0 auto;}
-.c-foot-txt{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.35rem);line-height:1.5;color:var(--bone3);margin-bottom:2rem;text-wrap:pretty;}
-.c-back{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;color:var(--earth);text-decoration:none;transition:opacity .3s;}
-.c-back:hover{opacity:.7;}
+.k-link:hover::after{transform:scaleX(1);}
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
 .reveal.in{opacity:1;transform:translateY(0);}
-@media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none;}
-  .oj-card::before{transform:scaleX(1);}
-}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* photo placeholder look (dark panel until real photo drops in) */
+.ph-frame{background:#141c17;}
+.ph-frame img{opacity:0;transition:opacity 1.2s ease;}
+.ph-frame img.ph-loaded{opacity:1;}
 </style>
 </head>
 <body>
@@ -319,184 +284,117 @@ body.eh-locked{overflow:hidden;}
 <!-- ENKIAMA_HEADER_END -->
 
 
-<section class="c-hero">
-  <p class="c-eyebrow">Companions</p>
-  <h1 class="c-title">Some journeys are composed for one group.<br>Others open a few seats to <em>the right company.</em></h1>
-  <p class="c-lede">For the traveller who wants Tanzania, and the right people to share it with. We compose the company as carefully as we compose the journey.</p>
-</section>
-
-<div class="c-thesis">
-  <p>Not a group tour. A small circle of people who would have chosen each other, had they met first.</p>
-</div>
-
-<div class="c-divider"></div>
-
-<!-- ── OPEN JOURNEYS ── -->
-<section class="c-section">
-  <div class="c-sec-head reveal">
-    <p class="c-sec-eyebrow">Open journeys</p>
-    <h2 class="c-sec-title">A few composed journeys, with room for the right people.</h2>
-    <p class="c-sec-body">Now and then we compose a journey with a particular character &mdash; a season, a pace, a way of seeing &mdash; and open two or three seats. Because the journey&rsquo;s spirit is set, the people who join tend to belong together. These are rare, and small, and never a catalogue.</p>
-    <p class="c-sec-body" style="margin-top:1rem;font-style:italic;color:var(--muted);font-size:0.95rem;">The journeys below show the kind we open. When a season is live, its seats are real &mdash; write to us and we will tell you what is open now.</p>
+<!-- ── HERO ── -->
+<section class="k-hero">
+  <div class="k-hero-photo">
+    <div class="ph-frame"><img data-src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro at dawn, summit above the cloud"></div>
   </div>
-
-  <div class="oj-grid" id="ojGrid">
-    <!-- rendered from data -->
+  <div class="k-hero-scrim"></div>
+  <div class="k-hero-inner">
+    <p class="k-eyebrow">Kilimanjaro</p>
+    <h1 class="k-title">The mountain is not a<br>race to the top. <em>We climb it<br>the way it deserves.</em></h1>
+    <p class="k-hero-lede">Africa&rsquo;s highest point rewards patience, not speed. We compose a climb around acclimatisation, honesty, and a crew who are paid and treated as they should be &mdash; because how you reach the summit matters as much as whether you do.</p>
   </div>
 </section>
 
-<div class="c-divider"></div>
-
-<!-- ── SEEKING COMPANIONS ── -->
-<section class="c-section">
-  <div class="c-sec-head reveal">
-    <p class="c-sec-eyebrow">Journeys seeking companions</p>
-    <h2 class="c-sec-title">Composing a journey, and open to company?</h2>
-    <p class="c-sec-body">If you are planning a journey of your own and would welcome the right people alongside you, tell us. We hold these quietly, and introduce travellers only where we sense a genuine fit &mdash; in temperament, in pace, in what pulls them to Tanzania. You are never posted to a board. You are considered, by a person, with care.</p>
+<!-- ── THE STANCE ── -->
+<section class="k-sec">
+  <p class="k-sec-eyebrow reveal">Where we stand</p>
+  <h2 class="k-sec-title reveal">Fewer people. More days.<br>Done <em>properly.</em></h2>
+  <div class="k-rule reveal"></div>
+  <p class="k-p reveal">There is an industry around this mountain that measures itself in numbers &mdash; how many climbers, how fast, how cheaply. We understand the appeal. We simply do not build our climbs that way.</p>
+  <p class="k-p reveal">A climb rushed to save a day or two is a climb more likely to fail, and more likely to make you ill. The body needs time to meet the altitude. So we add the days that give you the best true chance of standing on the summit &mdash; and the best chance of enjoying the climb that gets you there. <strong>More days is not us selling you more. It is the honest way up.</strong></p>
+  <div class="k-stance reveal">
+    <p>We would rather put fewer people on the summit, well, than the most people on the summit, fast.</p>
   </div>
+</section>
 
-  <div class="sc-wrap">
-    <div class="sc-writing" id="scWriting">
-      <p class="sc-note">Tell us a little about the journey you imagine, and the kind of company that would make it richer.</p>
-      <div class="sc-form">
-        <div class="sc-row">
-          <div class="sc-field">
-            <label class="sc-label" for="scName">Your name</label>
-            <input class="sc-in" id="scName" type="text" placeholder="How you'd like to be known">
-          </div>
-          <div class="sc-field">
-            <label class="sc-label" for="scContact">Email or WhatsApp</label>
-            <input class="sc-in" id="scContact" type="text" placeholder="However you prefer">
-          </div>
-        </div>
-        <div class="sc-field">
-          <label class="sc-label" for="scJourney">The journey you imagine</label>
-          <textarea class="sc-in" id="scJourney" placeholder="A season, a pace, the worlds that call to you, who you are travelling as &mdash; and the kind of company you'd hope to find."></textarea>
-        </div>
-        <button class="sc-send" id="scSend">Send to Baraka</button>
-        <p class="sc-promise">Baraka reads every message personally. We introduce people only where the fit feels real &mdash; and speak with each traveller first. Nothing is ever automated, and no one is ever posted publicly.</p>
-      </div>
+<!-- ── PORTER WELFARE — the wedge ── -->
+<section class="k-porters">
+  <div class="k-sec">
+    <p class="k-sec-eyebrow reveal">The people who carry the mountain</p>
+    <h2 class="k-sec-title reveal">A climb is only as honest as<br>the way it treats its <em>crew.</em></h2>
+    <div class="k-rule reveal"></div>
+    <p class="k-p reveal">No one summits Kilimanjaro alone. Behind every climber is a team &mdash; guides, cooks, and porters carrying what makes the mountain survivable. It is one of the hardest jobs in Tanzania, and across much of this industry it is quietly one of the worst paid, with loads too heavy, wages too low, and gear too thin for the cold up high.</p>
+    <p class="k-p reveal">We will not build a climb on that. <strong>Every porter and guide on an Enkiama climb is paid a fair wage, carries a fair load, and is properly equipped for the altitude</strong> &mdash; and we tell you who they are, by name, as we do with every partner in every journey. The people who carry your climb are not invisible labour. They are the reason you make it.</p>
+    <p class="k-p reveal">If an operator cannot tell you honestly how their crew is paid and treated, that silence is your answer. We would rather you ask us the hard question &mdash; and we will answer it plainly.</p>
+  </div>
+</section>
+
+<!-- ── HONEST ROUTES ── -->
+<section class="k-sec">
+  <p class="k-sec-eyebrow reveal">The route that fits you</p>
+  <h2 class="k-sec-title reveal">The shortest route is not<br>the same as the <em>right</em> one.</h2>
+  <div class="k-rule reveal"></div>
+  <p class="k-p reveal">There is a reason some operators steer everyone toward the quickest, cheapest path up the mountain: it moves more people, faster. But the shortest routes often carry the lowest success rates and the least time to acclimatise.</p>
+  <p class="k-p reveal">We choose the route around <strong>you</strong> &mdash; your fitness, your time, your experience, the season &mdash; not around our margin. Sometimes that means a longer, gentler line with better odds and finer scenery. Sometimes it means telling you honestly that now is not the moment, or that a different mountain, or the slopes rather than the summit, would serve you better.</p>
+  <div class="k-cols">
+    <div class="k-col reveal">
+      <span class="k-col-tag">The common way</span>
+      <p class="k-col-h">The shortest line, for everyone</p>
+      <p class="k-col-p">Fewer days, lower cost, more departures &mdash; and, quietly, lower success and less time to adjust to the height.</p>
     </div>
-
-    <div class="sc-thanks" id="scThanks">
-      <p class="sc-thanks-mark">Your journey is with us.</p>
-      <p class="sc-thanks-txt">We will sit with it, and write back &mdash; whether that is an introduction, an open journey that might suit you, or simply the beginning of composing your own.</p>
+    <div class="k-col reveal">
+      <span class="k-col-tag">The Enkiama way</span>
+      <p class="k-col-h">The right line, for you</p>
+      <p class="k-col-p">The route matched to your body and your season, with the days acclimatisation actually needs. Composed for the summit &mdash; and for the climb itself.</p>
     </div>
   </div>
 </section>
 
-<!-- ── HOW IT WORKS / TRUST ── -->
-<div class="c-trust reveal">
-  <div class="c-trust-grid">
-    <div class="c-trust-item">
-      <p class="c-trust-n">i</p>
-      <p class="c-trust-h">We match on character, not convenience</p>
-      <p class="c-trust-p">Temperament, pace, and what draws someone to Tanzania matter more than dates. The company is composed, not assembled.</p>
-    </div>
-    <div class="c-trust-item">
-      <p class="c-trust-n">ii</p>
-      <p class="c-trust-h">A person, never a platform</p>
-      <p class="c-trust-p">Every introduction is made by hand, after a conversation with each traveller. There is no board, no listing, no algorithm.</p>
-    </div>
-    <div class="c-trust-item">
-      <p class="c-trust-n">iii</p>
-      <p class="c-trust-h">You are always free to say no</p>
-      <p class="c-trust-p">An introduction is only ever an introduction. If the fit is not right for you, it does not happen. Your own journey remains yours.</p>
-    </div>
-  </div>
-</div>
+<!-- ── YOU DON'T NEED TO SUMMIT (repositioned) ── -->
+<section class="k-sec">
+  <p class="k-sec-eyebrow reveal">Two ways to be changed by it</p>
+  <h2 class="k-sec-title reveal">We will get you to the top,<br>if the top is your dream.</h2>
+  <div class="k-rule reveal"></div>
+  <p class="k-p reveal">And we will tell you, just as honestly, that the mountain gives as much to those who never intend to summit it. Its southern slopes hold the Chagga farms and coffee that have shaped this region for centuries. Its forests, its moorland, its silence rearrange your sense of scale whether or not you reach the ice.</p>
+  <p class="k-p reveal">So we offer both, with a view: <strong>the summit for those who came for it, and the mountain for those who came to understand it.</strong> Neither is the lesser journey. Both are Kilimanjaro.</p>
+</section>
 
-<div class="c-foot">
-  <p class="c-foot-txt">Whether you travel alone, as two, or as a circle still forming &mdash; the journey begins the same way.</p>
-  <a class="c-back" href="begin.html">Begin a conversation &rarr;</a>
+<!-- ── WHAT YOU CAN EXPECT ── -->
+<section class="k-sec">
+  <p class="k-sec-eyebrow reveal">On every Enkiama climb</p>
+  <h2 class="k-sec-title reveal">What holds, always.</h2>
+  <ul class="k-commit">
+    <li class="reveal"><span><strong>The days acclimatisation needs</strong> &mdash; we build the climb around your safest true chance of the summit, not around a lower price.</span></li>
+    <li class="reveal"><span><strong>A fairly paid, fairly loaded, properly equipped crew</strong> &mdash; named to you, as every partner is.</span></li>
+    <li class="reveal"><span><strong>The route chosen for you</strong> &mdash; your fitness, season, and time, never our margin.</span></li>
+    <li class="reveal"><span><strong>Honest odds</strong> &mdash; we tell you plainly what to expect of the altitude, and when not to attempt it.</span></li>
+    <li class="reveal"><span><strong>The mountain&rsquo;s people, not only its peak</strong> &mdash; the Chagga slopes and coffee are part of the journey, if you wish them.</span></li>
+    <li class="reveal"><span><strong>Small</strong> &mdash; we take few climbers at a time, so the care never thins.</span></li>
+  </ul>
+</section>
+
+<!-- ── CTA ── -->
+<div class="k-cta">
+  <p class="k-cta-txt">Whether you dream of the summit or the slopes, the climb begins the same way &mdash; with an honest conversation.</p>
+  <div class="k-cta-links">
+    <a class="k-link" href="begin.html">Begin a conversation &rarr;</a>
+    <a class="k-link" href="companions.html">Climb with companions &rarr;</a>
+  </div>
 </div>
 
 <script>
-/* ─────────────────────────────────────────────
-   OPEN JOURNEYS DATA
-   When Supabase is connected: replace this array with a fetch of
-   `open_journeys` where status = 'open'. Shape below.
-   For now, these are illustrative — replace with real ones as they open.
-   ───────────────────────────────────────────── */
-var OPEN_JOURNEYS = [
-  {
-    season:'October', name:'A slow Serengeti, for those who\u2019d rather watch than tick.',
-    forWhom:'For unhurried travellers who came for the quiet, not the checklist.',
-    seats:'Two seats remain', 
-    desc:'Ten days composed around stillness \u2014 long mornings in the northern corridor, afternoons that are allowed to go nowhere, and the migration met without a schedule. A pace for people who understand that the best moments cannot be hurried.',
-    route:['Serengeti','Ngorongoro','a Chagga table'],
-    status:'open'
-  },
-  {
-    season:'February', name:'Kilimanjaro\u2019s foothills and the coast, gently.',
-    forWhom:'For a small circle drawn to culture and coffee more than the summit.',
-    seats:'Three seats remain',
-    desc:'Not a climb \u2014 a journey around the mountain\u2019s life: the coffee farms of Kibosho, the people who grow what you drink, and then the slow exhale of Zanzibar. Composed for those who travel to understand a place, not to conquer it.',
-    route:['Kibosho','Materuni','Zanzibar'],
-    status:'open'
-  }
-];
-
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* render open journeys */
-  var grid = document.getElementById('ojGrid');
-  var open = OPEN_JOURNEYS.filter(function(j){return j.status==='open';});
-  if (open.length === 0){
-    grid.innerHTML = '<p class="oj-none">No open journeys at this moment. Tell us what you imagine, and we will let you know when one aligns \u2014 or compose one around you.</p>';
-  } else {
-    grid.innerHTML = open.map(function(j){
-      return '<article class="oj-card reveal">'
-        + '<div class="oj-top"><span class="oj-season">'+j.season+'</span><span class="oj-seats">'+j.seats+'</span></div>'
-        + '<h3 class="oj-name">'+j.name+'</h3>'
-        + '<p class="oj-for">'+j.forWhom+'</p>'
-        + '<p class="oj-desc">'+j.desc+'</p>'
-        + '<div class="oj-route">'+j.route.map(function(s){return '<span class="oj-stop">'+s+'</span>';}).join('')+'</div>'
-        + '<a class="oj-ask" href="begin.html">Ask about this journey &rarr;</a>'
-        + '</article>';
-    }).join('');
-  }
-
   /* reveal on scroll */
-  function observeReveals(){
-    var els = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)){
-      els.forEach(function(e){e.classList.add('in');}); return;
-    }
+  var els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('in');});
+  } else {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
+    }, {threshold:0.14, rootMargin:'0px 0px -6% 0px'});
     els.forEach(function(e){io.observe(e);});
   }
-  observeReveals();
-
-  /* seeking-companions submit */
-  var send = document.getElementById('scSend');
-  var journey = document.getElementById('scJourney');
-  function upd(){ send.disabled = journey.value.trim().length < 15; }
-  journey.addEventListener('input', upd); upd();
-
-  send.addEventListener('click', function(){
-    var payload = {
-      name: document.getElementById('scName').value.trim(),
-      contact: document.getElementById('scContact').value.trim(),
-      journey: journey.value.trim(),
-      submitted_at: new Date().toISOString()
-    };
-    // ── BACKEND HOOK ──
-    // When Supabase is connected: POST payload to a `companions` table (status:'pending'),
-    // and notify Baraka. For now, open a pre-filled message to Enkiama.
-    var subject = 'Journeys seeking companions'+(payload.name?' — '+payload.name:'');
-    var body = (payload.name||'Someone')+' is composing a journey and open to company.\n\n'
-      + 'Reach them at: '+(payload.contact||'(not given)')+'\n\n'
-      + 'The journey they imagine:\n'+(payload.journey||'(left open)');
-    window.location.href = 'mailto:hola@enkiama.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    // show the thank-you
-    document.getElementById('scWriting').style.display='none';
-    document.getElementById('scThanks').classList.add('show');
-    window.scrollTo({top: document.querySelector('.sc-wrap').offsetTop - 120, behavior:'smooth'});
-  });
+  /* lazy-load hero photo when a real file exists */
+  var img = document.querySelector('.k-hero-photo img[data-src]');
+  if (img){
+    var real = new Image();
+    real.onload = function(){ img.src = img.dataset.src; img.classList.add('ph-loaded'); };
+    real.onerror = function(){ /* placeholder dark panel stays — no broken image */ };
+    real.src = img.dataset.src;
+  }
 })();
 </script>
 <style>
