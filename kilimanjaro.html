@@ -127,13 +127,23 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
       "contactPoint": {"@type":"ContactPoint","contactType":"customer service","email":"hola@enkiama.com","availableLanguage":["English","Spanish","Swahili"]}
     },
     {
-      "@type": "TouristAttraction",
-      "@id": "https://enkiama.com/kilimanjaro.html#page",
+      "@type": "TouristTrip",
+      "@id": "https://enkiama.com/kilimanjaro.html#trip",
       "url": "https://enkiama.com/kilimanjaro.html",
-      "name": "Kilimanjaro — Climbed the Right Way — Enkiama Tanzania",
-      "description": "An ethical, unhurried Kilimanjaro climb: more days, proper acclimatisation, honest route advice, and a crew paid fairly and named. Fewer people, done well — not the most people, done fast.",
+      "name": "Kilimanjaro — Climbed the Right Way",
+      "description": "An ethical, unhurried Kilimanjaro climb: more days for proper acclimatisation, honest route advice matched to you, and a mountain crew paid a fair wage, kept to a fair load, and named to you.",
+      "provider": {"@id": "https://enkiama.com/#organization"},
       "isPartOf": {"@id": "https://enkiama.com/#organization"},
-      "about": "An ethical, unhurried Kilimanjaro climb — proper acclimatisation, honest route advice, and a fairly paid, named crew.",
+      "touristType": ["Ethical trekkers","Small groups","Solo travellers","Culturally curious travellers"],
+      "itinerary": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Route matched to your fitness, time and season"},
+          {"@type":"ListItem","position":2,"name":"Days built for proper acclimatisation"},
+          {"@type":"ListItem","position":3,"name":"Fairly paid, fairly loaded, named mountain crew"},
+          {"@type":"ListItem","position":4,"name":"The mountain's slopes, forests and Chagga culture — summit optional"}
+        ]
+      },
       "inLanguage": "en"
     }
   ]
@@ -272,6 +282,7 @@ body.eh-locked{overflow:hidden;}
     <div class="eh-secondary">
       <span class="eh-sec-lbl">Also</span>
       <a href="how.html">How we work</a>
+      <a href="why.html">Why Enkiama</a>
       <a href="notes.html">Field notes</a>
       <a href="stories.html">Stories</a>
       <a href="reflections.html">Letters</a>
@@ -286,7 +297,7 @@ body.eh-locked{overflow:hidden;}
     <div class="eh-aside-scrim"></div>
     <div class="eh-aside-inner">
       <p class="eh-aside-eyebrow">Curated, never sold</p>
-      <p class="eh-aside-q">Tanzania already knows how to receive you. We just make sure you arrive.</p>
+      <p class="eh-aside-q">Tanzania already knows how to receive you. We make sure you arrive.</p>
       <div class="eh-aside-contact">
         <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
         <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
@@ -361,8 +372,18 @@ body.eh-locked{overflow:hidden;}
     <h2 class="k-sec-title reveal">A climb is only as honest as<br>the way it treats its <em>crew.</em></h2>
     <div class="k-rule reveal"></div>
     <p class="k-p reveal">No one summits Kilimanjaro alone. Behind every climber is a team &mdash; guides, cooks, and porters carrying what makes the mountain survivable. It is one of the hardest jobs in Tanzania, and across much of this industry it is quietly one of the worst paid, with loads too heavy, wages too low, and gear too thin for the cold up high.</p>
-    <p class="k-p reveal">We will not build a climb on that. <strong>Every porter and guide on an Enkiama climb is paid a fair wage, carries a fair load, and is properly equipped for the altitude</strong> &mdash; and we tell you who they are, by name, as we do with every partner in every journey. The people who carry your climb are not invisible labour. They are the reason you make it.</p>
+    <p class="k-p reveal">We will not build a climb on that. <strong>Every porter and guide on an Enkiama climb is paid a fair wage, carries a fair load, and is properly equipped for the altitude</strong> &mdash; and we tell you who they are, by name, as we do with <a href="family.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.4);">every partner in every journey</a>. The people who carry your climb are not invisible labour. They are the reason you make it.</p>
     <p class="k-p reveal">If an operator cannot tell you honestly how their crew is paid and treated, that silence is your answer. We would rather you ask us the hard question &mdash; and we will answer it plainly.</p>
+    <div class="k-standard reveal">
+      <p class="k-standard-eyebrow">What we hold ourselves to</p>
+      <ul class="k-standard-list">
+        <li>A wage set <strong>a quarter above the minimum</strong> advised by the recognised bodies &mdash; for every porter, cook, and guide, paid promptly after the climb, never withheld.</li>
+        <li>A load no porter should exceed &mdash; we keep to the twenty-kilogramme limit, and carry enough crew that no one is overburdened.</li>
+        <li>Three proper meals a day on the mountain, and gear warm enough for the altitude &mdash; not an afterthought, but part of the plan.</li>
+        <li>Every member of the crew named to you, and their tips paid to them in full.</li>
+      </ul>
+      <p class="k-standard-note">These are the terms set by the <a href="https://www.kiliporters.org/" target="_blank" rel="noopener">Kilimanjaro Porters Assistance Project</a> &mdash; the independent body that monitors how climbing crews are treated. We invite you to hold us, and any operator you consider, to them.</p>
+    </div>
   </div>
 </section>
 
@@ -605,6 +626,16 @@ body.eh-locked{overflow:hidden;}
   ::view-transition-old(root),::view-transition-new(root){animation:none;}
   .pt-veil{transition:none;}
 }
+
+/* porter-welfare proof block */
+.k-standard{margin-top:2.5rem;border:1px solid rgba(190,158,104,0.2);border-radius:2px;padding:clamp(1.6rem,4vw,2.3rem);background:rgba(15,23,18,0.35);}
+.k-standard-eyebrow{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--earth);margin-bottom:1.4rem;}
+.k-standard-list{list-style:none;display:flex;flex-direction:column;gap:1.1rem;margin-bottom:1.6rem;}
+.k-standard-list li{display:flex;gap:1rem;align-items:flex-start;font-size:1.02rem;line-height:1.6;color:var(--bone3);}
+.k-standard-list li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--earth);margin-top:.6rem;opacity:.7;}
+.k-standard-note{font-family:'Fraunces',serif;font-style:italic;font-size:.98rem;line-height:1.6;color:var(--muted);}
+.k-standard-note a{color:var(--earth);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);transition:border-color .3s;}
+.k-standard-note a:hover{border-color:var(--earth);}
 </style>
 <script>
 (function(){
