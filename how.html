@@ -956,7 +956,7 @@ body.eh-locked{overflow:hidden;}
 <section class="pricing">
   <div class="pricing-pg">cost</div>
   <div class="pricing-inner">
-    <p class="eye" style="color:var(--ochre);margin-bottom:2rem;">On pricing</p>
+    <p class="eye" style="color:var(--sage);margin-bottom:2rem;">On pricing</p>
     <h2 class="pricing-hed reveal">What it <em>costs</em><br>and what it<br>covers.</h2>
     <div class="pricing-grid">
       <div class="pr-c reveal">
@@ -1407,6 +1407,13 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 .n-logo:hover,.eh-logo:hover{transform:scale(1.03);}
 /* map anchors: stable hover, no layout shift */
 .r-anchor,.r-anchor *{will-change:transform,opacity;}
+
+/* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
+.wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
+.sea-tag,.ask-tag,.pr-c-tag,.ps-tag,.ask-c-tag,.sw-word,.psw-w,.ch-preferred{
+  color:var(--sage,#7A9470) !important;}
+/* .eye is used at both sizes — only lift it when small */
+.eye{color:var(--sage,#7A9470);}
 </style>
 <script>
 (function(){

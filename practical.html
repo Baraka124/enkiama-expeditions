@@ -581,6 +581,13 @@ body.eh-locked{overflow:hidden;}
   ::view-transition-old(root),::view-transition-new(root){animation:none;}
   .pt-veil{transition:none;}
 }
+
+/* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
+.wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
+.sea-tag,.ask-tag,.pr-c-tag,.ps-tag,.ask-c-tag,.sw-word,.psw-w,.ch-preferred{
+  color:var(--sage,#7A9470) !important;}
+/* .eye is used at both sizes — only lift it when small */
+.eye{color:var(--sage,#7A9470);}
 </style>
 <script>
 (function(){

@@ -1055,7 +1055,7 @@ body.eh-locked{overflow:hidden;}
 <section class="seasons">
   <div class="seasons-pg">Season</div>
   <div class="seasons-inner">
-    <p class="eye" style="color:var(--ochre);margin-bottom:2rem;">No off-season: only different gifts</p>
+    <p class="eye" style="color:var(--sage);margin-bottom:2rem;">No off-season: only different gifts</p>
     <h2 class="seasons-hed reveal">Tanzania is worth<br>travelling in <em>every<br>month of the year.</em></h2>
     <p style="font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.9;color:rgba(15,23,18,0.52);max-width:620px;margin:-3rem 0 4rem;" class="reveal">The idea of a single &ldquo;safari season&rdquo; is a convenience invented for catalogues. The land does not empty out in November. It simply changes register: greener, quieter, full of newborn animals, lit differently. The right time to come depends entirely on what you want to witness. Here is the year, honestly.</p>
     <div class="seasons-grid">
@@ -1650,6 +1650,13 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 /* resolve Ken Burns vs hover-zoom conflict: pause KB on card hover so zoom is clean */
 .world-panel:hover .wp-photo-film .ph-frame img.ph-kb,
 .world-row:hover .wr-film .ph-frame img.ph-kb{animation-play-state:paused;}
+
+/* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
+.wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
+.sea-tag,.ask-tag,.pr-c-tag,.ps-tag,.ask-c-tag,.sw-word,.psw-w,.ch-preferred{
+  color:var(--sage,#7A9470) !important;}
+/* .eye is used at both sizes — only lift it when small */
+.eye{color:var(--sage,#7A9470);}
 </style>
 <script>
 (function(){

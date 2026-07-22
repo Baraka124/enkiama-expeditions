@@ -669,6 +669,13 @@ body.eh-locked{overflow:hidden;}
 .k-standard-note{font-family:'Fraunces',serif;font-style:italic;font-size:.98rem;line-height:1.6;color:var(--muted);}
 .k-standard-note a{color:var(--earth);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);transition:border-color .3s;}
 .k-standard-note a:hover{border-color:var(--earth);}
+
+/* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
+.wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
+.sea-tag,.ask-tag,.pr-c-tag,.ps-tag,.ask-c-tag,.sw-word,.psw-w,.ch-preferred{
+  color:var(--sage,#7A9470) !important;}
+/* .eye is used at both sizes — only lift it when small */
+.eye{color:var(--sage,#7A9470);}
 </style>
 <script>
 (function(){
