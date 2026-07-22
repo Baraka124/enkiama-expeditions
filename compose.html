@@ -454,6 +454,7 @@ nav.scrolled::before{ opacity:.035; }
       "image": "https://enkiama.com/assets/enkiama-share.jpg",
       "description": "Curated, bespoke Tanzania safari journeys composed for one group at a time. Private itineraries across the Serengeti, Ngorongoro, Kilimanjaro and Zanzibar, for English- and Spanish-speaking travellers.",
       "slogan": "Curated, never sold.",
+      "foundingDate": "2025-10",
       "knowsLanguage": [
         "en",
         "es",
@@ -786,6 +787,7 @@ body.eh-locked{overflow:hidden;}
       <a href="reflections.html">Letters</a>
       <a href="companions.html">Companions</a>
       <a href="kilimanjaro.html">Kilimanjaro</a>
+      <a href="practical.html">Practical</a>
       <a href="faq.html">Safari FAQ</a>
     </div>
   </div>
@@ -862,7 +864,11 @@ body.eh-locked{overflow:hidden;}
       <span class="cmp-dot active"></span><span class="cmp-dot"></span><span class="cmp-dot"></span><span class="cmp-dot"></span><span class="cmp-dot"></span>
     </div>
 
-    <!-- Q1 -->
+    <div style="text-align:center;margin-bottom:1.5rem;">
+  <button id="cmpBack" style="display:none;background:none;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:11px;color:var(--muted,#95907F);padding:.5rem 0;transition:color .35s ease;">&larr; A step back</button>
+</div>
+
+<!-- Q1 -->
     <div class="cmp-step active" data-step="0">
       <p class="cmp-q">First, the feeling. When you imagine this journey, what are you moving <em>toward?</em></p>
       <div class="cmp-opts">
@@ -926,7 +932,7 @@ body.eh-locked{overflow:hidden;}
         <p class="cmp-handoff-note">This is only the shape. The real journey — the lodges, the timing, the people who guide you — we compose with you, in conversation.</p>
         <div class="hero-acts" style="justify-content:center;">
           <a href="#" id="cmpWhatsapp" class="btn-primary" target="_blank" rel="noopener">Continue on WhatsApp</a>
-          <a href="begin.html" class="btn-ghost">Begin by email &rarr;</a>
+          <a href="begin.html" id="cmpBegin" class="btn-ghost">Carry this into a letter &rarr;</a>
         </div>
         <button class="cmp-restart" id="cmpRestart">Compose a different shape</button>
       </div>
@@ -1065,6 +1071,14 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
     var el=document.querySelector('.cmp-step[data-step="'+i+'"]');
     if(el)el.classList.add('active');
     dots.forEach(function(d,di){d.classList.toggle('active',di<=i);});
+    var bk=document.getElementById('cmpBack');
+    if(bk){ bk.style.display = i>0 ? 'inline-block' : 'none'; }
+  }
+  var backBtn=document.getElementById('cmpBack');
+  if(backBtn){
+    backBtn.addEventListener('click',function(){ if(step>0){ step--; showStep(step); } });
+    backBtn.addEventListener('mouseenter',function(){ backBtn.style.color='#BE9E68'; });
+    backBtn.addEventListener('mouseleave',function(){ backBtn.style.color='#95907F'; });
   }
 
   // ── composition engine: assemble a shape from curated blocks ──
@@ -1153,6 +1167,9 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
           + 'Ruta sugerida: '+arc.join(' \u2192 ')+'\n\n'
           + 'Me gustar\u00eda empezar la conversaci\u00f3n.';
     document.getElementById('cmpWhatsapp').href='https://wa.me/34659447627?text='+encodeURIComponent(msg);
+    // carry the composed journey into the written enquiry too
+    var beginEl=document.getElementById('cmpBegin');
+    if(beginEl){ beginEl.href='begin.html?composed='+encodeURIComponent(msg); }
 
     result.classList.add('show');
     result.scrollIntoView({behavior:'smooth',block:'start'});
