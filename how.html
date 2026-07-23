@@ -1245,27 +1245,57 @@ body.eh-locked{overflow:hidden;}
 </section>
 
 <footer>
-  <div>
+  <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
     <div class="f-tagline">Not a tour. A journey composed for you alone.</div>
   </div>
-  <ul class="f-links">
-    <li><a href="tanzania.html">Tanzania</a></li>
-    <li><a href="how.html">How we work</a></li>
-    <li><a href="why.html">Why Enkiama</a></li>
-    <li><a href="family.html">The family</a></li>
-    <li><a href="notes.html">Field notes</a></li>
-    <li><a href="stories.html">Stories</a></li>
-    <li><a href="journeys.html">Journeys</a>
+
+  <div class="f-cols">
+    <div class="f-col">
+      <p class="f-col-h">Explore</p>
+      <a href="tanzania.html">Tanzania</a>
+      <a href="parks.html">Wild Tanzania</a>
       <a href="kilimanjaro.html">Kilimanjaro</a>
+      <a href="journeys.html">Journeys</a>
+      <a href="compose.html">Compose a journey</a>
       <a href="companions.html">Companions</a>
-      <a href="practical.html">Practical</a></li>
-    <li><a href="begin.html">Begin</a>
-      <a href="terms.html">Booking</a>
-      <a href="privacy.html">Privacy</a></li>
-  </ul>
-  <div class="f-right">
-    <div class="f-contact">hola@enkiama.com</div>
+    </div>
+    <div class="f-col">
+      <p class="f-col-h">Destinations</p>
+      <a href="serengeti.html">Serengeti</a>
+      <a href="ngorongoro.html">Ngorongoro</a>
+      <a href="tarangire.html">Tarangire</a>
+      <a href="manyara.html">Lake Manyara</a>
+      <a href="ruaha.html">Ruaha</a>
+      <a href="nyerere.html">Nyerere</a>
+      <a href="mahale.html">Mahale</a>
+      <a href="zanzibar.html">Zanzibar</a>
+      <a href="stonetown.html">Stone Town</a>
+      <a href="arusha.html">Arusha</a>
+    </div>
+    <div class="f-col">
+      <p class="f-col-h">Enkiama</p>
+      <a href="why.html">Why Enkiama</a>
+      <a href="how.html">How we work</a>
+      <a href="family.html">The family</a>
+      <a href="partners.html">Partners &amp; properties</a>
+      <a href="society-and-culture.html">Society &amp; culture</a>
+      <a href="notes.html">Field notes</a>
+      <a href="stories.html">Stories</a>
+      <a href="reflections.html">Letters</a>
+    </div>
+    <div class="f-col">
+      <p class="f-col-h">Practical</p>
+      <a href="begin.html">Begin a conversation</a>
+      <a href="practical.html">Practical Tanzania</a>
+      <a href="faq.html">Safari FAQ</a>
+      <a href="terms.html">How booking works</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+
+  <div class="f-base">
+    <div class="f-contact"><a href="mailto:hola@enkiama.com">hola@enkiama.com</a></div>
     <div class="f-copy">Year&ndash;round &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; &copy; 2025&ndash;2026 Enkiama</div>
   </div>
 </footer>
@@ -1616,6 +1646,24 @@ body{
     radial-gradient(ellipse 80% 50% at 15% 42%, rgba(40,58,45,0.18) 0%, transparent 62%),
     radial-gradient(ellipse 85% 50% at 88% 72%, rgba(44,60,48,0.16) 0%, transparent 64%),
     linear-gradient(168deg,#18251E 0%,#1C2921 45%,#1F2D24 100%) !important;
+}
+
+/* ══════ FOOTER ══════ */
+footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5rem,4vw,3rem) 2.5rem;display:block;}
+.f-brand{margin-bottom:clamp(2.5rem,5vw,3.5rem);}
+.f-logo-img{height:34px;width:auto;display:block;opacity:.95;}
+.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.28);letter-spacing:0.04em;margin-top:8px;}
+.f-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(1.8rem,3.5vw,3rem);margin-bottom:clamp(2.5rem,5vw,3.5rem);}
+.f-col{display:flex;flex-direction:column;gap:.65rem;}
+.f-col-h{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:10px;color:var(--earth);opacity:.85;margin-bottom:.5rem;}
+.f-col a{font-family:'Instrument Sans',sans-serif;font-size:12.5px;letter-spacing:.02em;color:var(--muted);text-decoration:none;opacity:.8;transition:opacity .3s ease,color .3s ease;}
+.f-col a:hover{opacity:1;color:var(--bone);}
+.f-base{border-top:1px solid rgba(190,158,104,0.07);padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.f-contact a{font-family:'Instrument Sans',sans-serif;font-size:12px;color:rgba(237,230,214,0.4);text-decoration:none;transition:color .3s;}
+.f-contact a:hover{color:var(--earth);}
+.f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:var(--muted);opacity:0.45;letter-spacing:0.1em;}
+@media (max-width:640px){
+  .f-base{flex-direction:column;align-items:flex-start;}
 }
 </style>
 <script>
