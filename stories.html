@@ -684,18 +684,52 @@ body.eh-locked{overflow:hidden;}
 .eh-nav li a:hover .eh-lnk{transform:translateX(6px);}
 .eh-nav li a.eh-active .eh-lnk{color:var(--sage,#7A9470);}
 .eh-nav li a .eh-lnk{display:inline-block;transition:transform .4s cubic-bezier(.16,1,.3,1);}
-.eh-nav li a .eh-idx{font-family:'Instrument Sans',sans-serif;font-size:13px;letter-spacing:.14em;color:rgba(190,158,104,0.65);width:1.8rem;flex-shrink:0;transition:color .4s;}
+.eh-nav li a .eh-idx{font-family:'Instrument Sans',sans-serif;font-size:12px;letter-spacing:.14em;color:rgba(190,158,104,0.65);width:1.8rem;flex-shrink:0;transition:color .4s;}
 .eh-nav li a:hover .eh-idx{color:var(--earth);}
 
 /* secondary "Also" links — clearly discrete, NOT a sentence */
 .eh-secondary{padding-top:0;border-top:1px solid rgba(190,158,104,0.12);
   display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 2.2rem;opacity:0;transition:opacity .7s ease .6s;}
 .eh-overlay.open .eh-secondary{opacity:1;}
-.eh-secondary .eh-sec-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.26em;font-size:11px;color:rgba(190,158,104,0.7);margin-right:.7rem;}
+.eh-secondary .eh-sec-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.26em;font-size:10px;color:rgba(190,158,104,0.7);margin-right:.7rem;}
 .eh-secondary a{font-family:'Instrument Sans',sans-serif;font-size:13.5px;letter-spacing:.05em;color:rgba(237,230,214,0.78);text-decoration:none;position:relative;transition:color .3s;}
 .eh-secondary a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--earth,#BE9E68);transition:width .35s ease;}
 .eh-secondary a:hover{color:var(--bone);}
 .eh-secondary a:hover::after{width:100%;}
+
+
+/* ══════════ MENU IMAGERY — the index reveals the country ══════════
+   Each destination in the index fades in its own image on the right.
+   The panel holds the last thing you looked at, so the menu becomes
+   a place you browse rather than a list you read. */
+.eh-aside-stack{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.eh-aside-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.08);
+  transition:opacity 1.15s cubic-bezier(.16,1,.3,1), transform 6s cubic-bezier(.16,1,.3,1);
+  will-change:opacity,transform;
+}
+.eh-aside-img.on{opacity:1;transform:scale(1);}
+/* a quiet caption that names what you are looking at */
+.eh-aside-caption{
+  position:absolute;left:clamp(2.5rem,4.5vw,5rem);bottom:clamp(2.2rem,4vw,3.4rem);z-index:3;
+  font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;
+  letter-spacing:.24em;font-size:11px;color:rgba(237,230,214,0.62);
+  opacity:0;transform:translateY(8px);
+  transition:opacity .7s ease, transform .8s cubic-bezier(.16,1,.3,1);
+  pointer-events:none;
+}
+.eh-aside-caption.on{opacity:1;transform:translateY(0);}
+/* the index link that is being previewed lifts slightly */
+.eh-nav a.previewing .eh-lnk{color:var(--bone);}
+.eh-nav a.previewing .eh-idx{color:var(--earth);opacity:1;}
+@media (prefers-reduced-motion:reduce){
+  .eh-aside-img,.eh-aside-caption{transition:none;}
+}
+@media (max-width:900px){
+  .eh-aside-caption{display:none;}
+}
 
 /* RIGHT: photo/statement panel */
 .eh-aside{position:relative;overflow:hidden;}
@@ -708,7 +742,7 @@ body.eh-locked{overflow:hidden;}
 .eh-overlay.open .eh-aside-inner{opacity:1;transform:translateY(-50%);transition:opacity .8s ease .5s;}
 .eh-aside-eyebrow{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.3em;font-size:11px;color:var(--earth,#BE9E68);margin:0 0 1.5rem;}
 .eh-aside-q{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.6rem,2.4vw,2.2rem);color:var(--bone,#EDE6D6);line-height:1.4;margin:0 0 2.8rem;max-width:24ch;padding-bottom:2.8rem;border-bottom:1px solid rgba(190,158,104,0.14);}
-.eh-aside-contact{display:flex;flex-direction:column;gap:.4rem;font-family:'Instrument Sans',sans-serif;font-size:13px;}
+.eh-aside-contact{display:flex;flex-direction:column;gap:.4rem;font-family:'Instrument Sans',sans-serif;font-size:14px;}
 .eh-aside-contact a{color:var(--earth,#BE9E68);text-decoration:none;width:fit-content;transition:opacity .3s;}
 .eh-aside-contact a:hover{opacity:.7;}
 .eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#95907F);margin-top:1rem;}
@@ -759,28 +793,45 @@ body.eh-locked{overflow:hidden;}
       <ul>
         <li><a href="tanzania.html" data-nav="tanzania"><span class="eh-idx">01</span><span class="eh-lnk">Tanzania</span></a></li>
         <li><a href="parks.html" data-nav="parks"><span class="eh-idx">02</span><span class="eh-lnk">Wild Tanzania</span></a></li>
-        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">03</span><span class="eh-lnk">Journeys</span></a></li>
-        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">04</span><span class="eh-lnk">Compose your journey</span></a></li>
-        <li><a href="family.html" data-nav="family"><span class="eh-idx">05</span><span class="eh-lnk">The family</span></a></li>
-        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">06</span><span class="eh-lnk">Begin</span></a></li>
+        <li><a href="kilimanjaro.html" data-nav="kilimanjaro"><span class="eh-idx">03</span><span class="eh-lnk">Kilimanjaro</span></a></li>
+        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">04</span><span class="eh-lnk">Journeys</span></a></li>
+        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">05</span><span class="eh-lnk">Compose your journey</span></a></li>
+        <li><a href="family.html" data-nav="family"><span class="eh-idx">06</span><span class="eh-lnk">The family</span></a></li>
+        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">07</span><span class="eh-lnk">Begin</span></a></li>
       </ul>
     </nav>
     <div class="eh-secondary">
       <span class="eh-sec-lbl">Also</span>
-      <a href="how.html">How we work</a>
-      <a href="why.html">Why Enkiama</a>
-      <a href="notes.html">Field notes</a>
-      <a href="stories.html">Stories</a>
-      <a href="reflections.html">Letters</a>
-      <a href="companions.html">Companions</a>
-      <a href="kilimanjaro.html">Kilimanjaro</a>
-      <a href="practical.html">Practical</a>
+      <a href="how.html" data-nav="how">How we work</a>
+      <a href="why.html" data-nav="why">Why Enkiama</a>
+      <a href="notes.html" data-nav="notes">Field notes</a>
+      <a href="stories.html" data-nav="stories">Stories</a>
+      <a href="reflections.html" data-nav="reflections">Letters</a>
+      <a href="companions.html" data-nav="companions">Companions</a>
+      <a href="practical.html" data-nav="practical">Practical</a>
       <a href="faq.html">Safari FAQ</a>
     </div>
   </div>
 
   <aside class="eh-aside">
-    <div class="eh-aside-photo" id="ehAsidePhoto"></div>
+    <div class="eh-aside-stack" aria-hidden="true">
+      <div class="eh-aside-img on" data-img="default" style="background-image:radial-gradient(ellipse 100% 80% at 65% 25%,rgba(85,107,68,0.14),transparent 62%),linear-gradient(158deg,#16211a,#0b120e);"></div>
+      <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
+      <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
+      <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
+      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
+      <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
+      <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
+      <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
+      <div class="eh-aside-img" data-img="companions" data-src="assets/images/group-fire.jpg"></div>
+      <div class="eh-aside-img" data-img="reflections" data-src="assets/images/night-sky.jpg"></div>
+      <div class="eh-aside-img" data-img="practical" data-src="assets/images/arusha.jpg"></div>
+      <div class="eh-aside-img" data-img="stories" data-src="assets/images/stonetown.jpg"></div>
+      <div class="eh-aside-img" data-img="notes" data-src="assets/images/manyara.jpg"></div>
+      <div class="eh-aside-img" data-img="how" data-src="assets/images/maasai.jpg"></div>
+      <div class="eh-aside-img" data-img="why" data-src="assets/images/elder-guide.jpg"></div>
+    </div>
+    <div class="eh-aside-caption" id="ehAsideCaption"></div>
     <div class="eh-aside-scrim"></div>
     <div class="eh-aside-inner">
       <p class="eh-aside-eyebrow">Curated, never sold</p>
@@ -822,6 +873,97 @@ body.eh-locked{overflow:hidden;}
   // scroll condense
   var ticking=false;
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){bar.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
+})();
+</script>
+
+<script>
+/* ══ MENU IMAGERY — the index reveals the country ══ */
+(function(){
+  var overlay=document.getElementById('ehOverlay');
+  if(!overlay) return;
+  var stack=overlay.querySelector('.eh-aside-stack');
+  if(!stack) return;
+  var caption=document.getElementById('ehAsideCaption');
+  var imgs=[].slice.call(stack.querySelectorAll('.eh-aside-img'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var loaded=false, holdTimer=null;
+
+  var LABELS={
+    tanzania:'The Serengeti', parks:'Ngorongoro', journeys:'Tarangire',
+    compose:'First light', family:'Kibosho', begin:'Camp, on arrival',
+    kilimanjaro:'Kilimanjaro', companions:'Around the fire',
+    reflections:'Night over the plain', practical:'Arusha',
+    stories:'Stone Town', notes:'Lake Manyara', how:'The people of the land',
+    why:'Those who guide'
+  };
+
+  /* only fetch the imagery once the menu is actually opened */
+  function preload(){
+    if(loaded) return; loaded=true;
+    imgs.forEach(function(el){
+      var src=el.getAttribute('data-src');
+      if(!src) return;
+      var pre=new Image();
+      pre.onload=function(){ el.style.backgroundImage='url("'+src+'")'; };
+      pre.src=src;
+    });
+  }
+
+  function show(key){
+    var found=false;
+    imgs.forEach(function(el){
+      var on = el.getAttribute('data-img')===key;
+      el.classList.toggle('on', on);
+      if(on) found=true;
+    });
+    if(!found){
+      var d=stack.querySelector('[data-img="default"]');
+      if(d) d.classList.add('on');
+    }
+    if(caption){
+      var label=LABELS[key]||'';
+      if(label){ caption.textContent=label; caption.classList.add('on'); }
+      else { caption.classList.remove('on'); }
+    }
+  }
+
+  function reset(){
+    show('default');
+  }
+
+  /* bind every index + secondary link that names a destination */
+  var links=[].slice.call(overlay.querySelectorAll('a[data-nav]'));
+  links.forEach(function(a){
+    var key=a.getAttribute('data-nav');
+    function enter(){
+      if(holdTimer){clearTimeout(holdTimer);holdTimer=null;}
+      links.forEach(function(x){x.classList.remove('previewing');});
+      a.classList.add('previewing');
+      show(key);
+    }
+    function leave(){
+      a.classList.remove('previewing');
+      /* hold the last image briefly so quick passes do not flicker */
+      if(holdTimer) clearTimeout(holdTimer);
+      holdTimer=setTimeout(reset, 900);
+    }
+    a.addEventListener('mouseenter',enter);
+    a.addEventListener('focus',enter);
+    a.addEventListener('mouseleave',leave);
+    a.addEventListener('blur',leave);
+  });
+
+  /* preload when the menu opens */
+  var trigger=document.getElementById('ehTrigger');
+  if(trigger) trigger.addEventListener('click', function(){ setTimeout(preload,120); });
+  if(!reduce){
+    var mo=new MutationObserver(function(){
+      if(overlay.classList.contains('open')) preload();
+    });
+    mo.observe(overlay,{attributes:true,attributeFilter:['class']});
+  } else {
+    preload();
+  }
 })();
 </script>
 <!-- ENKIAMA_HEADER_END -->
@@ -1507,6 +1649,15 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 }
 @media (prefers-reduced-motion:reduce){
   .vf-arrive,.vf-arrive.in{font-variation-settings:'opsz' 128;transition:none;}
+}
+
+/* ══════════ TONAL LIFT — the dark is deep, not flat ══════════ */
+body{
+  background:
+    radial-gradient(ellipse 100% 55% at 50% 0%, rgba(46,64,50,0.30) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 50% at 15% 42%, rgba(40,58,45,0.18) 0%, transparent 62%),
+    radial-gradient(ellipse 85% 50% at 88% 72%, rgba(44,60,48,0.16) 0%, transparent 64%),
+    linear-gradient(168deg,#18251E 0%,#1C2921 45%,#1F2D24 100%) !important;
 }
 </style>
 <script>
