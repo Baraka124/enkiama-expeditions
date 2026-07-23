@@ -357,7 +357,7 @@ body.eh-locked{overflow:hidden;}
   <div class="k-hero-scrim"></div>
   <div class="k-hero-inner">
     <p class="k-eyebrow">Kilimanjaro</p>
-    <h1 class="k-title">The mountain is not a<br>race to the top. <em>We climb it<br>the way it deserves.</em></h1>
+    <h1 class="k-title vf-arrive">The mountain is not a<br>race to the top. <em>We climb it<br>the way it deserves.</em></h1>
     <p class="k-hero-lede">Africa&rsquo;s highest point rewards patience, not speed. We compose a climb around acclimatisation, honesty, and a crew who are paid and treated as they should be &mdash; because how you reach the summit matters as much as whether you do.</p>
   </div>
 </section>
@@ -365,7 +365,7 @@ body.eh-locked{overflow:hidden;}
 <!-- ── THE STANCE ── -->
 <section class="k-sec">
   <p class="k-sec-eyebrow reveal">Where we stand</p>
-  <h2 class="k-sec-title reveal">Fewer people. More days.<br>Done <em>properly.</em></h2>
+  <h2 class="k-sec-title reveal vf-arrive">Fewer people. More days.<br>Done <em>properly.</em></h2>
   <div class="k-rule reveal"></div>
   <p class="k-p reveal">There is an industry around this mountain that measures itself in numbers &mdash; how many climbers, how fast, how cheaply. We understand the appeal. We simply do not build our climbs that way.</p>
   <p class="k-p reveal">A climb rushed to save a day or two is a climb more likely to fail, and more likely to make you ill. The body needs time to meet the altitude. So we add the days that give you the best true chance of standing on the summit &mdash; and the best chance of enjoying the climb that gets you there. <strong>More days is not us selling you more. It is the honest way up.</strong></p>
@@ -378,7 +378,7 @@ body.eh-locked{overflow:hidden;}
 <section class="k-porters">
   <div class="k-sec">
     <p class="k-sec-eyebrow reveal">The people who carry the mountain</p>
-    <h2 class="k-sec-title reveal">A climb is only as honest as<br>the way it treats its <em>crew.</em></h2>
+    <h2 class="k-sec-title reveal vf-arrive">A climb is only as honest as<br>the way it treats its <em>crew.</em></h2>
     <div class="k-rule reveal"></div>
     <p class="k-p reveal">No one summits Kilimanjaro alone. Behind every climber is a team &mdash; guides, cooks, and porters carrying what makes the mountain survivable. It is one of the hardest jobs in Tanzania, and across much of this industry it is quietly one of the worst paid, with loads too heavy, wages too low, and gear too thin for the cold up high.</p>
     <p class="k-p reveal">We will not build a climb on that. <strong>Every porter and guide on an Enkiama climb is paid a fair wage, carries a fair load, and is properly equipped for the altitude</strong> &mdash; and we tell you who they are, by name, as we do with <a href="family.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.4);">every partner in every journey</a>. The people who carry your climb are not invisible labour. They are the reason you make it.</p>
@@ -399,7 +399,7 @@ body.eh-locked{overflow:hidden;}
 <!-- ── HONEST ROUTES ── -->
 <section class="k-sec">
   <p class="k-sec-eyebrow reveal">The route that fits you</p>
-  <h2 class="k-sec-title reveal">The shortest route is not<br>the same as the <em>right</em> one.</h2>
+  <h2 class="k-sec-title reveal vf-arrive">The shortest route is not<br>the same as the <em>right</em> one.</h2>
   <div class="k-rule reveal"></div>
   <p class="k-p reveal">There is a reason some operators steer everyone toward the quickest, cheapest path up the mountain: it moves more people, faster. But the shortest routes often carry the lowest success rates and the least time to acclimatise.</p>
   <p class="k-p reveal">We choose the route around <strong>you</strong> &mdash; your fitness, your time, your experience, the season &mdash; not around our margin. Sometimes that means a longer, gentler line with better odds and finer scenery. Sometimes it means telling you honestly that now is not the moment, or that a different mountain, or the slopes rather than the summit, would serve you better.</p>
@@ -678,6 +678,23 @@ body.eh-locked{overflow:hidden;}
   color:var(--sage,#7A9470) !important;}
 /* .eye is used at both sizes — only lift it when small */
 .eye{color:var(--sage,#7A9470);}
+
+/* ══════════ VARIABLE-FONT ARRIVAL ══════════
+   Fraunces carries an optical-size axis. Headings arrive at a lower
+   optical size (finer, more delicate) and settle into their true
+   weight as they land — a device that only works with a variable
+   font, and that almost nobody bothers to do. */
+.vf-arrive{
+  font-variation-settings:'opsz' 14, 'SOFT' 0;
+  transition:font-variation-settings 1.6s cubic-bezier(.16,1,.3,1);
+}
+.vf-arrive.in,
+.reveal.in.vf-arrive{
+  font-variation-settings:'opsz' 128, 'SOFT' 0;
+}
+@media (prefers-reduced-motion:reduce){
+  .vf-arrive,.vf-arrive.in{font-variation-settings:'opsz' 128;transition:none;}
+}
 </style>
 <script>
 (function(){
@@ -708,5 +725,40 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_PAGETRANS_END -->
 
+<script>
+/* variable-font arrival: headings settle into their true optical size */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.vf-arrive'));
+  if(!els.length) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.25});
+  els.forEach(function(e){io.observe(e);});
+  // hero headings are already in view on load
+  setTimeout(function(){els.forEach(function(e){
+    var r=e.getBoundingClientRect();
+    if(r.top<window.innerHeight) e.classList.add('in');
+  });},250);
+})();
+</script>
+<script>
+/* ── safety net: no reveal element may remain invisible once passed ── */
+(function(){
+  function sweep(){
+    var vh=window.innerHeight;
+    document.querySelectorAll('.reveal,.vf-arrive').forEach(function(e){
+      if(e.classList.contains('in')) return;
+      if(e.getBoundingClientRect().top < vh*0.92) e.classList.add('in');
+    });
+  }
+  var t=null;
+  window.addEventListener('scroll',function(){ if(t)return; t=setTimeout(function(){t=null;sweep();},200); },{passive:true});
+  window.addEventListener('load',sweep);
+  setTimeout(sweep,1200);
+  setTimeout(sweep,3000);
+})();
+</script>
 </body>
 </html>

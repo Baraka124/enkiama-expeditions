@@ -1678,6 +1678,7 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 <!-- ── end structured data ── -->
 </head>
 <body data-page="home">
+<div class="mesh-layer" aria-hidden="true"></div>
 <div class="tod-ambient" aria-hidden="true"></div>
 <div class="ambient-tint" aria-hidden="true"></div>
 <!-- ENKIAMA_HEADER_START -->
@@ -1883,7 +1884,7 @@ body.eh-locked{overflow:hidden;}
     <p class="eye hero-eye" id="hEye">
       Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; One unrepeatable journey
     </p>
-    <h1 class="hero-hed" id="hHed">
+    <h1 class="hero-hed vf-arrive" id="hHed">
       Tanzania already<br>
       knows how to<br>
       receive <em>you.</em>
@@ -1939,7 +1940,7 @@ body.eh-locked{overflow:hidden;}
   <div class="already-pg">ujamaa</div>
   <div class="already-inner">
     <p class="eye already-eye">Tanzania already is</p>
-    <h2 class="already-hed reveal">The family feeling<br>is not something<br>we <em>sell.</em></h2>
+    <h2 class="already-hed reveal vf-arrive">The family feeling<br>is not something<br>we <em>sell.</em></h2>
     <div class="already-cols">
       <div class="already-col reveal">
         <p>The Swahili word <em>ujamaa</em> &mdash; communal family, shared humanity &mdash; was Julius Nyerere&rsquo;s founding philosophy for Tanzania. It describes something already present in how Tanzanian people live: the instinct to receive strangers as <em>ndugu</em>, to share what they have, to make you feel you were expected before you arrived.</p>
@@ -1957,13 +1958,13 @@ body.eh-locked{overflow:hidden;}
 <section class="lw">
   <div class="lw-h">
     <span class="lw-tag">Rooted</span>
-    <h2 class="lw-hl reveal">Local depth.<br>Local knowledge.<br>Local soul.</h2>
+    <h2 class="lw-hl reveal vf-arrive">Local depth.<br>Local knowledge.<br>Local soul.</h2>
     <div class="lw-rule"></div>
     <p class="dim reveal">Our guides live in the ecosystems they show you. Our cultural partners belong to the communities they open. Our lodges are part of the landscape, not placed in it. The access we provide is only possible because the people who provide it have spent their lives earning it.</p>
   </div>
   <div class="lw-h">
     <span class="lw-tag">Earned</span>
-    <h2 class="lw-hl reveal">Years on the ground.<br>Doors that open<br>only to friends.</h2>
+    <h2 class="lw-hl reveal vf-arrive">Years on the ground.<br>Doors that open<br>only to friends.</h2>
     <div class="lw-rule"></div>
     <p class="dim reveal">From Kilimanjaro&rsquo;s glaciers to Zanzibar&rsquo;s coral gardens, we know what works in which season and which doors open to those who have earned them. Our <span style="font-family:'Fraunces',serif;font-style:italic;color:var(--earth);">ndugu</span> are on the ground year-round, seeing what changes, what opens, what closes. That knowledge keeps every journey honest and alive.</p>
   </div>
@@ -3371,6 +3372,42 @@ body.loaded .hero-acts{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){
   .thesis .reveal,.already .reveal,.transp .reveal,.story .reveal{transition:none;transform:none !important;}
 }
+
+/* ══════════ VARIABLE-FONT ARRIVAL ══════════
+   Fraunces carries an optical-size axis. Headings arrive at a lower
+   optical size (finer, more delicate) and settle into their true
+   weight as they land — a device that only works with a variable
+   font, and that almost nobody bothers to do. */
+.vf-arrive{
+  font-variation-settings:'opsz' 14, 'SOFT' 0;
+  transition:font-variation-settings 1.6s cubic-bezier(.16,1,.3,1);
+}
+.vf-arrive.in,
+.reveal.in.vf-arrive{
+  font-variation-settings:'opsz' 128, 'SOFT' 0;
+}
+@media (prefers-reduced-motion:reduce){
+  .vf-arrive,.vf-arrive.in{font-variation-settings:'opsz' 128;transition:none;}
+}
+
+/* ══════════ DRIFTING LIGHT — a slow mesh that keeps the dark alive ══════════
+   Three soft colour fields drift at different speeds behind everything.
+   Almost imperceptible; the page simply never feels static. */
+.mesh-layer{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+  background:
+    radial-gradient(38% 42% at 18% 22%, rgba(190,158,104,0.055), transparent 62%),
+    radial-gradient(44% 38% at 82% 34%, rgba(122,148,112,0.05), transparent 65%),
+    radial-gradient(50% 44% at 46% 84%, rgba(85,107,68,0.045), transparent 68%);
+  animation:meshDrift 48s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes meshDrift{
+  0%  {transform:translate3d(0,0,0) scale(1);}
+  50% {transform:translate3d(-2.2%,1.6%,0) scale(1.05);}
+  100%{transform:translate3d(1.8%,-1.4%,0) scale(1.02);}
+}
+@media (prefers-reduced-motion:reduce){ .mesh-layer{animation:none;} }
 </style>
 <script>
 (function(){
@@ -3450,6 +3487,24 @@ body.loaded .hero-acts{opacity:1;transform:translateY(0);}
   },{passive:true});
   window.addEventListener('load',sweep);
   setTimeout(sweep,1500);
+})();
+</script>
+<script>
+/* variable-font arrival: headings settle into their true optical size */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.vf-arrive'));
+  if(!els.length) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.25});
+  els.forEach(function(e){io.observe(e);});
+  // hero headings are already in view on load
+  setTimeout(function(){els.forEach(function(e){
+    var r=e.getBoundingClientRect();
+    if(r.top<window.innerHeight) e.classList.add('in');
+  });},250);
 })();
 </script>
 </body>

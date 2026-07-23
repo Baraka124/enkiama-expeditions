@@ -1147,6 +1147,23 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
   .ochre-rule::before{transform:scaleX(1);transition:none;}
   .ochre-rule::after{opacity:.9;transform:scale(1);transition:none;}
 }
+
+/* ══════════ VARIABLE-FONT ARRIVAL ══════════
+   Fraunces carries an optical-size axis. Headings arrive at a lower
+   optical size (finer, more delicate) and settle into their true
+   weight as they land — a device that only works with a variable
+   font, and that almost nobody bothers to do. */
+.vf-arrive{
+  font-variation-settings:'opsz' 14, 'SOFT' 0;
+  transition:font-variation-settings 1.6s cubic-bezier(.16,1,.3,1);
+}
+.vf-arrive.in,
+.reveal.in.vf-arrive{
+  font-variation-settings:'opsz' 128, 'SOFT' 0;
+}
+@media (prefers-reduced-motion:reduce){
+  .vf-arrive,.vf-arrive.in{font-variation-settings:'opsz' 128;transition:none;}
+}
 </style>
 <script>
 (function(){
@@ -1186,6 +1203,41 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
     });
   },{threshold:0.6, rootMargin:'0px 0px -5% 0px'});
   rules.forEach(function(r){io.observe(r);});
+})();
+</script>
+<script>
+/* variable-font arrival: headings settle into their true optical size */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.vf-arrive'));
+  if(!els.length) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.25});
+  els.forEach(function(e){io.observe(e);});
+  // hero headings are already in view on load
+  setTimeout(function(){els.forEach(function(e){
+    var r=e.getBoundingClientRect();
+    if(r.top<window.innerHeight) e.classList.add('in');
+  });},250);
+})();
+</script>
+<script>
+/* ── safety net: no reveal element may remain invisible once passed ── */
+(function(){
+  function sweep(){
+    var vh=window.innerHeight;
+    document.querySelectorAll('.reveal,.vf-arrive').forEach(function(e){
+      if(e.classList.contains('in')) return;
+      if(e.getBoundingClientRect().top < vh*0.92) e.classList.add('in');
+    });
+  }
+  var t=null;
+  window.addEventListener('scroll',function(){ if(t)return; t=setTimeout(function(){t=null;sweep();},200); },{passive:true});
+  window.addEventListener('load',sweep);
+  setTimeout(sweep,1200);
+  setTimeout(sweep,3000);
 })();
 </script>
 </body>
