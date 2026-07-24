@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enkiama — Operations</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="theme-color" content="#0F1712">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1712; --ink2:#131C16; --ink3:#18231B;
+  --bone:#EDE6D6; --bone2:#E4DBC7; --bone3:#D6CCB6;
+  --earth:#BE9E68; --ochre:#556B44; --sage:#7A9470; --muted:#95907F;
+  --rule:rgba(190,158,104,0.13);
+  --panel:rgba(24,36,28,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{
+  background:
+    radial-gradient(ellipse 100% 55% at 50% 0%, rgba(46,64,50,0.28) 0%, transparent 58%),
+    linear-gradient(168deg,#18251E 0%,#1C2921 45%,#1F2D24 100%);
+  color:var(--bone);font-family:'Instrument Sans',sans-serif;min-height:100vh;font-size:15px;
+}
+::selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
+a{color:var(--earth);text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:1px solid rgba(190,158,104,0.6);outline-offset:3px;}
+
+/* ── LOGIN ───────────────────────────────────────── */
+.login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.login-card{max-width:420px;width:100%;text-align:center;}
+.login-mark{font-family:'Fraunces',serif;font-size:2rem;letter-spacing:.08em;color:var(--bone);margin-bottom:.5rem;}
+.login-sub{font-variant-caps:all-small-caps;letter-spacing:.28em;font-size:11px;color:var(--earth);margin-bottom:2.5rem;}
+.login-in{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(190,158,104,0.28);
+  color:var(--bone);font-family:inherit;font-size:1rem;padding:.9rem .2rem;margin-bottom:1.6rem;transition:border-color .4s;}
+.login-in:focus{outline:none;border-color:rgba(190,158,104,0.7);}
+.login-btn{background:none;border:none;color:var(--bone);font-variant-caps:all-small-caps;letter-spacing:.2em;
+  font-size:13px;padding:.6rem 0;position:relative;transition:color .3s;}
+.login-btn::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0.2));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.login-btn:hover{color:var(--earth);}
+.login-btn:hover::after{transform:scaleX(1);}
+.login-msg{margin-top:1.6rem;font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;line-height:1.6;color:var(--sage);min-height:2.6em;}
+
+/* ── SHELL ───────────────────────────────────────── */
+.shell{display:none;}
+.shell.on{display:block;}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:1rem clamp(1rem,3vw,2rem);border-bottom:1px solid var(--rule);
+  background:rgba(16,24,19,0.92);backdrop-filter:blur(14px);}
+.topbar-l{font-family:'Fraunces',serif;font-size:1.15rem;letter-spacing:.05em;}
+.topbar-l span{color:var(--earth);font-style:italic;font-size:.85rem;margin-left:.6rem;}
+.signout{background:none;border:1px solid var(--rule);color:var(--muted);border-radius:2px;
+  font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:11px;padding:.5rem 1rem;transition:all .3s;}
+.signout:hover{color:var(--bone);border-color:rgba(190,158,104,0.4);}
+
+.tabs{display:flex;gap:.3rem;padding:0 clamp(1rem,3vw,2rem);border-bottom:1px solid var(--rule);
+  overflow-x:auto;background:rgba(16,24,19,0.6);}
+.tab{background:none;border:none;color:var(--muted);font-variant-caps:all-small-caps;letter-spacing:.18em;
+  font-size:11.5px;padding:1rem .9rem;position:relative;white-space:nowrap;transition:color .3s;}
+.tab::after{content:'';position:absolute;left:.9rem;right:.9rem;bottom:-1px;height:1px;background:var(--earth);
+  transform:scaleX(0);transition:transform .4s cubic-bezier(.16,1,.3,1);}
+.tab:hover{color:var(--bone3);}
+.tab.on{color:var(--bone);}
+.tab.on::after{transform:scaleX(1);}
+.tab .count{display:inline-block;margin-left:.45rem;background:var(--earth);color:#141c17;
+  border-radius:999px;font-size:9.5px;padding:.1rem .4rem;font-variant-caps:normal;letter-spacing:.02em;vertical-align:middle;}
+
+.view{display:none;padding:clamp(1.4rem,3vw,2.4rem);max-width:1180px;margin:0 auto;}
+.view.on{display:block;}
+.view-h{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--bone);margin-bottom:.4rem;}
+.view-sub{font-size:.9rem;color:var(--muted);margin-bottom:2rem;}
+
+/* ── CARDS ───────────────────────────────────────── */
+.card{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:1.4rem;margin-bottom:1rem;}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem;}
+.card-name{font-family:'Fraunces',serif;font-size:1.12rem;color:var(--bone);}
+.card-meta{font-size:11.5px;color:var(--muted);}
+.card-body{font-size:.97rem;line-height:1.7;color:var(--bone3);white-space:pre-wrap;margin-bottom:1rem;}
+.card-contact{font-size:.9rem;color:var(--earth);margin-bottom:.8rem;}
+.card-extra{font-size:.86rem;color:var(--muted);font-style:italic;border-left:1px solid var(--rule);
+  padding-left:.9rem;margin-bottom:1rem;white-space:pre-wrap;}
+.card-acts{display:flex;gap:.5rem;flex-wrap:wrap;}
+.act{background:none;border:1px solid var(--rule);color:var(--bone3);border-radius:2px;
+  font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:10.5px;padding:.45rem .9rem;transition:all .3s;}
+.act:hover{color:var(--bone);border-color:rgba(190,158,104,0.45);}
+.act.go{border-color:rgba(122,148,112,0.5);color:var(--sage);}
+.act.go:hover{background:rgba(122,148,112,0.12);color:#a9c79e;}
+.act.no{border-color:rgba(170,90,70,0.4);color:#c98873;}
+.act.no:hover{background:rgba(170,90,70,0.12);}
+
+.pill{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:10px;
+  padding:.18rem .55rem;border-radius:2px;border:1px solid var(--rule);color:var(--muted);}
+.pill.new{color:var(--earth);border-color:rgba(190,158,104,0.4);}
+.pill.ok{color:var(--sage);border-color:rgba(122,148,112,0.4);}
+
+.empty{text-align:center;padding:4rem 1rem;font-family:'Fraunces',serif;font-style:italic;color:var(--muted);}
+
+/* ── STATS ───────────────────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem;}
+.stat{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:1.2rem;}
+.stat-n{font-family:'Fraunces',serif;font-size:2rem;color:var(--bone);line-height:1;}
+.stat-l{font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:10px;color:var(--earth);margin-top:.5rem;}
+.bars{display:flex;flex-direction:column;gap:.55rem;}
+.bar-row{display:grid;grid-template-columns:minmax(90px,1.3fr) 3fr auto;gap:.9rem;align-items:center;font-size:.88rem;}
+.bar-lbl{color:var(--bone3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bar-track{height:6px;background:rgba(190,158,104,0.09);border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0.35));border-radius:2px;}
+.bar-val{color:var(--muted);font-size:.8rem;min-width:2.4rem;text-align:right;}
+
+/* ── FORM (open journeys) ───────────────────────── */
+.form{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:1.5rem;margin-bottom:2rem;}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-bottom:1rem;}
+.lbl{display:block;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:10px;color:var(--earth);margin-bottom:.4rem;}
+.in{width:100%;background:rgba(15,23,18,0.5);border:1px solid var(--rule);border-radius:2px;
+  color:var(--bone);font-family:inherit;font-size:.93rem;padding:.6rem .7rem;transition:border-color .3s;}
+.in:focus{outline:none;border-color:rgba(190,158,104,0.5);}
+textarea.in{min-height:80px;resize:vertical;line-height:1.6;}
+select.in{cursor:pointer;}
+
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(120%);
+  background:rgba(24,36,28,0.97);border:1px solid rgba(190,158,104,0.35);border-radius:3px;
+  padding:.8rem 1.4rem;font-size:.9rem;color:var(--bone);z-index:200;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(12px);}
+.toast.on{transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div class="login" id="login">
+  <div class="login-card">
+    <div class="login-mark">Enkiama</div>
+    <div class="login-sub">Operations</div>
+    <input class="login-in" id="email" type="email" placeholder="your email" autocomplete="email">
+    <button class="login-btn" id="sendLink">Send me a sign-in link</button>
+    <p class="login-msg" id="loginMsg"></p>
+  </div>
+</div>
+
+<!-- ══ SHELL ══ -->
+<div class="shell" id="shell">
+  <div class="topbar">
+    <div class="topbar-l">Enkiama <span id="whoami"></span></div>
+    <button class="signout" id="signout">Sign out</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" data-view="enquiries">Enquiries <span class="count" id="cEnq" style="display:none"></span></button>
+    <button class="tab" data-view="letters">Letters <span class="count" id="cLet" style="display:none"></span></button>
+    <button class="tab" data-view="companions">Companions <span class="count" id="cCom" style="display:none"></span></button>
+    <button class="tab" data-view="journeys">Open journeys</button>
+    <button class="tab" data-view="analytics">Analytics</button>
+  </div>
+
+  <!-- ENQUIRIES -->
+  <div class="view on" id="v-enquiries">
+    <h1 class="view-h">Enquiries</h1>
+    <p class="view-sub">People who have written to us.</p>
+    <div id="enqList"></div>
+  </div>
+
+  <!-- LETTERS -->
+  <div class="view" id="v-letters">
+    <h1 class="view-h">Letters</h1>
+    <p class="view-sub">Private until you approve them. A letter is only ever published if the writer consented <em>and</em> you approve.</p>
+    <div id="letList"></div>
+  </div>
+
+  <!-- COMPANIONS -->
+  <div class="view" id="v-companions">
+    <h1 class="view-h">Journeys seeking companions</h1>
+    <p class="view-sub">Travellers open to the right company.</p>
+    <div id="comList"></div>
+  </div>
+
+  <!-- OPEN JOURNEYS -->
+  <div class="view" id="v-journeys">
+    <h1 class="view-h">Open journeys</h1>
+    <p class="view-sub">What appears on the Companions page. Only journeys marked <strong>open</strong> are visible to the public.</p>
+
+    <div class="form">
+      <div class="form-row">
+        <div><label class="lbl" for="jSeason">Season</label><input class="in" id="jSeason" placeholder="October"></div>
+        <div><label class="lbl" for="jSeats">Seats</label><input class="in" id="jSeats" placeholder="Two seats remain"></div>
+        <div><label class="lbl" for="jStatus">Status</label>
+          <select class="in" id="jStatus"><option value="draft">draft</option><option value="open">open</option><option value="closed">closed</option></select></div>
+      </div>
+      <div style="margin-bottom:1rem"><label class="lbl" for="jName">Name</label><input class="in" id="jName" placeholder="A slow Serengeti, for those who'd rather watch than tick."></div>
+      <div style="margin-bottom:1rem"><label class="lbl" for="jFor">For whom</label><input class="in" id="jFor" placeholder="For unhurried travellers who came for the quiet."></div>
+      <div style="margin-bottom:1rem"><label class="lbl" for="jDesc">Description</label><textarea class="in" id="jDesc"></textarea></div>
+      <div style="margin-bottom:1rem"><label class="lbl" for="jRoute">Route (comma separated)</label><input class="in" id="jRoute" placeholder="Serengeti, Ngorongoro, a Chagga table"></div>
+      <button class="act go" id="jSave">Save journey</button>
+    </div>
+
+    <div id="jList"></div>
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="view" id="v-analytics">
+    <h1 class="view-h">Analytics</h1>
+    <p class="view-sub">Your own data. No cookies, no third parties, nothing personal recorded.</p>
+    <div class="stats" id="statCards"></div>
+    <div class="card">
+      <div class="card-top"><span class="card-name">Most visited pages</span><span class="card-meta">last 30 days</span></div>
+      <div class="bars" id="barPages"></div>
+    </div>
+    <div class="card">
+      <div class="card-top"><span class="card-name">Where visitors came from</span><span class="card-meta">last 30 days</span></div>
+      <div class="bars" id="barRefs"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://trhwjbavwiiqujcsjppo.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyaHdqYmF2d2lpcXVqY3NqcHBvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NzcyMDgsImV4cCI6MjEwMDQ1MzIwOH0.mUudEPwBTBR8paCM2Zd0NH5eX61YJ10DP6k9SXejwPQ';
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+const $ = id => document.getElementById(id);
+const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const when = ts => { const d=new Date(ts), n=new Date(), h=(n-d)/36e5;
+  if(h<1) return Math.max(1,Math.round(h*60))+' min ago';
+  if(h<24) return Math.round(h)+' h ago';
+  if(h<48) return 'yesterday';
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:d.getFullYear()===n.getFullYear()?undefined:'numeric'}); };
+
+let toastT=null;
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),2600); }
+
+/* ── AUTH ─────────────────────────────────────── */
+$('sendLink').addEventListener('click', async () => {
+  const email = $('email').value.trim();
+  if(!email){ $('loginMsg').textContent='Enter your email first.'; return; }
+  $('loginMsg').textContent='Sending…';
+  const { error } = await sb.auth.signInWithOtp({
+    email, options:{ emailRedirectTo: window.location.href.split('#')[0] }
+  });
+  $('loginMsg').textContent = error
+    ? 'Could not send: ' + error.message
+    : 'Check your email. The link signs you in — it expires shortly.';
+});
+$('email').addEventListener('keydown', e => { if(e.key==='Enter') $('sendLink').click(); });
+$('signout').addEventListener('click', async () => { await sb.auth.signOut(); location.reload(); });
+
+sb.auth.onAuthStateChange((_e, session) => { session ? enter(session) : leave(); });
+sb.auth.getSession().then(({data}) => { if(data.session) enter(data.session); });
+
+function leave(){ $('login').style.display='flex'; $('shell').classList.remove('on'); }
+function enter(session){
+  $('login').style.display='none';
+  $('shell').classList.add('on');
+  $('whoami').textContent = session.user.email;
+  loadAll();
+}
+
+/* ── TABS ─────────────────────────────────────── */
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+  t.classList.add('on');
+  $('v-'+t.dataset.view).classList.add('on');
+  if(t.dataset.view==='analytics') loadAnalytics();
+}));
+
+/* ── LOADERS ──────────────────────────────────── */
+async function loadAll(){ await Promise.all([loadEnquiries(), loadLetters(), loadCompanions(), loadJourneys()]); }
+
+async function loadEnquiries(){
+  const { data, error } = await sb.from('enquiries').select('*').order('created_at',{ascending:false});
+  if(error){ $('enqList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  const fresh = data.filter(d=>d.status==='new').length;
+  const b=$('cEnq'); if(fresh){ b.textContent=fresh; b.style.display='inline-block'; } else b.style.display='none';
+  $('enqList').innerHTML = data.length ? data.map(d=>`
+    <div class="card">
+      <div class="card-top">
+        <span class="card-name">${esc(d.name)||'Someone'}</span>
+        <span class="card-meta"><span class="pill ${d.status==='new'?'new':''}">${esc(d.status)}</span> &nbsp; ${when(d.created_at)}</span>
+      </div>
+      ${d.contact?`<div class="card-contact">${esc(d.contact)}</div>`:''}
+      <div class="card-body">${esc(d.message)}</div>
+      ${d.composed_journey?`<div class="card-extra">Composed: ${esc(d.composed_journey)}</div>`:''}
+      <div class="card-acts">
+        ${d.status!=='replied'?`<button class="act go" data-enq="${d.id}" data-to="replied">Mark replied</button>`:''}
+        ${d.status==='new'?`<button class="act" data-enq="${d.id}" data-to="read">Mark read</button>`:''}
+        <button class="act" data-enq="${d.id}" data-to="archived">Archive</button>
+      </div>
+    </div>`).join('') : '<div class="empty">No enquiries yet.</div>';
+}
+
+async function loadLetters(){
+  const { data, error } = await sb.from('letters').select('*').order('created_at',{ascending:false});
+  if(error){ $('letList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  const waiting = data.filter(d=>d.status==='private' && d.consent_to_publish).length;
+  const b=$('cLet'); if(waiting){ b.textContent=waiting; b.style.display='inline-block'; } else b.style.display='none';
+  $('letList').innerHTML = data.length ? data.map(d=>`
+    <div class="card">
+      <div class="card-top">
+        <span class="card-name">${esc(d.name)||'Anonymous'}</span>
+        <span class="card-meta">
+          <span class="pill ${d.status==='approved'?'ok':''}">${esc(d.status)}</span>
+          <span class="pill">${d.consent_to_publish?'consented':'no consent'}</span>
+          &nbsp; ${when(d.created_at)}
+        </span>
+      </div>
+      ${d.journey?`<div class="card-contact">${esc(d.journey)}</div>`:''}
+      <div class="card-body">${esc(d.letter)}</div>
+      <div class="card-acts">
+        ${d.consent_to_publish && d.status!=='approved'
+          ? `<button class="act go" data-let="${d.id}" data-to="approved">Approve for publication</button>`
+          : (!d.consent_to_publish ? `<span class="card-meta">Writer did not consent — cannot publish</span>` : '')}
+        ${d.status==='approved'?`<button class="act no" data-let="${d.id}" data-to="private">Unpublish</button>`:''}
+        ${d.status!=='declined'?`<button class="act" data-let="${d.id}" data-to="declined">Decline</button>`:''}
+      </div>
+    </div>`).join('') : '<div class="empty">No letters yet.</div>';
+}
+
+async function loadCompanions(){
+  const { data, error } = await sb.from('companions').select('*').order('created_at',{ascending:false});
+  if(error){ $('comList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  const p = data.filter(d=>d.status==='pending').length;
+  const b=$('cCom'); if(p){ b.textContent=p; b.style.display='inline-block'; } else b.style.display='none';
+  $('comList').innerHTML = data.length ? data.map(d=>`
+    <div class="card">
+      <div class="card-top">
+        <span class="card-name">${esc(d.name)||'Someone'}</span>
+        <span class="card-meta"><span class="pill ${d.status==='pending'?'new':''}">${esc(d.status)}</span> &nbsp; ${when(d.created_at)}</span>
+      </div>
+      ${d.contact?`<div class="card-contact">${esc(d.contact)}</div>`:''}
+      <div class="card-body">${esc(d.journey)}</div>
+      <div class="card-acts">
+        <button class="act" data-com="${d.id}" data-to="reviewing">Reviewing</button>
+        <button class="act go" data-com="${d.id}" data-to="matched">Matched</button>
+        <button class="act" data-com="${d.id}" data-to="closed">Close</button>
+      </div>
+    </div>`).join('') : '<div class="empty">Nobody seeking companions yet.</div>';
+}
+
+async function loadJourneys(){
+  const { data, error } = await sb.from('open_journeys').select('*').order('sort_order').order('created_at',{ascending:false});
+  if(error){ $('jList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  $('jList').innerHTML = data.length ? data.map(d=>`
+    <div class="card">
+      <div class="card-top">
+        <span class="card-name">${esc(d.name)}</span>
+        <span class="card-meta"><span class="pill ${d.status==='open'?'ok':''}">${esc(d.status)}</span> &nbsp; ${esc(d.season)}</span>
+      </div>
+      ${d.for_whom?`<div class="card-contact">${esc(d.for_whom)}</div>`:''}
+      <div class="card-body">${esc(d.description)}</div>
+      <div class="card-extra">${(d.route||[]).map(esc).join(' · ')} ${d.seats?' — '+esc(d.seats):''}</div>
+      <div class="card-acts">
+        ${d.status!=='open'?`<button class="act go" data-j="${d.id}" data-to="open">Publish</button>`:''}
+        ${d.status==='open'?`<button class="act no" data-j="${d.id}" data-to="closed">Close</button>`:''}
+        <button class="act no" data-jdel="${d.id}">Delete</button>
+      </div>
+    </div>`).join('') : '<div class="empty">No journeys yet. Create one above.</div>';
+}
+
+/* ── ACTIONS (delegated) ──────────────────────── */
+document.addEventListener('click', async e => {
+  const b = e.target.closest('button'); if(!b) return;
+
+  if(b.dataset.enq){ await sb.from('enquiries').update({status:b.dataset.to}).eq('id',b.dataset.enq); toast('Updated'); loadEnquiries(); }
+  if(b.dataset.let){ await sb.from('letters').update({status:b.dataset.to}).eq('id',b.dataset.let); toast(b.dataset.to==='approved'?'Letter approved — now public':'Updated'); loadLetters(); }
+  if(b.dataset.com){ await sb.from('companions').update({status:b.dataset.to}).eq('id',b.dataset.com); toast('Updated'); loadCompanions(); }
+  if(b.dataset.j)  { await sb.from('open_journeys').update({status:b.dataset.to}).eq('id',b.dataset.j); toast('Updated'); loadJourneys(); }
+  if(b.dataset.jdel){
+    if(!confirm('Delete this journey permanently?')) return;
+    await sb.from('open_journeys').delete().eq('id',b.dataset.jdel); toast('Deleted'); loadJourneys();
+  }
+});
+
+$('jSave').addEventListener('click', async () => {
+  const row = {
+    season:$('jSeason').value.trim(), name:$('jName').value.trim(),
+    for_whom:$('jFor').value.trim(), description:$('jDesc').value.trim(),
+    seats:$('jSeats').value.trim(), status:$('jStatus').value,
+    route:$('jRoute').value.split(',').map(s=>s.trim()).filter(Boolean)
+  };
+  if(!row.name || !row.season){ toast('Season and name are required'); return; }
+  const { error } = await sb.from('open_journeys').insert(row);
+  if(error){ toast('Error: '+error.message); return; }
+  ['jSeason','jName','jFor','jDesc','jSeats','jRoute'].forEach(i=>$(i).value='');
+  toast('Journey saved'); loadJourneys();
+});
+
+/* ── ANALYTICS ────────────────────────────────── */
+async function loadAnalytics(){
+  const since = new Date(Date.now()-30*864e5).toISOString();
+  const { data, error } = await sb.from('page_views').select('path,referrer_host,session_key,viewed_at').gte('viewed_at',since);
+  if(error){ $('statCards').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+
+  const views=data.length;
+  const visits=new Set(data.map(d=>d.session_key)).size;
+  const today=data.filter(d=>new Date(d.viewed_at).toDateString()===new Date().toDateString()).length;
+  const week=data.filter(d=>(Date.now()-new Date(d.viewed_at))<7*864e5).length;
+
+  $('statCards').innerHTML = `
+    <div class="stat"><div class="stat-n">${views}</div><div class="stat-l">views · 30 days</div></div>
+    <div class="stat"><div class="stat-n">${visits}</div><div class="stat-l">visits · 30 days</div></div>
+    <div class="stat"><div class="stat-n">${week}</div><div class="stat-l">views · 7 days</div></div>
+    <div class="stat"><div class="stat-n">${today}</div><div class="stat-l">views today</div></div>`;
+
+  const tally = (arr, key) => {
+    const m={}; arr.forEach(d=>{ const k=d[key]||'direct'; m[k]=(m[k]||0)+1; });
+    return Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  };
+  const bars = rows => {
+    if(!rows.length) return '<div class="empty">Nothing recorded yet.</div>';
+    const max=rows[0][1];
+    return rows.map(([label,n])=>`
+      <div class="bar-row">
+        <span class="bar-lbl" title="${esc(label)}">${esc(label)}</span>
+        <span class="bar-track"><span class="bar-fill" style="width:${Math.round(n/max*100)}%"></span></span>
+        <span class="bar-val">${n}</span>
+      </div>`).join('');
+  };
+  $('barPages').innerHTML = bars(tally(data,'path'));
+  $('barRefs').innerHTML  = bars(tally(data,'referrer_host'));
+}
+</script>
+</body>
+</html>

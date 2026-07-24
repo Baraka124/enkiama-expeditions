@@ -637,9 +637,11 @@ var OPEN_JOURNEYS = [
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* render open journeys */
+  /* render open journeys — live from the database, with the
+     illustrative examples as a fallback if none are published yet */
   var grid = document.getElementById('ojGrid');
-  var open = OPEN_JOURNEYS.filter(function(j){return j.status==='open';});
+
+  function paint(open){
   if (open.length === 0){
     grid.innerHTML = '<p class="oj-none">No open journeys at this moment. Tell us what you imagine, and we will let you know when one aligns \u2014 or compose one around you.</p>';
   } else {
@@ -653,6 +655,26 @@ var OPEN_JOURNEYS = [
         + '<a class="oj-ask" href="begin.html">Ask about this journey &rarr;</a>'
         + '</article>';
     }).join('');
+  }
+  }
+
+  /* fetch what is genuinely open right now */
+  if (window.Enkiama) {
+    window.Enkiama.select('open_journeys','?status=eq.open&order=sort_order.asc,created_at.desc')
+      .then(function(rows){
+        if (rows && rows.length){
+          paint(rows.map(function(r){
+            return { season:r.season, name:r.name, forWhom:r.for_whom||'',
+                     seats:r.seats||'', desc:r.description||'',
+                     route:r.route||[], status:'open' };
+          }));
+        } else {
+          paint(OPEN_JOURNEYS.filter(function(j){return j.status==='open';}));
+        }
+      })
+      .catch(function(){ paint(OPEN_JOURNEYS.filter(function(j){return j.status==='open';})); });
+  } else {
+    paint(OPEN_JOURNEYS.filter(function(j){return j.status==='open';}));
   }
 
   /* reveal on scroll */
@@ -681,18 +703,26 @@ var OPEN_JOURNEYS = [
       journey: journey.value.trim(),
       submitted_at: new Date().toISOString()
     };
-    // ── BACKEND HOOK ──
-    // When Supabase is connected: POST payload to a `companions` table (status:'pending'),
-    // and notify Baraka. For now, open a pre-filled message to Enkiama.
-    var subject = 'Journeys seeking companions'+(payload.name?' — '+payload.name:'');
-    var body = (payload.name||'Someone')+' is composing a journey and open to company.\n\n'
-      + 'Reach them at: '+(payload.contact||'(not given)')+'\n\n'
-      + 'The journey they imagine:\n'+(payload.journey||'(left open)');
-    window.location.href = 'mailto:hola@enkiama.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    // show the thank-you
-    document.getElementById('scWriting').style.display='none';
-    document.getElementById('scThanks').classList.add('show');
-    window.scrollTo({top: document.querySelector('.sc-wrap').offsetTop - 120, behavior:'smooth'});
+    send.disabled=true; send.textContent='Sending\u2026';
+    window.Enkiama.insert('companions', {
+      name: payload.name || null,
+      contact: payload.contact || null,
+      journey: payload.journey
+    }).then(function(res){
+      if(!res.ok) throw new Error('save failed');
+      document.getElementById('scWriting').style.display='none';
+      document.getElementById('scThanks').classList.add('show');
+      window.scrollTo({top: document.querySelector('.sc-wrap').offsetTop - 120, behavior:'smooth'});
+    }).catch(function(){
+      send.disabled=false; send.textContent='Send to Baraka';
+      var subject='Journeys seeking companions'+(payload.name?' \u2014 '+payload.name:'');
+      var body=(payload.name||'Someone')+' is composing a journey and open to company.\n\n'
+        +'Reach them at: '+(payload.contact||'(not given)')+'\n\n'
+        +'The journey they imagine:\n'+(payload.journey||'(left open)');
+      window.location.href='mailto:hola@enkiama.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      document.getElementById('scWriting').style.display='none';
+      document.getElementById('scThanks').classList.add('show');
+    });
   });
 })();
 </script>
@@ -1030,5 +1060,6 @@ body{
   setTimeout(sweep,3000);
 })();
 </script>
+<script src="assets/js/enkiama.js" defer></script>
 </body>
 </html>

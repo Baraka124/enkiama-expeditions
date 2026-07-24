@@ -262,16 +262,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       submitted_at: new Date().toISOString()
     };
 
-    // ── BACKEND HOOK ──
-    // When Supabase is connected, POST payload to the `reflections` table (status: 'pending').
-    // For now, gracefully show the thank-you. (Wire real submission here.)
-    try {
-      // Placeholder: store locally is NOT used (artifacts/pages shouldn't). 
-      // Real implementation: await fetch(SUPABASE_URL, {...})
+    // ── save the letter. Private by default; published only if the
+    //    writer consented AND Baraka approves it. ──
+    btn.disabled = true;
+    var original = btn.textContent;
+    btn.textContent = 'Sending\u2026';
+
+    window.Enkiama.insert('letters', {
+      letter: payload.letter,
+      name: payload.name || null,
+      journey: payload.journey || null,
+      consent_to_publish: !!payload.consent
+    }).then(function(res){
+      if(!res.ok) throw new Error('save failed');
       showThanks();
-    } catch(e){
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = original;
       err.classList.add('show');
-    }
+    });
   });
 
   function showThanks(){
@@ -686,5 +695,6 @@ body{
   setTimeout(sweep,3000);
 })();
 </script>
+<script src="assets/js/enkiama.js" defer></script>
 </body>
 </html>

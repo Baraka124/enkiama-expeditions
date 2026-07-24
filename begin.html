@@ -1269,7 +1269,7 @@ body.eh-locked{overflow:hidden;}
 
     <div class="lf-thanks" id="lfThanks" style="display:none;text-align:center;padding:2.5rem 0 0;">
       <p style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,1.9rem);color:var(--sage,#7A9470);line-height:1.35;margin-bottom:1rem;text-wrap:balance;">Your note is on its way.</p>
-      <p style="font-size:1.02rem;line-height:1.7;color:var(--bone3,#D6CCB6);max-width:44ch;margin:0 auto;">If your email program did not open, write to us directly at <a href="mailto:hola@enkiama.com" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">hola@enkiama.com</a> &mdash; or say hello on WhatsApp. Baraka will read it and write back within a day.</p>
+      <p style="font-size:1.02rem;line-height:1.7;color:var(--bone3,#D6CCB6);max-width:44ch;margin:0 auto;">Baraka will read it and reply within a day. If you would rather also write directly: <a href="mailto:hola@enkiama.com" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">hola@enkiama.com</a> &mdash; or say hello on WhatsApp.</p>
     </div>
 
     <!-- the divider + WhatsApp path -->
@@ -1390,10 +1390,31 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
     // ── BACKEND HOOK ──
     // When Supabase is connected: POST {name,email,msg} to an `enquiries` table
     // and notify Baraka, instead of (or alongside) this mailto.
-    window.location.href='mailto:hola@enkiama.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    // confirm to the person that something happened — and give a fallback if their mail client didn't open
-    var thanks=document.getElementById('lfThanks');
-    if(thanks){ thanks.style.display='block'; }
+    // ── save the enquiry properly, so nothing is ever lost ──
+    b.disabled=true; b.textContent='Sending\u2026';
+    var params=new URLSearchParams(window.location.search);
+    var composed=params.get('composed')||'';
+
+    window.Enkiama.insert('enquiries', {
+      name: name || null,
+      contact: email || null,
+      message: msg,
+      composed_journey: composed || null,
+      source_page: 'begin'
+    }).then(function(res){
+      if(!res.ok) throw new Error('save failed');
+      var thanks=document.getElementById('lfThanks');
+      var form=document.querySelector('.lf-grid');
+      if(form) form.style.display='none';
+      if(thanks){ thanks.style.display='block'; }
+      window.scrollTo({top:document.getElementById('enquire').offsetTop-100,behavior:'smooth'});
+    }).catch(function(){
+      // if the database cannot be reached, fall back to email so the person is never stranded
+      b.disabled=false; b.textContent='Send to Baraka';
+      window.location.href='mailto:hola@enkiama.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      var thanks=document.getElementById('lfThanks');
+      if(thanks){ thanks.style.display='block'; }
+    });
   });
 })();
 </script>
@@ -1937,5 +1958,6 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
   setTimeout(sweep,3000);
 })();
 </script>
+<script src="assets/js/enkiama.js" defer></script>
 </body>
 </html>
