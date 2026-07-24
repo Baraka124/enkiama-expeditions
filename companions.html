@@ -560,17 +560,17 @@ body.eh-locked{overflow:hidden;}
       <div class="sc-form">
         <div class="sc-row">
           <div class="sc-field">
-            <label class="sc-label" for="scName">Your name</label>
-            <input class="sc-in" id="scName" type="text" placeholder="How you'd like to be known">
+            <input class="sc-in" id="scName" type="text" placeholder=" ">
+            <label class="sc-flab" for="scName">How you&rsquo;d like to be known</label>
           </div>
           <div class="sc-field">
-            <label class="sc-label" for="scContact">Email or WhatsApp</label>
-            <input class="sc-in" id="scContact" type="text" placeholder="However you prefer">
+            <input class="sc-in" id="scContact" type="text" placeholder=" ">
+            <label class="sc-flab" for="scContact">Email or WhatsApp</label>
           </div>
         </div>
-        <div class="sc-field">
-          <label class="sc-label" for="scJourney">The journey you imagine</label>
-          <textarea class="sc-in" id="scJourney" placeholder="A season, a pace, the worlds that call to you, who you are travelling as &mdash; and the kind of company you'd hope to find."></textarea>
+        <div class="sc-field sc-area">
+          <textarea class="sc-in" id="scJourney" placeholder=" "></textarea>
+          <label class="sc-flab" for="scJourney">The journey you imagine</label>
         </div>
         <button class="sc-send" id="scSend">Send to Baraka</button>
         <p class="sc-promise">Baraka reads every message personally. We introduce people only where the fit feels real &mdash; and speak with each traveller first. Nothing is ever automated, and no one is ever posted publicly.</p>
@@ -694,11 +694,16 @@ var OPEN_JOURNEYS = [
 
   /* seeking-companions submit */
   var send = document.getElementById('scSend');
+  (function hp(){ if(window.Enkiama&&window.Enkiama.honeypot){window.Enkiama.honeypot(document.querySelector('.sc-form'));} else setTimeout(hp,250); })();
   var journey = document.getElementById('scJourney');
   function upd(){ send.disabled = journey.value.trim().length < 15; }
   journey.addEventListener('input', upd); upd();
 
   send.addEventListener('click', function(){
+    if(window.Enkiama&&window.Enkiama.isBot&&window.Enkiama.isBot(document.querySelector('.sc-form'))){
+      document.getElementById('scWriting').style.display='none';
+      document.getElementById('scThanks').classList.add('show'); return;
+    }
     var payload = {
       name: document.getElementById('scName').value.trim(),
       contact: document.getElementById('scContact').value.trim(),
@@ -998,6 +1003,23 @@ body{
     radial-gradient(ellipse 85% 50% at 88% 72%, rgba(44,60,48,0.16) 0%, transparent 64%),
     linear-gradient(168deg,#18251E 0%,#1C2921 45%,#1F2D24 100%) !important;
 }
+
+/* floating labels, matching the enquiry */
+.sc-field{position:relative;padding-top:1.35rem;}
+.sc-field .sc-in{width:100%;}
+.sc-field .sc-in::placeholder{color:transparent;}
+.sc-flab{position:absolute;left:.1rem;top:1.9rem;pointer-events:none;
+  font-family:'Instrument Sans',sans-serif;font-size:1.02rem;color:var(--muted);
+  transition:transform .45s cubic-bezier(.16,1,.3,1),color .4s,font-size .45s cubic-bezier(.16,1,.3,1);
+  transform-origin:left top;}
+.sc-field .sc-in:focus + .sc-flab,
+.sc-field .sc-in:not(:placeholder-shown) + .sc-flab{
+  transform:translateY(-1.55rem);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);}
+.sc-field.sc-area .sc-flab{top:2.6rem;left:1.45rem;font-family:'Fraunces',serif;font-style:italic;}
+.sc-field.sc-area .sc-in:focus + .sc-flab,
+.sc-field.sc-area .sc-in:not(:placeholder-shown) + .sc-flab{
+  transform:translateY(-2.2rem);left:.1rem;font-style:normal;font-family:'Instrument Sans',sans-serif;}
+@media (prefers-reduced-motion:reduce){.sc-flab{transition:none;}}
 </style>
 <script>
 (function(){

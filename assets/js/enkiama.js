@@ -32,6 +32,25 @@
     }
   };
 
+
+  /* ── HONEYPOT ──────────────────────────────────────────
+     A field only a bot will fill. Invisible, unlabelled,
+     never focusable, and ignored by password managers.     */
+  window.Enkiama.honeypot = function (formEl) {
+    if (!formEl || formEl.querySelector('.enk-hp')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'enk-hp';
+    wrap.setAttribute('aria-hidden', 'true');
+    wrap.style.cssText = 'position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;';
+    wrap.innerHTML = '<label>Do not fill this in<input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>';
+    formEl.appendChild(wrap);
+  };
+  window.Enkiama.isBot = function (formEl) {
+    if (!formEl) return false;
+    var f = formEl.querySelector('.enk-hp input');
+    return !!(f && f.value);
+  };
+
   /* ── ANALYTICS ────────────────────────────────────────
      No cookies. No persistent identifier. A random key per
      browser session only, so repeat views in one visit are

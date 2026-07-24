@@ -250,10 +250,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     btn.disabled = letter.value.trim().length < 20;
   }
   letter.addEventListener('input',update);
+  /* the letter grows as it is written */
+  letter.addEventListener('input',function(){
+    letter.style.height='auto';
+    letter.style.height=Math.max(letter.scrollHeight,240)+'px';
+  });
+  (function hp(){
+    if(window.Enkiama&&window.Enkiama.honeypot){
+      window.Enkiama.honeypot(document.querySelector('.b-form')||letter.parentElement);
+    } else setTimeout(hp,250);
+  })();
   update();
 
   btn.addEventListener('click',function(){
     err.classList.remove('show');
+    if(window.Enkiama&&window.Enkiama.isBot&&window.Enkiama.isBot(document.querySelector('.b-form')||letter.parentElement)){
+      showThanks(); return;
+    }
     var payload={
       letter: letter.value.trim(),
       name: document.getElementById('name').value.trim(),

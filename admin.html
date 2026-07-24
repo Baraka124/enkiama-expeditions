@@ -123,6 +123,30 @@ button{font-family:inherit;cursor:pointer;}
 textarea.in{min-height:80px;resize:vertical;line-height:1.6;}
 select.in{cursor:pointer;}
 
+
+/* ── toolbar: search, filter, export ── */
+.toolbar{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem;}
+.search{flex:1;min-width:190px;background:rgba(15,23,18,0.5);border:1px solid var(--rule);border-radius:2px;
+  color:var(--bone);font-family:inherit;font-size:.9rem;padding:.55rem .8rem;transition:border-color .3s;}
+.search:focus{outline:none;border-color:rgba(190,158,104,0.5);}
+.filter{background:rgba(15,23,18,0.5);border:1px solid var(--rule);border-radius:2px;color:var(--bone3);
+  font-family:inherit;font-size:.85rem;padding:.55rem .7rem;cursor:pointer;}
+.filter:focus{outline:none;border-color:rgba(190,158,104,0.5);}
+/* private notes */
+.note-wrap{margin-top:.9rem;padding-top:.9rem;border-top:1px solid rgba(190,158,104,0.07);}
+.note-in{width:100%;background:rgba(15,23,18,0.45);border:1px solid var(--rule);border-radius:2px;
+  color:var(--bone3);font-family:inherit;font-size:.88rem;padding:.55rem .7rem;min-height:44px;resize:vertical;
+  line-height:1.6;transition:border-color .3s;}
+.note-in:focus{outline:none;border-color:rgba(190,158,104,0.4);}
+.note-lbl{font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:9.5px;color:var(--muted);margin-bottom:.35rem;display:block;}
+.saved{font-size:10px;color:var(--sage);opacity:0;transition:opacity .3s;margin-left:.5rem;}
+.saved.on{opacity:1;}
+/* daily chart */
+.chart{display:flex;align-items:flex-end;gap:3px;height:110px;margin-top:.5rem;}
+.chart-col{flex:1;background:linear-gradient(180deg,var(--earth),rgba(190,158,104,0.25));border-radius:2px 2px 0 0;
+  min-height:2px;position:relative;transition:opacity .25s;}
+.chart-col:hover{opacity:.75;}
+.chart-x{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);margin-top:.5rem;}
 .toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(120%);
   background:rgba(24,36,28,0.97);border:1px solid rgba(190,158,104,0.35);border-radius:3px;
   padding:.8rem 1.4rem;font-size:.9rem;color:var(--bone);z-index:200;
@@ -162,6 +186,15 @@ select.in{cursor:pointer;}
   <div class="view on" id="v-enquiries">
     <h1 class="view-h">Enquiries</h1>
     <p class="view-sub">People who have written to us.</p>
+    <div class="toolbar">
+      <input class="search" id="enqSearch" placeholder="Search name, message\u2026">
+      <select class="filter" id="enqFilter">
+        <option value="">All</option><option value="new">New</option>
+        <option value="read">Read</option><option value="replied">Replied</option>
+        <option value="archived">Archived</option>
+      </select>
+      <button class="act" id="enqExport">Export CSV</button>
+    </div>
     <div id="enqList"></div>
   </div>
 
@@ -169,6 +202,14 @@ select.in{cursor:pointer;}
   <div class="view" id="v-letters">
     <h1 class="view-h">Letters</h1>
     <p class="view-sub">Private until you approve them. A letter is only ever published if the writer consented <em>and</em> you approve.</p>
+    <div class="toolbar">
+      <input class="search" id="letSearch" placeholder="Search letters\u2026">
+      <select class="filter" id="letFilter">
+        <option value="">All</option><option value="private">Awaiting you</option>
+        <option value="approved">Published</option><option value="declined">Declined</option>
+      </select>
+      <button class="act" id="letExport">Export CSV</button>
+    </div>
     <div id="letList"></div>
   </div>
 
@@ -176,6 +217,15 @@ select.in{cursor:pointer;}
   <div class="view" id="v-companions">
     <h1 class="view-h">Journeys seeking companions</h1>
     <p class="view-sub">Travellers open to the right company.</p>
+    <div class="toolbar">
+      <input class="search" id="comSearch" placeholder="Search\u2026">
+      <select class="filter" id="comFilter">
+        <option value="">All</option><option value="pending">Pending</option>
+        <option value="reviewing">Reviewing</option><option value="matched">Matched</option>
+        <option value="closed">Closed</option>
+      </select>
+      <button class="act" id="comExport">Export CSV</button>
+    </div>
     <div id="comList"></div>
   </div>
 
@@ -206,6 +256,11 @@ select.in{cursor:pointer;}
     <h1 class="view-h">Analytics</h1>
     <p class="view-sub">Your own data. No cookies, no third parties, nothing personal recorded.</p>
     <div class="stats" id="statCards"></div>
+    <div class="card">
+      <div class="card-top"><span class="card-name">Views by day</span><span class="card-meta">last 30 days</span></div>
+      <div class="chart" id="chartDays"></div>
+      <div class="chart-x" id="chartX"></div>
+    </div>
     <div class="card">
       <div class="card-top"><span class="card-name">Most visited pages</span><span class="card-meta">last 30 days</span></div>
       <div class="bars" id="barPages"></div>
@@ -276,11 +331,27 @@ document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () =>
 /* ── LOADERS ──────────────────────────────────── */
 async function loadAll(){ await Promise.all([loadEnquiries(), loadLetters(), loadCompanions(), loadJourneys()]); }
 
+let ENQ=[], LET=[], COM=[];
+
+function matches(d, q){
+  if(!q) return true;
+  q=q.toLowerCase();
+  return ['name','contact','message','journey','letter','notes'].some(k =>
+    (d[k]||'').toLowerCase().includes(q));
+}
+
 async function loadEnquiries(){
   const { data, error } = await sb.from('enquiries').select('*').order('created_at',{ascending:false});
   if(error){ $('enqList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  ENQ = data;
   const fresh = data.filter(d=>d.status==='new').length;
   const b=$('cEnq'); if(fresh){ b.textContent=fresh; b.style.display='inline-block'; } else b.style.display='none';
+  paintEnquiries();
+}
+
+function paintEnquiries(){
+  const q=$('enqSearch').value.trim(), f=$('enqFilter').value;
+  const data = ENQ.filter(d => (!f || d.status===f) && matches(d,q));
   $('enqList').innerHTML = data.length ? data.map(d=>`
     <div class="card">
       <div class="card-top">
@@ -291,18 +362,30 @@ async function loadEnquiries(){
       <div class="card-body">${esc(d.message)}</div>
       ${d.composed_journey?`<div class="card-extra">Composed: ${esc(d.composed_journey)}</div>`:''}
       <div class="card-acts">
+        ${d.contact && d.contact.includes('@') ? `<a class="act go" href="mailto:${esc(d.contact)}?subject=${encodeURIComponent('A conversation with Enkiama')}">Reply by email</a>` : ''}
         ${d.status!=='replied'?`<button class="act go" data-enq="${d.id}" data-to="replied">Mark replied</button>`:''}
         ${d.status==='new'?`<button class="act" data-enq="${d.id}" data-to="read">Mark read</button>`:''}
         <button class="act" data-enq="${d.id}" data-to="archived">Archive</button>
       </div>
-    </div>`).join('') : '<div class="empty">No enquiries yet.</div>';
+      <div class="note-wrap">
+        <span class="note-lbl">Private note<span class="saved" id="s-${d.id}">saved</span></span>
+        <textarea class="note-in" data-note="enquiries" data-id="${d.id}">${esc(d.notes)}</textarea>
+      </div>
+    </div>`).join('') : '<div class="empty">Nothing matches.</div>';
 }
 
 async function loadLetters(){
   const { data, error } = await sb.from('letters').select('*').order('created_at',{ascending:false});
   if(error){ $('letList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  LET = data;
   const waiting = data.filter(d=>d.status==='private' && d.consent_to_publish).length;
   const b=$('cLet'); if(waiting){ b.textContent=waiting; b.style.display='inline-block'; } else b.style.display='none';
+  paintLetters();
+}
+
+function paintLetters(){
+  const q=$('letSearch').value.trim(), f=$('letFilter').value;
+  const data = LET.filter(d => (!f || d.status===f) && matches(d,q));
   $('letList').innerHTML = data.length ? data.map(d=>`
     <div class="card">
       <div class="card-top">
@@ -322,14 +405,25 @@ async function loadLetters(){
         ${d.status==='approved'?`<button class="act no" data-let="${d.id}" data-to="private">Unpublish</button>`:''}
         ${d.status!=='declined'?`<button class="act" data-let="${d.id}" data-to="declined">Decline</button>`:''}
       </div>
-    </div>`).join('') : '<div class="empty">No letters yet.</div>';
+      <div class="note-wrap">
+        <span class="note-lbl">Private note<span class="saved" id="s-${d.id}">saved</span></span>
+        <textarea class="note-in" data-note="letters" data-id="${d.id}">${esc(d.notes)}</textarea>
+      </div>
+    </div>`).join('') : '<div class="empty">Nothing matches.</div>';
 }
 
 async function loadCompanions(){
   const { data, error } = await sb.from('companions').select('*').order('created_at',{ascending:false});
   if(error){ $('comList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  COM = data;
   const p = data.filter(d=>d.status==='pending').length;
   const b=$('cCom'); if(p){ b.textContent=p; b.style.display='inline-block'; } else b.style.display='none';
+  paintCompanions();
+}
+
+function paintCompanions(){
+  const q=$('comSearch').value.trim(), f=$('comFilter').value;
+  const data = COM.filter(d => (!f || d.status===f) && matches(d,q));
   $('comList').innerHTML = data.length ? data.map(d=>`
     <div class="card">
       <div class="card-top">
@@ -342,8 +436,13 @@ async function loadCompanions(){
         <button class="act" data-com="${d.id}" data-to="reviewing">Reviewing</button>
         <button class="act go" data-com="${d.id}" data-to="matched">Matched</button>
         <button class="act" data-com="${d.id}" data-to="closed">Close</button>
+        ${d.contact && d.contact.includes('@') ? `<a class="act go" href="mailto:${esc(d.contact)}?subject=${encodeURIComponent('Travelling with Enkiama')}">Reply by email</a>` : ''}
       </div>
-    </div>`).join('') : '<div class="empty">Nobody seeking companions yet.</div>';
+      <div class="note-wrap">
+        <span class="note-lbl">Private note<span class="saved" id="s-${d.id}">saved</span></span>
+        <textarea class="note-in" data-note="companions" data-id="${d.id}">${esc(d.notes)}</textarea>
+      </div>
+    </div>`).join('') : '<div class="empty">Nothing matches.</div>';
 }
 
 async function loadJourneys(){
@@ -394,6 +493,45 @@ $('jSave').addEventListener('click', async () => {
   toast('Journey saved'); loadJourneys();
 });
 
+
+/* ── SEARCH & FILTER ──────────────────────────── */
+['enqSearch','enqFilter'].forEach(id=>{ const el=$(id); if(el) el.addEventListener('input',paintEnquiries); });
+['letSearch','letFilter'].forEach(id=>{ const el=$(id); if(el) el.addEventListener('input',paintLetters); });
+['comSearch','comFilter'].forEach(id=>{ const el=$(id); if(el) el.addEventListener('input',paintCompanions); });
+
+/* ── PRIVATE NOTES (autosave on pause) ────────── */
+let noteTimers={};
+document.addEventListener('input', e => {
+  const t=e.target;
+  if(!t.classList || !t.classList.contains('note-in')) return;
+  const table=t.dataset.note, id=t.dataset.id;
+  clearTimeout(noteTimers[id]);
+  noteTimers[id]=setTimeout(async ()=>{
+    await sb.from(table).update({notes:t.value}).eq('id',id);
+    const s=$('s-'+id); if(s){ s.classList.add('on'); setTimeout(()=>s.classList.remove('on'),1600); }
+  }, 800);
+});
+
+/* ── CSV EXPORT ───────────────────────────────── */
+function toCSV(rows){
+  if(!rows.length) return '';
+  const cols=Object.keys(rows[0]);
+  const cell=v => '"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+  return [cols.join(','), ...rows.map(r=>cols.map(c=>cell(r[c])).join(','))].join('\n');
+}
+function download(name, text){
+  const blob=new Blob([text],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  toast('Exported');
+}
+const exp=(id,get,file)=>{ const el=$(id); if(el) el.addEventListener('click',()=>download(file,toCSV(get()))); };
+exp('enqExport',()=>ENQ,'enkiama-enquiries.csv');
+exp('letExport',()=>LET,'enkiama-letters.csv');
+exp('comExport',()=>COM,'enkiama-companions.csv');
+
 /* ── ANALYTICS ────────────────────────────────── */
 async function loadAnalytics(){
   const since = new Date(Date.now()-30*864e5).toISOString();
@@ -427,6 +565,21 @@ async function loadAnalytics(){
   };
   $('barPages').innerHTML = bars(tally(data,'path'));
   $('barRefs').innerHTML  = bars(tally(data,'referrer_host'));
+
+  /* views by day */
+  const days=[], counts=[];
+  for(let i=29;i>=0;i--){
+    const d=new Date(Date.now()-i*864e5);
+    const key=d.toDateString();
+    days.push(d);
+    counts.push(data.filter(x=>new Date(x.viewed_at).toDateString()===key).length);
+  }
+  const peak=Math.max(1,...counts);
+  $('chartDays').innerHTML = counts.map((n,i)=>
+    `<div class="chart-col" style="height:${Math.max(2,Math.round(n/peak*100))}%" title="${days[i].toLocaleDateString('en-GB',{day:'numeric',month:'short'})}: ${n} views"></div>`
+  ).join('');
+  const fmt=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+  $('chartX').innerHTML = `<span>${fmt(days[0])}</span><span>${fmt(days[14])}</span><span>today</span>`;
 }
 </script>
 </body>

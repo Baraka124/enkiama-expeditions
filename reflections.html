@@ -650,7 +650,34 @@ var REFLECTIONS = [
   } else { mapWrap.classList.add('drawn'); }
 
   /* build a lookup */
-  var byId={}; REFLECTIONS.forEach(function(r){byId[r.id]=r;});
+  var byId={};
+  function indexAll(){ byId={}; REFLECTIONS.forEach(function(r){byId[r.id]=r;}); }
+  indexAll();
+
+  /* ── real letters Baraka has approved join the anthology ──
+     Examples remain beneath them, so the page is never empty. */
+  if (window.Enkiama) {
+    window.Enkiama.select('letters','?status=eq.approved&consent_to_publish=eq.true&order=created_at.desc')
+      .then(function(rows){
+        if (!rows || !rows.length) return;
+        var real = rows.map(function(r,i){
+          var text=(r.published_excerpt&&r.published_excerpt.trim())?r.published_excerpt:(r.letter||'');
+          var paras=text.split(/\n{2,}/).map(function(s){return s.trim();}).filter(Boolean);
+          var first=(paras[0]||'').replace(/^[\s"']+/,'');
+          return {
+            id:'letter-'+(r.id||i),
+            place: r.place || r.journey || 'A journey with Enkiama',
+            fragment: first.length>62 ? first.slice(0,62).replace(/\s+\S*$/,'')+'\u2026' : first,
+            body: paras.length?paras:[text],
+            attr: r.name ? ('\u2014 '+r.name) : '\u2014 a traveller'
+          };
+        });
+        REFLECTIONS = real.concat(REFLECTIONS);
+        indexAll();
+        if (typeof renderLetters === 'function') renderLetters();
+      })
+      .catch(function(){});
+  }
 
   /* modal open/close */
   var modal=document.getElementById('rModal');
@@ -673,11 +700,15 @@ var REFLECTIONS = [
 
   /* render the letters view */
   var lv=document.getElementById('lettersView');
-  lv.innerHTML=REFLECTIONS.map(function(r){
-    return '<article class="r-letter"><p class="r-letter-place">'+r.place+'</p>'+
-      '<div class="r-letter-body">'+r.body.map(function(p){return '<p>'+p+'</p>';}).join('')+'</div>'+
-      '<p class="r-letter-attr">'+r.attr+'</p></article>';
-  }).join('');
+  function renderLetters(){
+    lv.innerHTML=REFLECTIONS.map(function(r){
+      return '<article class="r-letter"><p class="r-letter-place">'+r.place+'</p>'+
+        '<div class="r-letter-body">'+r.body.map(function(p){return '<p>'+p+'</p>';}).join('')+'</div>'+
+        '<p class="r-letter-attr">'+r.attr+'</p></article>';
+    }).join('');
+  }
+  window.renderLetters = renderLetters;
+  renderLetters();
 
   /* letters reveal on scroll */
   if(!reduce && 'IntersectionObserver' in window){

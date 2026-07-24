@@ -1259,11 +1259,21 @@ body.eh-locked{overflow:hidden;}
 
     <!-- the letter -->
     <div class="lf-grid" style="display:flex;flex-direction:column;gap:1.4rem;">
-      <div class="lf-row" style="display:flex;gap:1.4rem;flex-wrap:wrap;">
-        <input class="lf-in" id="lfName" type="text" placeholder="Your name" autocomplete="name" style="flex:1;min-width:200px;">
-        <input class="lf-in" id="lfEmail" type="text" placeholder="Email or WhatsApp &mdash; however you prefer" autocomplete="email" style="flex:1.4;min-width:200px;">
+      <div class="lf-row" style="display:flex;gap:1.8rem;flex-wrap:wrap;">
+        <div class="lf-field" style="flex:1;min-width:200px;">
+          <input class="lf-in" id="lfName" type="text" placeholder=" " autocomplete="name">
+          <label class="lf-lab" for="lfName">Your name</label>
+        </div>
+        <div class="lf-field" style="flex:1.4;min-width:220px;">
+          <input class="lf-in" id="lfEmail" type="text" placeholder=" " autocomplete="email">
+          <label class="lf-lab" for="lfEmail">Email or WhatsApp &mdash; however you prefer</label>
+        </div>
       </div>
-      <textarea class="lf-in" id="lfMsg" rows="5" placeholder="Where does your mind go? A season you're dreaming of, who you'd travel with, a feeling you're chasing &mdash; whatever comes."></textarea>
+      <div class="lf-field lf-area">
+        <textarea class="lf-in" id="lfMsg" rows="5" placeholder=" "></textarea>
+        <label class="lf-lab" for="lfMsg">Where does your mind go?</label>
+      </div>
+      <div class="lf-ready" id="lfReady"><span class="lf-ready-dot"></span><span id="lfReadyTxt">Ready when you are.</span></div>
       <button class="lf-send" id="lfSend" style="align-self:center;margin-top:.8rem;">Send to Baraka</button>
     </div>
 
@@ -1371,10 +1381,29 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
     return hasContact && hasWords;
   }
   function updateState(){
-    b.disabled=!ready();
-    b.style.opacity=ready()?'1':'0.45';
-    b.style.cursor=ready()?'pointer':'not-allowed';
+    var ok=ready();
+    b.disabled=!ok;
+    var r=document.getElementById('lfReady');
+    var rt=document.getElementById('lfReadyTxt');
+    if(r){
+      var hasWords=(msgEl.value||'').trim().length>10;
+      var hasContact=(emailEl.value||'').trim().length>3;
+      if(ok){ rt.textContent='Ready when you are.'; r.classList.add('on'); }
+      else if(hasWords && !hasContact){ rt.textContent='We will need a way to reach you.'; r.classList.add('on'); }
+      else if(!hasWords && hasContact){ rt.textContent='Tell us a little more.'; r.classList.add('on'); }
+      else { r.classList.remove('on'); }
+    }
   }
+  /* the letter grows with the words */
+  function grow(){ msgEl.style.height='auto'; msgEl.style.height=Math.max(150,msgEl.scrollHeight)+'px'; }
+  msgEl.addEventListener('input',grow);
+  /* an invisible field only a bot will fill */
+  function attachHP(){
+    if(window.Enkiama && window.Enkiama.honeypot){
+      window.Enkiama.honeypot(document.querySelector('.lf-grid'));
+    } else { setTimeout(attachHP, 250); }
+  }
+  attachHP();
   [nameEl,emailEl,msgEl].forEach(function(el){
     if(el) el.addEventListener('input',updateState);
   });
@@ -1382,6 +1411,10 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 
   b.addEventListener('click',function(){
     if(!ready()) return;
+    if(window.Enkiama && window.Enkiama.isBot && window.Enkiama.isBot(document.querySelector('.lf-grid'))){
+      var t=document.getElementById('lfThanks'); if(t) t.style.display='block';
+      return; /* silently discard */
+    }
     var name=(nameEl.value||'').trim();
     var email=(emailEl.value||'').trim();
     var msg=(msgEl.value||'').trim();
@@ -1867,6 +1900,56 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
 .f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:var(--muted);opacity:0.45;letter-spacing:0.1em;}
 @media (max-width:640px){
   .f-base{flex-direction:column;align-items:flex-start;}
+}
+
+/* ══════════ THE LETTER — a form that behaves like writing ══════════
+   Floating labels that lift as you type, a field that grows with the
+   words, a quiet progress mark, and a send that only offers itself
+   when there is something worth sending. */
+.lf-field{position:relative;padding-top:1.35rem;}
+.lf-field .lf-in{
+  width:100%;background:transparent;border:none;border-bottom:1px solid rgba(190,158,104,0.22);
+  border-radius:0;color:var(--bone,#EDE6D6);font-family:'Instrument Sans',sans-serif;
+  font-size:1.06rem;padding:.7rem 0 .55rem;transition:border-color .5s cubic-bezier(.16,1,.3,1);
+}
+.lf-field .lf-in::placeholder{color:transparent;}
+.lf-field .lf-in:focus{outline:none;border-bottom-color:rgba(190,158,104,0.65);}
+.lf-lab{
+  position:absolute;left:.1rem;top:1.9rem;pointer-events:none;
+  font-family:'Instrument Sans',sans-serif;font-size:1.02rem;color:var(--muted,#95907F);
+  transition:transform .45s cubic-bezier(.16,1,.3,1), color .4s ease, font-size .45s cubic-bezier(.16,1,.3,1);
+  transform-origin:left top;
+}
+.lf-field .lf-in:focus + .lf-lab,
+.lf-field .lf-in:not(:placeholder-shown) + .lf-lab{
+  transform:translateY(-1.55rem);font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--earth,#BE9E68);
+}
+/* the letter itself */
+textarea.lf-in{
+  font-family:'Fraunces',serif;font-size:clamp(1.12rem,2.5vw,1.28rem);line-height:1.8;
+  border:1px solid rgba(190,158,104,0.14);border-radius:2px;background:rgba(20,28,22,0.32);
+  padding:1.3rem 1.4rem;min-height:150px;resize:none;overflow:hidden;
+  transition:border-color .5s ease, background .5s ease;
+}
+textarea.lf-in:focus{border-color:rgba(190,158,104,0.42);background:rgba(24,35,27,0.5);}
+.lf-field.lf-area .lf-lab{top:2.5rem;left:1.45rem;font-family:'Fraunces',serif;font-style:italic;}
+.lf-field.lf-area .lf-in:focus + .lf-lab,
+.lf-field.lf-area .lf-in:not(:placeholder-shown) + .lf-lab{
+  transform:translateY(-2.15rem);left:.1rem;font-style:normal;font-family:'Instrument Sans',sans-serif;
+}
+/* a quiet mark of readiness, not a nagging counter */
+.lf-ready{display:flex;align-items:center;gap:.6rem;margin-top:.7rem;
+  font-family:'Fraunces',serif;font-style:italic;font-size:.86rem;color:var(--muted,#95907F);
+  opacity:0;transform:translateY(-3px);transition:opacity .5s ease, transform .5s ease;}
+.lf-ready.on{opacity:1;transform:translateY(0);}
+.lf-ready-dot{width:5px;height:5px;border-radius:50%;background:var(--sage,#7A9470);flex-shrink:0;}
+/* send */
+.lf-send{transition:opacity .5s ease, color .4s ease, letter-spacing .5s cubic-bezier(.16,1,.3,1);}
+.lf-send:disabled{opacity:.32;cursor:not-allowed;}
+.lf-send:not(:disabled){opacity:1;}
+@media (prefers-reduced-motion:reduce){
+  .lf-lab,.lf-ready,.lf-send,textarea.lf-in{transition:none;}
 }
 </style>
 <script>
