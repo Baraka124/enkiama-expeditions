@@ -302,40 +302,6 @@ body.eh-locked{overflow:hidden;}
   .eh-watermark{display:none;}
 }
 @media(prefers-reduced-motion:reduce){.eh-nav li a,.eh-nav-eyebrow,.eh-aside-photo,.eh-aside-inner,.eh-close{transition:opacity .3s !important;transform:none !important;}}
-
-/* ══════ FOOTER ══════ */
-footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5rem,4vw,3rem) 2.5rem;display:block;}
-.f-brand{margin-bottom:clamp(2.5rem,5vw,3.5rem);}
-.f-logo-img{height:34px;width:auto;display:block;opacity:.95;}
-.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.28);letter-spacing:0.04em;margin-top:8px;}
-.f-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(1.8rem,3.5vw,3rem);margin-bottom:clamp(2.5rem,5vw,3.5rem);}
-.f-col{display:flex;flex-direction:column;gap:.65rem;}
-.f-col-h{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:10px;color:var(--earth);opacity:.85;margin-bottom:.5rem;}
-.f-col a{font-family:'Instrument Sans',sans-serif;font-size:12.5px;letter-spacing:.02em;color:var(--muted);text-decoration:none;opacity:.8;transition:opacity .3s ease,color .3s ease;}
-.f-col a:hover{opacity:1;color:var(--bone);}
-.f-base{border-top:1px solid rgba(190,158,104,0.07);padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
-.f-contact a{font-family:'Instrument Sans',sans-serif;font-size:12px;color:rgba(237,230,214,0.4);text-decoration:none;transition:color .3s;}
-.f-contact a:hover{color:var(--earth);}
-.f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:var(--muted);opacity:0.45;letter-spacing:0.1em;}
-@media (max-width:640px){
-  .f-base{flex-direction:column;align-items:flex-start;}
-}
-
-
-/* ══════════ THE ENKIAMA RULE — signature device ══════════
-   A brass line that draws itself from the left, carrying a single
-   small mark: the trace of a hand, not a divider. Used everywhere
-   a thought begins. This is the site's one unmistakable gesture. */
-.ochre-rule{
-  position:relative;width:64px;height:1px;background:none;opacity:1;margin:2rem 0;
-  overflow:visible;
-}
-.ochre-rule::before{
-  content:'';position:absolute;left:0;top:0;height:1px;width:100%;
-  background:linear-gradient(90deg, var(--earth,#BE9E68) 0%, rgba(190,158,104,0.55) 62%, transparent 100%);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform 1.4s cubic-bezier(.16,1,.3,1);
-}
 </style>
 
 <div class="eh-bar" id="ehBar">
@@ -354,10 +320,11 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
         <li><a href="tanzania.html" data-nav="tanzania"><span class="eh-idx">01</span><span class="eh-lnk">Tanzania</span></a></li>
         <li><a href="parks.html" data-nav="parks"><span class="eh-idx">02</span><span class="eh-lnk">Wild Tanzania</span></a></li>
         <li><a href="kilimanjaro.html" data-nav="kilimanjaro"><span class="eh-idx">03</span><span class="eh-lnk">Kilimanjaro</span></a></li>
-        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">04</span><span class="eh-lnk">Journeys</span></a></li>
-        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">05</span><span class="eh-lnk">Compose your journey</span></a></li>
-        <li><a href="family.html" data-nav="family"><span class="eh-idx">06</span><span class="eh-lnk">The family</span></a></li>
-        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">07</span><span class="eh-lnk">Begin</span></a></li>
+        <li><a href="great-rift.html" data-nav="greatrift"><span class="eh-idx">04</span><span class="eh-lnk">The Great Rift</span></a></li>
+        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">05</span><span class="eh-lnk">Journeys</span></a></li>
+        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">06</span><span class="eh-lnk">Compose your journey</span></a></li>
+        <li><a href="family.html" data-nav="family"><span class="eh-idx">07</span><span class="eh-lnk">The family</span></a></li>
+        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">08</span><span class="eh-lnk">Begin</span></a></li>
       </ul>
     </nav>
     <div class="eh-secondary">
@@ -383,6 +350,7 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
       <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
       <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
       <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
+      <div class="eh-aside-img" data-img="greatrift" data-src="assets/images/great-rift.jpg"></div>
       <div class="eh-aside-img" data-img="companions" data-src="assets/images/group-fire.jpg"></div>
       <div class="eh-aside-img" data-img="reflections" data-src="assets/images/night-sky.jpg"></div>
       <div class="eh-aside-img" data-img="practical" data-src="assets/images/arusha.jpg"></div>
@@ -451,7 +419,7 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
   var LABELS={
     tanzania:'The Serengeti', parks:'Ngorongoro', journeys:'Tarangire',
     compose:'First light', family:'Kibosho', begin:'Camp, on arrival',
-    kilimanjaro:'Kilimanjaro', companions:'Around the fire',
+    kilimanjaro:'Kilimanjaro', companions:'Around the fire', greatrift:'The Rift Valley',
     reflections:'Night over the plain', practical:'Arusha',
     stories:'Stone Town', notes:'Lake Manyara', how:'The people of the land',
     why:'Those who guide'
@@ -605,6 +573,7 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
       <a href="tanzania.html">Tanzania</a>
       <a href="parks.html">Wild Tanzania</a>
       <a href="kilimanjaro.html">Kilimanjaro</a>
+      <a href="great-rift.html">The Great Rift</a>
       <a href="journeys.html">Journeys</a>
       <a href="compose.html">Compose a journey</a>
       <a href="companions.html">Companions</a>
