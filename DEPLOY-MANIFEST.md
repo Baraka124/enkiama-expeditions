@@ -1,56 +1,55 @@
 # Enkiama — Deploy Manifest
 
-## This batch: Ten "living system" features (lighter builds) + prior work
+## This batch: deep input-quality pass + strengthened round-one features
 
-### Live in Supabase already (DB migrations — no push needed)
-- Prior: operator access locked to Baraka's uid; analytics + private tables
-  sealed from anon.
-- New support tables (operator-only, verified sealed from anon):
-  - contact_log — reply/contact history per enquiry & companion (#5)
-  - admin_audit — every status change / approval / deletion, logged (#10)
-  - contact indexes for fast per-person grouping (#1)
+### Live in Supabase already (DB migration — no push needed)
+- #5 Server-side length & shape guards (CHECK constraints) on enquiries,
+  letters, companions: message 1–5000, letter 1–8000, journey 1–3000, plus
+  name/contact/place/journey ceilings. Verified: a 9000-char letter is
+  rejected; a normal letter is accepted. No real submission is ever refused.
 
 ### Changed files in this zip (push these)
-- **admin.html** — seven of the ten features:
-  - #2 "Today" dashboard as the landing tab (warm lede, tappable stat cards)
-  - #4 gentle enquiry ageing ("Gently ageing", 3+ days, soft mark)
-  - #1 traveller timeline (history thread on each card)
-  - #5 reply-log ("log it": replied/called/met/note + a gist)
-  - #10 audit trail on every consequential action
-  - #9 "Download a copy of everything" — full JSON backup, anytime
-- **reflections.html** — #6 letters map: a privacy-first stylised SVG map of
-  Tanzania with brass pins where travellers wrote from. No external tiles,
-  no tracking — true to "no cookies, no third parties."
-- **barua.html** — optional "a place this letter belongs to" field with a
-  built-in Tanzania gazetteer (local, no external geocoding) so known places
-  pin on the map automatically. Consent double-gate unchanged.
-- **companions.html** — #7 journeys already breathe (live reads); #8 adds a
-  subtle "Newly opened" badge on journeys opened within 10 days.
+- **begin.html** — maxlength on all fields (name 120, contact 200, message 5000).
+  Already had strong live validation; now length-bounded too.
+- **barua.html** — maxlength everywhere + a live, humane character hint
+  (only speaks up when too short or near the ceiling). Extended map gazetteer
+  (30+ Tanzania places) with fuzzy matching and graceful "unmapped" handling.
+- **companions.html** — deepened validation with warm inline messages (contact
+  shape, journey length) instead of a silent disabled button; maxlength,
+  inputmode, autocomplete added. Removed a dead payload field.
+- **admin.html**:
+  - #7 "Recent activity" — the audit trail is now visible on the Today tab.
+  - #8 reply-log entries are deletable (a living log you can tend), with the
+    removal itself audited.
+  - (fixed a self-inflicted regression mid-build: the "Log it" insert handler
+    was briefly removed and restored — verified working.)
 
-### Verified (RLS-enforced, as browser + operator)
-- Operator can write reply-logs and audit entries; anon cannot read either.
-- Anon can read approved+consented letters' map fields; private data stays sealed.
+### Accessibility (#10) across all inputs
+- Every field has a bound <label>; inputs carry aria-describedby to their hints
+  and live messages (aria-live="polite"); focus-visible outlines already present.
+- Proper input types: inputmode="email"/autocomplete on contact fields so
+  phones show the right keyboard.
+
+### Verified (RLS-enforced)
+- Server guards reject oversized input, accept normal input.
+- Operator can read the audit log, write and delete reply-log entries;
+  anon still sealed out of both support tables.
+- All edited files: every real JS block parses; admin module valid; new IDs present.
 - Test rows inserted and cleaned; DB pristine.
-- All edited files: every real JS block parses; admin module valid; IDs present.
 
-### Feature notes / honest limits
-- The map plots letters whose named place is in the built-in gazetteer
-  (Serengeti, Ngorongoro, Zanzibar, Kilimanjaro, Arusha, Tarangire, Manyara,
-  Ruaha, Nyerere/Selous, Mahale, Mikumi, Moshi, Dar, Pemba, Stone Town).
-  A letter with a place not in the list still saves — it just won't pin until
-  you add coordinates. Easy to extend the gazetteer later.
-- I could not render screenshots in this environment. Please eyeball
-  reflections.html (map), companions.html (badge), and the admin Today tab
-  once after deploy.
+### Honest limits
+- The map still pins only gazetteer places (now 30+). Unlisted places save fine,
+  just don't pin until added.
+- No screenshots possible in this environment — please eyeball barua,
+  companions, and the admin Today tab on desktop and phone after deploy.
 
 ### Still parked (by request)
 - notify Edge Function secrets (RESEND_API_KEY etc.)
 - Disable open sign-ups in Supabase Auth settings (dashboard toggle)
 
 ### After deploying — verify
-1. admin.html → Today tab shows the lede + cards; try "Download a copy of
-   everything" (a JSON file should download).
-2. Log a touch on an enquiry; confirm it appears in the history thread.
-3. barua.html → write a test letter with place "Serengeti" + consent; approve
-   it in admin; confirm a pin appears on reflections.html.
-4. Open a journey in admin; confirm "Newly opened" shows on companions.html.
+1. barua.html — type a very short letter; confirm the gentle "a little more"
+   hint; paste something huge; confirm it caps at the limit.
+2. companions.html — type a malformed email; confirm the warm inline message.
+3. admin Today tab — confirm "Recent activity" lists your recent actions.
+4. On an enquiry, log a touch, then remove it; confirm both work.

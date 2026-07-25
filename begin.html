@@ -1269,16 +1269,16 @@ body.eh-locked{overflow:hidden;}
     <div class="lf-grid" style="display:flex;flex-direction:column;gap:1.4rem;">
       <div class="lf-row" style="display:flex;gap:1.8rem;flex-wrap:wrap;">
         <div class="lf-field" style="flex:1;min-width:200px;">
-          <input class="lf-in" id="lfName" type="text" placeholder=" " autocomplete="name">
+          <input class="lf-in" id="lfName" type="text" maxlength="120" placeholder=" " autocomplete="name">
           <label class="lf-lab" for="lfName">Your name</label>
         </div>
         <div class="lf-field" style="flex:1.4;min-width:220px;">
-          <input class="lf-in" id="lfEmail" type="text" placeholder=" " autocomplete="email">
+          <input class="lf-in" id="lfEmail" type="text" maxlength="200" placeholder=" " autocomplete="email">
           <label class="lf-lab" for="lfEmail">Email or WhatsApp &mdash; however you prefer</label>
         </div>
       </div>
       <div class="lf-field lf-area">
-        <textarea class="lf-in" id="lfMsg" rows="5" placeholder=" "></textarea>
+        <textarea class="lf-in" id="lfMsg" rows="5" maxlength="5000" placeholder=" "></textarea>
         <label class="lf-lab" for="lfMsg">Where does your mind go?</label>
       </div>
       <div class="lf-ready" id="lfReady"><span class="lf-ready-dot"></span><span id="lfReadyTxt">Ready when you are.</span></div>

@@ -255,6 +255,15 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
 .thread-item{display:flex;gap:.7rem;font-size:12.5px;color:var(--ink-hand);padding:.3rem 0;align-items:baseline;}
 .thread-item .dot{width:6px;height:6px;border-radius:50%;background:var(--olive);flex-shrink:0;margin-top:.4rem;}
 .thread-item .when{color:var(--ink-hand-lo);font-size:11px;font-variant-caps:all-small-caps;letter-spacing:.05em;margin-left:auto;white-space:nowrap;}
+.thread-del{background:none;border:none;color:var(--ink-hand-lo);cursor:pointer;font-size:15px;line-height:1;
+  padding:0 .3rem;margin-left:.5rem;opacity:.4;transition:opacity .2s,color .2s;}
+.thread-del:hover{opacity:1;color:var(--danger);}
+.activity{background:linear-gradient(180deg,var(--ink2),var(--forest-lo));border:1px solid var(--rule);border-radius:2px;padding:1.2rem 1.5rem;}
+.activity-row{display:flex;align-items:baseline;gap:.7rem;padding:.45rem 0;font-size:13px;color:var(--bone3);border-bottom:1px solid var(--rule);}
+.activity-row:last-child{border-bottom:none;}
+.activity-dot{width:5px;height:5px;border-radius:50%;background:var(--brass-dim);flex-shrink:0;}
+.activity-what{flex:1;}
+.activity-when{color:var(--muted2);font-size:11px;font-variant-caps:all-small-caps;letter-spacing:.06em;white-space:nowrap;}
 
 /* ── reply-log form (#5) ── */
 .log-row{display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap;}
@@ -321,6 +330,7 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
       </div>
       <div id="todayCards" class="today-grid"></div>
       <div id="todayAging"></div>
+      <div id="todayActivity"></div>
       <div style="margin-top:2.4rem;padding-top:1.8rem;border-top:1px solid var(--rule);">
         <h2 class="today-section-h"><span class="eyebrow">Keep it safe</span></h2>
         <p class="view-sub" style="margin-top:-.4rem;margin-bottom:1.1rem">A living system survives a bad day. Download a copy of everything &mdash; letters, enquiries, companions, journeys &mdash; whenever you like.</p>
@@ -548,19 +558,38 @@ function renderToday(){
           <button class="act go" data-enq="${d.id}" data-to="replied">Mark replied</button>
         </div>
       </div>`).join('')}` : '';
+
+  // #7 recent activity (audit trail)
+  const actEl = $('todayActivity');
+  if(actEl){
+    actEl.innerHTML = AUDIT.length ? `
+      <h2 class="today-section-h"><span class="eyebrow">Recent activity</span></h2>
+      <div class="activity">
+        ${AUDIT.slice(0,20).map(a=>`
+          <div class="activity-row">
+            <span class="activity-dot"></span>
+            <span class="activity-what">${esc(a.action)}${a.detail?` — ${esc(a.detail)}`:''}</span>
+            <span class="activity-when">${when(a.created_at)}</span>
+          </div>`).join('')}
+      </div>` : '';
+  }
 }
 
-let ENQ=[], LET=[], COM=[], LOGS=[];
+let ENQ=[], LET=[], COM=[], LOGS=[], AUDIT=[];
 
 async function loadLogs(){
-  const { data } = await sb.from('contact_log').select('*').order('created_at',{ascending:false});
-  LOGS = data || [];
+  const [{ data: logs }, { data: audit }] = await Promise.all([
+    sb.from('contact_log').select('*').order('created_at',{ascending:false}),
+    sb.from('admin_audit').select('*').order('created_at',{ascending:false}).limit(40)
+  ]);
+  LOGS = logs || [];
+  AUDIT = audit || [];
 }
 function threadFor(table, id){
   const items = LOGS.filter(l=>l.subject_table===table && l.subject_id===id);
   if(!items.length) return '';
   return `<div class="thread"><div class="thread-h">History</div>${
-    items.map(l=>`<div class="thread-item"><span class="dot"></span><span>${esc(l.kind)}${l.gist?' — '+esc(l.gist):''}</span><span class="when">${when(l.created_at)}</span></div>`).join('')
+    items.map(l=>`<div class="thread-item"><span class="dot"></span><span>${esc(l.kind)}${l.gist?' — '+esc(l.gist):''}</span><span class="when">${when(l.created_at)}</span><button class="thread-del" data-logdel="${l.id}" title="Remove this entry" aria-label="Remove this entry">×</button></div>`).join('')
   }</div>`;
 }
 function logForm(table, id){
@@ -726,7 +755,15 @@ document.addEventListener('click', async e => {
     audit('logged '+kind, b.dataset.logtable, b.dataset.logfor, gist);
     wrap.querySelector('.log-in').value='';
     toast('Noted in the thread');
+    await loadLogs();
     if(b.dataset.logtable==='enquiries') loadEnquiries(); else loadCompanions();
+  }
+  if(b.dataset.logdel){
+    if(!confirm('Remove this history entry?')) return;
+    await sb.from('contact_log').delete().eq('id',b.dataset.logdel);
+    audit('log entry removed','contact_log',b.dataset.logdel);
+    await loadLogs(); loadEnquiries(); loadCompanions();
+    toast('Removed');
   }
 });
 

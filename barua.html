@@ -85,6 +85,11 @@ body{
 .b-input::placeholder{color:var(--muted);opacity:.5;}
 .b-input:focus{outline:none;border-color:rgba(190,158,104,0.55);background:rgba(24,35,27,0.7);box-shadow:0 0 0 3px rgba(190,158,104,0.10);}
 .b-hint{font-size:12px;color:var(--muted);margin-top:.5rem;line-height:1.5;font-style:italic;font-family:'Fraunces',serif;}
+.b-meta{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:.5rem;}
+.b-fieldhint{font-size:12px;color:var(--muted);line-height:1.5;font-style:italic;font-family:'Fraunces',serif;}
+.b-count{font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;font-variant-caps:all-small-caps;}
+.b-count.soft{color:var(--earth);}
+.b-count.warn{color:#B0784E;}
 
 /* consent - gentle, not legalese */
 .b-consent{display:flex;gap:.9rem;align-items:flex-start;margin:1.5rem 0 2.5rem;cursor:pointer;}
@@ -217,25 +222,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
       <div class="b-field">
         <label class="b-label" for="letter">Your letter</label>
-        <div class="b-paper"><textarea class="b-textarea" id="letter" placeholder="Begin wherever it begins&hellip;"></textarea></div>
+        <div class="b-paper"><textarea class="b-textarea" id="letter" maxlength="8000"
+          aria-describedby="letterHint letterCount" placeholder="Begin wherever it begins&hellip;"></textarea></div>
+        <div class="b-meta"><span class="b-fieldhint" id="letterHint">A few sentences is plenty. Write as much or as little as feels true.</span><span class="b-count" id="letterCount" aria-live="polite"></span></div>
       </div>
 
       <div class="b-row">
         <div class="b-field">
           <label class="b-label" for="name">How you&rsquo;d like to be known</label>
-          <input class="b-input" id="name" type="text" placeholder="Marina, or Marina from Madrid">
+          <input class="b-input" id="name" type="text" maxlength="120" autocomplete="name"
+            placeholder="Marina, or Marina from Madrid">
           <p class="b-hint">However you&rsquo;d like to appear &mdash; a first name, a city, or nothing at all.</p>
         </div>
         <div class="b-field">
           <label class="b-label" for="journey">Where you travelled</label>
-          <input class="b-input" id="journey" type="text" placeholder="Serengeti &amp; Zanzibar, July">
+          <input class="b-input" id="journey" type="text" maxlength="300"
+            placeholder="Serengeti &amp; Zanzibar, July">
           <p class="b-hint">The places, the month &mdash; only if you wish.</p>
         </div>
       </div>
 
       <div class="b-field">
         <label class="b-label" for="place">A place this letter belongs to <span style="opacity:.6">(optional)</span></label>
-        <input class="b-input" id="place" type="text" placeholder="Serengeti, Ngorongoro, Zanzibar&hellip;">
+        <input class="b-input" id="place" type="text" maxlength="200"
+          placeholder="Serengeti, Ngorongoro, Zanzibar&hellip;">
         <p class="b-hint">If you name a single place, it may appear as a quiet pin on our map of letters &mdash; never your identity, only the place.</p>
       </div>
 
@@ -270,9 +280,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   var consent=document.getElementById('consent');
   var err=document.getElementById('bError');
 
+  var counter=document.getElementById('letterCount');
+  var hint=document.getElementById('letterHint');
+  var MAXL=8000, MINL=20;
+
   function update(){
-    // require some letter content to enable
-    btn.disabled = letter.value.trim().length < 20;
+    var len=letter.value.trim().length;
+    btn.disabled = len < MINL;
+    // live counter — only speaks up when it matters
+    if(len===0){ counter.textContent=''; }
+    else if(len < MINL){ counter.textContent='a little more'; counter.className='b-count soft'; }
+    else if(len > MAXL-400){ counter.textContent=(MAXL-letter.value.length)+' left'; counter.className='b-count warn'; }
+    else { counter.textContent=''; counter.className='b-count'; }
   }
   letter.addEventListener('input',update);
   /* the letter grows as it is written */
@@ -300,15 +319,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
     // built-in gazetteer — no external geocoding, keeps the privacy promise
     var GAZ = {
-      'serengeti':[-2.33,34.83],'ngorongoro':[-3.24,35.49],'zanzibar':[-6.16,39.20],
-      'stone town':[-6.16,39.19],'kilimanjaro':[-3.07,37.35],'arusha':[-3.37,36.68],
+      'serengeti':[-2.33,34.83],'ngorongoro':[-3.24,35.49],'ngorongoro crater':[-3.24,35.49],
+      'zanzibar':[-6.16,39.20],'stone town':[-6.16,39.19],'nungwi':[-5.73,39.29],'paje':[-6.27,39.53],
+      'kilimanjaro':[-3.07,37.35],'mount kilimanjaro':[-3.07,37.35],'arusha':[-3.37,36.68],
       'tarangire':[-3.83,36.00],'manyara':[-3.60,35.83],'lake manyara':[-3.60,35.83],
       'ruaha':[-7.70,34.60],'nyerere':[-8.00,37.80],'selous':[-8.00,37.80],
-      'mahale':[-6.10,29.75],'mikumi':[-7.12,37.10],'moshi':[-3.35,37.34],
-      'dar es salaam':[-6.79,39.21],'pemba':[-5.20,39.78],'tanzania':[-6.37,34.89]
+      'mahale':[-6.10,29.75],'mahale mountains':[-6.10,29.75],'gombe':[-4.67,29.63],
+      'mikumi':[-7.12,37.10],'katavi':[-6.90,31.30],'moshi':[-3.35,37.34],'karatu':[-3.34,35.67],
+      'dar es salaam':[-6.79,39.21],'dar':[-6.79,39.21],'pemba':[-5.20,39.78],'mafia':[-7.90,39.75],
+      'mafia island':[-7.90,39.75],'lake natron':[-2.35,36.00],'natron':[-2.35,36.00],
+      'usambara':[-4.75,38.30],'eyasi':[-3.60,35.05],'lake eyasi':[-3.60,35.05],
+      'empakaai':[-3.24,35.83],'ol doinyo lengai':[-2.76,35.91],'tanzania':[-6.37,34.89]
     };
+    function geo(v){
+      if(!v) return null;
+      var k=v.toLowerCase().replace(/^the\s+/,'').split(',')[0].trim();
+      if(GAZ[k]) return GAZ[k];
+      // partial: does any known place appear in what they wrote?
+      for(var g in GAZ){ if(k.indexOf(g)>-1 || g.indexOf(k)>-1 && k.length>3){ return GAZ[g]; } }
+      return null;
+    }
     var placeVal = document.getElementById('place').value.trim();
-    var coords = placeVal ? GAZ[placeVal.toLowerCase().split(',')[0].trim()] : null;
+    var coords = geo(placeVal);
 
     window.Enkiama.insert('letters', {
       letter: letter.value.trim(),

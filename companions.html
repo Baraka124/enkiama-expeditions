@@ -114,6 +114,9 @@ textarea.sc-in:focus{box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 30px 56px
 .sc-send:hover::after{transform:scaleX(1);}
 .sc-send:disabled{opacity:.4;cursor:not-allowed;}
 .sc-promise{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:13.5px;line-height:1.7;color:var(--muted);margin-top:1.8rem;max-width:46ch;margin-left:auto;margin-right:auto;}
+.sc-msg{font-size:12.5px;font-family:'Fraunces',serif;font-style:italic;color:#B0784E;margin-top:.5rem;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .35s ease;}
+.sc-msg.show{max-height:3em;opacity:1;}
 
 /* thank-you */
 .sc-thanks{display:none;text-align:center;padding:3rem 0;}
@@ -569,17 +572,20 @@ body.eh-locked{overflow:hidden;}
       <div class="sc-form">
         <div class="sc-row">
           <div class="sc-field">
-            <input class="sc-in" id="scName" type="text" placeholder=" ">
+            <input class="sc-in" id="scName" type="text" maxlength="120" autocomplete="name" placeholder=" ">
             <label class="sc-flab" for="scName">How you&rsquo;d like to be known</label>
           </div>
           <div class="sc-field">
-            <input class="sc-in" id="scContact" type="text" placeholder=" ">
+            <input class="sc-in" id="scContact" type="text" maxlength="200" inputmode="email" autocomplete="email"
+              aria-describedby="scContactMsg" placeholder=" ">
             <label class="sc-flab" for="scContact">Email or WhatsApp</label>
+            <p class="sc-msg" id="scContactMsg" aria-live="polite"></p>
           </div>
         </div>
         <div class="sc-field sc-area">
-          <textarea class="sc-in" id="scJourney" placeholder=" "></textarea>
+          <textarea class="sc-in" id="scJourney" maxlength="3000" aria-describedby="scJourneyMsg" placeholder=" "></textarea>
           <label class="sc-flab" for="scJourney">The journey you imagine</label>
+          <p class="sc-msg" id="scJourneyMsg" aria-live="polite"></p>
         </div>
         <button class="sc-send" id="scSend">Send to Baraka</button>
         <p class="sc-promise">Baraka reads every message personally. We introduce people only where the fit feels real &mdash; and speak with each traveller first. Nothing is ever automated, and no one is ever posted publicly.</p>
@@ -713,12 +719,22 @@ var OPEN_JOURNEYS = [
     if(v.indexOf('@')>-1) return /^[^\s@]+@[^\s@.]+\.[a-z]{2,}$/i.test(v);
     return v.replace(/\D/g,'').length >= 8;
   }
+  var contactEl=document.getElementById('scContact');
+  var contactMsg=document.getElementById('scContactMsg');
+  var journeyMsg=document.getElementById('scJourneyMsg');
   function upd(){
-    var contactEl=document.getElementById('scContact');
-    send.disabled = journey.value.trim().length < 15 || !reachable(contactEl && contactEl.value);
+    var jlen=journey.value.trim().length;
+    var cval=contactEl && contactEl.value.trim();
+    var cOk=reachable(cval);
+    // gentle contact feedback only once they've typed something incomplete
+    if(cval && !cOk){ contactMsg.textContent='That doesn\u2019t look quite complete \u2014 an email or a number we can reach you on.'; contactMsg.className='sc-msg show'; }
+    else { contactMsg.textContent=''; contactMsg.className='sc-msg'; }
+    if(jlen>0 && jlen<15){ journeyMsg.textContent='A sentence or two more, so Baraka can picture it.'; journeyMsg.className='sc-msg show'; }
+    else { journeyMsg.textContent=''; journeyMsg.className='sc-msg'; }
+    send.disabled = jlen < 15 || !cOk;
   }
   journey.addEventListener('input', upd);
-  var _c=document.getElementById('scContact'); if(_c) _c.addEventListener('input', upd);
+  if(contactEl) contactEl.addEventListener('input', upd);
   upd();
 
   send.addEventListener('click', function(){
@@ -729,8 +745,7 @@ var OPEN_JOURNEYS = [
     var payload = {
       name: document.getElementById('scName').value.trim(),
       contact: document.getElementById('scContact').value.trim(),
-      journey: journey.value.trim(),
-      submitted_at: new Date().toISOString()
+      journey: journey.value.trim()
     };
     send.disabled=true; send.textContent='Sending\u2026';
     window.Enkiama.insert('companions', {
