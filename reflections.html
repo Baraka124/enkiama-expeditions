@@ -12,7 +12,7 @@
 :root{
   --ink:#0F1712; --ink2:#131C16; --ink3:#18231B;
   --bone:#EDE6D6; --bone2:#E4DBC7; --bone3:#D6CCB6;
-  --earth:#BE9E68; --ochre:#556B44; --sage:#7A9470; --muted:#95907F;
+  --earth:#BE9E68; --ochre:#556B44; --sage:#7A9470; --muted:#ADA791;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;hanging-punctuation:first last;scroll-behavior:smooth;}
@@ -74,6 +74,8 @@ body{
 .r-letter:last-child{border-bottom:none;}
 .r-letter-place{font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;}
 .r-letter-body{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.2rem,2.8vw,1.55rem);line-height:1.62;color:var(--bone);text-wrap:pretty;}
+.r-letter-body p:first-of-type::first-letter{font-family:'Fraunces',serif;font-weight:400;font-size:3.4em;line-height:0.82;
+  float:left;margin:0.08em 0.12em 0 0;color:var(--earth);font-style:italic;}
 .r-letter-body p{margin-bottom:1.2rem;}
 .r-letter-attr{margin-top:2rem;font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:11px;color:var(--muted);}
 
@@ -132,16 +134,21 @@ body{
 ::-moz-selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   outline:1px solid rgba(190,158,104,0.5);outline-offset:3px;}
-.lm-head{text-align:center;margin:2rem 0 1rem;}
+.lm-head{text-align:center;margin:3rem 0 1.2rem;}
 .lm-eye{font-variant-caps:all-small-caps;letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--earth);}
-.lm-frame{max-width:520px;margin:0 auto 3rem;padding:1.5rem;border:1px solid rgba(190,158,104,0.14);border-radius:3px;
-  background:linear-gradient(180deg,rgba(20,28,22,0.5),rgba(15,23,18,0.3));}
-.lm-svg{width:100%;height:auto;display:block;}
-.lm-land{fill:rgba(85,107,68,0.14);stroke:rgba(190,158,104,0.3);stroke-width:1.2;}
+.lm-sub{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--muted);margin-top:.6rem;}
+.lm-frame{max-width:500px;margin:0 auto 3.5rem;padding:2rem 1.8rem;border:1px solid rgba(190,158,104,0.16);border-radius:4px;
+  background:radial-gradient(120% 90% at 50% 20%, rgba(28,51,37,0.4), rgba(15,23,18,0.25));
+  box-shadow:0 30px 60px -40px rgba(0,0,0,0.7);}
+.lm-svg{width:100%;height:auto;display:block;overflow:visible;}
+.lm-land{fill:rgba(85,107,68,0.16);stroke:rgba(190,158,104,0.34);stroke-width:1.3;stroke-linejoin:round;}
+.lm-water{fill:rgba(122,148,112,0.10);stroke:rgba(190,158,104,0.14);stroke-width:1;}
+.lm-water-line{fill:none;stroke:rgba(190,158,104,0.14);stroke-width:1;stroke-dasharray:2 4;}
 .lm-halo{fill:rgba(190,158,104,0.16);transform-box:fill-box;transform-origin:center;animation:lmPulse 3.5s ease-in-out infinite;}
-@keyframes lmPulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+@keyframes lmPulse{0%,100%{opacity:.45;transform:scale(0.92);}50%{opacity:1;transform:scale(1.08);}}
 .lm-dot{fill:var(--earth);}
-.lm-lbl{fill:var(--bone3);font-family:'Fraunces',serif;font-size:13px;font-style:italic;}
+.lm-count{fill:var(--ink);font-family:'Instrument Sans',sans-serif;font-size:10px;font-weight:600;dominant-baseline:middle;}
+.lm-lbl{fill:var(--bone3);font-family:'Fraunces',serif;font-size:12.5px;font-style:italic;}
 @media (prefers-reduced-motion:reduce){.lm-halo{animation:none;}}
 </style>
 <link rel="canonical" href="https://enkiama.com/reflections.html">
@@ -308,7 +315,7 @@ body.eh-locked{overflow:hidden;}
 .eh-aside-contact{display:flex;flex-direction:column;gap:.4rem;font-family:'Instrument Sans',sans-serif;font-size:14px;}
 .eh-aside-contact a{color:var(--earth,#BE9E68);text-decoration:none;width:fit-content;transition:opacity .3s;}
 .eh-aside-contact a:hover{opacity:.7;}
-.eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#95907F);margin-top:1rem;}
+.eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#ADA791);margin-top:1rem;}
 
 .eh-close{position:absolute;top:2rem;right:clamp(1.5rem,4vw,3.5rem);z-index:3;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:.7rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;color:var(--bone,#EDE6D6);opacity:0;transition:color .3s,opacity .5s ease .4s;}
 .eh-overlay.open .eh-close{opacity:1;}
@@ -730,25 +737,46 @@ var REFLECTIONS = [
   window.renderLetterMap = function(points){
     if(!points || !points.length) return;
     // Tanzania bounding box (approx): lat -1.0..-11.8, lng 29.3..40.5
-    var LAT0=-1.0, LAT1=-11.8, LNG0=29.3, LNG1=40.5, W=640, H=620;
+    var LAT0=-1.0, LAT1=-11.8, LNG0=29.3, LNG1=40.5, W=620, H=600;
     var proj=function(lat,lng){
       return { x:((lng-LNG0)/(LNG1-LNG0))*W, y:((lat-LAT0)/(LAT1-LAT0))*H };
     };
-    var pins=points.map(function(p){
-      var c=proj(p.lat,p.lng);
+    // cluster points sharing a place so repeat letters stack into one pin with a count
+    var clusters={};
+    points.forEach(function(p){
+      var key=(p.place||'').toLowerCase().trim();
+      if(!clusters[key]) clusters[key]={lat:p.lat,lng:p.lng,place:p.place,n:0};
+      clusters[key].n++;
+    });
+    var pins=Object.keys(clusters).map(function(k){
+      var p=clusters[k], c=proj(p.lat,p.lng);
       if(c.x<0||c.x>W||c.y<0||c.y>H) return '';
+      var label=(p.place||'').replace(/[<&>]/g,'');
+      var count=p.n>1?'<text y="1" text-anchor="middle" class="lm-count">'+p.n+'</text>':'';
       return '<g class="lm-pin" transform="translate('+c.x.toFixed(1)+','+c.y.toFixed(1)+')">'+
-        '<circle r="16" class="lm-halo"/>'+
-        '<circle r="4.5" class="lm-dot"/>'+
-        '<text y="-14" text-anchor="middle" class="lm-lbl">'+(p.place||'').replace(/[<&>]/g,'')+'</text>'+
+        '<circle r="18" class="lm-halo"/>'+
+        '<circle r="'+(p.n>1?8:5.5)+'" class="lm-dot"/>'+
+        count+
+        '<text y="-16" text-anchor="middle" class="lm-lbl">'+label+'</text>'+
         '</g>';
     }).join('');
     var wrap=document.getElementById('letterMapWrap');
     wrap.style.display='block';
+    // a more considered Tanzania silhouette + the great lakes as negative space
+    var LAND='M126,74 C170,60 250,58 340,54 C420,52 505,60 548,92 '+
+             'C556,150 552,210 560,270 C566,330 560,392 548,452 '+
+             'C520,510 470,548 430,566 C360,588 300,576 250,560 '+
+             'C190,542 140,548 108,512 C80,470 92,410 84,352 '+
+             'C76,290 70,220 82,160 C92,120 100,90 126,74 Z';
     wrap.innerHTML=
-      '<div class="lm-head"><span class="lm-eye">Where these letters were written</span></div>'+
+      '<div class="lm-head"><span class="lm-eye">Where these letters were written</span>'+
+      '<p class="lm-sub">Each mark, a traveller who wrote home.</p></div>'+
       '<div class="lm-frame"><svg viewBox="0 0 '+W+' '+H+'" class="lm-svg" role="img" aria-label="Map of Tanzania showing where travellers wrote from">'+
-        '<path class="lm-land" d="M70,60 L560,40 L600,150 L580,330 L560,520 L470,600 L300,580 L150,560 L60,360 L90,180 Z"/>'+
+        '<path class="lm-land" d="'+LAND+'"/>'+
+        // Lake Victoria (north), Tanganyika (west edge), Nyasa (south) as faint water
+        '<ellipse class="lm-water" cx="150" cy="90" rx="46" ry="34"/>'+
+        '<path class="lm-water-line" d="M92,150 C86,230 96,320 108,400"/>'+
+        '<path class="lm-water-line" d="M470,470 C486,510 496,540 500,566"/>'+
         pins+
       '</svg></div>';
   };
@@ -1027,7 +1055,7 @@ var REFLECTIONS = [
 
 /* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
 .wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
-.sea-tag,.ask-tag,.pr-c-tag,.ps-tag,.ask-c-tag,.sw-word,.psw-w,.ch-preferred{
+.ask-tag,.ps-tag,.ask-c-tag,.ch-preferred{
   color:var(--sage,#7A9470) !important;}
 /* .eye is used at both sizes — only lift it when small */
 .eye{color:var(--sage,#7A9470);}

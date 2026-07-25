@@ -1,55 +1,48 @@
 # Enkiama — Deploy Manifest
 
-## This batch: deep input-quality pass + strengthened round-one features
+## This batch: the 9 premium-polish items (forms + admin + reflections)
 
-### Live in Supabase already (DB migration — no push needed)
-- #5 Server-side length & shape guards (CHECK constraints) on enquiries,
-  letters, companions: message 1–5000, letter 1–8000, journey 1–3000, plus
-  name/contact/place/journey ceilings. Verified: a 9000-char letter is
-  rejected; a normal letter is accepted. No real submission is ever refused.
+### Forms — advanced, premium feel
+- **#3 Submit states**: barua/companions/begin now show a real in-progress
+  state — an animated spinner on the send (barua), a wait state (companions/
+  begin) — instead of a plain "Sending…" text swap.
+- **#4 Success moments**: the thank-you panels are now designed moments — a
+  slow rise, a brass seal-line that draws itself, refined rhythm — rather than
+  static text blocks.
+- **#8 Error states**: fields now show a felt error state (red-clay border +
+  soft glow; the letter's paper spine turns clay) — visual, not just a message.
 
-### Changed files in this zip (push these)
-- **begin.html** — maxlength on all fields (name 120, contact 200, message 5000).
-  Already had strong live validation; now length-bounded too.
-- **barua.html** — maxlength everywhere + a live, humane character hint
-  (only speaks up when too short or near the ceiling). Extended map gazetteer
-  (30+ Tanzania places) with fuzzy matching and graceful "unmapped" handling.
-- **companions.html** — deepened validation with warm inline messages (contact
-  shape, journey length) instead of a silent disabled button; maxlength,
-  inputmode, autocomplete added. Removed a dead payload field.
-- **admin.html**:
-  - #7 "Recent activity" — the audit trail is now visible on the Today tab.
-  - #8 reply-log entries are deletable (a living log you can tend), with the
-    removal itself audited.
-  - (fixed a self-inflicted regression mid-build: the "Log it" insert handler
-    was briefly removed and restored — verified working.)
+### Reflections — the public reading experience
+- **#1 Letters map**: replaced the crude 10-point blob with a refined Tanzania
+  silhouette, the great lakes as faint negative space, elegant pins that
+  cluster repeat places into one mark with a count, a legend line, and a
+  softer pulse. A real cartographic moment now.
+- **#7 Anthology typography**: each letter opens with an elegant italic
+  drop-cap, so reading feels like a published anthology piece.
+- **#5 Open-journey cards**: richer material, a lift + glow + corner flourish
+  on hover — they read like fine invitations, not plain cards.
 
-### Accessibility (#10) across all inputs
-- Every field has a bound <label>; inputs carry aria-describedby to their hints
-  and live messages (aria-live="polite"); focus-visible outlines already present.
-- Proper input types: inputmode="email"/autocomplete on contact fields so
-  phones show the right keyboard.
+### Admin — premium ops tool
+- **#2 Empty & loading states**: considered, context-aware empty copy
+  ("The desk is quiet — no enquiries yet…" vs "No enquiries match that
+  search."), plus a shimmering skeleton loader while Supabase responds.
+- **#6 Toolbar polish**: search focus now has a soft brass glow + deepened
+  field.
+- **#9 Analytics premium**: stat cards lift on hover, refined accents.
 
-### Verified (RLS-enforced)
-- Server guards reject oversized input, accept normal input.
-- Operator can read the audit log, write and delete reply-log entries;
-  anon still sealed out of both support tables.
-- All edited files: every real JS block parses; admin module valid; new IDs present.
-- Test rows inserted and cleaned; DB pristine.
+### Verified
+- admin module JS valid; begin/barua/companions/reflections JS parse; all
+  style tags balanced.
+- Empty-state calls have their scope variables; map clustering logic tested
+  (repeat places collapse to one pin with a count).
+- No backend logic touched — all inserts/reads/auth unchanged.
 
 ### Honest limits
-- The map still pins only gazetteer places (now 30+). Unlisted places save fine,
-  just don't pin until added.
-- No screenshots possible in this environment — please eyeball barua,
-  companions, and the admin Today tab on desktop and phone after deploy.
+- Still no screenshots possible here. Please eyeball after deploy: the three
+  form success/error states, the reflections map (needs at least one approved
+  letter with a mapped place to show pins), and the admin loading shimmer.
+- The map silhouette is a stylised approximation of Tanzania, not a survey-
+  accurate outline — intentional, in keeping with the hand-made feel.
 
 ### Still parked (by request)
-- notify Edge Function secrets (RESEND_API_KEY etc.)
-- Disable open sign-ups in Supabase Auth settings (dashboard toggle)
-
-### After deploying — verify
-1. barua.html — type a very short letter; confirm the gentle "a little more"
-   hint; paste something huge; confirm it caps at the limit.
-2. companions.html — type a malformed email; confirm the warm inline message.
-3. admin Today tab — confirm "Recent activity" lists your recent actions.
-4. On an enquiry, log a touch, then remove it; confirm both work.
+- notify Edge Function secrets; disable open sign-ups toggle.

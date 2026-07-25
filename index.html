@@ -67,7 +67,7 @@
   --earth-hi: #D8BE8E;
   --earth-dim:rgba(190,158,104,0.5);
   --sage:     #7A9470;
-  --muted:    #95907F;
+  --muted:    #ADA791;
 
   /* ── LINES · three roles, never random ── */
   --rule:     rgba(190,158,104,0.08);  /* hairline — structural whisper */
@@ -505,7 +505,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
 .already-col p {
   font-family:'Instrument Sans',sans-serif;
   font-size:15px;font-weight:300;
-  color:rgba(15,23,18,0.55);line-height:2;margin-bottom:1.75rem;
+  color:rgba(15,23,18,0.72);line-height:2;margin-bottom:1.75rem;
 }
 .already-col p:last-child { margin-bottom:0; }
 .already-col em {
@@ -929,7 +929,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
   color:var(--ink);line-height:1.38;
   max-width:900px;margin:0 auto 2rem;letter-spacing:-0.015em;
 }
-.passion-sub { font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(15,23,18,0.46);max-width:540px;margin:0 auto 3.5rem;line-height:2; }
+.passion-sub { font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(15,23,18,0.72);max-width:540px;margin:0 auto 3.5rem;line-height:2; }
 .p-sw { display:flex;align-items:center;justify-content:center;gap:1.5rem; }
 .psw-w {
   font-family:'Fraunces',serif;
@@ -937,7 +937,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
   font-size:22px;font-style:italic;font-weight:300;color:var(--ochre);
 }
 .psw-d { width:1px;height:22px;background:rgba(15,23,18,0.12); }
-.psw-f { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;color:rgba(15,23,18,0.36); }
+.psw-f { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.16em;color:rgba(15,23,18,0.72); }
 
 /* ── STORY ── */
 .story { border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;margin-top:80px; }
@@ -1789,7 +1789,7 @@ body.eh-locked{overflow:hidden;}
 .eh-aside-contact{display:flex;flex-direction:column;gap:.4rem;font-family:'Instrument Sans',sans-serif;font-size:14px;}
 .eh-aside-contact a{color:var(--earth,#BE9E68);text-decoration:none;width:fit-content;transition:opacity .3s;}
 .eh-aside-contact a:hover{opacity:.7;}
-.eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#95907F);margin-top:1rem;}
+.eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#ADA791);margin-top:1rem;}
 
 .eh-close{position:absolute;top:2rem;right:clamp(1.5rem,4vw,3.5rem);z-index:3;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:.7rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;color:var(--bone,#EDE6D6);opacity:0;transition:color .3s,opacity .5s ease .4s;}
 .eh-overlay.open .eh-close{opacity:1;}
@@ -3429,7 +3429,7 @@ body.loaded .hero-acts{opacity:1;transform:translateY(0);}
 
 /* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
 .wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
-.sea-tag,.ask-tag,.pr-c-tag,.ps-tag,.ask-c-tag,.sw-word,.psw-w,.ch-preferred{
+.ask-tag,.ps-tag,.ask-c-tag,.ch-preferred{
   color:var(--sage,#7A9470) !important;}
 /* .eye is used at both sizes — only lift it when small */
 .eye{color:var(--sage,#7A9470);}

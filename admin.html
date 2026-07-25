@@ -17,7 +17,7 @@
   --bone:#EDE6D6; --bone2:#E4DBC7; --bone3:#D6CCB6;
   --olive:#556B44; --olive-hi:#6E8659; --olive-lt:rgba(85,107,68,0.14);
   --brass:#BE9E68; --brass-hi:#D8BE8E; --brass-dim:rgba(190,158,104,0.42); --brass-lo:rgba(190,158,104,0.16);
-  --muted:#95907F; --muted2:#6F6B5F;
+  --muted:#ADA791; --muted2:#6F6B5F;
   --rule:rgba(190,158,104,0.10); --rule-md:rgba(190,158,104,0.24); --rule-strong:rgba(190,158,104,0.85);
   --danger:#A65D4E;
 }
@@ -124,7 +124,7 @@ a{color:inherit;text-decoration:none;}
 .search{flex:1;min-width:200px;background:rgba(10,15,11,0.5);border:1px solid var(--rule-md);padding:0.72rem 0.95rem;
   font-size:14px;color:var(--bone);border-radius:2px;transition:border-color .25s;}
 .search::placeholder{color:var(--muted2);}
-.search:focus{outline:none;border-color:var(--brass-dim);}
+.search:focus{outline:none;border-color:var(--brass-dim);box-shadow:0 0 0 3px rgba(190,158,104,0.08);background:rgba(10,15,11,0.65);}
 .filter{background:rgba(10,15,11,0.5);border:1px solid var(--rule-md);padding:0.72rem 2.2rem 0.72rem 0.95rem;
   font-size:12.5px;color:var(--bone3);cursor:pointer;border-radius:2px;letter-spacing:0.04em;
   appearance:none;-webkit-appearance:none;
@@ -183,7 +183,15 @@ a{color:inherit;text-decoration:none;}
 .note-in:focus{outline:none;border-color:#9A7B3E;background:rgba(255,255,255,0.5);}
 .note-in::placeholder{color:var(--ink-hand-lo);opacity:0.7;font-style:italic;}
 .empty{text-align:center;padding:4rem 1rem;color:var(--muted);font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 30;font-style:italic;font-size:17px;}
+  font-variation-settings:'opsz' 30;font-style:italic;font-size:17px;line-height:1.6;max-width:46ch;margin:0 auto;}
+.skel{background:linear-gradient(180deg,var(--ink2),rgba(19,28,22,0.6));border:1px solid var(--rule);
+  border-left:2px solid var(--brass-dim);border-radius:2px;padding:1.6rem 1.7rem;margin-bottom:1.15rem;}
+.skel-line{height:12px;border-radius:3px;margin-bottom:.8rem;
+  background:linear-gradient(90deg,rgba(190,158,104,0.06) 25%,rgba(190,158,104,0.14) 50%,rgba(190,158,104,0.06) 75%);
+  background-size:200% 100%;animation:shimmer 1.4s ease-in-out infinite;}
+.skel-line.w1{width:38%;height:16px;} .skel-line.w2{width:82%;} .skel-line.w3{width:64%;margin-bottom:0;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+@media(prefers-reduced-motion:reduce){.skel-line{animation:none;}}
 
 /* compose form */
 .form{background:linear-gradient(180deg,var(--ink2),var(--forest-lo));border:1px solid var(--rule);
@@ -203,7 +211,9 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
 /* analytics */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.2rem;}
 .stat{background:linear-gradient(180deg,var(--ink2),var(--forest-lo));border:1px solid var(--rule);
-  border-radius:2px;padding:1.5rem 1.3rem;text-align:left;position:relative;overflow:hidden;}
+  border-radius:2px;padding:1.5rem 1.3rem;text-align:left;position:relative;overflow:hidden;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s;}
+.stat:hover{transform:translateY(-3px);border-color:var(--rule-md);}
 .stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--brass-dim);}
 .stat-n{font-family:'Fraunces',serif;font-variation-settings:'opsz' 80;font-weight:300;font-size:40px;line-height:1;
   color:var(--bone);font-variant-numeric:tabular-nums;}
@@ -450,6 +460,22 @@ const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
 const $ = id => document.getElementById(id);
 const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* #2 considered empty states + loading skeleton */
+function emptyState(kind, filtered){
+  const lines = {
+    enquiries: filtered ? 'No enquiries match that search.' : 'The desk is quiet — no enquiries yet. When someone writes, they will arrive here.',
+    letters:   filtered ? 'No letters match that search.'   : 'No letters yet. When a traveller writes home, it will rest here until you bless it.',
+    companions:filtered ? 'No journeys match that search.'  : 'No companion journeys yet. When someone seeks company, they will appear here.',
+    journeys:  'No open journeys yet. Compose one above, and it will appear on the companions page.'
+  };
+  return `<div class="empty">${lines[kind]||'Nothing here yet.'}</div>`;
+}
+function skeleton(n){
+  let s='';
+  for(let i=0;i<(n||3);i++) s+=`<div class="skel"><div class="skel-line w1"></div><div class="skel-line w2"></div><div class="skel-line w3"></div></div>`;
+  return s;
+}
 const when = ts => { const d=new Date(ts), n=new Date(), h=(n-d)/36e5;
   if(h<1) return Math.max(1,Math.round(h*60))+' min ago';
   if(h<24) return Math.round(h)+' h ago';
@@ -608,6 +634,7 @@ function matches(d, q){
 }
 
 async function loadEnquiries(){
+  if(!ENQ.length) $('enqList').innerHTML=skeleton(3);
   const { data, error } = await sb.from('enquiries').select('*').order('created_at',{ascending:false});
   if(error){ $('enqList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
   ENQ = data;
@@ -640,10 +667,11 @@ function paintEnquiries(){
       </div>
       ${threadFor('enquiries', d.id)}
       ${logForm('enquiries', d.id)}
-    </div>`).join('') : '<div class="empty">Nothing matches.</div>';
+    </div>`).join('') : emptyState('enquiries', !!(q||f));
 }
 
 async function loadLetters(){
+  if(!LET.length) $('letList').innerHTML=skeleton(3);
   const { data, error } = await sb.from('letters').select('*').order('created_at',{ascending:false});
   if(error){ $('letList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
   LET = data;
@@ -678,10 +706,11 @@ function paintLetters(){
         <span class="note-lbl">Private note<span class="saved" id="s-${d.id}">saved</span></span>
         <textarea class="note-in" data-note="letters" data-id="${d.id}" placeholder="A note only you will see…">${esc(d.notes)}</textarea>
       </div>
-    </div>`).join('') : '<div class="empty">Nothing matches.</div>';
+    </div>`).join('') : emptyState('letters', !!(q||f));
 }
 
 async function loadCompanions(){
+  if(!COM.length) $('comList').innerHTML=skeleton(2);
   const { data, error } = await sb.from('companions').select('*').order('created_at',{ascending:false});
   if(error){ $('comList').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
   COM = data;
@@ -713,7 +742,7 @@ function paintCompanions(){
       </div>
       ${threadFor('companions', d.id)}
       ${logForm('companions', d.id)}
-    </div>`).join('') : '<div class="empty">Nothing matches.</div>';
+    </div>`).join('') : emptyState('companions', !!(q||f));
 }
 
 async function loadJourneys(){
@@ -733,7 +762,7 @@ async function loadJourneys(){
         ${d.status==='open'?`<button class="act no" data-j="${d.id}" data-to="closed">Close</button>`:''}
         <button class="act no" data-jdel="${d.id}">Delete</button>
       </div>
-    </div>`).join('') : '<div class="empty">No journeys yet. Create one above.</div>';
+    </div>`).join('') : emptyState('journeys', false);
 }
 
 document.addEventListener('click', async e => {
