@@ -132,6 +132,17 @@ body{
 ::-moz-selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   outline:1px solid rgba(190,158,104,0.5);outline-offset:3px;}
+.lm-head{text-align:center;margin:2rem 0 1rem;}
+.lm-eye{font-variant-caps:all-small-caps;letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--earth);}
+.lm-frame{max-width:520px;margin:0 auto 3rem;padding:1.5rem;border:1px solid rgba(190,158,104,0.14);border-radius:3px;
+  background:linear-gradient(180deg,rgba(20,28,22,0.5),rgba(15,23,18,0.3));}
+.lm-svg{width:100%;height:auto;display:block;}
+.lm-land{fill:rgba(85,107,68,0.14);stroke:rgba(190,158,104,0.3);stroke-width:1.2;}
+.lm-halo{fill:rgba(190,158,104,0.16);transform-box:fill-box;transform-origin:center;animation:lmPulse 3.5s ease-in-out infinite;}
+@keyframes lmPulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+.lm-dot{fill:var(--earth);}
+.lm-lbl{fill:var(--bone3);font-family:'Fraunces',serif;font-size:13px;font-style:italic;}
+@media (prefers-reduced-motion:reduce){.lm-halo{animation:none;}}
 </style>
 <link rel="canonical" href="https://enkiama.com/reflections.html">
 <meta name="theme-color" content="#0F1712">
@@ -570,6 +581,7 @@ body.eh-locked{overflow:hidden;}
 </div>
 
 <!-- ═══ LETTERS VIEW ═══ -->
+<div id="letterMapWrap" style="display:none"></div>
 <div class="r-letters" id="lettersView">
   <!-- rendered from the same data -->
 </div>
@@ -660,10 +672,12 @@ var REFLECTIONS = [
     window.Enkiama.select('letters','?status=eq.approved&consent_to_publish=eq.true&order=created_at.desc')
       .then(function(rows){
         if (!rows || !rows.length) return;
+        var pts=[];
         var real = rows.map(function(r,i){
           var text=(r.published_excerpt&&r.published_excerpt.trim())?r.published_excerpt:(r.letter||'');
           var paras=text.split(/\n{2,}/).map(function(s){return s.trim();}).filter(Boolean);
           var first=(paras[0]||'').replace(/^[\s"']+/,'');
+          if (r.lat!=null && r.lng!=null) pts.push({lat:+r.lat,lng:+r.lng,place:r.place||'A journey',name:r.name||'a traveller'});
           return {
             id:'letter-'+(r.id||i),
             place: r.place || r.journey || 'A journey with Enkiama',
@@ -675,6 +689,7 @@ var REFLECTIONS = [
         REFLECTIONS = real.concat(REFLECTIONS);
         indexAll();
         if (typeof renderLetters === 'function') renderLetters();
+        if (pts.length && typeof renderLetterMap === 'function') renderLetterMap(pts);
       })
       .catch(function(){});
   }
@@ -708,6 +723,36 @@ var REFLECTIONS = [
     }).join('');
   }
   window.renderLetters = renderLetters;
+
+  /* ── the letters map (#6): where travellers wrote from.
+        A stylised Tanzania — no external tiles, no tracking, on brand.
+        lat/lng projected onto a simple bounding box of the country. ── */
+  window.renderLetterMap = function(points){
+    if(!points || !points.length) return;
+    // Tanzania bounding box (approx): lat -1.0..-11.8, lng 29.3..40.5
+    var LAT0=-1.0, LAT1=-11.8, LNG0=29.3, LNG1=40.5, W=640, H=620;
+    var proj=function(lat,lng){
+      return { x:((lng-LNG0)/(LNG1-LNG0))*W, y:((lat-LAT0)/(LAT1-LAT0))*H };
+    };
+    var pins=points.map(function(p){
+      var c=proj(p.lat,p.lng);
+      if(c.x<0||c.x>W||c.y<0||c.y>H) return '';
+      return '<g class="lm-pin" transform="translate('+c.x.toFixed(1)+','+c.y.toFixed(1)+')">'+
+        '<circle r="16" class="lm-halo"/>'+
+        '<circle r="4.5" class="lm-dot"/>'+
+        '<text y="-14" text-anchor="middle" class="lm-lbl">'+(p.place||'').replace(/[<&>]/g,'')+'</text>'+
+        '</g>';
+    }).join('');
+    var wrap=document.getElementById('letterMapWrap');
+    wrap.style.display='block';
+    wrap.innerHTML=
+      '<div class="lm-head"><span class="lm-eye">Where these letters were written</span></div>'+
+      '<div class="lm-frame"><svg viewBox="0 0 '+W+' '+H+'" class="lm-svg" role="img" aria-label="Map of Tanzania showing where travellers wrote from">'+
+        '<path class="lm-land" d="M70,60 L560,40 L600,150 L580,330 L560,520 L470,600 L300,580 L150,560 L60,360 L90,180 Z"/>'+
+        pins+
+      '</svg></div>';
+  };
+
   renderLetters();
 
   /* letters reveal on scroll */

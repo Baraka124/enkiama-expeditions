@@ -1,50 +1,56 @@
 # Enkiama — Deploy Manifest
 
-## This batch: Backend hardening + The Ledger admin + premium paper writing surfaces
+## This batch: Ten "living system" features (lighter builds) + prior work
 
-### Live in Supabase already (no push needed — these were DB migrations)
-1. Operator read/update/delete on enquiries, letters, companions locked to
-   Baraka's user id alone. Public submission unchanged.
-2. Analytics views revoked from anon.
-3. Table-level SELECT revoked from anon on enquiries & companions.
+### Live in Supabase already (DB migrations — no push needed)
+- Prior: operator access locked to Baraka's uid; analytics + private tables
+  sealed from anon.
+- New support tables (operator-only, verified sealed from anon):
+  - contact_log — reply/contact history per enquiry & companion (#5)
+  - admin_audit — every status change / approval / deletion, logged (#10)
+  - contact indexes for fast per-person grouping (#1)
 
 ### Changed files in this zip (push these)
-- **admin.html** — "The Ledger": each arrival is a warm paper leaf on a deep
-  tent-interior ground; sender names in Fraunces italic; threshold login.
-  All backend logic unchanged.
-- **barua.html** — the letter is now written on a **paper leaf** (warm cream,
-  stitched brass spine, faint ruled lines) — the same material the admin reads
-  it on. Premium focus lift, richer send button. Dead payload fields removed.
-- **companions.html** — the "journey you imagine" field is the same paper leaf;
-  floating label tuned for legibility on paper. Insert unchanged.
-- **begin.html** — atmospheric ground (layered glows + vignette) matching the
-  ledger. Form logic untouched.
-- **assets/js/enkiama.js** — analytics failures now warn (not silent); each
-  path recorded once per session.
+- **admin.html** — seven of the ten features:
+  - #2 "Today" dashboard as the landing tab (warm lede, tappable stat cards)
+  - #4 gentle enquiry ageing ("Gently ageing", 3+ days, soft mark)
+  - #1 traveller timeline (history thread on each card)
+  - #5 reply-log ("log it": replied/called/met/note + a gist)
+  - #10 audit trail on every consequential action
+  - #9 "Download a copy of everything" — full JSON backup, anytime
+- **reflections.html** — #6 letters map: a privacy-first stylised SVG map of
+  Tanzania with brass pins where travellers wrote from. No external tiles,
+  no tracking — true to "no cookies, no third parties."
+- **barua.html** — optional "a place this letter belongs to" field with a
+  built-in Tanzania gazetteer (local, no external geocoding) so known places
+  pin on the map automatically. Consent double-gate unchanged.
+- **companions.html** — #7 journeys already breathe (live reads); #8 adds a
+  subtle "Newly opened" badge on journeys opened within 10 days.
 
-### Verified end to end (RLS-enforced, as browser + admin)
-- Anon can submit letters/companions/enquiries; correct default statuses
-  (private / pending / new).
-- Admin (as operator) can read, approve, transition statuses, autosave notes.
-- Consent double-gate holds: a letter forced to 'approved' WITHOUT consent
-  stays invisible to the public. Only approved+consented letters appear.
-- Anon cannot read enquiries or companions (denied at grant level).
-- Test rows inserted and cleaned; DB left pristine.
+### Verified (RLS-enforced, as browser + operator)
+- Operator can write reply-logs and audit entries; anon cannot read either.
+- Anon can read approved+consented letters' map fields; private data stays sealed.
+- Test rows inserted and cleaned; DB pristine.
+- All edited files: every real JS block parses; admin module valid; IDs present.
 
-### Responsive
-- Paper leaves clear the spine on all widths; form rows wrap on narrow screens;
-  no horizontal scroll (existing 640/820 breakpoints + overflow guards).
-- NOTE: I could not render screenshots in this environment. Please eyeball
-  barua.html and companions.html on a phone once after deploy.
+### Feature notes / honest limits
+- The map plots letters whose named place is in the built-in gazetteer
+  (Serengeti, Ngorongoro, Zanzibar, Kilimanjaro, Arusha, Tarangire, Manyara,
+  Ruaha, Nyerere/Selous, Mahale, Mikumi, Moshi, Dar, Pemba, Stone Town).
+  A letter with a place not in the list still saves — it just won't pin until
+  you add coordinates. Easy to extend the gazetteer later.
+- I could not render screenshots in this environment. Please eyeball
+  reflections.html (map), companions.html (badge), and the admin Today tab
+  once after deploy.
 
 ### Still parked (by request)
 - notify Edge Function secrets (RESEND_API_KEY etc.)
-- Disable open sign-ups in Supabase Auth settings (dashboard toggle) — seals
-  admin access fully.
-- letters place/lat/lng columns exist for map pins; forms don't collect them.
+- Disable open sign-ups in Supabase Auth settings (dashboard toggle)
 
 ### After deploying — verify
-1. admin.html — sign in, confirm ledger + your entries as paper leaves.
-2. barua.html on a phone — confirm the letter reads as paper, no sideways scroll.
-3. companions.html — confirm the journey field is paper and the label is legible.
-4. Submit one of each; confirm they land in admin.
+1. admin.html → Today tab shows the lede + cards; try "Download a copy of
+   everything" (a JSON file should download).
+2. Log a touch on an enquiry; confirm it appears in the history thread.
+3. barua.html → write a test letter with place "Serengeti" + consent; approve
+   it in admin; confirm a pin appears on reflections.html.
+4. Open a journey in admin; confirm "Newly opened" shows on companions.html.

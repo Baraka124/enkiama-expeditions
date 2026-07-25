@@ -225,7 +225,45 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
   animation:grow .9s cubic-bezier(.2,.7,.2,1) both;}
 @keyframes grow{from{width:0!important;}}
 .bar-val{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:2ch;text-align:right;}
-.toast{position:fixed;bottom:1.8rem;left:50%;transform:translate(-50%,150%);background:var(--leaf);
+/* ── Today dashboard (#2) ── */
+.today-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2.4rem;}
+.today-card{background:linear-gradient(180deg,var(--ink2),var(--forest-lo));border:1px solid var(--rule);
+  border-left:2px solid var(--brass-dim);border-radius:2px;padding:1.5rem 1.4rem;cursor:pointer;
+  transition:transform .3s,border-color .3s,box-shadow .3s;}
+.today-card:hover{transform:translateY(-3px);border-left-color:var(--brass);box-shadow:0 20px 44px -30px rgba(0,0,0,0.8);}
+.today-n{font-family:'Fraunces',serif;font-variation-settings:'opsz' 80;font-weight:300;font-size:44px;line-height:1;
+  color:var(--bone);font-variant-numeric:tabular-nums;}
+.today-n.zero{color:var(--muted2);}
+.today-l{margin-top:.6rem;font-family:'Fraunces',serif;font-variation-settings:'opsz' 20;font-style:italic;
+  font-size:15px;color:var(--bone3);line-height:1.4;}
+.today-hint{margin-top:.35rem;font-size:11px;letter-spacing:.08em;color:var(--muted2);text-transform:uppercase;}
+.today-section-h{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-size:20px;color:var(--bone);
+  margin:0 0 1rem;display:flex;align-items:baseline;gap:.6rem;}
+.today-section-h .eyebrow{font-family:'Instrument Sans',sans-serif;font-size:10px;font-variant-caps:all-small-caps;
+  letter-spacing:.2em;color:var(--brass);text-transform:uppercase;}
+
+/* ── aging mark (#4) ── */
+.age-mark{display:inline-flex;align-items:center;gap:.35rem;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:#B0784E;font-variant-caps:all-small-caps;font-weight:600;}
+.age-mark::before{content:'';width:5px;height:5px;border-radius:50%;background:#C77A44;
+  box-shadow:0 0 0 3px rgba(199,122,68,0.18);}
+.age-mark.warm::before{background:#556B44;box-shadow:0 0 0 3px rgba(85,107,68,0.18);}
+
+/* ── traveller timeline (#1) ── */
+.thread{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(58,52,40,0.14);}
+.thread-h{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-hand-lo);font-weight:600;margin-bottom:.6rem;}
+.thread-item{display:flex;gap:.7rem;font-size:12.5px;color:var(--ink-hand);padding:.3rem 0;align-items:baseline;}
+.thread-item .dot{width:6px;height:6px;border-radius:50%;background:var(--olive);flex-shrink:0;margin-top:.4rem;}
+.thread-item .when{color:var(--ink-hand-lo);font-size:11px;font-variant-caps:all-small-caps;letter-spacing:.05em;margin-left:auto;white-space:nowrap;}
+
+/* ── reply-log form (#5) ── */
+.log-row{display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap;}
+.log-in{flex:1;min-width:160px;background:rgba(255,255,255,0.35);border:1px solid rgba(58,52,40,0.2);border-radius:2px;
+  padding:.5rem .7rem;font-size:12.5px;color:var(--ink-hand);font-family:'Instrument Sans',sans-serif;}
+.log-in:focus{outline:none;border-color:#9A7B3E;background:rgba(255,255,255,0.5);}
+.log-sel{background:rgba(255,255,255,0.35);border:1px solid rgba(58,52,40,0.2);border-radius:2px;padding:.5rem .7rem;
+  font-size:11.5px;color:var(--ink-hand);cursor:pointer;}
+
   border:1px solid #9A7B3E;color:var(--ink-hand);padding:0.85rem 1.6rem;font-size:12.5px;letter-spacing:0.05em;
   border-radius:3px;box-shadow:0 24px 50px -24px rgba(0,0,0,0.8);z-index:40;
   transition:transform .45s cubic-bezier(.2,.7,.2,1);font-variant-caps:all-small-caps;font-weight:500;}
@@ -265,7 +303,8 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
   </div>
 
   <div class="tabs">
-    <button class="tab on" data-view="enquiries">Enquiries <span class="count" id="cEnq" style="display:none"></span></button>
+    <button class="tab on" data-view="today">Today</button>
+    <button class="tab" data-view="enquiries">Enquiries <span class="count" id="cEnq" style="display:none"></span></button>
     <button class="tab" data-view="letters">Letters <span class="count" id="cLet" style="display:none"></span></button>
     <button class="tab" data-view="companions">Companions <span class="count" id="cCom" style="display:none"></span></button>
     <button class="tab" data-view="journeys">Open journeys</button>
@@ -273,7 +312,23 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
   </div>
 
   <div class="wrap">
-    <div class="view on" id="v-enquiries">
+    <!-- TODAY — the dashboard home (#2) -->
+    <div class="view on" id="v-today">
+      <div class="view-head">
+        <span class="view-eye" id="todayDate"></span>
+        <h1 class="view-h">Good day, Baraka.</h1>
+        <p class="view-sub" id="todayLede">A quiet look at where things stand.</p>
+      </div>
+      <div id="todayCards" class="today-grid"></div>
+      <div id="todayAging"></div>
+      <div style="margin-top:2.4rem;padding-top:1.8rem;border-top:1px solid var(--rule);">
+        <h2 class="today-section-h"><span class="eyebrow">Keep it safe</span></h2>
+        <p class="view-sub" style="margin-top:-.4rem;margin-bottom:1.1rem">A living system survives a bad day. Download a copy of everything &mdash; letters, enquiries, companions, journeys &mdash; whenever you like.</p>
+        <button class="act go" id="backupBtn">Download a copy of everything</button>
+      </div>
+    </div>
+
+    <div class="view" id="v-enquiries">
       <div class="view-head">
         <span class="view-eye">The desk</span>
         <h1 class="view-h">Enquiries</h1>
@@ -417,20 +472,104 @@ function enter(session){
   $('login').style.display='none';
   $('shell').classList.add('on');
   $('whoami').textContent = session.user.email;
+  window.__enkOperator = session.user.email;
   loadAll();
 }
 
-document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+function showView(name){
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
   document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
-  t.classList.add('on');
-  $('v-'+t.dataset.view).classList.add('on');
-  if(t.dataset.view==='analytics') loadAnalytics();
-}));
+  const tab = document.querySelector('.tab[data-view="'+name+'"]');
+  if(tab) tab.classList.add('on');
+  $('v-'+name).classList.add('on');
+  if(name==='analytics') loadAnalytics();
+  if(name==='today') renderToday();
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => showView(t.dataset.view)));
 
-async function loadAll(){ await Promise.all([loadEnquiries(), loadLetters(), loadCompanions(), loadJourneys()]); }
+/* Today dashboard cards navigate to their view (#2) */
+document.addEventListener('click', e => {
+  const c = e.target.closest('[data-goto]');
+  if(c) showView(c.dataset.goto);
+});
 
-let ENQ=[], LET=[], COM=[];
+async function loadAll(){ await loadLogs(); await Promise.all([loadEnquiries(), loadLetters(), loadCompanions(), loadJourneys()]); renderToday(); }
+
+const OPERATOR = () => (window.__enkOperator || 'operator');
+const daysSince = ts => (Date.now() - new Date(ts)) / 864e5;
+
+/* audit every consequential admin action (#10) */
+async function audit(action, table, id, detail){
+  try { await sb.from('admin_audit').insert({ actor: OPERATOR(), action, subject_table: table, subject_id: id, detail: detail||null }); }
+  catch(e){ if(window.console) console.warn('audit failed', e); }
+}
+
+/* Today dashboard (#2) + aging (#4) */
+function renderToday(){
+  const d = new Date();
+  $('todayDate').textContent = d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+
+  const newEnq   = ENQ.filter(x=>x.status==='new');
+  const waiting  = LET.filter(x=>x.status==='private' && x.consent_to_publish);
+  const pendCom  = COM.filter(x=>x.status==='pending');
+  const stale    = ENQ.filter(x=>x.status!=='replied' && x.status!=='archived' && daysSince(x.created_at) >= 3);
+
+  const bits = [];
+  if(newEnq.length)  bits.push(`${newEnq.length} new ${newEnq.length===1?'enquiry':'enquiries'}`);
+  if(waiting.length) bits.push(`${waiting.length} ${waiting.length===1?'letter awaits':'letters await'} your blessing`);
+  if(pendCom.length) bits.push(`${pendCom.length} companion ${pendCom.length===1?'journey':'journeys'} pending`);
+  $('todayLede').textContent = bits.length ? ('Today: ' + bits.join(' · ') + '.') : 'Nothing needs you right now. The plains are quiet.';
+
+  const card = (n,label,hint,view) => `
+    <div class="today-card" data-goto="${view}">
+      <div class="today-n ${n===0?'zero':''}">${n}</div>
+      <div class="today-l">${label}</div>
+      <div class="today-hint">${hint}</div>
+    </div>`;
+  $('todayCards').innerHTML =
+    card(newEnq.length,  'new enquiries', 'to read', 'enquiries') +
+    card(waiting.length, 'letters awaiting you', 'consented, unpublished', 'letters') +
+    card(pendCom.length, 'companions pending', 'to review', 'companions') +
+    card(ENQ.filter(x=>x.status==='replied').length, 'replied', 'this ledger', 'enquiries');
+
+  $('todayAging').innerHTML = stale.length ? `
+    <h2 class="today-section-h"><span class="eyebrow">Gently ageing</span></h2>
+    <p class="view-sub" style="margin-top:-.4rem;margin-bottom:1.2rem">Unanswered three days or more — a whisper, not a nag.</p>
+    ${stale.map(d=>`
+      <div class="card">
+        <div class="card-top">
+          <span class="card-name">${esc(d.name)||'Someone'}</span>
+          <span class="card-meta"><span class="age-mark">${Math.floor(daysSince(d.created_at))} days waiting</span> <span class="dateline">${when(d.created_at)}</span></span>
+        </div>
+        ${d.contact?`<div class="card-contact">${esc(d.contact)}</div>`:''}
+        <div class="card-body">${esc(d.message)}</div>
+        <div class="card-acts">
+          ${d.contact && d.contact.includes('@') ? `<a class="act go" href="mailto:${esc(d.contact)}?subject=${encodeURIComponent('A conversation with Enkiama')}">Reply by email</a>` : ''}
+          <button class="act go" data-enq="${d.id}" data-to="replied">Mark replied</button>
+        </div>
+      </div>`).join('')}` : '';
+}
+
+let ENQ=[], LET=[], COM=[], LOGS=[];
+
+async function loadLogs(){
+  const { data } = await sb.from('contact_log').select('*').order('created_at',{ascending:false});
+  LOGS = data || [];
+}
+function threadFor(table, id){
+  const items = LOGS.filter(l=>l.subject_table===table && l.subject_id===id);
+  if(!items.length) return '';
+  return `<div class="thread"><div class="thread-h">History</div>${
+    items.map(l=>`<div class="thread-item"><span class="dot"></span><span>${esc(l.kind)}${l.gist?' — '+esc(l.gist):''}</span><span class="when">${when(l.created_at)}</span></div>`).join('')
+  }</div>`;
+}
+function logForm(table, id){
+  return `<div class="log-row">
+    <select class="log-sel"><option value="replied">replied</option><option value="called">called</option><option value="met">met</option><option value="note">note</option></select>
+    <input class="log-in" placeholder="a word about the touch…">
+    <button class="act" data-logfor="${id}" data-logtable="${table}">Log it</button>
+  </div>`;
+}
 
 function matches(d, q){
   if(!q) return true;
@@ -470,6 +609,8 @@ function paintEnquiries(){
         <span class="note-lbl">Private note<span class="saved" id="s-${d.id}">saved</span></span>
         <textarea class="note-in" data-note="enquiries" data-id="${d.id}" placeholder="A note only you will see…">${esc(d.notes)}</textarea>
       </div>
+      ${threadFor('enquiries', d.id)}
+      ${logForm('enquiries', d.id)}
     </div>`).join('') : '<div class="empty">Nothing matches.</div>';
 }
 
@@ -541,6 +682,8 @@ function paintCompanions(){
         <span class="note-lbl">Private note<span class="saved" id="s-${d.id}">saved</span></span>
         <textarea class="note-in" data-note="companions" data-id="${d.id}" placeholder="A note only you will see…">${esc(d.notes)}</textarea>
       </div>
+      ${threadFor('companions', d.id)}
+      ${logForm('companions', d.id)}
     </div>`).join('') : '<div class="empty">Nothing matches.</div>';
 }
 
@@ -566,13 +709,24 @@ async function loadJourneys(){
 
 document.addEventListener('click', async e => {
   const b = e.target.closest('button'); if(!b) return;
-  if(b.dataset.enq){ await sb.from('enquiries').update({status:b.dataset.to}).eq('id',b.dataset.enq); toast('Updated'); loadEnquiries(); }
-  if(b.dataset.let){ await sb.from('letters').update({status:b.dataset.to}).eq('id',b.dataset.let); toast(b.dataset.to==='approved'?'Letter approved — now public':'Updated'); loadLetters(); }
-  if(b.dataset.com){ await sb.from('companions').update({status:b.dataset.to}).eq('id',b.dataset.com); toast('Updated'); loadCompanions(); }
-  if(b.dataset.j)  { await sb.from('open_journeys').update({status:b.dataset.to}).eq('id',b.dataset.j); toast('Updated'); loadJourneys(); }
+  if(b.dataset.enq){ await sb.from('enquiries').update({status:b.dataset.to}).eq('id',b.dataset.enq); audit('enquiry→'+b.dataset.to,'enquiries',b.dataset.enq); toast('Updated'); await loadEnquiries(); renderToday(); }
+  if(b.dataset.let){ await sb.from('letters').update({status:b.dataset.to}).eq('id',b.dataset.let); audit('letter→'+b.dataset.to,'letters',b.dataset.let); toast(b.dataset.to==='approved'?'Letter approved — now public':'Updated'); await loadLetters(); renderToday(); }
+  if(b.dataset.com){ await sb.from('companions').update({status:b.dataset.to}).eq('id',b.dataset.com); audit('companion→'+b.dataset.to,'companions',b.dataset.com); toast('Updated'); await loadCompanions(); renderToday(); }
+  if(b.dataset.j)  { await sb.from('open_journeys').update({status:b.dataset.to}).eq('id',b.dataset.j); audit('journey→'+b.dataset.to,'open_journeys',b.dataset.j); toast('Updated'); loadJourneys(); }
   if(b.dataset.jdel){
     if(!confirm('Delete this journey permanently?')) return;
-    await sb.from('open_journeys').delete().eq('id',b.dataset.jdel); toast('Deleted'); loadJourneys();
+    await sb.from('open_journeys').delete().eq('id',b.dataset.jdel); audit('journey deleted','open_journeys',b.dataset.jdel); toast('Deleted'); loadJourneys();
+  }
+  if(b.dataset.logfor){
+    const wrap = b.closest('.card');
+    const gist = wrap.querySelector('.log-in').value.trim();
+    const kind = wrap.querySelector('.log-sel').value;
+    if(!gist){ toast('Add a word about the touch first'); return; }
+    await sb.from('contact_log').insert({ subject_table:b.dataset.logtable, subject_id:b.dataset.logfor, kind, gist });
+    audit('logged '+kind, b.dataset.logtable, b.dataset.logfor, gist);
+    wrap.querySelector('.log-in').value='';
+    toast('Noted in the thread');
+    if(b.dataset.logtable==='enquiries') loadEnquiries(); else loadCompanions();
   }
 });
 
@@ -624,6 +778,35 @@ const exp=(id,get,file)=>{ const el=$(id); if(el) el.addEventListener('click',()
 exp('enqExport',()=>ENQ,'enkiama-enquiries.csv');
 exp('letExport',()=>LET,'enkiama-letters.csv');
 exp('comExport',()=>COM,'enkiama-companions.csv');
+
+/* ── #9 Backups: download a full copy of everything, anytime ── */
+const backupBtn = $('backupBtn');
+if(backupBtn) backupBtn.addEventListener('click', async () => {
+  backupBtn.disabled = true;
+  const original = backupBtn.textContent;
+  backupBtn.textContent = 'Gathering everything…';
+  try {
+    const tables = ['enquiries','letters','companions','open_journeys','contact_log','admin_audit'];
+    const dump = { exported_at: new Date().toISOString(), by: OPERATOR(), data: {} };
+    for (const t of tables) {
+      const { data, error } = await sb.from(t).select('*');
+      dump.data[t] = error ? { error: error.message } : data;
+    }
+    const stamp = new Date().toISOString().slice(0,10);
+    const blob = new Blob([JSON.stringify(dump, null, 2)], { type:'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'enkiama-backup-' + stamp + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    audit('backup downloaded', null, null, stamp);
+    toast('A copy of everything is yours');
+  } catch(e) {
+    toast('Backup failed: ' + (e.message||e));
+  } finally {
+    backupBtn.disabled = false;
+    backupBtn.textContent = original;
+  }
+});
 
 async function loadAnalytics(){
   const since = new Date(Date.now()-30*864e5).toISOString();

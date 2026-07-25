@@ -233,6 +233,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         </div>
       </div>
 
+      <div class="b-field">
+        <label class="b-label" for="place">A place this letter belongs to <span style="opacity:.6">(optional)</span></label>
+        <input class="b-input" id="place" type="text" placeholder="Serengeti, Ngorongoro, Zanzibar&hellip;">
+        <p class="b-hint">If you name a single place, it may appear as a quiet pin on our map of letters &mdash; never your identity, only the place.</p>
+      </div>
+
       <label class="b-consent">
         <input type="checkbox" id="consent">
         <span class="b-checkbox" aria-hidden="true"></span>
@@ -292,10 +298,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     var original = btn.textContent;
     btn.textContent = 'Sending\u2026';
 
+    // built-in gazetteer — no external geocoding, keeps the privacy promise
+    var GAZ = {
+      'serengeti':[-2.33,34.83],'ngorongoro':[-3.24,35.49],'zanzibar':[-6.16,39.20],
+      'stone town':[-6.16,39.19],'kilimanjaro':[-3.07,37.35],'arusha':[-3.37,36.68],
+      'tarangire':[-3.83,36.00],'manyara':[-3.60,35.83],'lake manyara':[-3.60,35.83],
+      'ruaha':[-7.70,34.60],'nyerere':[-8.00,37.80],'selous':[-8.00,37.80],
+      'mahale':[-6.10,29.75],'mikumi':[-7.12,37.10],'moshi':[-3.35,37.34],
+      'dar es salaam':[-6.79,39.21],'pemba':[-5.20,39.78],'tanzania':[-6.37,34.89]
+    };
+    var placeVal = document.getElementById('place').value.trim();
+    var coords = placeVal ? GAZ[placeVal.toLowerCase().split(',')[0].trim()] : null;
+
     window.Enkiama.insert('letters', {
       letter: letter.value.trim(),
       name: document.getElementById('name').value.trim() || null,
       journey: document.getElementById('journey').value.trim() || null,
+      place: placeVal || null,
+      lat: coords ? coords[0] : null,
+      lng: coords ? coords[1] : null,
       consent_to_publish: consent.checked
     }).then(function(res){
       if(!res.ok) throw new Error('save failed');
