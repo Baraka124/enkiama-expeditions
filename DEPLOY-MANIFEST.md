@@ -1,64 +1,50 @@
-# Enkiama — Deployment Manifest
+# Enkiama — Deploy Manifest
 
-Everything in this folder is the current, complete state of the site. It is a
-drop-in replacement for your repo. Deploy it as one batch.
+## This batch: Backend hardening + The Ledger admin + premium paper writing surfaces
 
-## What's in this batch (all 11 pages + support)
+### Live in Supabase already (no push needed — these were DB migrations)
+1. Operator read/update/delete on enquiries, letters, companions locked to
+   Baraka's user id alone. Public submission unchanged.
+2. Analytics views revoked from anon.
+3. Table-level SELECT revoked from anon on enquiries & companions.
 
-**Pages (12):**
-index · tanzania · how · family · notes · stories · journeys · begin · parks · faq · compose · 404
+### Changed files in this zip (push these)
+- **admin.html** — "The Ledger": each arrival is a warm paper leaf on a deep
+  tent-interior ground; sender names in Fraunces italic; threshold login.
+  All backend logic unchanged.
+- **barua.html** — the letter is now written on a **paper leaf** (warm cream,
+  stitched brass spine, faint ruled lines) — the same material the admin reads
+  it on. Premium focus lift, richer send button. Dead payload fields removed.
+- **companions.html** — the "journey you imagine" field is the same paper leaf;
+  floating label tuned for legibility on paper. Insert unchanged.
+- **begin.html** — atmospheric ground (layered glows + vignette) matching the
+  ledger. Form logic untouched.
+- **assets/js/enkiama.js** — analytics failures now warn (not silent); each
+  path recorded once per session.
 
-**What changed since the last live version:**
-- New brand palette (ink & bone + muted olive, antique brass; no emerald)
-- Grand 100px header condensing to 68px on scroll, no content intersection
-- 10 header refinements (outline Begin button, drawn hairline, dropdown, WhatsApp glyph, a11y)
-- Hero motion, breath section, animated route map on the home page
-- Copy tightening across all pages (em-dash overuse cut, negation tic reduced to one)
-- NEW: Wild Tanzania parks page (parks.html)
-- NEW: Safari FAQ page (faq.html) with FAQPage schema
-- NEW: The Composer (compose.html) — interactive journey-shaping tool
-- Full technical SEO: schema.org on every page, hreflang, geo, robots, enhanced sitemap
-- Photography system: every image slot wired to assets/images/ with graceful fallback
-- Fixed: placeholder WhatsApp number on begin.html (now +34 659 447 627 everywhere)
+### Verified end to end (RLS-enforced, as browser + admin)
+- Anon can submit letters/companions/enquiries; correct default statuses
+  (private / pending / new).
+- Admin (as operator) can read, approve, transition statuses, autosave notes.
+- Consent double-gate holds: a letter forced to 'approved' WITHOUT consent
+  stays invisible to the public. Only approved+consented letters appear.
+- Anon cannot read enquiries or companions (denied at grant level).
+- Test rows inserted and cleaned; DB left pristine.
 
-**Support files:** CNAME (enkiama.com), robots.txt, sitemap.xml, .nojekyll,
-.gitignore, README.md, assets/ (logo, favicons, share image), assets/images/
-(empty except the naming guide — drop photos here).
+### Responsive
+- Paper leaves clear the spine on all widths; form rows wrap on narrow screens;
+  no horizontal scroll (existing 640/820 breakpoints + overflow guards).
+- NOTE: I could not render screenshots in this environment. Please eyeball
+  barua.html and companions.html on a phone once after deploy.
 
-## How to deploy (clean sequence)
+### Still parked (by request)
+- notify Edge Function secrets (RESEND_API_KEY etc.)
+- Disable open sign-ups in Supabase Auth settings (dashboard toggle) — seals
+  admin access fully.
+- letters place/lat/lng columns exist for map pins; forms don't collect them.
 
-Replace your repo folder contents with everything here (keep your .git folder).
-Easiest: copy all files in, choosing "replace all" when asked.
-
-```
-cd C:\Users\barak\OneDrive\Documents\aaaaaaENKIAMA
-git add -A
-git status
-```
-
-`git status` should show the modified pages plus NEW files: parks.html, faq.html,
-compose.html, assets/images/. If that looks right:
-
-```
-git commit -m "Major update: new palette, parks + FAQ + Composer pages, full SEO, photo system"
-git push
-```
-
-No --force needed. CNAME is tracked, so your domain stays bound.
-
-## After deploying — verify
-1. Open enkiama.com and hard-refresh (Ctrl+F5). Check the new palette + header.
-2. Open enkiama.com/compose.html and click through the Composer.
-3. Load enkiama.com/sitemap.xml (should list all pages).
-4. Test rich results: search.google.com/test/rich-results → paste enkiama.com
-5. THEN do the SEO homework: submit sitemap in Google Search Console (see
-   Enkiama-SEO-Playbook.docx).
-
-## Your ongoing homework
-- Drop real photos into assets/images/ (see PHOTO-NAMING-GUIDE.md) — biggest quality lever
-- Google Search Console + Bing + Business Profile (see the SEO Playbook)
-- Confirm the two computed times in Marina's private itinerary (Day 12 arrival/transfer)
-
-## Still parked for a future session (not in this batch)
-- Spanish /es/ pages (partial start exists in enkiama-site/es/, NOT deployed)
-- Lead-capture email form, 404 page, English WhatsApp option in Composer
+### After deploying — verify
+1. admin.html — sign in, confirm ledger + your entries as paper leaves.
+2. barua.html on a phone — confirm the letter reads as paper, no sideways scroll.
+3. companions.html — confirm the journey field is paper and the label is legible.
+4. Submit one of each; confirm they land in admin.

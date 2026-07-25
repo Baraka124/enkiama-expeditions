@@ -78,6 +78,17 @@
 
     var path = location.pathname.replace(/\/index\.html$/, '/') || '/';
 
+    /* record each path at most once per browser session — a real visitor
+       moving between pages still counts; accidental re-fires and casual
+       spoofing from one session do not. The DB rate-limit trigger is the
+       real backstop; this is a courteous client-side guard. */
+    var SEEN = 'enk_seen';
+    var seen = [];
+    try { seen = JSON.parse(sessionStorage.getItem(SEEN) || '[]'); } catch (e) { seen = []; }
+    if (seen.indexOf(path) !== -1) return;
+    seen.push(path);
+    try { sessionStorage.setItem(SEEN, JSON.stringify(seen)); } catch (e) {}
+
     /* fire and forget — never block the page */
     var send = function () {
       api('page_views', 'POST', {
@@ -85,7 +96,10 @@
         referrer_host: ref,
         device: device,
         session_key: sess
-      }).catch(function () {});
+      }).catch(function (e) {
+        /* never block the page; but surface breakage instead of swallowing it */
+        if (window.console && console.warn) console.warn('Enkiama analytics: page view not recorded', e);
+      });
     };
     if ('requestIdleCallback' in window) requestIdleCallback(send, { timeout: 2500 });
     else setTimeout(send, 1200);
