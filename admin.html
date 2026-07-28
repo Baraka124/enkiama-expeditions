@@ -327,6 +327,7 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
     <button class="tab" data-view="letters">Letters <span class="count" id="cLet" style="display:none"></span></button>
     <button class="tab" data-view="companions">Companions <span class="count" id="cCom" style="display:none"></span></button>
     <button class="tab" data-view="journeys">Open journeys</button>
+    <button class="tab" data-view="bookings">Bookings</button>
     <button class="tab" data-view="analytics">Analytics</button>
   </div>
 
@@ -425,6 +426,31 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
       <div id="jList"></div>
     </div>
 
+    <!-- BOOKINGS (client area) -->
+    <div class="view" id="v-bookings">
+      <div class="view-head">
+        <span class="view-eye">The private client area</span>
+        <h1 class="view-h">Bookings</h1>
+        <p class="view-sub">Each booking gives a traveller a private link — their own calm space with a countdown, notes, documents and a timeline. No login; the link is the key.</p>
+      </div>
+
+      <div class="form">
+        <div class="field-mb"><label class="lbl" for="bkName">Traveller name</label><input class="in" id="bkName" placeholder="Marina & party"></div>
+        <div class="form-row">
+          <div><label class="lbl" for="bkTitle">Journey title</label><input class="in" id="bkTitle" placeholder="Karibu Tanzania"></div>
+          <div><label class="lbl" for="bkDepart">Departs</label><input class="in" id="bkDepart" type="date"></div>
+          <div><label class="lbl" for="bkStatus">Status</label>
+            <select class="in" id="bkStatus"><option value="planning">planning</option><option value="confirmed">confirmed</option><option value="travelling">travelling</option><option value="complete">complete</option></select></div>
+        </div>
+        <div class="field-mb"><label class="lbl" for="bkParty">Party note</label><input class="in" id="bkParty" placeholder="Marina, Blanca, Patricia, Casilda & Sevi"></div>
+        <div class="field-mb"><label class="lbl" for="bkItin">Itinerary URL (optional)</label><input class="in" id="bkItin" placeholder="journeys/marina-2026-ea47e70a.html"></div>
+        <div class="field-mb"><label class="lbl" for="bkWelcome">A welcome line</label><textarea class="in" id="bkWelcome" placeholder="We cannot wait to welcome you to Tanzania."></textarea></div>
+        <button class="act go" id="bkSave">Create booking</button>
+      </div>
+
+      <div id="bkList"></div>
+    </div>
+
     <div class="view" id="v-analytics">
       <div class="view-head">
         <span class="view-eye">Your own data</span>
@@ -520,6 +546,7 @@ function showView(name){
   $('v-'+name).classList.add('on');
   if(name==='analytics') loadAnalytics();
   if(name==='today') renderToday();
+  if(name==='bookings') loadBookings();
 }
 document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => showView(t.dataset.view)));
 
@@ -529,7 +556,7 @@ document.addEventListener('click', e => {
   if(c) showView(c.dataset.goto);
 });
 
-async function loadAll(){ await loadLogs(); await Promise.all([loadEnquiries(), loadLetters(), loadCompanions(), loadJourneys()]); renderToday(); }
+async function loadAll(){ await loadLogs(); await Promise.all([loadEnquiries(), loadLetters(), loadCompanions(), loadJourneys(), loadBookings()]); renderToday(); }
 
 const OPERATOR = () => (window.__enkOperator || 'operator');
 const daysSince = ts => (Date.now() - new Date(ts)) / 864e5;
@@ -765,6 +792,42 @@ async function loadJourneys(){
     </div>`).join('') : emptyState('journeys', false);
 }
 
+let BOOK=[];
+async function loadBookings(){
+  const el = $('bkList'); if(!el) return;
+  const { data, error } = await sb.from('bookings').select('*').order('created_at',{ascending:false});
+  if(error){ el.innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
+  BOOK = data;
+  el.innerHTML = data.length ? data.map(d=>{
+    const link = location.origin + '/journey.html?k=' + d.token;
+    const dep = d.depart_date ? new Date(d.depart_date+'T00:00:00') : null;
+    const days = dep ? Math.ceil((dep - new Date())/864e5) : null;
+    return `
+    <div class="card">
+      <div class="card-top">
+        <span class="card-name">${esc(d.traveller_name)}</span>
+        <span class="card-meta"><span class="pill ${d.status==='confirmed'||d.status==='travelling'?'ok':''}">${esc(d.status)}</span>${days!=null&&days>=0?` <span class="dateline">${days} days out</span>`:''}</span>
+      </div>
+      ${d.journey_title?`<div class="card-contact">${esc(d.journey_title)}</div>`:''}
+      ${d.party_note?`<div class="card-body">${esc(d.party_note)}</div>`:''}
+      <div class="note-wrap">
+        <span class="note-lbl">Private link</span>
+        <div class="log-row">
+          <input class="log-in" value="${esc(link)}" readonly onclick="this.select()">
+          <button class="act" data-bkcopy="${esc(link)}">Copy</button>
+          <a class="act go" href="${esc(link)}" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+      <div class="card-acts">
+        <button class="act" data-bk="${d.id}" data-bkto="confirmed">Confirmed</button>
+        <button class="act go" data-bk="${d.id}" data-bkto="travelling">Travelling</button>
+        <button class="act" data-bk="${d.id}" data-bkto="complete">Complete</button>
+        <button class="act no" data-bkdel="${d.id}">Delete</button>
+      </div>
+    </div>`;
+  }).join('') : '<div class="empty">No bookings yet. Create one above, and a private link will appear for that traveller.</div>';
+}
+
 document.addEventListener('click', async e => {
   const b = e.target.closest('button'); if(!b) return;
   if(b.dataset.enq){ await sb.from('enquiries').update({status:b.dataset.to}).eq('id',b.dataset.enq); audit('enquiry→'+b.dataset.to,'enquiries',b.dataset.enq); toast('Updated'); await loadEnquiries(); renderToday(); }
@@ -794,6 +857,15 @@ document.addEventListener('click', async e => {
     await loadLogs(); loadEnquiries(); loadCompanions();
     toast('Removed');
   }
+  if(b.dataset.bk){ await sb.from('bookings').update({status:b.dataset.bkto}).eq('id',b.dataset.bk); audit('booking→'+b.dataset.bkto,'bookings',b.dataset.bk); toast('Updated'); loadBookings(); }
+  if(b.dataset.bkdel){
+    if(!confirm('Delete this booking? The traveller\u2019s private link will stop working.')) return;
+    await sb.from('bookings').delete().eq('id',b.dataset.bkdel); audit('booking deleted','bookings',b.dataset.bkdel); toast('Deleted'); loadBookings();
+  }
+  if(b.dataset.bkcopy){
+    try { await navigator.clipboard.writeText(b.dataset.bkcopy); toast('Link copied'); }
+    catch(e){ toast('Copy failed — select and copy manually'); }
+  }
 });
 
 $('jSave').addEventListener('click', async () => {
@@ -808,6 +880,25 @@ $('jSave').addEventListener('click', async () => {
   if(error){ toast('Error: '+error.message); return; }
   ['jSeason','jName','jFor','jDesc','jSeats','jRoute'].forEach(i=>$(i).value='');
   toast('Journey saved'); loadJourneys();
+});
+
+const bkSaveBtn = $('bkSave');
+if(bkSaveBtn) bkSaveBtn.addEventListener('click', async () => {
+  const row = {
+    traveller_name: $('bkName').value.trim(),
+    journey_title: $('bkTitle').value.trim() || null,
+    party_note: $('bkParty').value.trim() || null,
+    depart_date: $('bkDepart').value || null,
+    status: $('bkStatus').value,
+    itinerary_url: $('bkItin').value.trim() || null,
+    welcome_note: $('bkWelcome').value.trim() || null
+  };
+  if(!row.traveller_name){ toast('A traveller name is needed'); return; }
+  const { error } = await sb.from('bookings').insert(row);
+  if(error){ toast('Error: '+error.message); return; }
+  ['bkName','bkTitle','bkParty','bkDepart','bkItin','bkWelcome'].forEach(i=>$(i).value='');
+  audit('booking created','bookings',null,row.traveller_name);
+  toast('Booking created — the private link is ready'); loadBookings();
 });
 
 ['enqSearch','enqFilter'].forEach(id=>{ const el=$(id); if(el) el.addEventListener('input',paintEnquiries); });

@@ -29,6 +29,13 @@
       return fetch(URL_ + '/rest/v1/' + table + (query || ''), {
         headers: { 'apikey': ANON, 'Authorization': 'Bearer ' + ANON }
       }).then(function (r) { return r.ok ? r.json() : []; });
+    },
+    rpc: function (fn, args) {
+      return fetch(URL_ + '/rest/v1/rpc/' + fn, {
+        method: 'POST',
+        headers: { 'apikey': ANON, 'Authorization': 'Bearer ' + ANON, 'Content-Type': 'application/json' },
+        body: JSON.stringify(args || {})
+      }).then(function (r) { return r.ok ? r.json() : []; });
     }
   };
 
