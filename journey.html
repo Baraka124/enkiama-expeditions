@@ -71,15 +71,14 @@ a{color:inherit;}
 .sec-h .eyebrow{font-family:'Instrument Sans',sans-serif;font-size:10px;font-variant-caps:all-small-caps;letter-spacing:.2em;color:var(--earth);text-transform:uppercase;}
 
 /* status band */
-.band{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:clamp(2.5rem,6vh,4rem);}
-.stat{flex:1;min-width:150px;background:linear-gradient(180deg,var(--ink2),var(--forest-lo));
-  border:1px solid var(--rule);border-radius:3px;padding:1.4rem 1.5rem;position:relative;overflow:hidden;}
-.stat::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;}
-.stat.shuka-red::before{background:#7a1508;}
-.stat.shuka-grn::before{background:#1e5c28;}
-.stat-l{font-variant-caps:all-small-caps;letter-spacing:.16em;text-transform:uppercase;font-size:10px;color:var(--muted);margin-bottom:.5rem;}
-.stat-v{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-size:1.35rem;color:var(--bone);line-height:1.15;}
-.status-pill{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.14em;text-transform:uppercase;font-size:11px;font-weight:500;padding:.4rem .9rem;border-radius:20px;border:1px solid var(--rule-md);color:var(--earth);}
+.band{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0;margin-bottom:clamp(2.5rem,6vh,4rem);
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.stat{flex:1;min-width:140px;padding:1.5rem 1.6rem 1.5rem 0;position:relative;}
+.stat + .stat{padding-left:1.8rem;border-left:1px solid var(--rule);}
+.stat-l{font-variant-caps:all-small-caps;letter-spacing:.18em;text-transform:uppercase;font-size:10px;color:var(--muted);margin-bottom:.6rem;}
+.stat-v{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:300;font-size:1.5rem;color:var(--bone);line-height:1.1;}
+.status-pill{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:500;color:var(--earth);}
+.status-pill::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ochre);margin-right:.5rem;vertical-align:middle;}
 
 /* welcome — paper leaf */
 .welcome{background:linear-gradient(105deg,#F1E9D8,#E7DCC5 62%,#DCCFB2);color:#3A3428;border-radius:3px 6px 6px 3px;
@@ -182,22 +181,22 @@ a{color:inherit;}
     </section>
 
     <section class="sec" id="itinWrap" style="display:none">
-      <h2 class="sec-h"><span class="eyebrow">Day by day</span> Your itinerary</h2>
+      <h2 class="sec-h">Your itinerary, day by day</h2>
       <a class="cta" id="itinLink" href="#" target="_blank" rel="noopener">Open your full itinerary &rarr;</a>
     </section>
 
     <section class="sec" id="tlWrap" style="display:none">
-      <h2 class="sec-h"><span class="eyebrow">Where we are</span> The path so far</h2>
+      <h2 class="sec-h">The path so far</h2>
       <div class="tl" id="timeline"></div>
     </section>
 
     <section class="sec" id="prWrap" style="display:none">
-      <h2 class="sec-h"><span class="eyebrow">Good to know</span> Practical notes</h2>
+      <h2 class="sec-h">Good to know</h2>
       <div class="list" id="practical"></div>
     </section>
 
     <section class="sec" id="docsWrap" style="display:none">
-      <h2 class="sec-h"><span class="eyebrow">For you to keep</span> Documents</h2>
+      <h2 class="sec-h">Documents, for you to keep</h2>
       <div id="docs"></div>
     </section>
 
@@ -240,9 +239,9 @@ a{color:inherit;}
 
     // band
     var band='';
-    if(b.status) band+='<div class="stat shuka-grn"><div class="stat-l">Status</div><div class="stat-v"><span class="status-pill">'+esc(b.status)+'</span></div></div>';
-    if(b.depart_date) band+='<div class="stat shuka-red"><div class="stat-l">Departs</div><div class="stat-v">'+esc(fmtDate(b.depart_date))+'</div></div>';
-    if(b.return_date) band+='<div class="stat shuka-grn"><div class="stat-l">Returns</div><div class="stat-v">'+esc(fmtDate(b.return_date))+'</div></div>';
+    if(b.status) band+='<div class="stat"><div class="stat-l">Status</div><div class="stat-v"><span class="status-pill">'+esc(b.status)+'</span></div></div>';
+    if(b.depart_date) band+='<div class="stat"><div class="stat-l">Departs</div><div class="stat-v">'+esc(fmtDate(b.depart_date))+'</div></div>';
+    if(b.return_date) band+='<div class="stat"><div class="stat-l">Returns</div><div class="stat-v">'+esc(fmtDate(b.return_date))+'</div></div>';
     $('band').innerHTML=band;
 
     if(b.welcome_note){show($('welcomeWrap'));$('welcome').textContent=b.welcome_note;}

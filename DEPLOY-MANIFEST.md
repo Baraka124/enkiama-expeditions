@@ -1,40 +1,41 @@
 # Enkiama — Deploy Manifest
 
-## This batch: THE fix for "Sofie's letter shows in admin but not public"
+## This batch: removing the "AI-designed" tells (de-templating journey.html)
 
-### Root cause (found by tracing the exact execution order)
-Sofie's letter is correct in every layer — approved, consented, readable by
-anon, complete text. I verified the public query returns it. The bug was a
-JavaScript **scope/timing race** on reflections.html:
+### The observation (correct)
+Some surfaces leaned too hard on three repeated motifs — the gold-bordered
+box on a gradient fill, the small-caps brass eyebrow, and the uniform
+rounded rectangle. Individually tasteful; over-repeated, they read as
+"templated / AI-generated" rather than designed.
 
-- The page seeds 4 example letters and renders them on load — so the page
-  looked like it was "showing letters" (the examples).
-- Real approved letters (Sofie) are fetched asynchronously, added to the list,
-  and the page must RE-RENDER to include them.
-- But that re-render call sat in a different IIFE (scope block) than the
-  renderLetters function it was trying to call. The reference resolved to
-  nothing, the guard `typeof renderLetters === 'function'` came back false,
-  and the re-render silently never happened.
-- Result: the 4 examples showed; Sofie never did. Exactly your symptom.
+### Where it actually was (audited, not assumed)
+- The tell concentrated in **journey.html** (the traveller's private page) and,
+  less importantly, admin.html.
+- The public content pages (tanzania, parks, etc.) already have good
+  structural variety — no change needed.
+- Eyebrows on begin.html / reflections.html turned out to be legitimate,
+  distinct labels ("Curated, never sold", the four step-tags) doing real work
+  — NOT redundant tells. Left them alone.
 
-### The fix
-The re-render now calls `window.renderLetters()` explicitly and defers it one
-tick, so it runs after all setup is complete regardless of network speed or
-scope. Verified by simulation: on load 4 examples render; after the fetch,
-Sofie appears at the top (newest). Same fix applied to the letters map render.
+### Fixed — journey.html (the page that matters most: a paying traveller lives here)
+1. **The status band**: was three identical gold-bordered gradient boxes in a
+   row (the most "template" moment). Now an open, editorial ruled row — status,
+   departs, returns breathe with hairline separators, a small olive status dot
+   instead of a bordered pill. Reads designed, not boxed.
+2. **Section headings**: each had a redundant eyebrow duplicating its heading
+   ("Good to know" eyebrow + "Practical notes" heading — the classic AI
+   over-labeling tell). Folded into single confident headings:
+   "Your itinerary, day by day" / "The path so far" / "Good to know" /
+   "Documents, for you to keep".
+
+### Deliberately NOT changed
+- The palette, Fraunces, and the shuka motif — those are BRAND; consistency
+  there is correct, not a tell.
+- admin.html's boxes — it's a private ops tool only Baraka sees; dashboard
+  consistency is a virtue there, and no traveller judges the brand by it.
 
 ### Files changed
-reflections.html only. JS parses; one focused change to the fetch callback.
-
-### After deploy — verify (30 seconds)
-1. Push, then HARD-REFRESH reflections.html (Ctrl-Shift-R) to clear old JS.
-2. Sofie's letter (Kilimanjaro) should now appear at the TOP of the letters,
-   above the example letters, as a full anthology entry.
-3. If you approve another consented letter in admin, it will appear too.
-
-### Note
-This was a genuine bug I introduced/left in an earlier pass by splitting the
-render logic across scopes. Fixed now, and simulated to confirm.
+journey.html only. JS parses; styles balanced; secure booking flow untouched.
 
 ### Still parked (by request)
 - notify Edge Function secrets; disable open sign-ups toggle.
