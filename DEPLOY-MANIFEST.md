@@ -1,57 +1,40 @@
 # Enkiama — Deploy Manifest
 
-## This batch: full-stack fix — public content now renders + luxury letters
+## This batch: THE fix for "Sofie's letter shows in admin but not public"
 
-### The bug you reported (approved letters / open journeys not showing)
-I traced the full stack for each public flow. The data, RLS, anon key, and
-queries were ALL correct — anon can read the approved letter (Sofie /
-Kilimanjaro) and the open journey (Northern Circuit). The failure was in the
-frontend RENDER path, and it was two real bugs:
+### Root cause (found by tracing the exact execution order)
+Sofie's letter is correct in every layer — approved, consented, readable by
+anon, complete text. I verified the public query returns it. The bug was a
+JavaScript **scope/timing race** on reflections.html:
 
-1. **Reflections showed the MAP tab by default**, with letters hidden behind
-   the second "As letters" tab. A visitor landed on a map of pins and never
-   saw the actual letters unless they clicked. FIXED: "As letters" is now the
-   default view; the map is the secondary tab.
+- The page seeds 4 example letters and renders them on load — so the page
+  looked like it was "showing letters" (the examples).
+- Real approved letters (Sofie) are fetched asynchronously, added to the list,
+  and the page must RE-RENDER to include them.
+- But that re-render call sat in a different IIFE (scope block) than the
+  renderLetters function it was trying to call. The reference resolved to
+  nothing, the guard `typeof renderLetters === 'function'` came back false,
+  and the re-render silently never happened.
+- Result: the 4 examples showed; Sofie never did. Exactly your symptom.
 
-2. **Async-loaded content rendered invisible (opacity:0).** Both reflections
-   letters and companion journey cards use a scroll-reveal (start at
-   opacity:0, an IntersectionObserver adds `.in`). But the observer ran ONCE
-   at page load, while real letters/journeys arrive later from Supabase and
-   re-render the DOM — so the fresh elements were never observed and stayed
-   invisible forever. This is why your open journey didn't appear.
-   FIXED: the reveal now re-runs after every async render, with a viewport
-   safety net so nothing can stay stuck hidden.
-
-### Luxury letter rendering (you asked: "not so random text")
-Letters now render as a published-anthology entry:
-- a large opening quotation mark + the place as a chapter mark
-- an italic brass drop-cap on the first letter
-- generous Fraunces serif body with proper paragraph rhythm
-- a refined attribution with a small brass rule ("— Sofie")
-
-### Full-stack flows verified (data → RLS → anon read → render)
-- **Letters**: traveller writes at barua.html (consent optional) → lands
-  PRIVATE in admin → you approve → shows publicly ONLY if consented AND
-  approved. Double-gate verified. Now renders luxuriously, visible by default.
-- **Open journeys**: you create in admin → status 'open' → renders on
-  companions.html. Now visible (reveal bug fixed).
-- **Companions (seeking)**: traveller submits → lands in admin. (Private by
-  design — these are requests to you, not public listings.)
+### The fix
+The re-render now calls `window.renderLetters()` explicitly and defers it one
+tick, so it runs after all setup is complete regardless of network speed or
+scope. Verified by simulation: on load 4 examples render; after the fetch,
+Sofie appears at the top (newest). Same fix applied to the letters map render.
 
 ### Files changed
-reflections.html, companions.html — both parse clean, styles balanced.
+reflections.html only. JS parses; one focused change to the fetch callback.
 
-### IMPORTANT — why it looked broken
-If the live site still showed nothing before this, it's partly because these
-render fixes weren't deployed yet. After you push this, hard-refresh
-(Ctrl-Shift-R) to clear cached older JS.
+### After deploy — verify (30 seconds)
+1. Push, then HARD-REFRESH reflections.html (Ctrl-Shift-R) to clear old JS.
+2. Sofie's letter (Kilimanjaro) should now appear at the TOP of the letters,
+   above the example letters, as a full anthology entry.
+3. If you approve another consented letter in admin, it will appear too.
 
-### After deploy — verify in 2 minutes
-1. reflections.html → Sofie's letter should show immediately, as a beautiful
-   anthology entry (not behind a tab).
-2. companions.html → the "Tanzanian Northern Circuit" journey should appear.
-3. barua.html → write a test letter, tick consent → admin → approve → it joins
-   reflections.
+### Note
+This was a genuine bug I introduced/left in an earlier pass by splitting the
+render logic across scopes. Fixed now, and simulated to confirm.
 
 ### Still parked (by request)
 - notify Edge Function secrets; disable open sign-ups toggle.

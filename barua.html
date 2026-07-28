@@ -90,6 +90,9 @@ body{
 .b-count{font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;font-variant-caps:all-small-caps;}
 .b-count.soft{color:var(--earth);}
 .b-count.warn{color:#B0784E;}
+.b-draft-note{display:none;margin-top:.7rem;font-family:'Fraunces',serif;font-style:italic;font-size:13px;
+  color:var(--earth);opacity:0;transition:opacity .6s ease;}
+.b-draft-note.show{display:block;opacity:1;}
 
 /* consent - gentle, not legalese */
 .b-consent{display:flex;gap:.9rem;align-items:flex-start;margin:1.5rem 0 2.5rem;cursor:pointer;}
@@ -236,6 +239,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <div class="b-paper"><textarea class="b-textarea" id="letter" maxlength="8000"
           aria-describedby="letterHint letterCount" placeholder="Begin wherever it begins&hellip;"></textarea></div>
         <div class="b-meta"><span class="b-fieldhint" id="letterHint">A few sentences is plenty. Write as much or as little as feels true.</span><span class="b-count" id="letterCount" aria-live="polite"></span></div>
+        <p class="b-draft-note" id="draftNote" role="status">We kept what you had begun &mdash; pick up wherever you left off.</p>
       </div>
 
       <div class="b-row">
@@ -267,7 +271,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </label>
 
       <button class="b-send" id="sendBtn">Send to Enkiama</button>
-      <p class="b-error" id="bError">Something went wrong sending your letter. Please try once more.</p>
+      <p class="b-error" id="bError">That didn&rsquo;t send &mdash; but your words are safe here. Please try once more.</p>
       <p class="b-foot">Your letter goes to the Enkiama team first. Nothing appears anywhere without your blessing. <span style="font-style:italic;color:var(--earth);">Asante &mdash; thank you.</span></p>
     </div>
   </div>
@@ -295,6 +299,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   var hint=document.getElementById('letterHint');
   var MAXL=8000, MINL=20;
 
+  /* ── Draft protection: a letter is never lost to an accidental tap ── */
+  var DRAFT_KEY='enkiama_letter_draft_v1';
+  var nameEl=document.getElementById('name');
+  var journeyEl=document.getElementById('journey');
+  var placeEl=document.getElementById('place');
+  var draftTimer;
+  function saveDraft(){
+    try{
+      var d={letter:letter.value,name:nameEl?nameEl.value:'',journey:journeyEl?journeyEl.value:'',place:placeEl?placeEl.value:'',at:Date.now()};
+      if(d.letter.trim().length>0) localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
+    }catch(e){}
+  }
+  function clearDraft(){ try{ localStorage.removeItem(DRAFT_KEY); }catch(e){} }
+  function restoreDraft(){
+    try{
+      var raw=localStorage.getItem(DRAFT_KEY); if(!raw) return;
+      var d=JSON.parse(raw); if(!d||!d.letter||!d.letter.trim()) return;
+      // only offer recent drafts (within 14 days)
+      if(d.at && (Date.now()-d.at) > 14*864e5){ clearDraft(); return; }
+      letter.value=d.letter;
+      if(nameEl&&d.name) nameEl.value=d.name;
+      if(journeyEl&&d.journey) journeyEl.value=d.journey;
+      if(placeEl&&d.place) placeEl.value=d.place;
+      letter.style.height='auto'; letter.style.height=Math.max(letter.scrollHeight,240)+'px';
+      var note=document.getElementById('draftNote');
+      if(note){ note.classList.add('show'); }
+    }catch(e){}
+  }
+
   function update(){
     var len=letter.value.trim().length;
     btn.disabled = len < MINL;
@@ -305,6 +338,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     else { counter.textContent=''; counter.className='b-count'; }
   }
   letter.addEventListener('input',update);
+  letter.addEventListener('input',function(){clearTimeout(draftTimer);draftTimer=setTimeout(saveDraft,600);});
+  [nameEl,journeyEl,placeEl].forEach(function(el){ if(el) el.addEventListener('input',function(){clearTimeout(draftTimer);draftTimer=setTimeout(saveDraft,600);}); });
   /* the letter grows as it is written */
   letter.addEventListener('input',function(){
     letter.style.height='auto';
@@ -373,10 +408,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   });
 
   function showThanks(){
+    clearDraft();
     document.getElementById('bWriting').style.display='none';
     document.getElementById('bThanks').classList.add('show');
     window.scrollTo({top:0,behavior:'smooth'});
   }
+  restoreDraft();
 })();
 </script>
 <footer>

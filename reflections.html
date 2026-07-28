@@ -698,9 +698,13 @@ var REFLECTIONS = [
           };
         });
         REFLECTIONS = real.concat(REFLECTIONS);
-        indexAll();
-        if (typeof renderLetters === 'function') renderLetters();
-        if (pts.length && typeof renderLetterMap === 'function') renderLetterMap(pts);
+        if (typeof indexAll === 'function') indexAll();
+        // Defer to the next tick so renderLetters/renderLetterMap (defined in a
+        // later block) are guaranteed to exist regardless of network timing.
+        setTimeout(function(){
+          if (typeof window.renderLetters === 'function') window.renderLetters();
+          if (pts.length && typeof window.renderLetterMap === 'function') window.renderLetterMap(pts);
+        }, 0);
       })
       .catch(function(){});
   }
