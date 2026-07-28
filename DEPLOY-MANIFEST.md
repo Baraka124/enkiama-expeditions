@@ -1,42 +1,57 @@
 # Enkiama — Deploy Manifest
 
-## This batch: image optimization pass (performance) + a pre-existing bug fix
+## This batch: full-stack fix — public content now renders + luxury letters
 
-### What changed (measured)
-- **ngorongoro.jpg: 1433KB -> 268KB (81% smaller).** It was exported at 300 DPI
-  print resolution and used on ~every page — the single biggest load-time win.
-- **hero-dawn.jpg: 328KB -> 274KB**, resized from 2560px to 1920px (plenty for web).
-- **enkiama-share.jpg: 72KB -> 49KB** (social-share image).
-- **Deleted** assets/culture-table.jpg (280KB) — an orphan referenced nowhere
-  (the assets/images/ copy is the live one).
-- **WebP variants added** for the heaviest images (logo-full.webp is 42KB vs
-  268KB PNG). Kept as optional assets; not forced into markup.
-- **Total image weight: 3666KB -> 2713KB (saved ~950KB, 26%).**
+### The bug you reported (approved letters / open journeys not showing)
+I traced the full stack for each public flow. The data, RLS, anon key, and
+queries were ALL correct — anon can read the approved letter (Sofie /
+Kilimanjaro) and the open journey (Northern Circuit). The failure was in the
+frontend RENDER path, and it was two real bugs:
 
-### Pre-existing bug fixed (found during the audit)
-- **great-rift.jpg was referenced on 33 pages but never existed** — a broken
-  image link that predated this work (it drives the nav hover-preview for the
-  Great Rift section). Created it from the Manyara image (a Rift Valley lake —
-  thematically correct). All image references now resolve; no broken links.
+1. **Reflections showed the MAP tab by default**, with letters hidden behind
+   the second "As letters" tab. A visitor landed on a map of pins and never
+   saw the actual letters unless they clicked. FIXED: "As letters" is now the
+   default view; the map is the secondary tab.
 
-### Left deliberately unchanged
-- The assets/images/ set (27KB each) was already well-optimized — re-encoding
-  made several *larger*, so those were restored to originals. Only genuine wins
-  were kept.
-- logo-full.png (268KB) is only in JSON-LD/social meta, never displayed to
-  users, so optimizing it wouldn't change real page load. Left as-is; the
-  lighter .webp exists if you ever want it for sharing.
-- Images are already lazy-loaded site-wide via a custom IntersectionObserver
-  (596 data-src images) — no change needed.
+2. **Async-loaded content rendered invisible (opacity:0).** Both reflections
+   letters and companion journey cards use a scroll-reveal (start at
+   opacity:0, an IntersectionObserver adds `.in`). But the observer ran ONCE
+   at page load, while real letters/journeys arrive later from Supabase and
+   re-render the DOM — so the fresh elements were never observed and stayed
+   invisible forever. This is why your open journey didn't appear.
+   FIXED: the reveal now re-runs after every async render, with a viewport
+   safety net so nothing can stay stuck hidden.
 
-### Audit conclusion (from the full-system review)
-The system is essentially complete and premium. The private client area (#18),
-living-system features, secure backend, and contrast fixes were all already
-built and verified working. What remains is not code:
-- The Resend key (to close the notify/email loop) — parked, needs you.
-- Content — real letters, guide profiles, Baraka's voice, photography — the
-  vessels are built and waiting to be filled. This is the real Singita-beating
-  work, and no build pass can produce it.
+### Luxury letter rendering (you asked: "not so random text")
+Letters now render as a published-anthology entry:
+- a large opening quotation mark + the place as a chapter mark
+- an italic brass drop-cap on the first letter
+- generous Fraunces serif body with proper paragraph rhythm
+- a refined attribution with a small brass rule ("— Sofie")
+
+### Full-stack flows verified (data → RLS → anon read → render)
+- **Letters**: traveller writes at barua.html (consent optional) → lands
+  PRIVATE in admin → you approve → shows publicly ONLY if consented AND
+  approved. Double-gate verified. Now renders luxuriously, visible by default.
+- **Open journeys**: you create in admin → status 'open' → renders on
+  companions.html. Now visible (reveal bug fixed).
+- **Companions (seeking)**: traveller submits → lands in admin. (Private by
+  design — these are requests to you, not public listings.)
+
+### Files changed
+reflections.html, companions.html — both parse clean, styles balanced.
+
+### IMPORTANT — why it looked broken
+If the live site still showed nothing before this, it's partly because these
+render fixes weren't deployed yet. After you push this, hard-refresh
+(Ctrl-Shift-R) to clear cached older JS.
+
+### After deploy — verify in 2 minutes
+1. reflections.html → Sofie's letter should show immediately, as a beautiful
+   anthology entry (not behind a tab).
+2. companions.html → the "Tanzanian Northern Circuit" journey should appear.
+3. barua.html → write a test letter, tick consent → admin → approve → it joins
+   reflections.
 
 ### Still parked (by request)
 - notify Edge Function secrets; disable open sign-ups toggle.

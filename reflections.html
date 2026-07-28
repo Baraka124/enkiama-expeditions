@@ -68,16 +68,20 @@ body{
 /* ═══ LETTERS VIEW (slow scroll anthology) ═══ */
 .r-letters{display:none;max-width:660px;margin:1rem auto 5rem;padding:0 1.5rem;}
 .r-letters.show{display:block;}
-.r-letter{padding:clamp(3rem,8vh,5.5rem) 0;border-bottom:1px solid rgba(190,158,104,0.08);
+.r-letter{padding:clamp(3rem,8vh,5.5rem) 0;border-bottom:1px solid rgba(190,158,104,0.08);position:relative;
   opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
 .r-letter.in{opacity:1;transform:translateY(0);}
 .r-letter:last-child{border-bottom:none;}
-.r-letter-place{font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:11px;color:var(--earth);margin-bottom:1.6rem;}
+.r-letter-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.6rem;}
+.r-letter-quote{font-family:'Fraunces',serif;font-size:3.4rem;line-height:0.7;color:var(--earth);opacity:.55;font-style:italic;margin-top:-.2rem;}
+.r-letter-place{font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:11px;color:var(--earth);padding-top:.7rem;}
 .r-letter-body{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.2rem,2.8vw,1.55rem);line-height:1.62;color:var(--bone);text-wrap:pretty;}
 .r-letter-body p:first-of-type::first-letter{font-family:'Fraunces',serif;font-weight:400;font-size:3.4em;line-height:0.82;
   float:left;margin:0.08em 0.12em 0 0;color:var(--earth);font-style:italic;}
 .r-letter-body p{margin-bottom:1.2rem;}
-.r-letter-attr{margin-top:2rem;font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:11px;color:var(--muted);}
+.r-letter-foot{display:flex;align-items:center;gap:1rem;margin-top:2.2rem;}
+.r-letter-rule{height:1px;width:36px;background:linear-gradient(90deg,var(--earth),transparent);flex-shrink:0;}
+.r-letter-attr{font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:11px;color:var(--muted);}
 
 .r-map-view{display:block;}
 .r-map-view.hide{display:none;}
@@ -546,13 +550,13 @@ body.eh-locked{overflow:hidden;}
   <h1 class="r-title">What people carry <em>home</em></h1>
   <p class="r-lede">Not reviews. Letters &mdash; written by travellers who have been, in their own words, shared with their blessing. A selection, kept small on purpose.</p>
   <div class="r-toggle">
-    <button id="tabMap" class="active">On the land</button>
-    <button id="tabLetters">As letters</button>
+    <button id="tabLetters" class="active">As letters</button>
+    <button id="tabMap">On the land</button>
   </div>
 </header>
 
 <!-- ═══ MAP VIEW ═══ -->
-<div class="r-map-view" id="mapView">
+<div class="r-map-view hide" id="mapView">
   <div class="r-map-wrap" id="rMapWrap">
     <svg class="r-map" viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg">
       <path class="r-country" d="M 140 190 L 420 150 L 700 140 L 830 220 L 870 360 L 780 500 L 600 570 L 400 590 L 240 550 L 150 420 L 120 300 Z"/>
@@ -589,7 +593,7 @@ body.eh-locked{overflow:hidden;}
 
 <!-- ═══ LETTERS VIEW ═══ -->
 <div id="letterMapWrap" style="display:none"></div>
-<div class="r-letters" id="lettersView">
+<div class="r-letters show" id="lettersView">
   <!-- rendered from the same data -->
 </div>
 
@@ -724,10 +728,32 @@ var REFLECTIONS = [
   var lv=document.getElementById('lettersView');
   function renderLetters(){
     lv.innerHTML=REFLECTIONS.map(function(r){
-      return '<article class="r-letter"><p class="r-letter-place">'+r.place+'</p>'+
+      return '<article class="r-letter">'+
+        '<div class="r-letter-head"><span class="r-letter-quote">&ldquo;</span><p class="r-letter-place">'+r.place+'</p></div>'+
         '<div class="r-letter-body">'+r.body.map(function(p){return '<p>'+p+'</p>';}).join('')+'</div>'+
-        '<p class="r-letter-attr">'+r.attr+'</p></article>';
+        '<div class="r-letter-foot"><span class="r-letter-rule"></span><p class="r-letter-attr">'+r.attr+'</p></div>'+
+        '</article>';
     }).join('');
+    revealLetters();
+  }
+  function revealLetters(){
+    var els=lv.querySelectorAll('.r-letter');
+    if(reduce || !('IntersectionObserver' in window)){
+      els.forEach(function(el){el.classList.add('in');});
+      return;
+    }
+    var lo=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');lo.unobserve(e.target);}});
+    },{threshold:0.15});
+    els.forEach(function(el){
+      // if already in view on load (e.g. first letters), reveal promptly
+      lo.observe(el);
+    });
+    // safety: never leave a letter stuck invisible
+    setTimeout(function(){els.forEach(function(el){
+      var rect=el.getBoundingClientRect();
+      if(rect.top < window.innerHeight){el.classList.add('in');}
+    });},400);
   }
   window.renderLetters = renderLetters;
 
@@ -782,14 +808,6 @@ var REFLECTIONS = [
   };
 
   renderLetters();
-
-  /* letters reveal on scroll */
-  if(!reduce && 'IntersectionObserver' in window){
-    var lo=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');lo.unobserve(e.target);}});},{threshold:0.2});
-    setTimeout(function(){lv.querySelectorAll('.r-letter').forEach(function(el){lo.observe(el);});},100);
-  } else {
-    lv.querySelectorAll('.r-letter').forEach(function(el){el.classList.add('in');});
-  }
 
   /* view toggle */
   var tabMap=document.getElementById('tabMap'), tabLetters=document.getElementById('tabLetters');

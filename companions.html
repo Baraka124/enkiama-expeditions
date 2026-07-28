@@ -687,6 +687,7 @@ var OPEN_JOURNEYS = [
         + '</article>';
     }).join('');
   }
+  if (typeof observeReveals === 'function') observeReveals();
   }
 
   /* fetch what is genuinely open right now */
@@ -718,6 +719,10 @@ var OPEN_JOURNEYS = [
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(e){io.observe(e);});
+    // safety: reveal anything already in view (async-painted cards)
+    setTimeout(function(){els.forEach(function(e){
+      if(e.getBoundingClientRect().top < window.innerHeight){e.classList.add('in');}
+    });},400);
   }
   observeReveals();
 
