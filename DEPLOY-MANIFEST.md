@@ -1,41 +1,45 @@
 # Enkiama — Deploy Manifest
 
-## This batch: removing the "AI-designed" tells (de-templating journey.html)
+## This batch: removing AI/SEO tells (evidence-based, voice preserved)
 
-### The observation (correct)
-Some surfaces leaned too hard on three repeated motifs — the gold-bordered
-box on a gradient fill, the small-caps brass eyebrow, and the uniform
-rounded rectangle. Individually tasteful; over-repeated, they read as
-"templated / AI-generated" rather than designed.
+### What I found (audited, not guessed)
+The "AI tell" was real but concentrated in the INVISIBLE meta/SEO layer, not
+the visible copy — which turned out to be genuinely good writing.
 
-### Where it actually was (audited, not assumed)
-- The tell concentrated in **journey.html** (the traveller's private page) and,
-  less importantly, admin.html.
-- The public content pages (tanzania, parks, etc.) already have good
-  structural variety — no change needed.
-- Eyebrows on begin.html / reflections.html turned out to be legitimate,
-  distinct labels ("Curated, never sold", the four step-tags) doing real work
-  — NOT redundant tells. Left them alone.
+### Fixed
+1. **Removed keyword-stuffed <meta name="keywords"> from 12 pages.**
+   ("Tanzania safari, curated Tanzania safari, bespoke safari Tanzania,
+   private Serengeti safari…") This was the single biggest tell AND an SEO
+   liability — Google has ignored the keywords meta since ~2009 and treats
+   stuffing as spam. Removing it eliminated ~40 filler-word instances at once,
+   invisibly to visitors, and improves SEO hygiene.
+   → "curated" dropped from 119 uses to 23 (all legitimate visible ones).
 
-### Fixed — journey.html (the page that matters most: a paying traveller lives here)
-1. **The status band**: was three identical gold-bordered gradient boxes in a
-   row (the most "template" moment). Now an open, editorial ruled row — status,
-   departs, returns breathe with hairline separators, a small olive status dot
-   instead of a bordered pill. Reads designed, not boxed.
-2. **Section headings**: each had a redundant eyebrow duplicating its heading
-   ("Good to know" eyebrow + "Practical notes" heading — the classic AI
-   over-labeling tell). Folded into single confident headings:
-   "Your itinerary, day by day" / "The path so far" / "Good to know" /
-   "Documents, for you to keep".
+2. **Rewrote the doubled-adjective JSON-LD description on 11 pages.**
+   "Curated, bespoke Tanzania safari journeys…" (reads like SEO copy) →
+   "Private Tanzania safari journeys, composed for one group at a time…
+   Written with you." Reads human; still accurate for search engines.
 
-### Deliberately NOT changed
-- The palette, Fraunces, and the shuka motif — those are BRAND; consistency
-  there is correct, not a tell.
-- admin.html's boxes — it's a private ops tool only Baraka sees; dashboard
-  consistency is a virtue there, and no traveller judges the brand by it.
+### Deliberately NOT changed (and why)
+- The **visible copy is good** and mostly human. The "not X, but Y" lines are
+  meaningful ("your budget is not a hurdle to clear: it is the cloth the
+  journey is cut from"), not hollow AI contrast. Stripping them would remove
+  the voice, not a tell.
+- The **em-dashes** are doing real syntactic work (parenthetical asides:
+  "The people I met — guides, families, partners — who showed me…").
+  Mechanically swapping for commas would introduce errors and read worse.
+- The visible <meta name="description"> ("Bespoke Tanzania journeys… Curated,
+  never sold.") is natural and uses the real brand line. Kept.
+- "Tanzania, curated" recurring signature and "curated by hand, never a
+  marketplace" — deliberate brand voice. Kept.
 
-### Files changed
-journey.html only. JS parses; styles balanced; secure booking flow untouched.
+### Verified
+- All pages well-formed after edits; every JSON-LD block still valid JSON;
+  visible description meta intact on public pages.
+
+### The honest takeaway
+The genuine AI tell was invisible keyword-stuffing, now gone. The visible
+writing is a strength — the right move was to protect it, not sand it down.
 
 ### Still parked (by request)
 - notify Edge Function secrets; disable open sign-ups toggle.
