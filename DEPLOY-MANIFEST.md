@@ -1,45 +1,57 @@
 # Enkiama — Deploy Manifest
 
-## This batch: crawl/SEO hygiene — fixed what the analysis actually found
+## This batch: correcting my own mistake + a hover-effect judgment
 
-### Analysis first (what you have vs. what's missing)
-Your technical SEO foundation is genuinely strong — better than most small
-operators: valid sitemap.xml, well-written robots.txt, CNAME, .nojekyll,
-favicons (SVG+PNG+Apple), JSON-LD, and admin.html correctly noindexed and out
-of the sitemap. Only a few real gaps existed.
+### 1. I WAS WRONG about "never more than eight travellers"
+You were right to question it. When I checked, the ONLY place on the entire
+site that made that claim was the sentence I had written. Everywhere else —
+meta descriptions, schema, body copy — says "one group at a time", "your group
+alone", "private", "small groups".
 
-### Fixed
-1. **PRIVACY FIX — private itinerary was indexable.**
-   journeys/marina-2026-ea47e70a.html contains real travellers' names but had
-   NO noindex. A leaked URL could have been indexed by Google. Added
-   `<meta name="robots" content="noindex, nofollow, noarchive">`.
-   (Left robots.txt as-is deliberately: a Disallow there would BLOCK Google
-   from crawling the page to SEE the noindex — the meta tag is the correct,
-   stronger protection, and robots.txt already keeps the folder unlisted.)
+So I had invented a hard commercial constraint that isn't your policy. A family
+of ten or twelve friends reads "never more than eight" and concludes you can't
+serve them, then leaves. My "specificity is premium" instinct overreached:
+specificity is premium when it is EVOCATIVE ("coffee farms at 1,700 metres"),
+not when it is a RESTRICTION.
 
-2. **Sitemap lastmod refreshed** on the 14 pages genuinely changed this
-   session (the SEO title/description rewrites + the site-wide meta cleanup),
-   set to today's date so Google knows to re-crawl the improvements. Left the
-   unchanged pages' dates alone — honest signalling, not a blanket reset.
+FIXED — hero now reads:
+  "...We compose a single journey through it for your group alone — private
+   from first morning to last, and never composed twice."
+Leads with exclusivity (the stronger luxury signal) and caps nothing.
 
-### Checked and found FINE (no change needed)
-- The private client page journey.html (singular) is NOT in the sitemap — an
-  earlier loose check gave a false positive; verified it's correctly absent.
-- robots.txt is well-formed and correctly points to the sitemap.
-- All referenced favicon files exist.
+ALSO FIXED — the stat card had the identical flaw and predated my work:
+  was:  8  "Guests: always"   (caps you; also reads oddly)
+  now:  1  "Group at a time"  (your actual, consistently-stated promise)
+Stats now read:  5 Worlds in one country · 0 Journeys from a catalogue ·
+                 1 Group at a time
 
-### Skipped (per your call)
-- manifest.json / PWA — not needed for a brochure-style site.
+### 2. Hover effects — honest judgment
+GENUINELY PREMIUM (kept, untouched):
+- Letter-spacing expansion on hover (.btn-ghost, .ask-lnk, .wn-btn:
+  0.16em -> 0.2em). A real editorial designer's move; very few sites do it.
+  This is the most sophisticated thing in your interaction design.
+- cubic-bezier(.16,1,.3,1) — a proper expo-out curve, used 54 times.
+- Button inversions and restrained border-colour shifts.
+
+NOT PREMIUM (fixed):
+- **Logo scaled up and glowed on hover** (scale(1.04) + brass drop-shadow).
+  The weakest thing on the site. Luxury marks are fixed and authoritative;
+  a logo that grows and glows reads playful and is a dated 2015-era effect.
+  -> Replaced site-wide with a restrained opacity shift (.72) on the site's
+     own premium easing curve. The mark stays still; only its presence changes.
+  -> Also corrected the transition, which still targeted transform/filter and
+     would have made the new opacity change snap.
+- **Double glow on the WhatsApp button** (a 3px halo AND a 14px outer glow).
+  Glows read "web app", not luxury print. -> Reduced to a single subtle ring.
+
+REMAINING INCONSISTENCY (noted, not changed):
+70 uses of generic `ease` vs 54 of the good custom curve. Unifying them would
+be a genuine refinement, but it touches a lot of rules — worth doing
+deliberately rather than in a sweep.
 
 ### Verified
-- sitemap.xml still valid XML, still 32 URLs.
-- Private itinerary noindex confirmed.
-
-### The honest bottom line
-Crawl infrastructure was already good; these were small real gaps (one a
-genuine privacy fix). This is NOT your bottleneck. The needle-movers remain:
-submit the sitemap in Google Search Console (to MEASURE), wire the Resend key,
-and add real photography.
+Style tags and sections balanced on every edited page; JS valid on all
+interactive pages; 12 pages updated for the hover changes.
 
 ### Still parked (by request)
 - notify Edge Function secrets; disable open sign-ups toggle.

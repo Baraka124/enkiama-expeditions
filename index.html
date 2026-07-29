@@ -107,7 +107,7 @@ body {
 .ins  { font-family:'Instrument Sans',sans-serif; }
 .sc   { font-variant-caps:all-small-caps; letter-spacing:0.14em; }
 .eye  { font-family:'Instrument Sans',sans-serif; font-variant-caps:all-small-caps; font-size:11px; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--earth); line-height:1; }
-.dim  { font-family:'Instrument Sans',sans-serif; font-weight:300; font-size:13px; line-height:2; color:rgba(237,230,214,0.80); }
+.dim  { font-family:'Instrument Sans',sans-serif; font-weight:300; font-size:15px; line-height:2; color:rgba(237,230,214,0.80); }
 .oc   { color:var(--ochre); }
 
 /* ── NAV ── */
@@ -158,11 +158,11 @@ nav.scrolled::before{opacity:0.03;}
 
 .n-logo {
   display:inline-block;line-height:0;
-  transition:transform .3s cubic-bezier(.16,1,.3,1),filter .3s ease;
+  transition:opacity .4s cubic-bezier(.16,1,.3,1);
 }
 .n-logo-img{height:62px;width:auto;display:block;transition:height .45s cubic-bezier(.16,1,.3,1);}
 nav.scrolled .n-logo-img{height:44px;}
-.n-logo:hover{transform:scale(1.04);filter:drop-shadow(0 0 10px rgba(190,158,104,.35));}
+.n-logo:hover{opacity:.72;}
 .n-logo:focus-visible{outline:2px solid var(--ochre);outline-offset:4px;}
 
 /* right-side cluster holds links + utilities */
@@ -219,7 +219,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
   width:30px;height:30px;border-radius:50%;
   border:1px solid rgba(85,107,68,0.4);color:var(--sage);
   transition:color .3s ease,border-color .3s ease,box-shadow .3s ease;}
-.n-wa:hover{color:var(--ochre);border-color:rgba(85,107,68,0.7);box-shadow:0 0 0 3px rgba(85,107,68,.08),0 0 14px rgba(85,107,68,.15);}
+.n-wa:hover{color:var(--ochre);border-color:rgba(85,107,68,0.7);box-shadow:0 0 0 3px rgba(85,107,68,.10);}
 .n-wa svg{width:15px;height:15px;fill:currentColor;}
 .n-lang{display:flex;align-items:center;gap:3px;font-family:'Instrument Sans',sans-serif;
   font-variant-caps:all-small-caps;font-size:11px;letter-spacing:.14em;}
@@ -346,7 +346,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
   display:block;
   font-variation-settings:'opsz' 9;
   font-size:0.32em;font-weight:300;font-style:italic;
-  color:rgba(237,230,214,0.3);
+  color:rgba(237,230,214,0.62);
   letter-spacing:0.02em;margin-top:0.8em;
   line-height:1.4;
 }
@@ -2034,7 +2034,7 @@ body.eh-locked{overflow:hidden;}
       <span class="whisper">We make sure you arrive.</span>
     </h1>
     <p class="dim hero-sub" id="hSub">
-      Mountain, plain, crater, coast, and the life between them. One country, many worlds. We compose a journey through it for your group alone.
+      Mountain, plain, crater, coast, and the life between them. One country, many worlds. We compose a single journey through it for your group alone &mdash; private from first morning to last, and never composed twice.
     </p>
     <div class="hero-acts" id="hActs">
       <a href="compose.html" class="btn-primary">Compose your journey</a>
@@ -2055,19 +2055,18 @@ body.eh-locked{overflow:hidden;}
       </div>
       <div class="thesis-rule"></div>
       <div class="t-stat">
-        <span class="t-stat-num">&#8734;</span>
-        <span class="t-stat-lbl">Possible journeys</span>
+        <span class="t-stat-num">0</span>
+        <span class="t-stat-lbl">Journeys from a catalogue</span>
       </div>
       <div class="thesis-rule"></div>
       <div class="t-stat">
-        <span class="t-stat-num">8</span>
-        <span class="t-stat-lbl">Guests: always</span>
+        <span class="t-stat-num">1</span>
+        <span class="t-stat-lbl">Group at a time</span>
       </div>
     </div>
     <div class="thesis-body reveal">
       <p class="stmt">The hospitality you will experience is not something we designed. <em>It is something Tanzania already is.</em></p>
-      <p class="dim">The warmth, the generosity, the instinct to receive a stranger as family: these belong to the land and its people. They were here before any tour operator arrived. Our work is not to produce them, but to make sure you arrive close enough to feel them, in the right company and at the right depth.</p>
-      <p class="dim" style="margin-top:1rem;">The guide who has spent thirty years on the Serengeti plain is not a product. He is a relationship, earned over time and shared with care. The family in Kibosho who sit with guests at their table do it because the introduction is trusted. That trust is the whole of our work.</p>
+      <p class="dim">The guide who has spent thirty years on the Serengeti plain is not a product. He is a relationship, earned over time and shared with care. The family in Kibosho who sit with guests at their table do it because the introduction is trusted. That trust is the whole of our work.</p>
       <div class="sw-pill">
         <span class="sw-word">Ndugu</span>
         <div class="sw-div"></div>
@@ -2087,11 +2086,9 @@ body.eh-locked{overflow:hidden;}
     <div class="already-cols">
       <div class="already-col reveal">
         <p>The Swahili word <em>ujamaa</em> &mdash; communal family, shared humanity &mdash; was Julius Nyerere&rsquo;s founding philosophy for Tanzania. It describes something already present in how Tanzanian people live: the instinct to receive strangers as <em>ndugu</em>, to share what they have, to make you feel you were expected before you arrived.</p>
-        <p>The tour industry markets Tanzania&rsquo;s wildlife and landscapes. It misses this: the human texture, the radical generosity, the warmth that belongs to the place itself. That is what most guests never reach. It is what Enkiama exists to close the distance to.</p>
       </div>
       <div class="already-col reveal">
-        <p>Through guides who belong to the ecosystems they show you. Through cultural partners embedded in communities, not visiting them. Through lodges chosen because they carry the same spirit: rooted in the land, aligned with its values. A country with thousands of things to see, experienced through a lens shaped entirely around who you are.</p>
-        <p>When we say <em>family</em>, we do not mean a brand promise. We mean the Tanzanian value of <em>ukarimu</em> &mdash; hospitality as a way of life &mdash; experienced across the whole of a journey, end to end, without interruption.</p>
+        <p>Tanzanians call it <em>ukarimu</em> &mdash; hospitality as a way of life. It is why a stranger is fed before being asked their business, and why a journey here can feel less like being hosted than being expected. Our work is to keep that intact from the first morning to the last, without a single seam where it thins.</p>
       </div>
     </div>
   </div>
@@ -3374,7 +3371,7 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 /* logo hover: scale from a fixed origin so the edge never crosses the cursor */
 .n-logo,.eh-logo{transform-origin:left center;backface-visibility:hidden;}
 /* any transform-scale hover gets GPU-stable rendering to kill sub-pixel shimmer */
-.n-logo:hover,.eh-logo:hover{transform:scale(1.03);}
+.n-logo:hover,.eh-logo:hover{opacity:.72;}
 /* map anchors: stable hover, no layout shift */
 .r-anchor,.r-anchor *{will-change:transform,opacity;}
 
