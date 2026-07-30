@@ -876,7 +876,7 @@ body.eh-locked{overflow:hidden;}
 footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5rem,4vw,3rem) 2.5rem;display:block;}
 .f-brand{margin-bottom:clamp(2.5rem,5vw,3.5rem);}
 .f-logo-img{height:34px;width:auto;display:block;opacity:.95;}
-.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.28);letter-spacing:0.04em;margin-top:8px;}
+.f-tagline{font-family:'Instrument Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(237,230,214,0.55);letter-spacing:0.04em;margin-top:8px;}
 .f-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(1.8rem,3.5vw,3rem);margin-bottom:clamp(2.5rem,5vw,3.5rem);}
 .f-col{display:flex;flex-direction:column;gap:.65rem;}
 .f-col-h{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.24em;font-size:10px;color:var(--earth);opacity:.85;margin-bottom:.5rem;}
@@ -885,9 +885,12 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
 .f-base{border-top:1px solid rgba(190,158,104,0.07);padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
 .f-contact a{font-family:'Instrument Sans',sans-serif;font-size:12px;color:rgba(237,230,214,0.4);text-decoration:none;transition:color .3s;}
 .f-contact a:hover{color:var(--earth);}
-.f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:var(--muted);opacity:0.45;letter-spacing:0.1em;}
+.f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:var(--muted);opacity:0.78;letter-spacing:0.1em;}
 @media (max-width:640px){
   .f-base{flex-direction:column;align-items:flex-start;}
+  /* comfortable tap targets: footer links were ~28px, below the 44px guideline */
+  .f-col{gap:.15rem;}
+  .f-col a{padding:.62rem 0;line-height:1.35;}
 }
 /* ══════════ TONAL LIFT — the dark is deep, not flat ══════════ */
 body{
