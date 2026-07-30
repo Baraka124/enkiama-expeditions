@@ -1,49 +1,48 @@
 # Enkiama — Deploy Manifest
 
-## This batch: transition easing unified — but not the way I first framed it
+## This batch: the footer bug (real cause found) + social proof moved up
 
-### I was wrong about the diagnosis, and corrected it
-Last batch I flagged "70 uses of generic `ease` vs 54 of the custom curve" as
-an inconsistency. When I actually looked at WHAT each transition animates, the
-dominant pattern was:
+### THE FOOTER BUG — found the actual cause
+Your screenshot showed the footer completely unstyled: default blue/purple
+links, no grid, no typography. I checked and ruled out, in order: broken
+markup (clean), unbalanced braces (840/840), unclosed CSS comments (all
+balanced), missing CSS variables (all defined), footer outside <body> (it
+isn't), and stale duplicate rules.
 
-    transform 1.2s cubic-bezier(.16,1,.3,1), filter 1s ease
-    opacity 1.5s ease, transform 1.5s cubic-bezier(.16,1,.3,1)
+The real cause: **the footer CSS was loading ~42,000 characters AFTER the
+footer markup.** The browser paints the footer, then finds its styles much
+later in the document. On any non-instant load that produces exactly what you
+photographed — a flash of unstyled footer. It was not a cache artifact and not
+your browser; it was a genuine ordering bug, and it affected EVERY page
+(gaps ranged from 2,234 to 41,781 characters).
 
-Movement gets the expo-out curve; fades get a gentle ease. That is not
-inconsistency — it is correct, deliberate craft. My earlier count was wrong
-because I counted occurrences without checking what they animated.
+FIXED: the essential footer layout CSS is now hoisted into <head> on 33 pages,
+so the footer is styled the instant it paints. Verified: footer CSS now sits at
+char 2,907, the markup at char 128,456.
 
-### What was ACTUALLY wrong (and is now fixed)
-A smaller set where MOVEMENT itself was using plain `ease` — so those elements
-moved with a soft, slightly mushy feel while the rest of the site moved
-decisively. Fixed across 35 pages:
-  - transform .3s ease            -> expo-out  (quick UI movement, 12x)
-  - dropdown/menu reveals          -> expo-out  (36x across three variants)
-  - card hover lift (.45s)         -> expo-out
-  - reveal animations (.5s/.8s/1.1s) -> expo-out
-  - one JS-driven step reveal (cssText string) -> expo-out
+Note: there is also dead legacy CSS (.f-links — 51 rules, zero uses in markup)
+left from an older footer design. Harmless bytes, but it's what made the
+diagnosis confusing. Flagged, not swept, to keep this change focused.
 
-### What I deliberately did NOT change
-- **transform 7s ease (32x) and transform 8s ease (6x)** — slow ken-burns
-  image drifts. Expo-out would rush the first second then crawl; plain `ease`
-  is the right curve for slow ambient motion. Left alone on purpose.
-- **Every `opacity`/`color`/`background` fade on `ease`** — expo-out makes
-  fades feel abrupt at the start. These were already correct.
+### LANDING PAGE — improvement #3 applied
+**Marina's testimonial moved up.** It was buried past the halfway point;
+it is now the third section, directly after the hero and thesis. Real words
+from a real traveller ("Like we had been expected. Like we belonged.") now
+arrive before the philosophy, instead of after four sections of it.
 
-This is exactly why I refused to bulk find-replace this last batch: a blind
-sweep would have wrecked the image drifts and the fades.
+New order: hero -> thesis -> **story** -> already -> lw -> map -> curate -> ndugu
 
-### Result
-Movement is now consistently decisive across the site; ambient drift and fades
-keep the softer curve that suits them. Remaining `transform ... ease` uses: 38,
-all of them the intentional slow drifts.
+### NOT yet done — the bigger one (#1)
+Merging the four overlapping philosophy sections (thesis / already / lw /
+ndugu) into one. That is real surgery on ~4,000 characters of interwoven
+markup, and it deserves its own pass rather than being tacked onto a bug fix.
+It remains the single highest-impact change to the page — it would cut roughly
+30% of the length and make the argument land once, hard.
 
 ### Verified
-- No malformed transitions (checked for doubled curves and stray commas).
-- CSS braces balanced on every edited page (index 825/825, begin 448/448,
-  how 440/440, tanzania 500/500, reflections 268/268, companions 246/246).
-- JS valid on index, begin, reflections, companions, journey, barua.
+15 sections preserved (unchanged), divs 232/232, exactly one story section,
+CSS braces 840/840, JS valid, JSON-LD valid. Backup kept of the pre-restructure
+index.html.
 
 ### Still parked (by request)
 - notify Edge Function secrets; disable open sign-ups toggle.
