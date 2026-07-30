@@ -96,13 +96,33 @@
     seen.push(path);
     try { sessionStorage.setItem(SEEN, JSON.stringify(seen)); } catch (e) {}
 
+    /* Language + region, read from the visitor's own browser settings.
+       No IP geolocation, no third-party service, no cookies — in keeping
+       with the privacy promise. 'es-ES' tells us a Spanish speaker in Spain. */
+    var lang = null, country = null;
+    try {
+      lang = (navigator.languages && navigator.languages[0]) || navigator.language || null;
+      if (lang) {
+        lang = String(lang).slice(0, 12);
+        var parts = lang.split('-');
+        if (parts.length > 1 && parts[1].length === 2) country = parts[1].toUpperCase();
+      }
+      /* fall back to the timezone's region when the language carries no country */
+      if (!country && window.Intl && Intl.DateTimeFormat) {
+        var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (tz.indexOf('/') > -1) country = tz.split('/')[0].slice(0, 12);
+      }
+    } catch (e) {}
+
     /* fire and forget — never block the page */
     var send = function () {
       api('page_views', 'POST', {
         path: path,
         referrer_host: ref,
         device: device,
-        session_key: sess
+        session_key: sess,
+        lang: lang,
+        country: country
       }).catch(function (e) {
         /* never block the page; but surface breakage instead of swallowing it */
         if (window.console && console.warn) console.warn('Enkiama analytics: page view not recorded', e);

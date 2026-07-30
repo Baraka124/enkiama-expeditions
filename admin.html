@@ -471,6 +471,10 @@ select.in{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:2
         <div class="a-top"><span class="a-name">Where visitors came from</span><span class="a-meta">last 30 days</span></div>
         <div class="bars" id="barRefs"></div>
       </div>
+      <div class="a-card">
+        <div class="a-top"><span class="a-name">Language &amp; region</span><span class="a-meta">from the visitor's own browser · no tracking</span></div>
+        <div class="bars" id="barLang"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -967,7 +971,7 @@ if(backupBtn) backupBtn.addEventListener('click', async () => {
 
 async function loadAnalytics(){
   const since = new Date(Date.now()-30*864e5).toISOString();
-  const { data, error } = await sb.from('page_views').select('path,referrer_host,session_key,viewed_at').gte('viewed_at',since);
+  const { data, error } = await sb.from('page_views').select('path,referrer_host,session_key,viewed_at,lang,country').gte('viewed_at',since);
   if(error){ $('statCards').innerHTML=`<div class="empty">${esc(error.message)}</div>`; return; }
 
   const views=data.length;
@@ -997,6 +1001,8 @@ async function loadAnalytics(){
   };
   $('barPages').innerHTML = bars(tally(data,'path'));
   $('barRefs').innerHTML  = bars(tally(data,'referrer_host'));
+  const langEl = $('barLang');
+  if(langEl) langEl.innerHTML = bars(tally(data.filter(d=>d.lang),'lang'));
 
   const days=[], counts=[];
   for(let i=29;i>=0;i--){
