@@ -1693,6 +1693,216 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 <link rel="alternate" hreflang="es" href="https://enkiama.com/">
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/">
 <!-- ── end structured data ── -->
+
+<style id="enkiama-landing-luxury-v2">
+/* ===== ENKIAMA LANDING — LUXURY / CONVERSION PASS ===== */
+:root{
+  --lp-ivory:#F1EBDD;
+  --lp-ivory-2:#E8DECB;
+  --lp-ink:#101612;
+  --lp-ink-2:#141D17;
+  --lp-forest:#1C2D22;
+  --lp-brass:#B99A67;
+  --lp-olive:#667A58;
+  --lp-line:rgba(16,22,18,.12);
+}
+.hero{padding-bottom:clamp(5.5rem,9vw,8.5rem);}
+.hero-film-label,.hero-side{letter-spacing:.24em;}
+.hero-content{max-width:1080px;}
+.hero-hed{max-width:1000px;}
+.hero-sub{max-width:620px;font-size:clamp(14px,1.25vw,17px);line-height:1.8;}
+.hero-acts{gap:1.2rem 2.2rem;flex-wrap:wrap;}
+.hero .btn-primary{padding:15px 30px;}
+.hero .btn-ghost{padding:10px 0;}
+.hero::after{height:72px;}
+
+.lp-editorial-intro{
+  background:var(--lp-ivory);
+  color:var(--lp-ink);
+  padding:clamp(7rem,12vw,12rem) clamp(1.5rem,6vw,6rem) clamp(6rem,10vw,9rem);
+  position:relative;overflow:hidden;
+}
+.lp-editorial-intro::before{
+  content:"TANZANIA";position:absolute;right:-.04em;bottom:-.20em;
+  font-family:'Fraunces',serif;font-size:clamp(110px,22vw,340px);font-weight:900;
+  letter-spacing:-.05em;color:rgba(16,22,18,.035);pointer-events:none;
+}
+.lp-kicker{font-size:10px;letter-spacing:.27em;text-transform:uppercase;font-weight:500;color:#776649;margin-bottom:2rem;}
+.lp-editorial-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:clamp(3rem,7vw,8rem);align-items:end;position:relative;z-index:1;}
+.lp-editorial-title{
+  font-family:'Fraunces',serif;font-variation-settings:'opsz' 120;
+  font-size:clamp(48px,8vw,112px);line-height:.92;letter-spacing:-.04em;font-weight:700;
+  max-width:900px;text-wrap:balance;
+}
+.lp-editorial-title em{font-style:italic;color:var(--lp-olive);}
+.lp-editorial-copy{font-size:clamp(15px,1.35vw,18px);line-height:1.9;color:rgba(16,22,18,.72);max-width:570px;}
+.lp-editorial-meta{margin-top:clamp(4rem,7vw,7rem);display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lp-line);position:relative;z-index:1;}
+.lp-editorial-meta>div{padding:1.25rem 1.5rem 0 0;}
+.lp-editorial-meta b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:.25rem;}
+.lp-editorial-meta span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(16,22,18,.55);}
+
+#worlds{background:var(--ink);}
+#worlds .worlds-intro{display:none;}
+#worlds .route-wrap{display:none;}
+#worlds .worlds-track-wrap{border-top:0;}
+#worlds .world-panel{min-height:min(82vh,760px);}
+#worlds .wp-text{padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(4rem,8vw,7rem);}
+#worlds .wp-name{font-size:clamp(44px,6.5vw,86px);}
+#worlds .wp-desc{font-size:14px;line-height:1.95;}
+#worlds .worlds-note{padding:clamp(3.5rem,6vw,5rem) clamp(1.5rem,5vw,4rem);}
+#worlds .worlds-note p{max-width:940px;font-size:clamp(19px,2.3vw,29px);}
+#worlds .worlds-nav{position:sticky;bottom:0;z-index:8;background:rgba(15,23,18,.94);backdrop-filter:blur(18px);}
+
+.lp-archive{
+  background:var(--lp-ivory);color:var(--lp-ink);
+  padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);
+}
+.lp-section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(2.5rem,6vw,7rem);align-items:start;max-width:1500px;margin:0 auto clamp(5rem,9vw,8rem);}
+.lp-section-no{font-family:'Fraunces',serif;font-size:clamp(70px,10vw,150px);line-height:.75;color:rgba(16,22,18,.07);font-weight:900;}
+.lp-section-title{font-family:'Fraunces',serif;font-size:clamp(42px,6vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:600;max-width:950px;}
+.lp-section-title em{font-style:italic;color:var(--lp-olive);}
+.lp-section-copy{margin-top:1.8rem;max-width:700px;font-size:16px;line-height:1.9;color:rgba(16,22,18,.68);}
+
+.lp-journey-shell{max-width:1500px;margin:0 auto;border-top:1px solid var(--lp-line);}
+.lp-journey-meta{display:flex;flex-wrap:wrap;gap:.65rem 2rem;padding:1.4rem 0;border-bottom:1px solid var(--lp-line);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(16,22,18,.58);}
+.lp-journey-meta strong{color:var(--lp-ink);font-weight:600;}
+.lp-route-line{display:grid;grid-template-columns:repeat(4,1fr);padding:1.9rem 0 2.4rem;border-bottom:1px solid var(--lp-line);gap:1rem;}
+.lp-route-stop{position:relative;padding-top:1.35rem;font-family:'Fraunces',serif;font-size:17px;}
+.lp-route-stop::before{content:"";position:absolute;top:0;left:0;width:7px;height:7px;background:var(--lp-olive);border-radius:50%;}
+.lp-route-stop:not(:last-child)::after{content:"";position:absolute;top:3px;left:12px;right:-.5rem;height:1px;background:rgba(16,22,18,.18);}
+.lp-journey-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:clamp(2rem,5vw,5rem);padding-top:clamp(3rem,6vw,6rem);}
+.lp-journey-gallery{display:grid;grid-template-columns:1.5fr .75fr;grid-template-rows:minmax(240px,48vh) minmax(180px,28vh);gap:12px;}
+.lp-journey-gallery figure{margin:0;overflow:hidden;position:relative;background:#cfc7b8;}
+.lp-journey-gallery figure:first-child{grid-row:1/3;}
+.lp-journey-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s cubic-bezier(.16,1,.3,1);}
+.lp-journey-gallery figure:hover img{transform:scale(1.035);}
+.lp-journey-gallery figcaption{position:absolute;left:16px;bottom:14px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.7);}
+.lp-journey-story{padding-top:.4rem;}
+.lp-journey-story h3{font-family:'Fraunces',serif;font-size:clamp(34px,4.5vw,62px);line-height:1;letter-spacing:-.03em;font-weight:600;margin-bottom:2rem;}
+.lp-journey-story h3 em{font-style:italic;color:var(--lp-olive);}
+.lp-brief{border-top:1px solid var(--lp-line);padding:1.35rem 0;}
+.lp-brief-label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#7b6a4d;margin-bottom:.6rem;}
+.lp-brief p{font-size:15px;line-height:1.8;color:rgba(16,22,18,.72);}
+.lp-quote{margin-top:2.3rem;padding:2rem 0 0;border-top:1px solid var(--lp-line);}
+.lp-quote blockquote{font-family:'Fraunces',serif;font-size:clamp(21px,2.6vw,34px);line-height:1.45;font-style:italic;color:var(--lp-ink);}
+.lp-quote cite{display:block;margin-top:1.2rem;font-style:normal;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(16,22,18,.52);}
+
+.lp-proof{
+  background:var(--lp-ink);color:var(--bone);
+  padding:clamp(7rem,11vw,11rem) clamp(1.5rem,5vw,5rem);
+}
+.lp-proof-inner{max-width:1500px;margin:0 auto;}
+.lp-proof-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);align-items:end;margin-bottom:clamp(4rem,8vw,7rem);}
+.lp-proof-title{font-family:'Fraunces',serif;font-size:clamp(44px,6.6vw,92px);line-height:.95;letter-spacing:-.04em;font-weight:600;}
+.lp-proof-title em{font-style:italic;color:var(--earth);}
+.lp-proof-copy{font-size:16px;line-height:1.9;color:rgba(237,230,214,.7);max-width:590px;}
+.lp-proof-list{border-top:1px solid rgba(190,158,104,.18);}
+.lp-proof-row{display:grid;grid-template-columns:100px minmax(220px,.75fr) minmax(0,1.25fr);gap:2rem;padding:2.2rem 0;border-bottom:1px solid rgba(190,158,104,.12);align-items:start;}
+.lp-proof-row .n{font-family:'Fraunces',serif;font-size:35px;color:rgba(190,158,104,.3);}
+.lp-proof-row h3{font-family:'Fraunces',serif;font-size:clamp(24px,2.8vw,38px);font-weight:500;line-height:1.1;}
+.lp-proof-row p{font-size:14px;line-height:1.85;color:rgba(237,230,214,.66);max-width:620px;}
+.lp-proof-image{margin-top:clamp(4rem,7vw,7rem);height:clamp(340px,54vw,720px);overflow:hidden;position:relative;}
+.lp-proof-image img{width:100%;height:100%;object-fit:cover;display:block;}
+.lp-proof-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,12,9,.65));}
+.lp-proof-caption{position:absolute;z-index:2;left:2rem;bottom:1.7rem;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.85);}
+
+.lp-people{background:var(--lp-ivory-2);color:var(--lp-ink);padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);}
+.lp-people-inner{max-width:1500px;margin:0 auto;}
+.lp-people-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(4rem,8vw,7rem);}
+.lp-people-head h2{font-family:'Fraunces',serif;font-size:clamp(44px,6.5vw,90px);line-height:.95;letter-spacing:-.04em;font-weight:600;}
+.lp-people-head h2 em{font-style:italic;color:var(--lp-olive);}
+.lp-people-head p{font-size:16px;line-height:1.9;color:rgba(16,22,18,.68);align-self:end;max-width:620px;}
+.lp-people-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:12px;align-items:stretch;}
+.lp-person{position:relative;min-height:clamp(420px,45vw,640px);overflow:hidden;background:#c7bea9;}
+.lp-person:nth-child(2),.lp-person:nth-child(3){min-height:clamp(350px,40vw,560px);}
+.lp-person img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(.98);transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
+.lp-person:hover img{transform:scale(1.035);}
+.lp-person::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,12,9,.72));}
+.lp-person-info{position:absolute;z-index:2;left:1.5rem;right:1.5rem;bottom:1.5rem;color:#fff;}
+.lp-person-role{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#d7c497;margin-bottom:.55rem;}
+.lp-person-info h3{font-family:'Fraunces',serif;font-size:clamp(22px,2.3vw,34px);font-weight:500;margin-bottom:.35rem;}
+.lp-person-info p{font-size:12px;line-height:1.65;color:rgba(255,255,255,.72);max-width:360px;}
+
+.lp-compose{
+  background:var(--lp-forest);color:var(--bone);
+  padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;
+}
+.lp-compose::after{content:"rafiki";position:absolute;right:-.05em;bottom:-.22em;font-family:'Fraunces',serif;font-size:clamp(130px,24vw,360px);font-style:italic;font-weight:900;color:rgba(237,230,214,.025);pointer-events:none;}
+.lp-compose-inner{max-width:1350px;margin:0 auto;position:relative;z-index:1;}
+.lp-compose-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(4rem,8vw,7rem);}
+.lp-compose h2{font-family:'Fraunces',serif;font-size:clamp(48px,7vw,96px);line-height:.93;letter-spacing:-.04em;font-weight:600;}
+.lp-compose h2 em{font-style:italic;color:var(--sage);}
+.lp-compose-copy{font-size:16px;line-height:1.9;color:rgba(237,230,214,.7);align-self:end;max-width:600px;}
+.lp-compose-steps{border-top:1px solid rgba(237,230,214,.14);}
+.lp-compose-step{display:grid;grid-template-columns:72px 1fr 1fr;gap:1.5rem;padding:1.8rem 0;border-bottom:1px solid rgba(237,230,214,.11);}
+.lp-compose-step .n{font-family:'Fraunces',serif;font-size:28px;color:rgba(237,230,214,.24);}
+.lp-compose-step strong{font-family:'Fraunces',serif;font-size:clamp(21px,2.3vw,32px);font-weight:500;}
+.lp-compose-step span{font-size:13px;line-height:1.75;color:rgba(237,230,214,.62);}
+.lp-compose-actions{margin-top:3rem;display:flex;gap:1rem 2rem;align-items:center;flex-wrap:wrap;}
+
+.lp-practical{background:var(--lp-ivory);color:var(--lp-ink);padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem);}
+.lp-practical-inner{max-width:1450px;margin:0 auto;}
+.lp-practical-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,7rem);margin-bottom:4rem;}
+.lp-practical-head h2{font-family:'Fraunces',serif;font-size:clamp(40px,5.5vw,76px);line-height:.98;letter-spacing:-.035em;font-weight:600;}
+.lp-practical-head p{align-self:end;font-size:15px;line-height:1.9;color:rgba(16,22,18,.68);max-width:600px;}
+.lp-practical-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lp-line);}
+.lp-practical-item{padding:2.2rem 2.5rem 1rem 0;border-right:1px solid var(--lp-line);}
+.lp-practical-item:last-child{border-right:0;padding-left:2.5rem;}
+.lp-practical-item:nth-child(2){padding-left:2.5rem;}
+.lp-practical-item .ey{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#776649;margin-bottom:1rem;}
+.lp-practical-item h3{font-family:'Fraunces',serif;font-size:26px;font-weight:500;margin-bottom:.8rem;}
+.lp-practical-item p{font-size:13px;line-height:1.8;color:rgba(16,22,18,.65);}
+
+.lp-legacy-runtime{display:none!important;}
+
+body>.season{
+  background:var(--lp-ink-2)!important;color:var(--bone)!important;
+  padding:clamp(5rem,9vw,8rem) clamp(1.5rem,5vw,5rem)!important;
+  border-top:1px solid rgba(190,158,104,.12)!important;
+  border-bottom:1px solid rgba(190,158,104,.12)!important;
+}
+body>.season .season-now{font-family:'Fraunces',serif!important;font-size:clamp(32px,4.5vw,58px)!important;line-height:1.15!important;max-width:1000px!important;}
+body>.season .season-sub{max-width:760px!important;color:rgba(237,230,214,.68)!important;}
+
+.cta-wrap{background:var(--ink-deep);}
+.cta-main{min-height:72vh;}
+.cta-l,.cta-r{padding-top:clamp(6rem,9vw,9rem);padding-bottom:clamp(6rem,9vw,9rem);}
+.rafiki-hed{font-size:clamp(44px,6vw,82px);}
+.cta-l .dim{max-width:560px;}
+.cta-r .btn-primary{max-width:360px;}
+.ask{display:none!important;}
+
+@media(max-width:980px){
+  .lp-editorial-grid,.lp-section-head,.lp-proof-head,.lp-people-head,.lp-compose-top,.lp-practical-head{grid-template-columns:1fr;gap:2rem;}
+  .lp-journey-grid{grid-template-columns:1fr;}
+  .lp-people-grid{grid-template-columns:1fr 1fr;}
+  .lp-person:first-child{grid-column:1/-1;}
+  .lp-proof-row{grid-template-columns:64px 1fr;}
+  .lp-proof-row p{grid-column:2;}
+  .lp-practical-grid{grid-template-columns:1fr;}
+  .lp-practical-item,.lp-practical-item:nth-child(2),.lp-practical-item:last-child{border-right:0;border-bottom:1px solid var(--lp-line);padding:2rem 0;}
+  .lp-compose-step{grid-template-columns:56px 1fr;}
+  .lp-compose-step span{grid-column:2;}
+}
+@media(max-width:700px){
+  .hero{padding-left:1.35rem;padding-right:1.35rem;}
+  .hero-hed{font-size:clamp(48px,14vw,76px);}
+  .hero-eye{font-size:9px;letter-spacing:.14em;}
+  .lp-editorial-meta{grid-template-columns:1fr;}
+  .lp-editorial-meta>div{border-top:1px solid var(--lp-line);padding:1rem 0;}
+  .lp-route-line{grid-template-columns:1fr 1fr;}
+  .lp-route-stop:nth-child(2)::after{display:none;}
+  .lp-journey-gallery{grid-template-columns:1fr 1fr;grid-template-rows:46vh 24vh;}
+  .lp-journey-gallery figure:first-child{grid-column:1/-1;grid-row:auto;}
+  .lp-people-grid{grid-template-columns:1fr;}
+  .lp-person:first-child{grid-column:auto;}
+  .lp-person,.lp-person:nth-child(2),.lp-person:nth-child(3){min-height:72vw;}
+  .lp-proof-row{grid-template-columns:45px 1fr;gap:1rem;}
+  .lp-compose-step{grid-template-columns:42px 1fr;}
+  .cta-main{grid-template-columns:1fr;}
+  .cta-l{border-right:0;border-bottom:1px solid var(--rule);}
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -2037,13 +2247,13 @@ body.eh-locked{overflow:hidden;}
 <section class="hero" id="home">
   <div class="hero-film"><div class="ph-frame ph-graded" id="heroFrame"><img data-src="assets/images/hero-dawn.jpg" alt=""><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
   <div class="hero-dawn"></div>
-  <div class="hero-film-label">[ Full&#8209;bleed photography. Kilimanjaro or Serengeti at dawn ]</div>
-  <span class="hero-side">[ Photography. Tanzania ]</span>
+  <div class="hero-film-label">Northern Tanzania &middot; first light</div>
+  <span class="hero-side">Private journeys &middot; Tanzania</span>
   <div class="hero-ghost" id="heroGhost">Tanzania</div>
 
   <div class="hero-content">
     <p class="eye hero-eye" id="hEye">
-      Tanzania &nbsp;&middot;&nbsp; Curated, never sold &nbsp;&middot;&nbsp; One unrepeatable journey
+      Private Tanzania &nbsp;&middot;&nbsp; One group at a time &nbsp;&middot;&nbsp; Composed around you
     </p>
     <h1 class="hero-hed vf-arrive" id="hHed">
       Tanzania already<br>
@@ -2052,7 +2262,7 @@ body.eh-locked{overflow:hidden;}
       <span class="whisper">We make sure you arrive.</span>
     </h1>
     <p class="dim hero-sub" id="hSub">
-      Mountain, plain, crater, coast, and the life between them. One country, many worlds. We compose a single journey through it for your group alone &mdash; private from first morning to last, and never composed twice.
+      Private journeys through Tanzania, shaped around who is travelling, when you come, and how you want the country to feel &mdash; safari, mountain, culture and coast in one considered journey.
     </p>
     <div class="hero-acts" id="hActs">
       <a href="compose.html" class="btn-primary">Compose your journey</a>
@@ -2062,89 +2272,18 @@ body.eh-locked{overflow:hidden;}
   <div class="hero-scroll"><span class="scr-ln"></span>&nbsp;Scroll</div>
 </section>
 
+
 <!-- ── THESIS ── -->
-<section class="thesis" id="about">
-  <div class="thesis-pg">ndugu</div>
-  <div class="thesis-grid">
-    <div class="thesis-stats reveal">
-      <div class="t-stat">
-        <span class="t-stat-num">5</span>
-        <span class="t-stat-lbl">Worlds in one country</span>
-      </div>
-      <div class="thesis-rule"></div>
-      <div class="t-stat">
-        <span class="t-stat-num">0</span>
-        <span class="t-stat-lbl">Journeys from a catalogue</span>
-      </div>
-      <div class="thesis-rule"></div>
-      <div class="t-stat">
-        <span class="t-stat-num">1</span>
-        <span class="t-stat-lbl">Group at a time</span>
-      </div>
-    </div>
-    <div class="thesis-body reveal">
-      <p class="stmt">The hospitality you will experience is not something we designed. <em>It is something Tanzania already is.</em></p>
-      <p class="dim">The guide who has spent thirty years on the Serengeti plain is not a product. He is a relationship, earned over time and shared with care. The family in Kibosho who sit with guests at their table do it because the introduction is trusted. That trust is the whole of our work.</p>
-      <div class="sw-pill">
-        <span class="sw-word">Ndugu</span>
-        <div class="sw-div"></div>
-        <span class="sw-def">Brother, sister, kin: in Tanzania,<br>anyone bound to you by shared values, not blood</span>
-      </div>
-    </div>
+<section class="lp-editorial-intro" id="about">
+  <p class="lp-kicker reveal">Private Tanzania · one group at a time</p>
+  <div class="lp-editorial-grid">
+    <h2 class="lp-editorial-title reveal">One country.<br>Five ways to <em>enter it.</em></h2>
+    <p class="lp-editorial-copy reveal">Safari can be part of the journey. So can a mountain morning, a family table in Kibosho, a crater descent, or several slow days beside the Indian Ocean. Enkiama composes the combination around your group — not around a catalogue.</p>
   </div>
-</section>
-
-<!-- ── STORY ── -->
-<section class="story" id="stories" style="margin-top:80px;">
-  <div class="story-d">
-    <div>
-      <span class="story-mark">&ldquo;</span>
-      <p class="story-q">What Enkiama gave us was something entirely different: not because of the places, though the places did what places do. Because of the people. Every guide, every lodge, every partner felt like they genuinely wanted us there. Like we had been expected. Like we belonged.</p>
-    </div>
-    <div class="story-attr">
-      <p class="story-name">Marina V.</p>
-      <p class="story-meta">Serengeti, Ngorongoro &amp; Kilimanjaro &nbsp;&middot;&nbsp; July 2024 &nbsp;&middot;&nbsp; Group of five</p>
-    </div>
-  </div>
-  <div class="story-r">
-    <p class="story-rlbl">Why this journey worked</p>
-    <div class="story-rule"></div>
-    <p class="dim reveal">Marina&rsquo;s group moved across three worlds in twelve days. The family we assembled included a Serengeti naturalist with thirty years on the plain, a Maasai cultural guide who runs a community school on the crater rim, and a Chagga partner in Kibosho whose family has farmed the mountain for four generations. Every person felt the journey had been built for them. It had been: because it was built from who they were, not from a template.</p>
-  </div>
-</section>
-
-
-<!-- ── TANZANIA ALREADY IS ── -->
-<div class="already-gap"></div>
-<section class="already">
-  <div class="already-pg">ujamaa</div>
-  <div class="already-inner">
-    <p class="eye already-eye">Tanzania already is</p>
-    <h2 class="already-hed reveal vf-arrive">The family feeling<br>is not something<br>we <em>sell.</em></h2>
-    <div class="already-cols">
-      <div class="already-col reveal">
-        <p>The Swahili word <em>ujamaa</em> &mdash; communal family, shared humanity &mdash; was Julius Nyerere&rsquo;s founding philosophy for Tanzania. It describes something already present in how Tanzanian people live: the instinct to receive strangers as <em>ndugu</em>, to share what they have, to make you feel you were expected before you arrived.</p>
-      </div>
-      <div class="already-col reveal">
-        <p>Tanzanians call it <em>ukarimu</em> &mdash; hospitality as a way of life. It is why a stranger is fed before being asked their business, and why a journey here can feel less like being hosted than being expected. Our work is to keep that intact from the first morning to the last, without a single seam where it thins.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── LOCAL + WORLDLY ── -->
-<section class="lw">
-  <div class="lw-h">
-    <span class="lw-tag">Rooted</span>
-    <h2 class="lw-hl reveal vf-arrive">Local depth.<br>Local knowledge.<br>Local soul.</h2>
-    <div class="lw-rule"></div>
-    <p class="dim reveal">Our guides live in the ecosystems they show you. Our cultural partners belong to the communities they open. Our lodges are part of the landscape, not placed in it. The access we provide is only possible because the people who provide it have spent their lives earning it.</p>
-  </div>
-  <div class="lw-h">
-    <span class="lw-tag">Earned</span>
-    <h2 class="lw-hl reveal vf-arrive">Years on the ground.<br>Doors that open<br>only to friends.</h2>
-    <div class="lw-rule"></div>
-    <p class="dim reveal">From Kilimanjaro&rsquo;s glaciers to Zanzibar&rsquo;s coral gardens, we know what works in which season and which doors open to those who have earned them. Our <span style="font-family:'Fraunces',serif;font-style:italic;color:var(--earth);">ndugu</span> are on the ground year-round, seeing what changes, what opens, what closes. That knowledge keeps every journey honest and alive.</p>
+  <div class="lp-editorial-meta reveal">
+    <div><b>Private</b><span>Your group, from first morning to last</span></div>
+    <div><b>Personal</b><span>Guides and places chosen for your journey</span></div>
+    <div><b>Composed</b><span>One route, built around how you want to travel</span></div>
   </div>
 </section>
 
@@ -2266,7 +2405,7 @@ body.eh-locked{overflow:hidden;}
   </div>
 
   <div class="worlds-note">
-    <p>Most journeys move through two or three of these worlds, shaped around who is travelling, what they are ready for, and what the country offers when they come. These names are a vocabulary, not a catalogue. <em>Your journey is a sentence only you can write. We write it with you, never from a shelf.</em></p>
+    <p>Most journeys move through two or three of these worlds. The point is not to collect them all, but to find the combination that fits your group, your season and the way you want Tanzania to feel.</p>
   </div>
 
   <div class="route-wrap">
@@ -2294,6 +2433,184 @@ body.eh-locked{overflow:hidden;}
   </div>
 </section>
 
+
+
+<section class="lp-archive" id="archive">
+  <div class="lp-section-head">
+    <div>
+      <p class="lp-kicker">From the Enkiama archive</p>
+      <div class="lp-section-no">01</div>
+    </div>
+    <div>
+      <h2 class="lp-section-title reveal">A journey we composed for <em>five friends.</em></h2>
+      <p class="lp-section-copy reveal">The point of a bespoke journey is not that there is no structure. It is that the structure belongs to the people travelling. This one was built around wildlife, time together, and the people they wanted to meet along the way.</p>
+    </div>
+  </div>
+
+  <div class="lp-journey-shell">
+    <div class="lp-journey-meta reveal">
+      <span><strong>12 days</strong></span>
+      <span>5 travellers</span>
+      <span>July</span>
+      <span>Private throughout</span>
+      <span>Safari · crater · mountain culture</span>
+    </div>
+    <div class="lp-route-line reveal" aria-label="Journey route">
+      <div class="lp-route-stop">Arusha</div>
+      <div class="lp-route-stop">Ngorongoro</div>
+      <div class="lp-route-stop">Serengeti</div>
+      <div class="lp-route-stop">Kibosho</div>
+    </div>
+
+    <div class="lp-journey-grid">
+      <div class="lp-journey-gallery reveal">
+        <figure><img src="assets/images/serengeti.jpg" alt="Serengeti landscape"><figcaption>The Serengeti</figcaption></figure>
+        <figure><img src="assets/images/culture-table.jpg" alt="A shared table in Tanzania"><figcaption>Time around the table</figcaption></figure>
+        <figure><img src="assets/images/kibosho-family.jpg" alt="Kibosho family"><figcaption>Kibosho · Kilimanjaro foothills</figcaption></figure>
+      </div>
+      <div class="lp-journey-story reveal">
+        <p class="lp-kicker">Why it worked</p>
+        <h3>Not more places.<br><em>The right sequence.</em></h3>
+
+        <div class="lp-brief">
+          <span class="lp-brief-label">What they wanted</span>
+          <p>Wildlife at depth, but not twelve days spent moving from one game drive to the next. Time for the group itself. And encounters that felt human rather than scheduled.</p>
+        </div>
+
+        <div class="lp-brief">
+          <span class="lp-brief-label">How we shaped it</span>
+          <p>A Serengeti naturalist with three decades on the plain, a Maasai cultural guide around Ngorongoro, and a Chagga family in Kibosho. Different worlds, but one continuous standard of care.</p>
+        </div>
+
+        <div class="lp-quote">
+          <blockquote>“Every guide, every lodge, every partner felt like they genuinely wanted us there. Like we had been expected.”</blockquote>
+          <cite>Marina V. · travelling with four friends</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-proof">
+  <div class="lp-proof-inner">
+    <div class="lp-proof-head">
+      <h2 class="lp-proof-title reveal">Personal should feel <em>precise.</em></h2>
+      <p class="lp-proof-copy reveal">Bespoke travel should not mean vague promises. You should know who is looking after you, why a place is in the journey, what the rhythm will feel like, and what the whole experience costs before you arrive.</p>
+    </div>
+
+    <div class="lp-proof-list">
+      <div class="lp-proof-row reveal">
+        <div class="n">01</div>
+        <h3>One group at a time</h3>
+        <p>Your journey is not a seat inside someone else’s departure. The route, pace, vehicle, guides and transitions are composed around your group.</p>
+      </div>
+      <div class="lp-proof-row reveal">
+        <div class="n">02</div>
+        <h3>The exact people</h3>
+        <p>We bring in the naturalist, host, local guide or specialist who belongs to that part of Tanzania — and tell you why they are there.</p>
+      </div>
+      <div class="lp-proof-row reveal">
+        <div class="n">03</div>
+        <h3>Local intelligence</h3>
+        <p>Seasons change. Wildlife moves. Roads, camps and access shift. The plan is designed with people who are on the ground, not from a distant template.</p>
+      </div>
+      <div class="lp-proof-row reveal">
+        <div class="n">04</div>
+        <h3>Clear before you leave</h3>
+        <p>The proposal explains the journey, the people, the accommodation and the complete cost. No surprise top-ups after you land.</p>
+      </div>
+    </div>
+
+    <div class="lp-proof-image reveal">
+      <img src="assets/images/camp-arrival.jpg" alt="Arrival at a safari camp in Tanzania">
+      <div class="lp-proof-caption">The standard should never drop at the handoff</div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-people" id="people">
+  <div class="lp-people-inner">
+    <div class="lp-people-head">
+      <h2 class="reveal">The people are not an add-on to the <em>journey.</em></h2>
+      <p class="reveal">A landscape changes when the person beside you has spent decades reading it. A cultural visit changes when you are being introduced by someone trusted there. Enkiama’s network is small at its core and wide when a journey demands specialist knowledge.</p>
+    </div>
+
+    <div class="lp-people-grid">
+      <article class="lp-person reveal">
+        <img src="assets/images/guide-joseph.jpg" alt="Tanzanian safari guide">
+        <div class="lp-person-info">
+          <div class="lp-person-role">Savanna · wildlife · migration</div>
+          <h3>The Serengeti naturalist</h3>
+          <p>Decades on the plain, and the judgment to know when the best thing a guide can do is say nothing.</p>
+        </div>
+      </article>
+      <article class="lp-person reveal">
+        <img src="assets/images/kibosho-family.jpg" alt="Family in Kibosho">
+        <div class="lp-person-info">
+          <div class="lp-person-role">Kibosho · Kilimanjaro foothills</div>
+          <h3>The family table</h3>
+          <p>Coffee, mountain life and hospitality that existed long before anyone thought to package it as an experience.</p>
+        </div>
+      </article>
+      <article class="lp-person reveal">
+        <img src="assets/images/fatima-stonetown.jpg" alt="Stone Town local guide">
+        <div class="lp-person-info">
+          <div class="lp-person-role">Stone Town · Swahili heritage</div>
+          <h3>The city from the inside</h3>
+          <p>Not a checklist of doors and markets, but the stories behind a place from someone who belongs to it.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lp-compose" id="compose-preview">
+  <div class="lp-compose-inner">
+    <div class="lp-compose-top">
+      <h2 class="reveal">Start with three things.<br>We’ll compose the <em>rest.</em></h2>
+      <p class="lp-compose-copy reveal">You do not need an itinerary before speaking to us. A useful first conversation is much simpler: who is coming, roughly when, and what is pulling you toward Tanzania.</p>
+    </div>
+
+    <div class="lp-compose-steps">
+      <div class="lp-compose-step reveal"><div class="n">01</div><strong>Who is travelling?</strong><span>A couple, a family, friends, a solo traveller joining others — the group changes the shape of the journey.</span></div>
+      <div class="lp-compose-step reveal"><div class="n">02</div><strong>When are you thinking?</strong><span>An exact date is not necessary. A month or season is enough for us to begin explaining what Tanzania will be doing then.</span></div>
+      <div class="lp-compose-step reveal"><div class="n">03</div><strong>What is pulling you?</strong><span>Safari, Kilimanjaro, culture, coast — or simply a feeling you cannot yet turn into an itinerary. That is enough.</span></div>
+    </div>
+
+    <div class="lp-compose-actions reveal">
+      <a href="begin.html" class="btn-primary">Begin your journey</a>
+      <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="btn-ghost">Start on WhatsApp &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-practical">
+  <div class="lp-practical-inner">
+    <div class="lp-practical-head">
+      <h2 class="reveal">Private travel should also feel <em>clear.</em></h2>
+      <p class="reveal">The romance belongs in Tanzania. The planning should be straightforward. We discuss the important constraints early, then return with a journey that is costed and explained as a whole.</p>
+    </div>
+    <div class="lp-practical-grid">
+      <div class="lp-practical-item reveal">
+        <div class="ey">Timing</div>
+        <h3>Earlier gives us more choice.</h3>
+        <p>Especially for small camps, specialist guides and peak migration windows. But Tanzania is a year-round country, and good journeys exist well beyond the obvious months.</p>
+      </div>
+      <div class="lp-practical-item reveal">
+        <div class="ey">Investment</div>
+        <h3>Budget is discussed early.</h3>
+        <p>We do not build a fantasy and reveal the number later. Your budget helps determine the accommodation, pace and experiences from the beginning; the proposal then gives the complete cost.</p>
+      </div>
+      <div class="lp-practical-item reveal">
+        <div class="ey">Conversation</div>
+        <h3>English or Spanish.</h3>
+        <p>WhatsApp works well for a first message; email is better if you already have more to say. Either way, you are speaking directly with the people who will shape the journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-legacy-runtime" aria-hidden="true">
 <!-- ── CURATION ENGINE ── -->
 <section class="jmap-section" id="jmapSection">
   <p class="jmap-eyebrow">The shape of a journey</p>
@@ -2399,84 +2716,8 @@ body.eh-locked{overflow:hidden;}
   </div>
 </section>
 
-<!-- ── NDUGU ── -->
-<section class="ndugu" id="family">
-  <div class="ndugu-l">
-    <div class="ndugu-pg">ndugu</div>
-    <div class="ndugu-inner">
-      <p class="eye" style="margin-bottom:2.5rem;">The Enkiama family</p>
-      <h2 class="ndugu-hl reveal">You are not passed<br>between operators.<br><em>You are welcomed<br>by family.</em></h2>
-      <div class="ndugu-rule"></div>
-      <p class="dim reveal">Most operators fragment. The start is strong, then a lodge takes over, a guide changes, and something shifts. The warmth drops. You feel the join.</p>
-      <p class="dim reveal" style="margin-top:1rem;">At Enkiama, every partner we bring in has been chosen because they already carry Tanzania&rsquo;s values. Not vendors who signed a contract: people who receive every guest as <span style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:var(--earth);">ndugu</span>, because that is how they live, not because we asked them to.</p>
-      <div class="ndugu-q reveal">
-        <p>&ldquo;The family is larger than it appears. Beyond our core network &mdash; guides, lodges, cultural partners &mdash; sits a wider world of local specialists, niche operators, and community guides whose knowledge of specific places cannot be replicated. When a journey enters their world, we bring them in. By name. Transparently. Because what they make possible is what we promised. They carry Tanzania&rsquo;s ukarimu. We chose them because they already did.&rdquo;</p>
-      </div>
-    </div>
-  </div>
-  <div class="ndugu-r">
-    <div class="nph">
-      <div class="nph-film"><span class="wp-ph-hint">[ arrival at camp: warm welcome ]</span></div>
-      <span class="nph-lbl">A welcome that never changes register</span>
-    </div>
-    <div class="nph">
-      <div class="nph-film"><span class="wp-ph-hint">[ lodge evening: partners ]</span></div>
-      <span class="nph-lbl">Partners chosen for who they already are</span>
-    </div>
-  </div>
-</section>
 
-<!-- ── BREATH ── -->
-<section class="breath" id="breath">
-  <p class="breath-line" id="breathLine">
-    <span>Karibu.</span> <span>Pole</span> <span>pole.</span> <span>Hakuna</span> <span>haraka.</span>
-  </p>
-  <p class="breath-tr" id="breathTr">Welcome. Slowly, slowly. There is no hurry.</p>
-</section>
-
-<!-- ── TRANSPARENCY ── -->
-<section class="transp" id="transparency">
-  <div class="transp-hdr">
-    <div><p class="eye" style="padding-top:5px;">How we work</p></div>
-    <div>
-      <p class="transp-lead reveal">From day one you know what your journey costs, what it covers, and how each day will feel. The quality holds, from arrival to departure.</p>
-      <p class="dim reveal">We work with full transparency, because trust is the foundation of everything that follows. Our pride is measured by yours. Everyone who touches your journey is fairly paid, and what remains goes back into the journey itself &mdash; not into margin.</p>
-    </div>
-  </div>
-  <div class="transp-grid">
-    <div class="tr reveal"><div class="tr-mark">No hidden costs</div><h3 class="tr-title">What we quote is what you pay</h3><p class="dim">Every element costed and explained before you commit. The number we give you is the number you pay.</p></div>
-    <div class="tr reveal"><div class="tr-mark">No surprises</div><h3 class="tr-title">The price is honest and final</h3><p class="dim">What we quote is what you pay. Nothing added on arrival, nothing discovered later. Transparency, to us, is not a spreadsheet you audit. It is the absence of any unpleasant surprise.</p></div>
-    <div class="tr reveal"><div class="tr-mark">Seamless quality</div><h3 class="tr-title">The standard never wavers</h3><p class="dim">From arrival to departure, across every register of the journey, the care never drops. You never feel the handoff because the values that hold it together belong to everyone in it.</p></div>
-    <div class="tr reveal"><div class="tr-mark">Complete control</div><h3 class="tr-title">100% in charge from day&nbsp;one</h3><p class="dim">You know what to expect before you arrive: every day, every partner, every transition. If the land changes, as it sometimes does, you hear from us directly, immediately.</p></div>
-  </div>
-  <div class="pledge">
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">No hidden top-ups, ever</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Full cost breakdown before any commitment</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Partner transparency: you know who and why</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Same quality held end to end, across all worlds</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">Small groups by nature: the journey is built around yours alone</span></div>
-    <div class="pl"><div class="pl-mark"></div><span class="pl-txt">The price is honest, complete, and final</span></div>
-  </div>
-</section>
-
-<!-- ── INTELLIGENCE ── -->
-<!-- ── PASSION ── -->
-<div class="passion-gap"></div>
-<section class="passion">
-  <div class="passion-pg">kwa moyo wote</div>
-  <div class="passion-inner">
-    <span class="passion-mark">&ldquo;</span>
-    <p class="passion-txt reveal">Our work is simply to make sure you arrive close enough to feel what is already here.</p>
-    <p class="passion-sub reveal">We love what we do. Every guide we choose, every world we compose a journey through, every conversation before you leave serves one thing: that you return changed, cared for, and certain that what you felt was real. Our pride is your journey, entirely.</p>
-    <div class="p-sw">
-      <span class="psw-w">Kwa moyo wote</span>
-      <div class="psw-d"></div>
-      <span class="psw-f">With our whole heart</span>
-    </div>
-  </div>
-</section>
-
-
+</div>
 
 <!-- ── CTA ── -->
 <!-- THE SEASON — what is happening in Tanzania today -->
@@ -2526,7 +2767,7 @@ body.eh-locked{overflow:hidden;}
           <div class="rafiki-dash"></div>
           <span class="rafiki-def">Rafiki: friend, companion, fellow traveller</span>
         </div>
-        <p class="dim">No packages, no price lists. Only a conversation. Tell us which worlds call to you: your group, your curiosities, your season, your budget. We will think about what is possible together. Honestly. Completely. With our whole heart.</p>
+        <p class="dim">Tell us who is coming, roughly when, and what is pulling you toward Tanzania. You do not need a finished itinerary. We will help shape the journey from there.</p>
       </div>
     </div>
     <div class="cta-r">
@@ -2544,7 +2785,7 @@ body.eh-locked{overflow:hidden;}
         <div class="sea-ln"></div>
         <span class="sea-txt">Year&ndash;round &nbsp;&middot;&nbsp; Composed for your group alone &nbsp;&middot;&nbsp; Never repeated</span>
       </div>
-      <a href="mailto:hola@enkiama.com" class="btn-primary" style="text-align:center;">Write to us, rafiki</a>
+      <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="btn-primary" style="text-align:center;">Begin on WhatsApp</a>\n      <a href="mailto:hola@enkiama.com" class="btn-ghost" style="text-align:center;">Or write to hola@enkiama.com &rarr;</a>
     </div>
   </div>
 
