@@ -1764,8 +1764,8 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 #worlds .wn-btn.active,#worlds .wn-btn:hover{color:var(--lp-ink);border-bottom-color:var(--lp-olive);}
 #worlds .wn-arr{border-color:rgba(15,23,18,.16);color:rgba(15,23,18,.58);}
 #worlds .wn-arr:hover{border-color:var(--lp-brass);color:var(--lp-ink);background:rgba(190,158,104,.08);}
-#worlds .w4 .wp-photo,#worlds .w5 .wp-photo{display:flex;align-items:center;justify-content:center;padding:clamp(2rem,5vw,5rem);background:var(--lp-bone);}
-#worlds .w4 .wp-photo-film,#worlds .w5 .wp-photo-film{width:min(76%,500px);height:min(68vh,590px);box-shadow:0 30px 70px -44px rgba(15,23,18,.38);border:1px solid rgba(15,23,18,.08);}
+#worlds .w4 .wp-photo,#worlds .w6 .wp-photo{display:flex;align-items:center;justify-content:center;padding:clamp(2rem,5vw,5rem);background:var(--lp-bone);}
+#worlds .w4 .wp-photo-film,#worlds .w6 .wp-photo-film{width:min(76%,500px);height:min(68vh,590px);box-shadow:0 30px 70px -44px rgba(15,23,18,.38);border:1px solid rgba(15,23,18,.08);}
 #worlds .w4 .wp-photo-tag,#worlds .w5 .wp-photo-tag{color:var(--lp-forest);border-color:rgba(15,23,18,.14);background:rgba(255,253,248,.72);backdrop-filter:blur(8px);}
 #worlds .w4 .wp-photo-note,#worlds .w5 .wp-photo-note{color:rgba(15,23,18,.55);text-shadow:none;}
 
@@ -1927,8 +1927,8 @@ body>.season .season-ask{color:var(--lp-olive)!important;}
   .lp-compose-step{grid-template-columns:42px 1fr;}
   .cta-main{grid-template-columns:1fr;}
   .cta-l{border-right:0;border-bottom:1px solid var(--lp-line);}
-  #worlds .w4 .wp-photo,#worlds .w5 .wp-photo{padding:1.25rem;}
-  #worlds .w4 .wp-photo-film,#worlds .w5 .wp-photo-film{width:min(86%,420px);height:min(58vh,520px);}
+  #worlds .w4 .wp-photo,#worlds .w6 .wp-photo{padding:1.25rem;}
+  #worlds .w4 .wp-photo-film,#worlds .w6 .wp-photo-film{width:min(86%,420px);height:min(58vh,520px);}
 }
 @media(prefers-reduced-motion:reduce){
   .lp-photo img{opacity:1!important;transform:none!important;transition:none!important;}
@@ -2105,6 +2105,34 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   .lp-welcome-stack{min-height:auto;display:grid;grid-template-columns:1fr .78fr;gap:10px;}
   .lp-welcome-photo{position:relative;width:100%;aspect-ratio:1/1;grid-column:1/-1;}
   .lp-welcome-plate{position:relative;right:auto;bottom:auto;width:100%;grid-column:1/-1;margin-top:-2.4rem;}
+}
+</style>
+<style id="enkiama-six-worlds-v5">
+#worlds .wp-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid rgba(15,23,18,.1);}
+#worlds .wp-facts span{font-size:9px;line-height:1.45;letter-spacing:.08em;text-transform:uppercase;color:rgba(15,23,18,.48);}
+#worlds .wp-facts b{display:block;font-family:'Fraunces',serif;font-size:15px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--lp-ink);margin-bottom:.22rem;}
+#worlds .worlds-nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr)) auto;gap:0;align-items:stretch;padding:0 clamp(1rem,3vw,2.5rem);}
+#worlds .wn-btn{position:relative;padding:1.05rem .65rem .95rem;text-align:left;white-space:nowrap;border-bottom:1px solid transparent;}
+#worlds .wn-btn span{display:block;font-family:'Instrument Sans',sans-serif;font-size:8px;letter-spacing:.14em;color:rgba(15,23,18,.32);margin-bottom:.18rem;}
+#worlds .wn-btn::after{content:"";position:absolute;left:.65rem;right:.65rem;bottom:0;height:1px;background:var(--lp-olive);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1);}
+#worlds .wn-btn.active::after{transform:scaleX(1);}
+#worlds .wn-btn.active{border-bottom-color:transparent;}
+#worlds .wn-arrows{display:flex;align-items:center;padding-left:.8rem;}
+#worlds .world-panel.w5 .wp-photo-film{box-shadow:0 32px 76px -46px rgba(15,23,18,.4);}
+.lp-route-mini{grid-template-columns:repeat(6,minmax(0,1fr))!important;}
+.lp-route-mini>div{padding-right:.55rem;font-size:clamp(11px,1.05vw,15px)!important;}
+.lp-route-mini small{display:block;font-family:'Instrument Sans',sans-serif;font-size:8px;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;color:rgba(15,23,18,.48);margin-top:.22rem;}
+@media(max-width:980px){
+  #worlds .worlds-nav{grid-template-columns:repeat(3,1fr) auto;}
+  #worlds .wn-arrows{grid-column:4;grid-row:1/3;}
+  .lp-route-mini{grid-template-columns:repeat(3,1fr)!important;row-gap:1.2rem;}
+  .lp-route-mini::before{display:none;}
+}
+@media(max-width:640px){
+  #worlds .worlds-nav{grid-template-columns:repeat(2,1fr) auto;padding:0 .7rem;}
+  #worlds .wn-arrows{grid-column:3;grid-row:1/4;}
+  #worlds .wp-facts{grid-template-columns:1fr;gap:.5rem;}
+  .lp-route-mini{grid-template-columns:repeat(2,1fr)!important;}
 }
 </style>
 </head>
@@ -2523,10 +2551,10 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-ghost">Mlima</div>
           <div class="wp-inner">
             <div class="wp-tag">Trekking &amp; highland culture</div>
-            <div class="wp-name">The<br>mountain</div>
-            <span class="wp-sw">Mlima: the peak that changes you</span>
+            <div class="wp-name">The<br>mountains</div>
+            <span class="wp-sw">Mlima: Kilimanjaro and the northern highlands</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">Africa&rsquo;s highest peak and the Chagga cultural corridor winding through its lower slopes. Trekking routes from Marangu to Lemosho. Coffee farms at 1,700 metres. Banana groves, volcanic soil, and a summit that alters your sense of scale whether you reach it or not.</p>
+            <p class="wp-desc">Kilimanjaro, Mount Meru and the highland country around them. Trekking routes, Chagga communities, coffee farms, volcanic soils and cooler mountain landscapes that can sit naturally before or after safari.</p><div class="wp-facts"><span><b>5,895 m</b>Kilimanjaro</span><span><b>Highlands</b>Chagga country</span><span><b>Best fit</b>Trek + safari</span></div>
           </div>
         </div>
         <div class="wp-photo">
@@ -2546,10 +2574,10 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-ghost">Nyika</div>
           <div class="wp-inner">
             <div class="wp-tag">Wildlife &middot; Safari &middot; Open plain</div>
-            <div class="wp-name">The<br>savanna</div>
-            <span class="wp-sw">Nyika: the plain that never ends</span>
+            <div class="wp-name">The<br>savannas</div>
+            <span class="wp-sw">Nyika: Serengeti, Tarangire and the open plains</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">The Serengeti and Tarangire offer very different safari rhythms. One follows migration and huge open plains; the other is shaped by elephants, baobabs and seasonal water. The route changes with the month, wildlife movement and the pace your group wants.</p>
+            <p class="wp-desc">The Serengeti and Tarangire offer very different safari rhythms. One follows migration and huge open plains; the other is shaped by elephants, baobabs and seasonal water. The route changes with the month, wildlife movement and the pace your group wants.</p><div class="wp-facts"><span><b>Serengeti</b>Migration plains</span><span><b>Tarangire</b>Elephants + baobabs</span><span><b>Season-led</b>Route by month</span></div>
           </div>
         </div>
       </div>
@@ -2559,10 +2587,10 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-ghost">Bonde</div>
           <div class="wp-inner">
             <div class="wp-tag">Wildlife &middot; Geology &middot; Ancient world</div>
-            <div class="wp-name">The<br>crater</div>
-            <span class="wp-sw">Bonde: the valley that remembers</span>
+            <div class="wp-name">The<br>craters</div>
+            <span class="wp-sw">Bonde: Ngorongoro and volcanic country</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">A collapsed volcano with a dense concentration of wildlife, alkaline lakes and steep forested walls. The crater can be a focused day inside a longer northern route, timed around the descent, crowd levels and where you travel next.</p>
+            <p class="wp-desc">A collapsed volcano with a dense concentration of wildlife, alkaline lakes and steep forested walls. The crater can be a focused day inside a longer northern route, timed around the descent, crowd levels and where you travel next.</p><div class="wp-facts"><span><b>600 m</b>Crater walls</span><span><b>Wildlife</b>Dense year-round</span><span><b>Timing</b>Early descent</span></div>
           </div>
         </div>
         <div class="wp-photo">
@@ -2583,22 +2611,42 @@ body.eh-locked{overflow:hidden;}
           <div class="wp-inner">
             <div class="wp-tag">Culture &middot; Homestays &middot; Nightlife</div>
             <div class="wp-name">The<br>culture</div>
-            <span class="wp-sw">Utamaduni: the life that is already there</span>
+            <span class="wp-sw">Utamaduni: local life between the landmarks</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">Moshi and Arusha after dark. Chagga farms on Kilimanjaro&rsquo;s lower slopes. Maasai communities around the highlands. Local food, markets and everyday places between the headline destinations. These experiences are built through introductions and context, not staged as a separate &ldquo;cultural stop.&rdquo;</p>
+            <p class="wp-desc">Moshi and Arusha after dark. Chagga farms on Kilimanjaro&rsquo;s lower slopes. Maasai communities around the highlands. Local food, markets and everyday places between the headline destinations. These experiences are built through introductions and context, not staged as a separate &ldquo;cultural stop.&rdquo;</p><div class="wp-facts"><span><b>Arusha</b>City + gateway</span><span><b>Highlands</b>Chagga + Maasai</span><span><b>Approach</b>Introductions, not shows</span></div>
           </div>
         </div>
       </div>
 
+      
       <div class="world-panel w5">
+        <div class="wp-text">
+          <div class="wp-ghost">Bonde la Ufa</div>
+          <div class="wp-inner">
+            <div class="wp-tag">Rift Valley &middot; Volcano &middot; Soda lake</div>
+            <div class="wp-name">The<br>Rift Valley</div>
+            <span class="wp-sw">Bonde la Ufa: Natron and the volcanic north</span>
+            <div class="wp-rule"></div>
+            <p class="wp-desc">North of Ngorongoro, the land opens into escarpments, alkaline lakes and volcanic country. Lake Natron sits beneath Ol Doinyo Lengai. It is a harder, quieter landscape and one of the strongest ways to extend the northern circuit beyond the familiar park sequence.</p>
+            <div class="wp-facts"><span><b>Natron</b>Soda lake</span><span><b>Lengai</b>Active volcano</span><span><b>Character</b>Remote + austere</span></div>
+          </div>
+        </div>
+        <div class="wp-photo">
+          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 55%;"><img data-src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <span class="wp-photo-tag">Volcanic north</span>
+          <span class="wp-photo-note">Great Rift &middot; northern Tanzania</span>
+        </div>
+      </div>
+
+<div class="world-panel w6">
         <div class="wp-text">
           <div class="wp-ghost">Pwani</div>
           <div class="wp-inner">
             <div class="wp-tag">Coast &middot; Ocean &middot; Stone Town</div>
             <div class="wp-name">The<br>coast</div>
-            <span class="wp-sw">Pwani: the shore where everything slows</span>
+            <span class="wp-sw">Pwani: Zanzibar, Pemba and the Swahili coast</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">Zanzibar and Pemba add a different pace to a mainland journey: reef, warm water, Swahili food and Stone Town&rsquo;s layered history. The coast can be a few quiet days at the end, or a substantial part of the journey in its own right.</p>
+            <p class="wp-desc">Zanzibar and Pemba add a different pace to a mainland journey: reef, warm water, Swahili food and Stone Town&rsquo;s layered history. The coast can be a few quiet days at the end, or a substantial part of the journey in its own right.</p><div class="wp-facts"><span><b>Zanzibar</b>Coast + Stone Town</span><span><b>Pemba</b>Quieter island</span><span><b>Rhythm</b>Slow finish or full stay</span></div>
           </div>
         </div>
         <div class="wp-photo">
@@ -2611,11 +2659,12 @@ body.eh-locked{overflow:hidden;}
     </div>
 
     <div class="worlds-nav">
-      <button class="wn-btn active" data-w="0">Mountain</button>
-      <button class="wn-btn" data-w="1">Savanna</button>
-      <button class="wn-btn" data-w="2">Crater</button>
-      <button class="wn-btn" data-w="3">Culture</button>
-      <button class="wn-btn" data-w="4">Coast</button>
+      <button class="wn-btn active" data-w="0"><span>01</span>Mountains</button>
+      <button class="wn-btn" data-w="1"><span>02</span>Savannas</button>
+      <button class="wn-btn" data-w="2"><span>03</span>Craters</button>
+      <button class="wn-btn" data-w="3"><span>04</span>Culture</button>
+      <button class="wn-btn" data-w="4"><span>05</span>Rift Valley</button>
+      <button class="wn-btn" data-w="5"><span>06</span>Coast</button>
       <div class="wn-arrows">
         <button class="wn-arr" id="wPrev">&larr;</button>
         <button class="wn-arr" id="wNext">&rarr;</button>
@@ -2657,12 +2706,12 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-archive" id="archive">
   <div class="lp-section-head">
     <div>
-      <p class="lp-kicker">A journey, opened up</p>
+      <p class="lp-kicker">An example composition</p>
       <div class="lp-section-no">01</div>
     </div>
     <div>
-      <h2 class="lp-section-title reveal">Five friends.<br>Twelve days.<br><em>Four different Tanzanias.</em></h2>
-      <p class="lp-section-copy reveal">They wanted serious wildlife, time together outside the vehicle, and a slower cultural stop before returning home. The route below is one journey Enkiama built around that brief.</p>
+      <h2 class="lp-section-title reveal">Six landscapes.<br>Twelve days.<br><em>One northern journey.</em></h2>
+      <p class="lp-section-copy reveal">A northern route can move well beyond a simple park-to-park sequence. This example combines mountain country, Arusha, Tarangire, the volcanic Rift, Serengeti and Ngorongoro in one continuous journey.</p>
     </div>
   </div>
 
@@ -2679,41 +2728,43 @@ body.eh-locked{overflow:hidden;}
 
     <div class="lp-journey-routeplate">
       <div class="lp-route-head"><span>Route</span><strong>12 days · July</strong></div>
-      <div class="lp-route-mini" aria-label="Arusha to Kibosho route">
+      <div class="lp-route-mini" aria-label="Northern Tanzania route">
+        <div><i></i><span>Kilimanjaro</span></div>
         <div><i></i><span>Arusha</span></div>
-        <div><i></i><span>Ngorongoro</span></div>
+        <div><i></i><span>Tarangire</span></div>
+        <div><i></i><span>Ol Doinyo Lengai<small>Lake Natron</small></span></div>
         <div><i></i><span>Serengeti</span></div>
-        <div><i></i><span>Kibosho</span></div>
+        <div><i></i><span>Ngorongoro</span></div>
       </div>
-      <div class="lp-route-foot">5 travellers · private vehicle · three specialist introductions</div>
+      <div class="lp-route-foot">Example · 5 travellers · private vehicle · northern circuit · Rift Valley extension</div>
     </div>
 
     <figure class="lp-photo lp-journey-inset" data-lp-media style="--lp-pos:50% 55%;--lp-mask:var(--lp-bone);">
-      <img src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife across the Ngorongoro crater floor">
-      <figcaption>Ngorongoro · crater floor</figcaption>
+      <img src="assets/images/great-rift.jpg" loading="lazy" decoding="async" alt="Great Rift Valley landscape in northern Tanzania">
+      <figcaption>Rift Valley · northern Tanzania</figcaption>
     </figure>
 
-    <figure class="lp-photo lp-journey-detail" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-bone);">
-      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho beneath Kilimanjaro">
-      <figcaption>Kibosho · Kilimanjaro foothills</figcaption>
+    <figure class="lp-photo lp-journey-detail" data-lp-media style="--lp-pos:50% 55%;--lp-mask:var(--lp-bone);">
+      <img src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife across the Ngorongoro crater floor">
+      <figcaption>Ngorongoro · crater floor</figcaption>
     </figure>
   </div>
 
   <div class="lp-journey-notes">
     <div class="lp-note reveal">
       <span class="lp-brief-label">The brief</span>
-      <h3>Wildlife, but not only wildlife.</h3>
-      <p>Enough time in the Serengeti to go deep, then a deliberate change of rhythm before the journey ended.</p>
+      <h3>Wildlife without a park-only route.</h3>
+      <p>Kilimanjaro and Arusha set the journey up before Tarangire, the volcanic north, Serengeti and Ngorongoro take over.</p>
     </div>
     <div class="lp-note reveal">
       <span class="lp-brief-label">The decisions</span>
-      <h3>Fewer handoffs. Named people.</h3>
-      <p>A Serengeti naturalist, a local Ngorongoro guide and a Chagga family in Kibosho — each brought in for one part of the journey.</p>
+      <h3>The Rift changes the rhythm.</h3>
+      <p>Ol Doinyo Lengai and Lake Natron create a deliberate break between the classic northern parks: drier, quieter and more remote.</p>
     </div>
     <div class="lp-note lp-note-quote reveal">
-      <span class="lp-brief-label">Afterwards</span>
-      <blockquote>“Every guide, every lodge, every partner felt like they genuinely wanted us there.”</blockquote>
-      <cite>Marina V. · travelling with four friends</cite>
+      <span class="lp-brief-label">The shape</span>
+      <blockquote>Mountain air, city life, elephant country, volcanic Rift, open plain, crater floor.</blockquote>
+      <cite>One route · six distinct registers of northern Tanzania</cite>
     </div>
   </div>
 </section>
@@ -3140,7 +3191,7 @@ body.eh-locked{overflow:hidden;}
   const btns=document.querySelectorAll('.wn-btn');
   const prev=document.getElementById('wPrev');
   const next=document.getElementById('wNext');
-  let cur=0;const total=5;
+  let cur=0;const total=6;
 
   function goTo(i,smooth=true){
     cur=Math.max(0,Math.min(total-1,i));
@@ -3185,6 +3236,45 @@ body.eh-locked{overflow:hidden;}
     const idx=Math.round(track.scrollLeft/track.clientWidth);
     if(idx!==cur){cur=idx;btns.forEach((b,j)=>b.classList.toggle('active',j===cur));}
   },{passive:true});
+
+  // slow autonomous progression — pauses whenever the visitor takes control
+  var autoTimer=null, resumeTimer=null, sectionVisible=false, userPaused=false;
+  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function stopAuto(){
+    if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
+  }
+  function startAuto(){
+    stopAuto();
+    if(reduceMotion||userPaused||!sectionVisible||document.hidden)return;
+    autoTimer=setInterval(function(){goTo((cur+1)%total,true);},7200);
+  }
+  function pauseForUser(){
+    userPaused=true;stopAuto();
+    if(resumeTimer)clearTimeout(resumeTimer);
+    resumeTimer=setTimeout(function(){userPaused=false;startAuto();},12000);
+  }
+
+  btns.forEach(function(b){b.addEventListener('click',pauseForUser);});
+  [prev,next].forEach(function(b){b.addEventListener('click',pauseForUser);});
+  track.addEventListener('pointerdown',pauseForUser,{passive:true});
+  track.addEventListener('touchstart',pauseForUser,{passive:true});
+  track.addEventListener('mouseenter',function(){userPaused=true;stopAuto();});
+  track.addEventListener('mouseleave',function(){userPaused=false;startAuto();});
+  track.addEventListener('focusin',function(){userPaused=true;stopAuto();});
+  track.addEventListener('focusout',function(){userPaused=false;startAuto();});
+
+  if('IntersectionObserver' in window){
+    var worldsIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        sectionVisible=e.isIntersecting&&e.intersectionRatio>.25;
+        if(sectionVisible)startAuto();else stopAuto();
+      });
+    },{threshold:[0,.25,.5]});
+    worldsIO.observe(document.getElementById('worlds'));
+  }else{sectionVisible=true;startAuto();}
+
+  document.addEventListener('visibilitychange',function(){if(document.hidden)stopAuto();else startAuto();});
 
   // keyboard
   document.addEventListener('keydown',e=>{
