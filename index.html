@@ -1776,7 +1776,7 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 .lp-photo::after{content:"";position:absolute;inset:0;z-index:2;background:var(--lp-mask,var(--lp-bone));transform:translateX(0);transform-origin:right;transition:transform 1.05s cubic-bezier(.76,0,.24,1);pointer-events:none;}
 .lp-photo::before{content:"";position:absolute;z-index:3;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--lp-brass),transparent);opacity:0;transition:opacity .25s ease;}
 .lp-photo.is-ready.is-in::before{opacity:.7;}
-.lp-photo.is-ready.is-in::after{transform:translateX(101%);}
+.lp-photo.is-ready.is-seen::after{transform:translateX(101%);}
 .lp-photo.is-ready.is-seen::before{opacity:0;}
 .lp-photo figcaption{position:absolute;z-index:4;left:16px;bottom:14px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.68);opacity:0;transform:translateY(5px);transition:opacity .55s ease .55s,transform .55s ease .55s;}
 .lp-photo.is-seen figcaption{opacity:1;transform:none;}
@@ -1935,6 +1935,119 @@ body>.season .season-ask{color:var(--lp-olive)!important;}
   .lp-photo::after,.lp-photo::before{display:none!important;}
   .lp-photo figcaption{opacity:1!important;transform:none!important;transition:none!important;}
 }
+</style>
+<style id="enkiama-landing-depth-v3">
+/* permanent reveal state */
+.lp-photo.is-ready.is-seen::after{transform:translateX(101%)!important;}
+
+/* Journey archive — layered dossier */
+.lp-journey-stack{position:relative;max-width:1500px;margin:0 auto;min-height:clamp(700px,78vw,980px);padding-bottom:clamp(7rem,10vw,10rem);}
+.lp-journey-main{position:absolute;left:0;top:0;width:78%;height:68%;box-shadow:0 34px 80px -52px rgba(15,23,18,.45);}
+.lp-journey-indexplate{position:absolute;left:3%;top:4%;z-index:6;background:rgba(255,253,248,.92);backdrop-filter:blur(12px);border:1px solid rgba(15,23,18,.09);padding:.85rem 1rem;display:flex;gap:1rem;align-items:center;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.6);}
+.lp-journey-indexplate strong{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--lp-ink);letter-spacing:0;}
+.lp-journey-routeplate{position:absolute;z-index:7;left:7%;bottom:7%;width:min(660px,52%);background:var(--lp-bone);border:1px solid rgba(15,23,18,.1);padding:1.7rem 1.8rem;box-shadow:0 26px 70px -46px rgba(15,23,18,.45);}
+.lp-route-head{display:flex;justify-content:space-between;gap:1rem;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.52);margin-bottom:1.5rem;}
+.lp-route-head strong{color:var(--lp-ink);font-weight:500;}
+.lp-route-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.lp-route-mini::before{content:"";position:absolute;left:6%;right:6%;top:4px;height:1px;background:rgba(15,23,18,.2);}
+.lp-route-mini>div{position:relative;padding-top:1.1rem;font-family:'Fraunces',serif;font-size:15px;}
+.lp-route-mini i{position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--lp-olive);z-index:2;}
+.lp-route-foot{margin-top:1.35rem;padding-top:1rem;border-top:1px solid rgba(15,23,18,.1);font-size:10px;letter-spacing:.08em;color:rgba(15,23,18,.56);}
+.lp-journey-inset{position:absolute;right:0;top:16%;width:31%;height:35%;z-index:5;box-shadow:0 30px 70px -42px rgba(15,23,18,.4);}
+.lp-journey-detail{position:absolute;right:8%;bottom:0;width:23%;height:27%;z-index:8;box-shadow:0 26px 60px -38px rgba(15,23,18,.45);}
+.lp-journey-notes{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1.1fr;border-top:1px solid var(--lp-line);}
+.lp-note{padding:2rem 2.4rem 0 0;border-right:1px solid var(--lp-line);}
+.lp-note:nth-child(2){padding-left:2.4rem;}
+.lp-note:last-child{border-right:0;padding-left:2.4rem;}
+.lp-note h3{font-family:'Fraunces',serif;font-size:clamp(23px,2.5vw,34px);font-weight:500;line-height:1.12;margin:.35rem 0 .8rem;}
+.lp-note p{font-size:13px;line-height:1.75;color:rgba(15,23,18,.64);}
+.lp-note blockquote{font-family:'Fraunces',serif;font-size:clamp(20px,2.1vw,29px);line-height:1.4;font-style:italic;}
+.lp-note cite{display:block;margin-top:1rem;font-style:normal;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(15,23,18,.5);}
+
+/* Proof — one image system with ledger and inset */
+.lp-proof-system{position:relative;min-height:clamp(620px,67vw,900px);margin-top:clamp(3rem,5vw,5rem);}
+.lp-proof-main{position:absolute;left:0;top:0;width:72%;height:72%;box-shadow:0 36px 84px -54px rgba(15,23,18,.44);}
+.lp-proof-ledger{position:absolute;z-index:7;right:0;top:12%;width:min(520px,42%);background:var(--lp-white);border:1px solid rgba(15,23,18,.1);box-shadow:0 30px 76px -50px rgba(15,23,18,.46);padding:1.4rem 1.5rem;}
+.lp-ledger-top{display:flex;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--lp-line);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.5);}
+.lp-ledger-top b{color:var(--lp-olive);font-weight:500;}
+.lp-ledger-row{display:grid;grid-template-columns:36px 1fr;gap:.85rem;padding:1rem 0;border-bottom:1px solid var(--lp-line-soft);}
+.lp-ledger-row>span{font-family:'Fraunces',serif;color:rgba(85,107,68,.48);font-size:18px;}
+.lp-ledger-row strong{font-family:'Fraunces',serif;font-size:20px;font-weight:500;line-height:1.15;}
+.lp-ledger-row em{grid-column:2;font-style:normal;font-size:11px;color:rgba(15,23,18,.56);line-height:1.5;margin-top:-.45rem;}
+.lp-proof-inset{position:absolute;left:12%;bottom:0;width:27%;height:30%;z-index:8;box-shadow:0 24px 60px -38px rgba(15,23,18,.45);}
+
+/* Network — images + a factual plate */
+.lp-network-stage{position:relative;min-height:clamp(600px,66vw,900px);max-width:1380px;margin:0 auto;}
+.lp-network-main{position:absolute;left:6%;top:0;width:53%;height:67%;box-shadow:0 32px 72px -48px rgba(15,23,18,.4);}
+.lp-network-inset{position:absolute;right:10%;top:12%;width:28%;height:53%;box-shadow:0 28px 64px -42px rgba(15,23,18,.42);}
+.lp-network-card{position:absolute;left:28%;bottom:3%;z-index:7;width:min(600px,50%);background:var(--lp-bone);border:1px solid rgba(15,23,18,.1);padding:1.7rem 1.8rem;box-shadow:0 30px 74px -48px rgba(15,23,18,.4);}
+.lp-network-card>div{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--lp-line);}
+.lp-network-card span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(15,23,18,.52);}
+.lp-network-card strong{font-family:'Fraunces',serif;font-size:19px;font-weight:500;}
+.lp-network-card small{display:block;margin-top:1rem;color:rgba(15,23,18,.58);font-size:11px;line-height:1.6;}
+
+/* Compose: keep useful, but add restrained depth */
+.lp-compose-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:0;}
+.lp-compose-step{display:block!important;background:rgba(255,253,248,.58);border:1px solid rgba(15,23,18,.09)!important;padding:1.7rem!important;min-height:235px;position:relative;}
+.lp-compose-step:nth-child(2){transform:translateY(18px);z-index:2;box-shadow:0 22px 48px -38px rgba(15,23,18,.35);}
+.lp-compose-step:nth-child(3){transform:translateY(36px);}
+.lp-compose-step .n{display:block;margin-bottom:2rem;}
+.lp-compose-step strong{display:block;margin-bottom:.8rem;}
+.lp-compose-step span{display:block!important;}
+
+/* Light, architectural footer rather than a flat dark field */
+footer{background:var(--lp-white)!important;color:var(--lp-ink)!important;border-top:1px solid var(--lp-line)!important;padding:0!important;}
+footer .f-brand{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:2rem;margin:0!important;padding:2.4rem clamp(1.5rem,5vw,5rem);background:var(--lp-bone);border-bottom:1px solid var(--lp-line);}
+footer .f-logo-img{height:38px;}
+footer .f-tagline{color:rgba(15,23,18,.58)!important;margin-top:0!important;}
+footer .f-cols{padding:3rem clamp(1.5rem,5vw,5rem);margin:0!important;grid-template-columns:1.1fr 1.2fr 1.1fr 1fr;gap:0!important;}
+footer .f-col{padding:0 2rem;border-right:1px solid var(--lp-line);}
+footer .f-col:first-child{padding-left:0;}
+footer .f-col:last-child{border-right:0;}
+footer .f-col-h{color:var(--lp-olive)!important;opacity:1!important;}
+footer .f-col a{color:rgba(15,23,18,.62)!important;opacity:1!important;}
+footer .f-col a:hover{color:var(--lp-ink)!important;}
+footer .f-base{margin:0!important;padding:1.35rem clamp(1.5rem,5vw,5rem)!important;background:var(--lp-forest);border-top:0!important;color:var(--lp-bone);}
+footer .f-contact a{color:var(--lp-bone)!important;}
+footer .f-copy{color:rgba(237,230,214,.62)!important;}
+
+@media(max-width:900px){
+  .lp-journey-stack{min-height:auto;padding-bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .lp-journey-main{position:relative;width:100%;height:54vw;grid-column:1/-1;}
+  .lp-journey-inset,.lp-journey-detail{position:relative;right:auto;top:auto;bottom:auto;width:100%;height:34vw;}
+  .lp-journey-indexplate{top:1rem;left:1rem;}
+  .lp-journey-routeplate{position:relative;left:auto;bottom:auto;width:100%;grid-column:1/-1;margin-top:-2.2rem;z-index:9;}
+  .lp-journey-notes{grid-template-columns:1fr;}
+  .lp-note,.lp-note:nth-child(2),.lp-note:last-child{padding:1.5rem 0;border-right:0;border-bottom:1px solid var(--lp-line);}
+  .lp-proof-system{min-height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .lp-proof-main{position:relative;width:100%;height:55vw;grid-column:1/-1;}
+  .lp-proof-ledger{position:relative;right:auto;top:auto;width:100%;grid-column:1/-1;margin-top:-2.5rem;z-index:9;}
+  .lp-proof-inset{position:relative;left:auto;bottom:auto;width:70%;height:38vw;grid-column:2;justify-self:end;margin-top:-1.5rem;}
+  .lp-network-stage{min-height:auto;display:grid;grid-template-columns:1fr .72fr;gap:10px;}
+  .lp-network-main,.lp-network-inset{position:relative;left:auto;right:auto;top:auto;width:100%;height:58vw;}
+  .lp-network-inset{height:50vw;margin-top:2rem;}
+  .lp-network-card{position:relative;left:auto;bottom:auto;width:100%;grid-column:1/-1;margin-top:-2rem;}
+  .lp-compose-steps{grid-template-columns:1fr;}
+  .lp-compose-step:nth-child(2),.lp-compose-step:nth-child(3){transform:none;}
+  footer .f-cols{grid-template-columns:1fr 1fr;gap:2rem!important;}
+  footer .f-col,footer .f-col:first-child{padding:0;border-right:0;}
+}
+@media(max-width:600px){
+  .lp-route-mini{grid-template-columns:1fr 1fr;gap:1rem;}
+  .lp-route-mini::before{display:none;}
+  .lp-proof-inset{width:86%;grid-column:1/-1;}
+  .lp-network-stage{grid-template-columns:1fr 1fr;}
+  .lp-network-card>div{grid-template-columns:85px 1fr;}
+  footer .f-brand{grid-template-columns:1fr;gap:.8rem;}
+  footer .f-cols{grid-template-columns:1fr;gap:2rem!important;}
+}
+</style>
+<style id="enkiama-more-light">
+.lp-more{max-width:1100px;margin:0 auto;padding:clamp(4rem,9vh,7rem) clamp(1.5rem,4vw,2rem);border-top:1px solid var(--lp-line);background:var(--lp-white);}
+.lp-more .xf-card{background:var(--lp-bone)!important;border-color:rgba(15,23,18,.09)!important;box-shadow:0 18px 44px -40px rgba(15,23,18,.35);}
+.lp-more .xf-card h3{color:var(--lp-ink)!important;}
+.lp-more .xf-card p{color:rgba(15,23,18,.62)!important;}
+.lp-more .xf-card:hover{border-color:rgba(85,107,68,.3)!important;transform:translateY(-3px);}
 </style>
 </head>
 <body data-page="home">
@@ -2471,55 +2584,63 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-archive" id="archive">
   <div class="lp-section-head">
     <div>
-      <p class="lp-kicker">From the Enkiama archive</p>
+      <p class="lp-kicker">A journey, opened up</p>
       <div class="lp-section-no">01</div>
     </div>
     <div>
-      <h2 class="lp-section-title reveal">A journey we composed for <em>five friends.</em></h2>
-      <p class="lp-section-copy reveal">The point of a bespoke journey is not that there is no structure. It is that the structure belongs to the people travelling. This one was built around wildlife, time together, and the people they wanted to meet along the way.</p>
+      <h2 class="lp-section-title reveal">Five friends.<br>Twelve days.<br><em>Four different Tanzanias.</em></h2>
+      <p class="lp-section-copy reveal">They wanted serious wildlife, time together outside the vehicle, and a slower cultural stop before returning home. The route below is one journey Enkiama built around that brief.</p>
     </div>
   </div>
 
-  <div class="lp-journey-shell">
-    <div class="lp-journey-meta reveal">
-      <span><strong>12 days</strong></span>
-      <span>5 travellers</span>
-      <span>July</span>
-      <span>Private throughout</span>
-      <span>Safari · crater · mountain culture</span>
-    </div>
-    <div class="lp-route-line reveal" aria-label="Journey route">
-      <div class="lp-route-stop">Arusha</div>
-      <div class="lp-route-stop">Ngorongoro</div>
-      <div class="lp-route-stop">Serengeti</div>
-      <div class="lp-route-stop">Kibosho</div>
+  <div class="lp-journey-stack reveal">
+    <figure class="lp-photo lp-journey-main" data-lp-media style="--lp-pos:50% 52%;--lp-mask:var(--lp-white);">
+      <img src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at sunset">
+      <figcaption>Serengeti · golden hour</figcaption>
+    </figure>
+
+    <div class="lp-journey-indexplate">
+      <span>Private journey</span>
+      <strong>01 / 01</strong>
     </div>
 
-    <div class="lp-journey-grid">
-      <div class="lp-journey-gallery reveal">
-        <figure class="lp-photo" data-lp-media style="--lp-pos:50% 52%;"><img src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at sunset"><figcaption>The Serengeti · golden hour</figcaption></figure>
-        <figure class="lp-photo" data-lp-media style="--lp-pos:50% 54%;"><img src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife across the Ngorongoro crater floor"><figcaption>Ngorongoro · crater floor</figcaption></figure>
-        <figure class="lp-photo" data-lp-media style="--lp-pos:50% 50%;"><img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho beneath Kilimanjaro"><figcaption>Kibosho · Kilimanjaro foothills</figcaption></figure>
+    <div class="lp-journey-routeplate">
+      <div class="lp-route-head"><span>Route</span><strong>12 days · July</strong></div>
+      <div class="lp-route-mini" aria-label="Arusha to Kibosho route">
+        <div><i></i><span>Arusha</span></div>
+        <div><i></i><span>Ngorongoro</span></div>
+        <div><i></i><span>Serengeti</span></div>
+        <div><i></i><span>Kibosho</span></div>
       </div>
-      <div class="lp-journey-story reveal">
-        <p class="lp-kicker">Why it worked</p>
-        <h3>Not more places.<br><em>The right sequence.</em></h3>
+      <div class="lp-route-foot">5 travellers · private vehicle · three specialist introductions</div>
+    </div>
 
-        <div class="lp-brief">
-          <span class="lp-brief-label">What they wanted</span>
-          <p>Wildlife at depth, but not twelve days spent moving from one game drive to the next. Time for the group itself. And encounters that felt human rather than scheduled.</p>
-        </div>
+    <figure class="lp-photo lp-journey-inset" data-lp-media style="--lp-pos:50% 55%;--lp-mask:var(--lp-bone);">
+      <img src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife across the Ngorongoro crater floor">
+      <figcaption>Ngorongoro · crater floor</figcaption>
+    </figure>
 
-        <div class="lp-brief">
-          <span class="lp-brief-label">How we shaped it</span>
-          <p>A Serengeti naturalist with three decades on the plain, a Maasai cultural guide around Ngorongoro, and a Chagga family in Kibosho. Different worlds, but one continuous standard of care.</p>
-        </div>
+    <figure class="lp-photo lp-journey-detail" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-bone);">
+      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho beneath Kilimanjaro">
+      <figcaption>Kibosho · Kilimanjaro foothills</figcaption>
+    </figure>
+  </div>
 
-        <div class="lp-quote">
-          <blockquote>“Every guide, every lodge, every partner felt like they genuinely wanted us there. Like we had been expected.”</blockquote>
-          <cite>Marina V. · travelling with four friends</cite>
-        </div>
-      </div>
+  <div class="lp-journey-notes">
+    <div class="lp-note reveal">
+      <span class="lp-brief-label">The brief</span>
+      <h3>Wildlife, but not only wildlife.</h3>
+      <p>Enough time in the Serengeti to go deep, then a deliberate change of rhythm before the journey ended.</p>
+    </div>
+    <div class="lp-note reveal">
+      <span class="lp-brief-label">The decisions</span>
+      <h3>Fewer handoffs. Better people.</h3>
+      <p>A Serengeti naturalist, a local Ngorongoro guide and a Chagga family in Kibosho — each brought in for one part of the journey.</p>
+    </div>
+    <div class="lp-note lp-note-quote reveal">
+      <span class="lp-brief-label">Afterwards</span>
+      <blockquote>“Every guide, every lodge, every partner felt like they genuinely wanted us there.”</blockquote>
+      <cite>Marina V. · travelling with four friends</cite>
     </div>
   </div>
 </section>
@@ -2527,36 +2648,28 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-proof">
   <div class="lp-proof-inner">
     <div class="lp-proof-head">
-      <h2 class="lp-proof-title reveal">Personal should feel <em>precise.</em></h2>
-      <p class="lp-proof-copy reveal">Bespoke travel should not mean vague promises. You should know who is looking after you, why a place is in the journey, what the rhythm will feel like, and what the whole experience costs before you arrive.</p>
+      <h2 class="lp-proof-title reveal">Private from arrival<br>to <em>departure.</em></h2>
+      <p class="lp-proof-copy reveal">One journey, one point of responsibility. Before you travel, the proposal names the route, accommodation, key people, inclusions and complete agreed cost.</p>
     </div>
 
-    <div class="lp-proof-list">
-      <div class="lp-proof-row reveal">
-        <div class="n">01</div>
-        <h3>One group at a time</h3>
-        <p>Your journey is not a seat inside someone else’s departure. The route, pace, vehicle, guides and transitions are composed around your group.</p>
-      </div>
-      <div class="lp-proof-row reveal">
-        <div class="n">02</div>
-        <h3>The exact people</h3>
-        <p>We bring in the naturalist, host, local guide or specialist who belongs to that part of Tanzania — and tell you why they are there.</p>
-      </div>
-      <div class="lp-proof-row reveal">
-        <div class="n">03</div>
-        <h3>Local intelligence</h3>
-        <p>Seasons change. Wildlife moves. Roads, camps and access shift. The plan is designed with people who are on the ground, not from a distant template.</p>
-      </div>
-      <div class="lp-proof-row reveal">
-        <div class="n">04</div>
-        <h3>Clear before you leave</h3>
-        <p>The proposal explains the journey, the people, the accommodation and the complete cost. No surprise top-ups after you land.</p>
-      </div>
-    </div>
+    <div class="lp-proof-system reveal">
+      <figure class="lp-photo lp-proof-main" data-lp-media style="--lp-pos:50% 52%;--lp-mask:var(--lp-bone);">
+        <img src="assets/images/nyerere.jpg" loading="lazy" decoding="async" alt="Boat safari with elephants in Nyerere National Park">
+        <figcaption>Nyerere · on the Rufiji</figcaption>
+      </figure>
 
-    <div class="lp-proof-diptych reveal">
-      <figure class="lp-photo" data-lp-media style="--lp-pos:50% 48%;"><img src="assets/images/manyara.jpg" loading="lazy" decoding="async" alt="Lions resting in a tree in northern Tanzania"><figcaption>Lake Manyara · the field</figcaption></figure>
-      <figure class="lp-photo" data-lp-media style="--lp-pos:50% 50%;"><img src="assets/images/lodge.jpg" loading="lazy" decoding="async" alt="Interior of a safari tented lodge"><figcaption>Where you wake matters too</figcaption></figure>
+      <aside class="lp-proof-ledger">
+        <div class="lp-ledger-top"><span>What stays controlled</span><b>ENK / 04</b></div>
+        <div class="lp-ledger-row"><span>01</span><strong>Your group</strong><em>Private route, vehicle and pace</em></div>
+        <div class="lp-ledger-row"><span>02</span><strong>Your people</strong><em>Named guides and specialists where relevant</em></div>
+        <div class="lp-ledger-row"><span>03</span><strong>Your plan</strong><em>Accommodation and transitions agreed before travel</em></div>
+        <div class="lp-ledger-row"><span>04</span><strong>Your cost</strong><em>Complete proposal before commitment</em></div>
+      </aside>
+
+      <figure class="lp-photo lp-proof-inset" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-white);">
+        <img src="assets/images/lodge.jpg" loading="lazy" decoding="async" alt="Interior of a safari tented lodge">
+        <figcaption>Accommodation · selected to fit the journey</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -2564,23 +2677,28 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-people" id="people">
   <div class="lp-people-inner">
     <div class="lp-people-head">
-      <h2 class="reveal">The people are not an add-on to the <em>journey.</em></h2>
-      <p class="reveal">A landscape changes when the person beside you belongs to it. We would rather show fewer people truthfully than fill the page with anonymous portraits. The network is introduced properly when we know which journey we are building.</p>
+      <h2 class="reveal">The right person for each part of the <em>journey.</em></h2>
+      <p class="reveal">Enkiama keeps a trusted core and brings in local specialists when they know a place better. Your proposal explains who is involved and why.</p>
     </div>
 
-    <div class="lp-people-editorial">
-      <div class="lp-people-copy reveal">
-        <p class="lp-kicker">The Enkiama network</p>
-        <h3>Chosen for the world you are <em>entering.</em></h3>
-        <div class="lp-person-point"><div class="n">01</div><div><strong>The guide</strong><span>Someone who can read the land, the season and the moment — not simply recite a route.</span></div></div>
-        <div class="lp-person-point"><div class="n">02</div><div><strong>The host</strong><span>A person or family whose welcome is real before it becomes part of an itinerary.</span></div></div>
-        <div class="lp-person-point"><div class="n">03</div><div><strong>The specialist</strong><span>When another local operator or community guide knows a world better, we bring them in and tell you why.</span></div></div>
-      </div>
+    <div class="lp-network-stage reveal">
+      <figure class="lp-photo lp-network-main" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-paper);">
+        <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho in the Kilimanjaro foothills">
+        <figcaption>Kibosho · Kilimanjaro foothills</figcaption>
+      </figure>
 
-      <div class="lp-people-photos reveal">
-        <figure class="lp-photo lp-human-main" data-lp-media style="--lp-pos:50% 50%;"><img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho in the Kilimanjaro foothills"><figcaption>Kibosho · Kilimanjaro foothills</figcaption></figure>
-        <figure class="lp-photo lp-human-secondary" data-lp-media style="--lp-pos:50% 100%;"><img src="assets/images/maasai.jpg" loading="lazy" decoding="async" alt="Maasai walking along the Ngorongoro highlands"><figcaption>Ngorongoro highlands</figcaption></figure>
-      </div>
+      <figure class="lp-photo lp-network-inset" data-lp-media style="--lp-pos:50% 100%;--lp-mask:var(--lp-bone);">
+        <img src="assets/images/maasai.jpg" loading="lazy" decoding="async" alt="Maasai walking along the Ngorongoro highlands">
+        <figcaption>Ngorongoro highlands</figcaption>
+      </figure>
+
+      <aside class="lp-network-card">
+        <p class="lp-kicker">Introduced by name</p>
+        <div><span>Guide</span><strong>For the ecosystem</strong></div>
+        <div><span>Host</span><strong>For the community</strong></div>
+        <div><span>Specialist</span><strong>When local depth matters more</strong></div>
+        <small>Who joins your journey depends on the route — not on a fixed roster.</small>
+      </aside>
     </div>
   </div>
 </section>
@@ -2588,8 +2706,8 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-compose" id="compose-preview">
   <div class="lp-compose-inner">
     <div class="lp-compose-top">
-      <h2 class="reveal">Start with three things.<br>We’ll compose the <em>rest.</em></h2>
-      <p class="lp-compose-copy reveal">You do not need an itinerary before speaking to us. A useful first conversation is much simpler: who is coming, roughly when, and what is pulling you toward Tanzania.</p>
+      <h2 class="reveal">Tell us three things.<br><em>We can start there.</em></h2>
+      <p class="lp-compose-copy reveal">Who is travelling, roughly when, and what you most want to experience. From that, we can tell you what is realistic for the season, duration and budget.</p>
     </div>
 
     <div class="lp-compose-steps">
@@ -2608,24 +2726,24 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-practical">
   <div class="lp-practical-inner">
     <div class="lp-practical-head">
-      <h2 class="reveal">Private travel should also feel <em>clear.</em></h2>
-      <p class="reveal">The romance belongs in Tanzania. The planning should be straightforward. We discuss the important constraints early, then return with a journey that is costed and explained as a whole.</p>
+      <h2 class="reveal">Before you commit,<br>you will know <em>these three things.</em></h2>
+      <p class="reveal">Timing, budget and communication are discussed early. The proposal then sets out the journey as one complete plan.</p>
     </div>
     <div class="lp-practical-grid">
       <div class="lp-practical-item reveal">
         <div class="ey">Timing</div>
-        <h3>Earlier gives us more choice.</h3>
-        <p>Especially for small camps, specialist guides and peak migration windows. But Tanzania is a year-round country, and good journeys exist well beyond the obvious months.</p>
+        <h3>Your best travel window.</h3>
+        <p>We explain what your month means for wildlife, weather, availability and the pace of the route.</p>
       </div>
       <div class="lp-practical-item reveal">
         <div class="ey">Investment</div>
-        <h3>Budget is discussed early.</h3>
-        <p>We do not build a fantasy and reveal the number later. Your budget helps determine the accommodation, pace and experiences from the beginning; the proposal then gives the complete cost.</p>
+        <h3>What your budget changes.</h3>
+        <p>Accommodation, internal flights, private vehicles and duration move the number most. We use the budget to shape those choices from the start.</p>
       </div>
       <div class="lp-practical-item reveal">
         <div class="ey">Conversation</div>
-        <h3>English or Spanish.</h3>
-        <p>WhatsApp works well for a first message; email is better if you already have more to say. Either way, you are speaking directly with the people who will shape the journey.</p>
+        <h3>Who you speak to.</h3>
+        <p>WhatsApp or email reaches the team shaping the trip. You are not passed to a separate sales desk after the first conversation.</p>
       </div>
     </div>
   </div>
@@ -2750,7 +2868,7 @@ body.eh-locked{overflow:hidden;}
 </section>
 
 <!-- EXPLORE FURTHER — new offerings teaser -->
-<section style="max-width:1000px;margin:0 auto;padding:clamp(4rem,9vh,7rem) clamp(1.5rem,4vw,2rem);border-top:1px solid var(--rule,rgba(190,158,104,0.11));">
+<section class="lp-more">
   <p class="eye reveal" style="text-align:center;margin-bottom:3rem;color:var(--earth,#BE9E68);font-variant-caps:all-small-caps;letter-spacing:.28em;font-size:11px;">There is more to Enkiama</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.5rem;">
     <a href="kilimanjaro.html" class="reveal xf-card" style="text-decoration:none;display:block;border:1px solid var(--rule,rgba(190,158,104,0.11));border-radius:2px;padding:2rem;transition:border-color .5s ease;">
@@ -2847,7 +2965,7 @@ body.eh-locked{overflow:hidden;}
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
-    <div class="f-tagline">Not a tour. A journey composed for you alone.</div>
+    <div class="f-tagline">Private journeys across Tanzania · one group at a time.</div>
   </div>
 
   <div class="f-cols">
