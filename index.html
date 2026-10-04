@@ -2135,6 +2135,340 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   .lp-route-mini{grid-template-columns:repeat(2,1fr)!important;}
 }
 </style>
+<style id="enkiama-stability-polish-v6">
+/* =========================================================
+   LANDING STABILITY + POLISH
+   Complex compositions stay layered, but participate in flow.
+   ========================================================= */
+
+/* --- A. Intrinsic layered compositions --- */
+.lp-journey-stack{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:auto;
+  gap:12px;
+  position:relative;
+  min-height:0!important;
+  padding:0 0 clamp(6rem,9vw,9rem)!important;
+  max-width:1500px;
+  margin:0 auto;
+  align-items:start;
+}
+.lp-journey-main{
+  position:relative!important;left:auto!important;top:auto!important;
+  grid-column:1 / 10;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:16/9;
+  z-index:1;
+}
+.lp-journey-indexplate{
+  position:relative!important;left:auto!important;top:auto!important;
+  grid-column:1 / 4;grid-row:1;
+  align-self:start;justify-self:start;
+  margin:1.2rem 0 0 1.2rem;
+  z-index:6;
+}
+.lp-journey-inset{
+  position:relative!important;right:auto!important;top:auto!important;
+  grid-column:9 / 13;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:4/5;
+  margin-top:10%;
+  z-index:5;
+}
+.lp-journey-detail{
+  position:relative!important;right:auto!important;bottom:auto!important;
+  grid-column:8 / 11;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:4/3;
+  align-self:end;
+  transform:translateY(38%);
+  z-index:8;
+}
+.lp-journey-routeplate{
+  position:relative!important;left:auto!important;bottom:auto!important;
+  grid-column:2 / 8;grid-row:1;
+  width:100%!important;
+  align-self:end;
+  transform:translateY(46%);
+  z-index:9;
+}
+.lp-journey-notes{margin-top:clamp(1rem,2vw,2rem);}
+
+/* proof */
+.lp-proof-system{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:auto;
+  gap:12px;
+  position:relative;
+  min-height:0!important;
+  margin-top:clamp(3rem,5vw,5rem)!important;
+  padding-bottom:clamp(5rem,8vw,8rem);
+  align-items:start;
+}
+.lp-proof-main{
+  position:relative!important;left:auto!important;top:auto!important;
+  grid-column:1 / 9;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:16/9;
+  z-index:1;
+}
+.lp-proof-ledger{
+  position:relative!important;right:auto!important;top:auto!important;
+  grid-column:8 / 13;grid-row:1;
+  width:100%!important;
+  margin-top:8%;
+  z-index:7;
+}
+.lp-proof-inset{
+  position:relative!important;left:auto!important;bottom:auto!important;
+  grid-column:2 / 5;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:4/3;
+  align-self:end;
+  transform:translateY(44%);
+  z-index:8;
+}
+
+/* network */
+.lp-network-stage{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:auto;
+  gap:12px;
+  position:relative;
+  min-height:0!important;
+  max-width:1380px;
+  margin:0 auto;
+  padding-bottom:clamp(5rem,8vw,8rem);
+  align-items:start;
+}
+.lp-network-main{
+  position:relative!important;left:auto!important;top:auto!important;
+  grid-column:1 / 8;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:4/3;
+  z-index:1;
+}
+.lp-network-inset{
+  position:relative!important;right:auto!important;top:auto!important;
+  grid-column:9 / 13;grid-row:1;
+  width:100%!important;height:auto!important;aspect-ratio:4/5;
+  margin-top:10%;
+  z-index:3;
+}
+.lp-network-card{
+  position:relative!important;left:auto!important;bottom:auto!important;
+  grid-column:5 / 11;grid-row:1;
+  width:100%!important;
+  align-self:end;
+  transform:translateY(40%);
+  z-index:7;
+}
+
+/* --- B. Seasonal intelligence: separate component, no generic .season --- */
+.lp-season-note{
+  display:grid;
+  grid-template-columns:minmax(150px,.65fr) minmax(0,2fr) minmax(170px,.55fr);
+  gap:clamp(2rem,5vw,5rem);
+  align-items:center;
+  background:var(--lp-bone);
+  color:var(--lp-ink);
+  padding:clamp(4.5rem,8vw,7rem) clamp(1.5rem,6vw,6rem);
+  border-top:1px solid var(--lp-line);
+  border-bottom:1px solid var(--lp-line);
+}
+.lp-season-index{align-self:start;padding-top:.6rem;}
+.lp-season-kicker,.lp-season-month{
+  display:block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;
+}
+.lp-season-kicker{color:rgba(15,23,18,.42);margin-bottom:1rem;}
+.lp-season-month{color:#9A794C;line-height:1.7;}
+.lp-season-story{max-width:900px;}
+.lp-season-now{
+  font-family:'Fraunces',serif;
+  font-size:clamp(42px,6vw,86px);
+  line-height:.98;letter-spacing:-.035em;font-weight:500;
+  color:var(--lp-ink);text-wrap:balance;
+}
+.lp-season-sub{
+  max-width:700px;margin-top:1.7rem;
+  font-size:15px;line-height:1.85;color:rgba(15,23,18,.64);
+}
+.lp-season-action{align-self:end;padding-bottom:.5rem;}
+.lp-season-ask{
+  display:inline-block;color:var(--lp-olive);text-decoration:none;
+  font-size:10px;line-height:1.6;letter-spacing:.18em;text-transform:uppercase;
+  padding-bottom:.3rem;border-bottom:1px solid rgba(85,107,68,.3);
+}
+
+/* --- C. Continue exploring: editorial index, not generic cards --- */
+.lp-more{
+  max-width:1450px!important;
+  margin:0 auto!important;
+  padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem)!important;
+  background:var(--lp-white)!important;
+  border-top:1px solid var(--lp-line)!important;
+}
+.lp-more-head{
+  display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,6vw,7rem);
+  align-items:end;margin-bottom:clamp(3rem,6vw,5rem);
+}
+.lp-more-head h2{
+  font-family:'Fraunces',serif;font-size:clamp(38px,5.4vw,72px);
+  line-height:.98;letter-spacing:-.035em;font-weight:500;color:var(--lp-ink);
+}
+.lp-more-head h2 em{font-style:italic;color:var(--lp-olive);}
+.lp-more-index{border-top:1px solid var(--lp-line);}
+.lp-more-item{
+  display:grid;grid-template-columns:70px minmax(0,1fr) 40px;
+  gap:1.5rem;align-items:start;
+  padding:1.7rem 0;border-bottom:1px solid var(--lp-line);
+  color:var(--lp-ink);text-decoration:none;
+  transition:padding-left .45s cubic-bezier(.16,1,.3,1),background .35s ease;
+}
+.lp-more-item:hover{padding-left:.8rem;}
+.lp-more-no{font-family:'Fraunces',serif;font-size:20px;color:rgba(85,107,68,.48);}
+.lp-more-item small{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#8A7048;margin-bottom:.35rem;}
+.lp-more-item strong{display:block;font-family:'Fraunces',serif;font-size:clamp(22px,2.4vw,32px);font-weight:500;line-height:1.15;}
+.lp-more-item p{margin-top:.45rem;font-size:12px;line-height:1.65;color:rgba(15,23,18,.58);max-width:62ch;}
+.lp-more-arrow{justify-self:end;font-size:18px;color:var(--lp-olive);}
+
+/* --- D. Final private travel desk --- */
+.cta-wrap{background:var(--lp-bone-2)!important;color:var(--lp-ink)!important;}
+.cta-main{
+  display:grid!important;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;
+  min-height:0!important;
+  border-bottom:0!important;
+}
+.cta-l{
+  position:relative;overflow:hidden;
+  background:var(--lp-bone-2)!important;
+  border-right:1px solid var(--lp-line)!important;
+  padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem)!important;
+}
+.cta-l .eye{margin-bottom:2.2rem;color:#8A7048;}
+.cta-l .dim{max-width:520px;margin-top:2.2rem;}
+.cta-r{
+  background:var(--lp-white)!important;
+  padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem)!important;
+  display:flex!important;flex-direction:column!important;
+  justify-content:center!important;gap:0!important;
+  min-width:0;
+}
+.cta-desk-eye{
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#8A7048;
+  margin-bottom:1.8rem;
+}
+.cta-method{
+  display:grid;
+  grid-template-columns:90px minmax(0,1fr) 34px;
+  gap:.8rem 1.4rem;
+  align-items:start;
+  text-decoration:none;color:var(--lp-ink);
+  padding:1.35rem 0;
+  border-top:1px solid var(--lp-line);
+}
+.cta-method:last-of-type{border-bottom:1px solid var(--lp-line);}
+.cta-method .cta-lbl{grid-row:1/3;padding-top:.25rem;color:#8A7048;}
+.cta-method-main{
+  font-family:'Fraunces',serif;font-size:clamp(22px,2.4vw,31px);
+  font-weight:500;line-height:1.15;overflow-wrap:anywhere;
+}
+.cta-method-note{font-size:12px;line-height:1.55;color:rgba(15,23,18,.58);}
+.cta-method-arrow{
+  grid-column:3;grid-row:1/3;align-self:center;justify-self:end;
+  color:var(--lp-olive);font-size:18px;transition:transform .3s ease;
+}
+.cta-method:hover .cta-method-arrow{transform:translateX(4px);}
+.lp-contact-meta{
+  display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;
+  margin-top:2rem;font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(15,23,18,.45);
+}
+.lp-contact-meta span:not(:last-child)::after{content:"·";margin-left:1.5rem;color:rgba(15,23,18,.25);}
+
+/* --- E. Defensive layout rules --- */
+.lp-journey-stack,.lp-proof-system,.lp-network-stage,.cta-main,.lp-season-note{min-width:0;}
+.lp-journey-stack>*,.lp-proof-system>*,.lp-network-stage>*,.cta-main>*{min-width:0;}
+.lp-photo img,.ph-frame img{max-width:none;}
+
+/* desktop should never invent huge empty stages */
+@media(min-width:901px){
+  .lp-journey-stack,.lp-proof-system,.lp-network-stage{overflow:visible;}
+}
+
+/* tablet */
+@media(max-width:900px){
+  .lp-journey-stack{
+    grid-template-columns:repeat(8,minmax(0,1fr));
+    padding-bottom:clamp(4rem,8vw,6rem)!important;
+  }
+  .lp-journey-main{grid-column:1/-1;aspect-ratio:16/10;}
+  .lp-journey-inset{grid-column:6/-1;margin-top:8%;aspect-ratio:4/5;}
+  .lp-journey-detail{grid-column:1/4;transform:translateY(22%);}
+  .lp-journey-routeplate{grid-column:2/7;transform:translateY(34%);}
+  .lp-journey-indexplate{grid-column:1/4;}
+
+  .lp-proof-system{grid-template-columns:repeat(8,minmax(0,1fr));padding-bottom:4.5rem;}
+  .lp-proof-main{grid-column:1/7;aspect-ratio:16/10;}
+  .lp-proof-ledger{grid-column:5/-1;margin-top:10%;}
+  .lp-proof-inset{grid-column:1/4;transform:translateY(28%);}
+
+  .lp-network-stage{grid-template-columns:repeat(8,minmax(0,1fr));padding-bottom:4.5rem;}
+  .lp-network-main{grid-column:1/6;}
+  .lp-network-inset{grid-column:6/-1;}
+  .lp-network-card{grid-column:3/8;transform:translateY(30%);}
+
+  .lp-season-note{grid-template-columns:1fr;gap:1.5rem;}
+  .lp-season-index{display:flex;gap:1rem;align-items:center;padding-top:0;}
+  .lp-season-kicker,.lp-season-month{display:inline;margin:0;}
+  .lp-season-action{align-self:start;}
+
+  .lp-more-head{grid-template-columns:1fr;gap:1rem;}
+
+  .cta-main{grid-template-columns:1fr!important;}
+  .cta-l{border-right:0!important;border-bottom:1px solid var(--lp-line)!important;}
+}
+
+/* mobile */
+@media(max-width:620px){
+  .lp-journey-stack{
+    display:grid!important;grid-template-columns:1fr 1fr;
+    gap:8px;padding-bottom:2.5rem!important;
+  }
+  .lp-journey-main{grid-column:1/-1;grid-row:auto;aspect-ratio:4/3;}
+  .lp-journey-indexplate{position:absolute!important;left:12px!important;top:12px!important;margin:0;grid-column:auto;}
+  .lp-journey-inset,.lp-journey-detail{
+    grid-row:auto;position:relative!important;transform:none!important;margin:0!important;
+    width:100%!important;aspect-ratio:1/1;
+  }
+  .lp-journey-inset{grid-column:1;}
+  .lp-journey-detail{grid-column:2;}
+  .lp-journey-routeplate{
+    grid-column:1/-1;grid-row:auto;transform:none!important;margin-top:-1rem;
+  }
+
+  .lp-proof-system{display:grid!important;grid-template-columns:1fr 1fr;padding-bottom:2rem;}
+  .lp-proof-main{grid-column:1/-1;grid-row:auto;aspect-ratio:4/3;}
+  .lp-proof-ledger{grid-column:1/-1;grid-row:auto;margin-top:-1.2rem;}
+  .lp-proof-inset{grid-column:2;grid-row:auto;transform:none!important;aspect-ratio:1/1;margin-top:-.8rem;}
+
+  .lp-network-stage{display:grid!important;grid-template-columns:1fr 1fr;padding-bottom:2rem;}
+  .lp-network-main{grid-column:1/-1;grid-row:auto;aspect-ratio:4/3;}
+  .lp-network-inset{grid-column:2;grid-row:auto;margin:0;aspect-ratio:4/5;}
+  .lp-network-card{grid-column:1/-1;grid-row:auto;transform:none!important;margin-top:-1rem;}
+
+  .lp-season-note{padding:4rem 1.35rem;}
+  .lp-season-now{font-size:clamp(40px,12vw,62px);}
+
+  .lp-more{padding:4rem 1.35rem!important;}
+  .lp-more-item{grid-template-columns:46px minmax(0,1fr) 24px;gap:1rem;}
+  .lp-more-item p{font-size:12px;}
+
+  .cta-l,.cta-r{padding:4rem 1.35rem!important;}
+  .cta-method{grid-template-columns:72px minmax(0,1fr) 24px;gap:.7rem 1rem;}
+  .cta-method-note{grid-column:2;}
+  .lp-contact-meta{gap:.45rem .8rem;}
+  .lp-contact-meta span:not(:last-child)::after{margin-left:.8rem;}
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -2984,103 +3318,81 @@ body.eh-locked{overflow:hidden;}
 
 <!-- ── CTA ── -->
 <!-- THE SEASON — what is happening in Tanzania today -->
-<section class="season" id="season">
-  <p class="season-eyebrow" id="seasonMonth">In Tanzania now</p>
-  <p class="season-now" id="seasonNow"></p>
-  <p class="season-sub" id="seasonSub"></p>
-  <a class="season-ask" href="begin.html" id="seasonAsk">Ask what this month would give you &rarr;</a>
+<section class="lp-season-note" id="season">
+  <div class="lp-season-index">
+    <span class="lp-season-kicker">Tanzania now</span>
+    <span class="lp-season-month" id="seasonMonth">In Tanzania now</span>
+  </div>
+  <div class="lp-season-story">
+    <p class="lp-season-now" id="seasonNow"></p>
+    <p class="lp-season-sub" id="seasonSub"></p>
+  </div>
+  <div class="lp-season-action">
+    <a class="lp-season-ask" href="begin.html" id="seasonAsk">Ask about this month &rarr;</a>
+  </div>
 </section>
 
-<!-- EXPLORE FURTHER — new offerings teaser -->
+<!-- EXPLORE FURTHER -->
 <section class="lp-more">
-  <p class="eye reveal" style="text-align:center;margin-bottom:3rem;color:var(--earth,#BE9E68);font-variant-caps:all-small-caps;letter-spacing:.28em;font-size:11px;">There is more to Enkiama</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.5rem;">
-    <a href="kilimanjaro.html" class="reveal xf-card" style="text-decoration:none;display:block;border:1px solid var(--rule,rgba(190,158,104,0.11));border-radius:2px;padding:2rem;transition:border-color .5s ease;">
-      <p style="font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:10px;color:var(--earth,#BE9E68);margin-bottom:1rem;">The mountain</p>
-      <h3 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.4rem;color:var(--bone,#EDE6D6);line-height:1.25;margin-bottom:.8rem;">Kilimanjaro, climbed the right way</h3>
-      <p style="font-size:.95rem;line-height:1.6;color:var(--bone3,#D6CCB6);margin-bottom:1.2rem;">Fewer people, more days, and a crew paid and named as they should be.</p>
-      <span style="font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:11px;color:var(--earth,#BE9E68);">Read more &rarr;</span>
+  <div class="lp-more-head reveal">
+    <p class="lp-kicker">Continue exploring</p>
+    <h2>Go deeper where<br><em>you need to.</em></h2>
+  </div>
+  <div class="lp-more-index">
+    <a href="kilimanjaro.html" class="lp-more-item reveal">
+      <span class="lp-more-no">01</span>
+      <div><small>Mountain</small><strong>Kilimanjaro on foot</strong><p>Routes, pace, acclimatisation and the people who support the climb.</p></div>
+      <span class="lp-more-arrow">&rarr;</span>
     </a>
-    <a href="companions.html" class="reveal xf-card" style="text-decoration:none;display:block;border:1px solid var(--rule,rgba(190,158,104,0.11));border-radius:2px;padding:2rem;transition:border-color .5s ease;">
-      <p style="font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:10px;color:var(--earth,#BE9E68);margin-bottom:1rem;">Travelling together</p>
-      <h3 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.4rem;color:var(--bone,#EDE6D6);line-height:1.25;margin-bottom:.8rem;">Companions</h3>
-      <p style="font-size:.95rem;line-height:1.6;color:var(--bone3,#D6CCB6);margin-bottom:1.2rem;">Open journeys with a few seats, and a curated way for solo travellers to find the right company.</p>
-      <span style="font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:11px;color:var(--earth,#BE9E68);">Read more &rarr;</span>
+    <a href="companions.html" class="lp-more-item reveal">
+      <span class="lp-more-no">02</span>
+      <div><small>Shared journeys</small><strong>Companions</strong><p>Small-group departures and a considered way to travel with others.</p></div>
+      <span class="lp-more-arrow">&rarr;</span>
     </a>
-    <a href="why.html" class="reveal xf-card" style="text-decoration:none;display:block;border:1px solid var(--rule,rgba(190,158,104,0.11));border-radius:2px;padding:2rem;transition:border-color .5s ease;">
-      <p style="font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:10px;color:var(--earth,#BE9E68);margin-bottom:1rem;">The reason</p>
-      <h3 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.4rem;color:var(--bone,#EDE6D6);line-height:1.25;margin-bottom:.8rem;">Why Enkiama exists</h3>
-      <p style="font-size:.95rem;line-height:1.6;color:var(--bone3,#D6CCB6);margin-bottom:1.2rem;">A note from Baraka, its founder &mdash; on the gap Enkiama was built to close.</p>
-      <span style="font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:11px;color:var(--earth,#BE9E68);">Read more &rarr;</span>
+    <a href="why.html" class="lp-more-item reveal">
+      <span class="lp-more-no">03</span>
+      <div><small>Enkiama</small><strong>Who we are</strong><p>Our roots in Tanzania and the way we approach a journey through the country.</p></div>
+      <span class="lp-more-arrow">&rarr;</span>
     </a>
   </div>
 </section>
-<style>.xf-card:hover{border-color:rgba(190,158,104,0.3) !important;}</style>
 
 <section class="cta-wrap" id="contact">
   <div class="cta-main">
     <div class="cta-l">
       <div class="cta-bg">rafiki</div>
       <div class="cta-l-in">
-        <p class="eye" style="margin-bottom:2.5rem;">When you are ready</p>
-        <div class="rafiki-hed">
-          Begin a<br>conversation,<br><em>rafiki.</em>
-        </div>
+        <p class="eye">When you are ready</p>
+        <div class="rafiki-hed">Begin a<br>conversation,<br><em>rafiki.</em></div>
         <div class="rafiki-tr">
           <div class="rafiki-dash"></div>
           <span class="rafiki-def">Rafiki: friend, companion, fellow traveller</span>
         </div>
-        <p class="dim">Tell us who is coming, roughly when, and what is pulling you toward Tanzania. You do not need a finished itinerary. We will help shape the journey from there.</p>
+        <p class="dim">Tell us who is travelling, roughly when, and what you most want from Tanzania. A month and a few ideas are enough to begin.</p>
       </div>
     </div>
-    <div class="cta-r">
-      <div class="cta-chs">
-        <div class="cta-ch">
-          <span class="cta-lbl">WhatsApp</span>
-          <span class="cta-val">Our preferred channel. We write back within a day, often sooner. It is the fastest way to understand if we are the right fit for each other.</span>
-        </div>
-        <div class="cta-ch">
-          <span class="cta-lbl">Email</span>
-          <span class="cta-val">hola@enkiama.com: for longer introductions, or anything easier to set out in full before we speak.</span>
-        </div>
-      </div>
-      <div class="season">
-        <div class="sea-ln"></div>
-        <span class="sea-txt">Year&ndash;round &nbsp;&middot;&nbsp; Composed for your group alone &nbsp;&middot;&nbsp; Never repeated</span>
-      </div>
-      <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="btn-primary" style="text-align:center;">Begin on WhatsApp</a>\n      <a href="mailto:hola@enkiama.com" class="btn-ghost" style="text-align:center;">Or write to hola@enkiama.com &rarr;</a>
-    </div>
-  </div>
 
-  <div class="ask">
-    <div class="ask-c">
-      <div class="ask-pg">?</div>
-      <div class="ask-in">
-        <p class="ask-tag">Past guests</p>
-        <div class="ask-rule"></div>
-        <h3 class="ask-title">Ask us about people who have travelled with us</h3>
-        <p class="dim">We don&rsquo;t use ratings. We use relationships. Ask about past guests: where they went, what they experienced, what they said when they came home.</p>
-        <a href="mailto:hola@enkiama.com?subject=Past%20guests" class="ask-lnk">Ask about past guests &rarr;</a>
-      </div>
-    </div>
-    <div class="ask-c">
-      <div class="ask-pg">&rarr;</div>
-      <div class="ask-in">
-        <p class="ask-tag">Destinations</p>
-        <div class="ask-rule"></div>
-        <h3 class="ask-title">Ask us which world &mdash; or combination &mdash; is right for you</h3>
-        <p class="dim">The mountain in June feels different to October. The coast after the savanna lands differently than before it. Ask us: we&rsquo;ll tell you what we honestly think.</p>
-        <a href="mailto:hola@enkiama.com?subject=Destinations" class="ask-lnk">Ask about destinations &rarr;</a>
-      </div>
-    </div>
-    <div class="ask-c">
-      <div class="ask-pg">&nearr;</div>
-      <div class="ask-in">
-        <p class="ask-tag">Your journey</p>
-        <div class="ask-rule"></div>
-        <h3 class="ask-title">Ask us for a conversation, not a quotation</h3>
-        <p class="dim">We don&rsquo;t send price lists. We have a conversation first: about your group, what draws you, what you&rsquo;re ready for. The quotation comes after, fully costed, no surprises.</p>
-        <a href="mailto:hola@enkiama.com?subject=Our%20journey" class="ask-lnk">Start the conversation &rarr;</a>
+    <div class="cta-r">
+      <p class="cta-desk-eye">Start here</p>
+
+      <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="cta-method">
+        <span class="cta-lbl">WhatsApp</span>
+        <span class="cta-method-main">Message Enkiama</span>
+        <span class="cta-method-note">The easiest way to say hello.</span>
+        <span class="cta-method-arrow">&rarr;</span>
+      </a>
+
+      <a href="mailto:hola@enkiama.com" class="cta-method">
+        <span class="cta-lbl">Email</span>
+        <span class="cta-method-main">hola@enkiama.com</span>
+        <span class="cta-method-note">Useful when you already have dates or a longer introduction.</span>
+        <span class="cta-method-arrow">&rarr;</span>
+      </a>
+
+      <div class="lp-contact-meta">
+        <span>Tanzania</span>
+        <span>Private enquiries</span>
+        <span>Year-round</span>
       </div>
     </div>
   </div>
@@ -4212,43 +4524,6 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
   .f-col a{padding:.62rem 0;line-height:1.35;}
 }
 
-/* ══════════ THE SEASON — the site knows what month it is ══════════
-   A quiet line that tells a visitor what is happening in Tanzania
-   right now. Nobody else does this, and for a company whose whole
-   argument is judgment about timing, it proves the point. */
-.season{
-  max-width:760px;margin:0 auto;
-  padding:clamp(2.5rem,6vh,4rem) clamp(1.5rem,4vw,2rem);
-  border-top:1px solid var(--rule,rgba(190,158,104,0.11));
-  border-bottom:1px solid var(--rule,rgba(190,158,104,0.11));
-  text-align:center;
-}
-.season-eyebrow{
-  font-variant-caps:all-small-caps;letter-spacing:.3em;font-size:11px;
-  color:var(--earth,#BE9E68);margin-bottom:1.4rem;
-}
-.season-now{
-  font-family:'Fraunces',serif;font-weight:400;
-  font-size:clamp(1.35rem,3.4vw,2.1rem);line-height:1.4;
-  color:var(--bone,#EDE6D6);text-wrap:balance;margin-bottom:1.1rem;
-}
-.season-now em{font-style:italic;color:var(--sage,#7A9470);}
-.season-sub{
-  font-size:clamp(.98rem,2.1vw,1.08rem);line-height:1.75;
-  color:var(--bone3,#D6CCB6);max-width:52ch;margin:0 auto 1.6rem;text-wrap:pretty;
-}
-.season-ask{
-  display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.16em;
-  font-size:12px;color:var(--earth,#BE9E68);text-decoration:none;
-  position:relative;padding-bottom:3px;
-}
-.season-ask::after{
-  content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
-  background:linear-gradient(90deg,var(--earth,#BE9E68),rgba(190,158,104,0.2));
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .5s cubic-bezier(.16,1,.3,1);
-}
-.season-ask:hover::after{transform:scaleX(1);}
 
 /* ══════ MOBILE: nothing may cause sideways scroll ══════ */
 @media (max-width:820px){
@@ -4257,7 +4532,7 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
   .hero-ghost,.ph-ghost,.curate-pg,.eh-watermark{max-width:100vw;overflow:hidden;}
   /* the worlds gallery scrolls within itself, not the page */
   .worlds-track,.world-panel{max-width:100vw;}
-  img{max-width:100%;height:auto;}
+  img{max-width:100%;}
 }
 </style>
 <script>
@@ -4369,7 +4644,7 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
 
   var S=[
     /* Jan */ {t:'The southern plains are green, and the calving has begun.',
-               s:'Hundreds of thousands of wildebeest give birth on the short-grass plains over a few weeks, and every predator on the Serengeti moves toward them. Fewer vehicles than the river-crossing months, and in our view the greater privilege.'},
+               s:'Hundreds of thousands of wildebeest give birth on the short-grass plains over a few weeks, and every predator on the Serengeti moves toward them. Fewer vehicles than the river-crossing months, with fewer vehicles than the river-crossing months.'},
     /* Feb */ {t:'Calving season, at its height.',
                s:'The most concentrated wildlife event of the Tanzanian year is happening in the south of the Serengeti right now. It is also a fine month for the coast, and for the mountain\u2019s slopes before the rains.'},
     /* Mar */ {t:'The green is deepening, and the herds begin to drift north.',
@@ -4387,7 +4662,7 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
     /* Sep */ {t:'The north is at its best, and so is Tarangire.',
                s:'Dry, clear, and dense with wildlife. Tarangire in September is a highlight rather than a waypoint, and the crater is superb if you descend at first light.'},
     /* Oct */ {t:'The last of the dry season, and the light is extraordinary.',
-               s:'Dust, gold, long shadows. The herds begin their turn south, and the country empties a little before the short rains. A favourite month of ours.'},
+               s:'Dust, gold, long shadows. The herds begin their turn south, and the country empties a little before the short rains. A strong month for combining wildlife with clear, dry-season travel.'},
     /* Nov */ {t:'The short rains arrive, and the plains turn green again.',
                s:'Brief afternoon storms, everything greening, and the migration moving back toward the southern plains. An underrated window with real value.'},
     /* Dec */ {t:'The herds are returning south, and the year turns.',
