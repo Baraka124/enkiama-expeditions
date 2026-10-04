@@ -2049,6 +2049,64 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
 .lp-more .xf-card p{color:rgba(15,23,18,.62)!important;}
 .lp-more .xf-card:hover{border-color:rgba(85,107,68,.3)!important;transform:translateY(-3px);}
 </style>
+<style id="enkiama-framing-v4">
+.lp-welcome-stack{
+  position:relative;
+  max-width:1180px;
+  min-height:clamp(460px,54vw,670px);
+  margin:clamp(5rem,9vw,8rem) auto 0;
+}
+.lp-welcome-photo{
+  position:absolute;
+  left:0;
+  top:0;
+  width:min(55%,560px);
+  aspect-ratio:1/1;
+  box-shadow:0 28px 70px -46px rgba(15,23,18,.34);
+}
+.lp-welcome-plate{
+  position:absolute;
+  z-index:7;
+  right:0;
+  bottom:0;
+  width:min(620px,58%);
+  background:var(--lp-white);
+  border:1px solid rgba(15,23,18,.1);
+  padding:clamp(1.6rem,3vw,2.6rem);
+  box-shadow:0 30px 74px -50px rgba(15,23,18,.4);
+}
+.lp-welcome-plate h3{
+  font-family:'Fraunces',serif;
+  font-size:clamp(30px,3.7vw,52px);
+  line-height:1.03;
+  letter-spacing:-.025em;
+  font-weight:500;
+  margin-bottom:1.6rem;
+}
+.lp-welcome-plate>div{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:1rem;
+  padding:1rem 0;
+  border-top:1px solid var(--lp-line);
+}
+.lp-welcome-plate>div span{
+  font-family:'Fraunces',serif;
+  color:rgba(85,107,68,.52);
+  font-size:18px;
+}
+.lp-welcome-plate>div p{
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(15,23,18,.66);
+  max-width:46ch;
+}
+@media(max-width:820px){
+  .lp-welcome-stack{min-height:auto;display:grid;grid-template-columns:1fr .78fr;gap:10px;}
+  .lp-welcome-photo{position:relative;width:100%;aspect-ratio:1/1;grid-column:1/-1;}
+  .lp-welcome-plate{position:relative;right:auto;bottom:auto;width:100%;grid-column:1/-1;margin-top:-2.4rem;}
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -2399,20 +2457,20 @@ body.eh-locked{overflow:hidden;}
 
   <div class="hero-content">
     <p class="eye hero-eye" id="hEye">
-      Private Tanzania &nbsp;&middot;&nbsp; One group at a time &nbsp;&middot;&nbsp; Composed around you
+      Tanzanian operator &nbsp;&middot;&nbsp; Private journeys &nbsp;&middot;&nbsp; Safari and beyond
     </p>
     <h1 class="hero-hed vf-arrive" id="hHed">
       Tanzania already<br>
       knows how to<br>
       receive <em>you.</em>
-      <span class="whisper">We make sure you arrive.</span>
+      <span class="whisper">From the first handoff, you are our guest.</span>
     </h1>
     <p class="dim hero-sub" id="hSub">
-      Private journeys through Tanzania, shaped around who is travelling, when you come, and how you want the country to feel &mdash; safari, mountain, culture and coast in one considered journey.
+      Tanzanian-operated private journeys for local and international travellers &mdash; wildlife, mountain communities, towns and coast, with one team coordinating the journey from planning to return.
     </p>
     <div class="hero-acts" id="hActs">
-      <a href="compose.html" class="btn-primary">Compose your journey</a>
-      <a href="#worlds" class="btn-ghost">See the range of the country</a>
+      <a href="begin.html" class="btn-primary">Begin a journey</a>
+      <a href="#about" class="btn-ghost">Tanzania beyond the safari &rarr;</a>
     </div>
   </div>
   <div class="hero-scroll"><span class="scr-ln"></span>&nbsp;Scroll</div>
@@ -2421,15 +2479,30 @@ body.eh-locked{overflow:hidden;}
 
 <!-- ── THESIS ── -->
 <section class="lp-editorial-intro" id="about">
-  <p class="lp-kicker reveal">Private Tanzania · one group at a time</p>
+  <p class="lp-kicker reveal">A Tanzanian operator · based in the country we travel through</p>
   <div class="lp-editorial-grid">
-    <h2 class="lp-editorial-title reveal">One country.<br>Five ways to <em>enter it.</em></h2>
-    <p class="lp-editorial-copy reveal">Safari can be part of the journey. So can a mountain morning, a family table in Kibosho, a crater descent, or several slow days beside the Indian Ocean. Enkiama composes the combination around your group — not around a catalogue.</p>
+    <h2 class="lp-editorial-title reveal">Safari is one part<br>of <em>Tanzania.</em></h2>
+    <p class="lp-editorial-copy reveal">Enkiama plans private journeys for Tanzanian and international travellers. Wildlife can sit beside mountain communities, local food, working towns, history and the coast. The experience can be immersive without making the logistics feel improvised.</p>
   </div>
+
   <div class="lp-editorial-meta reveal">
-    <div><b>Private</b><span>Your group, from first morning to last</span></div>
-    <div><b>Personal</b><span>Guides and places chosen for your journey</span></div>
-    <div><b>Composed</b><span>One route, built around how you want to travel</span></div>
+    <div><b>Operated here</b><span>Local team, local partners, decisions made in Tanzania</span></div>
+    <div><b>Immersive by design</b><span>Safari, people, place and everyday Tanzania in one route</span></div>
+    <div><b>Structured service</b><span>Clear planning, private logistics and one responsible team</span></div>
+  </div>
+
+  <div class="lp-welcome-stack reveal">
+    <figure class="lp-photo lp-welcome-photo" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-bone);">
+      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho in the Kilimanjaro foothills">
+      <figcaption>Kibosho · Kilimanjaro foothills</figcaption>
+    </figure>
+    <aside class="lp-welcome-plate">
+      <p class="lp-kicker">Karibu · welcome</p>
+      <h3>Hospitality is part of how the journey is run.</h3>
+      <div><span>01</span><p>You know who is meeting you and what happens at each handoff.</p></div>
+      <div><span>02</span><p>The same team remains responsible as you move through different parts of the country.</p></div>
+      <div><span>03</span><p>Introductions to local hosts and specialists are planned as part of the route, not added as tourist theatre.</p></div>
+    </aside>
   </div>
 </section>
 
@@ -2476,7 +2549,7 @@ body.eh-locked{overflow:hidden;}
             <div class="wp-name">The<br>savanna</div>
             <span class="wp-sw">Nyika: the plain that never ends</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">The Serengeti and Tarangire: two different moods. One is the greatest land migration on earth. The other, elephant highways, ancient baobabs, and a silence the more famous parks have lost. Our guides have followed both for decades.</p>
+            <p class="wp-desc">The Serengeti and Tarangire offer very different safari rhythms. One follows migration and huge open plains; the other is shaped by elephants, baobabs and seasonal water. The route changes with the month, wildlife movement and the pace your group wants.</p>
           </div>
         </div>
       </div>
@@ -2489,7 +2562,7 @@ body.eh-locked{overflow:hidden;}
             <div class="wp-name">The<br>crater</div>
             <span class="wp-sw">Bonde: the valley that remembers</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">A collapsed volcano that became a self-contained ecosystem: 25,000 animals, alkaline lakes, ancient geological memory. You descend through cloud and emerge into something the word &ldquo;safari&rdquo; was never built to describe. Our guides have made this descent hundreds of times. It never becomes ordinary.</p>
+            <p class="wp-desc">A collapsed volcano with a dense concentration of wildlife, alkaline lakes and steep forested walls. The crater can be a focused day inside a longer northern route, timed around the descent, crowd levels and where you travel next.</p>
           </div>
         </div>
         <div class="wp-photo">
@@ -2512,7 +2585,7 @@ body.eh-locked{overflow:hidden;}
             <div class="wp-name">The<br>culture</div>
             <span class="wp-sw">Utamaduni: the life that is already there</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">Homestays. Nightlife in Moshi or Arusha. Meals at tables that were not set for tourists. Maasai bomas on the crater rim. Chagga farms above the cloud line. A night market in a coastal town. This is the world most itineraries skip entirely. It is the one our guests remember most completely.</p>
+            <p class="wp-desc">Moshi and Arusha after dark. Chagga farms on Kilimanjaro&rsquo;s lower slopes. Maasai communities around the highlands. Local food, markets and everyday places between the headline destinations. These experiences are built through introductions and context, not staged as a separate &ldquo;cultural stop.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -2525,7 +2598,7 @@ body.eh-locked{overflow:hidden;}
             <div class="wp-name">The<br>coast</div>
             <span class="wp-sw">Pwani: the shore where everything slows</span>
             <div class="wp-rule"></div>
-            <p class="wp-desc">Zanzibar&rsquo;s spice markets and coral reefs. Pemba&rsquo;s untouched marine life. Stone Town&rsquo;s layered Swahili, Arab, and Portuguese history. Warm water, slow rhythm, centuries of trade compressed into narrow streets. A completely different sensory world, only an hour&rsquo;s flight from the savanna.</p>
+            <p class="wp-desc">Zanzibar and Pemba add a different pace to a mainland journey: reef, warm water, Swahili food and Stone Town&rsquo;s layered history. The coast can be a few quiet days at the end, or a substantial part of the journey in its own right.</p>
           </div>
         </div>
         <div class="wp-photo">
@@ -2634,7 +2707,7 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="lp-note reveal">
       <span class="lp-brief-label">The decisions</span>
-      <h3>Fewer handoffs. Better people.</h3>
+      <h3>Fewer handoffs. Named people.</h3>
       <p>A Serengeti naturalist, a local Ngorongoro guide and a Chagga family in Kibosho — each brought in for one part of the journey.</p>
     </div>
     <div class="lp-note lp-note-quote reveal">
@@ -2713,7 +2786,7 @@ body.eh-locked{overflow:hidden;}
     <div class="lp-compose-steps">
       <div class="lp-compose-step reveal"><div class="n">01</div><strong>Who is travelling?</strong><span>A couple, a family, friends, a solo traveller joining others — the group changes the shape of the journey.</span></div>
       <div class="lp-compose-step reveal"><div class="n">02</div><strong>When are you thinking?</strong><span>An exact date is not necessary. A month or season is enough for us to begin explaining what Tanzania will be doing then.</span></div>
-      <div class="lp-compose-step reveal"><div class="n">03</div><strong>What is pulling you?</strong><span>Safari, Kilimanjaro, culture, coast — or simply a feeling you cannot yet turn into an itinerary. That is enough.</span></div>
+      <div class="lp-compose-step reveal"><div class="n">03</div><strong>What do you want most from the journey?</strong><span>Safari, Kilimanjaro, local life, coast — or a combination. We use that answer to shape the first route.</span></div>
     </div>
 
     <div class="lp-compose-actions reveal">
