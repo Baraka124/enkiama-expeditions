@@ -11,7 +11,9 @@ on:
       - refine/tanzania-editorial-v1
     paths:
       - "src/enkiama.css"
+      - "src/tanzania.css"
       - "index.html"
+      - "tanzania.html"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/tailwind-build.yml"
