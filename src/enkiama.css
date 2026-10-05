@@ -626,12 +626,13 @@ nav.scrolled::before{opacity:0.03;}
   --lp-line:rgba(15,23,18,.12);
   --lp-line-soft:rgba(15,23,18,.075);
 }
-.hero{min-height:min(91svh,840px);max-height:840px;display:flex;align-items:flex-end;padding:clamp(6.5rem,10vh,8rem) clamp(1.5rem,4vw,4rem) clamp(4.5rem,7vh,6rem);overflow:hidden;}
+.hero{min-height:min(88svh,800px);max-height:800px;display:flex;align-items:flex-end;padding:clamp(6rem,9vh,7.5rem) clamp(1.5rem,4vw,4rem) clamp(4rem,6vh,5.25rem);overflow:hidden;}
 .hero-film-label,.hero-side{letter-spacing:.24em;}
-.hero-content{width:min(46vw,720px);max-width:720px;margin:0;padding:0;}
+.hero-content{width:min(44vw,650px);max-width:650px;margin:0;padding:0;}
 .hero-eye{margin-bottom:1.5rem;font-size:9px;letter-spacing:.16em;color:rgba(237,230,214,.72);}
-.hero-hed{max-width:720px;margin-bottom:1.7rem;font-size:clamp(62px,6.6vw,104px);line-height:.91;letter-spacing:-.035em;font-weight:800;color:var(--bone);}
-.hero-hed em{color:#7D9364;font-weight:650;}
+.hero-hed{max-width:650px;margin-bottom:1.45rem;font-size:clamp(58px,5.8vw,92px);line-height:.94;letter-spacing:-.03em;font-weight:650;color:var(--bone);}
+.hero-hed em{color:#7D9364;font-weight:560;}
+.hero-line{display:block;white-space:nowrap;}
 .hero-sub{max-width:43ch;margin:0 0 1.9rem;font-size:clamp(14px,.95vw,16px);line-height:1.7;color:rgba(237,230,214,.76);}
 .hero-acts{gap:1.6rem;align-items:center;flex-wrap:wrap;}
 .hero .btn-primary{padding:13px 24px;min-height:44px;background:#6F8459;border-color:#6F8459;color:#FFFDF8;}
@@ -1763,20 +1764,18 @@ a,button,[role="button"]{cursor:pointer;}
 .hero-film .hero-scrim{
   background:
     linear-gradient(90deg,
-      rgba(8,12,9,.74) 0%,
-      rgba(8,12,9,.58) 28%,
-      rgba(8,12,9,.26) 49%,
-      rgba(8,12,9,.06) 67%,
+      rgba(8,12,9,.62) 0%,
+      rgba(8,12,9,.44) 30%,
+      rgba(8,12,9,.16) 54%,
+      rgba(8,12,9,.03) 70%,
       rgba(8,12,9,0) 82%);
 }
 .hero-film.has-photo::after{
   background:
-    linear-gradient(90deg,
-      rgba(8,12,9,.58) 0%,
-      rgba(8,12,9,.34) 35%,
-      rgba(8,12,9,.08) 62%,
-      rgba(8,12,9,0) 80%),
-    linear-gradient(0deg,rgba(8,12,9,.28) 0%,transparent 34%);
+    linear-gradient(0deg,
+      rgba(8,12,9,.30) 0%,
+      rgba(8,12,9,.10) 22%,
+      transparent 42%);
 }
 
 /* one subtle image drift only — remove duplicate hero breathing/light effects */
@@ -1836,19 +1835,23 @@ a,button,[role="button"]{cursor:pointer;}
 /* mobile hero is a single elegant statement, not a poster */
 @media(max-width:760px){
   .hero{
-    min-height:min(88svh,760px);
+    min-height:min(84svh,720px);
     max-height:none;
     align-items:flex-end;
-    padding:92px 1.3rem 3.4rem;
+    padding:88px 1.3rem 3.2rem;
   }
   .hero-content{
     width:100%;
-    max-width:580px;
+    max-width:520px;
   }
   .hero-hed{
-    font-size:clamp(48px,12vw,72px);
-    max-width:10ch;
-    line-height:.91;
+    font-size:clamp(44px,11.2vw,62px);
+    max-width:none;
+    line-height:.94;
+    letter-spacing:-.025em;
+  }
+  #heroFrame img{
+    object-position:68% 54%;
   }
   .hero-sub{
     max-width:38ch;
@@ -3017,17 +3020,9 @@ body:not([data-page="home"]) .wp-photo-film > *:not(.ph-frame){position:relative
 /* Small editorial labels need enough contrast on warm surfaces. */
 .wp-tag,.eye{color:var(--sage,#7A9470);}
 
-/* Hero copy gets one local protection layer over variable photography. */
-.hero-scrim::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:radial-gradient(ellipse 62% 78% at 22% 46%,rgba(8,12,9,.62) 0%,rgba(8,12,9,.38) 42%,transparent 72%);
-}
-.hero-hed,.hero-hed *{
-  text-shadow:0 2px 26px rgba(8,12,9,.72),0 1px 3px rgba(8,12,9,.5);
-}
+/* Hero protection is owned by the directional scrim above; avoid embossing display type. */
+.hero-scrim::after{content:none;}
+.hero-hed,.hero-hed *{text-shadow:none;}
 
 /* Fraunces optical-size arrival is one of the few retained expressive motions. */
 .vf-arrive{
