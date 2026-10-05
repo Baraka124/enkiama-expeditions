@@ -129,6 +129,16 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Compile current branch CSS for visual QA
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+          npm run build:css
+
       - name: Install Playwright Chromium
         shell: bash
         run: |
