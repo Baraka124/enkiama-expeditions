@@ -48,6 +48,47 @@ jobs:
         run: npm run build:css
         # Tailwind v4 scans index.html via the explicit @source directive in src/enkiama.css
 
+      - name: Verify landing CSS integrity
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const css = fs.readFileSync('src/enkiama.css', 'utf8');
+
+          const required = [
+            '.hero{',
+            '#worlds .worlds-nav',
+            '.lp-journey-stack',
+            '.lp-proof-system',
+            '.lp-stay-stage',
+            '.lp-network-stage',
+            '.lp-final-photo',
+            '.cta-main',
+            '.eh-bar'
+          ];
+
+          const missing = required.filter((selector) => !css.includes(selector));
+          if (missing.length) {
+            console.error('Missing canonical landing selectors:', missing.join(', '));
+            process.exit(1);
+          }
+
+          const opens = (css.match(/\{/g) || []).length;
+          const closes = (css.match(/\}/g) || []).length;
+          if (opens !== closes) {
+            console.error(`Unbalanced CSS braces: ${opens} opening vs ${closes} closing`);
+            process.exit(1);
+          }
+
+          const importantCount = (css.match(/!important/g) || []).length;
+          if (importantCount > 12) {
+            console.error(`Specificity budget exceeded: ${importantCount} !important declarations (budget: 12)`);
+            process.exit(1);
+          }
+
+          console.log(`Landing CSS integrity OK — ${importantCount} state-critical !important declarations.`);
+          NODE
+
       - name: Commit compiled CSS when changed
         shell: bash
         run: |
