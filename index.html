@@ -1192,59 +1192,6 @@
 <!-- ENKIAMA_PAGETRANS_START -->
 <!-- ENKIAMA_PAGETRANS_END -->
 
-<!-- ENKIAMA_LINES_START -->
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var sel='.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line';
-  var rules=document.querySelectorAll(sel);
-  if(!rules.length)return;
-  rules.forEach(function(r){r.classList.add('line-draw');});
-  if(reduce){rules.forEach(function(r){r.classList.add('drawn');});return;}
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
-      });
-    },{threshold:0.9,rootMargin:'0px 0px -8% 0px'});
-    rules.forEach(function(r){io.observe(r);});
-  } else {
-    rules.forEach(function(r){r.classList.add('drawn');});
-  }
-})();
-</script>
-<!-- ENKIAMA_LINES_END -->
-
-<script>
-/* ── the Enkiama rule draws itself when it enters view ── */
-(function(){
-  var rules=[].slice.call(document.querySelectorAll('.ochre-rule'));
-  if(!rules.length) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce || !('IntersectionObserver' in window)){
-    rules.forEach(function(r){r.classList.add('drawn');});
-    return;
-  }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
-    });
-  },{threshold:0.6, rootMargin:'0px 0px -5% 0px'});
-  rules.forEach(function(r){io.observe(r);});
-})();
-</script>
-<script>
-(function(){
-  var el=document.querySelector('.breath');
-  if(!el) return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce||!('IntersectionObserver' in window)){el.classList.add('in');return;}
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:0.45});
-  io.observe(el);
-})();
-</script>
 <script>
 /* ── safety net: no reveal element may remain invisible once passed ── */
 (function(){
