@@ -217,54 +217,6 @@ jobs:
               const metrics = await page.evaluate(() => {
                 const doc = document.documentElement;
                 const body = document.body;
-                const mediaDiagnostics = {};
-                for (const selector of ['.lp-proof-main img', '.lp-final-photo img']) {
-                  const img = document.querySelector(selector);
-                  if (!img) {
-                    mediaDiagnostics[selector] = { present: false };
-                    continue;
-                  }
-                  const cs = getComputedStyle(img);
-                  const parent = img.parentElement;
-                  const ps = parent ? getComputedStyle(parent) : null;
-                  const box = img.getBoundingClientRect();
-                  mediaDiagnostics[selector] = {
-                    present: true,
-                    src: img.getAttribute('src'),
-                    naturalWidth: img.naturalWidth,
-                    naturalHeight: img.naturalHeight,
-                    opacity: cs.opacity,
-                    display: cs.display,
-                    visibility: cs.visibility,
-                    zIndex: cs.zIndex,
-                    position: cs.position,
-                    objectFit: cs.objectFit,
-                    objectPosition: cs.objectPosition,
-                    rect: {
-                      width: Math.round(box.width),
-                      height: Math.round(box.height),
-                      left: Math.round(box.left),
-                      top: Math.round(box.top)
-                    },
-                    parentBackground: ps ? ps.backgroundColor : null,
-                    parentOpacity: ps ? ps.opacity : null,
-                    parentZIndex: ps ? ps.zIndex : null,
-                    parentBefore: parent ? {
-                      display: getComputedStyle(parent, '::before').display,
-                      content: getComputedStyle(parent, '::before').content,
-                      background: getComputedStyle(parent, '::before').background,
-                      opacity: getComputedStyle(parent, '::before').opacity,
-                      zIndex: getComputedStyle(parent, '::before').zIndex
-                    } : null,
-                    parentAfter: parent ? {
-                      display: getComputedStyle(parent, '::after').display,
-                      content: getComputedStyle(parent, '::after').content,
-                      background: getComputedStyle(parent, '::after').background,
-                      opacity: getComputedStyle(parent, '::after').opacity,
-                      zIndex: getComputedStyle(parent, '::after').zIndex
-                    } : null
-                  };
-                }
                 const sections = [
                   '.hero',
                   '.lp-editorial-intro',
@@ -293,7 +245,6 @@ jobs:
                     })
                     .filter(img => !img.complete || img.naturalWidth === 0)
                     .map(img => img.getAttribute('src') || img.getAttribute('data-src') || ''),
-                  mediaDiagnostics,
                   sections: sections.map(selector => {
                     const el = document.querySelector(selector);
                     if (!el) return { selector, present: false };
@@ -312,13 +263,6 @@ jobs:
 
               await page.screenshot({ path: `visual-qa/${target.name}-full.png`, fullPage: true });
               await page.screenshot({ path: `visual-qa/${target.name}-hero.png`, fullPage: false });
-
-              if (target.name === 'desktop-1440') {
-                await page.locator('.lp-proof-main').screenshot({ path: 'visual-qa/desktop-proof-figure.png' });
-                await page.locator('.lp-proof-main img').screenshot({ path: 'visual-qa/desktop-proof-image.png' });
-                await page.locator('.lp-final-photo .lp-photo').screenshot({ path: 'visual-qa/desktop-final-figure.png' });
-                await page.locator('.lp-final-photo img').screenshot({ path: 'visual-qa/desktop-final-image.png' });
-              }
 
               const trigger = page.locator('#ehTrigger');
               if (await trigger.count()) {
@@ -366,13 +310,6 @@ jobs:
           if (failed) process.exit(1);
           console.log('Responsive visual QA runtime assertions passed.');
           NODE
-
-      - name: Include source media diagnostics
-        if: always()
-        shell: bash
-        run: |
-          cp assets/images/nyerere.jpg visual-qa/source-nyerere.jpg
-          cp assets/images/lodge.jpg visual-qa/source-lodge.jpg
 
       - name: Upload visual QA artifact
         if: always()
