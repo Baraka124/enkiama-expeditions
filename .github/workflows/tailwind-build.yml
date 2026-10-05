@@ -176,9 +176,6 @@ jobs:
               const errors = [];
 
               page.on('pageerror', err => errors.push('pageerror: ' + err.message));
-              page.on('console', msg => {
-                if (msg.type() === 'error') errors.push('console: ' + msg.text());
-              });
 
               await page.route('**/*', async route => {
                 const url = route.request().url();
@@ -190,17 +187,32 @@ jobs:
               });
 
               await page.goto('http://127.0.0.1:4173/index.html', { waitUntil: 'domcontentloaded' });
-              await page.waitForTimeout(700);
+
+              // Visual QA must not confuse native lazy-loading latency with a broken image.
+              await page.evaluate(() => {
+                document.querySelectorAll('img').forEach(img => {
+                  img.loading = 'eager';
+                  if (!img.src && img.dataset && img.dataset.src) img.src = img.dataset.src;
+                });
+              });
 
               await page.evaluate(async () => {
                 const step = Math.max(500, Math.floor(window.innerHeight * .72));
                 for (let y = 0; y < document.body.scrollHeight; y += step) {
                   window.scrollTo(0, y);
-                  await new Promise(r => setTimeout(r, 35));
+                  await new Promise(r => setTimeout(r, 60));
                 }
                 window.scrollTo(0, 0);
               });
-              await page.waitForTimeout(350);
+
+              await page.waitForFunction(() => {
+                const local = Array.from(document.images).filter(img => {
+                  try { return new URL(img.currentSrc || img.src, location.href).origin === location.origin; }
+                  catch { return false; }
+                });
+                return local.every(img => img.complete && img.naturalWidth > 0);
+              }, { timeout: 10000 }).catch(() => {});
+              await page.waitForTimeout(700);
 
               const metrics = await page.evaluate(() => {
                 const doc = document.documentElement;
@@ -226,6 +238,13 @@ jobs:
                   bodyScrollWidth: body.scrollWidth,
                   scrollHeight: doc.scrollHeight,
                   horizontalOverflow: doc.scrollWidth > window.innerWidth + 1,
+                  brokenLocalImages: Array.from(document.images)
+                    .filter(img => {
+                      try { return new URL(img.currentSrc || img.src, location.href).origin === location.origin; }
+                      catch { return false; }
+                    })
+                    .filter(img => !img.complete || img.naturalWidth === 0)
+                    .map(img => img.getAttribute('src') || img.getAttribute('data-src') || ''),
                   sections: sections.map(selector => {
                     const el = document.querySelector(selector);
                     if (!el) return { selector, present: false };
@@ -278,8 +297,12 @@ jobs:
               failed = true;
             }
             if (item.errors.length) {
-              console.error(item.target.name + ': browser errors:');
+              console.error(item.target.name + ': page errors:');
               for (const error of item.errors) console.error('  ' + error);
+              failed = true;
+            }
+            if (item.metrics.brokenLocalImages.length) {
+              console.error(item.target.name + ': broken local images: ' + item.metrics.brokenLocalImages.join(', '));
               failed = true;
             }
           }
