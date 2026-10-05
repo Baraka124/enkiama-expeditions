@@ -341,13 +341,13 @@
 <!-- NAV -->
 <a href="#about" class="skip-link">Skip to content</a>
 <!-- ── HERO ── -->
-<section class="hero" id="home">
-  <div class="hero-film"><div class="ph-frame ph-graded" id="heroFrame" data-motion="drift" style="--crop:50% 54%;"><img data-src="assets/images/hero-dawn.webp" alt="Elephants beneath an acacia at golden hour in Tanzania" fetchpriority="high"><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
+<section class="hero tw:relative tw:flex tw:items-end tw:overflow-hidden" id="home">
+  <div class="hero-film tw:absolute tw:inset-0"><div class="ph-frame ph-graded" id="heroFrame" data-motion="drift" style="--crop:50% 54%;"><img data-src="assets/images/hero-dawn.webp" alt="Elephants beneath an acacia at golden hour in Tanzania" fetchpriority="high"><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
   <div class="hero-dawn"></div>
   <div class="hero-film-label">Northern Tanzania &middot; first light</div>
   <span class="hero-side">Private journeys &middot; Tanzania</span>
 
-  <div class="hero-content">
+  <div class="hero-content tw:relative tw:z-[3]">
     <p class="eye hero-eye" id="hEye">
       Tanzanian operator &nbsp;&middot;&nbsp; Private journeys &nbsp;&middot;&nbsp; Safari and beyond
     </p>
@@ -359,7 +359,7 @@
     <p class="dim hero-sub" id="hSub">
       Private journeys through Tanzania &mdash; wildlife, mountains, Rift Valley, local life and coast &mdash; shaped here for the people travelling.
     </p>
-    <div class="hero-acts" id="hActs">
+    <div class="hero-acts tw:flex tw:flex-wrap tw:items-center" id="hActs">
       <a href="#worlds" class="btn-primary">Explore Tanzania</a>
       <a href="begin.html" class="btn-ghost">Begin a journey &rarr;</a>
     </div>
@@ -369,20 +369,20 @@
 
 
 <!-- ── THESIS ── -->
-<section class="lp-editorial-intro" id="about">
+<section class="lp-editorial-intro tw:relative" id="about">
   <p class="lp-kicker reveal">A Tanzanian operator · based in the country we travel through</p>
-  <div class="lp-editorial-grid">
+  <div class="lp-editorial-grid tw:grid">
     <h2 class="lp-editorial-title reveal">Safari is one part<br>of <em>Tanzania.</em></h2>
     <p class="lp-editorial-copy reveal">Enkiama creates immersive journeys for local and international guests. We work from the country itself &mdash; its seasons, distances, people and changing conditions. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
   </div>
 
-  <div class="lp-editorial-meta reveal">
+  <div class="lp-editorial-meta tw:grid reveal">
     <div><b>From here</b><span>We know the seasons, routes, places and people from inside Tanzania</span></div>
     <div><b>Immersive by design</b><span>Wildlife, people, food, landscape and everyday life can belong in the same journey</span></div>
     <div><b>Karibu</b><span>Local or international, every traveller arrives as our guest</span></div>
   </div>
 
-  <div class="lp-welcome-stack reveal">
+  <div class="lp-welcome-stack tw:grid reveal">
     <figure class="lp-photo lp-welcome-photo" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-bone);">
       <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in the Kilimanjaro foothills">
       <figcaption>Kilimanjaro foothills · local hospitality</figcaption>
@@ -398,20 +398,20 @@
 </section>
 
 <!-- ── SIX WORLDS ── -->
-<section id="worlds" role="region" aria-label="Six worlds of Tanzania">
+<section id="worlds" class="tw:relative tw:overflow-hidden" role="region" aria-label="Six worlds of Tanzania">
   <div class="worlds-intro">
-    <div class="worlds-intro-grid">
+    <div class="worlds-intro-grid tw:grid">
       <h2 class="worlds-hl reveal">One country.<br><em>Six ways into it.</em></h2>
       <p class="worlds-intro-body reveal">Altitude, season, distance and landscape change Tanzania quickly. These six worlds are not a checklist; they are the building blocks of a route. Move through them to see what belongs together.</p>
     </div>
   </div>
 
-  <div class="worlds-track-wrap">
-    <div class="worlds-track" id="wTrack" tabindex="0" aria-label="Mountains, savannas, craters, culture, Rift Valley and coast">
+  <div class="worlds-track-wrap tw:relative">
+    <div class="worlds-track tw:flex" id="wTrack" tabindex="0" aria-label="Mountains, savannas, craters, culture, Rift Valley and coast">
 
-      <div class="world-panel w1">
+      <div class="world-panel w1 tw:grid">
         <div class="wp-text">
-          <div class="wp-inner">
+          <div class="wp-inner tw:relative">
             <div class="wp-world-meta"><span>01 / 06</span><span>Northern highlands</span></div>
             <div class="wp-tag">Trekking &amp; highland culture</div>
             <div class="wp-name">The<br>mountains</div>
@@ -419,21 +419,21 @@
             <p class="wp-desc">Kilimanjaro, Mount Meru and the highland country around them. Trekking routes, Chagga communities, coffee farms, volcanic soils and cooler mountain landscapes that can sit naturally before or after safari.</p><div class="wp-facts"><span><b>5,895 m</b>Kilimanjaro</span><span><b>Highlands</b>Chagga country</span><span><b>Best fit</b>Trek + safari</span></div>
           </div>
         </div>
-        <div class="wp-photo">
+        <div class="wp-photo tw:relative tw:overflow-hidden">
           <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 46%;"><img class="ph-loaded" src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">5,895m</span>
           <span class="wp-photo-note">Kilimanjaro &middot; northern highlands</span>
         </div>
       </div>
 
-      <div class="world-panel w2">
-        <div class="wp-photo">
+      <div class="world-panel w2 tw:grid">
+        <div class="wp-photo tw:relative tw:overflow-hidden">
           <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 52%;"><img class="ph-loaded" src="assets/serengeti.jpg" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">The great migration</span>
           <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
         </div>
         <div class="wp-text">
-          <div class="wp-inner">
+          <div class="wp-inner tw:relative">
             <div class="wp-world-meta"><span>02 / 06</span><span>Northern plains</span></div>
             <div class="wp-tag">Wildlife &middot; Safari &middot; Open plain</div>
             <div class="wp-name">The<br>savannas</div>
@@ -443,9 +443,9 @@
         </div>
       </div>
 
-      <div class="world-panel w3">
+      <div class="world-panel w3 tw:grid">
         <div class="wp-text">
-          <div class="wp-inner">
+          <div class="wp-inner tw:relative">
             <div class="wp-world-meta"><span>03 / 06</span><span>Crater highlands</span></div>
             <div class="wp-tag">Wildlife &middot; Geology &middot; Ancient world</div>
             <div class="wp-name">The<br>craters</div>
@@ -453,21 +453,21 @@
             <p class="wp-desc">A collapsed volcano with a dense concentration of wildlife, alkaline lakes and steep forested walls. The crater can be a focused day inside a longer northern route, timed around the descent, crowd levels and where you travel next.</p><div class="wp-facts"><span><b>600 m</b>Crater walls</span><span><b>Wildlife</b>Dense year-round</span><span><b>Timing</b>Early descent</span></div>
           </div>
         </div>
-        <div class="wp-photo">
+        <div class="wp-photo tw:relative tw:overflow-hidden">
           <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/ngorongoro.webp" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">600m deep</span>
           <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
         </div>
       </div>
 
-      <div class="world-panel w4">
-        <div class="wp-photo">
+      <div class="world-panel w4 tw:grid">
+        <div class="wp-photo tw:relative tw:overflow-hidden">
           <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 91%;"><img class="ph-loaded" src="assets/images/maasai.jpg" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Ukarimu</span>
           <span class="wp-photo-note">Maasai &middot; Chagga &middot; Swahili coast</span>
         </div>
         <div class="wp-text">
-          <div class="wp-inner">
+          <div class="wp-inner tw:relative">
             <div class="wp-world-meta"><span>04 / 06</span><span>People &amp; place</span></div>
             <div class="wp-tag">Culture &middot; Homestays &middot; Nightlife</div>
             <div class="wp-name">The<br>culture</div>
@@ -478,9 +478,9 @@
       </div>
 
       
-      <div class="world-panel w5">
+      <div class="world-panel w5 tw:grid">
         <div class="wp-text">
-          <div class="wp-inner">
+          <div class="wp-inner tw:relative">
             <div class="wp-world-meta"><span>05 / 06</span><span>Volcanic north</span></div>
             <div class="wp-tag">Rift Valley &middot; Volcano &middot; Soda lake</div>
             <div class="wp-name">The<br>Rift Valley</div>
@@ -489,16 +489,16 @@
             <div class="wp-facts"><span><b>Natron</b>Soda lake</span><span><b>Lengai</b>Active volcano</span><span><b>Character</b>Remote + austere</span></div>
           </div>
         </div>
-        <div class="wp-photo">
+        <div class="wp-photo tw:relative tw:overflow-hidden">
           <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Volcanic north</span>
           <span class="wp-photo-note">Great Rift &middot; northern Tanzania</span>
         </div>
       </div>
 
-<div class="world-panel w6">
+<div class="world-panel w6 tw:grid">
         <div class="wp-text">
-          <div class="wp-inner">
+          <div class="wp-inner tw:relative">
             <div class="wp-world-meta"><span>06 / 06</span><span>Indian Ocean</span></div>
             <div class="wp-tag">Coast &middot; Ocean &middot; Stone Town</div>
             <div class="wp-name">The<br>coast</div>
@@ -506,7 +506,7 @@
             <p class="wp-desc">Zanzibar and Pemba add a different pace to a mainland journey: reef, warm water, Swahili food and Stone Town&rsquo;s layered history. The coast can be a few quiet days at the end, or a substantial part of the journey in its own right.</p><div class="wp-facts"><span><b>Zanzibar</b>Coast + Stone Town</span><span><b>Pemba</b>Quieter island</span><span><b>Rhythm</b>Slow finish or full stay</span></div>
           </div>
         </div>
-        <div class="wp-photo">
+        <div class="wp-photo tw:relative tw:overflow-hidden">
           <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 58%;"><img class="ph-loaded" src="assets/zanzibar.jpg" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Indian Ocean</span>
           <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
@@ -515,7 +515,7 @@
 
     </div>
 
-    <div class="worlds-nav">
+    <div class="worlds-nav tw:grid">
       <button class="wn-btn active" data-w="0" aria-label="Show Mountains"><span>01</span>Mountains</button>
       <button class="wn-btn" data-w="1" aria-label="Show Savannas"><span>02</span>Savannas</button>
       <button class="wn-btn" data-w="2" aria-label="Show Craters"><span>03</span>Craters</button>
