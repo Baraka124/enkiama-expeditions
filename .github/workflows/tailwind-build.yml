@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - milestone/tailwind-foundation-landing
+      - refine/landing-post-tailwind-v1
     paths:
       - "src/enkiama.css"
       - "index.html"
@@ -115,7 +116,7 @@ jobs:
 
 
   visual-qa:
-    if: github.ref_name == 'milestone/tailwind-foundation-landing'
+    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -127,6 +128,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+
+      - name: Compile current branch CSS for visual QA
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+          npm run build:css
 
       - name: Install Playwright Chromium
         shell: bash
