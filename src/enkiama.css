@@ -480,11 +480,6 @@ nav.scrolled::before{opacity:0.03;}
   .hero-eye,.hero-hed,.hero-sub,.hero-acts { opacity:1;transform:none;transition:none; }
 }
 
-/* ── Logo images (real logo{height:62px;width:auto;display:block;}
-.f-logo-img{height:34px;width:auto;display:block;opacity:.95;}
-@media(max-width:600px){}
-/* ── end logo images ── */
-
 /* ═══════════════════════════════════════════════════════
    ENHANCEMENT LAYER (added post-launch)
    Hero motion · breath section · richer reveals · route map
@@ -525,56 +520,6 @@ nav.scrolled::before{opacity:0.03;}
   animation: dawnPulse 22s ease-in-out infinite alternate;
 }
 @keyframes dawnPulse { from{opacity:.4;} to{opacity:.9;} }
-
-/* ── 2. BREATH SECTION ──
-   A full-bleed dark pause in the narrative. Swahili, spaced{
-  position:relative;
-  padding:22rem 3rem;
-  min-height:80vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:
-    radial-gradient(ellipse 70% 90% at 50% 50%, rgba(30,43,28,0.35) 0%, transparent 70%),
-    var(--ink);
-  text-align:center;overflow:hidden;
-}
-/* the whole glow breathes{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse 50% 60% at 50% 50%, rgba(85,107,68,0.10), transparent 65%);
-  animation:breathe 9s ease-in-out infinite;}
-@keyframes breathe{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:1;transform:scale(1.08);}}
-@media(prefers-reduced-motion:reduce){}
-@media(min-width:1200px){ }
-nav::after{
-  content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);
-  width:0;height:1px;background:var(--rule-md);
-  transition:width .6s cubic-bezier(.16,1,.3,1);
-}
-nav.scrolled::after{ width:100%; }
-
-/* #8 faint grain over the scrolled bar (tactile, not flat) */
-nav::before{
-  content:'';position:absolute;inset:0;pointer-events:none;opacity:0;
-  transition:opacity .5s ease;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;
-}
-nav.scrolled::before{ opacity:.035; }
-
-/* #5 Begin: outline at rest, fills on intent (invites{
-  background:none; color:var(--ochre);
-  border:1px solid var(--rule-md);
-  transition:border-color .3s, background .3s, color .3s, letter-spacing .4s cubic-bezier(.16,1,.3,1), box-shadow .3s;
-}
-
-/* #9 focus states: elegant offset brass ring, .n-links a:focus-visible, .n-drop-t:focus-visible, .n-wa:focus-visible, .n-lang a:focus-visible,
-.skip-link:focus-visible, .n-burger:focus-visible{
-  outline:none;
-  box-shadow:0 0 0 2px var(--ink), 0 0 0 3px var(--earth-dim), 0 0 12px rgba(190,158,104,.25);
-  border-radius:2px;
-}
-
-@media(prefers-reduced-motion:reduce){
-  nav::after,.n-links a,.n-drop-t,.n-drop-m a{ transition:none; }
-}
 
 /* ── real photography layer (drop files in assets/images/) ── */
 .hero-film .ph-frame{position:absolute;inset:0;}
@@ -661,7 +606,6 @@ nav.scrolled::before{ opacity:.035; }
 /* subtle bottom scrim on photo cards so bottom-left label always reads */
 .wr-film.has-photo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(0deg, rgba(8,12,9,0.5) 0%, transparent 30%, transparent 70%, rgba(8,12,9,0.3) 100%);}
-@media(min-width:1200px){ }
 
 /* ══════ HIDE PLACEHOLDER HINTS (photo-direction notes) ══════ */
 .film-hint,.hero-film-label,.hero-side,.wp-ph-hint{display:none;}
@@ -1080,10 +1024,6 @@ nav.scrolled::before{ opacity:.035; }
 /* --- E. Defensive layout rules --- */
 .lp-journey-stack,.cta-main,.lp-season-note{min-width:0;}
 .lp-journey-stack>*,.lp-proof-system>*,.lp-network-stage>*,.cta-main>*{min-width:0;}.ph-frame img{max-width:none;}
-
-/* desktop should never invent huge empty stages */
-@media(min-width:901px){
-}
 
 /* tablet */
 @media(max-width:900px){
