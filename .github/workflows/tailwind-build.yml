@@ -7,6 +7,7 @@ on:
       - main
       - milestone/tailwind-foundation-landing
       - refine/landing-post-tailwind-v1
+      - refine/hero-editorial-discipline
     paths:
       - "src/enkiama.css"
       - "index.html"
@@ -116,7 +117,7 @@ jobs:
 
 
   visual-qa:
-    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1'
+    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
