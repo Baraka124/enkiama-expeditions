@@ -97,7 +97,7 @@ jobs:
       - name: Commit compiled CSS when changed
         shell: bash
         run: |
-          if git diff --quiet -- assets/css/enkiama.css package-lock.json 2>/dev/null; then
+          if git diff --quiet -- assets/css/enkiama.css assets/css/tanzania.css package-lock.json 2>/dev/null; then
             echo "Compiled CSS and lockfile are already current."
             exit 0
           fi
@@ -114,7 +114,7 @@ jobs:
             exit 0
           fi
 
-          git add assets/css/enkiama.css package-lock.json
+          git add assets/css/enkiama.css assets/css/tanzania.css package-lock.json
           git commit -m "build(css): compile Tailwind [skip ci]"
           git push origin HEAD:${{ github.ref_name }}
 
