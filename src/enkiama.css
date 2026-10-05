@@ -1226,9 +1226,6 @@ a:focus-visible,button:focus-visible{
 @media (hover:hover) and (pointer:fine){
 }
 
-/* Prevent stale hidden-system selectors from affecting layout if cached CSS survives. */
-#jmapSection,#curate,.route-wrap,.tod-ambient,.ambient-tint{display:none!important;}
-
 /* --- migrated from index.html: enkiama-benchmark-elevation-v9 [9/25] --- */
 /* Six Worlds — each panel reads like an atlas plate */
 #worlds .wp-world-meta{
