@@ -1,0 +1,201 @@
+name: Visual QA — Enkiama Landing
+
+on:
+  push:
+    branches:
+      - milestone/tailwind-foundation-landing
+    paths:
+      - "index.html"
+      - "src/enkiama.css"
+      - "assets/css/enkiama.css"
+      - "assets/js/**"
+      - "assets/images/**"
+      - "assets/*.jpg"
+      - "assets/*.png"
+      - "assets/*.svg"
+      - ".github/workflows/visual-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright Chromium
+        shell: bash
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Serve site
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/enkiama-http.log 2>&1 &
+          echo $! > /tmp/enkiama-http.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/enkiama-http.log
+          exit 1
+
+      - name: Capture responsive visual QA
+        shell: bash
+        run: |
+          mkdir -p visual-qa
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          const targets = [
+            { name: 'desktop-1440', width: 1440, height: 1000 },
+            { name: 'laptop-1280', width: 1280, height: 800 },
+            { name: 'tablet-820', width: 820, height: 1180 },
+            { name: 'mobile-390', width: 390, height: 844 },
+          ];
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const report = [];
+
+            for (const target of targets) {
+              const context = await browser.newContext({
+                viewport: { width: target.width, height: target.height },
+                deviceScaleFactor: 1,
+                reducedMotion: 'reduce',
+              });
+              const page = await context.newPage();
+              const errors = [];
+
+              page.on('pageerror', err => errors.push('pageerror: ' + err.message));
+              page.on('console', msg => {
+                if (msg.type() === 'error') errors.push('console: ' + msg.text());
+              });
+
+              await page.route('**/*', async route => {
+                const url = route.request().url();
+                if (url.startsWith('http://127.0.0.1:4173/') || url.startsWith('data:')) {
+                  await route.continue();
+                } else {
+                  await route.abort();
+                }
+              });
+
+              await page.goto('http://127.0.0.1:4173/index.html', { waitUntil: 'domcontentloaded' });
+              await page.waitForTimeout(700);
+
+              await page.evaluate(async () => {
+                const step = Math.max(500, Math.floor(window.innerHeight * .72));
+                for (let y = 0; y < document.body.scrollHeight; y += step) {
+                  window.scrollTo(0, y);
+                  await new Promise(r => setTimeout(r, 35));
+                }
+                window.scrollTo(0, 0);
+              });
+              await page.waitForTimeout(350);
+
+              const metrics = await page.evaluate(() => {
+                const doc = document.documentElement;
+                const body = document.body;
+                const sections = [
+                  '.hero',
+                  '.lp-editorial-intro',
+                  '#worlds',
+                  '.lp-archive',
+                  '.lp-proof',
+                  '.lp-stays',
+                  '.lp-people',
+                  '.lp-practical',
+                  '.lp-season-note',
+                  '.lp-more',
+                  '.cta-wrap',
+                  'footer'
+                ];
+                return {
+                  innerWidth: window.innerWidth,
+                  innerHeight: window.innerHeight,
+                  scrollWidth: doc.scrollWidth,
+                  bodyScrollWidth: body.scrollWidth,
+                  scrollHeight: doc.scrollHeight,
+                  horizontalOverflow: doc.scrollWidth > window.innerWidth + 1,
+                  sections: sections.map(selector => {
+                    const el = document.querySelector(selector);
+                    if (!el) return { selector, present: false };
+                    const r = el.getBoundingClientRect();
+                    return {
+                      selector,
+                      present: true,
+                      width: Math.round(r.width),
+                      height: Math.round(r.height),
+                      left: Math.round(r.left),
+                      right: Math.round(r.right)
+                    };
+                  })
+                };
+              });
+
+              await page.screenshot({ path: `visual-qa/${target.name}-full.png`, fullPage: true });
+              await page.screenshot({ path: `visual-qa/${target.name}-hero.png`, fullPage: false });
+
+              const trigger = page.locator('#ehTrigger');
+              if (await trigger.count()) {
+                await trigger.click();
+                await page.waitForTimeout(500);
+                await page.screenshot({ path: `visual-qa/${target.name}-menu.png`, fullPage: false });
+              }
+
+              report.push({ target, metrics, errors });
+              await context.close();
+            }
+
+            fs.writeFileSync('visual-qa/report.json', JSON.stringify(report, null, 2));
+            await browser.close();
+          })().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Assert no horizontal overflow or browser errors
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('visual-qa/report.json', 'utf8'));
+          let failed = false;
+
+          for (const item of report) {
+            if (item.metrics.horizontalOverflow) {
+              console.error(item.target.name + ': horizontal overflow (' + item.metrics.scrollWidth + ' > ' + item.metrics.innerWidth + ')');
+              failed = true;
+            }
+            if (item.errors.length) {
+              console.error(item.target.name + ': browser errors:');
+              for (const error of item.errors) console.error('  ' + error);
+              failed = true;
+            }
+          }
+
+          if (failed) process.exit(1);
+          console.log('Responsive visual QA runtime assertions passed.');
+          NODE
+
+      - name: Upload visual QA artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enkiama-landing-visual-qa
+          path: visual-qa/
+          retention-days: 7
+          if-no-files-found: error
