@@ -8,6 +8,7 @@ on:
       - milestone/tailwind-foundation-landing
       - refine/landing-post-tailwind-v1
       - refine/hero-editorial-discipline
+      - refine/tanzania-editorial-v1
     paths:
       - "src/enkiama.css"
       - "index.html"
@@ -117,7 +118,7 @@ jobs:
 
 
   visual-qa:
-    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline'
+    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline' || github.ref_name == 'refine/tanzania-editorial-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -145,6 +146,15 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
+
+      - name: Resolve QA page
+        shell: bash
+        run: |
+          if [ "${{ github.ref_name }}" = "refine/tanzania-editorial-v1" ]; then
+            echo "QA_PAGE=tanzania.html" >> "$GITHUB_ENV"
+          else
+            echo "QA_PAGE=index.html" >> "$GITHUB_ENV"
+          fi
 
       - name: Serve site
         shell: bash
@@ -198,7 +208,7 @@ jobs:
                 }
               });
 
-              await page.goto('http://127.0.0.1:4173/index.html', { waitUntil: 'domcontentloaded' });
+              await page.goto('http://127.0.0.1:4173/' + process.env.QA_PAGE, { waitUntil: 'domcontentloaded' });
 
               // Visual QA must not confuse native lazy-loading latency with a broken image.
               await page.evaluate(() => {
