@@ -909,13 +909,13 @@ nav.scrolled::before{ opacity:.035; }
 
 /* --- A. Intrinsic layered compositions --- */
 .lp-journey-stack{
-  display:grid!important;
+  display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));
   grid-template-rows:auto;
   gap:12px;
   position:relative;
-  min-height:0!important;
-  padding:0 0 clamp(6rem,9vw,9rem)!important;
+  min-height:0;
+  padding:0 0 clamp(6rem,9vw,9rem);
   max-width:1500px;
   margin:0 auto;
   align-items:start;
@@ -923,32 +923,32 @@ nav.scrolled::before{ opacity:.035; }
 
 /* proof */
 .lp-proof-system{
-  display:grid!important;
+  display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));
   grid-template-rows:auto;
   gap:12px;
   position:relative;
-  min-height:0!important;
-  margin-top:clamp(3rem,5vw,5rem)!important;
+  min-height:0;
+  margin-top:clamp(3rem,5vw,5rem);
   padding-bottom:clamp(5rem,8vw,8rem);
   align-items:start;
 }
 .lp-proof-ledger{
-  position:relative!important;right:auto!important;top:auto!important;
+  position:relative;right:auto;top:auto;
   grid-column:8 / 13;grid-row:1;
-  width:100%!important;
+  width:100%;
   margin-top:8%;
   z-index:7;
 }
 
 /* network */
 .lp-network-stage{
-  display:grid!important;
+  display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));
   grid-template-rows:auto;
   gap:12px;
   position:relative;
-  min-height:0!important;
+  min-height:0;
   max-width:1380px;
   margin:0 auto;
   padding-bottom:clamp(5rem,8vw,8rem);
@@ -993,11 +993,11 @@ nav.scrolled::before{ opacity:.035; }
 
 /* --- C. Continue exploring: editorial index, not generic cards --- */
 .lp-more{
-  max-width:1450px!important;
-  margin:0 auto!important;
-  padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem)!important;
-  background:var(--lp-white)!important;
-  border-top:1px solid var(--lp-line)!important;
+  max-width:1450px;
+  margin:0 auto;
+  padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem);
+  background:var(--lp-white);
+  border-top:1px solid var(--lp-line);
 }
 .lp-more-head{grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,6vw,7rem);
   align-items:end;margin-bottom:clamp(3rem,6vw,5rem);
@@ -1105,7 +1105,7 @@ nav.scrolled::before{ opacity:.035; }
   .lp-season-note{padding:4rem 1.35rem;}
   .lp-season-now{font-size:clamp(40px,12vw,62px);}
 
-  .lp-more{padding:4rem 1.35rem!important;}
+  .lp-more{padding:4rem 1.35rem;}
   .lp-more-item{grid-template-columns:46px minmax(0,1fr) 24px;gap:1rem;}
   .lp-more-item p{font-size:12px;}
 
