@@ -9,7 +9,7 @@
   Tailwind utilities are prefixed with "tw:" during the migration so they
   cannot collide with the existing editorial component classes.
 */
-@theme {
+@theme static {
   --color-enkiama-paper: #FAF8F2;
   --color-enkiama-white: #FFFDF8;
   --color-enkiama-bone: #EDE6D6;
@@ -51,22 +51,22 @@ footer .f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:v
 /* ── TOKENS ── */
 :root {
   /* ── SURFACES · a chosen ladder ── */
-  --ink:      #0F1712;   /* standard dark section (lead) — was near-black #0F1712 */
+  --ink:      var(--tw-color-enkiama-ink);   /* standard dark section (lead) — was near-black #0F1712 */
   --ink-deep: #0C130F;   /* deepest wells, footer */
   --ink2:     #131C16;   /* raised panels/cards */
   --ink3:     #18231B;   /* highest raise */
-  --forest:   #1C3325;   /* rare accent panel */
-  --clay:     #E7D8C3;   /* warm relief (human sections) */
+  --forest:   var(--tw-color-enkiama-forest);   /* rare accent panel */
+  --clay:     var(--tw-color-enkiama-clay);   /* warm relief (human sections) */
   --clay-dk:  #6E4C36;   /* deep clay — text on clay / rare warm accent */
-  --bone:     #EDE6D6;   /* warm bone (lead light) */
-  --bone2:    #E4DBC7;
+  --bone:     var(--tw-color-enkiama-bone);   /* warm bone (lead light) */
+  --bone2:    var(--tw-color-enkiama-bone-deep);
   --bone3:    #D6CCB6;
 
   /* ── ACCENTS · olive acts · brass decorates ── */
-  --ochre:    #556B44;   /* OLIVE — the single live/action colour (was emerald) */
+  --ochre:    var(--tw-color-enkiama-olive);   /* OLIVE — the single live/action colour (was emerald) */
   --ochre-hi: #6E8659;   /* olive hover/high */
   --ochre-lt: rgba(85,107,68,0.12);
-  --earth:    #BE9E68;   /* antique BRASS — editorial warmth, the only metal */
+  --earth:    var(--tw-color-enkiama-brass);   /* antique BRASS — editorial warmth, the only metal */
   --earth-hi: #D8BE8E;
   --earth-dim:rgba(190,158,104,0.5);
   --sage:     #7A9470;
@@ -1356,16 +1356,16 @@ nav.scrolled::before{ opacity:.035; }
 /* --- migrated from index.html: enkiama-landing-luxury-v2 [2/25] --- */
 /* ===== ENKIAMA LANDING — SIGNATURE SAFARI / ADVENTURE PALETTE ===== */
 :root{
-  --lp-paper:#FAF8F2;
-  --lp-white:#FFFDF8;
-  --lp-bone:#EDE6D6;
-  --lp-bone-2:#E4DBC7;
-  --lp-clay:#E7D8C3;
-  --lp-sagewash:#E2E7DD;
-  --lp-ink:#0F1712;
-  --lp-forest:#1C3325;
-  --lp-olive:#556B44;
-  --lp-brass:#BE9E68;
+  --lp-paper:var(--tw-color-enkiama-paper);
+  --lp-white:var(--tw-color-enkiama-white);
+  --lp-bone:var(--tw-color-enkiama-bone);
+  --lp-bone-2:var(--tw-color-enkiama-bone-deep);
+  --lp-clay:var(--tw-color-enkiama-clay);
+  --lp-sagewash:var(--tw-color-enkiama-sage);
+  --lp-ink:var(--tw-color-enkiama-ink);
+  --lp-forest:var(--tw-color-enkiama-forest);
+  --lp-olive:var(--tw-color-enkiama-olive);
+  --lp-brass:var(--tw-color-enkiama-brass);
   --lp-line:rgba(15,23,18,.12);
   --lp-line-soft:rgba(15,23,18,.075);
 }
@@ -3425,16 +3425,16 @@ a,button,[role="button"]{cursor:pointer!important;}
    Signature Enkiama palette is preserved.
    ========================================================= */
 :root{
-  --lp-paper:#FAF8F2;
-  --lp-white:#FFFDF8;
-  --lp-bone:#EDE6D6;
-  --lp-bone-2:#E4DBC7;
-  --lp-clay:#E7D8C3;
-  --lp-sagewash:#E2E7DD;
-  --lp-ink:#0F1712;
-  --lp-forest:#1C3325;
-  --lp-olive:#556B44;
-  --lp-brass:#BE9E68;
+  --lp-paper:var(--tw-color-enkiama-paper);
+  --lp-white:var(--tw-color-enkiama-white);
+  --lp-bone:var(--tw-color-enkiama-bone);
+  --lp-bone-2:var(--tw-color-enkiama-bone-deep);
+  --lp-clay:var(--tw-color-enkiama-clay);
+  --lp-sagewash:var(--tw-color-enkiama-sage);
+  --lp-ink:var(--tw-color-enkiama-ink);
+  --lp-forest:var(--tw-color-enkiama-forest);
+  --lp-olive:var(--tw-color-enkiama-olive);
+  --lp-brass:var(--tw-color-enkiama-brass);
 }
 
 /* keep every main image visibly substantial */
