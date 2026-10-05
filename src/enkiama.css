@@ -2783,6 +2783,10 @@ body{opacity:1;cursor:auto;}
     grid-column:1;
     grid-row:auto;
   }
+  .lp-stay-criteria,
+  .lp-network-notes{
+    grid-template-columns:1fr;
+  }
 
   .lp-proof-main{
     height:auto;
