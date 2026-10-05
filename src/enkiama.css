@@ -946,8 +946,9 @@ nav.scrolled::before{opacity:0.03;}
   border-top:1px solid var(--lp-line);
 }
 .lp-more-head{grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,6vw,7rem);
-  align-items:end;margin-bottom:clamp(3rem,6vw,5rem);
+  align-items:start;margin-bottom:clamp(3rem,6vw,5rem);
 }
+.lp-more-head .lp-kicker{padding-top:.35rem;}
 .lp-more-head h2{
   font-family:'Fraunces',serif;font-size:clamp(38px,5.4vw,72px);
   line-height:.98;letter-spacing:-.035em;font-weight:500;color:var(--lp-ink);
