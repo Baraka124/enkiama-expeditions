@@ -16,6 +16,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: tailwind-css-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-css:
     runs-on: ubuntu-latest
@@ -53,6 +57,17 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # A newer source commit may arrive while this run is compiling.
+          # Never push compiled CSS generated from an older source snapshot.
+          git fetch origin "${{ github.ref_name }}"
+          remote_sha="$(git rev-parse "origin/${{ github.ref_name }}")"
+          if [ "$remote_sha" != "${{ github.sha }}" ]; then
+            echo "A newer commit ($remote_sha) is already on ${{ github.ref_name }}."
+            echo "Skipping this stale generated-CSS push; the newer workflow run will compile it."
+            exit 0
+          fi
+
           git add assets/css/enkiama.css package-lock.json
           git commit -m "build(css): compile Tailwind [skip ci]"
           git push origin HEAD:${{ github.ref_name }}
