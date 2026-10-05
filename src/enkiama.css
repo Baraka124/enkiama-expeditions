@@ -1814,12 +1814,12 @@ a,button,[role="button"]{cursor:pointer;}
 /* Protected visual sanctuary on the right half of the frame */
 .hero-film .hero-scrim{
   background:
-    linear-gradient(90deg,
-      rgba(8,12,9,.62) 0%,
-      rgba(8,12,9,.44) 30%,
-      rgba(8,12,9,.16) 54%,
+    linear-gradient(270deg,
+      rgba(8,12,9,.56) 0%,
+      rgba(8,12,9,.38) 30%,
+      rgba(8,12,9,.14) 54%,
       rgba(8,12,9,.03) 70%,
-      rgba(8,12,9,0) 82%);
+      rgba(8,12,9,0) 84%);
 }
 .hero-film.has-photo::after{
   background:
