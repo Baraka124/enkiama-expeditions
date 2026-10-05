@@ -696,8 +696,16 @@ nav.scrolled::before{opacity:0.03;}
 .lp-editorial-copy{font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.72);max-width:62ch;}
 .lp-editorial-meta{margin-top:clamp(4rem,7vw,7rem);grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lp-line);position:relative;z-index:1;}
 .lp-editorial-meta>div{padding:1.25rem 1.5rem 0 0;}
-.lp-editorial-meta b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:.25rem;}
-.lp-editorial-meta span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(15,23,18,.55);}
+.lp-editorial-meta b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin-bottom:.45rem;}
+.lp-editorial-meta span{
+  display:block;
+  max-width:34ch;
+  font-size:11px;
+  line-height:1.55;
+  letter-spacing:.01em;
+  text-transform:none;
+  color:rgba(15,23,18,.58);
+}
 
 /* FIVE WORLDS — same Enkiama palette, now editorial and light */
 #worlds{background:var(--lp-white);color:var(--lp-ink);}
@@ -1385,13 +1393,13 @@ a:focus-visible,button:focus-visible{
 }
 
 /* Plates all share one material language */
-.lp-welcome-plate,
 .lp-proof-ledger,
 .lp-network-card,
 .lp-stay-ledger,
 .lp-brief-sheet{
   border:1px solid rgba(15,23,18,.09);
 }
+.lp-welcome-plate{border:0;}
 .lp-proof-ledger,
 .lp-network-card,
 .lp-stay-ledger{
@@ -1862,8 +1870,8 @@ a,button,[role="button"]{cursor:pointer;}
   align-items:end;
 }
 .lp-editorial-title{
-  font-size:clamp(48px,6.5vw,86px);
-  line-height:.96;
+  font-size:clamp(46px,6vw,80px);
+  line-height:.97;
 }
 .lp-editorial-copy{
   max-width:54ch;
