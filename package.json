@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Enkiama Expeditions static site",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/enkiama.css -o ./assets/css/enkiama.css --minify",
+    "build:css": "tailwindcss -i ./src/enkiama.css -o ./assets/css/enkiama.css --minify && tailwindcss -i ./src/tanzania.css -o ./assets/css/tanzania.css --minify",
     "watch:css": "tailwindcss -i ./src/enkiama.css -o ./assets/css/enkiama.css --watch"
   },
   "devDependencies": {

@@ -8,9 +8,12 @@ on:
       - milestone/tailwind-foundation-landing
       - refine/landing-post-tailwind-v1
       - refine/hero-editorial-discipline
+      - refine/tanzania-editorial-v1
     paths:
       - "src/enkiama.css"
+      - "src/tanzania.css"
       - "index.html"
+      - "tanzania.html"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/tailwind-build.yml"
@@ -94,7 +97,7 @@ jobs:
       - name: Commit compiled CSS when changed
         shell: bash
         run: |
-          if git diff --quiet -- assets/css/enkiama.css package-lock.json 2>/dev/null; then
+          if [ -z "$(git status --porcelain -- assets/css/enkiama.css assets/css/tanzania.css package-lock.json)" ]; then
             echo "Compiled CSS and lockfile are already current."
             exit 0
           fi
@@ -111,13 +114,13 @@ jobs:
             exit 0
           fi
 
-          git add assets/css/enkiama.css package-lock.json
+          git add assets/css/enkiama.css assets/css/tanzania.css package-lock.json
           git commit -m "build(css): compile Tailwind [skip ci]"
           git push origin HEAD:${{ github.ref_name }}
 
 
   visual-qa:
-    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline'
+    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline' || github.ref_name == 'refine/tanzania-editorial-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -145,6 +148,15 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
+
+      - name: Resolve QA page
+        shell: bash
+        run: |
+          if [ "${{ github.ref_name }}" = "refine/tanzania-editorial-v1" ]; then
+            echo "QA_PAGE=tanzania.html" >> "$GITHUB_ENV"
+          else
+            echo "QA_PAGE=index.html" >> "$GITHUB_ENV"
+          fi
 
       - name: Serve site
         shell: bash
@@ -198,7 +210,7 @@ jobs:
                 }
               });
 
-              await page.goto('http://127.0.0.1:4173/index.html', { waitUntil: 'domcontentloaded' });
+              await page.goto('http://127.0.0.1:4173/' + process.env.QA_PAGE, { waitUntil: 'domcontentloaded' });
 
               // Visual QA must not confuse native lazy-loading latency with a broken image.
               await page.evaluate(() => {
