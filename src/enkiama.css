@@ -1391,12 +1391,6 @@ a:focus-visible,button:focus-visible{
   align-items:end;
 }
 
-/* Main layered sections: cap feature and inset image heights */
-.lp-journey-main{
-  height:min(58svh,560px)!important;
-  aspect-ratio:auto!important;
-}
-
 /* A subtle framing layer — images feel like collected plates */
 .lp-photo{
   box-shadow:0 24px 60px -46px rgba(15,23,18,.34);
@@ -1797,21 +1791,6 @@ a,button,[role="button"]{cursor:pointer!important;}
   align-self:end;
 }
 
-/* Journey collage: aligned spread, only one controlled overlap */
-.lp-journey-stack{
-  grid-template-columns:repeat(12,minmax(0,1fr))!important;
-  grid-template-rows:auto auto!important;
-  gap:10px!important;
-  padding-bottom:2rem!important;
-}
-
-/* Proof: image and proposal live beside each other, not stacked as another floating card */
-.lp-proof-system{
-  grid-template-columns:repeat(12,minmax(0,1fr))!important;
-  align-items:stretch!important;
-  gap:0!important;
-  padding-bottom:0!important;
-}
 .lp-ledger-top{
   border-bottom:0!important;
   padding-bottom:1.5rem!important;
@@ -1823,13 +1802,6 @@ a,button,[role="button"]{cursor:pointer!important;}
 }
 .lp-ledger-row>span{font-size:15px!important;}
 
-/* Stays: one image spread + criteria underneath, no floating ledger */
-.lp-stay-stage{
-  grid-template-columns:repeat(12,minmax(0,1fr))!important;
-  grid-template-rows:auto auto!important;
-  gap:10px!important;
-  padding-bottom:0!important;
-}
 .lp-stay-criteria>div{
   padding:1.25rem 2rem 0 0;
 }
@@ -1852,13 +1824,6 @@ a,button,[role="button"]{cursor:pointer!important;}
   max-width:34ch;
 }
 
-/* People: two photographs + notes that sit in the flow */
-.lp-network-stage{
-  grid-template-columns:repeat(12,minmax(0,1fr))!important;
-  grid-template-rows:auto auto!important;
-  gap:10px!important;
-  padding-bottom:0!important;
-}
 .lp-network-notes>div{
   padding:1.2rem 1.8rem 0 0;
 }
@@ -1928,53 +1893,6 @@ a,button,[role="button"]{cursor:pointer!important;}
   --lp-forest:var(--tw-color-enkiama-forest);
   --lp-olive:var(--tw-color-enkiama-olive);
   --lp-brass:var(--tw-color-enkiama-brass);
-}
-
-/* keep every main image visibly substantial */
-.lp-journey-main{
-  width:100%!important;
-  min-width:0!important;
-  height:min(56svh,540px)!important;
-}
-
-/* JOURNEY — dominant landscape + two aligned supporting images, no pile-up */
-.lp-journey-stack{
-  display:grid!important;
-  grid-template-columns:minmax(0,1.9fr) minmax(280px,.85fr)!important;
-  grid-template-rows:auto auto!important;
-  gap:12px!important;
-  padding-bottom:0!important;
-  align-items:stretch!important;
-}
-.lp-journey-decisions{margin-top:2.5rem!important;}
-
-/* PROOF — true side-by-side editorial spread, image must never collapse */
-.lp-proof-system{
-  display:grid!important;
-  grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr)!important;
-  gap:0!important;
-  align-items:stretch!important;
-  padding-bottom:0!important;
-}
-
-/* STAYS — one hero image, two context images stacked cleanly */
-.lp-stay-stage{
-  display:grid!important;
-  grid-template-columns:minmax(0,1.8fr) minmax(280px,.8fr)!important;
-  grid-template-rows:auto auto auto!important;
-  gap:12px!important;
-  padding-bottom:0!important;
-  align-items:stretch!important;
-}
-
-/* PEOPLE — human photography stays visible, notes remain in normal flow */
-.lp-network-stage{
-  display:grid!important;
-  grid-template-columns:minmax(0,1.65fr) minmax(300px,.85fr)!important;
-  grid-template-rows:auto auto!important;
-  gap:12px!important;
-  padding-bottom:0!important;
-  align-items:start!important;
 }
 
 /* SIX WORLDS — controls should support photography, not become a graphic object */
