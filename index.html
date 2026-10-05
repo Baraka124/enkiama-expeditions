@@ -3595,6 +3595,346 @@ a,button,[role="button"]{cursor:pointer!important;}
 /* no residual giant decorative section numerals */
 .lp-section-head>div:first-child:empty{display:none;}
 </style>
+<style id="enkiama-restrained-editorial-v13">
+/* =========================================================
+   RESTRAINED EDITORIAL BENCHMARK PASS
+   One dominant image, one supporting relationship, no accidental overlap.
+   Signature Enkiama palette is preserved.
+   ========================================================= */
+:root{
+  --lp-paper:#FAF8F2;
+  --lp-white:#FFFDF8;
+  --lp-bone:#EDE6D6;
+  --lp-bone-2:#E4DBC7;
+  --lp-clay:#E7D8C3;
+  --lp-sagewash:#E2E7DD;
+  --lp-ink:#0F1712;
+  --lp-forest:#1C3325;
+  --lp-olive:#556B44;
+  --lp-brass:#BE9E68;
+}
+
+/* keep every main image visibly substantial */
+.lp-journey-main,
+.lp-proof-main,
+.lp-stay-main,
+.lp-network-main{
+  width:100%!important;
+  min-width:0!important;
+  height:min(56svh,540px)!important;
+}
+.lp-journey-inset,
+.lp-journey-detail,
+.lp-stay-plain,
+.lp-stay-coast,
+.lp-network-inset{
+  width:100%!important;
+  min-width:0!important;
+  height:min(27svh,255px)!important;
+}
+
+/* JOURNEY — dominant landscape + two aligned supporting images, no pile-up */
+.lp-journey-stack{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.9fr) minmax(280px,.85fr)!important;
+  grid-template-rows:auto auto!important;
+  gap:12px!important;
+  padding-bottom:0!important;
+  align-items:stretch!important;
+}
+.lp-journey-main{
+  grid-column:1!important;
+  grid-row:1 / span 2!important;
+}
+.lp-journey-inset{
+  grid-column:2!important;
+  grid-row:1!important;
+  margin:0!important;
+  transform:none!important;
+  align-self:stretch!important;
+  outline:0!important;
+}
+.lp-journey-detail{
+  grid-column:2!important;
+  grid-row:2!important;
+  margin:0!important;
+  transform:none!important;
+  align-self:stretch!important;
+  outline:0!important;
+}
+.lp-journey-routeplate{
+  grid-column:1 / -1!important;
+  grid-row:3!important;
+  margin:1.5rem 0 0!important;
+  transform:none!important;
+  width:100%!important;
+  padding:1.25rem 0!important;
+  background:transparent!important;
+  border:0!important;
+  border-top:1px solid rgba(15,23,18,.12)!important;
+  border-bottom:1px solid rgba(15,23,18,.12)!important;
+  box-shadow:none!important;
+}
+.lp-journey-decisions{margin-top:2.5rem!important;}
+
+/* PROOF — true side-by-side editorial spread, image must never collapse */
+.lp-proof-system{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  padding-bottom:0!important;
+}
+.lp-proof-main{
+  grid-column:1!important;
+  grid-row:1!important;
+  display:block!important;
+  place-self:stretch!important;
+}
+.lp-proof-ledger--editorial{
+  grid-column:2!important;
+  grid-row:1!important;
+  margin:0!important;
+  width:100%!important;
+  min-width:0!important;
+  align-self:stretch!important;
+  padding:clamp(2.2rem,3.8vw,4rem)!important;
+  border-left:1px solid rgba(15,23,18,.12)!important;
+}
+
+/* STAYS — one hero image, two context images stacked cleanly */
+.lp-stay-stage{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.8fr) minmax(280px,.8fr)!important;
+  grid-template-rows:auto auto auto!important;
+  gap:12px!important;
+  padding-bottom:0!important;
+  align-items:stretch!important;
+}
+.lp-stay-main{
+  grid-column:1!important;
+  grid-row:1 / span 2!important;
+}
+.lp-stay-plain{
+  grid-column:2!important;
+  grid-row:1!important;
+  margin:0!important;
+  transform:none!important;
+  align-self:stretch!important;
+  outline:0!important;
+}
+.lp-stay-coast{
+  grid-column:2!important;
+  grid-row:2!important;
+  margin:0!important;
+  transform:none!important;
+  align-self:stretch!important;
+  outline:0!important;
+}
+.lp-stay-criteria{
+  grid-column:1 / -1!important;
+  grid-row:3!important;
+  margin-top:1.8rem!important;
+  border-top:1px solid rgba(15,23,18,.11)!important;
+}
+
+/* PEOPLE — human photography stays visible, notes remain in normal flow */
+.lp-network-stage{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.65fr) minmax(300px,.85fr)!important;
+  grid-template-rows:auto auto!important;
+  gap:12px!important;
+  padding-bottom:0!important;
+  align-items:start!important;
+}
+.lp-network-main{
+  grid-column:1!important;
+  grid-row:1!important;
+}
+.lp-network-inset{
+  grid-column:2!important;
+  grid-row:1!important;
+  height:min(56svh,540px)!important;
+  margin:0!important;
+  transform:none!important;
+  outline:0!important;
+}
+.lp-network-notes{
+  grid-column:1 / -1!important;
+  grid-row:2!important;
+  margin-top:1.8rem!important;
+}
+
+/* SIX WORLDS — controls should support photography, not become a graphic object */
+#worlds .worlds-nav{
+  position:relative!important;
+  bottom:auto!important;
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(0,1fr)) auto!important;
+  padding:0 clamp(1.2rem,3vw,2.8rem)!important;
+  background:var(--lp-paper)!important;
+  border-top:0!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+#worlds .wn-btn{
+  padding:1rem .7rem 1.05rem!important;
+  border:0!important;
+  color:rgba(15,23,18,.42)!important;
+}
+#worlds .wn-btn::before{display:none!important;}
+#worlds .wn-btn::after{
+  left:.7rem!important;
+  right:auto!important;
+  width:34px!important;
+  bottom:.55rem!important;
+  height:1px!important;
+  background:var(--lp-olive)!important;
+}
+#worlds .wn-btn.active{
+  color:var(--lp-ink)!important;
+}
+#worlds .wn-btn span{
+  margin-bottom:.28rem!important;
+  color:rgba(15,23,18,.30)!important;
+}
+#worlds .wn-arrows{
+  gap:.4rem;
+  padding-left:1rem!important;
+}
+#worlds .wn-arr{
+  width:38px!important;
+  height:38px!important;
+  border:1px solid rgba(15,23,18,.12)!important;
+  background:transparent!important;
+}
+#worlds .wn-arr:hover{
+  background:rgba(85,107,68,.06)!important;
+  border-color:rgba(85,107,68,.25)!important;
+}
+#worlds .worlds-note{
+  background:var(--lp-paper)!important;
+  padding:2.5rem var(--lp-gutter)!important;
+}
+
+/* captions must stay visible but feel printed, not boxed */
+.lp-photo figcaption,
+.wp-photo-note,
+.wp-photo-tag{
+  font-size:8px!important;
+  letter-spacing:.14em!important;
+}
+.lp-photo figcaption{
+  left:12px!important;
+  bottom:10px!important;
+  padding:.25rem .9rem .25rem 0!important;
+  background:linear-gradient(90deg,rgba(12,18,14,.28),rgba(12,18,14,0))!important;
+  text-shadow:0 1px 9px rgba(0,0,0,.70)!important;
+}
+.wp-photo-tag,
+.wp-photo-note{
+  text-shadow:0 1px 10px rgba(0,0,0,.66)!important;
+}
+
+/* preserve the Enkiama material rhythm explicitly */
+.lp-archive{background:var(--lp-paper)!important;}
+.lp-proof{background:var(--lp-bone)!important;}
+.lp-stays{background:var(--lp-white)!important;}
+.lp-people{background:var(--lp-paper)!important;}
+.lp-compose{background:var(--lp-sagewash)!important;}
+.lp-practical{background:var(--lp-white)!important;}
+.lp-season-note{background:var(--lp-bone)!important;}
+.lp-more{background:var(--lp-paper)!important;}
+.cta-l{background:var(--lp-bone-2)!important;}
+.cta-r{background:var(--lp-white)!important;}
+
+/* no decorative overlap purely for overlap's sake */
+.lp-journey-main,
+.lp-journey-inset,
+.lp-journey-detail,
+.lp-proof-main,
+.lp-stay-main,
+.lp-stay-plain,
+.lp-stay-coast,
+.lp-network-main,
+.lp-network-inset{
+  transform:none!important;
+  box-shadow:none!important;
+}
+
+/* tablet */
+@media(max-width:960px){
+  .lp-journey-stack,
+  .lp-stay-stage,
+  .lp-network-stage{
+    grid-template-columns:minmax(0,1.45fr) minmax(240px,.8fr)!important;
+  }
+
+  .lp-proof-system{
+    grid-template-columns:1fr!important;
+  }
+  .lp-proof-main,.lp-proof-ledger--editorial{
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+  .lp-proof-ledger--editorial{
+    border-left:0!important;
+    border-top:1px solid rgba(15,23,18,.12)!important;
+    padding:2rem 0 0!important;
+  }
+
+  #worlds .worlds-nav{
+    grid-template-columns:repeat(3,1fr) auto!important;
+  }
+  #worlds .wn-arrows{grid-column:4;grid-row:1/3;}
+}
+
+/* mobile — deliberate sequence, never miniature collage */
+@media(max-width:680px){
+  .lp-journey-stack,
+  .lp-stay-stage,
+  .lp-network-stage{
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto!important;
+    gap:8px!important;
+  }
+
+  .lp-journey-main,
+  .lp-journey-inset,
+  .lp-journey-detail,
+  .lp-stay-main,
+  .lp-stay-plain,
+  .lp-stay-coast,
+  .lp-network-main,
+  .lp-network-inset{
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:4/3!important;
+  }
+
+  .lp-journey-routeplate,
+  .lp-stay-criteria,
+  .lp-network-notes{
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+
+  .lp-stay-criteria,
+  .lp-network-notes{
+    grid-template-columns:1fr!important;
+  }
+
+  #worlds .worlds-nav{
+    grid-template-columns:repeat(2,1fr) auto!important;
+    padding:0 .8rem!important;
+  }
+  #worlds .wn-arrows{grid-column:3;grid-row:1/4;}
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
