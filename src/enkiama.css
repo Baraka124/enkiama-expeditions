@@ -1325,82 +1325,13 @@ a:focus-visible,button:focus-visible{
 }
 
 /* --- migrated from index.html: enkiama-media-proportion-v10 [10/25] --- */
-/* =========================================================
-   ENKIAMA MEDIA PROPORTION SYSTEM
-   Images should read in one glance, not require a full scroll.
-   ========================================================= */
-
-/* hero is the only near-full-viewport photograph */
-.hero{
-  min-height:min(94svh,900px)!important;
-  padding-top:110px!important;
-  padding-bottom:clamp(4.5rem,7vh,6.5rem)!important;
-}
-.hero-film{min-height:100%;}
-
-/* Six Worlds: cap the entire authored plate within a comfortable viewport */
-#worlds .world-panel{
-  min-height:0!important;
-  height:clamp(560px,72svh,720px)!important;
-  max-height:720px;
-}
-#worlds .wp-text{
-  min-height:0!important;
-  height:100%!important;
-}
-#worlds .wp-text{
-  padding-top:clamp(2.5rem,5vh,4.25rem)!important;
-  padding-bottom:clamp(2.5rem,5vh,4.25rem)!important;
-}
-
-/* Welcome composition: one-glance editorial frame */
-.lp-welcome-stack{
-  min-height:0!important;
-  display:grid!important;
-  grid-template-columns:repeat(12,minmax(0,1fr));
-  grid-template-rows:auto;
-  gap:12px;
-  align-items:end;
-}
-
-.ph-frame img{
-  transform-origin:center center;
-}
-
-/* Secondary images must remain meaningful, never postage stamps */
-.lp-journey-inset,
-.lp-proof-inset{
-  min-width:220px;
-}
-
-/* Sections should not create excessive air around image systems */
+/* Remaining canonical section rhythm from the former proportion pass. */
 .lp-archive,
 .lp-proof,
 .lp-people,
 .lp-stays{
   padding-top:clamp(5.5rem,9vw,8rem)!important;
   padding-bottom:clamp(5.5rem,9vw,8rem)!important;
-}
-
-/* Tablet: compositions remain rich but shorter */
-@media(max-width:980px){
-}
-
-/* Mobile: a single image should generally fit inside one screen */
-@media(max-width:620px){
-  .hero{
-    min-height:min(88svh,780px)!important;
-    padding-top:96px!important;
-    padding-bottom:4rem!important;
-  }
-  #worlds .w4 .wp-photo,
-  #worlds .w6 .wp-photo{
-    padding:1rem!important;
-  }
-}
-
-/* Very short laptop screens: reduce vertically before reducing width */
-@media(max-height:720px) and (min-width:900px){
 }
 
 /* --- migrated from index.html: enkiama-rhythm-microluxury-v11 [11/25] --- */
