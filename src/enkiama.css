@@ -717,8 +717,8 @@ nav.scrolled::before{ opacity:.035; }
 #worlds .wp-sw{color:#8A7048;}
 #worlds .wp-tag{color:var(--lp-olive);}
 #worlds .wp-ph-hint{display:none!important;}
-#worlds .worlds-note{padding:clamp(3.5rem,6vw,5rem) clamp(1.5rem,5vw,4rem);background:var(--lp-paper);border-top:1px solid var(--lp-line);}
-#worlds .worlds-note p{max-width:940px;font-size:clamp(19px,2.3vw,29px);color:rgba(15,23,18,.76);}
+#worlds .worlds-note{padding:1.55rem var(--lp-gutter) 1.7rem;background:var(--lp-paper);border-top:1px solid var(--lp-line);min-height:0;}
+#worlds .worlds-note p{font-family:'Instrument Sans',sans-serif;font-size:13px;line-height:1.65;font-style:normal;max-width:72ch;color:rgba(15,23,18,.60);}
 #worlds .worlds-note em{color:var(--lp-olive);}
 #worlds .wn-arr{border-color:rgba(15,23,18,.16);color:rgba(15,23,18,.58);}
 #worlds .wn-arr:hover{border-color:var(--lp-brass);color:var(--lp-ink);background:rgba(190,158,104,.08);}
@@ -730,7 +730,7 @@ nav.scrolled::before{ opacity:.035; }
 .lp-photo{position:relative;overflow:hidden;background:var(--lp-bone-2);isolation:isolate;}
 @media(hover:hover) and (pointer:fine){.lp-photo:hover img{transform:scale(1.012);}}
 
-.lp-archive{padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);}
+.lp-archive{padding:clamp(4rem,5.5vw,5.25rem) clamp(1.5rem,5vw,5rem) clamp(7rem,12vw,12rem);}
 .lp-section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(2.5rem,6vw,7rem);align-items:start;max-width:1500px;margin:0 auto clamp(3.5rem,6vw,5.5rem);}
 .lp-section-title{font-family:'Fraunces',serif;font-size:clamp(42px,6vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:600;max-width:950px;}
 .lp-section-title em{font-style:italic;color:var(--lp-olive);}
@@ -806,22 +806,22 @@ nav.scrolled::before{ opacity:.035; }
 
 /* Journey archive — layered dossier */
 .lp-journey-stack{position:relative;max-width:1500px;margin:0 auto;padding-bottom:clamp(7rem,10vw,10rem);}
-.lp-route-head{display:flex;justify-content:space-between;gap:1rem;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.52);margin-bottom:1.5rem;}
+.lp-route-head{display:flex;justify-content:space-between;gap:1rem;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.56);margin-bottom:1.5rem;}
 .lp-route-head strong{color:var(--lp-ink);font-weight:500;}
 .lp-route-mini{grid-template-columns:repeat(6,minmax(0,1fr));gap:0;position:relative;}
 .lp-route-mini::before{content:"";position:absolute;left:6%;right:6%;top:4px;height:1px;background:rgba(15,23,18,.16);}
-.lp-route-mini>div{position:relative;padding-top:1.1rem;padding-right:.55rem;font-family:'Fraunces',serif;font-size:clamp(11px,1.05vw,15px);}
+.lp-route-mini>div{position:relative;padding-top:1.1rem;padding-right:.55rem;font-family:'Fraunces',serif;font-size:clamp(11px,1.05vw,15px);color:rgba(15,23,18,.86);}
 .lp-route-mini i{position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--lp-olive);z-index:2;}
 
 /* Proof — one image system with ledger and inset */
 .lp-proof-system{position:relative;min-height:clamp(620px,67vw,900px);margin-top:clamp(3rem,5vw,5rem);}
 .lp-proof-ledger{position:absolute;z-index:7;right:0;top:12%;width:min(520px,42%);background:var(--lp-white);border:1px solid rgba(15,23,18,.1);box-shadow:0 30px 76px -50px rgba(15,23,18,.46);padding:1.4rem 1.5rem;}
-.lp-ledger-top{display:flex;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--lp-line);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.5);}
+.lp-ledger-top{display:flex;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--lp-line);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.56);}
 .lp-ledger-top b{color:var(--lp-olive);font-weight:500;}
 .lp-ledger-row{grid-template-columns:36px 1fr;gap:.85rem;padding:1rem 0;border-bottom:1px solid var(--lp-line-soft);}
 .lp-ledger-row>span{font-family:'Fraunces',serif;color:rgba(85,107,68,.48);font-size:18px;}
-.lp-ledger-row strong{font-family:'Fraunces',serif;font-size:20px;font-weight:500;line-height:1.15;}
-.lp-ledger-row em{grid-column:2;font-style:normal;font-size:11px;color:rgba(15,23,18,.56);line-height:1.5;margin-top:-.45rem;}
+.lp-ledger-row strong{font-family:'Fraunces',serif;font-size:20px;font-weight:500;line-height:1.15;color:rgba(15,23,18,.94);}
+.lp-ledger-row em{grid-column:2;font-style:normal;font-size:12px;color:rgba(15,23,18,.60);line-height:1.5;margin-top:-.45rem;}
 
 /* Network — images + a factual plate */
 .lp-network-stage{position:relative;min-height:clamp(600px,66vw,900px);max-width:1380px;margin:0 auto;}
@@ -1230,19 +1230,17 @@ a:focus-visible,button:focus-visible{
   padding-bottom:1rem;margin-bottom:1.35rem;
   border-bottom:1px solid rgba(15,23,18,.1);
   font-size:8px;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(15,23,18,.42);
+  color:rgba(15,23,18,.52);
 }
 #worlds .wp-world-meta span:first-child{color:var(--lp-olive);}
 #worlds .wp-inner{max-width:620px;}
 #worlds .wp-facts{margin-top:1.55rem;}
 #worlds .worlds-note{
-  display:flex;align-items:center;min-height:150px;
+  display:flex;align-items:center;
 }
 #worlds .worlds-note p{
   margin:0 auto;
   text-align:center;
-  max-width:850px;
-  line-height:1.55;
 }
 
 /* Journey route intelligence */
@@ -1255,7 +1253,7 @@ a:focus-visible,button:focus-visible{
   display:flex;justify-content:space-between;gap:1rem;
   padding:1rem 0;
   font-size:9px;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(15,23,18,.46);
+  color:rgba(15,23,18,.56);
 }
 .lp-decision-head strong{font-weight:500;color:var(--lp-olive);}
 .lp-decision-row{
@@ -1271,7 +1269,7 @@ a:focus-visible,button:focus-visible{
 .lp-decision-leg{
   padding-top:.28rem;
   font-size:9px;letter-spacing:.13em;text-transform:uppercase;
-  color:#8A7048;
+  color:rgba(132,109,73,.84);
 }
 .lp-decision-row strong{
   font-family:'Fraunces',serif;font-size:clamp(20px,2vw,28px);
@@ -1279,7 +1277,7 @@ a:focus-visible,button:focus-visible{
 }
 .lp-decision-row p{
   font-size:13px;line-height:1.72;
-  color:rgba(15,23,18,.62);max-width:56ch;
+  color:rgba(15,23,18,.64);max-width:56ch;
 }
 
 /* Where the day ends */
@@ -1724,6 +1722,10 @@ a,button,[role="button"]{cursor:pointer!important;}
   margin-top:0;
   align-self:end;
 }
+.lp-section-head--route .lp-section-title{
+  font-size:clamp(48px,5.5vw,76px);
+  line-height:.96;
+}
 
 .lp-ledger-top{
   border-bottom:0!important;
@@ -2076,10 +2078,10 @@ a,button,[role="button"]{cursor:pointer!important;}
 .lp-country-index-label{
   padding:1rem 1.5rem 1rem 0;
   align-self:start;
-  font-size:8px;
+  font-size:8.5px;
   letter-spacing:.13em;
   text-transform:uppercase;
-  color:#846D49;
+  color:rgba(132,109,73,.88);
 }
 .lp-country-index a{
   padding:1rem 1.25rem;
@@ -2093,11 +2095,12 @@ a,button,[role="button"]{cursor:pointer!important;}
   font-size:18px;
   font-weight:500;
   margin-bottom:.25rem;
+  color:rgba(15,23,18,.92);
 }
 .lp-country-index small{
-  font-size:9px;
+  font-size:9.5px;
   line-height:1.5;
-  color:rgba(15,23,18,.48);
+  color:rgba(15,23,18,.58);
 }
 @media(hover:hover){
   .lp-country-index a:hover b{color:var(--lp-olive);}
@@ -2337,9 +2340,6 @@ a,button,[role="button"]{cursor:pointer!important;}
 .lp-country-index a{
   transition:background .3s ease;
 }
-.lp-country-index b{
-  font-size:17px!important;
-}
 .lp-country-index small{
   max-width:30ch;
 }
@@ -2565,83 +2565,11 @@ body{opacity:1!important;cursor:auto!important;}
 }
 
 /* --- migrated from index.html: enkiama-live-video-correction-v20 [20/25] --- */
-/* LIVE VIDEO CORRECTION — observed from the actual scroll sequence */
-
-/* Hero must always resolve even if JS timing changes */
+/* Hero reveal safeguard retained as state protection. */
 .hero-hed.in,.hero-acts.in,.hero-eye.in,.hero-sub.in{
   opacity:1!important;
   transform:none!important;
 }
-
-/* The note after Worlds was visually floating and too tall in the live scroll */
-#worlds .worlds-note{
-  min-height:0!important;
-  padding:1.55rem var(--lp-gutter) 1.7rem!important;
-}
-#worlds .worlds-note p{
-  font-family:'Instrument Sans',sans-serif!important;
-  font-size:13px!important;
-  line-height:1.65!important;
-  font-style:normal!important;
-  max-width:72ch!important;
-  color:rgba(15,23,18,.60)!important;
-}
-
-/* Worlds → route transition: keep air, remove the dead void */
-.lp-archive{
-  padding-top:clamp(4rem,5.5vw,5.25rem)!important;
-}
-.lp-section-head--route .lp-section-title{
-  font-size:clamp(48px,5.5vw,76px)!important;
-  line-height:.96!important;
-}
-
-/* Regional depth remains quiet, but fully readable */
-.lp-country-index-label{
-  color:rgba(132,109,73,.88)!important;
-  font-size:8.5px!important;
-}
-.lp-country-index b{
-  color:rgba(15,23,18,.92)!important;
-}
-.lp-country-index small{
-  color:rgba(15,23,18,.58)!important;
-  font-size:9.5px!important;
-}
-
-/* Route/proposal detail should not disappear at normal laptop distance */
-.lp-route-head,
-.lp-decision-head,
-.lp-ledger-top{
-  color:rgba(15,23,18,.56)!important;
-}
-.lp-route-mini>div{
-  color:rgba(15,23,18,.86)!important;
-}
-.lp-route-facts small{
-  color:rgba(15,23,18,.52)!important;
-}
-.lp-decision-leg{
-  color:rgba(132,109,73,.84)!important;
-}
-.lp-decision-row p{
-  color:rgba(15,23,18,.64)!important;
-  font-size:13px!important;
-}
-.lp-ledger-row em{
-  color:rgba(15,23,18,.60)!important;
-  font-size:12px!important;
-  line-height:1.5!important;
-}
-.lp-ledger-row strong{
-  color:rgba(15,23,18,.94)!important;
-}
-
-/* People crop correction from the live recording */
-.lp-network-inset img{
-  object-position:50% 78%!important; /* keeps embedded source text outside the visible crop */
-}
-
 @media(max-width:760px){
   .lp-section-head--route .lp-section-title{
     font-size:clamp(42px,11vw,60px);
@@ -2937,6 +2865,7 @@ body{opacity:1!important;cursor:auto!important;}
   transform:none;
   outline:0;
 }
+.lp-network-inset img{object-position:50% 78%;}
 .lp-network-notes{
   grid-column:1 / -1;
   grid-row:2;
