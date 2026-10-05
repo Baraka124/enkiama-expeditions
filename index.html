@@ -2469,6 +2469,97 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   .lp-contact-meta span:not(:last-child)::after{margin-left:.8rem;}
 }
 </style>
+<style id="enkiama-refinement-v7">
+/* Six Worlds — deterministic, slow, legible progress */
+#worlds .wn-btn::before{
+  content:"";position:absolute;left:.65rem;right:.65rem;bottom:0;height:1px;
+  background:rgba(15,23,18,.1);
+}
+#worlds .wn-btn::after{
+  z-index:2;
+}
+#worlds.auto-running .wn-btn.active::after{
+  transform-origin:left;
+  animation:enkiamaWorldProgress 7.2s linear forwards;
+}
+@keyframes enkiamaWorldProgress{
+  from{transform:scaleX(0);}
+  to{transform:scaleX(1);}
+}
+#worlds .wn-btn[aria-current="true"] span{color:rgba(85,107,68,.65);}
+#worlds .wn-arr:disabled{opacity:.28;pointer-events:none;}
+@media(prefers-reduced-motion:reduce){
+  #worlds.auto-running .wn-btn.active::after{animation:none;transform:scaleX(1);}
+}
+
+/* Travel brief — one composed object, not three generic cards */
+.lp-compose{padding-top:clamp(7rem,11vw,10rem);padding-bottom:clamp(7rem,11vw,10rem);}
+.lp-compose-top{align-items:end;}
+.lp-brief-sheet{
+  margin-top:clamp(3rem,6vw,5rem);
+  background:rgba(255,253,248,.72);
+  border:1px solid rgba(15,23,18,.1);
+  box-shadow:0 28px 70px -54px rgba(15,23,18,.35);
+}
+.lp-brief-sheet-head{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding:1rem 1.25rem;
+  border-bottom:1px solid var(--lp-line);
+  font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:rgba(15,23,18,.46);
+}
+.lp-brief-row{
+  display:grid;
+  grid-template-columns:56px 110px minmax(220px,.8fr) minmax(0,1.2fr);
+  gap:1rem 1.4rem;
+  align-items:start;
+  padding:1.55rem 1.25rem;
+  border-bottom:1px solid var(--lp-line);
+}
+.lp-brief-row .n{
+  font-family:'Fraunces',serif;font-size:22px;color:rgba(85,107,68,.42);
+}
+.lp-brief-label2{
+  font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#8A7048;padding-top:.38rem;
+}
+.lp-brief-row strong{
+  font-family:'Fraunces',serif;font-size:clamp(21px,2.1vw,29px);line-height:1.15;font-weight:500;
+}
+.lp-brief-row p{
+  font-size:13px;line-height:1.72;color:rgba(15,23,18,.62);max-width:58ch;
+}
+.lp-brief-sheet-foot{
+  display:flex;justify-content:space-between;align-items:center;gap:1.5rem;
+  padding:1.25rem;
+}
+.lp-brief-sheet-foot>span{
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(15,23,18,.42);
+}
+.lp-brief-sheet .lp-compose-actions{margin-top:0;}
+.lp-brief-sheet .btn-primary{padding:13px 23px;}
+.lp-brief-sheet .btn-ghost{color:rgba(15,23,18,.62);}
+.lp-brief-sheet .btn-ghost::after{background:var(--lp-ink);}
+
+@media(max-width:860px){
+  .lp-brief-row{
+    grid-template-columns:44px minmax(100px,.38fr) minmax(0,1fr);
+  }
+  .lp-brief-row p{grid-column:3;}
+  .lp-brief-sheet-foot{align-items:flex-start;flex-direction:column;}
+}
+@media(max-width:560px){
+  .lp-brief-sheet-head{align-items:flex-start;flex-direction:column;}
+  .lp-brief-row{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:.65rem 1rem;
+    padding:1.35rem 1rem;
+  }
+  .lp-brief-label2{grid-column:2;}
+  .lp-brief-row strong{grid-column:2;}
+  .lp-brief-row p{grid-column:2;}
+  .lp-brief-sheet-foot{padding:1rem;}
+  .lp-brief-sheet .lp-compose-actions{width:100%;}
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -2729,7 +2820,7 @@ body.eh-locked{overflow:hidden;}
 
   var LABELS={
     tanzania:'The Serengeti', parks:'Ngorongoro', journeys:'Tarangire',
-    compose:'First light', family:'Kibosho', begin:'Camp, on arrival',
+    compose:'First light', family:'Kilimanjaro foothills', begin:'Camp, on arrival',
     kilimanjaro:'Kilimanjaro', companions:'Around the fire', greatrift:'The Rift Valley',
     reflections:'Night over the plain', practical:'Arusha',
     stories:'Stone Town', notes:'Lake Manyara', how:'The people of the land',
@@ -2855,8 +2946,8 @@ body.eh-locked{overflow:hidden;}
 
   <div class="lp-welcome-stack reveal">
     <figure class="lp-photo lp-welcome-photo" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-bone);">
-      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho in the Kilimanjaro foothills">
-      <figcaption>Kibosho · Kilimanjaro foothills</figcaption>
+      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in the Kilimanjaro foothills">
+      <figcaption>Kilimanjaro foothills · local hospitality</figcaption>
     </figure>
     <aside class="lp-welcome-plate">
       <p class="lp-kicker">Karibu · welcome</p>
@@ -2869,7 +2960,7 @@ body.eh-locked{overflow:hidden;}
 </section>
 
 <!-- ── FIVE WORLDS ── -->
-<section id="worlds">
+<section id="worlds" role="region" aria-label="Six worlds of Tanzania">
   <div class="worlds-intro">
     <div class="worlds-intro-grid">
       <h2 class="worlds-hl reveal">One<br>country.<br>Many<br><em>registers.</em></h2>
@@ -2878,7 +2969,7 @@ body.eh-locked{overflow:hidden;}
   </div>
 
   <div class="worlds-track-wrap">
-    <div class="worlds-track" id="wTrack">
+    <div class="worlds-track" id="wTrack" tabindex="0" aria-label="Mountains, savannas, craters, culture, Rift Valley and coast">
 
       <div class="world-panel w1">
         <div class="wp-text">
@@ -2894,7 +2985,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-photo">
           <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 46%;"><img data-src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">5,895m</span>
-          <span class="wp-photo-note">Kilimanjaro &middot; Kibosho corridor</span>
+          <span class="wp-photo-note">Kilimanjaro &middot; northern highlands</span>
         </div>
       </div>
 
@@ -2993,15 +3084,15 @@ body.eh-locked{overflow:hidden;}
     </div>
 
     <div class="worlds-nav">
-      <button class="wn-btn active" data-w="0"><span>01</span>Mountains</button>
-      <button class="wn-btn" data-w="1"><span>02</span>Savannas</button>
-      <button class="wn-btn" data-w="2"><span>03</span>Craters</button>
-      <button class="wn-btn" data-w="3"><span>04</span>Culture</button>
-      <button class="wn-btn" data-w="4"><span>05</span>Rift Valley</button>
-      <button class="wn-btn" data-w="5"><span>06</span>Coast</button>
+      <button class="wn-btn active" data-w="0" aria-label="Show Mountains"><span>01</span>Mountains</button>
+      <button class="wn-btn" data-w="1" aria-label="Show Savannas"><span>02</span>Savannas</button>
+      <button class="wn-btn" data-w="2" aria-label="Show Craters"><span>03</span>Craters</button>
+      <button class="wn-btn" data-w="3" aria-label="Show Culture"><span>04</span>Culture</button>
+      <button class="wn-btn" data-w="4" aria-label="Show Rift Valley"><span>05</span>Rift Valley</button>
+      <button class="wn-btn" data-w="5" aria-label="Show Coast"><span>06</span>Coast</button>
       <div class="wn-arrows">
-        <button class="wn-arr" id="wPrev">&larr;</button>
-        <button class="wn-arr" id="wNext">&rarr;</button>
+        <button class="wn-arr" id="wPrev" aria-label="Previous world">&larr;</button>
+        <button class="wn-arr" id="wNext" aria-label="Next world">&rarr;</button>
       </div>
     </div>
   </div>
@@ -3117,11 +3208,11 @@ body.eh-locked{overflow:hidden;}
       </figure>
 
       <aside class="lp-proof-ledger">
-        <div class="lp-ledger-top"><span>What stays controlled</span><b>ENK / 04</b></div>
-        <div class="lp-ledger-row"><span>01</span><strong>Your group</strong><em>Private route, vehicle and pace</em></div>
-        <div class="lp-ledger-row"><span>02</span><strong>Your people</strong><em>Named guides and specialists where relevant</em></div>
-        <div class="lp-ledger-row"><span>03</span><strong>Your plan</strong><em>Accommodation and transitions agreed before travel</em></div>
-        <div class="lp-ledger-row"><span>04</span><strong>Your cost</strong><em>Complete proposal before commitment</em></div>
+        <div class="lp-ledger-top"><span>What your proposal sets out</span><b>ENK / 04</b></div>
+        <div class="lp-ledger-row"><span>01</span><strong>The route</strong><em>Sequence, pace, transfers and private vehicle where relevant</em></div>
+        <div class="lp-ledger-row"><span>02</span><strong>The people</strong><em>Guides, hosts and specialists relevant to the route</em></div>
+        <div class="lp-ledger-row"><span>03</span><strong>The stays</strong><em>Accommodation chosen for place, rhythm and budget</em></div>
+        <div class="lp-ledger-row"><span>04</span><strong>The cost</strong><em>One complete proposal before you commit</em></div>
       </aside>
 
       <figure class="lp-photo lp-proof-inset" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-white);">
@@ -3141,8 +3232,8 @@ body.eh-locked{overflow:hidden;}
 
     <div class="lp-network-stage reveal">
       <figure class="lp-photo lp-network-main" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-paper);">
-        <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in Kibosho in the Kilimanjaro foothills">
-        <figcaption>Kibosho · Kilimanjaro foothills</figcaption>
+        <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in the Kilimanjaro foothills">
+        <figcaption>Kilimanjaro foothills · local hospitality</figcaption>
       </figure>
 
       <figure class="lp-photo lp-network-inset" data-lp-media style="--lp-pos:50% 100%;--lp-mask:var(--lp-bone);">
@@ -3164,19 +3255,43 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-compose" id="compose-preview">
   <div class="lp-compose-inner">
     <div class="lp-compose-top">
-      <h2 class="reveal">Tell us three things.<br><em>We can start there.</em></h2>
-      <p class="lp-compose-copy reveal">Who is travelling, roughly when, and what you most want to experience. From that, we can tell you what is realistic for the season, duration and budget.</p>
+      <div>
+        <p class="lp-kicker reveal">A useful first brief</p>
+        <h2 class="reveal">Tell us three things.<br><em>We can start there.</em></h2>
+      </div>
+      <p class="lp-compose-copy reveal">You do not need to arrive with an itinerary. A group, a rough travel window and the part of Tanzania that matters most are enough for us to begin shaping a route.</p>
     </div>
 
-    <div class="lp-compose-steps">
-      <div class="lp-compose-step reveal"><div class="n">01</div><strong>Who is travelling?</strong><span>A couple, a family, friends, a solo traveller joining others — the group changes the shape of the journey.</span></div>
-      <div class="lp-compose-step reveal"><div class="n">02</div><strong>When are you thinking?</strong><span>An exact date is not necessary. A month or season is enough for us to begin explaining what Tanzania will be doing then.</span></div>
-      <div class="lp-compose-step reveal"><div class="n">03</div><strong>What do you want most from the journey?</strong><span>Safari, Kilimanjaro, local life, coast — or a combination. We use that answer to shape the first route.</span></div>
-    </div>
-
-    <div class="lp-compose-actions reveal">
-      <a href="begin.html" class="btn-primary">Begin your journey</a>
-      <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="btn-ghost">Start on WhatsApp &rarr;</a>
+    <div class="lp-brief-sheet reveal">
+      <div class="lp-brief-sheet-head">
+        <span>ENKIAMA / JOURNEY BRIEF</span>
+        <span>Start with what you know</span>
+      </div>
+      <div class="lp-brief-row">
+        <span class="n">01</span>
+        <span class="lp-brief-label2">Travellers</span>
+        <strong>Who is coming?</strong>
+        <p>Couple, family, friends or solo. Group size changes pace, vehicle choice and accommodation.</p>
+      </div>
+      <div class="lp-brief-row">
+        <span class="n">02</span>
+        <span class="lp-brief-label2">Timing</span>
+        <strong>When are you thinking?</strong>
+        <p>A month or season is enough. We use it to read wildlife movement, weather and availability.</p>
+      </div>
+      <div class="lp-brief-row">
+        <span class="n">03</span>
+        <span class="lp-brief-label2">Priority</span>
+        <strong>What matters most?</strong>
+        <p>Safari, Kilimanjaro, Rift Valley, local life, coast — or a combination. That answer shapes the first route.</p>
+      </div>
+      <div class="lp-brief-sheet-foot">
+        <span>No form required to begin.</span>
+        <div class="lp-compose-actions">
+          <a href="begin.html" class="btn-primary">Begin a journey</a>
+          <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="btn-ghost">WhatsApp &rarr;</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -3200,8 +3315,8 @@ body.eh-locked{overflow:hidden;}
       </div>
       <div class="lp-practical-item reveal">
         <div class="ey">Conversation</div>
-        <h3>Who you speak to.</h3>
-        <p>WhatsApp or email reaches the team shaping the trip. You are not passed to a separate sales desk after the first conversation.</p>
+        <h3>How we begin.</h3>
+        <p>A first message can be short. We use it to understand the group, timing and priorities before shaping the first route.</p>
       </div>
     </div>
   </div>
@@ -3508,34 +3623,21 @@ body.eh-locked{overflow:hidden;}
   function goTo(i,smooth=true){
     cur=Math.max(0,Math.min(total-1,i));
     track.scrollTo({left:cur*track.clientWidth,behavior:smooth?'smooth':'instant'});
-    btns.forEach((b,j)=>b.classList.toggle('active',j===cur));
+    btns.forEach((b,j)=>{
+      const active=j===cur;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-current',active?'true':'false');
+    });
+    if(prev)prev.disabled=cur===0;
+    if(next)next.disabled=cur===total-1;
   }
   btns.forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.w)));
   prev.addEventListener('click',()=>goTo(cur-1));
   next.addEventListener('click',()=>goTo(cur+1));
 
-  // ── AMBIENT START: the worlds greet you differently by the hour, and vary by visit ──
-  // Not an auto-carousel — just where the gallery *begins*. The visitor stays in full control.
-  (function ambientStart(){
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var hr = new Date().getHours();
-    // time-of-day affinity: which world suits the light right now
-    // dawn(cool mountain) · midday(open savanna) · afternoon(deep crater) · dusk(warm culture) · night(coast under stars)
-    var byHour;
-    if (hr < 8)       byHour = 0;   // Mountain — cool dawn
-    else if (hr < 12) byHour = 1;   // Savanna — bright morning
-    else if (hr < 16) byHour = 2;   // Crater — deep afternoon
-    else if (hr < 20) byHour = 3;   // Culture — warm dusk
-    else              byHour = 4;   // Coast — night by the water
-    // gentle per-visit variation so a returning visitor isn't always met by the same world:
-    // nudge by a day-seed, but keep it near the hour's affinity (±1), never jarring
-    var daySeed = new Date().getDate() % 3;      // 0,1,2
-    var start = (byHour + (daySeed === 2 ? 1 : 0)) % total;
-    if (start !== 0) {
-      // jump instantly to the chosen starting world (no animation on load)
-      goTo(start, false);
-    }
-  })();
+
+  // the sequence always begins with Mountains; movement after that is deliberate.
+  goTo(0,false);
 
   // drag to scroll
   let drag=false,sx=0,sl=0;
@@ -3555,10 +3657,16 @@ body.eh-locked{overflow:hidden;}
 
   function stopAuto(){
     if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
+    var worldsEl=document.getElementById('worlds');
+    if(worldsEl)worldsEl.classList.remove('auto-running');
   }
   function startAuto(){
     stopAuto();
-    if(reduceMotion||userPaused||!sectionVisible||document.hidden)return;
+    if(reduceMotion||userPaused||!sectionVisible||document.hidden){
+      document.getElementById('worlds').classList.remove('auto-running');
+      return;
+    }
+    document.getElementById('worlds').classList.add('auto-running');
     autoTimer=setInterval(function(){goTo((cur+1)%total,true);},7200);
   }
   function pauseForUser(){
