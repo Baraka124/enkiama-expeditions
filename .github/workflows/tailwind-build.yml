@@ -1,0 +1,50 @@
+name: Build Enkiama Tailwind CSS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - milestone/tailwind-foundation-landing
+    paths:
+      - "src/enkiama.css"
+      - "index.html"
+      - "package.json"
+      - ".github/workflows/tailwind-build.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-css:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Tailwind
+        run: npm install --no-audit --no-fund
+
+      - name: Compile Enkiama CSS
+        run: npm run build:css
+
+      - name: Commit compiled CSS when changed
+        shell: bash
+        run: |
+          if git diff --quiet -- assets/css/enkiama.css; then
+            echo "Compiled CSS is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/enkiama.css
+          git commit -m "build(css): compile Tailwind [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
