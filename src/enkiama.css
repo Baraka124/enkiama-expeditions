@@ -2514,6 +2514,11 @@ body{opacity:1;cursor:auto;}
   height:100%;
 }
 #heroFrame img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
   object-fit:cover;
   object-position:57% 53%;
 }
