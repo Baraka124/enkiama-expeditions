@@ -4510,6 +4510,45 @@ a,button,[role="button"]{cursor:pointer!important;}
   }
 }
 </style>
+<style id="enkiama-worlds-legibility-v18">
+/* Six Worlds legibility correction — restraint must not become invisibility */
+#worlds .wn-btn{
+  color:rgba(15,23,18,.66)!important;
+  font-size:9px!important;
+  font-weight:500!important;
+  letter-spacing:.15em!important;
+}
+#worlds .wn-btn span{
+  color:rgba(15,23,18,.46)!important;
+  font-size:8px!important;
+  font-weight:500!important;
+}
+#worlds .wn-btn.active{
+  color:rgba(15,23,18,.94)!important;
+}
+#worlds .wn-btn.active span,
+#worlds .wn-btn[aria-current="true"] span{
+  color:rgba(85,107,68,.88)!important;
+}
+#worlds .wn-btn:hover{
+  color:var(--lp-ink)!important;
+}
+#worlds .wn-btn::after{
+  background:var(--lp-olive)!important;
+  opacity:.88;
+}
+#worlds .wn-arr{
+  color:rgba(15,23,18,.68)!important;
+  border-color:rgba(15,23,18,.18)!important;
+}
+#worlds .wn-arr:disabled{
+  opacity:.48!important;
+}
+#worlds .wn-arr:not(:disabled):hover{
+  color:var(--lp-ink)!important;
+  border-color:rgba(85,107,68,.38)!important;
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
