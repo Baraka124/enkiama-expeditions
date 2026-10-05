@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - milestone/tailwind-foundation-landing
+      - refine/landing-post-tailwind-v1
     paths:
       - "src/enkiama.css"
       - "index.html"
@@ -115,7 +116,7 @@ jobs:
 
 
   visual-qa:
-    if: github.ref_name == 'milestone/tailwind-foundation-landing'
+    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
