@@ -720,9 +720,6 @@ nav.scrolled::before{ opacity:.035; }
 #worlds .worlds-note{padding:clamp(3.5rem,6vw,5rem) clamp(1.5rem,5vw,4rem);background:var(--lp-paper);border-top:1px solid var(--lp-line);}
 #worlds .worlds-note p{max-width:940px;font-size:clamp(19px,2.3vw,29px);color:rgba(15,23,18,.76);}
 #worlds .worlds-note em{color:var(--lp-olive);}
-#worlds .worlds-nav{position:sticky;bottom:0;z-index:8;background:rgba(250,248,242,.94);backdrop-filter:blur(18px);border-color:var(--lp-line);}
-#worlds .wn-btn{color:rgba(15,23,18,.53);}
-#worlds .wn-btn.active,#worlds .wn-btn:hover{color:var(--lp-ink);border-bottom-color:var(--lp-olive);}
 #worlds .wn-arr{border-color:rgba(15,23,18,.16);color:rgba(15,23,18,.58);}
 #worlds .wn-arr:hover{border-color:var(--lp-brass);color:var(--lp-ink);background:rgba(190,158,104,.08);}
 #worlds .w4 .wp-photo,#worlds .w6 .wp-photo{display:flex;align-items:center;justify-content:center;padding:clamp(2rem,5vw,5rem);background:var(--lp-bone);}
@@ -879,13 +876,16 @@ nav.scrolled::before{ opacity:.035; }
 #worlds .wp-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid rgba(15,23,18,.1);}
 #worlds .wp-facts span{font-size:9px;line-height:1.45;letter-spacing:.08em;text-transform:uppercase;color:rgba(15,23,18,.48);}
 #worlds .wp-facts b{display:block;font-family:'Fraunces',serif;font-size:15px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--lp-ink);margin-bottom:.22rem;}
-#worlds .worlds-nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr)) auto;gap:0;align-items:stretch;padding:0 clamp(1rem,3vw,2.5rem);}
-#worlds .wn-btn{position:relative;padding:1.05rem .65rem .95rem;text-align:left;white-space:nowrap;border-bottom:1px solid transparent;}
-#worlds .wn-btn span{display:block;font-family:'Instrument Sans',sans-serif;font-size:8px;letter-spacing:.14em;color:rgba(15,23,18,.32);margin-bottom:.18rem;}
-#worlds .wn-btn::after{content:"";position:absolute;left:.65rem;right:.65rem;bottom:0;height:1px;background:var(--lp-olive);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1);}
+#worlds .worlds-nav{position:relative;bottom:auto;display:grid;grid-template-columns:repeat(6,minmax(0,1fr)) auto;gap:0;align-items:stretch;padding:0 clamp(1.2rem,3vw,2.8rem);background:var(--lp-paper);border-top:0;border-bottom:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;}
+#worlds .wn-btn{position:relative;padding:1rem .7rem 1.05rem;text-align:left;white-space:nowrap;border:0;color:rgba(15,23,18,.66);font-size:9px;font-weight:500;letter-spacing:.15em;}
+#worlds .wn-btn span{display:block;font-family:'Instrument Sans',sans-serif;font-size:8px;font-weight:500;letter-spacing:.14em;color:rgba(15,23,18,.46);margin-bottom:.28rem;}
+#worlds .wn-btn::before{display:none;}
+#worlds .wn-btn::after{content:"";position:absolute;left:.7rem;right:auto;width:34px;bottom:.55rem;height:1px;background:var(--lp-olive);opacity:.88;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1);}
 #worlds .wn-btn.active::after{transform:scaleX(1);}
-#worlds .wn-btn.active{border-bottom-color:transparent;}
-#worlds .wn-arrows{display:flex;align-items:center;padding-left:.8rem;}
+#worlds .wn-btn.active{color:rgba(15,23,18,.94);}
+#worlds .wn-btn.active span,#worlds .wn-btn[aria-current="true"] span{color:rgba(85,107,68,.88);}
+#worlds .wn-btn:hover{color:var(--lp-ink);}
+#worlds .wn-arrows{display:flex;align-items:center;gap:.4rem;padding-left:1rem;}
 #worlds .world-panel.w5 .wp-photo-film{box-shadow:0 32px 76px -46px rgba(15,23,18,.4);}
 .lp-route-mini small{display:block;font-family:'Instrument Sans',sans-serif;font-size:8px;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;color:rgba(15,23,18,.48);margin-top:.22rem;}
 @media(max-width:980px){
@@ -1132,8 +1132,7 @@ nav.scrolled::before{ opacity:.035; }
   from{transform:scaleX(0);}
   to{transform:scaleX(1);}
 }
-#worlds .wn-btn[aria-current="true"] span{color:rgba(85,107,68,.65);}
-#worlds .wn-arr:disabled{opacity:.28;pointer-events:none;}
+#worlds .wn-arr:disabled{opacity:.48;pointer-events:none;}
 @media(prefers-reduced-motion:reduce){
   #worlds.auto-running .wn-btn.active::after{animation:none;transform:scaleX(1);}
 }
@@ -1876,60 +1875,6 @@ a,button,[role="button"]{cursor:pointer!important;}
   --lp-brass:var(--tw-color-enkiama-brass);
 }
 
-/* SIX WORLDS — controls should support photography, not become a graphic object */
-#worlds .worlds-nav{
-  position:relative!important;
-  bottom:auto!important;
-  display:grid!important;
-  grid-template-columns:repeat(6,minmax(0,1fr)) auto!important;
-  padding:0 clamp(1.2rem,3vw,2.8rem)!important;
-  background:var(--lp-paper)!important;
-  border-top:0!important;
-  border-bottom:0!important;
-  box-shadow:none!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-#worlds .wn-btn{
-  padding:1rem .7rem 1.05rem!important;
-  border:0!important;
-  color:rgba(15,23,18,.42)!important;
-}
-#worlds .wn-btn::before{display:none!important;}
-#worlds .wn-btn::after{
-  left:.7rem!important;
-  right:auto!important;
-  width:34px!important;
-  bottom:.55rem!important;
-  height:1px!important;
-  background:var(--lp-olive)!important;
-}
-#worlds .wn-btn.active{
-  color:var(--lp-ink)!important;
-}
-#worlds .wn-btn span{
-  margin-bottom:.28rem!important;
-  color:rgba(15,23,18,.30)!important;
-}
-#worlds .wn-arrows{
-  gap:.4rem;
-  padding-left:1rem!important;
-}
-#worlds .wn-arr{
-  width:38px!important;
-  height:38px!important;
-  border:1px solid rgba(15,23,18,.12)!important;
-  background:transparent!important;
-}
-#worlds .wn-arr:hover{
-  background:rgba(85,107,68,.06)!important;
-  border-color:rgba(85,107,68,.25)!important;
-}
-#worlds .worlds-note{
-  background:var(--lp-paper)!important;
-  padding:2.5rem var(--lp-gutter)!important;
-}
-
 /* captions must stay visible but feel printed, not boxed */
 .lp-photo figcaption,
 .wp-photo-note,
@@ -2503,45 +2448,6 @@ a,button,[role="button"]{cursor:pointer!important;}
   .lp-decision-leg,.lp-decision-row strong,.lp-decision-row p{
     grid-column:2!important;
   }
-}
-
-/* --- migrated from index.html: enkiama-worlds-legibility-v18 [18/25] --- */
-/* Six Worlds legibility correction — restraint must not become invisibility */
-#worlds .wn-btn{
-  color:rgba(15,23,18,.66)!important;
-  font-size:9px!important;
-  font-weight:500!important;
-  letter-spacing:.15em!important;
-}
-#worlds .wn-btn span{
-  color:rgba(15,23,18,.46)!important;
-  font-size:8px!important;
-  font-weight:500!important;
-}
-#worlds .wn-btn.active{
-  color:rgba(15,23,18,.94)!important;
-}
-#worlds .wn-btn.active span,
-#worlds .wn-btn[aria-current="true"] span{
-  color:rgba(85,107,68,.88)!important;
-}
-#worlds .wn-btn:hover{
-  color:var(--lp-ink)!important;
-}
-#worlds .wn-btn::after{
-  background:var(--lp-olive)!important;
-  opacity:.88;
-}
-#worlds .wn-arr{
-  color:rgba(15,23,18,.68)!important;
-  border-color:rgba(15,23,18,.18)!important;
-}
-#worlds .wn-arr:disabled{
-  opacity:.48!important;
-}
-#worlds .wn-arr:not(:disabled):hover{
-  color:var(--lp-ink)!important;
-  border-color:rgba(85,107,68,.38)!important;
 }
 
 /* --- migrated from index.html: enkiama-phase3-deepening-v19 [19/25] --- */
