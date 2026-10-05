@@ -1558,11 +1558,6 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
   padding:clamp(7rem,12vw,12rem) clamp(1.5rem,6vw,6rem) clamp(6rem,10vw,9rem);
   position:relative;overflow:hidden;
 }
-.lp-editorial-intro::before{
-  content:"TANZANIA";position:absolute;right:-.04em;bottom:-.20em;
-  font-family:'Fraunces',serif;font-size:clamp(110px,22vw,340px);font-weight:900;
-  letter-spacing:-.05em;color:rgba(15,23,18,.032);pointer-events:none;
-}
 .lp-editorial-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:clamp(3rem,7vw,8rem);align-items:end;position:relative;z-index:1;}
 .lp-editorial-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 120;font-size:clamp(48px,8vw,112px);line-height:.92;letter-spacing:-.04em;font-weight:700;max-width:900px;text-wrap:balance;}
 .lp-editorial-title em{font-style:italic;color:var(--lp-olive);}
@@ -3935,6 +3930,206 @@ a,button,[role="button"]{cursor:pointer!important;}
   #worlds .wn-arrows{grid-column:3;grid-row:1/4;}
 }
 </style>
+<style id="enkiama-phase1-first-impression-v14">
+/* =========================================================
+   PHASE 1 — FIRST IMPRESSION
+   The photograph leads. Typography frames it rather than covering it.
+   ========================================================= */
+
+/* HERO — preserve the image as a place, not a backdrop for typography */
+.hero{
+  min-height:min(91svh,840px)!important;
+  max-height:840px;
+  display:flex!important;
+  align-items:flex-end!important;
+  padding:
+    clamp(6.5rem,10vh,8rem)
+    clamp(1.5rem,4vw,4rem)
+    clamp(4.5rem,7vh,6rem)!important;
+  overflow:hidden;
+}
+.hero-content{
+  width:min(46vw,720px)!important;
+  max-width:720px!important;
+  margin:0!important;
+  padding:0!important;
+}
+.hero-eye{
+  margin-bottom:1.5rem!important;
+  font-size:9px!important;
+  letter-spacing:.16em!important;
+  color:rgba(237,230,214,.72)!important;
+}
+.hero-hed{
+  max-width:720px!important;
+  margin-bottom:1.7rem!important;
+  font-size:clamp(62px,6.6vw,104px)!important;
+  line-height:.91!important;
+  letter-spacing:-.035em!important;
+  font-weight:800!important;
+  color:var(--bone)!important;
+}
+.hero-hed em{
+  color:#7D9364!important;
+  font-weight:650!important;
+}
+.hero-sub{
+  max-width:43ch!important;
+  margin:0 0 1.9rem!important;
+  font-size:clamp(14px,.95vw,16px)!important;
+  line-height:1.7!important;
+  color:rgba(237,230,214,.76)!important;
+}
+.hero-acts{
+  gap:1.6rem!important;
+  align-items:center!important;
+}
+.hero .btn-primary{
+  padding:13px 24px!important;
+  min-height:44px!important;
+  background:#6F8459!important;
+  border-color:#6F8459!important;
+  color:#FFFDF8!important;
+}
+.hero .btn-ghost{
+  padding:8px 0!important;
+  color:rgba(237,230,214,.78)!important;
+}
+
+/* Protected visual sanctuary on the right half of the frame */
+.hero-film .hero-scrim{
+  background:
+    linear-gradient(90deg,
+      rgba(8,12,9,.74) 0%,
+      rgba(8,12,9,.58) 28%,
+      rgba(8,12,9,.26) 49%,
+      rgba(8,12,9,.06) 67%,
+      rgba(8,12,9,0) 82%)!important;
+}
+.hero-film.has-photo::after{
+  background:
+    linear-gradient(90deg,
+      rgba(8,12,9,.58) 0%,
+      rgba(8,12,9,.34) 35%,
+      rgba(8,12,9,.08) 62%,
+      rgba(8,12,9,0) 80%),
+    linear-gradient(0deg,rgba(8,12,9,.28) 0%,transparent 34%)!important;
+}
+
+/* one subtle image drift only — remove duplicate hero breathing/light effects */
+.hero-film{
+  animation:none!important;
+  transform:none!important;
+}
+.hero-film::before,
+.hero-dawn{
+  display:none!important;
+}
+#heroFrame{
+  --crop:57% 53%!important;
+}
+#heroFrame img.ph-loaded.ph-kb{
+  animation-duration:40s!important;
+  animation-timing-function:ease-in-out!important;
+}
+
+/* Remove the old diagonal tear; transition with material, not geometry */
+.hero::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;right:0!important;bottom:0!important;
+  height:18px!important;
+  background:linear-gradient(to bottom,transparent,var(--lp-bone))!important;
+  clip-path:none!important;
+  opacity:.9;
+  z-index:2;
+}
+
+/* Keep interface quiet over the image */
+.hero-scroll{
+  right:clamp(1.5rem,3vw,3rem)!important;
+  bottom:1.2rem!important;
+  opacity:.38!important;
+}
+.hero-film-label,.hero-side{display:none!important;}
+
+/* FIRST IVORY SECTION — no watermark, more confident entry */
+.lp-editorial-intro{
+  padding-top:clamp(6rem,9vw,8.5rem)!important;
+  padding-bottom:clamp(6rem,9vw,8.5rem)!important;
+  background:var(--lp-bone)!important;
+}
+.lp-editorial-grid{
+  grid-template-columns:minmax(0,1.05fr) minmax(320px,.72fr)!important;
+  gap:clamp(3.5rem,8vw,9rem)!important;
+  align-items:end!important;
+}
+.lp-editorial-title{
+  font-size:clamp(48px,6.5vw,86px)!important;
+  line-height:.96!important;
+}
+.lp-editorial-copy{
+  max-width:54ch!important;
+}
+.lp-editorial-meta{
+  margin-top:clamp(3rem,5vw,4.5rem)!important;
+}
+.lp-editorial-meta>div{
+  padding-top:1.05rem!important;
+}
+
+/* Welcome composition should not become another oversized hero */
+.lp-welcome-stack{
+  margin-top:clamp(4.5rem,7vw,6rem)!important;
+}
+.lp-welcome-photo{
+  height:min(48svh,450px)!important;
+}
+.lp-welcome-plate{
+  padding:clamp(1.6rem,2.6vw,2.3rem)!important;
+}
+.lp-welcome-plate h3{
+  font-size:clamp(28px,3vw,44px)!important;
+  margin-bottom:1.25rem!important;
+}
+
+/* mobile hero is a single elegant statement, not a poster */
+@media(max-width:760px){
+  .hero{
+    min-height:min(88svh,760px)!important;
+    max-height:none;
+    align-items:flex-end!important;
+    padding:92px 1.3rem 3.4rem!important;
+  }
+  .hero-content{
+    width:100%!important;
+    max-width:580px!important;
+  }
+  .hero-hed{
+    font-size:clamp(48px,12vw,72px)!important;
+    max-width:10ch!important;
+    line-height:.91!important;
+  }
+  .hero-sub{
+    max-width:38ch!important;
+    font-size:14px!important;
+  }
+  .hero-acts{
+    gap:1rem!important;
+    flex-wrap:wrap!important;
+  }
+  .hero-film .hero-scrim{
+    background:
+      linear-gradient(90deg,rgba(8,12,9,.66) 0%,rgba(8,12,9,.26) 75%,rgba(8,12,9,.06) 100%),
+      linear-gradient(0deg,rgba(8,12,9,.48) 0%,transparent 55%)!important;
+  }
+  #heroFrame{--crop:61% 52%!important;}
+  .lp-editorial-grid{
+    grid-template-columns:1fr!important;
+    gap:1.8rem!important;
+  }
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -4287,14 +4482,13 @@ body.eh-locked{overflow:hidden;}
       Tanzania already<br>
       knows how to<br>
       receive <em>you.</em>
-      <span class="whisper">From the first handoff, you are our guest.</span>
     </h1>
     <p class="dim hero-sub" id="hSub">
-      Private journeys through Tanzania, created here for local and international guests &mdash; from wildlife and mountain communities to towns, food, history and coast.
+      Private journeys through Tanzania &mdash; wildlife, mountains, Rift Valley, local life and coast &mdash; shaped here for the people travelling.
     </p>
     <div class="hero-acts" id="hActs">
-      <a href="begin.html" class="btn-primary">Begin a journey</a>
-      <a href="#about" class="btn-ghost">Tanzania beyond the safari &rarr;</a>
+      <a href="#worlds" class="btn-primary">Explore Tanzania</a>
+      <a href="begin.html" class="btn-ghost">Begin a journey &rarr;</a>
     </div>
   </div>
   <div class="hero-scroll"><span class="scr-ln"></span>&nbsp;Scroll</div>
@@ -4306,7 +4500,7 @@ body.eh-locked{overflow:hidden;}
   <p class="lp-kicker reveal">A Tanzanian operator · based in the country we travel through</p>
   <div class="lp-editorial-grid">
     <h2 class="lp-editorial-title reveal">Safari is one part<br>of <em>Tanzania.</em></h2>
-    <p class="lp-editorial-copy reveal">Enkiama creates immersive journeys for local and international guests. We understand the nuances of the country &mdash; how seasons shift, how places connect, who knows a landscape best, and when a route feels right. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
+    <p class="lp-editorial-copy reveal">Enkiama creates immersive journeys for local and international guests. We work from the country itself &mdash; its seasons, distances, people and changing conditions. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
   </div>
 
   <div class="lp-editorial-meta reveal">
