@@ -4880,6 +4880,438 @@ footer .f-contact a{
   }
 }
 </style>
+<style id="enkiama-media-grammar-v21">
+/* =========================================================
+   ENKIAMA MEDIA GRAMMAR
+   Image assets are replaceable. Display behaviour is the product.
+   ========================================================= */
+
+/* ---------- Global image behaviour ---------- */
+.lp-photo,
+#worlds .wp-photo-film{
+  position:relative!important;
+  overflow:hidden!important;
+  background:var(--lp-bone-2)!important;
+  isolation:isolate!important;
+  box-shadow:none!important;
+  border:0!important;
+}
+.lp-photo img,
+#worlds .wp-photo-film img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  display:block!important;
+  object-fit:cover!important;
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+  will-change:auto!important;
+}
+.lp-photo::before,
+.lp-photo::after{
+  display:none!important;
+}
+.lp-photo figcaption{
+  position:absolute!important;
+  left:14px!important;
+  bottom:12px!important;
+  z-index:4!important;
+  max-width:70%!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border:0!important;
+  border-radius:0!important;
+  opacity:1!important;
+  transform:none!important;
+  font-size:8px!important;
+  line-height:1.3!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+  color:rgba(255,255,255,.88)!important;
+  text-shadow:0 1px 10px rgba(0,0,0,.72)!important;
+}
+.lp-photo::marker{display:none!important;}
+
+/* captions sit over a very localised lower gradient, never a chip */
+.lp-photo > figcaption::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-14px;
+  bottom:-12px;
+  width:min(380px,70vw);
+  height:72px;
+  background:linear-gradient(0deg,rgba(10,14,11,.34),rgba(10,14,11,0));
+  pointer-events:none;
+}
+
+/* ---------- Hero ---------- */
+.hero-film,
+#heroFrame{
+  width:100%!important;
+  height:100%!important;
+}
+#heroFrame img{
+  object-fit:cover!important;
+  object-position:57% 53%!important;
+}
+.hero-film .ph-frame::before,
+.hero-film .ph-frame::after{
+  display:none!important;
+}
+.hero-film .ph-frame img{
+  opacity:1!important;
+}
+#heroFrame img.ph-kb{
+  animation:none!important;
+  transform:none!important;
+}
+
+/* ---------- Welcome ---------- */
+.lp-welcome-stack{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  max-width:var(--lp-max)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.lp-welcome-photo{
+  position:relative!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:clamp(360px,46svh,500px)!important;
+  aspect-ratio:auto!important;
+}
+.lp-welcome-plate{
+  position:relative!important;
+  grid-column:2!important;
+  grid-row:1!important;
+  width:100%!important;
+  align-self:stretch!important;
+  margin:0!important;
+  border-left:1px solid rgba(15,23,18,.10)!important;
+  box-shadow:none!important;
+}
+
+/* ---------- Six Worlds ---------- */
+#worlds .world-panel{
+  height:clamp(540px,68svh,680px)!important;
+  min-height:0!important;
+  max-height:680px!important;
+}
+#worlds .wp-photo{
+  min-height:0!important;
+  height:100%!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:stretch!important;
+  justify-content:stretch!important;
+}
+#worlds .wp-photo-film,
+#worlds .w4 .wp-photo-film,
+#worlds .w6 .wp-photo-film{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  box-shadow:none!important;
+  border:0!important;
+}
+#worlds .wp-photo-film .ph-frame{
+  position:absolute!important;
+  inset:0!important;
+}
+#worlds .wp-photo-film .ph-frame::before,
+#worlds .wp-photo-film .ph-frame::after{
+  display:none!important;
+}
+#worlds .wp-photo-film img{
+  object-position:var(--crop,50% 50%)!important;
+}
+#worlds .wp-photo-tag{
+  top:1.2rem!important;
+  right:1.25rem!important;
+}
+#worlds .wp-photo-note{
+  left:1.25rem!important;
+  bottom:1.2rem!important;
+}
+
+/* ---------- Example journey ---------- */
+.lp-journey-stack{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.82fr) minmax(280px,.78fr)!important;
+  grid-template-rows:1fr 1fr auto!important;
+  gap:10px!important;
+  align-items:stretch!important;
+  padding-bottom:0!important;
+}
+.lp-journey-main{
+  grid-column:1!important;
+  grid-row:1 / span 2!important;
+  width:100%!important;
+  height:clamp(400px,52svh,540px)!important;
+  aspect-ratio:auto!important;
+}
+.lp-journey-inset,
+.lp-journey-detail{
+  grid-column:2!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  margin:0!important;
+  transform:none!important;
+  outline:0!important;
+}
+.lp-journey-inset{grid-row:1!important;}
+.lp-journey-detail{grid-row:2!important;}
+.lp-journey-routeplate{
+  grid-column:1 / -1!important;
+  grid-row:3!important;
+  margin:1.5rem 0 0!important;
+  transform:none!important;
+}
+
+/* ---------- Proof ---------- */
+.lp-proof-system{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  padding-bottom:0!important;
+}
+.lp-proof-main{
+  grid-column:1!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:clamp(380px,48svh,500px)!important;
+  aspect-ratio:auto!important;
+}
+.lp-proof-ledger--editorial{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:stretch!important;
+}
+
+/* ---------- Stays ---------- */
+.lp-stay-stage{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.78fr) minmax(300px,.82fr)!important;
+  grid-template-rows:1fr 1fr auto!important;
+  gap:10px!important;
+  align-items:stretch!important;
+  padding-bottom:0!important;
+}
+.lp-stay-main{
+  grid-column:1!important;
+  grid-row:1 / span 2!important;
+  width:100%!important;
+  height:clamp(400px,52svh,540px)!important;
+  aspect-ratio:auto!important;
+}
+.lp-stay-plain,
+.lp-stay-coast{
+  grid-column:2!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-width:none!important;
+  aspect-ratio:auto!important;
+  margin:0!important;
+  transform:none!important;
+  outline:0!important;
+  justify-self:stretch!important;
+  align-self:stretch!important;
+}
+.lp-stay-plain{grid-row:1!important;}
+.lp-stay-coast{grid-row:2!important;}
+.lp-stay-criteria{
+  grid-column:1 / -1!important;
+  grid-row:3!important;
+  margin-top:1.6rem!important;
+}
+
+/* ---------- People ---------- */
+.lp-network-stage{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.6fr) minmax(300px,.8fr)!important;
+  grid-template-rows:auto auto!important;
+  gap:10px!important;
+  max-width:var(--lp-max)!important;
+  align-items:stretch!important;
+  padding-bottom:0!important;
+}
+.lp-network-main{
+  grid-column:1!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:clamp(360px,46svh,480px)!important;
+  aspect-ratio:auto!important;
+}
+.lp-network-inset{
+  grid-column:2!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:clamp(360px,46svh,480px)!important;
+  aspect-ratio:auto!important;
+  margin:0!important;
+  transform:none!important;
+  outline:0!important;
+}
+.lp-network-notes{
+  grid-column:1 / -1!important;
+  grid-row:2!important;
+  margin-top:1.6rem!important;
+}
+
+/* ---------- Final photographic beat ---------- */
+.lp-final-photo{
+  padding-left:var(--lp-gutter)!important;
+  padding-right:var(--lp-gutter)!important;
+}
+.lp-final-photo-link{
+  max-width:var(--lp-max)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.lp-final-photo .lp-photo{
+  width:100%!important;
+  height:clamp(320px,42svh,430px)!important;
+  aspect-ratio:auto!important;
+}
+
+/* ---------- Tablet ---------- */
+@media(max-width:960px){
+  .lp-welcome-stack{
+    grid-template-columns:1fr!important;
+  }
+  .lp-welcome-photo{
+    grid-column:1!important;
+    grid-row:auto!important;
+    height:clamp(320px,46svh,440px)!important;
+  }
+  .lp-welcome-plate{
+    grid-column:1!important;
+    grid-row:auto!important;
+    border-left:0!important;
+    border-top:1px solid rgba(15,23,18,.10)!important;
+  }
+
+  #worlds .world-panel{
+    height:auto!important;
+    max-height:none!important;
+  }
+  #worlds .wp-photo{
+    height:clamp(320px,48vw,460px)!important;
+  }
+
+  .lp-journey-stack,
+  .lp-stay-stage{
+    grid-template-columns:minmax(0,1.45fr) minmax(240px,.8fr)!important;
+  }
+
+  .lp-proof-system{
+    grid-template-columns:1fr!important;
+  }
+  .lp-proof-main,
+  .lp-proof-ledger--editorial{
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+
+  .lp-network-stage{
+    grid-template-columns:minmax(0,1.35fr) minmax(240px,.75fr)!important;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:680px){
+  .lp-photo figcaption{
+    max-width:82%!important;
+    left:10px!important;
+    bottom:9px!important;
+    font-size:7.5px!important;
+  }
+
+  #worlds .wp-photo{
+    height:min(48svh,380px)!important;
+  }
+
+  .lp-journey-stack,
+  .lp-stay-stage,
+  .lp-network-stage{
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto!important;
+    gap:7px!important;
+  }
+
+  .lp-journey-main,
+  .lp-journey-inset,
+  .lp-journey-detail,
+  .lp-stay-main,
+  .lp-stay-plain,
+  .lp-stay-coast,
+  .lp-network-main,
+  .lp-network-inset{
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:4 / 3!important;
+  }
+
+  .lp-journey-routeplate,
+  .lp-stay-criteria,
+  .lp-network-notes{
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+
+  .lp-proof-main{
+    height:auto!important;
+    aspect-ratio:4 / 3!important;
+  }
+
+  .lp-final-photo{
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+  .lp-final-photo .lp-photo{
+    height:auto!important;
+    aspect-ratio:16 / 10!important;
+  }
+}
+
+/* ---------- Short laptops ---------- */
+@media(max-height:720px) and (min-width:900px){
+  #worlds .world-panel{
+    height:570px!important;
+  }
+  .lp-journey-main,
+  .lp-stay-main{
+    height:430px!important;
+  }
+  .lp-proof-main{
+    height:410px!important;
+  }
+  .lp-network-main,
+  .lp-network-inset{
+    height:380px!important;
+  }
+}
+</style>
 </head>
 <body data-page="home">
 <!-- ENKIAMA_HEADER_START -->
@@ -6090,43 +6522,7 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
     }
   }
 
-  /* Editorial images on the landing page: native lazy loading + reveal only after decode. */
-  var media=[].slice.call(document.querySelectorAll('[data-lp-media]'));
-  if(media.length){
-    media.forEach(function(el){
-      var img=el.querySelector('img');
-      if(!img)return;
-      img.decoding='async';
-      function ready(){
-        el.classList.add('is-ready');
-        if(el.dataset.inview==='1')show(el);
-      }
-      if(img.complete && img.naturalWidth)ready();
-      else img.addEventListener('load',ready,{once:true});
-    });
-    function show(el){
-      if(el.dataset.shown)return;
-      el.dataset.shown='1';
-      el.classList.add('is-in');
-      requestAnimationFrame(function(){
-        el.classList.add('is-seen');
-        setTimeout(function(){el.classList.remove('is-in');},1150);
-      });
-    }
-    if('IntersectionObserver' in window){
-      var mio=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(!e.isIntersecting)return;
-          e.target.dataset.inview='1';
-          if(e.target.classList.contains('is-ready'))show(e.target);
-          mio.unobserve(e.target);
-        });
-      },{threshold:.16,rootMargin:'8% 0px'});
-      media.forEach(function(el){mio.observe(el);});
-    }else{
-      media.forEach(function(el){el.dataset.inview='1';if(el.classList.contains('is-ready'))show(el);});
-    }
-  }
+  
 })();
 </script>
 <!-- ENKIAMA_PHOTOSYS_END -->
