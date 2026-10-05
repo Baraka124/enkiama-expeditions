@@ -1367,7 +1367,7 @@ a:focus-visible,button:focus-visible{
 }
 
 /* Pale surfaces now alternate with intent */
-.lp-archive{background:var(--lp-paper)!important;}
+.lp-archive{background:var(--lp-paper);}
 
 
 /* --- Section heads: consistent visual cadence --- */
@@ -1382,10 +1382,10 @@ a:focus-visible,button:focus-visible{
 
 /* --- Layered systems: tighter overlaps, less accidental air --- */
 .lp-journey-stack{
-  padding-bottom:clamp(4.5rem,7vw,6.5rem)!important;
+  padding-bottom:clamp(4.5rem,7vw,6.5rem);
 }
 .lp-proof-ledger{
-  box-shadow:var(--lp-shadow-plate)!important;
+  box-shadow:var(--lp-shadow-plate);
 }
 
 /* Plates all share one material language */
@@ -1394,7 +1394,7 @@ a:focus-visible,button:focus-visible{
 .lp-network-card,
 .lp-stay-ledger,
 .lp-brief-sheet{
-  border:1px solid rgba(15,23,18,.09)!important;
+  border:1px solid rgba(15,23,18,.09);
 }
 .lp-proof-ledger,
 .lp-network-card,
@@ -1408,13 +1408,13 @@ a:focus-visible,button:focus-visible{
   margin-top:.5rem;
 }
 .lp-decision-head{
-  padding:.9rem 0!important;
+  padding:.9rem 0;
 }
 .lp-decision-row{
-  padding:1.3rem 0!important;
+  padding:1.3rem 0;
 }
 .lp-decision-row p{
-  line-height:1.62!important;
+  line-height:1.62;
 }
 
 /* --- Stay -> people transition: keep two related human/place sections distinct --- */
@@ -1428,12 +1428,12 @@ a:focus-visible,button:focus-visible{
   background:linear-gradient(90deg,transparent,rgba(85,107,68,.28),transparent);
 }
 .lp-people{
-  padding-top:clamp(6rem,9vw,8rem)!important;
+  padding-top:clamp(6rem,9vw,8rem);
 }
 
 /* --- Journey brief: quieter, more object-like --- */
 .lp-brief-sheet{
-  box-shadow:var(--lp-shadow-soft)!important;
+  box-shadow:var(--lp-shadow-soft);
 }
 .lp-brief-row{
   transition:background .35s ease;
@@ -1445,12 +1445,12 @@ a:focus-visible,button:focus-visible{
 /* --- Practical: make the three facts feel designed, not like footer copy --- */
 .lp-practical-grid{
   counter-reset:practical;
-  border-top:1px solid var(--lp-rule)!important;
+  border-top:1px solid var(--lp-rule);
   border-bottom:1px solid var(--lp-rule);
 }
 .lp-practical-item{
   position:relative;
-  padding-top:3.4rem!important;
+  padding-top:3.4rem;
   min-height:230px;
 }
 .lp-practical-item::before{
@@ -1464,7 +1464,7 @@ a:focus-visible,button:focus-visible{
   color:rgba(85,107,68,.42);
 }
 .lp-practical-item h3{
-  font-size:clamp(23px,2vw,29px)!important;
+  font-size:clamp(23px,2vw,29px);
   line-height:1.12;
 }
 .lp-practical-item p{
@@ -1473,13 +1473,13 @@ a:focus-visible,button:focus-visible{
 
 /* --- Tanzania Now: strong but not billboard-sized --- */
 .lp-season-now{
-  font-size:clamp(38px,4.8vw,66px)!important;
-  line-height:1.01!important;
+  font-size:clamp(38px,4.8vw,66px);
+  line-height:1.01;
   max-width:18ch;
 }
 .lp-season-sub{
-  margin-top:1.25rem!important;
-  line-height:1.72!important;
+  margin-top:1.25rem;
+  line-height:1.72;
 }
 .lp-season-ask{
   transition:color .3s ease,border-color .3s ease;
@@ -1491,9 +1491,9 @@ a:focus-visible,button:focus-visible{
 
 /* --- Continue exploring: calm finish before enquiry --- */
 .lp-more{
-  max-width:none!important;
-  padding-left:var(--lp-gutter)!important;
-  padding-right:var(--lp-gutter)!important;
+  max-width:none;
+  padding-left:var(--lp-gutter);
+  padding-right:var(--lp-gutter);
 }
 .lp-more-head,
 .lp-more-index{
@@ -1502,29 +1502,29 @@ a:focus-visible,button:focus-visible{
   margin-right:auto;
 }
 .lp-more-item{
-  padding-top:1.45rem!important;
-  padding-bottom:1.45rem!important;
+  padding-top:1.45rem;
+  padding-bottom:1.45rem;
 }
 .lp-more-item strong{
   letter-spacing:-.012em;
 }
 .lp-more-item:hover{
-  padding-left:.55rem!important;
+  padding-left:.55rem;
   background:rgba(255,253,248,.48);
 }
 
 /* --- Final travel desk: premium without becoming monumental --- */
 .cta-l,
 .cta-r{
-  padding-top:clamp(4.5rem,7vw,6.5rem)!important;
-  padding-bottom:clamp(4.5rem,7vw,6.5rem)!important;
+  padding-top:clamp(4.5rem,7vw,6.5rem);
+  padding-bottom:clamp(4.5rem,7vw,6.5rem);
 }
 .rafiki-hed{
-  font-size:clamp(42px,5.2vw,72px)!important;
+  font-size:clamp(42px,5.2vw,72px);
   line-height:.98;
 }
 .cta-method{
-  padding:1.2rem 0!important;
+  padding:1.2rem 0;
 }
 .cta-method-main{
   letter-spacing:-.012em;
@@ -1539,8 +1539,8 @@ a:focus-visible,button:focus-visible{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  letter-spacing:.12em!important;
-  transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease,background .3s ease!important;
+  letter-spacing:.12em;
+  transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease,background .3s ease;
   box-shadow:0 14px 30px -26px rgba(15,23,18,.48);
 }
 @media(hover:hover){
@@ -1553,7 +1553,7 @@ a:focus-visible,button:focus-visible{
 /* --- Tablet --- */
 @media(max-width:900px){
 
-  .lp-practical-item{min-height:0;padding-top:3rem!important;}
+  .lp-practical-item{min-height:0;padding-top:3rem;}
 }
 
 /* --- Mobile: richness without accidental overlaps --- */
@@ -1565,59 +1565,59 @@ a:focus-visible,button:focus-visible{
   .lp-people-head,
   .lp-compose-top,
   .lp-practical-head{
-    margin-bottom:2.6rem!important;
+    margin-bottom:2.6rem;
   }
 
   .lp-archive,
   .lp-proof,
   .lp-stays,
   .lp-people{
-    padding-top:4.7rem!important;
-    padding-bottom:4.7rem!important;
+    padding-top:4.7rem;
+    padding-bottom:4.7rem;
   }
 
   .lp-season-note{
-    padding-top:3.5rem!important;
-    padding-bottom:3.5rem!important;
+    padding-top:3.5rem;
+    padding-bottom:3.5rem;
   }
-  .lp-season-now{font-size:clamp(38px,11vw,56px)!important;}
+  .lp-season-now{font-size:clamp(38px,11vw,56px);}
 
   .lp-practical-item{
-    padding-top:2.8rem!important;
-    padding-bottom:1.7rem!important;
+    padding-top:2.8rem;
+    padding-bottom:1.7rem;
   }
 
   .cta-l,.cta-r{
-    padding-top:3.8rem!important;
-    padding-bottom:3.8rem!important;
+    padding-top:3.8rem;
+    padding-bottom:3.8rem;
   }
 }
-html,body{cursor:auto!important;}
-a,button,[role="button"]{cursor:pointer!important;}
+html,body{cursor:auto;}
+a,button,[role="button"]{cursor:pointer;}
 
 .wp-photo-tag{
-  border:0!important;
-  background:transparent!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-  padding:0!important;
-  color:rgba(255,255,255,.78)!important;
+  border:0;
+  background:transparent;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  padding:0;
+  color:rgba(255,255,255,.78);
   text-shadow:0 1px 12px rgba(0,0,0,.5);
 }
 .wp-photo-note{
-  color:rgba(255,255,255,.66)!important;
-  text-shadow:0 1px 12px rgba(0,0,0,.54)!important;
+  color:rgba(255,255,255,.66);
+  text-shadow:0 1px 12px rgba(0,0,0,.54);
 }
 
 /* Six Worlds: visual hierarchy comes from type/image, not ghosts and bars */
 #worlds .wp-world-meta{
-  border-bottom:0!important;
-  padding-bottom:0!important;
-  margin-bottom:1rem!important;
+  border-bottom:0;
+  padding-bottom:0;
+  margin-bottom:1rem;
 }
 #worlds .wp-tag{
   margin-bottom:1rem;
-  letter-spacing:.15em!important;
+  letter-spacing:.15em;
 }
 #worlds .wp-name{
   margin-bottom:.7rem;
@@ -1627,19 +1627,19 @@ a,button,[role="button"]{cursor:pointer!important;}
   margin-bottom:1.15rem;
 }
 #worlds .wp-facts{
-  border-top:0!important;
-  margin-top:1.35rem!important;
-  padding-top:0!important;
-  gap:1rem!important;
+  border-top:0;
+  margin-top:1.35rem;
+  padding-top:0;
+  gap:1rem;
 }
 #worlds .wp-facts span{
   padding-top:.7rem;
   border-top:1px solid rgba(15,23,18,.10);
 }
 #worlds .worlds-note{
-  border-top:0!important;
-  padding-top:3rem!important;
-  padding-bottom:3rem!important;
+  border-top:0;
+  padding-top:3rem;
+  padding-bottom:3rem;
 }
 
 /* Archive header: no empty column reserved for decorative numbering */
@@ -1659,15 +1659,15 @@ a,button,[role="button"]{cursor:pointer!important;}
 }
 
 .lp-ledger-top{
-  border-bottom:0!important;
-  padding-bottom:1.5rem!important;
+  border-bottom:0;
+  padding-bottom:1.5rem;
 }
 .lp-ledger-row{
-  grid-template-columns:28px 1fr!important;
-  padding:.9rem 0!important;
-  border-bottom:1px solid rgba(15,23,18,.08)!important;
+  grid-template-columns:28px 1fr;
+  padding:.9rem 0;
+  border-bottom:1px solid rgba(15,23,18,.08);
 }
-.lp-ledger-row>span{font-size:15px!important;}
+.lp-ledger-row>span{font-size:15px;}
 
 .lp-stay-criteria>div{
   padding:1.25rem 2rem 0 0;
@@ -1719,8 +1719,8 @@ a,button,[role="button"]{cursor:pointer!important;}
 .lp-proof-ledger,
 .lp-stay-ledger,
 .lp-network-card{
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
 }
 
 /* Kicker system: less spaced-out pseudo-editorial microtype */
@@ -1734,9 +1734,9 @@ a,button,[role="button"]{cursor:pointer!important;}
   .lp-section-head--route .lp-section-copy{max-width:58ch;}
   .lp-stay-criteria>div,
   .lp-network-notes>div{
-    border-left:0!important;
+    border-left:0;
     border-top:1px solid rgba(15,23,18,.08);
-    padding:1rem 0!important;
+    padding:1rem 0;
   }
 }
 
