@@ -2573,15 +2573,6 @@ body{opacity:1!important;cursor:auto!important;}
   transform:none!important;
 }
 
-/* Worlds should never show a fallback gradient in place of destination photography */
-#worlds .wp-photo-film .ph-frame.ph-reveal::after{
-  transform:translateX(101%)!important;
-}
-#worlds .wp-photo-film .ph-frame img.ph-loaded{
-  opacity:1!important;
-  transform:scale(1)!important;
-}
-
 /* The note after Worlds was visually floating and too tall in the live scroll */
 #worlds .worlds-note{
   min-height:0!important;
@@ -2646,29 +2637,7 @@ body{opacity:1!important;cursor:auto!important;}
   color:rgba(15,23,18,.94)!important;
 }
 
-/* Stays: force both context images to occupy the full secondary column */
-.lp-stay-plain{
-  width:100%!important;
-  min-width:0!important;
-  max-width:none!important;
-  justify-self:stretch!important;
-  display:block!important;
-  overflow:hidden!important;
-}
-.lp-stay-plain img,
-.lp-stay-coast img{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-}
-
-/* People: current source photography is lower-resolution; do not enlarge it beyond what it can carry */
-.lp-network-stage{
-  max-width:1280px!important;
-  grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr)!important;
-}
+/* People crop correction from the live recording */
 .lp-network-inset img{
   object-position:50% 78%!important; /* keeps embedded source text outside the visible crop */
 }
