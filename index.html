@@ -4130,6 +4130,119 @@ a,button,[role="button"]{cursor:pointer!important;}
   }
 }
 </style>
+<style id="enkiama-phase2-evidence-v15">
+/* PHASE 2 — EVIDENCE */
+
+/* national reach is a quiet index, not a new marketing block */
+.lp-country-index{
+  display:grid;
+  grid-template-columns:auto repeat(4,minmax(0,1fr));
+  gap:0;
+  align-items:stretch;
+  padding:0 var(--lp-gutter) 1.6rem;
+  background:var(--lp-paper);
+}
+.lp-country-index-label{
+  padding:1rem 1.5rem 1rem 0;
+  align-self:start;
+  font-size:8px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:#846D49;
+}
+.lp-country-index a{
+  padding:1rem 1.25rem;
+  border-left:1px solid rgba(15,23,18,.08);
+  color:var(--lp-ink);
+  text-decoration:none;
+}
+.lp-country-index b{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:18px;
+  font-weight:500;
+  margin-bottom:.25rem;
+}
+.lp-country-index small{
+  font-size:9px;
+  line-height:1.5;
+  color:rgba(15,23,18,.48);
+}
+@media(hover:hover){
+  .lp-country-index a:hover b{color:var(--lp-olive);}
+}
+
+/* seasonal intelligence, not seasonal prose only */
+.lp-season-signals{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:1.8rem;
+  border-top:1px solid rgba(15,23,18,.12);
+}
+.lp-season-signals>div{
+  padding:1rem 1.4rem 0 0;
+}
+.lp-season-signals>div+div{
+  border-left:1px solid rgba(15,23,18,.08);
+  padding-left:1.4rem;
+}
+.lp-season-signals span{
+  display:block;
+  margin-bottom:.4rem;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#846D49;
+}
+.lp-season-signals strong{
+  display:block;
+  max-width:26ch;
+  font-family:'Fraunces',serif;
+  font-size:clamp(16px,1.25vw,20px);
+  line-height:1.35;
+  font-weight:500;
+  color:var(--lp-ink);
+}
+
+/* evidence sections: slightly more informational, less slogan-driven */
+.lp-network-notes p{
+  font-family:'Instrument Sans',sans-serif!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+  color:rgba(15,23,18,.62)!important;
+  max-width:34ch!important;
+}
+.lp-stay-criteria span{
+  font-size:19px!important;
+}
+.lp-route-foot{
+  letter-spacing:.05em!important;
+}
+
+/* mobile */
+@media(max-width:760px){
+  .lp-country-index{
+    grid-template-columns:1fr 1fr;
+    padding:0 1.35rem 1.5rem;
+  }
+  .lp-country-index-label{
+    grid-column:1/-1;
+    border-bottom:1px solid rgba(15,23,18,.08);
+  }
+  .lp-country-index a{
+    border-left:0;
+    border-bottom:1px solid rgba(15,23,18,.08);
+    padding:1rem 0;
+  }
+  .lp-country-index a:nth-of-type(even){padding-left:1rem;border-left:1px solid rgba(15,23,18,.08);}
+  .lp-season-signals{grid-template-columns:1fr;}
+  .lp-season-signals>div,.lp-season-signals>div+div{
+    border-left:0;
+    border-top:1px solid rgba(15,23,18,.08);
+    padding:1rem 0;
+  }
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -4659,6 +4772,14 @@ body.eh-locked{overflow:hidden;}
   <div class="worlds-note">
     <p>Most private journeys combine two or three of these worlds. Season, driving time, internal flights, group pace and budget decide what belongs together.</p>
   </div>
+
+  <div class="lp-country-index" aria-label="Tanzania by region">
+    <span class="lp-country-index-label">Across Tanzania</span>
+    <a href="serengeti.html"><b>North</b><small>Serengeti · Ngorongoro · Tarangire</small></a>
+    <a href="nyerere.html"><b>South</b><small>Nyerere · Ruaha</small></a>
+    <a href="mahale.html"><b>West</b><small>Mahale · lake country</small></a>
+    <a href="zanzibar.html"><b>Coast</b><small>Zanzibar · Pemba · Swahili coast</small></a>
+  </div>
 </section>
 
 <section class="lp-archive" id="archive">
@@ -4686,7 +4807,7 @@ body.eh-locked{overflow:hidden;}
         <div><i></i><span>Serengeti</span></div>
         <div><i></i><span>Ngorongoro</span></div>
       </div>
-      <div class="lp-route-foot">Example · 5 travellers · private vehicle · northern circuit · Rift Valley extension</div>
+      <div class="lp-route-foot">Illustrative composition · 12 days · private vehicle · northern circuit · Rift Valley extension</div>
     </div>
 
     <figure class="lp-photo lp-journey-inset" data-lp-media style="--lp-pos:50% 55%;--lp-mask:var(--lp-bone);">
@@ -4758,9 +4879,9 @@ body.eh-locked{overflow:hidden;}
     <div class="lp-stays-head">
       <div>
         <p class="lp-kicker reveal">Where the day ends</p>
-        <h2 class="reveal">The stay should belong<br>to the <em>journey.</em></h2>
+        <h2 class="reveal">Where you stay changes<br>how the journey <em>feels.</em></h2>
       </div>
-      <p class="reveal">We choose accommodation after the route and rhythm are clear. The best stay is not always the most famous one; it is the one that makes sense for where you are, how you are moving, and what you want the day to feel like when it ends.</p>
+      <p class="reveal">We choose accommodation after the route is clear. Location, transfer time, atmosphere and budget matter more than choosing a property by reputation alone.</p>
     </div>
 
     <div class="lp-stay-stage reveal">
@@ -4800,8 +4921,8 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-people" id="people">
   <div class="lp-people-inner">
     <div class="lp-people-head">
-      <h2 class="reveal">The right person for each part of the <em>journey.</em></h2>
-      <p class="reveal">Enkiama keeps a trusted core and brings in local specialists when they know a place better. Your proposal explains who is involved and why.</p>
+      <h2 class="reveal">Who joins the journey<br>depends on <em>where you are.</em></h2>
+      <p class="reveal">A wildlife day, a mountain route and a community visit do not require the same person. We build the team around the places in the itinerary, and name the relevant guides or specialists in the proposal.</p>
     </div>
 
     <div class="lp-network-stage reveal">
@@ -4816,9 +4937,9 @@ body.eh-locked{overflow:hidden;}
       </figure>
 
       <div class="lp-network-notes">
-        <div><span>Guide</span><p>Chosen for the ecosystem and the kind of day you want in it.</p></div>
-        <div><span>Host</span><p>Introduced where local hospitality belongs naturally in the route.</p></div>
-        <div><span>Specialist</span><p>Brought in when a place deserves knowledge deeper than a general guide can offer.</p></div>
+        <div><span>Wildlife</span><p>A naturalist or safari guide suited to the ecosystem, season and pace of the route.</p></div>
+        <div><span>Local life</span><p>A host or local guide where an introduction adds context that a general safari guide cannot.</p></div>
+        <div><span>Specialist</span><p>Mountain, marine, cultural or other expertise brought in when the route genuinely needs it.</p></div>
       </div>
     </div>
   </div>
@@ -4904,6 +5025,11 @@ body.eh-locked{overflow:hidden;}
   <div class="lp-season-story">
     <p class="lp-season-now" id="seasonNow"></p>
     <p class="lp-season-sub" id="seasonSub"></p>
+    <div class="lp-season-signals">
+      <div><span>Wildlife</span><strong id="seasonWildlife"></strong></div>
+      <div><span>Weather</span><strong id="seasonWeather"></strong></div>
+      <div><span>Route</span><strong id="seasonRoute"></strong></div>
+    </div>
   </div>
   <div class="lp-season-action">
     <a class="lp-season-ask" href="begin.html" id="seasonAsk">Ask about this month &rarr;</a>
@@ -5989,12 +6115,34 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
                s:'Green country, the calving still ahead, and the coast at its warmest. A good month for those who would rather not travel in the crowds.'}
   ];
 
+  
+  var SIG=[
+    /* Jan */ ['Southern plains · calving season building','Green season · warm · possible showers','South Serengeti + Ngorongoro'],
+    /* Feb */ ['Calving peak on southern Serengeti plains','Warm · green · short storms possible','Ndutu / south + crater'],
+    /* Mar */ ['Herds remain south before moving north-west','Warm · rains increasing','Flexible north; build around rain'],
+    /* Apr */ ['Wildlife dispersed in green country','Long rains · quieter parks','Good value; slower overland plans'],
+    /* May */ ['Migration begins moving north-west','Rains easing toward month end','Western Serengeti starts to strengthen'],
+    /* Jun */ ['Dry season begins · herds moving west/north','Cooler · drier · clear mornings','North + western corridor combinations'],
+    /* Jul */ ['Migration moving north · dry-season wildlife','Dry · cool mornings · busy peak period','Serengeti + Tarangire + Rift'],
+    /* Aug */ ['Northern Serengeti strong · river crossings possible','Dry · cool · peak demand','North first; book small camps early'],
+    /* Sep */ ['Northern Serengeti + Tarangire very strong','Dry · clear · warm days','North + Tarangire with strong wildlife density'],
+    /* Oct */ ['Herds begin turning south · dry-season wildlife','Dry · warm · dust before short rains','North + Rift works especially well'],
+    /* Nov */ ['Migration returns toward central/southern plains','Short rains · greener landscapes','Flexible north with strong value windows'],
+    /* Dec */ ['Herds continuing south · coast very warm','Green season · warm · intermittent rain','Safari + coast combinations']
+  ];
+
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var now=new Date(), m=now.getMonth();
 
   lbl.textContent='In Tanzania \u2014 '+MONTHS[m];
   el.innerHTML=S[m].t.replace(/\.$/, '.');
   if(sub) sub.textContent=S[m].s;
+  var sw=document.getElementById('seasonWildlife');
+  var sx=document.getElementById('seasonWeather');
+  var sr=document.getElementById('seasonRoute');
+  if(sw) sw.textContent=SIG[m][0];
+  if(sx) sx.textContent=SIG[m][1];
+  if(sr) sr.textContent=SIG[m][2];
 
   var ask=document.getElementById('seasonAsk');
   if(ask) ask.innerHTML='Ask what '+MONTHS[m]+' would give you \u2192';
