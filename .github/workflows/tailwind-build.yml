@@ -8,6 +8,7 @@ on:
       - milestone/tailwind-foundation-landing
       - refine/landing-post-tailwind-v1
       - refine/hero-editorial-discipline
+      - refine/landing-closing-discipline
       - refine/tanzania-editorial-v1
     paths:
       - "src/enkiama.css"
@@ -120,7 +121,7 @@ jobs:
 
 
   visual-qa:
-    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline' || github.ref_name == 'refine/tanzania-editorial-v1'
+    if: github.ref_name == 'milestone/tailwind-foundation-landing' || github.ref_name == 'refine/landing-post-tailwind-v1' || github.ref_name == 'refine/hero-editorial-discipline' || github.ref_name == 'refine/landing-closing-discipline' || github.ref_name == 'refine/tanzania-editorial-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
