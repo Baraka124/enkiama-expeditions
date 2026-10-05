@@ -1208,10 +1208,9 @@ nav.scrolled::before{ opacity:.035; }
   --enkiama-brass:var(--lp-brass);
 }
 body{background:var(--enkiama-white);}
-.lp-editorial-intro,.lp-proof,.lp-season-note,.cta-l{}
-.lp-archive,.lp-practical,.lp-more,.cta-r,#worlds{}
-.lp-compose{}
-.lp-people{}
+
+
+
 
 /* Interactive states remain within the same safari palette. */
 a:focus-visible,button:focus-visible{
@@ -1368,10 +1367,6 @@ a:focus-visible,button:focus-visible{
   align-items:end;
 }
 
-/* A subtle framing layer — images feel like collected plates */
-.lp-photo{
-  box-shadow:0 24px 60px -46px rgba(15,23,18,.34);
-}
 .ph-frame img{
   transform-origin:center center;
 }
@@ -1434,17 +1429,7 @@ a:focus-visible,button:focus-visible{
 .lp-people,
 .lp-compose,
 .lp-practical,
-.lp-more{
-}
-.lp-editorial-intro,
-.lp-archive,
-.lp-proof,
-.lp-stays,
-.lp-people,
-.lp-compose,
-.lp-practical{
-  border-top:1px solid var(--lp-rule-soft);
-}
+
 .lp-section-title,
 .lp-proof-title,
 .lp-stays-head h2,
@@ -1456,12 +1441,11 @@ a:focus-visible,button:focus-visible{
 
 /* Pale surfaces now alternate with intent */
 .lp-archive{background:var(--lp-paper)!important;}
-.lp-proof{}
-.lp-stays{}
-.lp-people{}
-.lp-compose{}
-.lp-practical{}
-.lp-more{}
+
+
+
+
+
 
 /* --- Section heads: consistent visual cadence --- */
 .lp-section-head,
@@ -1643,11 +1627,6 @@ a:focus-visible,button:focus-visible{
   }
 }
 
-/* --- Image framing consistency --- */
-.lp-photo{
-  border:1px solid rgba(15,23,18,.055);
-}
-
 /* --- Tablet --- */
 @media(max-width:900px){
 
@@ -1693,22 +1672,6 @@ a:focus-visible,button:focus-visible{
 html,body{cursor:auto!important;}
 a,button,[role="button"]{cursor:pointer!important;}
 
-/* sections are separated by tone and composition, not arbitrary rules */
-.lp-editorial-intro,
-.lp-archive,
-.lp-proof,
-.lp-stays,
-.lp-people,
-.lp-compose,
-.lp-practical{
-  border-top:0!important;
-}
-
-/* photography should feel printed into the page, not lifted on cards */
-.lp-photo{
-  box-shadow:none!important;
-  border:0!important;
-}
 .wp-photo-tag{
   border:0!important;
   background:transparent!important;
@@ -1886,13 +1849,13 @@ a,button,[role="button"]{cursor:pointer!important;}
 
 /* preserve the Enkiama material rhythm explicitly */
 .lp-archive{background:var(--lp-paper)!important;}
-.lp-proof{}
-.lp-stays{}
-.lp-people{}
-.lp-compose{}
-.lp-practical{}
-.lp-season-note{}
-.lp-more{}
+
+
+
+
+
+
+
 .cta-l{background:var(--lp-bone-2)!important;}
 .cta-r{background:var(--lp-white)!important;}
 
