@@ -97,7 +97,7 @@ jobs:
       - name: Commit compiled CSS when changed
         shell: bash
         run: |
-          if git diff --quiet -- assets/css/enkiama.css assets/css/tanzania.css package-lock.json 2>/dev/null; then
+          if [ -z "$(git status --porcelain -- assets/css/enkiama.css assets/css/tanzania.css package-lock.json)" ]; then
             echo "Compiled CSS and lockfile are already current."
             exit 0
           fi
