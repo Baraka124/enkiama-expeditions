@@ -2530,7 +2530,7 @@ body{opacity:1;cursor:auto;}
 }
 @media(max-width:760px){
   #heroFrame img{
-    object-position:100% 54%;
+    object-position:40% 54%;
   }
 }
 
