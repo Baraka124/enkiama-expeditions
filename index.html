@@ -766,99 +766,6 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
   color:rgba(190,158,104,0.2);
 }
 
-/* ── CURATION ENGINE ── */
-.curate {
-  border-top:1px solid var(--rule);
-  background:var(--forest);
-  padding:9rem 3rem;
-  position:relative;overflow:hidden;
-}
-.curate-pg {
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 144;
-  font-size:clamp(100px,17vw,240px);font-weight:900;font-style:italic;
-  color:rgba(122,148,112,0.055);white-space:nowrap;
-  pointer-events:none;user-select:none;letter-spacing:-0.03em;
-}
-.curate-inner { position:relative;z-index:2;max-width:840px;margin:0 auto; }
-.curate-eye { color:var(--sage);margin-bottom:2.5rem; }
-.curate-hl {
-  font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 72;
-  font-size:clamp(32px,4.5vw,58px);
-  font-weight:700;color:var(--bone);
-  line-height:1.04;letter-spacing:-0.018em;margin-bottom:1.5rem;
-}
-.curate-hl em { font-style:italic;color:var(--sage); }
-.curate-sub { font-size:13px;color:rgba(237,230,214,0.78);margin-bottom:4rem;max-width:520px;line-height:2; }
-.curate-progress { display:flex;gap:8px;margin-bottom:3rem;align-items:center; }
-.cp-dot {
-  width:5px;height:5px;border-radius:50%;
-  background:rgba(122,148,112,0.2);
-  transition:background .4s,transform .4s;
-}
-.cp-dot.done { background:var(--sage); }
-.cp-dot.current { background:var(--ochre);transform:scale(1.4); }
-.curate-step { display:none; }
-.curate-step.active { display:block; }
-.curate-prompt {
-  font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 36;
-  font-size:clamp(20px,2.5vw,30px);
-  font-weight:300;font-style:italic;
-  color:var(--bone);line-height:1.52;margin-bottom:3rem;
-}
-.curate-options { display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2rem; }
-.c-opt {
-  padding:12px 22px;
-  border:1px solid rgba(122,148,112,0.2);
-  background:none;cursor:pointer;
-  font-family:'Instrument Sans',sans-serif;
-  font-size:13px;font-weight:300;
-  color:rgba(237,230,214,0.80);
-  transition:border-color .25s,color .25s,background .25s,letter-spacing .25s;
-  text-align:left;line-height:1.5;
-}
-.c-opt:hover,.c-opt.picked {
-  border-color:var(--sage);color:var(--bone);
-  background:rgba(122,148,112,0.07);
-}
-.curate-response { display:none; }
-.curate-response.show { display:block; }
-.cr-divider { width:32px;height:1px;background:var(--sage);opacity:0.4;margin-bottom:2.5rem; }
-.cr-label { font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;color:var(--sage);margin-bottom:1.5rem; }
-.cr-text {
-  font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 36;
-  font-size:clamp(18px,2.2vw,26px);
-  font-weight:300;font-style:italic;
-  color:var(--bone);line-height:1.65;min-height:140px;
-}
-.cr-cursor {
-  display:inline-block;width:2px;height:0.9em;
-  background:var(--ochre);vertical-align:middle;
-  animation:blink 1s step-end infinite;
-}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.cr-cta { margin-top:3rem;display:flex;align-items:center;gap:2rem; }
-.cr-reset {
-  font-family:'Instrument Sans',sans-serif;
-  font-variant-caps:all-small-caps;
-  font-size:11px;letter-spacing:0.16em;
-  color:var(--muted);background:none;border:none;cursor:pointer;
-  transition:color .2s;position:relative;padding-bottom:2px;
-}
-.cr-reset::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--bone);transition:width .3s; }
-.cr-reset:hover { color:var(--bone); }
-.cr-reset:hover::after { width:100%; }
-.cr-loading { display:none;align-items:center;gap:10px;margin-bottom:1.5rem; }
-.cr-loading.show { display:flex; }
-.cr-dot { width:5px;height:5px;border-radius:50%;background:var(--sage);animation:pulse 1.2s ease-in-out infinite; }
-.cr-dot:nth-child(2){animation-delay:.2s;}
-.cr-dot:nth-child(3){animation-delay:.4s;}
-@keyframes pulse{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:1;transform:scale(1.3);}}
-
 /* ── TRANSPARENCY ── */
 .transp { border-top:1px solid var(--rule);background:var(--ink2); }
 .transp-hdr {
@@ -1254,35 +1161,7 @@ footer {
 .breath::before{top:0;}
 .breath::after{bottom:0;background:linear-gradient(transparent,var(--earth-dim));}
 
-/* ── 4. RICHER REVEALS ──
-   Hairlines that draw in; a gentle lift on any .reveal-lift. */
-.reveal-lift{opacity:0;transform:translateY(28px);
-  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
-.reveal-lift.in{opacity:1;transform:translateY(0);}
-.draw-rule{position:relative;height:1px;background:transparent;overflow:hidden;}
-.draw-rule::after{content:'';position:absolute;inset:0;width:0;
-  background:var(--earth-dim);transition:width 1.2s cubic-bezier(.4,0,.2,1);}
-.draw-rule.in::after{width:100%;}
 
-/* ── 3. ROUTE MAP (worlds section) ── */
-.route-wrap{position:relative;max-width:520px;margin:4rem auto 0;padding:0 1rem;}
-.route-svg{width:100%;height:auto;overflow:visible;}
-.route-path{fill:none;stroke:var(--earth-dim);stroke-width:1.5;
-  stroke-dasharray:1;stroke-dashoffset:1;
-  transition:stroke-dashoffset 2.4s cubic-bezier(.4,0,.2,1);}
-.route-path.in{stroke-dashoffset:0;}
-.route-dot{fill:var(--ochre);opacity:0;transition:opacity .5s ease;}
-.route-dot.in{opacity:1;}
-.route-lbl{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;
-  font-size:11px;letter-spacing:.18em;fill:var(--bone3);opacity:0;transition:opacity .6s ease;}
-.route-lbl.in{opacity:.75;}
-
-@media(prefers-reduced-motion:reduce){
-  .hero-film,.hero-film::before,.hero-dawn{animation:none;}
-  .breath-line span,.breath-tr{opacity:1;transform:none;transition:none;}
-  .route-path{stroke-dashoffset:0;}
-}
-/* ═══ end enhancement layer ═══ */
 
 /* ═══ HEADER REFINEMENTS (premium pass) ═══ */
 
@@ -1542,54 +1421,6 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 .n-links{gap:2.4rem;}
 @media(min-width:1200px){ .n-links{gap:2.75rem;} .n-right{gap:2.75rem;} }
 
-/* ══════ JOURNEY MAP ══════ */
-.jmap-section{padding:8rem clamp(1.5rem,5vw,4rem);position:relative;}
-.jmap-eyebrow{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.3em;font-size:11px;color:var(--earth);text-align:center;margin-bottom:1.2rem;}
-.jmap-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--bone);text-align:center;margin:0 0 4rem;font-weight:400;}
-.jmap-wrap{max-width:900px;margin:0 auto;position:relative;}
-.jmap-svg{width:100%;height:auto;display:block;overflow:visible;}
-
-/* the route path draws itself */
-.jmap-route{fill:none;stroke:var(--earth);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
-  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
-  transition:stroke-dashoffset 2.8s cubic-bezier(.45,.05,.2,1);}
-.jmap-section.drawn .jmap-route{stroke-dashoffset:0;}
-
-/* country outline - faint */
-.jmap-country{fill:rgba(85,107,68,0.06);stroke:rgba(190,158,104,0.18);stroke-width:1;}
-
-/* stops */
-.jmap-stop{opacity:0;transition:opacity .6s ease;}
-.jmap-section.drawn .jmap-stop{opacity:1;}
-.jmap-stop-dot{fill:var(--earth);}
-.jmap-stop-ring{fill:none;stroke:var(--earth);stroke-width:1;opacity:.4;}
-.jmap-stop-label{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.12em;font-size:12px;fill:var(--bone);}
-.jmap-stop-sub{font-family:'Instrument Sans',sans-serif;font-size:9px;letter-spacing:.1em;fill:var(--muted);text-transform:uppercase;}
-
-/* stagger the stops */
-.jmap-section.drawn .jmap-stop:nth-child(1){transition-delay:.4s;}
-.jmap-section.drawn .jmap-stop:nth-child(2){transition-delay:.9s;}
-.jmap-section.drawn .jmap-stop:nth-child(3){transition-delay:1.4s;}
-.jmap-section.drawn .jmap-stop:nth-child(4){transition-delay:1.9s;}
-.jmap-section.drawn .jmap-stop:nth-child(5){transition-delay:2.4s;}
-
-@media(prefers-reduced-motion:reduce){
-  .jmap-route{transition:none;stroke-dashoffset:0;}
-  .jmap-stop{opacity:1;transition:none;}
-}
-
-
-/* ══════ SCROLL COLOR SHIFT ══════ */
-.ambient-tint{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.5s ease, background 1.5s ease;}
-.ambient-tint.active{opacity:1;}
-/* each world tints the ambient differently - very subtle */
-body[data-world="mountain"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 70% 20%, rgba(120,140,160,0.05), transparent 60%);opacity:1;}
-body[data-world="savanna"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 50% 40%, rgba(190,158,104,0.06), transparent 60%);opacity:1;}
-body[data-world="crater"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 40% 50%, rgba(85,107,68,0.07), transparent 60%);opacity:1;}
-body[data-world="culture"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 60% 60%, rgba(160,110,70,0.05), transparent 60%);opacity:1;}
-body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 80% at 70% 40%, rgba(70,130,140,0.06), transparent 60%);opacity:1;}
-@media(prefers-reduced-motion:reduce){.ambient-tint{transition:none;}}
-
 /* ══════ HIDE PLACEHOLDER HINTS (photo-direction notes) ══════ */
 .film-hint,.hero-film-label,.hero-side,.wp-ph-hint{display:none !important;}
 </style>
@@ -1615,7 +1446,7 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
         "height": 440
       },
       "image": "https://enkiama.com/assets/enkiama-share.jpg",
-      "description": "Private Tanzania safari journeys, composed for one group at a time across the Serengeti, Ngorongoro, Kilimanjaro and Zanzibar. Written with you, for English- and Spanish-speaking travellers.",
+      "description": "Tanzanian-operated private journeys across wildlife, mountains, Rift Valley, local life and coast, created for local and international guests.",
       "slogan": "Curated, never sold.",
       "foundingDate": "2025-10",
       "knowsLanguage": [
@@ -1695,7 +1526,7 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 <!-- ── end structured data ── -->
 
 <style id="enkiama-landing-luxury-v2">
-/* ===== ENKIAMA LANDING — LIGHT LUXURY / EDITORIAL PASS ===== */
+/* ===== ENKIAMA LANDING — SIGNATURE SAFARI / ADVENTURE PALETTE ===== */
 :root{
   --lp-paper:#FAF8F2;
   --lp-white:#FFFDF8;
@@ -1788,21 +1619,10 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 .lp-section-title{font-family:'Fraunces',serif;font-size:clamp(42px,6vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:600;max-width:950px;}
 .lp-section-title em{font-style:italic;color:var(--lp-olive);}
 .lp-section-copy{margin-top:1.8rem;max-width:700px;font-size:16px;line-height:1.9;color:rgba(15,23,18,.68);}
-.lp-journey-shell{max-width:1500px;margin:0 auto;border-top:1px solid var(--lp-line);}
-.lp-journey-meta{display:flex;flex-wrap:wrap;gap:.65rem 2rem;padding:1.4rem 0;border-bottom:1px solid var(--lp-line);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,18,.58);}
-.lp-journey-meta strong{color:var(--lp-ink);font-weight:600;}
 .lp-route-line{display:grid;grid-template-columns:repeat(4,1fr);padding:1.9rem 0 2.4rem;border-bottom:1px solid var(--lp-line);gap:1rem;}
 .lp-route-stop{position:relative;padding-top:1.35rem;font-family:'Fraunces',serif;font-size:17px;}
 .lp-route-stop::before{content:"";position:absolute;top:0;left:0;width:7px;height:7px;background:var(--lp-olive);border-radius:50%;}
 .lp-route-stop:not(:last-child)::after{content:"";position:absolute;top:3px;left:12px;right:-.5rem;height:1px;background:rgba(15,23,18,.18);}
-.lp-journey-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:clamp(2rem,5vw,5rem);padding-top:clamp(3rem,6vw,6rem);}
-.lp-journey-gallery{display:grid;grid-template-columns:1.5fr .75fr;grid-template-rows:minmax(240px,48vh) minmax(180px,28vh);gap:12px;}
-.lp-journey-gallery figure{margin:0;}
-.lp-journey-gallery figure:first-child{grid-row:1/3;--lp-mask:var(--lp-white);}
-.lp-journey-gallery figure:nth-child(2),.lp-journey-gallery figure:nth-child(3){--lp-mask:var(--lp-white);}
-.lp-journey-story{padding-top:.4rem;}
-.lp-journey-story h3{font-family:'Fraunces',serif;font-size:clamp(34px,4.5vw,62px);line-height:1;letter-spacing:-.03em;font-weight:600;margin-bottom:2rem;}
-.lp-journey-story h3 em{font-style:italic;color:var(--lp-olive);}
 .lp-brief{border-top:1px solid var(--lp-line);padding:1.35rem 0;}
 .lp-brief-label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#7b6a4d;margin-bottom:.6rem;}
 .lp-brief p{font-size:15px;line-height:1.8;color:rgba(15,23,18,.72);}
@@ -1817,15 +1637,6 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 .lp-proof-title{font-family:'Fraunces',serif;font-size:clamp(44px,6.6vw,92px);line-height:.95;letter-spacing:-.04em;font-weight:600;}
 .lp-proof-title em{font-style:italic;color:var(--lp-olive);}
 .lp-proof-copy{font-size:16px;line-height:1.9;color:rgba(15,23,18,.68);max-width:590px;}
-.lp-proof-list{border-top:1px solid var(--lp-line);}
-.lp-proof-row{display:grid;grid-template-columns:100px minmax(220px,.75fr) minmax(0,1.25fr);gap:2rem;padding:2.2rem 0;border-bottom:1px solid var(--lp-line);align-items:start;}
-.lp-proof-row .n{font-family:'Fraunces',serif;font-size:35px;color:rgba(85,107,68,.35);}
-.lp-proof-row h3{font-family:'Fraunces',serif;font-size:clamp(24px,2.8vw,38px);font-weight:500;line-height:1.1;}
-.lp-proof-row p{font-size:14px;line-height:1.85;color:rgba(15,23,18,.66);max-width:620px;}
-.lp-proof-diptych{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;margin-top:clamp(4rem,7vw,7rem);}
-.lp-proof-diptych .lp-photo{height:clamp(280px,37vw,520px);--lp-mask:var(--lp-bone);}
-.lp-proof-diptych .lp-photo:last-child{margin-top:clamp(3rem,7vw,7rem);height:clamp(240px,29vw,410px);}
-
 /* human layer — real photographs shown at a size their resolution deserves */
 .lp-people{background:var(--lp-paper);color:var(--lp-ink);padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);}
 .lp-people-inner{max-width:1450px;margin:0 auto;}
@@ -1833,17 +1644,6 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 .lp-people-head h2{font-family:'Fraunces',serif;font-size:clamp(44px,6.5vw,90px);line-height:.95;letter-spacing:-.04em;font-weight:600;}
 .lp-people-head h2 em{font-style:italic;color:var(--lp-olive);}
 .lp-people-head p{font-size:16px;line-height:1.9;color:rgba(15,23,18,.68);align-self:end;max-width:620px;}
-.lp-people-editorial{display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);gap:clamp(3rem,8vw,9rem);align-items:center;border-top:1px solid var(--lp-line);padding-top:clamp(3rem,6vw,6rem);}
-.lp-people-copy h3{font-family:'Fraunces',serif;font-size:clamp(31px,4.2vw,58px);line-height:1.04;font-weight:600;margin-bottom:2.2rem;}
-.lp-people-copy h3 em{font-style:italic;color:var(--lp-olive);}
-.lp-person-point{display:grid;grid-template-columns:68px 1fr;gap:1rem;padding:1.15rem 0;border-top:1px solid var(--lp-line);}
-.lp-person-point .n{font-family:'Fraunces',serif;font-size:22px;color:rgba(85,107,68,.55);}
-.lp-person-point strong{font-family:'Fraunces',serif;font-size:21px;font-weight:500;display:block;margin-bottom:.35rem;}
-.lp-person-point span{font-size:13px;line-height:1.7;color:rgba(15,23,18,.62);}
-.lp-people-photos{display:grid;grid-template-columns:1fr .72fr;gap:14px;align-items:end;justify-content:end;}
-.lp-human-main{width:min(100%,470px);aspect-ratio:1/1;justify-self:end;--lp-mask:var(--lp-paper);}
-.lp-human-secondary{width:min(100%,310px);aspect-ratio:4/5;justify-self:start;margin-bottom:-2rem;--lp-mask:var(--lp-paper);}
-
 /* compose — muted sage relief, not another black section */
 .lp-compose{background:var(--lp-sagewash);color:var(--lp-ink);padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;}
 .lp-compose::after{content:"rafiki";position:absolute;right:-.05em;bottom:-.22em;font-family:'Fraunces',serif;font-size:clamp(130px,24vw,360px);font-style:italic;font-weight:900;color:rgba(28,51,37,.04);pointer-events:none;}
@@ -1852,11 +1652,6 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 .lp-compose h2{font-family:'Fraunces',serif;font-size:clamp(48px,7vw,96px);line-height:.93;letter-spacing:-.04em;font-weight:600;}
 .lp-compose h2 em{font-style:italic;color:var(--lp-olive);}
 .lp-compose-copy{font-size:16px;line-height:1.9;color:rgba(15,23,18,.68);align-self:end;max-width:600px;}
-.lp-compose-steps{border-top:1px solid var(--lp-line);}
-.lp-compose-step{display:grid;grid-template-columns:72px 1fr 1fr;gap:1.5rem;padding:1.8rem 0;border-bottom:1px solid var(--lp-line);}
-.lp-compose-step .n{font-family:'Fraunces',serif;font-size:28px;color:rgba(85,107,68,.42);}
-.lp-compose-step strong{font-family:'Fraunces',serif;font-size:clamp(21px,2.3vw,32px);font-weight:500;}
-.lp-compose-step span{font-size:13px;line-height:1.75;color:rgba(15,23,18,.62);}
 .lp-compose-actions{margin-top:3rem;display:flex;gap:1rem 2rem;align-items:center;flex-wrap:wrap;}
 .lp-compose .btn-ghost{color:rgba(15,23,18,.7);}
 .lp-compose .btn-ghost::after{background:var(--lp-ink);}
@@ -1873,13 +1668,6 @@ body[data-world="coast"] .ambient-tint{background:radial-gradient(ellipse 120% 8
 .lp-practical-item .ey{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#776649;margin-bottom:1rem;}
 .lp-practical-item h3{font-family:'Fraunces',serif;font-size:26px;font-weight:500;margin-bottom:.8rem;}
 .lp-practical-item p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.65);}
-.lp-legacy-runtime{display:none!important;}
-
-body>.season{background:var(--lp-bone)!important;color:var(--lp-ink)!important;padding:clamp(5rem,9vw,8rem) clamp(1.5rem,5vw,5rem)!important;border-top:1px solid var(--lp-line)!important;border-bottom:1px solid var(--lp-line)!important;}
-body>.season .season-now{font-family:'Fraunces',serif!important;font-size:clamp(32px,4.5vw,58px)!important;line-height:1.15!important;max-width:1000px!important;color:var(--lp-ink)!important;}
-body>.season .season-sub{max-width:760px!important;color:rgba(15,23,18,.66)!important;}
-body>.season .season-ask{color:var(--lp-olive)!important;}
-
 /* final invitation stays in the same material family */
 .cta-wrap{background:var(--lp-bone-2);color:var(--lp-ink);}
 .cta-main{min-height:72vh;border-color:var(--lp-line);}
@@ -1899,16 +1687,9 @@ body>.season .season-ask{color:var(--lp-olive)!important;}
 
 @media(max-width:980px){
   .lp-editorial-grid,.lp-section-head,.lp-proof-head,.lp-people-head,.lp-compose-top,.lp-practical-head{grid-template-columns:1fr;gap:2rem;}
-  .lp-journey-grid,.lp-people-editorial{grid-template-columns:1fr;}
-  .lp-proof-row{grid-template-columns:64px 1fr;}
-  .lp-proof-row p{grid-column:2;}
-  .lp-proof-diptych{grid-template-columns:1fr 1fr;}
-  .lp-people-photos{max-width:760px;margin-left:auto;}
-  .lp-practical-grid{grid-template-columns:1fr;}
+  .lp-journey-grid,.lp-practical-grid{grid-template-columns:1fr;}
   .lp-practical-item,.lp-practical-item:nth-child(2),.lp-practical-item:last-child{border-right:0;border-bottom:1px solid var(--lp-line);padding:2rem 0;}
-  .lp-compose-step{grid-template-columns:56px 1fr;}
-  .lp-compose-step span{grid-column:2;}
-}
+  }
 @media(max-width:700px){
   .hero{padding-left:1.35rem;padding-right:1.35rem;}
   .hero-hed{font-size:clamp(48px,14vw,76px);}
@@ -1917,14 +1698,6 @@ body>.season .season-ask{color:var(--lp-olive)!important;}
   .lp-editorial-meta>div{border-top:1px solid var(--lp-line);padding:1rem 0;}
   .lp-route-line{grid-template-columns:1fr 1fr;}
   .lp-route-stop:nth-child(2)::after{display:none;}
-  .lp-journey-gallery{grid-template-columns:1fr 1fr;grid-template-rows:46vh 24vh;}
-  .lp-journey-gallery figure:first-child{grid-column:1/-1;grid-row:auto;}
-  .lp-proof-diptych{grid-template-columns:1fr;}
-  .lp-proof-diptych .lp-photo:last-child{margin-top:0;}
-  .lp-people-photos{grid-template-columns:1fr .72fr;gap:9px;}
-  .lp-human-secondary{margin-bottom:-1rem;}
-  .lp-proof-row{grid-template-columns:45px 1fr;gap:1rem;}
-  .lp-compose-step{grid-template-columns:42px 1fr;}
   .cta-main{grid-template-columns:1fr;}
   .cta-l{border-right:0;border-bottom:1px solid var(--lp-line);}
   #worlds .w4 .wp-photo,#worlds .w6 .wp-photo{padding:1.25rem;}
@@ -1987,14 +1760,6 @@ body>.season .season-ask{color:var(--lp-olive)!important;}
 .lp-network-card small{display:block;margin-top:1rem;color:rgba(15,23,18,.58);font-size:11px;line-height:1.6;}
 
 /* Compose: keep useful, but add restrained depth */
-.lp-compose-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:0;}
-.lp-compose-step{display:block!important;background:rgba(255,253,248,.58);border:1px solid rgba(15,23,18,.09)!important;padding:1.7rem!important;min-height:235px;position:relative;}
-.lp-compose-step:nth-child(2){transform:translateY(18px);z-index:2;box-shadow:0 22px 48px -38px rgba(15,23,18,.35);}
-.lp-compose-step:nth-child(3){transform:translateY(36px);}
-.lp-compose-step .n{display:block;margin-bottom:2rem;}
-.lp-compose-step strong{display:block;margin-bottom:.8rem;}
-.lp-compose-step span{display:block!important;}
-
 /* Light, architectural footer rather than a flat dark field */
 footer{background:var(--lp-white)!important;color:var(--lp-ink)!important;border-top:1px solid var(--lp-line)!important;padding:0!important;}
 footer .f-brand{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:2rem;margin:0!important;padding:2.4rem clamp(1.5rem,5vw,5rem);background:var(--lp-bone);border-bottom:1px solid var(--lp-line);}
@@ -2027,9 +1792,7 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   .lp-network-main,.lp-network-inset{position:relative;left:auto;right:auto;top:auto;width:100%;height:58vw;}
   .lp-network-inset{height:50vw;margin-top:2rem;}
   .lp-network-card{position:relative;left:auto;bottom:auto;width:100%;grid-column:1/-1;margin-top:-2rem;}
-  .lp-compose-steps{grid-template-columns:1fr;}
-  .lp-compose-step:nth-child(2),.lp-compose-step:nth-child(3){transform:none;}
-  footer .f-cols{grid-template-columns:1fr 1fr;gap:2rem!important;}
+  .lp-compose-step:nth-child(2),footer .f-cols{grid-template-columns:1fr 1fr;gap:2rem!important;}
   footer .f-col,footer .f-col:first-child{padding:0;border-right:0;}
 }
 @media(max-width:600px){
@@ -2041,13 +1804,6 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   footer .f-brand{grid-template-columns:1fr;gap:.8rem;}
   footer .f-cols{grid-template-columns:1fr;gap:2rem!important;}
 }
-</style>
-<style id="enkiama-more-light">
-.lp-more{max-width:1100px;margin:0 auto;padding:clamp(4rem,9vh,7rem) clamp(1.5rem,4vw,2rem);border-top:1px solid var(--lp-line);background:var(--lp-white);}
-.lp-more .xf-card{background:var(--lp-bone)!important;border-color:rgba(15,23,18,.09)!important;box-shadow:0 18px 44px -40px rgba(15,23,18,.35);}
-.lp-more .xf-card h3{color:var(--lp-ink)!important;}
-.lp-more .xf-card p{color:rgba(15,23,18,.62)!important;}
-.lp-more .xf-card:hover{border-color:rgba(85,107,68,.3)!important;transform:translateY(-3px);}
 </style>
 <style id="enkiama-framing-v4">
 .lp-welcome-stack{
@@ -2560,11 +2316,45 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   .lp-brief-sheet .lp-compose-actions{width:100%;}
 }
 </style>
+<style id="enkiama-production-v8">
+/* Signature landing palette — fixed across time, viewport and carousel state. */
+:root{
+  --enkiama-paper:var(--lp-paper);
+  --enkiama-white:var(--lp-white);
+  --enkiama-bone:var(--lp-bone);
+  --enkiama-clay:var(--lp-clay);
+  --enkiama-sage:var(--lp-sagewash);
+  --enkiama-olive:var(--lp-olive);
+  --enkiama-forest:var(--lp-forest);
+  --enkiama-brass:var(--lp-brass);
+}
+body{background:var(--enkiama-white);}
+.lp-editorial-intro,.lp-proof,.lp-season-note,.cta-l{background-color:var(--enkiama-bone);}
+.lp-archive,.lp-practical,.lp-more,.cta-r,#worlds{background-color:var(--enkiama-white);}
+.lp-compose{background-color:var(--enkiama-sage);}
+.lp-people{background-color:var(--lp-paper);}
+
+/* Interactive states remain within the same safari palette. */
+a:focus-visible,button:focus-visible{
+  outline:1px solid var(--enkiama-brass);
+  outline-offset:4px;
+}
+#worlds .wn-btn,#worlds .wn-arr,.cta-method,.lp-more-item{
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* The bespoke cursor should disappear where precision/readability matters most. */
+@media (hover:hover) and (pointer:fine){
+  .cta-wrap:hover ~ .t1-cursor,
+  .cta-wrap:hover ~ .t1-ring{opacity:0;}
+}
+
+/* Prevent stale hidden-system selectors from affecting layout if cached CSS survives. */
+#jmapSection,#curate,.route-wrap,.tod-ambient,.ambient-tint{display:none!important;}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
-<div class="tod-ambient" aria-hidden="true"></div>
-<div class="ambient-tint" aria-hidden="true"></div>
 <!-- ENKIAMA_HEADER_START -->
 <style>
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
@@ -3100,33 +2890,7 @@ body.eh-locked{overflow:hidden;}
   <div class="worlds-note">
     <p>Most journeys move through two or three of these worlds. The point is not to collect them all, but to find the combination that fits your group, your season and the way you want Tanzania to feel.</p>
   </div>
-
-  <div class="route-wrap">
-    <svg class="route-svg" id="routeSvg" viewBox="0 0 500 320" role="img" aria-label="A representative route across Tanzania">
-      <!-- representative path: NE Kilimanjaro → W Serengeti → Ngorongoro → SE Zanzibar coast -->
-      <path class="route-path" id="routePath"
-        d="M 400 70 C 330 90, 250 70, 170 120 S 150 210, 210 235 S 360 250, 415 275" />
-      <g class="route-stop" data-x="400" data-y="70">
-        <circle class="route-dot" cx="400" cy="70" r="5"/>
-        <text class="route-lbl" x="400" y="55" text-anchor="middle">Kilimanjaro</text>
-      </g>
-      <g class="route-stop" data-x="170" data-y="120">
-        <circle class="route-dot" cx="170" cy="120" r="5"/>
-        <text class="route-lbl" x="170" y="105" text-anchor="middle">Serengeti</text>
-      </g>
-      <g class="route-stop" data-x="210" data-y="235">
-        <circle class="route-dot" cx="210" cy="235" r="5"/>
-        <text class="route-lbl" x="210" y="258" text-anchor="middle">Ngorongoro</text>
-      </g>
-      <g class="route-stop" data-x="415" data-y="275">
-        <circle class="route-dot" cx="415" cy="275" r="5"/>
-        <text class="route-lbl" x="415" y="298" text-anchor="middle">Zanzibar</text>
-      </g>
-    </svg>
-  </div>
 </section>
-
-
 
 <section class="lp-archive" id="archive">
   <div class="lp-section-head">
@@ -3321,115 +3085,6 @@ body.eh-locked{overflow:hidden;}
     </div>
   </div>
 </section>
-
-<div class="lp-legacy-runtime" aria-hidden="true">
-<!-- ── CURATION ENGINE ── -->
-<section class="jmap-section" id="jmapSection">
-  <p class="jmap-eyebrow">The shape of a journey</p>
-  <h2 class="jmap-title">One country, drawn as you'd travel it</h2>
-  <div class="jmap-wrap">
-    <svg class="jmap-svg" viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
-      <!-- simplified Tanzania outline -->
-      <path class="jmap-country" d="M 120 180 L 380 140 L 640 130 L 760 210 L 800 340 L 720 470 L 560 540 L 380 560 L 220 520 L 130 400 L 100 280 Z"/>
-      <!-- the route: mountain(NE) -> savanna(N) -> crater(N-central) -> culture -> coast(E) -->
-      <path class="jmap-route" id="jmapRoute" d="M 660 200 C 560 220, 480 200, 420 240 S 340 320, 300 360 S 360 440, 480 460 S 680 440, 740 380"/>
-      <!-- stops -->
-      <g class="jmap-stop">
-        <circle class="jmap-stop-ring" cx="660" cy="200" r="14"/>
-        <circle class="jmap-stop-dot" cx="660" cy="200" r="4"/>
-        <text class="jmap-stop-label" x="660" y="178" text-anchor="middle">Kilimanjaro</text>
-        <text class="jmap-stop-sub" x="660" y="228" text-anchor="middle">The mountain</text>
-      </g>
-      <g class="jmap-stop">
-        <circle class="jmap-stop-ring" cx="420" cy="240" r="14"/>
-        <circle class="jmap-stop-dot" cx="420" cy="240" r="4"/>
-        <text class="jmap-stop-label" x="420" y="218" text-anchor="middle">Serengeti</text>
-        <text class="jmap-stop-sub" x="420" y="268" text-anchor="middle">The savanna</text>
-      </g>
-      <g class="jmap-stop">
-        <circle class="jmap-stop-ring" cx="300" cy="360" r="14"/>
-        <circle class="jmap-stop-dot" cx="300" cy="360" r="4"/>
-        <text class="jmap-stop-label" x="300" y="338" text-anchor="middle">Ngorongoro</text>
-        <text class="jmap-stop-sub" x="300" y="388" text-anchor="middle">The crater</text>
-      </g>
-      <g class="jmap-stop">
-        <circle class="jmap-stop-ring" cx="480" cy="460" r="14"/>
-        <circle class="jmap-stop-dot" cx="480" cy="460" r="4"/>
-        <text class="jmap-stop-label" x="480" y="438" text-anchor="middle">Arusha</text>
-        <text class="jmap-stop-sub" x="480" y="488" text-anchor="middle">The culture</text>
-      </g>
-      <g class="jmap-stop">
-        <circle class="jmap-stop-ring" cx="740" cy="380" r="14"/>
-        <circle class="jmap-stop-dot" cx="740" cy="380" r="4"/>
-        <text class="jmap-stop-label" x="740" y="358" text-anchor="middle">Zanzibar</text>
-        <text class="jmap-stop-sub" x="740" y="408" text-anchor="middle">The coast</text>
-      </g>
-    </svg>
-  </div>
-</section>
-
-<section class="curate" id="curate">
-  <div class="curate-pg">imagine</div>
-  <div class="curate-inner">
-    <p class="eye curate-eye">The beginning</p>
-    <h2 class="curate-hl reveal">Tell us what <em>pulls</em> at you.<br>We&rsquo;ll find the words<br>for what you imagine.</h2>
-    <p class="curate-sub reveal">Three questions, not a form. They begin a conversation, and show you what your journey could feel like &mdash; along with the honest reasoning behind it: why we would start you in one place and not another, what we would gently steer you away from, where the real tradeoffs lie. The judgment is the thing we are actually offering.</p>
-
-    <div class="curate-engine">
-      <div class="curate-progress">
-        <div class="cp-dot current" id="dot0"></div>
-        <div class="cp-dot" id="dot1"></div>
-        <div class="cp-dot" id="dot2"></div>
-      </div>
-
-      <div class="curate-step active" id="step0">
-        <p class="curate-prompt">&ldquo;What kind of silence do you want: the silence of altitude, or the silence after a herd passes?&rdquo;</p>
-        <div class="curate-options">
-          <button class="c-opt" data-val="altitude">The silence of altitude: cold air, few people, a summit somewhere above the clouds</button>
-          <button class="c-opt" data-val="herd">The silence after a herd passes: vast space, animal presence, the savanna breathing</button>
-          <button class="c-opt" data-val="ocean">The silence of the ocean: warm water, slow rhythm, a different kind of vastness</button>
-          <button class="c-opt" data-val="human">The silence between conversations: a shared table, a family&rsquo;s home, the sound of another life</button>
-        </div>
-      </div>
-
-      <div class="curate-step" id="step1">
-        <p class="curate-prompt">&ldquo;When you travel, what do you want to understand more deeply: a place, a people, or yourself?&rdquo;</p>
-        <div class="curate-options">
-          <button class="c-opt" data-val="place">A place: its geology, its ecosystems, why it looks like this and no other</button>
-          <button class="c-opt" data-val="people">A people: how they live, what they value, what they would tell you if you stayed long enough</button>
-          <button class="c-opt" data-val="self">Myself. I want the kind of experience that rearranges what I thought I knew about what matters</button>
-          <button class="c-opt" data-val="all">All three. I want a journey that holds all of it at once</button>
-        </div>
-      </div>
-
-      <div class="curate-step" id="step2">
-        <p class="curate-prompt">&ldquo;What would make you feel the journey was everything it could have been?&rdquo;</p>
-        <div class="curate-options">
-          <button class="c-opt" data-val="moment">One unrepeatable moment that I couldn&rsquo;t have planned or found alone</button>
-          <button class="c-opt" data-val="people2">The people I met &mdash; guides, families, partners &mdash; who showed me something real</button>
-          <button class="c-opt" data-val="changed">Coming home feeling genuinely different: not just rested, but changed</button>
-          <button class="c-opt" data-val="together">Experiencing it with people I love, in a way that brought us closer</button>
-        </div>
-      </div>
-
-      <div class="curate-response" id="curateResponse">
-        <div class="cr-divider"></div>
-        <p class="cr-label">Your journey, imagined</p>
-        <div class="cr-loading" id="crLoading">
-          <div class="cr-dot"></div><div class="cr-dot"></div><div class="cr-dot"></div>
-        </div>
-        <p class="cr-text" id="crText"></p>
-        <div class="cr-cta" id="crCta" style="display:none;">
-          <a href="mailto:hola@enkiama.com" class="btn-primary">Begin this conversation</a>
-          <button class="cr-reset" id="crReset">Start again</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-</div>
 
 <!-- ── CTA ── -->
 <!-- THE SEASON — what is happening in Tanzania today -->
@@ -3706,193 +3361,6 @@ body.eh-locked{overflow:hidden;}
     }
   });
 })();
-
-/* ── CURATION ENGINE ── */
-(function(){
-  const answers={};
-  let step=0;
-  const steps=document.querySelectorAll('.curate-step');
-  const dots=[document.getElementById('dot0'),document.getElementById('dot1'),document.getElementById('dot2')];
-  const response=document.getElementById('curateResponse');
-  const loading=document.getElementById('crLoading');
-  const crText=document.getElementById('crText');
-  const crCta=document.getElementById('crCta');
-
-  function setDots(s){
-    dots.forEach((d,i)=>{
-      d.className='cp-dot';
-      if(i<s)d.classList.add('done');
-      else if(i===s)d.classList.add('current');
-    });
-  }
-
-  document.querySelectorAll('.c-opt').forEach(btn=>{
-    btn.addEventListener('click',function(){
-      const ps=this.closest('.curate-step');
-      ps.querySelectorAll('.c-opt').forEach(b=>b.classList.remove('picked'));
-      this.classList.add('picked');
-      answers['q'+(step+1)]=this.dataset.val;
-
-      setTimeout(()=>{
-        steps[step].style.cssText='opacity:0;transform:translateY(-14px);transition:opacity .35s ease,transform .35s cubic-bezier(.16,1,.3,1)';
-        setTimeout(()=>{
-          steps[step].classList.remove('active');
-          step++;
-          if(step<3){
-            setDots(step);
-            steps[step].classList.add('active');
-            steps[step].style.cssText='opacity:0;transform:translateY(14px)';
-            setTimeout(()=>{steps[step].style.cssText='opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .5s cubic-bezier(0.16,1,0.3,1)';},30);
-          } else {
-            setDots(3);
-            showResponse();
-          }
-        },380);
-      },260);
-    });
-  });
-
-  function showResponse(){
-    response.classList.add('show');
-    loading.classList.add('show');
-    crText.textContent='';
-    crCta.style.display='none';
-    const text=buildJourney();
-    setTimeout(()=>{
-      loading.classList.remove('show');
-      typeText(text,crText,()=>{crCta.style.display='flex';});
-    },1600);
-  }
-
-  const silenceMap={
-    altitude:"Your journey begins on the mountain — not necessarily at the summit, but high enough that the air changes, the world below disappears, and you understand for the first time what silence feels like when it has altitude behind it.",
-    herd:"Your journey begins on the open plain — in the Serengeti or Tarangire, where the scale of animal life quietly rewrites your sense of what is ordinary and what is extraordinary.",
-    ocean:"Your journey finds its rhythm on the coast — the warm slow world of Zanzibar or Pemba, where the ocean sets the pace and the history runs deeper than the water.",
-    human:"Your journey begins at a table — a family's table, in a home in the Kilimanjaro foothills or on the crater rim, where the conversation happens in three languages and no one is performing hospitality."
-  };
-  const understandMap={
-    place:"You want to understand the land — its geology, its ecosystems, why this particular arrangement of rock and water and life exists here and nowhere else. Tanzania will give you that, slowly, if you go with people who have spent their lives reading it.",
-    people:"You want to understand the people — the Maasai, the Chagga, the Swahili communities of the coast. You want to sit with them long enough that something real is exchanged, not observed.",
-    self:"You want the kind of experience that reorganises you — that makes the thing you thought you knew about what matters look smaller, or larger, or entirely different than before.",
-    all:"You want all of it at once — the land, the people, the reorganisation. Tanzania is one of the few places on earth that can hold that ambition in a single journey."
-  };
-  const endMap={
-    moment:"The moment you will carry home is one we cannot predict — it will find you in the field, in the dark, at someone's table. Our work is to put you in the conditions where it becomes possible.",
-    people2:"The people you meet will be the journey. Our guides, our partners, the families and communities we are trusted to introduce you to — they are why this works. They are why no two Enkiama journeys are the same.",
-    changed:"You will come home different. Not because we planned it that way, but because Tanzania does that — when you go slowly enough, with the right people, and arrive close enough to feel what it actually is.",
-    together:"The journey will bring you closer — to the people you travel with, and to something in yourself that the pace of ordinary life doesn't leave room for. Tanzania, at its depth, is extraordinarily good at that."
-  };
-
-  function buildJourney(){
-    const q1=answers.q1||'herd';
-    const q2=answers.q2||'all';
-    const q3=answers.q3||'moment';
-    return `${silenceMap[q1]}\n\n${understandMap[q2]}\n\n${endMap[q3]}\n\nTell us when you want to travel, and who you're bringing. We'll take it from there.`;
-  }
-
-  function typeText(text,el,onDone){
-    const cursor=document.createElement('span');
-    cursor.className='cr-cursor';
-    el.appendChild(cursor);
-    const chars=text.split('');
-    let i=0;
-    function tick(){
-      if(i<chars.length){
-        const c=chars[i++];
-        if(c==='\n'){cursor.insertAdjacentHTML('beforebegin','<br>');}
-        else{cursor.insertAdjacentText('beforebegin',c);}
-        setTimeout(tick,c==='\n'?90:18);
-      } else {cursor.remove();if(onDone)onDone();}
-    }
-    tick();
-  }
-
-  document.getElementById('crReset').addEventListener('click',()=>{
-    step=0;answers.q1=answers.q2=answers.q3=null;
-    setDots(0);
-    steps.forEach(s=>{s.classList.remove('active');s.style.cssText='';});
-    steps[0].classList.add('active');
-    document.querySelectorAll('.c-opt').forEach(b=>b.classList.remove('picked'));
-    response.classList.remove('show');
-    crText.innerHTML='';
-    loading.classList.remove('show');
-    crCta.style.display='none';
-  });
-
-  /* ── ENHANCEMENT JS ── */
-  // Route path: measure length, set dash so it can "draw"
-  (function(){
-    var p=document.getElementById('routePath');
-    if(p&&p.getTotalLength){var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;}
-  })();
-
-  // Observer for breath words (staggered), route map, and reveal-lift/draw-rule
-  (function(){
-    if(!window.IntersectionObserver)return;
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(!e.isIntersecting)return;
-        var el=e.target;
-        if(el.id==='breathLine'){
-          var sp=el.querySelectorAll('span');
-          sp.forEach(function(s,i){setTimeout(function(){s.classList.add('in');},i*700);});
-          var tr=document.getElementById('breathTr');
-          if(tr)setTimeout(function(){tr.classList.add('in');},sp.length*700+600);
-        } else if(el.id==='routeSvg'){
-          var path=document.getElementById('routePath');
-          if(path)path.classList.add('in');
-          var stops=el.querySelectorAll('.route-stop');
-          stops.forEach(function(g,i){
-            setTimeout(function(){
-              g.querySelector('.route-dot').classList.add('in');
-              g.querySelector('.route-lbl').classList.add('in');
-            }, 500 + i*550);
-          });
-        } else {
-          el.classList.add('in');
-        }
-        io.unobserve(el);
-      });
-    },{threshold:0.35});
-    ['breathLine','routeSvg'].forEach(function(id){var n=document.getElementById(id);if(n)io.observe(n);});
-    document.querySelectorAll('.reveal-lift,.draw-rule').forEach(function(n){io.observe(n);});
-  })();
-  /* ── HEADER JS ── */
-  (function(){
-    var nav=((((((((((((((((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}});
-    // scroll-condense
-    function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
-    window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-
-    // mobile menu
-    var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((((((((((((((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
-    function toggleMenu(open){
-      burger.classList.toggle('open',open); mob.classList.toggle('open',open);
-      burger.setAttribute('aria-expanded',open?'true':'false');
-      document.body.style.overflow=open?'hidden':'';
-    }
-    burger.addEventListener('click',function(){toggleMenu(!mob.classList.contains('open'));});
-    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mob.classList.contains('open'))toggleMenu(false);});
-
-    // dropdown (click + keyboard for touch/a11y; hover handled by CSS)
-    var dt=document.querySelector('.n-drop-t'), dm=document.querySelector('.n-drop-m');
-    if(dt&&dm){
-      dt.addEventListener('click',function(e){e.preventDefault();var open=dm.classList.toggle('open');dt.setAttribute('aria-expanded',open?'true':'false');});
-      document.addEventListener('click',function(e){if(!e.target.closest('.n-drop')){dm.classList.remove('open');dt.setAttribute('aria-expanded','false');}});
-    }
-
-    // active page marking
-    var page=(location.pathname.split('/').pop()||'index.html').replace('.html','');
-    var map={tanzania:'tanzania',how:'how',family:'family',notes:'notes',stories:'stories',journeys:'journeys',begin:'begin',parks:'parks',faq:'faq',compose:'compose'};
-    var key=map[page];
-    if(key){
-      document.querySelectorAll('[data-nav="'+key+'"]').forEach(function(el){el.classList.add('active');});
-      // if on a journal sub-page, also light the Journal parent
-      if(key==='notes'||key==='stories'||key==='parks'||key==='faq'){var jt=document.querySelector('.n-drop-t');if(jt)jt.classList.add('active');}
-    }
-  })();
-})();
 </script>
 <script>
 /* ══════════ MOTION ENHANCEMENTS JS ══════════ */
@@ -4013,12 +3481,12 @@ body.eh-locked{overflow:hidden;}
     box-shadow:0 0 8px rgba(237,230,214,0.5), 0 0 2px rgba(237,230,214,0.9);will-change:transform;}
   .t1-cursor.t1-hover{width:10px;height:10px;background:var(--earth,#BE9E68);box-shadow:0 0 14px rgba(190,158,104,0.7),0 0 3px rgba(190,158,104,1);}
   .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(190,158,104,0.28);border-radius:50%;
+  .t1-ring{position:fixed;top:0;left:0;width:30px;height:30px;border:1px solid rgba(190,158,104,0.22);border-radius:50%;
     pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    background:rgba(190,158,104,0.03);backdrop-filter:blur(1.5px) saturate(1.1);-webkit-backdrop-filter:blur(1.5px) saturate(1.1);
-    box-shadow:inset 0 0 12px rgba(190,158,104,0.06);
+    background:transparent;
+    box-shadow:none;
     transition:width .55s cubic-bezier(.16,1,.3,1),height .55s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s,background .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:56px;height:56px;border-color:rgba(190,158,104,0.55);background:rgba(190,158,104,0.06);}
+  .t1-ring.t1-hover{width:44px;height:44px;border-color:rgba(190,158,104,0.45);background:rgba(190,158,104,0.035);}
   /* hide default cursor on interactive elements when custom is active */
   body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
 }
@@ -4270,41 +3738,6 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 </script>
 <!-- ENKIAMA_PHOTOSYS_END -->
 
-<script>
-(function(){
-  var route=document.getElementById('jmapRoute');
-  if(route){var len=route.getTotalLength();route.style.setProperty('--len',len);}
-  var section=document.getElementById('jmapSection');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){section.classList.add('drawn');io.unobserve(section);}});},{threshold:0.3});
-    io.observe(section);
-  } else { section.classList.add('drawn'); }
-})();
-</script>
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce)return;
-  var worlds={'w1':'mountain','w2':'savanna','w3':'crater','w4':'culture','w5':'coast'};
-  var panels=document.querySelectorAll('.world-panel');
-  if(!panels.length)return;
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        var cls=[].slice.call(e.target.classList).find(function(c){return worlds[c];});
-        if(cls)document.body.setAttribute('data-world',worlds[cls]);
-      }
-    });
-  },{threshold:0.5});
-  panels.forEach(function(p){io.observe(p);});
-  // clear when leaving worlds section
-  var worldsSection=document.getElementById('worlds');
-  if(worldsSection){
-    var so=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)document.body.removeAttribute('data-world');});},{threshold:0});
-    so.observe(worldsSection);
-  }
-})();
-</script>
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>
 /* Native cross-document view transitions - purely additive, ignored by unsupporting browsers.
@@ -4389,13 +3822,6 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 /* resolve Ken Burns vs hover-zoom conflict: pause KB on card hover so zoom is clean */
 .world-panel:hover .wp-photo-film .ph-frame img.ph-kb,
 .world-row:hover .wr-film .ph-frame img.ph-kb{animation-play-state:paused;}
-
-/* ══════ TIME-OF-DAY AMBIENCE ══════ */
-.tod-ambient{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 2s ease, background 2s ease;}
-body[data-tod="dawn"] .tod-ambient{opacity:1;background:radial-gradient(ellipse 100% 60% at 50% 0%, rgba(190,158,104,0.06), transparent 55%);}
-body[data-tod="day"] .tod-ambient{opacity:1;background:radial-gradient(ellipse 100% 60% at 50% 0%, rgba(122,148,112,0.04), transparent 55%);}
-body[data-tod="dusk"] .tod-ambient{opacity:1;background:radial-gradient(ellipse 100% 60% at 50% 0%, rgba(160,110,70,0.06), transparent 55%);}
-body[data-tod="night"] .tod-ambient{opacity:1;background:radial-gradient(ellipse 100% 70% at 50% 0%, rgba(70,90,120,0.05), transparent 60%);}
 
 /* ══════ COMPOSED ENTRANCE — the page arrives, it does not pop ══════ */
 /* hero elements begin slightly low and settle as the page fades in */
@@ -4665,13 +4091,6 @@ footer{border-top:1px solid var(--rule);padding:clamp(3rem,6vw,4.5rem) clamp(1.5
 </script>
 <!-- ENKIAMA_LINES_END -->
 
-<script>
-(function(){
-  var hr=new Date().getHours();
-  var tod = hr<7 ? 'dawn' : hr<17 ? 'day' : hr<20 ? 'dusk' : 'night';
-  document.body.setAttribute('data-tod', tod);
-})();
-</script>
 <script>
 /* ── the Enkiama rule draws itself when it enters view ── */
 (function(){
