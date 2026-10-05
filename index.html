@@ -4243,6 +4243,148 @@ a,button,[role="button"]{cursor:pointer!important;}
   }
 }
 </style>
+<style id="enkiama-phase3-final-discipline-v16">
+/* PHASE 3 — FINAL LUXURY DISCIPLINE */
+
+/* Continue exploring: editorial links, not numbered UI */
+.lp-more-item{
+  grid-template-columns:minmax(0,1fr) 32px!important;
+}
+.lp-more-no{display:none!important;}
+.lp-more-item>div{grid-column:1;}
+.lp-more-arrow{grid-column:2;grid-row:1;}
+.lp-more-item p{max-width:32ch!important;}
+.lp-more-head h2{max-width:12ch;}
+
+/* Practical: smaller, calmer final-quarter hierarchy */
+.lp-practical{
+  padding-top:clamp(5rem,8vw,7rem)!important;
+  padding-bottom:clamp(5rem,8vw,7rem)!important;
+}
+.lp-practical-item{
+  min-height:200px!important;
+}
+.lp-practical-item p{
+  max-width:34ch!important;
+}
+
+/* Final photographic beat before contact */
+.lp-final-photo{
+  background:var(--lp-paper);
+  padding:0 var(--lp-gutter) clamp(5rem,8vw,7rem);
+}
+.lp-final-photo-link{
+  position:relative;
+  display:block;
+  max-width:var(--lp-max);
+  margin:0 auto;
+  color:inherit;
+  text-decoration:none;
+  overflow:hidden;
+}
+.lp-final-photo .lp-photo{
+  height:min(48svh,460px);
+}
+.lp-final-photo-copy{
+  position:absolute;
+  left:clamp(1.2rem,3vw,2.5rem);
+  bottom:clamp(1.2rem,3vw,2.4rem);
+  z-index:5;
+  color:#FFFDF8;
+  text-shadow:0 1px 12px rgba(0,0,0,.62);
+}
+.lp-final-photo-copy span{
+  display:block;
+  margin-bottom:.35rem;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,253,248,.68);
+}
+.lp-final-photo-copy strong{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:clamp(34px,4.2vw,58px);
+  line-height:1;
+  font-weight:550;
+}
+.lp-final-photo-copy small{
+  display:block;
+  margin-top:.45rem;
+  font-size:10px;
+  letter-spacing:.08em;
+  color:rgba(255,253,248,.72);
+}
+.lp-final-photo-link::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(8,12,9,.42),rgba(8,12,9,.08) 48%,transparent 75%);
+  pointer-events:none;
+}
+@media(hover:hover){
+  .lp-final-photo-link img{transition:transform 1.2s cubic-bezier(.16,1,.3,1)!important;}
+  .lp-final-photo-link:hover img{transform:scale(1.018)!important;}
+}
+
+/* Contact: remove remaining theatrical devices */
+.cta-bg,.rafiki-tr{display:none!important;}
+.cta-main{
+  min-height:0!important;
+}
+.cta-l,.cta-r{
+  padding-top:clamp(4.5rem,7vw,6rem)!important;
+  padding-bottom:clamp(4.5rem,7vw,6rem)!important;
+}
+.rafiki-hed{
+  max-width:8ch;
+  font-size:clamp(46px,5.6vw,74px)!important;
+}
+.cta-l .dim{
+  max-width:40ch!important;
+}
+.cta-method-note{
+  max-width:44ch;
+}
+
+/* Microtype: less pseudo-editorial spacing */
+.lp-kicker,.eye,.cta-desk-eye,.lp-season-kicker,
+.wp-tag,.lp-country-index-label,.lp-season-signals span,
+.lp-contact-meta{
+  letter-spacing:.13em!important;
+}
+
+/* Reduce copy density in the last quarter */
+.lp-more-item p,
+.lp-practical-item p,
+.lp-season-sub,
+.cta-method-note,
+.cta-l .dim{
+  line-height:1.62!important;
+}
+
+/* Mobile: final section sequence should remain photographic and calm */
+@media(max-width:680px){
+  .lp-final-photo{
+    padding:0 1.35rem 4rem;
+  }
+  .lp-final-photo .lp-photo{
+    height:min(44svh,350px);
+  }
+  .lp-final-photo-copy strong{
+    font-size:40px;
+  }
+  .lp-more-item{
+    grid-template-columns:minmax(0,1fr) 24px!important;
+  }
+  .cta-l,.cta-r{
+    padding-top:3.6rem!important;
+    padding-bottom:3.6rem!important;
+  }
+  .rafiki-hed{
+    font-size:clamp(42px,12vw,58px)!important;
+  }
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -4992,24 +5134,24 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-practical">
   <div class="lp-practical-inner">
     <div class="lp-practical-head">
-      <h2 class="reveal">Before you commit,<br>you will know <em>these three things.</em></h2>
-      <p class="reveal">Timing, budget and communication are discussed early. The proposal then sets out the journey as one complete plan.</p>
+      <h2 class="reveal">Before you commit,<br>the plan is <em>clear.</em></h2>
+      <p class="reveal">Timing, budget and the shape of the journey are discussed before the proposal is finalised.</p>
     </div>
     <div class="lp-practical-grid">
       <div class="lp-practical-item reveal">
         <div class="ey">Timing</div>
         <h3>Your best travel window.</h3>
-        <p>We explain what your month means for wildlife, weather, availability and the pace of the route.</p>
+        <p>Wildlife, weather, availability and route pace change with the month.</p>
       </div>
       <div class="lp-practical-item reveal">
         <div class="ey">Investment</div>
         <h3>What your budget changes.</h3>
-        <p>Accommodation, internal flights, private vehicles and duration move the number most. We use the budget to shape those choices from the start.</p>
+        <p>Accommodation, flights, private vehicles and duration move the number most.</p>
       </div>
       <div class="lp-practical-item reveal">
         <div class="ey">Conversation</div>
         <h3>How we begin.</h3>
-        <p>A first message can be short. We use it to understand the group, timing and priorities before shaping the first route.</p>
+        <p>A group, a rough month and your priorities are enough to begin.</p>
       </div>
     </div>
   </div>
@@ -5044,40 +5186,46 @@ body.eh-locked{overflow:hidden;}
   </div>
   <div class="lp-more-index">
     <a href="kilimanjaro.html" class="lp-more-item reveal">
-      <span class="lp-more-no">01</span>
-      <div><small>Mountain</small><strong>Kilimanjaro on foot</strong><p>Routes, pace, acclimatisation and the people who support the climb.</p></div>
+      <div><small>Mountain</small><strong>Kilimanjaro on foot</strong><p>Routes, pace and acclimatisation.</p></div>
       <span class="lp-more-arrow">&rarr;</span>
     </a>
     <a href="companions.html" class="lp-more-item reveal">
-      <span class="lp-more-no">02</span>
-      <div><small>Shared journeys</small><strong>Companions</strong><p>Small-group departures and a considered way to travel with others.</p></div>
+      <div><small>Shared journeys</small><strong>Companions</strong><p>Small-group departures.</p></div>
       <span class="lp-more-arrow">&rarr;</span>
     </a>
     <a href="why.html" class="lp-more-item reveal">
-      <span class="lp-more-no">03</span>
-      <div><small>Enkiama</small><strong>Who we are</strong><p>Our roots in Tanzania and the way we approach a journey through the country.</p></div>
+      <div><small>Enkiama</small><strong>Who we are</strong><p>Our roots and approach.</p></div>
       <span class="lp-more-arrow">&rarr;</span>
     </a>
   </div>
 </section>
 
+<section class="lp-final-photo" aria-label="Southern Tanzania">
+  <a href="nyerere.html" class="lp-final-photo-link">
+    <figure class="lp-photo" data-lp-media style="--lp-pos:50% 56%;--lp-mask:var(--lp-paper);">
+      <img src="assets/images/nyerere.jpg" loading="lazy" decoding="async" alt="Boat safari on the Rufiji River in Nyerere National Park">
+      <figcaption>Nyerere · Rufiji River · Southern Tanzania</figcaption>
+    </figure>
+    <div class="lp-final-photo-copy">
+      <span>South</span>
+      <strong>Nyerere</strong>
+      <small>Rufiji River · wildlife by boat and road</small>
+    </div>
+  </a>
+</section>
+
 <section class="cta-wrap" id="contact">
   <div class="cta-main">
     <div class="cta-l">
-      <div class="cta-bg">rafiki</div>
       <div class="cta-l-in">
-        <p class="eye">When you are ready</p>
-        <div class="rafiki-hed">Begin a<br>conversation,<br><em>rafiki.</em></div>
-        <div class="rafiki-tr">
-          <div class="rafiki-dash"></div>
-          <span class="rafiki-def">Rafiki: friend, companion, fellow traveller</span>
-        </div>
-        <p class="dim">Tell us who is travelling, roughly when, and what you most want from Tanzania. A month and a few ideas are enough to begin.</p>
+        <p class="eye">Karibu</p>
+        <div class="rafiki-hed">Tell us about<br>your <em>trip.</em></div>
+        <p class="dim">Who is travelling, roughly when, and what matters most. That is enough for a first conversation.</p>
       </div>
     </div>
 
     <div class="cta-r">
-      <p class="cta-desk-eye">Start here</p>
+      <p class="cta-desk-eye">Contact Enkiama</p>
 
       <a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="cta-method">
         <span class="cta-lbl">WhatsApp</span>
@@ -5094,8 +5242,9 @@ body.eh-locked{overflow:hidden;}
       </a>
 
       <div class="lp-contact-meta">
-        <span>Tanzania</span>
-        <span>Private enquiries</span>
+        <span>Tanzania-based</span>
+        <span>Private journeys</span>
+        <span>Direct enquiries</span>
         <span>Year-round</span>
       </div>
     </div>
