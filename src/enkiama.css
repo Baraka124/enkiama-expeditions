@@ -2528,6 +2528,11 @@ body{opacity:1;cursor:auto;}
   animation:none;
   transform:none;
 }
+@media(max-width:760px){
+  #heroFrame img{
+    object-position:78% 54%;
+  }
+}
 
 /* ---------- Welcome ---------- */
 .lp-welcome-stack{
