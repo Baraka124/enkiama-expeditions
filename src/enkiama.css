@@ -657,14 +657,14 @@ nav.scrolled::before{ opacity:.035; }
              linear-gradient(0deg, rgba(8,12,9,0.55) 0%, transparent 40%);}
 .hero-content{z-index:3;}
 
-/* photo-label legibility: when a real photo is behind them{color:rgba(237,230,214,0.85)!important;text-shadow:0 1px 8px rgba(0,0,0,0.7);}
+/* photo-label legibility note retained from the photo pass. */
 /* subtle bottom scrim on photo cards so bottom-left label always reads */
 .wr-film.has-photo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(0deg, rgba(8,12,9,0.5) 0%, transparent 30%, transparent 70%, rgba(8,12,9,0.3) 100%);}
 @media(min-width:1200px){ }
 
 /* ══════ HIDE PLACEHOLDER HINTS (photo-direction notes) ══════ */
-.film-hint,.hero-film-label,.hero-side,.wp-ph-hint{display:none !important;}
+.film-hint,.hero-film-label,.hero-side,.wp-ph-hint{display:none;}
 
 /* --- migrated from index.html: enkiama-landing-luxury-v2 [2/25] --- */
 /* ===== ENKIAMA LANDING — SIGNATURE SAFARI / ADVENTURE PALETTE ===== */
@@ -716,7 +716,7 @@ nav.scrolled::before{ opacity:.035; }
 #worlds .wp-desc{font-size:14px;line-height:1.95;color:rgba(15,23,18,.72);}
 #worlds .wp-sw{color:#8A7048;}
 #worlds .wp-tag{color:var(--lp-olive);}
-#worlds .wp-ph-hint{display:none!important;}
+#worlds .wp-ph-hint{display:none;}
 #worlds .worlds-note{padding:1.55rem var(--lp-gutter) 1.7rem;background:var(--lp-paper);border-top:1px solid var(--lp-line);min-height:0;}
 #worlds .worlds-note p{font-family:'Instrument Sans',sans-serif;font-size:13px;line-height:1.65;font-style:normal;max-width:72ch;color:rgba(15,23,18,.60);}
 #worlds .worlds-note em{color:var(--lp-olive);}
@@ -1330,8 +1330,8 @@ a:focus-visible,button:focus-visible{
 .lp-proof,
 .lp-people,
 .lp-stays{
-  padding-top:clamp(5.5rem,9vw,8rem)!important;
-  padding-bottom:clamp(5.5rem,9vw,8rem)!important;
+  padding-top:clamp(5.5rem,9vw,8rem);
+  padding-bottom:clamp(5.5rem,9vw,8rem);
 }
 
 /* --- migrated from index.html: enkiama-rhythm-microluxury-v11 [11/25] --- */
