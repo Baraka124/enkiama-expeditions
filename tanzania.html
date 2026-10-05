@@ -401,7 +401,7 @@
       <div class="wr-ghost">Mlima</div>
       <div class="wr-inner">
         <p class="wr-eye">Trekking &middot; Highland culture &middot; Coffee farms</p>
-        <h2 class="wr-name reveal vf-arrive">The mountain</h2>
+        <h2 class="wr-name reveal">The mountain</h2>
         <span class="wr-sw">Mlima: the peak that changes you</span>
         <div class="wr-rule"></div>
         <p class="wr-desc reveal">Africa&rsquo;s highest peak and the Chagga cultural corridor winding through its lower slopes. At 1,700 metres, the coffee farms begin. The banana groves. The volcanic red soil. The Chagga people, who have farmed this mountain for generations and receive guests at their tables as a matter of course.</p>
@@ -710,211 +710,13 @@
   }
 })();
 </script>
-<script>
-/* ══════════ MOTION ENHANCEMENTS JS ══════════ */
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* #1 — detect real photos: for each film with a background-image URL,
-     test if it actually loads; only then add .has-photo (enables Ken Burns).
-     The photo is carried on the ::before (set via inherited background-image),
-     so gradient placeholders stay still and text stays put. */
-  function detectPhotos(){
-    var films = document.querySelectorAll('.wr-film, .hero-film');
-    films.forEach(function(el){
-      var inline = el.getAttribute('style') || '';
-      var bg = getComputedStyle(el).backgroundImage || '';
-      var m = (inline.match(/url\(['"]?([^'")]+)['"]?\)/) || bg.match(/url\(['"]?([^'")]+)['"]?\)/));
-      if(!m) return;
-      var url = m[1];
-      if(/\.(jpg|jpeg|png|webp|avif)$/i.test(url)){
-        var img = new Image();
-        img.onload = function(){ el.classList.add('has-photo'); };
-        img.onerror = function(){ /* stays gradient */ };
-        img.src = url;
-      }
-    });
-  }
-  detectPhotos();
 
-  if(reduce) return; // everything below is motion; honour the preference
 
-  /* #3 — row reveals via IntersectionObserver */
-  var rows = document.querySelectorAll('.world-row');
-  if(rows.length){
-    var ro = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-    }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
-    rows.forEach(function(r){ ro.observe(r); });
-  }
-
-  /* #4 — count-up figures */
-  var figs = document.querySelectorAll('[data-count]');
-  if(figs.length){
-    var fo = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(!e.isIntersecting) return;
-        var el=e.target, target=parseFloat(el.getAttribute('data-count')), suffix=el.getAttribute('data-suffix')||'', dur=1400, t0=null;
-        el.classList.add('in');
-        function tick(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var eased=1-Math.pow(1-p,3);
-          var val=Math.floor(eased*target); el.textContent = val.toLocaleString() + suffix;
-          if(p<1) requestAnimationFrame(tick); else el.textContent = target.toLocaleString()+suffix; }
-        requestAnimationFrame(tick); fo.unobserve(el);
-      });
-    }, {threshold:0.6});
-    figs.forEach(function(f){ fo.observe(f); });
-  }
-
-  /* #2 — gentle parallax: photo drifts via a CSS var the ::before reads
-     as background-position-y, so it never conflicts with Ken Burns transform. */
-  var ticking=false;
-  function parallax(){
-    var els = document.querySelectorAll('.wr-film.has-photo');
-    els.forEach(function(el){
-      var r=el.getBoundingClientRect(), vh=window.innerHeight;
-      if(r.bottom<0||r.top>vh) return;
-      var prog=(r.top+r.height/2 - vh/2)/vh; // -0.5..0.5
-      var shift = 50 - prog*12; // 44%..56%
-      el.style.setProperty('--py', shift.toFixed(1)+'%');
-    });
-    ticking=false;
-  }
-  if(document.querySelectorAll('.wr-film').length){
-    window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(parallax); ticking=true; } }, {passive:true});
-  }
-})();
-</script>
-
-<script>
-/* ══════════ PREMIUM DETAILS JS ══════════ */
-(function(){
-  // inject the load veil, grain layer, and scroll-progress bar once
-  function el(cls){var d=document.createElement('div');d.className=cls;return d;}
-  if(!document.querySelector('.page-veil')) document.body.appendChild(el('page-veil'));
-  if(!document.querySelector('.grain-layer')) document.body.appendChild(el('grain-layer'));
-  var prog=el('scroll-prog');
-  if(!document.querySelector('.scroll-prog')) document.body.appendChild(prog);
-
-  // #1 — trigger the load-in
-  function markLoaded(){ document.body.classList.add('loaded'); }
-  if(document.readyState==='complete') markLoaded();
-  else window.addEventListener('load', markLoaded);
-  // safety: never leave the veil stuck
-  setTimeout(markLoaded, 1400);
-
-  // #8 — scroll progress
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ticking=false;
-  function updateProg(){
-    var st=window.scrollY||document.documentElement.scrollTop;
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    var p=h>0?(st/h)*100:0;
-    prog.style.width=p+'%';
-    ticking=false;
-  }
-  window.addEventListener('scroll',function(){ if(!ticking){requestAnimationFrame(updateProg);ticking=true;} },{passive:true});
-  updateProg();
-})();
-</script>
 
 <!-- ENKIAMA_TIER1_START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
 
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
 <!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PHOTOSYS_START -->
@@ -970,81 +772,12 @@
 <!-- ENKIAMA_PAGETRANS_END -->
 
 <!-- ENKIAMA_LINES_START -->
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var sel='.thesis-rule,.lw-rule,.wp-rule,.story-rule,.ndugu-rule,.ask-rule,.b-rule,.dc-rule,.ppl-rule,.pt-rule,.sw-rule,.wr-rule,.ochre-rule,.cr-divider,.breath-line';
-  var rules=document.querySelectorAll(sel);
-  if(!rules.length)return;
-  rules.forEach(function(r){r.classList.add('line-draw');});
-  if(reduce){rules.forEach(function(r){r.classList.add('drawn');});return;}
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
-      });
-    },{threshold:0.9,rootMargin:'0px 0px -8% 0px'});
-    rules.forEach(function(r){io.observe(r);});
-  } else {
-    rules.forEach(function(r){r.classList.add('drawn');});
-  }
-})();
-</script>
+
 <!-- ENKIAMA_LINES_END -->
 
-<script>
-/* ── the Enkiama rule draws itself when it enters view ── */
-(function(){
-  var rules=[].slice.call(document.querySelectorAll('.ochre-rule'));
-  if(!rules.length) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce || !('IntersectionObserver' in window)){
-    rules.forEach(function(r){r.classList.add('drawn');});
-    return;
-  }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('drawn'); io.unobserve(e.target); }
-    });
-  },{threshold:0.6, rootMargin:'0px 0px -5% 0px'});
-  rules.forEach(function(r){io.observe(r);});
-})();
-</script>
-<script>
-/* variable-font arrival: headings settle into their true optical size */
-(function(){
-  var els=[].slice.call(document.querySelectorAll('.vf-arrive'));
-  if(!els.length) return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:0.25});
-  els.forEach(function(e){io.observe(e);});
-  // hero headings are already in view on load
-  setTimeout(function(){els.forEach(function(e){
-    var r=e.getBoundingClientRect();
-    if(r.top<window.innerHeight) e.classList.add('in');
-  });},250);
-})();
-</script>
-<script>
-/* ── safety net: no reveal element may remain invisible once passed ── */
-(function(){
-  function sweep(){
-    var vh=window.innerHeight;
-    document.querySelectorAll('.reveal,.vf-arrive').forEach(function(e){
-      if(e.classList.contains('in')) return;
-      if(e.getBoundingClientRect().top < vh*0.92) e.classList.add('in');
-    });
-  }
-  var t=null;
-  window.addEventListener('scroll',function(){ if(t)return; t=setTimeout(function(){t=null;sweep();},200); },{passive:true});
-  window.addEventListener('load',sweep);
-  setTimeout(sweep,1200);
-  setTimeout(sweep,3000);
-})();
-</script>
+
+
+
 <script src="assets/js/enkiama.js" defer></script>
 </body>
 </html>
