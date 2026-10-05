@@ -714,7 +714,7 @@ nav.scrolled::before{ opacity:.035; }
 
 .lp-editorial-intro{
   background:var(--lp-bone);color:var(--lp-ink);
-  padding:clamp(7rem,12vw,12rem) clamp(1.5rem,6vw,6rem) clamp(6rem,10vw,9rem);overflow:hidden;
+  padding:clamp(6rem,9vw,8.5rem) clamp(1.5rem,6vw,6rem);overflow:hidden;
 }
 .lp-editorial-grid{grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:clamp(3rem,7vw,8rem);align-items:end;position:relative;z-index:1;}
 .lp-editorial-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 120;font-size:clamp(48px,8vw,112px);line-height:.92;letter-spacing:-.04em;font-weight:700;max-width:900px;text-wrap:balance;}
@@ -775,7 +775,7 @@ nav.scrolled::before{ opacity:.035; }
 .lp-people-head h2 em{font-style:italic;color:var(--lp-olive);}
 .lp-people-head p{font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.68);align-self:end;max-width:62ch;}
 /* compose — muted sage relief, not another black section */
-.lp-compose{background:var(--lp-sagewash);color:var(--lp-ink);padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;}
+.lp-compose{background:var(--lp-sagewash);color:var(--lp-ink);padding:clamp(5.5rem,8vw,7.5rem) clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;}
 .lp-compose::after{content:"rafiki";position:absolute;right:-.05em;bottom:-.22em;font-family:'Fraunces',serif;font-size:clamp(130px,24vw,360px);font-style:italic;font-weight:900;color:rgba(28,51,37,.04);pointer-events:none;}
 .lp-compose-inner{max-width:1350px;margin:0 auto;position:relative;z-index:1;}
 .lp-compose-top{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(3.25rem,5.5vw,5rem);}
@@ -786,7 +786,7 @@ nav.scrolled::before{ opacity:.035; }
 .lp-compose .btn-ghost{color:rgba(15,23,18,.7);}
 .lp-compose .btn-ghost::after{background:var(--lp-ink);}
 
-.lp-practical{padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem);}
+.lp-practical{padding:clamp(5rem,8vw,7rem) clamp(1.5rem,5vw,5rem);}
 .lp-practical-inner{max-width:1450px;margin:0 auto;}
 .lp-practical-head{grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,7rem);margin-bottom:clamp(3.25rem,5.5vw,5rem);}
 .lp-practical-head h2{font-family:'Fraunces',serif;font-size:clamp(40px,5.5vw,76px);line-height:.98;letter-spacing:-.035em;font-weight:600;}
@@ -1007,7 +1007,7 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
   align-items:center;
   background:var(--lp-bone);
   color:var(--lp-ink);
-  padding:clamp(4.5rem,8vw,7rem) clamp(1.5rem,6vw,6rem);
+  padding:clamp(4rem,6vw,5.5rem) clamp(1.5rem,6vw,6rem);
   border-top:1px solid var(--lp-line);
   border-bottom:1px solid var(--lp-line);
 }
@@ -1183,7 +1183,6 @@ footer .f-copy{color:rgba(237,230,214,.62)!important;}
 }
 
 /* Travel brief — one composed object, not three generic cards */
-.lp-compose{padding-top:clamp(7rem,11vw,10rem);padding-bottom:clamp(7rem,11vw,10rem);}
 .lp-compose-top{align-items:end;}
 .lp-brief-sheet{
   margin-top:clamp(3rem,6vw,5rem);
@@ -1620,10 +1619,6 @@ a:focus-visible,button:focus-visible{
 }
 
 /* --- Tanzania Now: strong but not billboard-sized --- */
-.lp-season-note{
-  padding-top:clamp(4rem,6vw,5.5rem)!important;
-  padding-bottom:clamp(4rem,6vw,5.5rem)!important;
-}
 .lp-season-now{
   font-size:clamp(38px,4.8vw,66px)!important;
   line-height:1.01!important;
@@ -2232,8 +2227,6 @@ a,button,[role="button"]{cursor:pointer!important;}
 
 /* FIRST IVORY SECTION — no watermark, more confident entry */
 .lp-editorial-intro{
-  padding-top:clamp(6rem,9vw,8.5rem)!important;
-  padding-bottom:clamp(6rem,9vw,8.5rem)!important;
   background:var(--lp-bone)!important;
 }
 .lp-editorial-grid{
@@ -2423,10 +2416,6 @@ a,button,[role="button"]{cursor:pointer!important;}
 .lp-more-head h2{max-width:12ch;}
 
 /* Practical: smaller, calmer final-quarter hierarchy */
-.lp-practical{
-  padding-top:clamp(5rem,8vw,7rem)!important;
-  padding-bottom:clamp(5rem,8vw,7rem)!important;
-}
 .lp-practical-item{
   min-height:200px!important;
 }
@@ -2703,10 +2692,6 @@ body{opacity:1!important;cursor:auto!important;}
 }
 
 /* Journey brief becomes an editorial worksheet, not a UI card */
-.lp-compose{
-  padding-top:clamp(5.5rem,8vw,7.5rem)!important;
-  padding-bottom:clamp(5.5rem,8vw,7.5rem)!important;
-}
 .lp-brief-sheet{
   margin-top:clamp(2.8rem,5vw,4rem)!important;
   background:transparent!important;
