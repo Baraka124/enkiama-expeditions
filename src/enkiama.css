@@ -4,6 +4,14 @@
 @source "../index.html";
 
 /*
+  MIGRATION STATUS
+  ✓ Foundation: Tailwind v4 CLI + GitHub Actions + static GitHub Pages output
+  ✓ Design tokens: Enkiama palette, fonts, breakpoints
+  ✓ Top third structural utilities: hero, editorial intro, Six Worlds shell
+  → Next: journey/proof/stays/people, then final-quarter systems
+*/
+
+/*
   ENKIAMA DESIGN TOKENS
   Signature landing palette and typography.
   Tailwind utilities are prefixed with "tw:" during the migration so they
