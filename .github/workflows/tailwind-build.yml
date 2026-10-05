@@ -1,0 +1,321 @@
+name: Build Enkiama Tailwind CSS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - milestone/tailwind-foundation-landing
+    paths:
+      - "src/enkiama.css"
+      - "index.html"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/tailwind-build.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tailwind-css-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-css:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Tailwind
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Compile Enkiama CSS
+        run: npm run build:css
+        # Tailwind v4 scans index.html via the explicit @source directive in src/enkiama.css
+
+      - name: Verify landing CSS integrity
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const css = fs.readFileSync('src/enkiama.css', 'utf8');
+
+          const required = [
+            '.hero{',
+            '#worlds .worlds-nav',
+            '.lp-journey-stack',
+            '.lp-proof-system',
+            '.lp-stay-stage',
+            '.lp-network-stage',
+            '.lp-final-photo',
+            '.cta-main',
+            '.eh-bar'
+          ];
+
+          const missing = required.filter((selector) => !css.includes(selector));
+          if (missing.length) {
+            console.error('Missing canonical landing selectors:', missing.join(', '));
+            process.exit(1);
+          }
+
+          const opens = (css.match(/\{/g) || []).length;
+          const closes = (css.match(/\}/g) || []).length;
+          if (opens !== closes) {
+            console.error(`Unbalanced CSS braces: ${opens} opening vs ${closes} closing`);
+            process.exit(1);
+          }
+
+          const importantCount = (css.match(/!important/g) || []).length;
+          if (importantCount > 12) {
+            console.error(`Specificity budget exceeded: ${importantCount} !important declarations (budget: 12)`);
+            process.exit(1);
+          }
+
+          console.log(`Landing CSS integrity OK — ${importantCount} state-critical !important declarations.`);
+          NODE
+
+      - name: Commit compiled CSS when changed
+        shell: bash
+        run: |
+          if git diff --quiet -- assets/css/enkiama.css package-lock.json 2>/dev/null; then
+            echo "Compiled CSS and lockfile are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # A newer source commit may arrive while this run is compiling.
+          # Never push compiled CSS generated from an older source snapshot.
+          git fetch origin "${{ github.ref_name }}"
+          remote_sha="$(git rev-parse "origin/${{ github.ref_name }}")"
+          if [ "$remote_sha" != "${{ github.sha }}" ]; then
+            echo "A newer commit ($remote_sha) is already on ${{ github.ref_name }}."
+            echo "Skipping this stale generated-CSS push; the newer workflow run will compile it."
+            exit 0
+          fi
+
+          git add assets/css/enkiama.css package-lock.json
+          git commit -m "build(css): compile Tailwind [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
+
+
+  visual-qa:
+    if: github.ref_name == 'milestone/tailwind-foundation-landing'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright Chromium
+        shell: bash
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Serve site
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/enkiama-http.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/enkiama-http.log
+          exit 1
+
+      - name: Capture responsive visual QA
+        shell: bash
+        run: |
+          mkdir -p visual-qa
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          const targets = [
+            { name: 'desktop-1440', width: 1440, height: 1000 },
+            { name: 'laptop-1280', width: 1280, height: 800 },
+            { name: 'tablet-820', width: 820, height: 1180 },
+            { name: 'mobile-390', width: 390, height: 844 },
+          ];
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const report = [];
+
+            for (const target of targets) {
+              const context = await browser.newContext({
+                viewport: { width: target.width, height: target.height },
+                deviceScaleFactor: 1,
+                reducedMotion: 'reduce',
+              });
+              const page = await context.newPage();
+              const errors = [];
+
+              page.on('pageerror', err => errors.push('pageerror: ' + err.message));
+
+              await page.route('**/*', async route => {
+                const url = route.request().url();
+                if (url.startsWith('http://127.0.0.1:4173/') || url.startsWith('data:')) {
+                  await route.continue();
+                } else {
+                  await route.abort();
+                }
+              });
+
+              await page.goto('http://127.0.0.1:4173/index.html', { waitUntil: 'domcontentloaded' });
+
+              // Visual QA must not confuse native lazy-loading latency with a broken image.
+              await page.evaluate(() => {
+                document.querySelectorAll('img').forEach(img => {
+                  img.loading = 'eager';
+                  if (!img.src && img.dataset && img.dataset.src) img.src = img.dataset.src;
+                });
+              });
+
+              await page.evaluate(async () => {
+                const step = Math.max(500, Math.floor(window.innerHeight * .72));
+                for (let y = 0; y < document.body.scrollHeight; y += step) {
+                  window.scrollTo(0, y);
+                  await new Promise(r => setTimeout(r, 60));
+                }
+                window.scrollTo(0, 0);
+              });
+
+              await page.waitForFunction(() => {
+                const local = Array.from(document.images).filter(img => {
+                  try { return new URL(img.currentSrc || img.src, location.href).origin === location.origin; }
+                  catch { return false; }
+                });
+                return local.every(img => img.complete && img.naturalWidth > 0);
+              }, { timeout: 10000 }).catch(() => {});
+              await page.waitForTimeout(700);
+
+              const metrics = await page.evaluate(() => {
+                const doc = document.documentElement;
+                const body = document.body;
+                const sections = [
+                  '.hero',
+                  '.lp-editorial-intro',
+                  '#worlds',
+                  '.lp-archive',
+                  '.lp-proof',
+                  '.lp-stays',
+                  '.lp-people',
+                  '.lp-practical',
+                  '.lp-season-note',
+                  '.lp-more',
+                  '.cta-wrap',
+                  'footer'
+                ];
+                return {
+                  innerWidth: window.innerWidth,
+                  innerHeight: window.innerHeight,
+                  scrollWidth: doc.scrollWidth,
+                  bodyScrollWidth: body.scrollWidth,
+                  scrollHeight: doc.scrollHeight,
+                  horizontalOverflow: doc.scrollWidth > window.innerWidth + 1,
+                  brokenLocalImages: Array.from(document.images)
+                    .filter(img => {
+                      try { return new URL(img.currentSrc || img.src, location.href).origin === location.origin; }
+                      catch { return false; }
+                    })
+                    .filter(img => !img.complete || img.naturalWidth === 0)
+                    .map(img => img.getAttribute('src') || img.getAttribute('data-src') || ''),
+                  sections: sections.map(selector => {
+                    const el = document.querySelector(selector);
+                    if (!el) return { selector, present: false };
+                    const box = el.getBoundingClientRect();
+                    return {
+                      selector,
+                      present: true,
+                      width: Math.round(box.width),
+                      height: Math.round(box.height),
+                      left: Math.round(box.left),
+                      right: Math.round(box.right)
+                    };
+                  })
+                };
+              });
+
+              await page.screenshot({ path: `visual-qa/${target.name}-full.png`, fullPage: true });
+              await page.screenshot({ path: `visual-qa/${target.name}-hero.png`, fullPage: false });
+
+              const trigger = page.locator('#ehTrigger');
+              if (await trigger.count()) {
+                await trigger.click();
+                await page.waitForTimeout(500);
+                await page.screenshot({ path: `visual-qa/${target.name}-menu.png`, fullPage: false });
+              }
+
+              report.push({ target, metrics, errors });
+              await context.close();
+            }
+
+            fs.writeFileSync('visual-qa/report.json', JSON.stringify(report, null, 2));
+            await browser.close();
+          })().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Assert runtime layout health
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('visual-qa/report.json', 'utf8'));
+          let failed = false;
+
+          for (const item of report) {
+            if (item.metrics.horizontalOverflow) {
+              console.error(item.target.name + ': horizontal overflow (' + item.metrics.scrollWidth + ' > ' + item.metrics.innerWidth + ')');
+              failed = true;
+            }
+            if (item.errors.length) {
+              console.error(item.target.name + ': page errors:');
+              for (const error of item.errors) console.error('  ' + error);
+              failed = true;
+            }
+            if (item.metrics.brokenLocalImages.length) {
+              console.error(item.target.name + ': broken local images: ' + item.metrics.brokenLocalImages.join(', '));
+              failed = true;
+            }
+          }
+
+          if (failed) process.exit(1);
+          console.log('Responsive visual QA runtime assertions passed.');
+          NODE
+
+      - name: Upload visual QA artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enkiama-landing-visual-qa
+          path: visual-qa/
+          retention-days: 7
+          if-no-files-found: error

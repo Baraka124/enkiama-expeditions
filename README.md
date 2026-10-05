@@ -2,8 +2,45 @@
 
 The website for Enkiama — curated premium journeys through Tanzania.
 
-A static site: plain HTML and CSS, no build step, no dependencies. Open any
-file in a browser or push the folder to any static host.
+A static site at runtime: plain HTML, JavaScript and compiled CSS. The public
+site still deploys directly to GitHub Pages, but the design system is now built
+with Tailwind CSS v4. The compiled stylesheet is committed to the repository,
+so the host does not need Node or a server-side build step.
+
+## Tailwind design system
+
+The public design system lives in `src/enkiama.css` and compiles to
+`assets/css/enkiama.css`.
+
+The Enkiama signature tokens are defined with Tailwind `@theme static`:
+warm paper/ivory, bone, clay, sage, olive, forest, brass and ink, together with
+Fraunces and Instrument Sans. During migration, Tailwind utilities use the
+`tw:` prefix so they cannot collide with existing editorial component names.
+
+For local development:
+
+```bash
+npm install
+npm run watch:css
+```
+
+For a production build:
+
+```bash
+npm run build:css
+```
+
+The generated `assets/css/enkiama.css` is committed. A GitHub Actions workflow
+also recompiles it whenever the Tailwind source, landing page, package metadata
+or workflow changes.
+
+### Migration rule
+
+Do not redesign while migrating a page. Preserve the current rendered result,
+move reusable layout/spacing/typography into Tailwind first, and keep custom CSS
+only for genuinely art-directed components such as the hero, Six Worlds and
+media cropping. JavaScript behaviour should target IDs or `data-*` hooks
+rather than styling classes.
 
 ## Structure
 
