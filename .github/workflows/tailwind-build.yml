@@ -35,6 +35,7 @@ jobs:
 
       - name: Compile Enkiama CSS
         run: npm run build:css
+        # Tailwind v4 scans index.html via the explicit @source directive in src/enkiama.css
 
       - name: Commit compiled CSS when changed
         shell: bash
