@@ -366,7 +366,7 @@
 
 <!-- ── THESIS ── -->
 <section class="lp-editorial-intro tw:relative" id="about">
-  <p class="lp-kicker reveal">A Tanzanian operator · based in the country we travel through</p>
+  <p class="lp-kicker reveal">Based in Tanzania · working from the country we travel through</p>
   <div class="lp-editorial-grid tw:grid">
     <h2 class="lp-editorial-title reveal">Safari is one part<br>of <em>Tanzania.</em></h2>
     <p class="lp-editorial-copy reveal">Enkiama creates immersive journeys for local and international guests. We work from the country itself &mdash; its seasons, distances, people and changing conditions. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
@@ -932,10 +932,10 @@
   const hed=document.getElementById('hHed');
   const sub=document.getElementById('hSub');
   const acts=document.getElementById('hActs');
-  setTimeout(()=>eye.classList.add('in'),250);
-  setTimeout(()=>hed.classList.add('in'),600);
-  setTimeout(()=>sub.classList.add('in'),1150);
-  setTimeout(()=>acts.classList.add('in'),1450);
+  setTimeout(()=>eye.classList.add('in'),80);
+  setTimeout(()=>hed.classList.add('in'),160);
+  setTimeout(()=>sub.classList.add('in'),280);
+  setTimeout(()=>acts.classList.add('in'),380);
 })();
 
 /* ── SCROLL REVEALS ── */
@@ -1207,24 +1207,6 @@
   },{passive:true});
   window.addEventListener('load',sweep);
   setTimeout(sweep,1500);
-})();
-</script>
-<script>
-/* variable-font arrival: headings settle into their true optical size */
-(function(){
-  var els=[].slice.call(document.querySelectorAll('.vf-arrive'));
-  if(!els.length) return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:0.25});
-  els.forEach(function(e){io.observe(e);});
-  // hero headings are already in view on load
-  setTimeout(function(){els.forEach(function(e){
-    var r=e.getBoundingClientRect();
-    if(r.top<window.innerHeight) e.classList.add('in');
-  });},250);
 })();
 </script>
 <script src="assets/js/enkiama.js" defer></script>
