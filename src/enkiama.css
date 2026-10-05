@@ -1210,8 +1210,6 @@ nav.scrolled::before{ opacity:.035; }
 body{background:var(--enkiama-white);}
 
 
-
-
 /* Interactive states remain within the same safari palette. */
 a:focus-visible,button:focus-visible{
   outline:1px solid var(--enkiama-brass);
@@ -1441,10 +1439,6 @@ a:focus-visible,button:focus-visible{
 
 /* Pale surfaces now alternate with intent */
 .lp-archive{background:var(--lp-paper)!important;}
-
-
-
-
 
 
 /* --- Section heads: consistent visual cadence --- */
@@ -1849,11 +1843,6 @@ a,button,[role="button"]{cursor:pointer!important;}
 
 /* preserve the Enkiama material rhythm explicitly */
 .lp-archive{background:var(--lp-paper)!important;}
-
-
-
-
-
 
 
 .cta-l{background:var(--lp-bone-2)!important;}
