@@ -4732,9 +4732,156 @@ footer .f-base{
   }
 }
 </style>
+<style id="enkiama-live-video-correction-v20">
+/* LIVE VIDEO CORRECTION — observed from the actual scroll sequence */
+
+/* Hero must always resolve even if JS timing changes */
+.hero-hed.in,.hero-acts.in,.hero-eye.in,.hero-sub.in{
+  opacity:1!important;
+  transform:none!important;
+}
+
+/* Worlds should never show a fallback gradient in place of destination photography */
+#worlds .wp-photo-film .ph-frame.ph-reveal::after{
+  transform:translateX(101%)!important;
+}
+#worlds .wp-photo-film .ph-frame img.ph-loaded{
+  opacity:1!important;
+  transform:scale(1)!important;
+}
+
+/* The note after Worlds was visually floating and too tall in the live scroll */
+#worlds .worlds-note{
+  min-height:0!important;
+  padding:1.55rem var(--lp-gutter) 1.7rem!important;
+}
+#worlds .worlds-note p{
+  font-family:'Instrument Sans',sans-serif!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+  font-style:normal!important;
+  max-width:72ch!important;
+  color:rgba(15,23,18,.60)!important;
+}
+
+/* Worlds → route transition: keep air, remove the dead void */
+.lp-archive{
+  padding-top:clamp(4rem,5.5vw,5.25rem)!important;
+}
+.lp-section-head--route{
+  margin-bottom:clamp(2.8rem,4.5vw,4.2rem)!important;
+}
+.lp-section-head--route .lp-section-title{
+  font-size:clamp(48px,5.5vw,76px)!important;
+  line-height:.96!important;
+}
+
+/* Regional depth remains quiet, but fully readable */
+.lp-country-index-label{
+  color:rgba(132,109,73,.88)!important;
+  font-size:8.5px!important;
+}
+.lp-country-index b{
+  color:rgba(15,23,18,.92)!important;
+}
+.lp-country-index small{
+  color:rgba(15,23,18,.58)!important;
+  font-size:9.5px!important;
+}
+
+/* Route/proposal detail should not disappear at normal laptop distance */
+.lp-route-head,
+.lp-decision-head,
+.lp-ledger-top{
+  color:rgba(15,23,18,.56)!important;
+}
+.lp-route-mini>div{
+  color:rgba(15,23,18,.86)!important;
+}
+.lp-route-facts small{
+  color:rgba(15,23,18,.52)!important;
+}
+.lp-decision-leg{
+  color:rgba(132,109,73,.84)!important;
+}
+.lp-decision-row p{
+  color:rgba(15,23,18,.64)!important;
+  font-size:13px!important;
+}
+.lp-ledger-row em{
+  color:rgba(15,23,18,.60)!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+.lp-ledger-row strong{
+  color:rgba(15,23,18,.94)!important;
+}
+
+/* Stays: force both context images to occupy the full secondary column */
+.lp-stay-plain,
+.lp-stay-coast{
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  justify-self:stretch!important;
+  display:block!important;
+  overflow:hidden!important;
+}
+.lp-stay-plain img,
+.lp-stay-coast img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.lp-stay-coast{
+  min-height:240px!important;
+}
+
+/* People: current source photography is lower-resolution; do not enlarge it beyond what it can carry */
+.lp-network-stage{
+  max-width:1280px!important;
+  grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr)!important;
+}
+.lp-network-main,
+.lp-network-inset{
+  height:min(44svh,410px)!important;
+}
+.lp-network-inset img{
+  object-position:50% 78%!important; /* keeps embedded source text outside the visible crop */
+}
+
+/* Footer legibility from the live recording */
+footer .f-col a{
+  font-size:12px!important;
+  color:rgba(15,23,18,.62)!important;
+}
+footer .f-col-h{
+  font-size:9px!important;
+  color:rgba(15,23,18,.48)!important;
+}
+footer .f-tagline,
+footer .f-copy,
+footer .f-contact a{
+  color:rgba(15,23,18,.58)!important;
+}
+
+@media(max-width:760px){
+  .lp-section-head--route .lp-section-title{
+    font-size:clamp(42px,11vw,60px)!important;
+  }
+  .lp-network-stage{
+    grid-template-columns:1fr!important;
+  }
+  .lp-network-main,.lp-network-inset{
+    height:auto!important;
+    aspect-ratio:4/3!important;
+  }
+}
+</style>
 </head>
 <body data-page="home">
-<div class="mesh-layer" aria-hidden="true"></div>
 <!-- ENKIAMA_HEADER_START -->
 <style>
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
@@ -5149,7 +5296,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 46%;"><img data-src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 46%;"><img class="ph-loaded" src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">5,895m</span>
           <span class="wp-photo-note">Kilimanjaro &middot; northern highlands</span>
         </div>
@@ -5157,7 +5304,7 @@ body.eh-locked{overflow:hidden;}
 
       <div class="world-panel w2">
         <div class="wp-photo">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 52%;"><img data-src="assets/serengeti.jpg" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 52%;"><img class="ph-loaded" src="assets/serengeti.jpg" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">The great migration</span>
           <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
         </div>
@@ -5183,7 +5330,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 55%;"><img data-src="assets/images/ngorongoro.webp" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/ngorongoro.webp" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">600m deep</span>
           <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
         </div>
@@ -5191,7 +5338,7 @@ body.eh-locked{overflow:hidden;}
 
       <div class="world-panel w4">
         <div class="wp-photo">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 91%;"><img data-src="assets/images/maasai.jpg" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 91%;"><img class="ph-loaded" src="assets/images/maasai.jpg" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Ukarimu</span>
           <span class="wp-photo-note">Maasai &middot; Chagga &middot; Swahili coast</span>
         </div>
@@ -5219,7 +5366,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 55%;"><img data-src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Volcanic north</span>
           <span class="wp-photo-note">Great Rift &middot; northern Tanzania</span>
         </div>
@@ -5236,7 +5383,7 @@ body.eh-locked{overflow:hidden;}
           </div>
         </div>
         <div class="wp-photo">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded" style="--crop:50% 58%;"><img data-src="assets/zanzibar.jpg" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 58%;"><img class="ph-loaded" src="assets/zanzibar.jpg" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Indian Ocean</span>
           <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
         </div>
@@ -6069,26 +6216,6 @@ body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
 .world-panel:hover .wp-photo-film .ph-frame img.ph-kb,
 .world-row:hover .wr-film .ph-frame img.ph-kb{animation-play-state:paused;}
 
-/* ══════ COMPOSED ENTRANCE — the page arrives, it does not pop ══════ */
-/* hero elements begin slightly low and settle as the page fades in */
-body:not(.loaded) .hero-hed,
-body:not(.loaded) .whisper,
-body:not(.loaded) .hero-acts{opacity:0;transform:translateY(14px);}
-.hero-hed,.whisper,.hero-acts{
-  transition:opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1);}
-body.loaded .hero-hed{transition-delay:.15s;}
-body.loaded .whisper{transition-delay:.42s;}
-body.loaded .hero-acts{transition-delay:.62s;}
-body.loaded .hero-hed,
-body.loaded .whisper,
-body.loaded .hero-acts{opacity:1;transform:translateY(0);}
-@media (prefers-reduced-motion:reduce){
-  body:not(.loaded) .hero-hed,
-  body:not(.loaded) .whisper,
-  body:not(.loaded) .hero-acts{opacity:1;transform:none;}
-  .hero-hed,.whisper,.hero-acts{transition:none;}
-}
-
 /* ══════ CONTRAST FIX — small text needs a lighter green (ochre 3.10:1 fails; sage 5.47:1 passes) ══════ */
 .wr-eye,.dc-world,.wp-tag,.tl-tag,.tr-mark,.td-item-tag,.whn-step-tag,.pt-role,
 .ask-tag,.ps-tag,.ask-c-tag,.ch-preferred{
@@ -6241,24 +6368,6 @@ body.loaded .hero-acts{opacity:1;transform:translateY(0);}
   .vf-arrive,.vf-arrive.in{font-variation-settings:'opsz' 128;transition:none;}
 }
 
-/* ══════════ DRIFTING LIGHT — a slow mesh that keeps the dark alive ══════════
-   Three soft colour fields drift at different speeds behind everything.
-   Almost imperceptible; the page simply never feels static. */
-.mesh-layer{
-  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
-  background:
-    radial-gradient(38% 42% at 18% 22%, rgba(190,158,104,0.055), transparent 62%),
-    radial-gradient(44% 38% at 82% 34%, rgba(122,148,112,0.05), transparent 65%),
-    radial-gradient(50% 44% at 46% 84%, rgba(85,107,68,0.045), transparent 68%);
-  animation:meshDrift 48s ease-in-out infinite alternate;
-  will-change:transform;
-}
-@keyframes meshDrift{
-  0%  {transform:translate3d(0,0,0) scale(1);}
-  50% {transform:translate3d(-2.2%,1.6%,0) scale(1.05);}
-  100%{transform:translate3d(1.8%,-1.4%,0) scale(1.02);}
-}
-@media (prefers-reduced-motion:reduce){ .mesh-layer{animation:none;} }
 
 /* ══════════ TONAL LIFT — the dark is deep, not flat ══════════
    The palette stays; the base simply sits a little higher, and
