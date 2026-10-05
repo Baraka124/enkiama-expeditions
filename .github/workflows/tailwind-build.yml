@@ -248,7 +248,21 @@ jobs:
                     },
                     parentBackground: ps ? ps.backgroundColor : null,
                     parentOpacity: ps ? ps.opacity : null,
-                    parentZIndex: ps ? ps.zIndex : null
+                    parentZIndex: ps ? ps.zIndex : null,
+                    parentBefore: parent ? {
+                      display: getComputedStyle(parent, '::before').display,
+                      content: getComputedStyle(parent, '::before').content,
+                      background: getComputedStyle(parent, '::before').background,
+                      opacity: getComputedStyle(parent, '::before').opacity,
+                      zIndex: getComputedStyle(parent, '::before').zIndex
+                    } : null,
+                    parentAfter: parent ? {
+                      display: getComputedStyle(parent, '::after').display,
+                      content: getComputedStyle(parent, '::after').content,
+                      background: getComputedStyle(parent, '::after').background,
+                      opacity: getComputedStyle(parent, '::after').opacity,
+                      zIndex: getComputedStyle(parent, '::after').zIndex
+                    } : null
                   };
                 }
                 const sections = [
@@ -298,6 +312,13 @@ jobs:
 
               await page.screenshot({ path: `visual-qa/${target.name}-full.png`, fullPage: true });
               await page.screenshot({ path: `visual-qa/${target.name}-hero.png`, fullPage: false });
+
+              if (target.name === 'desktop-1440') {
+                await page.locator('.lp-proof-main').screenshot({ path: 'visual-qa/desktop-proof-figure.png' });
+                await page.locator('.lp-proof-main img').screenshot({ path: 'visual-qa/desktop-proof-image.png' });
+                await page.locator('.lp-final-photo .lp-photo').screenshot({ path: 'visual-qa/desktop-final-figure.png' });
+                await page.locator('.lp-final-photo img').screenshot({ path: 'visual-qa/desktop-final-image.png' });
+              }
 
               const trigger = page.locator('#ehTrigger');
               if (await trigger.count()) {
