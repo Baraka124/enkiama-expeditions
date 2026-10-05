@@ -752,7 +752,7 @@ nav.scrolled::before{ opacity:.035; }
 @media(hover:hover) and (pointer:fine){.lp-photo:hover img{transform:scale(1.012);}}
 
 .lp-archive{padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);}
-.lp-section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(2.5rem,6vw,7rem);align-items:start;max-width:1500px;margin:0 auto clamp(5rem,9vw,8rem);}
+.lp-section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(2.5rem,6vw,7rem);align-items:start;max-width:1500px;margin:0 auto clamp(3.5rem,6vw,5.5rem);}
 .lp-section-title{font-family:'Fraunces',serif;font-size:clamp(42px,6vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:600;max-width:950px;}
 .lp-section-title em{font-style:italic;color:var(--lp-olive);}
 .lp-section-copy{margin-top:1.8rem;max-width:62ch;font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.68);}
@@ -763,14 +763,14 @@ nav.scrolled::before{ opacity:.035; }
 /* proof — pale rather than black */
 .lp-proof{background:var(--lp-bone);color:var(--lp-ink);padding:clamp(7rem,11vw,11rem) clamp(1.5rem,5vw,5rem);}
 .lp-proof-inner{max-width:1500px;margin:0 auto;}
-.lp-proof-head{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);align-items:end;margin-bottom:clamp(4rem,8vw,7rem);}
+.lp-proof-head{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);align-items:end;margin-bottom:clamp(3.25rem,5.5vw,5rem);}
 .lp-proof-title{font-family:'Fraunces',serif;font-size:clamp(44px,6.6vw,92px);line-height:.95;letter-spacing:-.04em;font-weight:600;}
 .lp-proof-title em{font-style:italic;color:var(--lp-olive);}
 .lp-proof-copy{font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.68);max-width:62ch;}
 /* human layer — real photographs shown at a size their resolution deserves */
 .lp-people{background:var(--lp-paper);color:var(--lp-ink);padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);}
 .lp-people-inner{max-width:1450px;margin:0 auto;}
-.lp-people-head{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(4rem,8vw,7rem);}
+.lp-people-head{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(3.25rem,5.5vw,5rem);}
 .lp-people-head h2{font-family:'Fraunces',serif;font-size:clamp(44px,6.5vw,90px);line-height:.95;letter-spacing:-.04em;font-weight:600;}
 .lp-people-head h2 em{font-style:italic;color:var(--lp-olive);}
 .lp-people-head p{font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.68);align-self:end;max-width:62ch;}
@@ -778,7 +778,7 @@ nav.scrolled::before{ opacity:.035; }
 .lp-compose{background:var(--lp-sagewash);color:var(--lp-ink);padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;}
 .lp-compose::after{content:"rafiki";position:absolute;right:-.05em;bottom:-.22em;font-family:'Fraunces',serif;font-size:clamp(130px,24vw,360px);font-style:italic;font-weight:900;color:rgba(28,51,37,.04);pointer-events:none;}
 .lp-compose-inner{max-width:1350px;margin:0 auto;position:relative;z-index:1;}
-.lp-compose-top{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(4rem,8vw,7rem);}
+.lp-compose-top{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,8rem);margin-bottom:clamp(3.25rem,5.5vw,5rem);}
 .lp-compose h2{font-family:'Fraunces',serif;font-size:clamp(48px,7vw,96px);line-height:.93;letter-spacing:-.04em;font-weight:600;}
 .lp-compose h2 em{font-style:italic;color:var(--lp-olive);}
 .lp-compose-copy{font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.68);align-self:end;max-width:62ch;}
@@ -788,7 +788,7 @@ nav.scrolled::before{ opacity:.035; }
 
 .lp-practical{padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem);}
 .lp-practical-inner{max-width:1450px;margin:0 auto;}
-.lp-practical-head{grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,7rem);margin-bottom:4rem;}
+.lp-practical-head{grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,7rem);margin-bottom:clamp(3.25rem,5.5vw,5rem);}
 .lp-practical-head h2{font-family:'Fraunces',serif;font-size:clamp(40px,5.5vw,76px);line-height:.98;letter-spacing:-.035em;font-weight:600;}
 .lp-practical-head p{align-self:end;font-size:clamp(14px,1.05vw,16px);line-height:1.82;color:rgba(15,23,18,.68);max-width:62ch;}
 .lp-practical-grid{grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lp-line);}
@@ -1343,7 +1343,7 @@ a:focus-visible,button:focus-visible{
 .lp-stays-inner{max-width:1500px;margin:0 auto;}
 .lp-stays-head{grid-template-columns:1.15fr .85fr;
   gap:clamp(3rem,7vw,8rem);align-items:end;
-  margin-bottom:clamp(4rem,8vw,7rem);
+  margin-bottom:clamp(3.25rem,5.5vw,5rem);
 }
 .lp-stays-head h2{
   font-family:'Fraunces',serif;
@@ -1526,16 +1526,6 @@ a:focus-visible,button:focus-visible{
 .lp-compose-top,
 .lp-practical-head{
   max-width:var(--lp-max);
-}
-.lp-section-head{
-  margin-bottom:clamp(3.5rem,6vw,5.5rem)!important;
-}
-.lp-proof-head,
-.lp-stays-head,
-.lp-people-head,
-.lp-compose-top,
-.lp-practical-head{
-  margin-bottom:clamp(3.25rem,5.5vw,5rem)!important;
 }
 
 /* --- Layered systems: tighter overlaps, less accidental air --- */
