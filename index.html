@@ -2352,6 +2352,197 @@ a:focus-visible,button:focus-visible{
 /* Prevent stale hidden-system selectors from affecting layout if cached CSS survives. */
 #jmapSection,#curate,.route-wrap,.tod-ambient,.ambient-tint{display:none!important;}
 </style>
+<style id="enkiama-benchmark-elevation-v9">
+/* Six Worlds — each panel reads like an atlas plate */
+#worlds .wp-world-meta{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding-bottom:1rem;margin-bottom:1.35rem;
+  border-bottom:1px solid rgba(15,23,18,.1);
+  font-size:8px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(15,23,18,.42);
+}
+#worlds .wp-world-meta span:first-child{color:var(--lp-olive);}
+#worlds .wp-inner{max-width:620px;}
+#worlds .wp-facts{margin-top:1.55rem;}
+#worlds .worlds-note{
+  display:flex;align-items:center;min-height:150px;
+}
+#worlds .worlds-note p{
+  margin:0 auto;
+  text-align:center;
+  max-width:850px;
+  line-height:1.55;
+}
+
+/* Journey route intelligence */
+.lp-journey-decisions{
+  max-width:1500px;margin:0 auto;
+  border-top:1px solid var(--lp-line);
+  border-bottom:1px solid var(--lp-line);
+}
+.lp-decision-head{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding:1rem 0;
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(15,23,18,.46);
+}
+.lp-decision-head strong{font-weight:500;color:var(--lp-olive);}
+.lp-decision-row{
+  display:grid;
+  grid-template-columns:54px minmax(140px,.55fr) minmax(220px,.85fr) minmax(0,1.35fr);
+  gap:1.2rem 1.6rem;align-items:start;
+  padding:1.55rem 0;
+  border-top:1px solid var(--lp-line);
+}
+.lp-decision-no{
+  font-family:'Fraunces',serif;font-size:21px;
+  color:rgba(85,107,68,.42);
+}
+.lp-decision-leg{
+  padding-top:.28rem;
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+  color:#8A7048;
+}
+.lp-decision-row strong{
+  font-family:'Fraunces',serif;font-size:clamp(20px,2vw,28px);
+  line-height:1.15;font-weight:500;
+}
+.lp-decision-row p{
+  font-size:13px;line-height:1.72;
+  color:rgba(15,23,18,.62);max-width:56ch;
+}
+
+/* Where the day ends */
+.lp-stays{
+  background:var(--lp-white);
+  color:var(--lp-ink);
+  padding:clamp(7rem,12vw,12rem) clamp(1.5rem,5vw,5rem);
+}
+.lp-stays-inner{max-width:1500px;margin:0 auto;}
+.lp-stays-head{
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(3rem,7vw,8rem);align-items:end;
+  margin-bottom:clamp(4rem,8vw,7rem);
+}
+.lp-stays-head h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(46px,6.5vw,90px);
+  line-height:.95;letter-spacing:-.04em;font-weight:600;
+}
+.lp-stays-head h2 em{font-style:italic;color:var(--lp-olive);}
+.lp-stays-head>p{
+  font-size:16px;line-height:1.9;
+  color:rgba(15,23,18,.67);max-width:620px;
+}
+.lp-stay-stage{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:auto;
+  gap:12px;
+  position:relative;
+  padding-bottom:clamp(6rem,9vw,9rem);
+  align-items:start;
+}
+.lp-stay-main{
+  grid-column:1 / 8;grid-row:1;
+  aspect-ratio:4/3;
+  box-shadow:0 34px 80px -54px rgba(15,23,18,.42);
+}
+.lp-stay-plain{
+  grid-column:8 / 13;grid-row:1;
+  aspect-ratio:16/11;
+  margin-top:5%;
+  box-shadow:0 28px 68px -48px rgba(15,23,18,.38);
+}
+.lp-stay-coast{
+  grid-column:9 / 12;grid-row:1;
+  aspect-ratio:4/5;
+  align-self:end;
+  transform:translateY(32%);
+  z-index:5;
+  box-shadow:0 26px 62px -42px rgba(15,23,18,.42);
+}
+.lp-stay-ledger{
+  grid-column:3 / 8;grid-row:1;
+  align-self:end;
+  transform:translateY(42%);
+  z-index:8;
+  background:var(--lp-bone);
+  border:1px solid rgba(15,23,18,.1);
+  padding:1.45rem 1.6rem;
+  box-shadow:0 30px 76px -50px rgba(15,23,18,.42);
+}
+.lp-stay-ledger-top{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding-bottom:1rem;border-bottom:1px solid var(--lp-line);
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(15,23,18,.48);
+}
+.lp-stay-ledger-top b{font-weight:500;color:var(--lp-olive);}
+.lp-stay-ledger>div:not(.lp-stay-ledger-top){
+  display:grid;grid-template-columns:36px 90px minmax(0,1fr);
+  gap:1rem;padding:1rem 0;
+  border-bottom:1px solid var(--lp-line);
+  align-items:start;
+}
+.lp-stay-ledger>div>span{
+  font-family:'Fraunces',serif;font-size:18px;
+  color:rgba(85,107,68,.48);
+}
+.lp-stay-ledger>div>strong{
+  font-family:'Fraunces',serif;font-size:19px;font-weight:500;
+}
+.lp-stay-ledger>div>p{
+  font-size:11px;line-height:1.6;color:rgba(15,23,18,.58);
+}
+.lp-stay-ledger>small{
+  display:block;margin-top:1rem;
+  font-size:10px;line-height:1.65;
+  color:rgba(15,23,18,.54);
+}
+
+/* proof kicker spacing */
+.lp-proof-head .lp-kicker{margin-bottom:1.25rem;}
+
+/* responsive */
+@media(max-width:920px){
+  .lp-decision-row{
+    grid-template-columns:44px minmax(120px,.45fr) minmax(0,1fr);
+  }
+  .lp-decision-row p{grid-column:3;}
+  .lp-stays-head{grid-template-columns:1fr;gap:2rem;}
+  .lp-stay-stage{grid-template-columns:repeat(8,minmax(0,1fr));padding-bottom:5rem;}
+  .lp-stay-main{grid-column:1/7;}
+  .lp-stay-plain{grid-column:6/-1;margin-top:8%;}
+  .lp-stay-coast{grid-column:6/-1;transform:translateY(24%);}
+  .lp-stay-ledger{grid-column:2/7;transform:translateY(34%);}
+}
+@media(max-width:620px){
+  #worlds .wp-world-meta{margin-bottom:1rem;}
+  .lp-decision-row{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:.6rem 1rem;
+    padding:1.3rem 0;
+  }
+  .lp-decision-leg,.lp-decision-row strong,.lp-decision-row p{grid-column:2;}
+  .lp-stays{padding:5rem 1.35rem;}
+  .lp-stay-stage{grid-template-columns:1fr 1fr;gap:8px;padding-bottom:2rem;}
+  .lp-stay-main{grid-column:1/-1;grid-row:auto;aspect-ratio:4/3;}
+  .lp-stay-plain,.lp-stay-coast{
+    grid-row:auto;margin:0!important;transform:none!important;
+    aspect-ratio:1/1;
+  }
+  .lp-stay-plain{grid-column:1;}
+  .lp-stay-coast{grid-column:2;}
+  .lp-stay-ledger{
+    grid-column:1/-1;grid-row:auto;
+    transform:none!important;margin-top:-1rem;
+  }
+  .lp-stay-ledger>div:not(.lp-stay-ledger-top){
+    grid-template-columns:32px 78px minmax(0,1fr);gap:.75rem;
+  }
+}
+</style>
 </head>
 <body data-page="home">
 <div class="mesh-layer" aria-hidden="true"></div>
@@ -2764,6 +2955,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-text">
           <div class="wp-ghost">Mlima</div>
           <div class="wp-inner">
+            <div class="wp-world-meta"><span>01 / 06</span><span>Northern highlands</span></div>
             <div class="wp-tag">Trekking &amp; highland culture</div>
             <div class="wp-name">The<br>mountains</div>
             <span class="wp-sw">Mlima: Kilimanjaro and the northern highlands</span>
@@ -2787,6 +2979,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-text" style="padding:6rem 3rem 6rem 4rem;">
           <div class="wp-ghost">Nyika</div>
           <div class="wp-inner">
+            <div class="wp-world-meta"><span>02 / 06</span><span>Northern plains</span></div>
             <div class="wp-tag">Wildlife &middot; Safari &middot; Open plain</div>
             <div class="wp-name">The<br>savannas</div>
             <span class="wp-sw">Nyika: Serengeti, Tarangire and the open plains</span>
@@ -2800,6 +2993,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-text">
           <div class="wp-ghost">Bonde</div>
           <div class="wp-inner">
+            <div class="wp-world-meta"><span>03 / 06</span><span>Crater highlands</span></div>
             <div class="wp-tag">Wildlife &middot; Geology &middot; Ancient world</div>
             <div class="wp-name">The<br>craters</div>
             <span class="wp-sw">Bonde: Ngorongoro and volcanic country</span>
@@ -2823,6 +3017,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-text" style="padding:6rem 3rem 6rem 4rem;">
           <div class="wp-ghost">Utamaduni</div>
           <div class="wp-inner">
+            <div class="wp-world-meta"><span>04 / 06</span><span>People &amp; place</span></div>
             <div class="wp-tag">Culture &middot; Homestays &middot; Nightlife</div>
             <div class="wp-name">The<br>culture</div>
             <span class="wp-sw">Utamaduni: local life between the landmarks</span>
@@ -2837,6 +3032,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-text">
           <div class="wp-ghost">Bonde la Ufa</div>
           <div class="wp-inner">
+            <div class="wp-world-meta"><span>05 / 06</span><span>Volcanic north</span></div>
             <div class="wp-tag">Rift Valley &middot; Volcano &middot; Soda lake</div>
             <div class="wp-name">The<br>Rift Valley</div>
             <span class="wp-sw">Bonde la Ufa: Natron and the volcanic north</span>
@@ -2856,6 +3052,7 @@ body.eh-locked{overflow:hidden;}
         <div class="wp-text">
           <div class="wp-ghost">Pwani</div>
           <div class="wp-inner">
+            <div class="wp-world-meta"><span>06 / 06</span><span>Indian Ocean</span></div>
             <div class="wp-tag">Coast &middot; Ocean &middot; Stone Town</div>
             <div class="wp-name">The<br>coast</div>
             <span class="wp-sw">Pwani: Zanzibar, Pemba and the Swahili coast</span>
@@ -2887,7 +3084,7 @@ body.eh-locked{overflow:hidden;}
   </div>
 
   <div class="worlds-note">
-    <p>Most journeys move through two or three of these worlds. The point is not to collect them all, but to find the combination that fits your group, your season and the way you want Tanzania to feel.</p>
+    <p>Most private journeys combine two or three of these worlds. Season, driving time, internal flights, group pace and budget decide what belongs together.</p>
   </div>
 </section>
 
@@ -2938,21 +3135,28 @@ body.eh-locked{overflow:hidden;}
     </figure>
   </div>
 
-  <div class="lp-journey-notes">
-    <div class="lp-note reveal">
-      <span class="lp-brief-label">The brief</span>
-      <h3>Wildlife without a park-only route.</h3>
-      <p>Kilimanjaro and Arusha set the journey up before Tarangire, the volcanic north, Serengeti and Ngorongoro take over.</p>
+  <div class="lp-journey-decisions reveal">
+    <div class="lp-decision-head">
+      <span>Why this sequence</span>
+      <strong>Route logic</strong>
     </div>
-    <div class="lp-note reveal">
-      <span class="lp-brief-label">The decisions</span>
-      <h3>The Rift changes the rhythm.</h3>
-      <p>Ol Doinyo Lengai and Lake Natron create a deliberate break between the classic northern parks: drier, quieter and more remote.</p>
+    <div class="lp-decision-row">
+      <span class="lp-decision-no">01</span>
+      <span class="lp-decision-leg">Kilimanjaro → Arusha</span>
+      <strong>Arrive before the safari starts.</strong>
+      <p>Mountain country and Arusha create a slower opening before the longer wildlife section begins.</p>
     </div>
-    <div class="lp-note lp-note-quote reveal">
-      <span class="lp-brief-label">The shape</span>
-      <blockquote>Mountain air, city life, elephant country, volcanic Rift, open plain, crater floor.</blockquote>
-      <cite>One route · six distinct registers of northern Tanzania</cite>
+    <div class="lp-decision-row">
+      <span class="lp-decision-no">02</span>
+      <span class="lp-decision-leg">Tarangire → Natron</span>
+      <strong>Leave the standard circuit.</strong>
+      <p>The Rift extension changes the terrain and pace before entering the Serengeti.</p>
+    </div>
+    <div class="lp-decision-row">
+      <span class="lp-decision-no">03</span>
+      <span class="lp-decision-leg">Serengeti → Ngorongoro</span>
+      <strong>Finish with contrast.</strong>
+      <p>Open plain first, enclosed crater last. The difference between them is part of the journey.</p>
     </div>
   </div>
 </section>
@@ -2960,7 +3164,10 @@ body.eh-locked{overflow:hidden;}
 <section class="lp-proof">
   <div class="lp-proof-inner">
     <div class="lp-proof-head">
-      <h2 class="lp-proof-title reveal">Private from arrival<br>to <em>departure.</em></h2>
+      <div>
+        <p class="lp-kicker reveal">One group at a time</p>
+        <h2 class="lp-proof-title reveal">Private from arrival<br>to <em>departure.</em></h2>
+      </div>
       <p class="lp-proof-copy reveal">One journey, one point of responsibility. Before you travel, the proposal names the route, accommodation, key people, inclusions and complete agreed cost.</p>
     </div>
 
@@ -2982,6 +3189,43 @@ body.eh-locked{overflow:hidden;}
         <img src="assets/images/lodge.jpg" loading="lazy" decoding="async" alt="Interior of a safari tented lodge">
         <figcaption>Accommodation · selected to fit the journey</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<section class="lp-stays" id="stays">
+  <div class="lp-stays-inner">
+    <div class="lp-stays-head">
+      <div>
+        <p class="lp-kicker reveal">Where the day ends</p>
+        <h2 class="reveal">The stay should belong<br>to the <em>journey.</em></h2>
+      </div>
+      <p class="reveal">We choose accommodation after the route and rhythm are clear. The best stay is not always the most famous one; it is the one that makes sense for where you are, how you are moving, and what you want the day to feel like when it ends.</p>
+    </div>
+
+    <div class="lp-stay-stage reveal">
+      <figure class="lp-photo lp-stay-main" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-white);">
+        <img src="assets/images/lodge.jpg" loading="lazy" decoding="async" alt="Interior of a tented safari lodge in Tanzania">
+        <figcaption>Canvas, timber, air and the landscape outside</figcaption>
+      </figure>
+
+      <figure class="lp-photo lp-stay-context lp-stay-plain" data-lp-media style="--lp-pos:50% 54%;--lp-mask:var(--lp-bone);">
+        <img src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at sunset">
+        <figcaption>Setting · the plain</figcaption>
+      </figure>
+
+      <figure class="lp-photo lp-stay-context lp-stay-coast" data-lp-media style="--lp-pos:50% 54%;--lp-mask:var(--lp-paper);">
+        <img src="assets/zanzibar.jpg" loading="lazy" decoding="async" alt="Sunset on the Zanzibar coast">
+        <figcaption>Setting · the coast</figcaption>
+      </figure>
+
+      <aside class="lp-stay-ledger">
+        <div class="lp-stay-ledger-top"><span>What we look for</span><b>STAY / 03</b></div>
+        <div><span>01</span><strong>Place</strong><p>Does the property make the route better, or simply add another transfer?</p></div>
+        <div><span>02</span><strong>Rhythm</strong><p>Does it suit the pace of that part of the journey — active, quiet, remote or social?</p></div>
+        <div><span>03</span><strong>Value</strong><p>Does what it adds justify what it costs for this particular group?</p></div>
+        <small>The proposal names the property and why it belongs in the route.</small>
+      </aside>
     </div>
   </div>
 </section>
