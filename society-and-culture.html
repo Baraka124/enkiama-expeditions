@@ -187,6 +187,110 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+
+<style id="culture-v3">
+.culture-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.culture-hero{position:relative;min-height:92vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);align-items:end;background:#111a14;overflow:hidden}
+.culture-hero__media{position:absolute;inset:0;background:url('assets/hero-dawn.jpg') center 48%/cover no-repeat;filter:saturate(.92) contrast(1.02)}
+.culture-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,12,.88) 0%,rgba(10,15,12,.56) 45%,rgba(10,15,12,.16) 74%,rgba(10,15,12,.3) 100%),linear-gradient(180deg,rgba(10,15,12,.12),rgba(10,15,12,.68))}
+.culture-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4rem,8vh,6rem);max-width:860px}
+.culture-hero__eyebrow,.culture-kicker,.culture-note__label,.culture-path__index,.culture-journey__eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.culture-hero h1{font-family:'Fraunces',serif;font-size:clamp(54px,7.2vw,108px);font-weight:300;line-height:.91;letter-spacing:-.045em;max-width:10ch;margin:.9rem 0 1.5rem}
+.culture-hero h1 em{font-style:italic;color:#8ea17e}
+.culture-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.75;max-width:58ch;color:rgba(237,230,214,.82)}
+.culture-hero__aside{position:relative;z-index:2;padding:0 clamp(1.5rem,4vw,4rem) clamp(4rem,8vh,6rem);justify-self:end;width:min(100%,470px)}
+.culture-hero__aside-inner{border-top:1px solid rgba(237,230,214,.24);padding-top:1rem;display:grid;grid-template-columns:92px 1fr;gap:1.3rem}
+.culture-hero__aside p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62)}
+.culture-hero__aside strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.3}
+.culture-index{display:grid;grid-template-columns:.7fr 1.3fr;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--bone2);color:var(--ink)}
+.culture-index__intro{padding:clamp(3rem,6vw,6rem);border-right:1px solid rgba(15,23,18,.12)}
+.culture-index__intro h2{font-family:'Fraunces',serif;font-size:clamp(40px,5.4vw,74px);font-weight:300;line-height:.98;letter-spacing:-.035em;max-width:9ch;margin-top:.9rem}
+.culture-index__intro p{margin-top:1.4rem;max-width:42ch;font-size:13px;line-height:1.85;color:rgba(15,23,18,.68)}
+.culture-index__grid{display:grid;grid-template-columns:1fr 1fr}
+.culture-index__item{padding:clamp(2rem,4vw,4rem);min-height:220px;border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:var(--ink);transition:background .25s}
+.culture-index__item:nth-child(2n){border-right:0}.culture-index__item:nth-last-child(-n+2){border-bottom:0}
+.culture-index__item:hover{background:rgba(85,107,68,.08)}
+.culture-index__item span{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#75603f}
+.culture-index__item strong{font-family:'Fraunces',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;line-height:1.05;max-width:12ch}
+.culture-index__item small{font-size:11px;line-height:1.55;color:rgba(15,23,18,.56);max-width:32ch}
+.culture-chapter{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);min-height:760px;border-bottom:1px solid var(--rule);background:var(--ink)}
+.culture-chapter.reverse{grid-template-columns:minmax(380px,.95fr) minmax(0,1.05fr)}
+.culture-chapter.reverse .culture-chapter__media{order:2}.culture-chapter.reverse .culture-chapter__body{order:1}
+.culture-chapter__media{position:relative;min-height:760px;overflow:hidden;background:var(--ink2)}
+.culture-chapter__img{position:absolute;inset:0;background-size:cover;background-position:center}
+.culture-chapter__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.02) 50%,rgba(8,13,10,.45))}
+.culture-chapter__caption{position:absolute;left:1.5rem;right:1.5rem;bottom:1.4rem;padding-top:.75rem;border-top:1px solid rgba(237,230,214,.18);display:flex;justify-content:space-between;gap:1rem;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.culture-chapter__body{padding:clamp(4.5rem,7vw,7rem) clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center;position:relative}
+.culture-chapter__body h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:.96;letter-spacing:-.038em;max-width:9ch;margin:.9rem 0 1.5rem}
+.culture-chapter__body h2 em{font-style:italic;color:#8ea17e}
+.culture-chapter__body>p{font-size:14px;line-height:1.95;color:rgba(237,230,214,.72);max-width:58ch}
+.culture-note{margin-top:2.3rem;padding-top:1.15rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:100px 1fr;gap:1.2rem}
+.culture-note p{font-family:'Fraunces',serif;font-size:17px;line-height:1.55;color:rgba(237,230,214,.84)}
+.culture-path{margin-top:2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.culture-path a{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--earth);text-decoration:none;border-bottom:1px solid rgba(190,158,104,.34);padding-bottom:.2rem}
+.culture-human{display:grid;grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr);background:var(--bone2);color:var(--ink);border-bottom:1px solid rgba(15,23,18,.12)}
+.culture-human__copy{padding:clamp(4rem,7vw,7rem)}
+.culture-human__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:.98;letter-spacing:-.035em;max-width:10ch;margin:.9rem 0 1.5rem}
+.culture-human__copy p{font-size:14px;line-height:1.9;max-width:55ch;color:rgba(15,23,18,.7)}
+.culture-human__principles{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid rgba(15,23,18,.12)}
+.culture-principle{padding:clamp(2.5rem,4vw,4rem);border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1)}
+.culture-principle:nth-child(2n){border-right:0}.culture-principle:nth-last-child(-n+2){border-bottom:0}
+.culture-principle span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#75603f}
+.culture-principle strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}
+.culture-principle p{font-size:12px;line-height:1.7;color:rgba(15,23,18,.62)}
+.culture-journeys{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);background:var(--ink2)}
+.culture-journeys__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}
+.culture-journeys__head h2{font-family:'Fraunces',serif;font-size:clamp(40px,5.2vw,72px);font-weight:300;line-height:.98;max-width:10ch}
+.culture-journeys__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:50ch}
+.culture-journeys__grid{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.culture-journey{position:relative;min-height:520px;overflow:hidden;text-decoration:none;color:var(--bone)}
+.culture-journey__img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 7s cubic-bezier(.16,1,.3,1)}
+.culture-journey:hover .culture-journey__img{transform:scale(1.025)}
+.culture-journey__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.04) 35%,rgba(8,13,10,.88) 100%)}
+.culture-journey__copy{position:absolute;z-index:2;left:1.5rem;right:1.5rem;bottom:1.5rem}
+.culture-journey__copy h3{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,42px);font-weight:300;line-height:1.02;max-width:12ch;margin:.6rem 0}
+.culture-journey__copy p{font-size:11px;line-height:1.65;color:rgba(237,230,214,.66);max-width:42ch}
+.culture-explore{display:grid;grid-template-columns:.6fr 1.4fr;background:var(--bone2);color:var(--ink)}
+.culture-explore__copy{padding:clamp(4rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}
+.culture-explore__copy h2{font-family:'Fraunces',serif;font-size:clamp(40px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.2rem}
+.culture-explore__copy p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.68)}
+.culture-explore__links{display:grid;grid-template-columns:1fr 1fr}
+.culture-explore__links a{padding:clamp(2rem,4vw,4rem);text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1);display:flex;flex-direction:column;justify-content:space-between;min-height:190px}
+.culture-explore__links a:nth-child(2n){border-right:0}
+.culture-explore__links a:last-child{grid-column:1/-1;border-bottom:0;background:var(--ink);color:var(--bone)}
+.culture-explore__links span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#75603f}
+.culture-explore__links a:last-child span{color:var(--earth)}
+.culture-explore__links strong{font-family:'Fraunces',serif;font-size:clamp(24px,2.7vw,36px);font-weight:300;line-height:1.08;max-width:13ch}
+.culture-faq{padding:clamp(4rem,7vw,6rem) clamp(1.5rem,6vw,6rem);background:var(--ink)}
+.culture-faq__inner{max-width:1040px;margin:auto;display:grid;grid-template-columns:.6fr 1.4fr;gap:4rem}
+.culture-faq h2{font-family:'Fraunces',serif;font-size:clamp(34px,4vw,56px);font-weight:300;line-height:1}
+.culture-faq__items{border-top:1px solid var(--rule)}
+.culture-faq__item{padding:1.45rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:minmax(210px,.7fr) 1.3fr;gap:2rem}
+.culture-faq__item strong{font-family:'Fraunces',serif;font-size:18px;font-weight:300}
+.culture-faq__item p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.65)}
+@media(max-width:1000px){
+ .culture-hero{grid-template-columns:1fr}.culture-hero__aside{justify-self:start}
+ .culture-index,.culture-human,.culture-explore{grid-template-columns:1fr}
+ .culture-index__intro,.culture-human__principles,.culture-explore__copy{border-right:0;border-bottom:1px solid rgba(15,23,18,.12);border-left:0}
+ .culture-chapter,.culture-chapter.reverse{grid-template-columns:1fr;min-height:0}
+ .culture-chapter.reverse .culture-chapter__media,.culture-chapter.reverse .culture-chapter__body{order:initial}
+ .culture-chapter__media{min-height:62vh}
+ .culture-journeys__grid{grid-template-columns:1fr}
+ .culture-journey{min-height:60vh}
+ .culture-journeys__head,.culture-faq__inner{grid-template-columns:1fr;gap:1.5rem}
+}
+@media(max-width:680px){
+ .culture-hero{min-height:88vh}.culture-hero__copy{padding-top:8rem}.culture-hero__aside{padding-bottom:2.5rem}
+ .culture-index__grid,.culture-human__principles,.culture-explore__links{grid-template-columns:1fr}
+ .culture-index__item,.culture-principle,.culture-explore__links a{border-right:0!important}
+ .culture-index__item:nth-last-child(-n+2){border-bottom:1px solid rgba(15,23,18,.1)}
+ .culture-explore__links a:last-child{grid-column:auto}
+ .culture-chapter__media{min-height:54vh}
+ .culture-chapter__body{padding:4rem 1.5rem}
+ .culture-note{grid-template-columns:1fr;gap:.5rem}
+ .culture-faq__item{grid-template-columns:1fr;gap:.7rem}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -299,114 +403,154 @@ body.eh-locked{overflow:hidden;}
 .eh-aside-contact a:hover{opacity:.7;}
 .eh-aside-place{font-variant-caps:all-small-caps;letter-spacing:.2em;font-size:11px;color:var(--muted,#ADA791);margin-top:1rem;}
 
-.eh-close{position:absolute;top:2rem;right:clamp(1.5rem,4vw,3.5rem);z-index:3;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:.7rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;color:var(--bone,#EDE6D6);opacity:0;transition:color .3s,opacity .5s ease .4s;}
-.eh-overlay.open .eh-close{opacity:1;}
-.eh-close:hover{color:var(--earth);}
-.eh-close .x{position:relative;width:16px;height:16px;}
-.eh-close .x::before,.eh-close .x::after{content:'';position:absolute;top:50%;left:0;width:100%;height:1px;background:currentColor;}
-.eh-close .x::before{transform:rotate(45deg);}
-.eh-close .x::after{transform:rotate(-45deg);}
-
-
-
-@media(max-height:840px){
-  .eh-left{gap:1.4rem;padding:4.5rem clamp(3rem,7vw,8rem);}
-  .eh-nav li a{font-size:clamp(1.4rem,2.5vw,2.1rem);padding:.48rem 0;}
-  .eh-nav-eyebrow{margin-bottom:1rem;padding-bottom:.8rem;}
-}
-@media(max-height:700px){
-  .eh-left{gap:1rem;padding:3.5rem clamp(3rem,7vw,8rem);justify-content:flex-start;}
-  .eh-nav li a{font-size:clamp(1.25rem,2.1vw,1.7rem);padding:.36rem 0;}
-}
-@media(max-width:820px){
-  .eh-overlay{grid-template-columns:1fr;}
-  .eh-aside{display:none;}
-  .eh-left{padding:0 8vw;justify-content:center;}
-  .eh-nav li a{font-size:clamp(1.8rem,8vw,2.6rem);}
-  .eh-secondary{gap:.5rem 1.4rem;}
-  .eh-bar{padding:1.3rem 1.5rem;}
-  .eh-watermark{display:none;}
-}
-@media(prefers-reduced-motion:reduce){.eh-nav li a,.eh-nav-eyebrow,.eh-aside-photo,.eh-aside-inner,.eh-close{transition:opacity .3s !important;transform:none !important;}}
-</style>
-
-<div class="eh-bar" id="ehBar">
-  <a href="index.html" class="eh-logo" aria-label="Enkiama — home"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
-  <button class="eh-trigger" id="ehTrigger" aria-expanded="false" aria-controls="ehOverlay"><span>Índice</span><span class="eh-mark"><span></span><span></span></span></button>
-</div>
-
-<div class="eh-overlay" id="ehOverlay" role="dialog" aria-modal="true" aria-label="Menu">
-  <button class="eh-close" id="ehClose" aria-label="Close menu"><span>Cerrar</span><span class="x"></span></button>
-  <div class="eh-watermark" aria-hidden="true">karibu</div>
-
-  <div class="eh-left">
-    <nav class="eh-nav">
-      <p class="eh-nav-eyebrow">The index</p>
-      <ul>
-        <li><a href="tanzania.html" data-nav="tanzania"><span class="eh-idx">01</span><span class="eh-lnk">Tanzania</span></a></li>
-        <li><a href="parks.html" data-nav="parks"><span class="eh-idx">02</span><span class="eh-lnk">Wild Tanzania</span></a></li>
-        <li><a href="kilimanjaro.html" data-nav="kilimanjaro"><span class="eh-idx">03</span><span class="eh-lnk">Kilimanjaro</span></a></li>
-        <li><a href="great-rift.html" data-nav="greatrift"><span class="eh-idx">04</span><span class="eh-lnk">The Great Rift</span></a></li>
-        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">05</span><span class="eh-lnk">Journeys</span></a></li>
-        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">06</span><span class="eh-lnk">Compose your journey</span></a></li>
-        <li><a href="family.html" data-nav="family"><span class="eh-idx">07</span><span class="eh-lnk">The family</span></a></li>
-        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">08</span><span class="eh-lnk">Begin</span></a></li>
-      </ul>
-    </nav>
-    <div class="eh-secondary">
-      <span class="eh-sec-lbl">Also</span>
-      <a href="how.html" data-nav="how">How we work</a>
-      <a href="why.html" data-nav="why">Why Enkiama</a>
-      <a href="notes.html" data-nav="notes">Field notes</a>
-      <a href="stories.html" data-nav="stories">Stories</a>
-      <a href="reflections.html" data-nav="reflections">Letters</a>
-      <a href="companions.html" data-nav="companions">Companions</a>
-      <a href="practical.html" data-nav="practical">Practical</a>
-      <a href="faq.html">Safari FAQ</a>
-    </div>
+.eh-close{position:absolute;top:2rem;right:clamp(1.5rem,4vw,3.5rem);z-index:3;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:.7rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;letter-spacing:.22em;font-size:13px;color:var(--bone<main class="culture-page" id="main-content">
+<section class="culture-hero">
+  <div class="culture-hero__media" aria-hidden="true"></div>
+  <div class="culture-hero__veil"></div>
+  <div class="culture-hero__copy">
+    <p class="culture-hero__eyebrow">Society &amp; culture · Tanzania</p>
+    <h1>People are part of the <em>route.</em></h1>
+    <p class="culture-hero__lede">Tanzania is travelled through inhabited landscapes: farms on Kilimanjaro, pastoral country across the north, trading towns on the coast, cities, villages, languages and family networks. Wildlife is one part of the country, not a separate world from the people living around it.</p>
   </div>
-
-  <aside class="eh-aside">
-    <div class="eh-aside-stack" aria-hidden="true">
-      <div class="eh-aside-img on" data-img="default" style="background-image:radial-gradient(ellipse 100% 80% at 65% 25%,rgba(85,107,68,0.14),transparent 62%),linear-gradient(158deg,#16211a,#0b120e);"></div>
-      <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
-      <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
-      <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
-      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
-      <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
-      <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
-      <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
-      <div class="eh-aside-img" data-img="greatrift" data-src="assets/images/great-rift.jpg"></div>
-      <div class="eh-aside-img" data-img="companions" data-src="assets/images/group-fire.jpg"></div>
-      <div class="eh-aside-img" data-img="reflections" data-src="assets/images/night-sky.jpg"></div>
-      <div class="eh-aside-img" data-img="practical" data-src="assets/images/arusha.jpg"></div>
-      <div class="eh-aside-img" data-img="stories" data-src="assets/images/stonetown.jpg"></div>
-      <div class="eh-aside-img" data-img="notes" data-src="assets/images/manyara.jpg"></div>
-      <div class="eh-aside-img" data-img="how" data-src="assets/images/maasai.jpg"></div>
-      <div class="eh-aside-img" data-img="why" data-src="assets/images/elder-guide.jpg"></div>
-    </div>
-    <div class="eh-aside-caption" id="ehAsideCaption"></div>
-    <div class="eh-aside-scrim"></div>
-    <div class="eh-aside-inner">
-      <p class="eh-aside-eyebrow">Curated, never sold</p>
-      <p class="eh-aside-q">Tanzania already knows how to receive you. We make sure you arrive.</p>
-      <div class="eh-aside-contact">
-        <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
-        <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
-        <span class="eh-aside-place" id="ehPlace">Arusha &middot; Tanzania</span>
-      </div>
+  <aside class="culture-hero__aside">
+    <div class="culture-hero__aside-inner">
+      <span class="culture-kicker">A useful distinction</span>
+      <div><strong>Culture is not a stop added between parks.</strong><p>It appears through the places you stay, the people guiding you, the food you eat and the communities whose land the route passes through.</p></div>
     </div>
   </aside>
-</div>
+</section>
+
+<section class="culture-index">
+  <div class="culture-index__intro">
+    <p class="culture-kicker">Four cultural landscapes</p>
+    <h2>Different places. Different histories.</h2>
+    <p>This page does not try to summarise Tanzania into one idea of “local culture”. It follows four contexts that frequently intersect with Enkiama journeys.</p>
+  </div>
+  <div class="culture-index__grid">
+    <a class="culture-index__item" href="#language"><span>01 · Language</span><strong>Kiswahili &amp; national life</strong><small>A shared language across a highly diverse country.</small></a>
+    <a class="culture-index__item" href="#kilimanjaro-culture"><span>02 · Highlands</span><strong>Kilimanjaro &amp; Chagga country</strong><small>Coffee, cultivation, settlements and mountain life.</small></a>
+    <a class="culture-index__item" href="#pastoral-country"><span>03 · Northern rangelands</span><strong>Pastoral country</strong><small>Land, livestock and communities across the northern landscape.</small></a>
+    <a class="culture-index__item" href="#coast"><span>04 · Indian Ocean</span><strong>The Swahili coast</strong><small>Trade, architecture, religion, food and island life.</small></a>
+  </div>
+</section>
+
+<section class="culture-chapter" id="language">
+  <div class="culture-chapter__media">
+    <div class="culture-chapter__img" style="background-image:url('assets/arusha.jpg');background-position:50% 48%"></div>
+    <div class="culture-chapter__shade"></div>
+    <div class="culture-chapter__caption"><span>Everyday Tanzania</span><span>Language connects regions</span></div>
+  </div>
+  <div class="culture-chapter__body">
+    <p class="culture-kicker">01 · Language</p>
+    <h2>Kiswahili is part of how the country <em>holds together.</em></h2>
+    <p>Tanzania contains many ethnic and linguistic communities. Kiswahili provides a shared public language across regions, while local languages remain part of family and community life. For travellers, even a small amount of Kiswahili changes ordinary interactions: greetings become conversations, and the country feels less like scenery being passed through.</p>
+    <div class="culture-note"><span class="culture-note__label">Field note</span><p>Language is useful context, but it is also practical: guides move between Kiswahili, English and local languages throughout a journey.</p></div>
+    <div class="culture-path"><span class="culture-path__index">Continue</span><a href="tanzania.html">Explore Tanzania →</a></div>
+  </div>
+</section>
+
+<section class="culture-chapter reverse" id="kilimanjaro-culture">
+  <div class="culture-chapter__media">
+    <div class="culture-chapter__img" style="background-image:url('assets/images/kilimanjaro.jpg');background-position:50% 42%"></div>
+    <div class="culture-chapter__shade"></div>
+    <div class="culture-chapter__caption"><span>Kilimanjaro highlands</span><span>Mountain · farms · settlements</span></div>
+  </div>
+  <div class="culture-chapter__body">
+    <p class="culture-kicker">02 · Kilimanjaro highlands</p>
+    <h2>The mountain is also a <em>lived landscape.</em></h2>
+    <p>Around Moshi and the southern slopes of Kilimanjaro, Chagga communities have long cultivated densely settled highland farms. Coffee, bananas, irrigation, family compounds and the mountain itself sit within the same landscape. A day in Kibosho can therefore change how the next view of Kilimanjaro is understood: not only as a summit, but as home.</p>
+    <div class="culture-note"><span class="culture-note__label">How this enters a journey</span><p>Waterfall walks, coffee preparation, meals and time with local guides can sit naturally before or after a safari circuit without becoming a staged “cultural day”.</p></div>
+    <div class="culture-path"><span class="culture-path__index">Continue</span><a href="kilimanjaro.html">Explore Kilimanjaro country →</a><a href="trip.html?slug=july-five-travellers-2026">See this in an operated journey →</a></div>
+  </div>
+</section>
+
+<section class="culture-human">
+  <div class="culture-human__copy">
+    <p class="culture-kicker">How Enkiama handles cultural encounters</p>
+    <h2>The method matters more than the label.</h2>
+    <p>We do not need every cultural element to become a formal “visit”. Some of the strongest encounters happen because the route allows enough time for people, guides and hosts to remain part of the day rather than being compressed into a scheduled performance.</p>
+  </div>
+  <div class="culture-human__principles">
+    <div class="culture-principle"><span>01</span><strong>Agreement</strong><p>Hosts and communities should know what is being arranged and be comfortable with the exchange.</p></div>
+    <div class="culture-principle"><span>02</span><strong>Time</strong><p>Short photo stops create a very different relationship from spending enough time to understand where you are.</p></div>
+    <div class="culture-principle"><span>03</span><strong>Local knowledge</strong><p>Community and local guides interpret places from within them, rather than speaking about people from outside.</p></div>
+    <div class="culture-principle"><span>04</span><strong>Compensation</strong><p>Where a hosted activity is paid, the arrangement and who benefits should be clear.</p></div>
+  </div>
+</section>
+
+<section class="culture-chapter" id="pastoral-country">
+  <div class="culture-chapter__media">
+    <div class="culture-chapter__img" style="background-image:url('assets/great-rift.jpg');background-position:50% 50%"></div>
+    <div class="culture-chapter__shade"></div>
+    <div class="culture-chapter__caption"><span>Northern Tanzania</span><span>Rangelands · Rift Valley</span></div>
+  </div>
+  <div class="culture-chapter__body">
+    <p class="culture-kicker">03 · Northern rangelands</p>
+    <h2>Pastoral life is tied to <em>land.</em></h2>
+    <p>Across parts of northern Tanzania, Maasai communities and other pastoral groups live within landscapes that travellers often experience primarily as safari country. Livestock, seasonal movement, access to grazing and conservation boundaries all shape daily life. A community encounter makes more sense when it is understood inside that wider relationship with land rather than reduced to clothing, dance or photographs.</p>
+    <div class="culture-note"><span class="culture-note__label">Route context</span><p>Lake Natron and the northern Rift Valley make this relationship especially visible because the journey moves beyond the most conventional park-to-park corridor.</p></div>
+    <div class="culture-path"><span class="culture-path__index">Continue</span><a href="great-rift.html">Explore the Great Rift →</a><a href="trip.html?slug=july-five-travellers-2026">See the July route →</a></div>
+  </div>
+</section>
+
+<section class="culture-chapter reverse" id="coast">
+  <div class="culture-chapter__media">
+    <div class="culture-chapter__img" style="background-image:url('assets/images/zanzibar.jpg');background-position:50% 58%"></div>
+    <div class="culture-chapter__shade"></div>
+    <div class="culture-chapter__caption"><span>Indian Ocean</span><span>Zanzibar · Swahili coast</span></div>
+  </div>
+  <div class="culture-chapter__body">
+    <p class="culture-kicker">04 · The coast</p>
+    <h2>A different cultural geography <em>entirely.</em></h2>
+    <p>On Zanzibar and along the Swahili coast, the cultural landscape has been shaped by centuries of Indian Ocean exchange. Stone Town makes this visible in architecture, food, religious life, language and the structure of the city itself. Ending a mainland journey here is not simply “adding the beach”; it moves the traveller into another historical world.</p>
+    <div class="culture-note"><span class="culture-note__label">Field note</span><p>Stone Town is a UNESCO World Heritage Site whose urban fabric reflects long interaction between African, Arab, Indian and European influences.</p></div>
+    <div class="culture-path"><span class="culture-path__index">Continue</span><a href="stonetown.html">Explore Stone Town →</a><a href="zanzibar.html">Explore Zanzibar →</a></div>
+  </div>
+</section>
+
+<section class="culture-journeys">
+  <div class="culture-journeys__head">
+    <div><p class="culture-kicker">Already operated</p><h2>How this appears inside real journeys.</h2></div>
+    <p>These are not sample cultural packages. They are journeys Enkiama has already operated where people, community or history became part of a wider route.</p>
+  </div>
+  <div class="culture-journeys__grid">
+    <a class="culture-journey" href="trip.html?slug=july-five-travellers-2026"><div class="culture-journey__img" style="background-image:url('assets/images/kilimanjaro.jpg');background-position:50% 44%"></div><div class="culture-journey__shade"></div><div class="culture-journey__copy"><p class="culture-journey__eyebrow">July 2026 · five travellers</p><h3>Kibosho, safari and Maasai country</h3><p>A slower northern journey where cultural days remained connected to the geography of the route.</p></div></a>
+    <a class="culture-journey" href="trip.html?slug=hakuna-matata-three-travellers"><div class="culture-journey__img" style="background-image:url('assets/culture-table.jpg');background-position:50% 50%"></div><div class="culture-journey__shade"></div><div class="culture-journey__copy"><p class="culture-journey__eyebrow">Three travellers</p><h3>More than safari</h3><p>Kilimanjaro, local visits and wildlife were treated as parts of one journey rather than separate products.</p></div></a>
+    <a class="culture-journey" href="trip.html?slug=couple-northern-tanzania-zanzibar"><div class="culture-journey__img" style="background-image:url('assets/images/zanzibar.jpg');background-position:50% 58%"></div><div class="culture-journey__shade"></div><div class="culture-journey__copy"><p class="culture-journey__eyebrow">Two travellers</p><h3>Mainland to Stone Town</h3><p>The coast changed not only the pace of the journey, but its cultural and historical context.</p></div></a>
+  </div>
+</section>
+
+<section class="culture-explore">
+  <div class="culture-explore__copy"><p class="culture-kicker">Keep discovering</p><h2>Follow the context that interests you.</h2><p>Culture should open the route rather than end the page. Continue into the places, or carry this interest directly into Compose.</p></div>
+  <div class="culture-explore__links">
+    <a href="kilimanjaro.html"><span>Highlands</span><strong>Kilimanjaro country →</strong></a>
+    <a href="great-rift.html"><span>Northern Tanzania</span><strong>Great Rift &amp; Lake Natron →</strong></a>
+    <a href="stonetown.html"><span>Indian Ocean history</span><strong>Stone Town →</strong></a>
+    <a href="zanzibar.html"><span>Island context</span><strong>Zanzibar →</strong></a>
+    <a href="compose.html?interest=people#composer"><span>Carry this interest forward</span><strong>Compose around people &amp; culture →</strong></a>
+  </div>
+</section>
+
+<section class="culture-faq">
+  <div class="culture-faq__inner">
+    <h2>Useful questions.</h2>
+    <div class="culture-faq__items">
+      <div class="culture-faq__item"><strong>Can cultural time be included without losing safari days?</strong><p>Yes. The stronger approach is often to place it where the route already passes through an inhabited landscape instead of adding a disconnected excursion.</p></div>
+      <div class="culture-faq__item"><strong>Do I need to visit a community?</strong><p>No. Culture is present in guides, food, towns, markets, language, farms, history and everyday interactions. A formal community visit is only one possibility.</p></div>
+      <div class="culture-faq__item"><strong>How do you decide what is appropriate?</strong><p>We look at who is hosting, how the encounter is arranged, whether it makes sense geographically and whether there is enough time for it to be more than a photo stop.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
 <script>
 (function(){
-  var bar=document.getElementById('ehBar'),trg=document.getElementById('ehTrigger'),ov=document.getElementById('ehOverlay'),cl=document.getElementById('ehClose'),photo=document.getElementById('ehAsidePhoto');
-  if(!bar||!trg||!ov) return;
-  var lastFocus=null;
-  function focusables(){return ov.querySelectorAll('a[href],button');}
-  function open(){
-    ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
-    lastFocus=document.activeElement;
+  if(location.hash&&location.hash!=='#main-content'){
+    setTimeout(function(){var t=document.querySelector(location.hash);if(t)t.scrollIntoView({behavior:'smooth'});},80);
+  }
+})();
+</script>
+stFocus=document.activeElement;
     if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
     setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
   }
@@ -523,78 +667,6 @@ body.eh-locked{overflow:hidden;}
 <!-- ENKIAMA_HEADER_END -->
 
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/maasai.jpg" alt="Society & Culture, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Watu</p>
-    <p class="d-eyebrow">Beyond the animals</p>
-    <h1 class="d-title">Tanzania is not a wilderness<br><em>with people at the edges.</em></h1>
-    <p class="d-lede">It is a country of more than sixty million people, over a hundred and twenty language groups, and a coastline that has been trading with the world for a thousand years. The wildlife is extraordinary. It is also not the whole story, and travellers who only see it leave having met a landscape rather than a country.</p>
-  </div>
-</section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">A country held together by a language</p>
-    <h2 class="d-sec-title reveal">Swahili, and what it did.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Tanzania has over a hundred and twenty ethnic groups and no dominant one. In many countries that arithmetic has produced fracture. Here it produced something rarer: <strong>Kiswahili as a national language belonging to everyone and no one in particular</strong>, deliberately promoted after independence as a way of building one nation from many peoples.</p>
-    <p class="d-p reveal">The effect is visible everywhere. A Chagga farmer, a Maasai herder and a Zanzibari trader meet in a shared language that is nobody&rsquo;s tribal inheritance. It is one of the quieter achievements in modern African history, and it is part of why Tanzania feels the way it does to travel in.</p>
-  </section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The peoples</p>
-    <h2 class="d-sec-title reveal">A few, among very many.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal"><strong>The Chagga</strong>, on Kilimanjaro&rsquo;s southern slopes, farm some of the most intensively cultivated mountain land in Africa &mdash; coffee, banana and a system of irrigation furrows centuries old.<br><strong>The Maasai</strong>, across the northern rangelands, are the most photographed and least understood, and their relationship with conservation land is far more complex than most visitors are told.<br><strong>The Hadzabe</strong>, near Lake Eyasi, are among the last hunter-gatherer communities on earth, speaking a click language unrelated to almost anything around it.<br><strong>The Swahili coast</strong> is not one people at all but a civilisation &mdash; African, Arab, Persian and Indian, layered over a thousand years of monsoon trade.</p>
-  </section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">How we approach it</p>
-    <h2 class="d-sec-title reveal">With reluctance about the word &lsquo;visit&rsquo;.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Cultural tourism in East Africa has a poor history: staged dances, arranged photographs, communities paid a fraction of what visitors spend. We will not compose that, and we would rather send you nowhere than send you to a performance.</p>
-    <p class="d-p reveal"><strong>What we do instead is arrange for you to be somewhere ordinary, with people who have agreed to it, on terms they set.</strong> A coffee farm where the work is real. A table where a meal is being cooked anyway. A guide from the community rather than about it. The exchange is fairly paid and openly explained, and if it cannot be done that way, we do not do it.</p>
-  </section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">What travellers actually remember</p>
-    <h2 class="d-sec-title reveal">Almost never the thing they came for.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">We have noticed something over time. People arrive for the migration and leave talking about an afternoon in Kibosho. They come for the crater and remember a conversation on the way to it.</p>
-    <p class="d-p reveal">That is not an accident of luck. <strong>It is what happens when you are placed inside a country rather than beside it</strong> &mdash; which is the whole argument Enkiama exists to make.</p>
-  </section>
-
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Can I visit a Maasai community in Tanzania?</p><p class="d-faq-a">Yes, but how it is arranged matters enormously. Much cultural tourism is staged and poorly paid. We arrange time with communities on terms they set, fairly compensated and openly explained — or we do not arrange it at all.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">What language is spoken in Tanzania?</p><p class="d-faq-a">Kiswahili is the national language and is spoken across the country alongside more than a hundred and twenty local languages. English is widely used in business and education. Learning a few words of Kiswahili is genuinely appreciated.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Is cultural tourism in Tanzania ethical?</p><p class="d-faq-a">It can be, and often is not. The test is whether the community set the terms and receive a fair share of what you pay. We will tell you exactly how any cultural element of your journey is arranged and what reaches the people hosting you.</p></div>
-</div>
-
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="stonetown.html">Stone Town</a><a href="family.html">The family</a><a href="how.html">How we work</a></div>
-</div>
-
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Society & Culture belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
-
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "society-and-culture",
+  "operated_journeys": [
+    {
+      "slug": "july-five-travellers-2026",
+      "href": "trip.html?slug=july-five-travellers-2026",
+      "image": "assets/images/kilimanjaro.jpg"
+    },
+    {
+      "slug": "hakuna-matata-three-travellers",
+      "href": "trip.html?slug=hakuna-matata-three-travellers",
+      "image": "assets/culture-table.jpg"
+    },
+    {
+      "slug": "couple-northern-tanzania-zanzibar",
+      "href": "trip.html?slug=couple-northern-tanzania-zanzibar",
+      "image": "assets/images/zanzibar.jpg"
+    }
+  ],
+  "explore": [
+    {
+      "href": "kilimanjaro.html",
+      "label": "Kilimanjaro country"
+    },
+    {
+      "href": "great-rift.html",
+      "label": "Great Rift & Lake Natron"
+    },
+    {
+      "href": "stonetown.html",
+      "label": "Stone Town"
+    },
+    {
+      "href": "zanzibar.html",
+      "label": "Zanzibar"
+    },
+    {
+      "href": "compose.html?interest=people#composer",
+      "label": "Compose around people & culture"
+    }
+  ]
+}
