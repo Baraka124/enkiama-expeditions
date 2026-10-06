@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "publication_policy": "Only publish operational standards that the appointed mountain partner can document and Enkiama can verify for each departure.",
+  "verified_reference_points": [
+    {
+      "key": "porter_load",
+      "label": "Porter load ceiling",
+      "value": "20 kg company load",
+      "status": "external_standard",
+      "source": "TANAPA / Kilimanjaro porter guidance",
+      "public_copy": "Porter loads should remain within the recognised 20 kg company-load ceiling."
+    },
+    {
+      "key": "porter_welfare",
+      "label": "Porter welfare framework",
+      "status": "external_standard",
+      "source": "Kilimanjaro Porters Assistance Project",
+      "public_copy": "Wages, tipping, meals, shelter, equipment and load practices should be transparent and consistent with recognised porter-welfare standards."
+    }
+  ],
+  "partner_verification_required": [
+    "lead guide qualifications and current certifications",
+    "guide-to-climber ratio",
+    "health-check frequency and recorded observations",
+    "pulse oximetry protocol",
+    "supplemental oxygen provision",
+    "hyperbaric chamber provision, if any",
+    "evacuation and descent protocol",
+    "tent dimensions and sleeping system",
+    "private toilet arrangement",
+    "crew wages and payment timing",
+    "crew food and equipment provision"
+  ]
+}
