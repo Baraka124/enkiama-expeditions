@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>Journey — Enkiama</title>
+<meta name="description" content="An operated Enkiama journey through Tanzania, shown as an editorial itinerary with route chapters, images and field notes.">
+<meta name="theme-color" content="#0F1712">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F1712;--ink2:#131C16;--bone:#EDE6D6;--bone2:#E4DBC7;--earth:#BE9E68;--sage:#7A9470;--muted:#ADA791;--rule:rgba(190,158,104,.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}.fr{font-family:'Fraunces',serif}
+.trip-loading,.trip-error{min-height:100vh;display:grid;place-items:center;text-align:center;padding:2rem}
+.trip-loading p,.trip-error p{max-width:42ch;color:var(--muted)}
+.trip{display:none}.trip.show{display:block}
+.trip-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#0b120e}
+.trip-hero__img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02)}
+.trip-hero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,12,9,.18),rgba(7,12,9,.08) 35%,rgba(7,12,9,.9) 100%),linear-gradient(90deg,rgba(7,12,9,.46),transparent 62%)}
+.trip-nav{position:absolute;z-index:4;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:1.5rem clamp(1.3rem,4vw,3.5rem)}
+.trip-nav img{height:42px;width:auto}.trip-nav a:last-child{font-size:10px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(237,230,214,.75)}
+.trip-hero__copy{position:relative;z-index:3;width:min(1180px,100%);margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem) clamp(4rem,8vw,7rem)}
+.trip-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--earth);margin-bottom:1.4rem}
+.trip-title{font-size:clamp(54px,8vw,122px);font-weight:300;line-height:.9;letter-spacing:-.04em;max-width:10ch}
+.trip-sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.3vw,30px);max-width:30ch;color:rgba(237,230,214,.82);margin-top:1.6rem}
+.trip-meta{display:flex;gap:1rem 2rem;flex-wrap:wrap;margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid rgba(237,230,214,.2);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,230,214,.58)}
+.trip-intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(3rem,8vw,8rem);padding:clamp(5rem,9vw,9rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.trip-intro h2{font-size:clamp(38px,5vw,72px);font-weight:300;line-height:1;letter-spacing:-.03em;max-width:8ch}
+.trip-intro h2 em{font-style:italic;color:#6A7D55}
+.trip-intro__copy p{font-size:15px;line-height:1.95;max-width:62ch;color:rgba(15,23,18,.76)}
+.trip-intro__copy p+p{margin-top:1.4rem}
+.trip-route{padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--rule)}
+.trip-route__label{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:var(--earth);margin-bottom:1.2rem}
+.trip-route__line{font-family:'Fraunces',serif;font-size:clamp(20px,2.4vw,32px);line-height:1.5;color:rgba(237,230,214,.88)}
+.trip-route__line span{color:rgba(190,158,104,.72)}
+.trip-chapter{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);min-height:720px;border-bottom:1px solid var(--rule)}
+.trip-chapter:nth-child(even){grid-template-columns:minmax(360px,.95fr) minmax(0,1.05fr)}
+.trip-chapter:nth-child(even) .trip-chapter__media{order:2}.trip-chapter:nth-child(even) .trip-chapter__body{order:1}
+.trip-chapter__media{position:relative;min-height:720px;overflow:hidden;background:var(--ink2)}
+.trip-chapter__img{position:absolute;inset:0;background-size:cover;background-position:center}
+.trip-chapter__img:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,12,9,.02) 46%,rgba(7,12,9,.62) 100%)}
+.trip-chapter__rail{position:absolute;left:1.7rem;right:1.7rem;bottom:1.5rem;z-index:2;padding-top:.9rem;border-top:1px solid rgba(237,230,214,.22);display:flex;justify-content:space-between;gap:1rem;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.trip-chapter__body{padding:clamp(4rem,7vw,7rem) clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center}
+.trip-chapter__idx{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--earth);margin-bottom:1.4rem}
+.trip-chapter__title{font-size:clamp(36px,4.5vw,66px);font-weight:300;line-height:1;letter-spacing:-.03em;max-width:10ch}
+.trip-chapter__text{font-size:14px;line-height:1.95;color:rgba(237,230,214,.75);max-width:54ch;margin-top:1.8rem}
+.trip-fact{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:90px 1fr;gap:1.2rem}
+.trip-fact span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}
+.trip-fact p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.55;color:rgba(237,230,214,.84)}
+.trip-related{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}
+.trip-related h2{font-size:clamp(34px,4.5vw,58px);font-weight:300;margin-bottom:2rem}
+.trip-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.related-card{position:relative;min-height:360px;overflow:hidden;text-decoration:none}
+.related-card__img{position:absolute;inset:0;background-size:cover;background-position:center}
+.related-card__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.05),rgba(8,13,10,.82))}
+.related-card__copy{position:absolute;z-index:2;left:1.4rem;right:1.4rem;bottom:1.3rem}
+.related-card__copy span{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.58);margin-bottom:.5rem}
+.related-card__copy strong{display:block;font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.05}
+.trip-cta{display:grid;grid-template-columns:1fr .72fr;gap:4rem;align-items:center;padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.trip-cta h2{font-size:clamp(40px,5.5vw,76px);font-weight:300;line-height:.98;letter-spacing:-.03em;max-width:9ch}.trip-cta h2 em{font-style:italic;color:#6A7D55}
+.trip-cta p{font-size:14px;line-height:1.9;color:rgba(15,23,18,.72);max-width:52ch;margin:1.3rem 0 2rem}
+.trip-btn{display:inline-block;padding:.9rem 1.25rem;border:1px solid var(--ink);text-decoration:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){.trip-intro,.trip-chapter,.trip-chapter:nth-child(even),.trip-cta{grid-template-columns:1fr}.trip-chapter:nth-child(even) .trip-chapter__media,.trip-chapter:nth-child(even) .trip-chapter__body{order:initial}.trip-chapter__media{min-height:60vh}.trip-related-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.trip-hero__copy{padding-bottom:3rem}.trip-title{font-size:clamp(48px,15vw,72px)}.trip-intro{gap:1.8rem}.trip-chapter__media{min-height:54vh}.trip-fact{grid-template-columns:1fr;gap:.5rem}}
+</style>
+</head>
+<body>
+<div class="trip-loading" id="tripLoading"><p class="fr">Opening the journey…</p></div>
+<div class="trip-error" id="tripError" style="display:none"><p>This journey could not be loaded. Return to <a href="journeys.html" style="color:var(--earth)">Journeys</a>.</p></div>
+<main class="trip" id="trip">
+  <header class="trip-hero">
+    <div class="trip-hero__img" id="tripHero"></div><div class="trip-hero__shade"></div>
+    <nav class="trip-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a><a href="journeys.html">All journeys</a></nav>
+    <div class="trip-hero__copy">
+      <p class="trip-kicker" id="tripKicker"></p>
+      <h1 class="trip-title fr" id="tripTitle"></h1>
+      <p class="trip-sub" id="tripSubtitle"></p>
+      <div class="trip-meta" id="tripMeta"></div>
+    </div>
+  </header>
+
+  <section class="trip-intro">
+    <h2 class="fr">Why this journey <em>worked.</em></h2>
+    <div class="trip-intro__copy"><p id="tripSummary"></p><p id="tripWhy"></p></div>
+  </section>
+
+  <section class="trip-route">
+    <p class="trip-route__label">The route</p>
+    <div class="trip-route__line" id="tripRoute"></div>
+  </section>
+
+  <section id="tripChapters"></section>
+
+  <section class="trip-related" id="relatedWrap" style="display:none">
+    <p class="trip-route__label">More operated journeys</p>
+    <h2 class="fr">Different people. Different shape.</h2>
+    <div class="trip-related-grid" id="relatedGrid"></div>
+  </section>
+
+  <section class="trip-cta">
+    <div><h2 class="fr">If part of this route <em>caught your attention.</em></h2><p>Start from that. We can keep one chapter, combine several, or compose something completely different around your dates and the people travelling.</p><a class="trip-btn" href="compose.html">Compose your own direction</a></div>
+    <div><p class="trip-route__label">Prefer a conversation?</p><p>You do not need a finished itinerary before getting in touch.</p><a class="trip-btn" href="begin.html">Begin a conversation</a></div>
+  </section>
+</main>
+<script src="assets/js/enkiama.js"></script>
+<script src="assets/js/journey-repository.js"></script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search),slug=q.get('slug')||'';
+  var $=function(id){return document.getElementById(id)};
+  function fail(){$('tripLoading').style.display='none';$('tripError').style.display='grid'}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function render(j){
+    document.title=j.title+' — Enkiama';
+    $('tripHero').style.backgroundImage='url("'+j.hero_image+'")';
+    $('tripKicker').textContent=(j.status==='operated'?'Operated journey':'Journey')+' · '+(j.period_label||'Tanzania');
+    $('tripTitle').textContent=j.title;
+    $('tripSubtitle').textContent=j.subtitle||'';
+    $('tripMeta').innerHTML='<span>'+esc(j.party_label||'')+'</span><span>'+esc(j.duration_label||'')+'</span><span>'+esc(j.period_label||'')+'</span>';
+    $('tripSummary').textContent=j.summary||'';
+    $('tripWhy').textContent=j.why_it_worked||'';
+    $('tripRoute').innerHTML=(j.route||[]).map(esc).join(' <span>→</span> ');
+    $('tripChapters').innerHTML=(j.chapters||[]).map(function(ch,i){
+      return '<article class="trip-chapter"><div class="trip-chapter__media"><div class="trip-chapter__img" style="background-image:url(\''+esc(ch.image||j.hero_image)+'\')"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span><span>'+esc(ch.place||'')+'</span></div></div><div class="trip-chapter__body"><p class="trip-chapter__idx">'+String(i+1).padStart(2,'0')+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></article>';
+    }).join('');
+    $('tripLoading').style.display='none';$('trip').classList.add('show');
+    window.EnkiamaJourneys.related(j.slug,2).then(function(items){
+      if(!items.length)return;
+      $('relatedGrid').innerHTML=items.map(function(x){return '<a class="related-card" href="trip.html?slug='+encodeURIComponent(x.slug)+'"><div class="related-card__img" style="background-image:url(\''+esc(x.hero_image)+'\')"></div><div class="related-card__shade"></div><div class="related-card__copy"><span>'+esc(x.party_label||'Operated journey')+'</span><strong>'+esc(x.title)+'</strong></div></a>'}).join('');
+      $('relatedWrap').style.display='block';
+    });
+  }
+  if(!slug||!window.EnkiamaJourneys){fail();return}
+  window.EnkiamaJourneys.getBySlug(slug).then(function(j){if(!j)fail();else render(j)}).catch(fail);
+})();
+</script>
+</body>
+</html>
