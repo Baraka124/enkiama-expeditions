@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "expeditions": [
+    {
+      "slug": "couple-ascent",
+      "status": "verification_required",
+      "public_label": "Past experience",
+      "party_type": "couple",
+      "title": "Private couple ascent",
+      "publishable": false,
+      "notes": "Do not publish route, dates, summit outcome or operational details until recovered from the original Enkiama record."
+    },
+    {
+      "slug": "family-ascent",
+      "status": "verification_required",
+      "public_label": "Past experience",
+      "party_type": "family",
+      "title": "Family ascent",
+      "publishable": false,
+      "notes": "Do not publish route, dates, ages, summit outcome or operational details until recovered from the original Enkiama record."
+    },
+    {
+      "slug": "kilele-2027-machame",
+      "status": "in_preparation",
+      "public_label": "In preparation · August 2027",
+      "party_type": "father-and-adult-son",
+      "title": "KILELE 2027 · Machame",
+      "publishable": true,
+      "period": "August 2027",
+      "route": "machame",
+      "mountain_days": 7,
+      "summary": "Father-and-adult-son Kilimanjaro chapter via the seven-day Machame route, designed to sit inside a wider Tanzania journey."
+    }
+  ]
+}
