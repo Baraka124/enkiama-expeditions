@@ -24,7 +24,7 @@
         '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
         '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
       '</div>'+
-      '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+r.stages.map(function(s){return '<span>'+esc(s)+'</span>';}).join('')+'</div></div>';
+      '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+r.stages.map(function(s){return '<span>'+esc(s)+'</span>';}).join('')+'</div><p style="margin-top:1.5rem"><a href="kilimanjaro-route.html?route='+encodeURIComponent(r.slug)+'" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:inherit">Open full '+esc(r.name)+' dossier →</a></p></div>';
   }
   function renderNav(){
     nav.innerHTML=catalogue.routes.map(function(r){
@@ -72,7 +72,16 @@
     if(!catalogue||Object.keys(answers).length<4)return;
     var ranked=catalogue.routes.map(function(r){return {r:r,s:score(r)};}).sort(function(a,b){return b.s-a.s;});
     var top=ranked[0].r,alt=ranked[1].r;
-    result.innerHTML='<span class="km-eye">First direction</span><h3>'+esc(top.recommended_days)+'-day '+esc(top.name)+'</h3><p>'+esc(top.fit)+'</p><p><strong>Compare with:</strong> '+esc(alt.name)+'. This is a route-direction result, not a fitness or medical clearance.</p><a href="#routes" id="kmSeeRoute">Open '+esc(top.name)+' in the route atlas →</a>';
+    var reasons=[];
+    if(Number(answers.days)===top.recommended_days)reasons.push('your available mountain days match its preferred pacing');
+    if(answers.priority==='acclimatisation')reasons.push('you prioritised acclimatisation');
+    if(answers.priority==='quiet')reasons.push('you asked for a quieter trail');
+    if(answers.priority==='scenery')reasons.push('you prioritised scenery');
+    if(answers.priority==='classic')reasons.push('you asked for a classic route');
+    if(answers.camp==='huts'&&top.slug==='marangu')reasons.push('you prefer huts rather than camping');
+    if(answers.experience==='first'&&['lemosho','northern-circuit','machame','rongai'].includes(top.slug))reasons.push('its profile is more suitable for a first high-altitude trek than our specialist lines');
+    if(!reasons.length)reasons.push('it gives the strongest overall match across your answers');
+    result.innerHTML='<span class="km-eye">First direction</span><h3>'+esc(top.recommended_days)+'-day '+esc(top.name)+'</h3><p><strong>Why:</strong> '+esc(reasons.join('; '))+'.</p><p>'+esc(top.fit)+'</p><p><strong>Compare with '+esc(alt.name)+':</strong> '+esc(alt.fit)+'</p><p>This is a route-direction result, not a fitness or medical clearance.</p><a href="kilimanjaro-route.html?route='+encodeURIComponent(top.slug)+'">Open the '+esc(top.name)+' dossier →</a> <a href="#routes" id="kmSeeRoute" style="margin-left:1rem">Compare in atlas →</a>';
     var a=document.getElementById('kmSeeRoute');if(a)a.addEventListener('click',function(){renderRoute(top);});
   }
 
