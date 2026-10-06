@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-06",
+  "journeys": {
+    "july-five-travellers-2026": {
+      "midpoint_note": "After the Serengeti, the route moved away from the classic northern circuit toward community time and Lake Natron.",
+      "chapters": [
+        {
+          "href": "kilimanjaro.html",
+          "label": "Explore Kilimanjaro country",
+          "context": "Foothills, waterfalls and the inhabited landscape around the mountain."
+        },
+        {
+          "href": "society-and-culture.html",
+          "label": "Explore culture and local life",
+          "context": "How cultural days can sit naturally inside a wider Tanzania journey."
+        },
+        {
+          "href": "tarangire.html",
+          "label": "Explore Tarangire",
+          "context": "Baobabs, elephants and the ecology of the Tarangire landscape."
+        },
+        {
+          "href": "ngorongoro.html",
+          "label": "Explore Ngorongoro",
+          "context": "Crater geography, wildlife and how it fits into the northern circuit."
+        },
+        {
+          "href": "serengeti.html",
+          "label": "Explore the Serengeti",
+          "context": "Why time, season and position inside the ecosystem matter."
+        },
+        {
+          "href": "society-and-culture.html",
+          "label": "Explore people and place",
+          "context": "Context for community encounters beyond a timed stop."
+        },
+        {
+          "href": "great-rift.html",
+          "label": "Explore Lake Natron and the Rift Valley",
+          "context": "Landscape, remoteness and the ecology around Lake Natron."
+        }
+      ]
+    },
+    "couple-northern-tanzania-zanzibar": {
+      "midpoint_note": "After the Serengeti, the journey left the mainland safari circuit and changed geography completely in Zanzibar.",
+      "chapters": [
+        {
+          "href": "kilimanjaro.html",
+          "label": "Explore Kilimanjaro country",
+          "context": "Ways to experience the mountain region without a summit itinerary."
+        },
+        {
+          "href": "arusha.html",
+          "label": "Explore Arusha and the northern gateway",
+          "context": "The wider landscape between Kilimanjaro, Arusha and the safari circuit."
+        },
+        {
+          "href": "tarangire.html",
+          "label": "Explore Tarangire",
+          "context": "The first safari landscape in this route."
+        },
+        {
+          "href": "serengeti.html",
+          "label": "Explore the Serengeti",
+          "context": "How a second night changes the wildlife experience."
+        },
+        {
+          "href": "stonetown.html",
+          "label": "Explore Stone Town",
+          "context": "History, architecture and urban life before the beach."
+        },
+        {
+          "href": "zanzibar.html",
+          "label": "Explore Zanzibar",
+          "context": "Coast, tides and how the island changes the end of a journey."
+        }
+      ]
+    },
+    "hakuna-matata-three-travellers": {
+      "midpoint_note": "The journey moved between wildlife and cultural encounters rather than treating them as separate parts of Tanzania.",
+      "chapters": [
+        {
+          "href": "kilimanjaro.html",
+          "label": "Explore Kilimanjaro country",
+          "context": "Mountain landscapes, foothills and local life around Moshi."
+        },
+        {
+          "href": "serengeti.html",
+          "label": "Explore the Serengeti",
+          "context": "The largest wildlife chapter in this journey."
+        },
+        {
+          "href": "manyara.html",
+          "label": "Explore Lake Manyara",
+          "context": "Forest, escarpment and lake-edge habitats in a compact park."
+        },
+        {
+          "href": "society-and-culture.html",
+          "label": "Explore culture and local life",
+          "context": "A wider view of the communities and traditions along the route."
+        }
+      ]
+    }
+  }
+}
