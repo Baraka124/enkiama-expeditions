@@ -410,31 +410,73 @@ nav.scrolled::before{ opacity:.035; }
 </style>
 
 <style>
-.jr-grid{display:grid;grid-template-columns:1fr 1fr;}
-.jr{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;display:flex;flex-direction:column;}
-.jr:nth-child(2n){border-right:none;}
-.jr-film{height:clamp(280px,31vw,430px);position:relative;overflow:hidden;display:flex;align-items:flex-end;background-color:var(--ink2);}
-.j1{background-image:linear-gradient(180deg,rgba(9,14,11,.08) 20%,rgba(9,14,11,.72) 100%),url('assets/hero-dawn.jpg');}
-.j2{background-image:linear-gradient(180deg,rgba(9,14,11,.06) 20%,rgba(9,14,11,.74) 100%),url('assets/serengeti.jpg');}
-.j3{background-image:linear-gradient(180deg,rgba(9,14,11,.08) 20%,rgba(9,14,11,.76) 100%),url('assets/maasai.jpg');}
-.j4{background-image:linear-gradient(180deg,rgba(9,14,11,.05) 20%,rgba(9,14,11,.72) 100%),url('assets/zanzibar.jpg');}
-.j1,.j2,.j3,.j4{background-size:cover;background-position:center;}
-.j3{background-position:center 42%;}
-.j4{background-position:center 58%;}
-.jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.22),transparent 55%);}
-.jr-route{position:relative;z-index:2;padding:1.5rem 2rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;color:rgba(237,230,214,0.84);}
-.jr-body{padding:3rem 2.5rem 3.5rem;flex:1;display:flex;flex-direction:column;}
-.jr-meta{display:flex;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap;}
-.jr-stat{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--earth);}
-.jr-stat strong{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-weight:500;font-size:15px;color:var(--bone);margin-right:5px;font-variant-caps:normal;}
-.jr-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(22px,2.8vw,34px);font-weight:700;line-height:1.05;letter-spacing:-0.018em;color:var(--bone);margin-bottom:1rem;}
-.jr-title em{font-style:italic;color:var(--ochre);}
-.jr-desc{font-size:13px;font-weight:300;color:rgba(237,230,214,0.85);line-height:1.9;margin-bottom:1.75rem;}
-.jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:rgba(190,158,104,0.4);padding-top:1.5rem;border-top:1px solid var(--rule);}
-@media(max-width:860px){
-  .jr-grid{grid-template-columns:1fr;}
-  .jr{border-right:none;}
-  .jr-body{padding:2.5rem 1.5rem 3rem;}
+.jr-ledger{border-top:1px solid var(--rule);}
+.journey-story{
+  display:grid;grid-template-columns:minmax(0,1.22fr) minmax(360px,.78fr);
+  min-height:720px;border-bottom:1px solid var(--rule);background:var(--ink);
+}
+.journey-story:nth-child(even){grid-template-columns:minmax(360px,.78fr) minmax(0,1.22fr);}
+.journey-story:nth-child(even) .journey-media{order:2;}
+.journey-story:nth-child(even) .journey-copy{order:1;}
+.journey-media{position:relative;min-height:720px;overflow:hidden;background:var(--ink2);}
+.journey-photo{position:absolute;inset:0;background-size:cover;background-position:center;}
+.journey-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.04) 42%,rgba(8,13,10,.66) 100%);}
+.journey-photo.j1{background-image:url('assets/hero-dawn.jpg');background-position:center 48%;}
+.journey-photo.j2{background-image:url('assets/zanzibar.jpg');background-position:center 55%;}
+.journey-photo.j3{background-image:url('assets/serengeti.jpg');background-position:center 50%;}
+.journey-photo.j4{background-image:url('assets/maasai.jpg');background-position:center 44%;}
+.journey-route{
+  position:absolute;left:clamp(1.5rem,3vw,3rem);right:clamp(1.5rem,3vw,3rem);bottom:clamp(1.5rem,3vw,2.7rem);z-index:2;
+  display:flex;justify-content:space-between;gap:1.5rem;align-items:flex-end;
+  font-size:11px;line-height:1.55;letter-spacing:.12em;color:rgba(237,230,214,.82);
+}
+.journey-route span:last-child{color:rgba(237,230,214,.58);white-space:nowrap;}
+.journey-copy{
+  padding:clamp(4.5rem,8vw,8rem) clamp(2rem,5vw,5rem);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.journey-kicker{font-size:10.5px;letter-spacing:.18em;color:var(--earth);margin-bottom:2rem;}
+.journey-title{
+  font-family:'Fraunces',serif;font-size:clamp(34px,4.2vw,64px);font-weight:400;
+  line-height:1.02;letter-spacing:-.025em;color:var(--bone);margin:0 0 2rem;
+}
+.journey-title em{font-weight:300;font-style:italic;color:var(--earth);}
+.journey-text{font-size:14px;line-height:1.95;color:rgba(237,230,214,.79);max-width:54ch;margin:0;}
+.journey-notes{
+  margin-top:2.75rem;padding-top:1.4rem;border-top:1px solid var(--rule);
+  display:flex;gap:1.25rem 1.75rem;flex-wrap:wrap;
+  font-size:10.5px;letter-spacing:.12em;color:rgba(190,158,104,.7);
+}
+.journey-link{display:inline-block;margin-top:2.25rem;color:var(--bone);text-decoration:none;font-size:12px;border-bottom:1px solid rgba(190,158,104,.35);width:fit-content;padding-bottom:4px;}
+.journey-link:hover{color:var(--earth);}
+.journey-trust{
+  display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:5rem;
+  padding:clamp(5rem,9vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2);border-bottom:1px solid var(--rule);
+}
+.journey-trust h2{font-family:'Fraunces',serif;font-size:clamp(32px,4.4vw,58px);font-weight:400;line-height:1.05;letter-spacing:-.025em;}
+.journey-trust p{font-size:15px;line-height:2;color:rgba(237,230,214,.78);max-width:62ch;}
+.journey-invite{
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:5rem;align-items:center;
+  padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink);
+}
+.journey-invite .eye{color:#786342;}
+.journey-invite h2{font-family:'Fraunces',serif;font-size:clamp(38px,5.4vw,74px);font-weight:400;line-height:.98;letter-spacing:-.03em;color:var(--ink);margin:1.7rem 0 2rem;}
+.journey-invite h2 em{font-style:italic;font-weight:300;color:#6a7d55;}
+.journey-invite p{font-size:14px;line-height:1.95;color:rgba(15,23,18,.72);max-width:58ch;}
+.journey-invite-actions{display:flex;flex-direction:column;gap:1rem;align-items:flex-start;}
+.journey-invite .btn-primary{background:var(--ink);border-color:var(--ink);color:var(--bone);}
+.journey-invite .btn-primary:hover{background:transparent;color:var(--ink);}
+.journey-invite .btn-ghost{color:rgba(15,23,18,.68);}
+@media(max-width:900px){
+  .journey-story,.journey-story:nth-child(even){grid-template-columns:1fr;min-height:0;}
+  .journey-story:nth-child(even) .journey-media,.journey-story:nth-child(even) .journey-copy{order:initial;}
+  .journey-media{min-height:68vh;}
+  .journey-copy{padding:4.5rem 1.5rem 5rem;}
+  .journey-trust,.journey-invite{grid-template-columns:1fr;gap:2.5rem;}
+}
+@media(max-width:520px){
+  .journey-media{min-height:58vh;}
+  .journey-route{flex-direction:column;align-items:flex-start;gap:.4rem;}
 }
 </style>
 <style id="journeys-responsive">
@@ -894,97 +936,90 @@ body.eh-locked{overflow:hidden;}
 
 <!-- PAGE HEADER -->
 <section class="ph" id="main">
-  
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.25rem;">Journeys &nbsp;&middot;&nbsp; Composed for one group at a time</p>
-    <h1 class="ph-hed reveal">Four journeys.<br>Four different <em>rhythms.</em></h1>
-    <p class="ph-sub reveal">Each Enkiama journey is composed around one group: their pace, interests, season and appetite for distance. These four examples show how different that can look. The full day-by-day detail remains private; what matters here is the shape of the journey.</p>
+    <p class="eye" style="margin-bottom:2.25rem;">Journeys &nbsp;&middot;&nbsp; A few examples</p>
+    <h1 class="ph-hed reveal">Different people.<br>Different ways through <em>Tanzania.</em></h1>
+    <p class="ph-sub reveal">These are not itineraries to choose from. They are a small selection of journeys we have already prepared for travellers with different ages, interests and rhythms.</p>
   </div>
 </section>
 
-<!-- JOURNEY SHAPES -->
-<section class="jr-grid b-rule">
-
-  <div class="jr">
-    <div class="jr-film j1">
-      <span class="jr-route">Kilimanjaro &rarr; Serengeti &rarr; Rift Valley &rarr; Zanzibar</span>
-    </div>
-    <div class="jr-body">
-      <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>13</strong> nights</span>
-        <span class="jr-stat"><strong>4</strong> worlds</span>
-        <span class="jr-stat"><strong>9</strong> lodges</span>
-        <span class="jr-stat"><strong>3</strong> guides</span>
-      </div>
-      <h2 class="jr-title reveal">Five friends,<br>first time in <em>Tanzania.</em></h2>
-      <p class="jr-desc reveal">A group of five who wanted the whole arc: mountain culture, the migration on the open plain, the descent into the crater, and the slow exhale of the coast to finish. Composed around their pace and their appetite for both spectacle and stillness, with a cultural day in Mto wa Mbu in place of a fourth park. July, peak migration. <a href="companions.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">Travelling as a group, or forming one &rarr;</a></p>
-      <p class="jr-worlds reveal">Mountain &middot; Savanna &middot; Rift Valley &middot; Coast &nbsp;&middot;&nbsp; July 2026</p>
-    </div>
+<section class="journey-trust">
+  <div>
+    <p class="eye" style="margin-bottom:1.6rem;">How Enkiama has grown</p>
+    <h2 class="reveal">Mostly through <em style="font-style:italic;font-weight:300;color:var(--earth);">recommendation.</em></h2>
   </div>
+  <p class="reveal">Enkiama is still young. Many of our first journeys have come through personal recommendation: one traveller speaking to another, a friend introducing a friend, or somebody returning to us with a new group. The journeys below show the range better than a catalogue could.</p>
+</section>
 
-  <div class="jr">
-    <div class="jr-film j2">
-      <span class="jr-route">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span>
-    </div>
-    <div class="jr-body">
-      <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>8</strong> nights</span>
-        <span class="jr-stat"><strong>3</strong> worlds</span>
-        <span class="jr-stat"><strong>2</strong> guides</span>
-      </div>
-      <h2 class="jr-title reveal">A wildlife journey,<br>nothing <em>but the land.</em></h2>
-      <p class="jr-desc reveal">A couple who came for one thing: animals, and the people who can read them. No coast, no cities. Tarangire&rsquo;s elephants, the northern Serengeti at the height of the crossing season, and a full day in the crater. Slow mornings, long game drives, a guide who had spent thirty years on that plain.</p>
-      <p class="jr-worlds reveal">Savanna &middot; Crater &nbsp;&middot;&nbsp; August</p>
-    </div>
-  </div>
+<!-- IMAGE-LED JOURNEY STORIES -->
+<section class="jr-ledger">
 
-  <div class="jr">
-    <div class="jr-film j3">
-      <span class="jr-route">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span>
+  <article class="journey-story">
+    <div class="journey-media">
+      <div class="journey-photo j1" role="img" aria-label="Kilimanjaro landscape at dawn"></div>
+      <div class="journey-route"><span>Kilimanjaro · villages · safari · cultural encounters</span><span>3 travellers</span></div>
     </div>
-    <div class="jr-body">
-      <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>6</strong> nights</span>
-        <span class="jr-stat"><strong>2</strong> worlds</span>
-        <span class="jr-stat"><strong>1</strong> family host</span>
-      </div>
-      <h2 class="jr-title reveal">The mountain,<br>without the <em>summit.</em></h2>
-      <p class="jr-desc reveal">A journey for travellers who wanted the mountain&rsquo;s culture rather than its peak: the Chagga coffee farms at 1,700 metres, a homestay with a family who have worked the same slopes for four generations, the cloud forest, and an evening in Moshi that no itinerary planned. Quiet, human, and completely unlike a safari. <a href="kilimanjaro.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">How we approach the mountain &rarr;</a></p>
-      <p class="jr-worlds reveal">Mountain &middot; Culture &nbsp;&middot;&nbsp; June</p>
+    <div class="journey-copy">
+      <p class="journey-kicker reveal">01 &nbsp;·&nbsp; Hakuna Matata group</p>
+      <h2 class="journey-title reveal">Nature and culture,<br><em>held in balance.</em></h2>
+      <p class="journey-text reveal">Three travellers began around Kilimanjaro, giving themselves time to arrive before moving into safari country. The first part of the journey combined waterfalls, time at the base of the mountain and visits centred on local life and culture. From there, the route opened into Arusha, Tarangire, Serengeti and Lake Manyara, with further encounters with Maasai communities and other local groups. Wildlife mattered, but it was never the only reason for being there.</p>
+      <div class="journey-notes reveal"><span>Kilimanjaro region</span><span>Tarangire</span><span>Serengeti</span><span>Lake Manyara</span></div>
     </div>
-  </div>
+  </article>
 
-  <div class="jr">
-    <div class="jr-film j4">
-      <span class="jr-route">Serengeti &rarr; Stone Town &rarr; Pemba</span>
+  <article class="journey-story">
+    <div class="journey-media">
+      <div class="journey-photo j2" role="img" aria-label="Zanzibar coast"></div>
+      <div class="journey-route"><span>Kilimanjaro · northern circuit · Zanzibar</span><span>2 travellers</span></div>
     </div>
-    <div class="jr-body">
-      <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>11</strong> nights</span>
-        <span class="jr-stat"><strong>2</strong> worlds</span>
-        <span class="jr-stat"><strong>2</strong> guides</span>
-      </div>
-      <h2 class="jr-title reveal">Plain and ocean,<br>one <em>long exhale.</em></h2>
-      <p class="jr-desc reveal">A journey built on contrast: the intensity of the savanna followed by the slow rhythm of the coast. Days on the open plain, then a flight to Zanzibar: Stone Town&rsquo;s seven centuries of Swahili history with a historian who knows every doorway, and the untouched reefs of Pemba to finish. The two halves spoke to each other.</p>
-      <p class="jr-worlds reveal">Savanna &middot; Coast &nbsp;&middot;&nbsp; September</p>
+    <div class="journey-copy">
+      <p class="journey-kicker reveal">02 &nbsp;·&nbsp; A couple from Spain</p>
+      <h2 class="journey-title reveal">Safari first.<br><em>The coast afterwards.</em></h2>
+      <p class="journey-text reveal">Their journey began around Kilimanjaro, with waterfalls, the mountain base and the geothermal hot springs before the safari section started. Arusha led into Tarangire, Ngorongoro and two nights in the Serengeti. The final chapter was Zanzibar: Stone Town, then several quieter days in Nungwi. The route was built around contrast — movement and wildlife first, then enough time by the ocean for the journey to change pace completely.</p>
+      <div class="journey-notes reveal"><span>Kilimanjaro</span><span>Ngorongoro</span><span>Serengeti</span><span>Stone Town</span><span>Nungwi</span></div>
     </div>
-  </div>
+  </article>
+
+  <article class="journey-story">
+    <div class="journey-media">
+      <div class="journey-photo j3" role="img" aria-label="Serengeti landscape"></div>
+      <div class="journey-route"><span>Moshi · Kibosho · northern circuit · Lake Natron</span><span>5 travellers</span></div>
+    </div>
+    <div class="journey-copy">
+      <p class="journey-kicker reveal">03 &nbsp;·&nbsp; July group</p>
+      <h2 class="journey-title reveal">Five people.<br>A deliberately <em>slower pace.</em></h2>
+      <p class="journey-text reveal">This group of five travelled in July, with ages spanning roughly forty to seventy. Around Moshi and Kilimanjaro, the days included waterfalls, Chagga communities, coffee traditions and village life around Kibosho. The safari then moved through Tarangire, Ngorongoro and two nights in the Serengeti. The final stretch brought a very different kind of day: time with a Maasai community, a shared barbecue and Lake Natron. The pace was never rushed, and the road itself became part of the experience.</p>
+      <div class="journey-notes reveal"><span>Kibosho</span><span>Tarangire</span><span>Ngorongoro</span><span>Serengeti</span><span>Lake Natron</span></div>
+      <a href="companions.html" class="journey-link reveal">Travelling as a small group →</a>
+    </div>
+  </article>
+
+  <article class="journey-story">
+    <div class="journey-media">
+      <div class="journey-photo j4" role="img" aria-label="Cultural encounter in northern Tanzania"></div>
+      <div class="journey-route"><span>Mountain · wildlife · coast · community</span><span>Composed, not fixed</span></div>
+    </div>
+    <div class="journey-copy">
+      <p class="journey-kicker reveal">04 &nbsp;·&nbsp; No fixed formula</p>
+      <h2 class="journey-title reveal">The same places can make<br><em>a completely different journey.</em></h2>
+      <p class="journey-text reveal">A route does not have to follow one pattern. Kilimanjaro can mean a summit, a day at the foothills or several days inside Chagga country. Serengeti can be the centre of a wildlife journey or one chapter within a much broader trip. Zanzibar can close a safari, begin a honeymoon or stand on its own. We use destinations as material, then shape the journey around the people travelling.</p>
+      <div class="journey-notes reveal"><span>Couples</span><span>Friends</span><span>Families</span><span>Small groups</span></div>
+      <a href="compose.html" class="journey-link reveal">How we compose a journey →</a>
+    </div>
+  </article>
 
 </section>
 
 <!-- INVITATION -->
-<section class="b-rule" style="background:var(--ink2);">
-  <div style="padding:9rem 3rem;display:grid;grid-template-columns:2fr 1fr;gap:5rem;" class="cta-wrap">
-    <div>
-      <p class="eye" style="margin-bottom:2rem;">See one in full</p>
-      <h2 style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;" class="reveal">See how a journey<br><em style="font-style:italic;color:var(--ochre);">comes together.</em></h2>
-      <div style="width:24px;height:1px;background:var(--ochre);opacity:0.5;margin:2rem 0;"></div>
-      <p class="dim reveal">If one of these shapes is close to what you have in mind, we can walk you through a complete sample: pacing, lodges, transfers, guiding and the decisions that hold the journey together.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;justify-content:center;gap:1.5rem;" class="cta-btns">
-      <a href="begin.html" class="btn-primary">Ask to see a sample</a>
-      <a href="stories.html" class="btn-ghost">Read what guests felt &rarr;</a>
-    </div>
+<section class="journey-invite">
+  <div>
+    <p class="eye">Your journey</p>
+    <h2 class="reveal">If one place — or a mix of them —<br><em>has caught your attention.</em></h2>
+    <p class="reveal">Tell us what you are drawn to, how you like to travel and roughly when you are thinking of coming. We can start from one destination, combine several, or build something completely different from the examples above.</p>
+  </div>
+  <div class="journey-invite-actions">
+    <a href="begin.html" class="btn-primary">Begin a conversation</a>
+    <a href="tanzania.html" class="btn-ghost">Explore Tanzania first →</a>
   </div>
 </section>
 
