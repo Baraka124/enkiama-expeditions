@@ -2,13 +2,50 @@
    Static JSON today; Supabase RPC can replace it without changing the UI. */
 (function(){
   var STATIC_URL='data/journeys.json';
+  var MEDIA_URL='data/journey-media.json';
   var cache=null;
+
+  function normalizeMedia(journey,mediaSpec){
+    mediaSpec=mediaSpec||{};
+    journey.hero_media=mediaSpec.hero||{
+      primary:{
+        src:journey.hero_image||'assets/images/hero-dawn.webp',
+        alt:journey.title||'Tanzania journey',
+        focal_point:'50% 50%',
+        caption:'',
+        source_type:'legacy'
+      }
+    };
+    (journey.chapters||[]).forEach(function(ch,i){
+      var spec=(mediaSpec.chapters||[])[i]||{};
+      ch.layout=spec.layout||ch.layout||'split';
+      ch.media={
+        primary:spec.primary||{
+          src:ch.image||journey.hero_media.primary.src,
+          alt:ch.title||ch.place||journey.title,
+          focal_point:'50% 50%',
+          caption:'',
+          source_type:'legacy'
+        }
+      };
+      if(spec.secondary) ch.media.secondary=spec.secondary;
+    });
+    return journey;
+  }
+
+  function mergeMedia(catalog,manifest){
+    var map=(manifest&&manifest.journeys)||{};
+    (catalog.journeys||[]).forEach(function(j){normalizeMedia(j,map[j.slug]);});
+    catalog.media_version=(manifest&&manifest.version)||0;
+    return catalog;
+  }
 
   function staticLoad(){
     if(cache) return Promise.resolve(cache);
-    return fetch(STATIC_URL,{headers:{'Accept':'application/json'}})
-      .then(function(r){if(!r.ok) throw new Error('Journey catalog '+r.status); return r.json();})
-      .then(function(data){cache=data; return data;});
+    return Promise.all([
+      fetch(STATIC_URL,{headers:{'Accept':'application/json'}}).then(function(r){if(!r.ok) throw new Error('Journey catalog '+r.status); return r.json();}),
+      fetch(MEDIA_URL,{headers:{'Accept':'application/json'}}).then(function(r){return r.ok?r.json():{version:0,journeys:{}};}).catch(function(){return {version:0,journeys:{}};})
+    ]).then(function(parts){cache=mergeMedia(parts[0],parts[1]);return cache;});
   }
 
   function supabaseLoad(){
@@ -16,6 +53,7 @@
     return window.Enkiama.rpc('get_public_journey_catalog',{}).then(function(data){
       if(!data) throw new Error('Empty journey catalog');
       var normalized=Array.isArray(data)?{version:1,journeys:data}:data;
+      (normalized.journeys||[]).forEach(function(j){normalizeMedia(j,j.media_manifest||null);});
       cache=normalized;
       return normalized;
     });
