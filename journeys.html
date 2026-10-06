@@ -1164,6 +1164,159 @@ body[data-page="journeys"] .jr-worlds{
   .jr--editorial .jr-film,.jr--editorial .jr-body{order:initial !important;}
 }
 </style>
+
+<style>
+/* ══════════ JOURNEYS ARCHITECTURE V2 ══════════
+   Elevates the current editorial system without flattening it. */
+
+/* Image choreography + secondary visual layer */
+.jr-film{isolation:isolate;}
+.jr-film__inset{
+  position:absolute;z-index:3;top:clamp(1.2rem,2.4vw,2.5rem);right:clamp(1.2rem,2.4vw,2.5rem);
+  width:min(31%,220px);aspect-ratio:4/5;overflow:hidden;
+  border:1px solid rgba(237,230,214,.12);
+  box-shadow:0 22px 70px rgba(0,0,0,.28);
+  background-size:cover;background-repeat:no-repeat;background-position:center;
+}
+.jr:nth-child(even) .jr-film__inset{right:auto;left:clamp(1.2rem,2.4vw,2.5rem);}
+.jr-film__inset::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 56%,rgba(8,13,10,.38));}
+.jr-film__inset--culture{background-image:url('assets/culture-table.jpg');}
+.jr-film__inset--lodge{background-image:url('assets/lodge.jpg');background-position:center 58%;}
+.jr-film__inset--maasai{background-image:url('assets/maasai.jpg');background-position:center 42%;}
+.jr-film__inset--coast{background-image:url('assets/zanzibar.jpg');background-position:center 62%;}
+
+/* Route becomes a quiet editorial rail */
+.jr-route{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;}
+.jr-route__path{display:block;}
+.jr-route__context{
+  display:block;flex:0 0 auto;white-space:nowrap;
+  color:rgba(247,242,231,.62);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+}
+
+/* Typography hierarchy inside each record */
+.jr-lede{
+  font-family:'Fraunces',serif;font-size:clamp(18px,1.55vw,23px);font-style:italic;font-weight:300;
+  line-height:1.55;color:rgba(237,230,214,.91);max-width:38ch;margin:-.25rem 0 1.5rem;
+}
+.jr-desc + .jr-desc{margin-top:-.65rem;}
+.jr--lead .jr-lede{max-width:34ch;}
+.jr--lead .jr-title{max-width:11ch;}
+.jr--lead .jr-body{background:linear-gradient(145deg,rgba(19,28,22,.72),rgba(15,23,18,1));}
+
+/* Featured July chapter gets more room because the story carries more evidence */
+.jr--lead{
+  grid-template-columns:minmax(0,1.18fr) minmax(470px,.82fr);
+  min-height:760px;
+}
+.jr--lead .jr-film{min-height:760px;}
+.jr--lead .jr-body{padding-top:clamp(4.5rem,7vw,7rem);padding-bottom:clamp(4.5rem,7vw,7rem);}
+.jr--lead .jr-desc{max-width:54ch;}
+
+/* Preserve authored archetypes; make each one visibly distinct */
+.jr--field{grid-template-columns:minmax(420px,.78fr) minmax(0,1.22fr);}
+.jr--field .jr-body{padding-left:clamp(3rem,6vw,6rem);}
+.jr--coast{grid-template-columns:minmax(0,1.26fr) minmax(390px,.74fr);min-height:620px;}
+.jr--coast .jr-film{min-height:620px;}
+.jr--coast .jr-title{max-width:10ch;}
+
+/* Current editorial record readability fix, integrated here rather than as a separate patch */
+@media (min-width:1261px){
+  body[data-page="journeys"] .jr--editorial{
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(560px,.92fr);
+    min-height:700px;
+  }
+  body[data-page="journeys"] .jr--editorial .jr-film{
+    width:auto;min-height:700px;height:100%;background-size:cover;background-position:center 38%;
+  }
+  body[data-page="journeys"] .jr--editorial .jr-body{
+    border-top:0;border-left:1px solid var(--rule);
+    display:grid;grid-template-columns:minmax(104px,132px) minmax(0,1fr);
+    grid-template-areas:"meta worlds" "meta title" "meta lede" "meta desc";
+    column-gap:clamp(1.75rem,3vw,3.25rem);row-gap:1.25rem;align-content:center;
+    padding:clamp(3.5rem,5vw,5.5rem) clamp(2.8rem,4vw,4.8rem);min-width:0;
+  }
+  body[data-page="journeys"] .jr--editorial .jr-meta{grid-area:meta;align-self:start;min-width:0;}
+  body[data-page="journeys"] .jr--editorial .jr-worlds{grid-area:worlds;justify-self:end;align-self:start;margin:0;padding:0 0 .8rem;border:0;white-space:nowrap;}
+  body[data-page="journeys"] .jr--editorial .jr-title{grid-area:title;width:min(100%,11ch);max-width:11ch;min-width:0;margin:0;font-size:clamp(42px,4.1vw,64px);}
+  body[data-page="journeys"] .jr--editorial .jr-lede{grid-area:lede;margin:0;}
+  body[data-page="journeys"] .jr--editorial .jr-desc{grid-area:desc;width:min(100%,46ch);max-width:46ch;min-width:0;margin:0;}
+  body[data-page="journeys"] .jr--editorial .jr-body::before{top:auto;right:auto;bottom:2rem;left:clamp(2.8rem,4vw,4.8rem);}
+}
+@media (min-width:861px) and (max-width:1260px){
+  body[data-page="journeys"] .jr--editorial{grid-template-columns:1fr;min-height:0;}
+  body[data-page="journeys"] .jr--editorial .jr-film{min-height:clamp(460px,58vw,680px);}
+  body[data-page="journeys"] .jr--editorial .jr-body{
+    border-left:0;border-top:1px solid var(--rule);
+    display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr);
+    grid-template-areas:"meta worlds" "meta title" "meta lede" "meta desc";
+    gap:1.25rem clamp(2rem,5vw,4rem);padding:3.75rem clamp(2rem,5vw,4rem) 4.5rem;
+  }
+  body[data-page="journeys"] .jr--editorial .jr-meta{grid-area:meta;}
+  body[data-page="journeys"] .jr--editorial .jr-worlds{grid-area:worlds;justify-self:end;margin:0;padding:0;border:0;}
+  body[data-page="journeys"] .jr--editorial .jr-title{grid-area:title;max-width:11ch;margin:0;}
+  body[data-page="journeys"] .jr--editorial .jr-lede{grid-area:lede;margin:0;}
+  body[data-page="journeys"] .jr--editorial .jr-desc{grid-area:desc;max-width:52ch;margin:0;}
+}
+
+/* Author the transitions rather than repeating section borders */
+.jr-grid + .water-interlude{margin-top:0;}
+.water-interlude{box-shadow:inset 0 1px 0 rgba(237,230,214,.03);}
+.silent-transition{position:relative;overflow:hidden;}
+.silent-transition::after{
+  content:'Rift Valley';position:absolute;right:4vw;bottom:-.16em;
+  font-family:'Fraunces',serif;font-style:italic;font-size:clamp(72px,13vw,190px);
+  color:rgba(15,23,18,.045);letter-spacing:-.04em;pointer-events:none;
+}
+
+/* Final spread: attraction first, then action */
+.journey-close{
+  min-height:clamp(620px,74vh,820px);
+  position:relative;overflow:hidden;
+}
+.journey-close::before{
+  content:'';position:absolute;inset:0 0 0 auto;width:min(42vw,680px);z-index:0;
+  background:
+    linear-gradient(90deg,var(--bone) 0%,rgba(237,230,214,.42) 16%,rgba(237,230,214,.03) 46%),
+    linear-gradient(180deg,rgba(15,23,18,.03),rgba(15,23,18,.3)),
+    url('assets/great-rift.jpg') center / cover no-repeat;
+}
+.journey-close__folio,.journey-close__body,.journey-close__notes{position:relative;z-index:1;}
+.journey-close__body{max-width:min(58vw,820px);}
+.journey-close__copy{max-width:52ch;}
+.journey-close__action{margin-top:2rem;}
+
+/* Mobile is deliberately recomposed, not merely collapsed */
+@media(max-width:860px){
+  .jr--lead,.jr--field,.jr--coast{grid-template-columns:1fr;min-height:0;}
+  .jr--lead .jr-film,.jr--coast .jr-film{min-height:clamp(420px,112vw,620px);}
+  .jr-film__inset{
+    width:min(34%,170px);top:1rem;right:1rem;aspect-ratio:3/4;
+  }
+  .jr:nth-child(even) .jr-film__inset{left:auto;right:1rem;}
+  .jr-route{flex-direction:column;align-items:flex-start;gap:.35rem;}
+  .jr-route__context{white-space:normal;}
+  .jr-lede{font-size:18px;max-width:32ch;margin-bottom:1.35rem;}
+  body[data-page="journeys"] .jr--editorial .jr-meta,
+  body[data-page="journeys"] .jr--editorial .jr-title,
+  body[data-page="journeys"] .jr--editorial .jr-lede,
+  body[data-page="journeys"] .jr--editorial .jr-desc,
+  body[data-page="journeys"] .jr--editorial .jr-worlds{grid-column:1;grid-area:auto;}
+  .journey-close{padding-bottom:52vh;}
+  .journey-close::before{
+    width:100%;height:50vh;inset:auto 0 0;
+    background:
+      linear-gradient(180deg,var(--bone) 0%,rgba(237,230,214,.08) 28%,rgba(237,230,214,0) 42%),
+      linear-gradient(180deg,rgba(15,23,18,.02),rgba(15,23,18,.28)),
+      url('assets/great-rift.jpg') center 55% / cover no-repeat;
+  }
+  .journey-close__body{max-width:none;}
+}
+@media(max-width:560px){
+  .jr-film__inset{width:36%;max-width:145px;}
+  .jr--lead .jr-film,.jr--coast .jr-film{min-height:520px;}
+}
+</style>
 </head>
 <body data-page="journeys">
 <!-- ENKIAMA_HEADER_START -->
@@ -1574,7 +1727,8 @@ body.eh-locked{overflow:hidden;}
 
   <div class="jr jr--lead">
     <div class="jr-film j1">
-      <span class="jr-route">Kilimanjaro &rarr; Serengeti &rarr; Rift Valley &rarr; Zanzibar</span>
+      <div class="jr-film__inset jr-film__inset--culture" aria-hidden="true"></div>
+      <span class="jr-route"><span class="jr-route__path">Moshi &rarr; Kibosho &rarr; Tarangire &rarr; Ngorongoro &rarr; Serengeti &rarr; Lake Natron</span><span class="jr-route__context">5 travellers · July</span></span>
     </div>
     <div class="jr-body" data-index="01">
       <div class="jr-meta reveal">
@@ -1582,15 +1736,19 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat">Long arc</span>
         <span class="jr-stat">Mountain to coast</span>
       </div>
-      <h2 class="jr-title reveal">Five friends,<br>first time in <em>Tanzania.</em></h2>
-      <p class="jr-desc reveal">Five friends wanted the whole arc without turning it into a race: mountain culture, migration, crater and coast. The important decision was what not to add—protecting enough time for each landscape to register, including a cultural day in Mto wa Mbu instead of another park. <a href="companions.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">Travelling as a group, or forming one &rarr;</a></p>
-      <p class="jr-worlds reveal">Mountain &middot; Savanna &middot; Rift Valley &middot; Coast &nbsp;&middot;&nbsp; July 2026</p>
+      <h2 class="jr-title reveal">Five people,<br>one deliberately <em>slower rhythm.</em></h2>
+      <p class="jr-lede reveal">The itinerary had to work for five people, roughly forty to seventy, not for an abstract idea of what a safari should be.</p>
+      <p class="jr-desc reveal">Around Moshi and Kilimanjaro there were waterfalls, Chagga communities, coffee-making, village life in Kibosho and lodges chosen as places to enjoy rather than simply places to sleep. Safari days started early when there was a reason to start early, but the journey was never built around exhaustion: there was room for a pool, a sunset, a long lunch or simply doing less.</p>
+      <p class="jr-desc reveal">Then came Tarangire, Ngorongoro and two nights in the Serengeti. They saw an extraordinary amount of wildlife, but some of the memories that lasted longest happened elsewhere: music in the vehicle, jokes that carried from one day to the next, a Maasai visit that ended with a barbecue, and Lake Natron becoming one of the strongest parts of the journey.</p>
+      <p class="jr-worlds reveal">Chagga country &middot; Safari &middot; Maasai encounter &middot; Lake Natron &nbsp;&middot;&nbsp; July 2026</p>
+      <a href="companions.html" class="journey-close__note" style="margin-top:1.4rem;width:fit-content;">Travelling as a small group &rarr;</a>
     </div>
   </div>
 
   <div class="jr jr--field">
     <div class="jr-film j2">
-      <span class="jr-route">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span>
+      <div class="jr-film__inset jr-film__inset--lodge" aria-hidden="true"></div>
+      <span class="jr-route"><span class="jr-route__path">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span><span class="jr-route__context">Wildlife-led</span></span>
     </div>
     <div class="jr-body" data-index="02">
       <div class="jr-meta reveal">
@@ -1599,7 +1757,8 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat">No coast</span>
       </div>
       <h2 class="jr-title reveal">A wildlife journey,<br>nothing <em>but the land.</em></h2>
-      <p class="jr-desc reveal">A couple came for animals, and for the people who can read them. No coast, no cities: Tarangire, the northern Serengeti and the crater. Slow mornings, long drives, and a guide who had spent thirty years on that plain.</p>
+      <p class="jr-lede reveal">When wildlife is the reason for travelling, the route can become more focused rather than more crowded.</p>
+      <p class="jr-desc reveal">A couple came for animals, and for the people who can read them. No coast, no cities: Tarangire, the northern Serengeti and the crater. Slow mornings, long drives, and enough time with one guide for the landscape to become legible rather than merely impressive.</p>
       <p class="jr-worlds reveal">Savanna &middot; Crater &nbsp;&middot;&nbsp; August</p>
     </div>
   </div>
@@ -1662,7 +1821,8 @@ body.eh-locked{overflow:hidden;}
 <section class="jr-grid jr-grid--after-water">
   <div class="jr jr--editorial">
     <div class="jr-film j3">
-      <span class="jr-route">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span>
+      <div class="jr-film__inset jr-film__inset--maasai" aria-hidden="true"></div>
+      <span class="jr-route"><span class="jr-route__path">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span><span class="jr-route__context">No summit</span></span>
     </div>
     <div class="jr-body" data-index="03">
       <div class="jr-meta reveal">
@@ -1671,6 +1831,7 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat">No summit</span>
       </div>
       <h2 class="jr-title reveal">The mountain,<br>without the <em>summit.</em></h2>
+      <p class="jr-lede reveal">Kilimanjaro does not have to mean climbing it.</p>
       <p class="jr-desc reveal">For travellers drawn to the mountain&rsquo;s culture rather than its summit: Chagga coffee farms, a family host on the slopes, cloud forest, and an unplanned evening in Moshi. Quiet, human, and deliberately unlike safari. <a href="kilimanjaro.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">How we approach the mountain &rarr;</a></p>
       <p class="jr-worlds reveal">Mountain &middot; Culture &nbsp;&middot;&nbsp; June</p>
     </div>
@@ -1685,7 +1846,8 @@ body.eh-locked{overflow:hidden;}
 
   <div class="jr jr--coast">
     <div class="jr-film j4">
-      <span class="jr-route">Serengeti &rarr; Stone Town &rarr; Pemba</span>
+      <div class="jr-film__inset jr-film__inset--coast" aria-hidden="true"></div>
+      <span class="jr-route"><span class="jr-route__path">Serengeti &rarr; Stone Town &rarr; Pemba</span><span class="jr-route__context">Plain to ocean</span></span>
     </div>
     <div class="jr-body" data-index="04">
       <div class="jr-meta reveal">
@@ -1694,7 +1856,8 @@ body.eh-locked{overflow:hidden;}
         <span class="jr-stat">Long finish</span>
       </div>
       <h2 class="jr-title reveal">Plain and ocean,<br>one <em>long exhale.</em></h2>
-      <p class="jr-desc reveal">Built around contrast. The first half belongs to the open plain; the second slows down. After the Serengeti come Stone Town and Pemba: less movement, more water, enough time for the coast to become a second chapter.</p>
+      <p class="jr-lede reveal">The coast works best when it changes the emotional speed of the journey.</p>
+      <p class="jr-desc reveal">Built around contrast. The first half belongs to the open plain; the second slows down. After the Serengeti come Stone Town and Pemba: less movement, more water, enough time for the coast to become a second chapter rather than a beach extension attached to the end.</p>
       <p class="jr-worlds reveal">Savanna &middot; Coast &nbsp;&middot;&nbsp; September</p>
     </div>
   </div>
@@ -1705,10 +1868,10 @@ body.eh-locked{overflow:hidden;}
 <section class="journey-close" aria-labelledby="journey-close-title">
   <div class="journey-close__folio">Enkiama · Journeys</div>
   <div class="journey-close__body">
-    <p class="journey-close__eyebrow">Begin with the way you want to travel</p>
-    <h2 id="journey-close-title" class="journey-close__title reveal">Tell us what should<br><em>shape yours.</em></h2>
-    <p class="journey-close__copy">You do not need to arrive with an itinerary. Tell us who is travelling, the time you have, what pulls you toward Tanzania, and what you do not want rushed.</p>
-    <a href="begin.html" class="journey-close__action">Begin a conversation <span aria-hidden="true">&rarr;</span></a>
+    <p class="journey-close__eyebrow">Start from what caught your attention</p>
+    <h2 id="journey-close-title" class="journey-close__title reveal">If one place — or a mix of them —<br><em>made you stop.</em></h2>
+    <p class="journey-close__copy">Tell us what drew you in. It can be Serengeti, Kilimanjaro, Lake Natron, Zanzibar, village life, a slower pace, or simply the idea of combining several of them well. You do not need to arrive with an itinerary.</p>
+    <a href="begin.html" class="journey-close__action">Tell us what caught your attention <span aria-hidden="true">&rarr;</span></a>
   </div>
   <div class="journey-close__notes">
     <a href="how.html" class="journey-close__note">How we compose a journey</a>
