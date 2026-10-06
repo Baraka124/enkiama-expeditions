@@ -1142,6 +1142,23 @@ body.eh-locked{overflow:hidden;}
           <div class="cmp-reasoning" id="cmpReasoning"></div>
         </section>
 
+        <section class="cmp-example" id="cmpExample" style="display:none">
+          <div class="cmp-result-section-head">
+            <p class="cmp-result-section-label">A journey already operated</p>
+            <h3>See how similar choices looked in real life.</h3>
+          </div>
+          <a class="cmp-example-card" id="cmpExampleLink" href="#">
+            <div class="cmp-example-media" id="cmpExampleMedia"></div>
+            <div class="cmp-example-shade"></div>
+            <div class="cmp-example-copy">
+              <div class="cmp-example-meta"><span id="cmpExampleParty"></span><span id="cmpExamplePeriod"></span></div>
+              <h4 id="cmpExampleTitle"></h4>
+              <p id="cmpExampleSummary"></p>
+              <span class="cmp-example-cta">Open the full journey →</span>
+            </div>
+          </a>
+        </section>
+
         <section class="cmp-open-decisions">
           <div>
             <p class="cmp-result-section-label">Still open</p>
@@ -1297,6 +1314,17 @@ body.eh-locked{overflow:hidden;}
 .cmp-result-reasoning .cmp-reason{min-height:150px;margin:0;padding:1.4rem 1.35rem;display:block;background:var(--ink);font-size:13px;line-height:1.75;}
 .cmp-result-reasoning .cmp-reason-mark{display:block;margin-bottom:1.1rem;color:var(--earth);}
 
+
+.cmp-example{padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
+.cmp-example-card{position:relative;display:block;min-height:460px;overflow:hidden;text-decoration:none;border:1px solid var(--rule);background:var(--ink2);}
+.cmp-example-media{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s cubic-bezier(.16,1,.3,1);}
+.cmp-example-card:hover .cmp-example-media{transform:scale(1.025);}
+.cmp-example-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.08) 24%,rgba(8,13,10,.9) 100%),linear-gradient(90deg,rgba(8,13,10,.35),transparent 58%);}
+.cmp-example-copy{position:absolute;z-index:2;left:clamp(1.5rem,3vw,2.5rem);right:clamp(1.5rem,3vw,2.5rem);bottom:clamp(1.5rem,3vw,2.5rem);max-width:650px;}
+.cmp-example-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.56);padding-bottom:.9rem;border-bottom:1px solid rgba(237,230,214,.2);margin-bottom:1.1rem;}
+.cmp-example-copy h4{font-family:'Fraunces',serif;font-size:clamp(34px,4.5vw,58px);font-weight:350;line-height:1;letter-spacing:-.03em;color:var(--bone);max-width:11ch;margin-bottom:1rem;}
+.cmp-example-copy p{font-size:13px;line-height:1.75;color:rgba(237,230,214,.74);max-width:54ch;margin-bottom:1.2rem;}
+.cmp-example-cta{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);border-bottom:1px solid rgba(190,158,104,.42);padding-bottom:.3rem;}
 .cmp-open-decisions{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(2.5rem,5vw,5rem);padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
 .cmp-open-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
 .cmp-open-grid>div{padding:1.3rem 1.25rem 1.5rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
@@ -1365,6 +1393,7 @@ body.eh-locked{overflow:hidden;}
 @media(prefers-reduced-motion:reduce){.cmp-step,.cmp-visual-bg,.cmp-route-card,.cmp-reason{transition:none!important;animation:none!important;}}
 </style>
 
+<script src="assets/js/journey-repository.js"></script>
 <script>
 (function(){
   var answers={},step=0,TOTAL=5;
@@ -1521,10 +1550,39 @@ body.eh-locked{overflow:hidden;}
     var rEl=document.getElementById('cmpReasoning');rEl.innerHTML='';
     rs.forEach(function(r){var d=document.createElement('div');d.className='cmp-reason';d.innerHTML='<span class="cmp-reason-mark">◇</span><span>'+r+'</span>';rEl.appendChild(d);});
 
+    var recommendationPromise=Promise.resolve(null);
+    if(window.EnkiamaJourneys){
+      recommendationPromise=window.EnkiamaJourneys.recommend({
+        pull:pull,time:time,season:season,pace:pace,coast:coast,who:who
+      }).then(function(rec){
+        var wrap=document.getElementById('cmpExample');
+        if(!rec||!rec.journey){if(wrap)wrap.style.display='none';return null;}
+        var j=rec.journey;
+        document.getElementById('cmpExampleLink').href='trip.html?slug='+encodeURIComponent(j.slug);
+        document.getElementById('cmpExampleMedia').style.backgroundImage='url("'+j.hero_image+'")';
+        document.getElementById('cmpExampleParty').textContent=j.party_label||'Operated journey';
+        document.getElementById('cmpExamplePeriod').textContent=j.period_label||'Tanzania';
+        document.getElementById('cmpExampleTitle').textContent=j.title;
+        document.getElementById('cmpExampleSummary').textContent=j.summary;
+        wrap.style.display='block';
+        return j;
+      }).catch(function(){return null;});
+    }
+
     var lab=function(k,v){return v&&labels[k]&&labels[k][v]?labels[k][v]:(v||'Open');};
     var msg='Hello Enkiama. I composed a first journey shape on the website:\n\n• Interest: '+lab('pull',pull)+'\n• Time: '+lab('time',time)+'\n• Rough timing: '+lab('season',season)+'\n• Pace: '+lab('pace',pace)+'\n• Coast: '+lab('coast',coast)+'\n• Travelling: '+lab('who',who)+'\n\nFirst route: '+arc.join(' → ')+'\n\nI would like to refine this direction with you.';
     document.getElementById('cmpWhatsapp').href='https://wa.me/34659447627?text='+encodeURIComponent(msg);
     document.getElementById('cmpBegin').href='begin.html?composed='+encodeURIComponent(msg);
+
+    recommendationPromise.then(function(example){
+      if(window.EnkiamaJourneys){
+        window.EnkiamaJourneys.recordComposition({
+          preferences:{pull:pull,time:time,season:season,pace:pace,coast:coast,who:who},
+          route:arc,
+          example_slug:example?example.slug:null
+        });
+      }
+    });
 
     document.querySelector('.cmp-stage').classList.add('result-mode');
     result.classList.add('show');
@@ -1533,7 +1591,7 @@ body.eh-locked{overflow:hidden;}
     var reasons=result.querySelectorAll('.cmp-reason'),base=180+cards.length*130;reasons.forEach(function(r,i){setTimeout(function(){r.classList.add('in');},base+i*120);});
   }
 
-  document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelector('.cmp-stage').classList.remove('result-mode');document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
+  document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelector('.cmp-stage').classList.remove('result-mode');var ex=document.getElementById('cmpExample');if(ex)ex.style.display='none';document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
   showStep(0);
 })();
 </script>
