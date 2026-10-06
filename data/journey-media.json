@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-06",
+  "journeys": {
+    "july-five-travellers-2026": {
+      "hero": {
+        "primary": {
+          "src": "assets/images/hero-dawn.webp",
+          "alt": "Kilimanjaro and northern Tanzania at first light",
+          "focal_point": "50% 46%",
+          "caption": "Opening light in northern Tanzania.",
+          "source_type": "existing-library"
+        }
+      },
+      "chapters": [
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/synthetic/july26-kilimanjaro-foothills-waterfall.jpg",
+            "alt": "Kilimanjaro foothills and waterfall landscape at the beginning of the journey",
+            "focal_point": "50% 46%",
+            "caption": "A slower opening around Kilimanjaro before the safari circuit.",
+            "source_type": "synthetic"
+          }
+        },
+        {
+          "layout": "photo-pair",
+          "primary": {
+            "src": "assets/images/synthetic/july26-kibosho-coffee-farmer.jpg",
+            "alt": "Coffee farmer working with freshly harvested coffee in the Kilimanjaro highlands",
+            "focal_point": "50% 48%",
+            "caption": "Coffee-making and village life in Chagga country.",
+            "source_type": "synthetic"
+          },
+          "secondary": {
+            "src": "assets/images/culture-table.jpg",
+            "alt": "Shared table and coffee culture in northern Tanzania",
+            "focal_point": "48% 54%",
+            "caption": "The slower human detail of the day.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "split",
+          "primary": {
+            "src": "assets/images/tarangire.jpg",
+            "alt": "Elephants and baobab landscape in Tarangire",
+            "focal_point": "52% 48%",
+            "caption": "Tarangire opens the wildlife chapter.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/ngorongoro.webp",
+            "alt": "Ngorongoro Crater landscape",
+            "focal_point": "50% 45%",
+            "caption": "A dramatic shift in geography.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "split",
+          "primary": {
+            "src": "assets/images/synthetic/july26-serengeti-wildebeest-crossing.jpg",
+            "alt": "Large wildebeest herd moving through water in the Serengeti ecosystem",
+            "focal_point": "54% 45%",
+            "caption": "The Serengeti chapter becomes visually distinct from the rest of the northern circuit.",
+            "source_type": "synthetic"
+          }
+        },
+        {
+          "layout": "photo-pair",
+          "primary": {
+            "src": "assets/images/maasai.jpg",
+            "alt": "Maasai community setting in northern Tanzania",
+            "focal_point": "50% 42%",
+            "caption": "A community visit allowed to become a longer encounter.",
+            "source_type": "existing-library"
+          },
+          "secondary": {
+            "src": "assets/images/group-fire.jpg",
+            "alt": "Travellers gathered around a fire",
+            "focal_point": "50% 52%",
+            "caption": "The day continued into a shared evening.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/great-rift.jpg",
+            "alt": "Lake Natron and the Great Rift Valley landscape",
+            "focal_point": "50% 48%",
+            "caption": "Lake Natron became an unexpected highlight.",
+            "source_type": "existing-library"
+          }
+        }
+      ]
+    },
+    "couple-northern-tanzania-zanzibar": {
+      "hero": {
+        "primary": {
+          "src": "assets/images/zanzibar.jpg",
+          "alt": "Indian Ocean coast in Zanzibar",
+          "focal_point": "50% 58%",
+          "caption": "The coast as the final change of rhythm.",
+          "source_type": "existing-library"
+        }
+      },
+      "chapters": [
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/kilimanjaro.jpg",
+            "alt": "Kilimanjaro landscape near Moshi",
+            "focal_point": "50% 42%",
+            "caption": "Mountain country without a summit itinerary.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "split",
+          "primary": {
+            "src": "assets/images/arusha.jpg",
+            "alt": "Northern Tanzanian landscape near Arusha",
+            "focal_point": "50% 48%",
+            "caption": "A softer day around water before safari.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "photo-pair",
+          "primary": {
+            "src": "assets/images/tarangire.jpg",
+            "alt": "Tarangire elephant and baobab landscape",
+            "focal_point": "52% 46%",
+            "caption": "The first safari landscape.",
+            "source_type": "existing-library"
+          },
+          "secondary": {
+            "src": "assets/images/ngorongoro.jpg",
+            "alt": "Ngorongoro Crater landscape",
+            "focal_point": "50% 44%",
+            "caption": "A second safari geography that feels entirely different.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/serengeti.jpg",
+            "alt": "Serengeti plain during safari",
+            "focal_point": "54% 46%",
+            "caption": "Two nights at the wildlife centre of the route.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "split",
+          "primary": {
+            "src": "assets/images/stonetown.jpg",
+            "alt": "Historic alley in Stone Town Zanzibar",
+            "focal_point": "50% 52%",
+            "caption": "History and urban texture before the beach.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/zanzibar.jpg",
+            "alt": "Zanzibar coast near Nungwi",
+            "focal_point": "50% 60%",
+            "caption": "The journey ends at a different speed.",
+            "source_type": "existing-library"
+          }
+        }
+      ]
+    },
+    "hakuna-matata-three-travellers": {
+      "hero": {
+        "primary": {
+          "src": "assets/images/culture-table.jpg",
+          "alt": "Travellers sharing a table in Tanzania",
+          "focal_point": "50% 52%",
+          "caption": "A journey built around more than safari.",
+          "source_type": "existing-library"
+        }
+      },
+      "chapters": [
+        {
+          "layout": "cinematic",
+          "primary": {
+            "src": "assets/images/hero-dawn.webp",
+            "alt": "Kilimanjaro region at dawn",
+            "focal_point": "50% 45%",
+            "caption": "The first days remained close to the mountain.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "split",
+          "primary": {
+            "src": "assets/images/serengeti.jpg",
+            "alt": "Serengeti wildlife landscape",
+            "focal_point": "52% 46%",
+            "caption": "The safari chapter changes the pace of the journey.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "photo-pair",
+          "primary": {
+            "src": "assets/images/manyara.jpg",
+            "alt": "Lake Manyara landscape beneath the Rift Valley escarpment",
+            "focal_point": "50% 50%",
+            "caption": "A greener, more compact landscape after the plains.",
+            "source_type": "existing-library"
+          },
+          "secondary": {
+            "src": "assets/images/elder-guide.jpg",
+            "alt": "Local guide walking through northern Tanzania",
+            "focal_point": "50% 45%",
+            "caption": "Knowledge of place remains part of the route.",
+            "source_type": "existing-library"
+          }
+        },
+        {
+          "layout": "split",
+          "primary": {
+            "src": "assets/images/maasai.jpg",
+            "alt": "Cultural encounter in northern Tanzania",
+            "focal_point": "50% 44%",
+            "caption": "People remain part of the journey rather than a separate add-on.",
+            "source_type": "existing-library"
+          }
+        }
+      ]
+    }
+  }
+}

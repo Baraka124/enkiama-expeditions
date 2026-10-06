@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>Journey — Enkiama</title>
+<meta name="description" content="An operated Enkiama journey through Tanzania, shown as an editorial itinerary with route chapters, images and field notes.">
+<meta name="theme-color" content="#0F1712">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1712;--ink2:#131C16;--ink3:#172119;
+  --bone:#EDE6D6;--bone2:#E4DBC7;--earth:#BE9E68;--sage:#7A9470;
+  --muted:#ADA791;--rule:rgba(190,158,104,.13);--rule-hi:rgba(190,158,104,.27);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}.fr{font-family:'Fraunces',serif}
+::selection{background:rgba(122,148,112,.7);color:var(--bone)}
+
+.trip-loading,.trip-error{min-height:100vh;display:grid;place-items:center;text-align:center;padding:2rem}
+.trip-loading p,.trip-error p{max-width:42ch;color:var(--muted)}
+.trip{display:none}.trip.show{display:block}
+
+/* HERO */
+.trip-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#0b120e}
+.trip-hero__img{position:absolute;inset:-2%;background-size:cover;background-position:center;transform:scale(1.03);animation:heroSettle 9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes heroSettle{to{transform:scale(1)}}
+.trip-hero__shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(7,12,9,.34),rgba(7,12,9,.04) 28%,rgba(7,12,9,.12) 52%,rgba(7,12,9,.92) 100%),
+  linear-gradient(90deg,rgba(7,12,9,.64),rgba(7,12,9,.16) 55%,transparent 78%)}
+.trip-nav{position:absolute;z-index:7;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:1.45rem clamp(1.3rem,4vw,3.5rem)}
+.trip-nav img{height:42px;width:auto;display:block}.trip-nav a:last-child{font-size:10px;letter-spacing:.17em;text-transform:uppercase;text-decoration:none;color:rgba(237,230,214,.74)}
+.trip-nav a:last-child:hover{color:var(--earth)}
+.trip-hero__folio{position:absolute;z-index:3;right:clamp(1.3rem,4vw,3.5rem);top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(237,230,214,.34)}
+.trip-hero__copy{position:relative;z-index:4;width:min(1380px,100%);margin:0 auto;padding:0 clamp(1.5rem,6vw,6rem) clamp(4.5rem,8vw,7.5rem)}
+.trip-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--earth);margin-bottom:1.4rem}
+.trip-title{font-size:clamp(56px,8.5vw,132px);font-weight:300;line-height:.88;letter-spacing:-.045em;max-width:9.3ch}
+.trip-sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.2vw,30px);max-width:34ch;color:rgba(237,230,214,.84);margin-top:1.65rem}
+.trip-meta{display:flex;gap:1rem 2rem;flex-wrap:wrap;margin-top:2.4rem;padding-top:1.15rem;border-top:1px solid rgba(237,230,214,.2);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.56);max-width:760px}
+.trip-scroll{position:absolute;z-index:4;right:clamp(1.3rem,4vw,3.5rem);bottom:2rem;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,230,214,.46)}
+.trip-scroll:after{content:'';display:inline-block;width:56px;height:1px;background:rgba(190,158,104,.45);margin-left:.8rem;vertical-align:middle}
+
+/* STORY OPENING */
+.trip-intro{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(3rem,8vw,8rem);padding:clamp(5rem,9vw,9rem) clamp(1.5rem,6vw,6rem);background:var(--bone2);color:var(--ink)}
+.trip-intro__left{position:relative}
+.trip-intro__left:after{content:'Operated';position:absolute;left:0;bottom:-1rem;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(68px,11vw,150px);line-height:.8;color:rgba(15,23,18,.045);pointer-events:none}
+.trip-intro h2{position:relative;z-index:1;font-size:clamp(40px,5.2vw,74px);font-weight:300;line-height:1;letter-spacing:-.035em;max-width:8ch}
+.trip-intro h2 em{font-style:italic;color:#6A7D55}
+.trip-intro__copy{position:relative;z-index:1}
+.trip-intro__copy p{font-size:15px;line-height:1.95;max-width:64ch;color:rgba(15,23,18,.76)}
+.trip-intro__copy p+p{margin-top:1.4rem}
+.trip-route{margin-top:2.2rem;padding-top:1.25rem;border-top:1px solid rgba(15,23,18,.14)}
+.trip-route__label{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#75603f;margin-bottom:.75rem}
+.trip-route__line{font-family:'Fraunces',serif;font-size:clamp(19px,2vw,28px);line-height:1.5;color:rgba(15,23,18,.82)}
+.trip-route__line span{color:#7a9470}
+
+/* ATLAS RAIL */
+.trip-atlas{position:sticky;top:0;z-index:8;height:0;pointer-events:none}
+.trip-atlas__rail{position:absolute;left:0;top:0;height:100vh;width:34px;display:flex;align-items:center;justify-content:center;pointer-events:auto}
+.trip-atlas__list{display:flex;flex-direction:column;gap:.72rem;align-items:center;padding:.7rem .35rem;border:1px solid rgba(237,230,214,.08);background:rgba(15,23,18,.34);backdrop-filter:blur(5px)}
+.trip-atlas__item{width:18px;height:18px;border:0;display:grid;place-items:center;text-decoration:none;font-size:0;color:transparent;position:relative}
+.trip-atlas__item::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(237,230,214,.34);transition:transform .25s,background .25s}
+.trip-atlas__item:hover::before,.trip-atlas__item.active::before{background:var(--earth);transform:scale(1.7)}
+.trip-atlas__title{display:none}
+
+/* CHAPTERS */
+.trip-chapter{position:relative;border-bottom:1px solid var(--rule);background:var(--ink);scroll-margin-top:1px}
+.trip-chapter--split{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(380px,.92fr);min-height:760px}
+.trip-chapter--split.reverse{grid-template-columns:minmax(380px,.92fr) minmax(0,1.08fr)}
+.trip-chapter--split.reverse .trip-chapter__media{order:2}.trip-chapter--split.reverse .trip-chapter__body{order:1}
+.trip-chapter--cinematic{display:grid;grid-template-rows:minmax(560px,72vh) auto}
+.trip-chapter--cinematic .trip-chapter__body{display:grid;grid-template-columns:minmax(200px,.55fr) minmax(0,1.45fr);gap:clamp(3rem,7vw,7rem)}
+.trip-chapter--diptych{display:grid;grid-template-rows:minmax(620px,72vh) auto;min-height:0}
+.trip-diptych-media{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:1px;background:var(--rule);min-height:620px}
+.trip-diptych-panel{position:relative;overflow:hidden;background:var(--ink2);min-height:620px}
+.trip-diptych-panel .trip-chapter__img{position:absolute;inset:0}
+.trip-diptych-panel--secondary .trip-chapter__img{background-position:center}
+.trip-chapter--diptych .trip-chapter__body{display:grid;grid-template-columns:minmax(220px,.58fr) minmax(0,1.42fr);gap:clamp(2.5rem,6vw,6rem);align-items:start}
+.trip-chapter__media{position:relative;min-height:760px;overflow:hidden;background:var(--ink2)}
+.trip-chapter__img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s cubic-bezier(.16,1,.3,1)}
+.trip-chapter.in .trip-chapter__img{transform:scale(1.018)}
+.trip-chapter__img:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,12,9,.015) 50%,rgba(7,12,9,.48) 100%)}
+.trip-chapter__rail{position:absolute;left:clamp(1.4rem,3vw,2.5rem);right:clamp(1.4rem,3vw,2.5rem);bottom:clamp(1.4rem,3vw,2.4rem);z-index:3;padding-top:.75rem;border-top:1px solid rgba(237,230,214,.18);display:flex;justify-content:space-between;gap:1rem;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,230,214,.58)}
+.trip-chapter__body{padding:clamp(4.5rem,7vw,7rem) clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center}
+.trip-chapter__idx{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--earth);margin-bottom:1.4rem}
+.trip-chapter__title{font-size:clamp(38px,4.6vw,68px);font-weight:300;line-height:.98;letter-spacing:-.035em;max-width:10ch}
+.trip-chapter__lede{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,1.7vw,24px);line-height:1.55;color:rgba(237,230,214,.88);max-width:36ch;margin-top:1.6rem}
+.trip-chapter__text{font-size:14px;line-height:1.95;color:rgba(237,230,214,.74);max-width:55ch;margin-top:1.5rem}
+.trip-fact{margin-top:2.6rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:96px 1fr;gap:1.3rem}
+.trip-fact span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}
+.trip-fact p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.55;color:rgba(237,230,214,.84)}
+.trip-chapter__body{position:relative}
+.trip-chapter__body::after{content:attr(data-folio);position:absolute;right:clamp(1rem,3vw,2rem);top:clamp(1rem,3vw,2rem);font-family:'Fraunces',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:.8;color:rgba(237,230,214,.028);pointer-events:none}
+
+/* MID-JOURNEY BREATH */
+.trip-breath{padding:clamp(4rem,7vw,6.5rem) clamp(1.5rem,6vw,6rem);background:var(--bone2);color:var(--ink);position:relative;overflow:hidden}
+.trip-breath__eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#75603f;margin-bottom:1rem}
+.trip-breath__quote{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,72px);font-weight:300;line-height:1.02;letter-spacing:-.03em;max-width:15ch}
+.trip-breath__quote em{font-style:italic;color:#6A7D55}
+.trip-breath:after{content:'Tanzania';position:absolute;right:3vw;bottom:-.12em;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(82px,15vw,210px);color:rgba(15,23,18,.04);pointer-events:none}
+
+/* RELATED */
+.trip-related{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);background:var(--ink2)}
+.trip-related-head{display:grid;grid-template-columns:.5fr 1.5fr;gap:3rem;align-items:end;margin-bottom:2.2rem}
+.trip-related h2{font-size:clamp(36px,4.6vw,62px);font-weight:300;line-height:1}
+.trip-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.related-card{position:relative;min-height:420px;overflow:hidden;text-decoration:none}
+.related-card__img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s cubic-bezier(.16,1,.3,1)}
+.related-card:hover .related-card__img{transform:scale(1.025)}
+.related-card__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.05),rgba(8,13,10,.84))}
+.related-card__copy{position:absolute;z-index:2;left:1.4rem;right:1.4rem;bottom:1.3rem;padding-top:.9rem;border-top:1px solid rgba(237,230,214,.2)}
+.related-card__copy span{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.58);margin-bottom:.5rem}
+.related-card__copy strong{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,3vw,38px);font-weight:300;line-height:1.02;max-width:12ch}
+
+/* FINAL */
+.trip-cta{position:relative;min-height:680px;display:grid;grid-template-columns:1.08fr .92fr;background:var(--bone2);color:var(--ink);overflow:hidden}
+.trip-cta__copy{padding:clamp(5rem,9vw,9rem) clamp(1.5rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center}
+.trip-cta__media{position:relative;min-height:680px;background-size:cover;background-position:center}
+.trip-cta__media:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bone2),rgba(228,219,199,.08) 28%,transparent 52%),linear-gradient(180deg,rgba(8,13,10,.04),rgba(8,13,10,.34))}
+.trip-cta h2{font-size:clamp(42px,5.8vw,82px);font-weight:300;line-height:.96;letter-spacing:-.035em;max-width:9ch}
+.trip-cta h2 em{font-style:italic;color:#6A7D55}
+.trip-cta p{font-size:14px;line-height:1.9;color:rgba(15,23,18,.72);max-width:54ch;margin:1.4rem 0 2rem}
+.trip-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.trip-btn{display:inline-block;padding:.95rem 1.25rem;border:1px solid var(--ink);text-decoration:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+.trip-btn.primary{background:var(--ink);color:var(--bone)}.trip-btn:hover{transform:translateY(-1px)}
+
+@media(max-width:1100px){
+  .trip-atlas{display:none}
+  .trip-chapter--split,.trip-chapter--split.reverse{grid-template-columns:1fr;min-height:0}
+  .trip-chapter--split.reverse .trip-chapter__media,.trip-chapter--split.reverse .trip-chapter__body{order:initial}
+  .trip-diptych-media{grid-template-columns:1fr 1fr;min-height:58vh}
+  .trip-diptych-panel{min-height:58vh}
+  .trip-chapter--diptych .trip-chapter__body{grid-template-columns:1fr;gap:1.5rem}
+  .trip-chapter__media{min-height:62vh}
+  .trip-chapter--cinematic{grid-template-rows:62vh auto}
+  .trip-chapter--cinematic .trip-chapter__body{grid-template-columns:1fr;gap:1.6rem}
+  .trip-cta{grid-template-columns:1fr}.trip-cta__media{min-height:56vh;order:-1}
+}
+@media(max-width:720px){
+  .trip-hero__folio{display:none}.trip-scroll{display:none}
+  .trip-hero__copy{padding-bottom:3.2rem}.trip-title{font-size:clamp(50px,15vw,76px)}
+  .trip-intro{grid-template-columns:1fr;gap:2rem;padding:4.5rem 1.5rem}
+  .trip-intro__left:after{display:none}
+  .trip-chapter__media{min-height:54vh}
+  .trip-diptych-media{grid-template-columns:1fr;min-height:0}
+  .trip-diptych-panel{min-height:48vh}
+  .trip-chapter--cinematic{grid-template-rows:54vh auto}
+  .trip-chapter__body{padding:4rem 1.5rem}
+  .trip-chapter__body::after{display:none}
+  .trip-chapter__title{font-size:clamp(36px,11vw,52px)}
+  .trip-fact{grid-template-columns:1fr;gap:.5rem}
+  .trip-related-head{grid-template-columns:1fr;gap:.75rem}
+  .trip-related-grid{grid-template-columns:1fr}
+  .trip-cta__copy{padding:4.5rem 1.5rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="trip-loading" id="tripLoading"><p class="fr">Opening the journey…</p></div>
+<div class="trip-error" id="tripError" style="display:none"><p>This journey could not be loaded. Return to <a href="journeys.html" style="color:var(--earth)">Journeys</a>.</p></div>
+
+<main class="trip" id="trip">
+  <header class="trip-hero">
+    <div class="trip-hero__img" id="tripHero"></div>
+    <div class="trip-hero__shade"></div>
+    <nav class="trip-nav">
+      <a href="index.html"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
+      <a href="journeys.html">All journeys</a>
+    </nav>
+    <div class="trip-hero__folio">Operated in Tanzania · shown anonymously</div>
+    <div class="trip-hero__copy">
+      <p class="trip-kicker" id="tripKicker"></p>
+      <h1 class="trip-title fr" id="tripTitle"></h1>
+      <p class="trip-sub" id="tripSubtitle"></p>
+      <div class="trip-meta" id="tripMeta"></div>
+    </div>
+    <div class="trip-scroll">Continue through the journey</div>
+  </header>
+
+  <section class="trip-intro">
+    <div class="trip-intro__left"><h2 class="fr">Why this journey <em>worked.</em></h2></div>
+    <div class="trip-intro__copy">
+      <p id="tripSummary"></p>
+      <p id="tripWhy"></p>
+      <div class="trip-route">
+        <p class="trip-route__label">The route</p>
+        <div class="trip-route__line" id="tripRoute"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trip-atlas" id="tripAtlas">
+    <nav class="trip-atlas__rail" aria-label="Journey chapters">
+      <div class="trip-atlas__list" id="tripAtlasList"></div>
+      <div class="trip-atlas__title">Journey chapters</div>
+    </nav>
+  </div>
+
+  <section id="tripChapters"></section>
+
+  <section class="trip-related" id="relatedWrap" style="display:none">
+    <div class="trip-related-head">
+      <p class="trip-route__label">More operated journeys</p>
+      <h2 class="fr">The same country can produce a completely different journey.</h2>
+    </div>
+    <div class="trip-related-grid" id="relatedGrid"></div>
+  </section>
+
+  <section class="trip-cta">
+    <div class="trip-cta__copy">
+      <p class="trip-route__label">Start from what stayed with you</p>
+      <h2 class="fr">If one chapter <em>caught your attention.</em></h2>
+      <p>You do not need to copy this route. Keep the part that interested you — a place, a pace, a cultural day, the coast — and we can build outward from there.</p>
+      <div class="trip-actions">
+        <a class="trip-btn primary" href="compose.html">Compose your direction</a>
+        <a class="trip-btn" href="begin.html">Begin a conversation</a>
+      </div>
+    </div>
+    <div class="trip-cta__media" id="tripCtaMedia"></div>
+  </section>
+</main>
+
+<script src="assets/js/enkiama.js"></script>
+<script src="assets/js/journey-repository.js"></script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search),slug=q.get('slug')||'';
+  var $=function(id){return document.getElementById(id)};
+  function fail(){$('tripLoading').style.display='none';$('tripError').style.display='grid'}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function render(j){
+    document.title=j.title+' — Enkiama';
+    var hero=(j.hero_media&&j.hero_media.primary)||{src:j.hero_image||'assets/images/hero-dawn.webp',focal_point:'50% 50%'};
+    $('tripHero').style.backgroundImage='url("'+hero.src+'")';
+    $('tripHero').style.backgroundPosition=hero.focal_point||'50% 50%';
+    var lastChapter=j.chapters&&j.chapters[j.chapters.length-1];
+    var lastMedia=lastChapter&&lastChapter.media&&lastChapter.media.primary;
+    $('tripCtaMedia').style.backgroundImage='url("'+((lastMedia&&lastMedia.src)||hero.src)+'")';
+    $('tripCtaMedia').style.backgroundPosition=(lastMedia&&lastMedia.focal_point)||'50% 50%';
+    $('tripKicker').textContent=(j.status==='operated'?'Operated journey':'Journey')+' · '+(j.period_label||'Tanzania');
+    $('tripTitle').textContent=j.title;
+    $('tripSubtitle').textContent=j.subtitle||'';
+    $('tripMeta').innerHTML='<span>'+esc(j.party_label||'')+'</span><span>'+esc(j.duration_label||'')+'</span><span>'+esc(j.period_label||'')+'</span>';
+    $('tripSummary').textContent=j.summary||'';
+    $('tripWhy').textContent=j.why_it_worked||'';
+    $('tripRoute').innerHTML=(j.route||[]).map(esc).join(' <span>→</span> ');
+
+    var chapters=j.chapters||[];
+    var atlas='';
+    var html='';
+    chapters.forEach(function(ch,i){
+      var media=ch.media||{};
+      var primary=media.primary||{src:ch.image||hero.src,focal_point:'50% 50%',alt:ch.title||ch.place||''};
+      var secondary=media.secondary||null;
+      var mode=ch.layout||'split';
+      if(mode==='photo-pair'&&!secondary) mode='split';
+      if(['split','cinematic','photo-pair'].indexOf(mode)===-1) mode='split';
+      var reverse=(mode==='split'&&i%2===1)?' reverse':'';
+      var id='chapter-'+(i+1);
+      atlas+='<a class="trip-atlas__item" href="#'+id+'" data-target="'+id+'" aria-label="'+esc(ch.place||('Chapter '+(i+1)))+'">'+String(i+1).padStart(2,'0')+'</a>';
+
+      if(i===Math.ceil(chapters.length/2)&&chapters.length>4){
+        html+='<aside class="trip-breath"><p class="trip-breath__eyebrow">Halfway through</p><p class="trip-breath__quote">A good journey changes rhythm before it starts to feel <em>full.</em></p></aside>';
+      }
+
+      var folio=String(i+1).padStart(2,'0');
+      var primaryStyle="background-image:url('"+esc(primary.src)+"');background-position:"+esc(primary.focal_point||'50% 50%');
+      var caption=primary.caption?'<span>'+esc(primary.caption)+'</span>':'';
+
+      if(mode==='cinematic'){
+        html+='<article class="trip-chapter trip-chapter--cinematic" id="'+id+'" data-chapter="'+(i+1)+'">'
+          +'<div class="trip-chapter__media" role="img" aria-label="'+esc(primary.alt||ch.place||'')+'"><div class="trip-chapter__img" style="'+primaryStyle+'"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span>'+caption+'</div></div>'
+          +'<div class="trip-chapter__body" data-folio="'+folio+'"><div><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
+          +'<div><p class="trip-chapter__lede">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div></article>';
+      }else if(mode==='photo-pair'){
+        var secondaryStyle="background-image:url('"+esc(secondary.src)+"');background-position:"+esc(secondary.focal_point||'50% 50%');
+        html+='<article class="trip-chapter trip-chapter--diptych" id="'+id+'" data-chapter="'+(i+1)+'">'
+          +'<div class="trip-diptych-media">'
+          +'<div class="trip-diptych-panel trip-diptych-panel--primary" role="img" aria-label="'+esc(primary.alt||'')+'"><div class="trip-chapter__img" style="'+primaryStyle+'"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span>'+caption+'</div></div>'
+          +'<div class="trip-diptych-panel trip-diptych-panel--secondary" role="img" aria-label="'+esc(secondary.alt||'')+'"><div class="trip-chapter__img" style="'+secondaryStyle+'"></div></div>'
+          +'</div>'
+          +'<div class="trip-chapter__body" data-folio="'+folio+'"><div><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
+          +'<div><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div></article>';
+      }else{
+        html+='<article class="trip-chapter trip-chapter--split'+reverse+'" id="'+id+'" data-chapter="'+(i+1)+'">'
+          +'<div class="trip-chapter__media" role="img" aria-label="'+esc(primary.alt||'')+'"><div class="trip-chapter__img" style="'+primaryStyle+'"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span>'+caption+'</div></div>'
+          +'<div class="trip-chapter__body" data-folio="'+folio+'"><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'
+          +(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></article>';
+      }
+    });
+    $('tripChapters').innerHTML=html;
+    $('tripAtlasList').innerHTML=atlas;
+
+    $('tripLoading').style.display='none';$('trip').classList.add('show');
+
+    if('IntersectionObserver' in window){
+      var chapterEls=[].slice.call(document.querySelectorAll('.trip-chapter'));
+      var links=[].slice.call(document.querySelectorAll('.trip-atlas__item'));
+      var reveal=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('in');
+            var id=e.target.id;
+            links.forEach(function(a){a.classList.toggle('active',a.dataset.target===id)});
+          }
+        });
+      },{threshold:.35});
+      chapterEls.forEach(function(el){reveal.observe(el)});
+    }else{
+      document.querySelectorAll('.trip-chapter').forEach(function(el){el.classList.add('in')});
+    }
+
+    window.EnkiamaJourneys.related(j.slug,2).then(function(items){
+      if(!items.length)return;
+      $('relatedGrid').innerHTML=items.map(function(x){
+        var hm=(x.hero_media&&x.hero_media.primary)||{src:x.hero_image||'assets/images/hero-dawn.webp',focal_point:'50% 50%'};
+        return '<a class="related-card" href="trip.html?slug='+encodeURIComponent(x.slug)+'"><div class="related-card__img" style="background-image:url(\''+esc(hm.src)+'\');background-position:'+esc(hm.focal_point||'50% 50%')+'"></div><div class="related-card__shade"></div><div class="related-card__copy"><span>'+esc(x.party_label||'Operated journey')+'</span><strong>'+esc(x.title)+'</strong></div></a>';
+      }).join('');
+      $('relatedWrap').style.display='block';
+    });
+  }
+  if(!slug||!window.EnkiamaJourneys){fail();return}
+  window.EnkiamaJourneys.getBySlug(slug).then(function(j){if(!j)fail();else render(j)}).catch(fail);
+})();
+</script>
+</body>
+</html>
