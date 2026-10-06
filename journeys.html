@@ -410,31 +410,41 @@ nav.scrolled::before{ opacity:.035; }
 </style>
 
 <style>
-.jr-grid{display:grid;grid-template-columns:1fr 1fr;}
-.jr{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;display:flex;flex-direction:column;}
-.jr:nth-child(2n){border-right:none;}
-.jr-film{height:clamp(280px,31vw,430px);position:relative;overflow:hidden;display:flex;align-items:flex-end;background-color:var(--ink2);}
-.j1{background-image:linear-gradient(180deg,rgba(9,14,11,.08) 20%,rgba(9,14,11,.72) 100%),url('assets/hero-dawn.jpg');}
-.j2{background-image:linear-gradient(180deg,rgba(9,14,11,.06) 20%,rgba(9,14,11,.74) 100%),url('assets/serengeti.jpg');}
-.j3{background-image:linear-gradient(180deg,rgba(9,14,11,.08) 20%,rgba(9,14,11,.76) 100%),url('assets/maasai.jpg');}
-.j4{background-image:linear-gradient(180deg,rgba(9,14,11,.05) 20%,rgba(9,14,11,.72) 100%),url('assets/zanzibar.jpg');}
-.j1,.j2,.j3,.j4{background-size:cover;background-position:center;}
-.j3{background-position:center 42%;}
-.j4{background-position:center 58%;}
-.jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.22),transparent 55%);}
-.jr-route{position:relative;z-index:2;padding:1.5rem 2rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;color:rgba(237,230,214,0.84);}
-.jr-body{padding:3rem 2.5rem 3.5rem;flex:1;display:flex;flex-direction:column;}
-.jr-meta{display:flex;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap;}
-.jr-stat{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--earth);}
-.jr-stat strong{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-weight:500;font-size:15px;color:var(--bone);margin-right:5px;font-variant-caps:normal;}
-.jr-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(22px,2.8vw,34px);font-weight:700;line-height:1.05;letter-spacing:-0.018em;color:var(--bone);margin-bottom:1rem;}
-.jr-title em{font-style:italic;color:var(--ochre);}
-.jr-desc{font-size:13px;font-weight:300;color:rgba(237,230,214,0.85);line-height:1.9;margin-bottom:1.75rem;}
-.jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:rgba(190,158,104,0.4);padding-top:1.5rem;border-top:1px solid var(--rule);}
+.jr-grid{display:block;border-top:1px solid var(--rule);}
+.jr{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);min-height:560px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden;background:var(--ink);}
+.jr:nth-child(even){grid-template-columns:minmax(360px,.88fr) minmax(0,1.12fr);}
+.jr:nth-child(even) .jr-film{order:2;}
+.jr:nth-child(even) .jr-body{order:1;border-right:1px solid var(--rule);border-left:0;}
+.jr-film{min-height:560px;position:relative;overflow:hidden;display:flex;align-items:flex-end;background-color:var(--ink2);background-size:cover;background-repeat:no-repeat;}
+.j1{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 28%,rgba(9,14,11,.68) 100%),url('assets/hero-dawn.jpg');background-position:center 48%;}
+.j2{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 30%,rgba(9,14,11,.70) 100%),url('assets/serengeti.jpg');background-position:center 52%;}
+.j3{background-image:linear-gradient(180deg,rgba(9,14,11,.03) 28%,rgba(9,14,11,.72) 100%),url('assets/maasai.jpg');background-position:center 38%;}
+.j4{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 30%,rgba(9,14,11,.68) 100%),url('assets/zanzibar.jpg');background-position:center 60%;}
+.jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.16),transparent 45%);pointer-events:none;}
+.jr:nth-child(even) .jr-film::after{background:linear-gradient(270deg,rgba(8,13,10,.14),transparent 45%);}
+.jr-route{position:relative;z-index:2;margin:0 0 2rem 2rem;padding:.75rem 0;border-top:1px solid rgba(237,230,214,.28);max-width:calc(100% - 4rem);font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(237,230,214,.86);line-height:1.55;}
+.jr-body{padding:clamp(3.5rem,6vw,6.5rem) clamp(2.5rem,4.5vw,5rem);display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule);position:relative;}
+.jr-body::before{content:attr(data-index);position:absolute;top:2.2rem;right:2.5rem;font-family:'Instrument Sans',sans-serif;font-size:10px;letter-spacing:.2em;color:rgba(190,158,104,.42);}
+.jr-meta{display:flex;gap:1.1rem 1.5rem;margin-bottom:2rem;flex-wrap:wrap;}
+.jr-stat{font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(190,158,104,.78);}
+.jr-stat strong{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-weight:500;font-size:16px;color:var(--bone);margin-right:5px;}
+.jr-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(30px,3.4vw,48px);font-weight:500;line-height:1.02;letter-spacing:-0.025em;color:var(--bone);margin-bottom:1.6rem;max-width:12ch;}
+.jr-title em{font-style:italic;color:var(--earth);}
+.jr-desc{font-size:13.5px;font-weight:300;color:rgba(237,230,214,.78);line-height:1.95;margin-bottom:2.2rem;max-width:60ch;}
+.jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(190,158,104,.52);padding-top:1.25rem;border-top:1px solid var(--rule);}
+@media(min-width:1180px){
+  .jr:first-child{grid-template-columns:minmax(0,1.28fr) minmax(390px,.72fr);min-height:640px;}
+  .jr:first-child .jr-film{min-height:640px;}
+  .jr:first-child .jr-title{font-size:clamp(38px,4vw,58px);}
+}
 @media(max-width:860px){
-  .jr-grid{grid-template-columns:1fr;}
-  .jr{border-right:none;}
-  .jr-body{padding:2.5rem 1.5rem 3rem;}
+  .jr,.jr:nth-child(even),.jr:first-child{grid-template-columns:1fr;min-height:0;}
+  .jr:nth-child(even) .jr-film,.jr:nth-child(even) .jr-body{order:initial;}
+  .jr-film,.jr:first-child .jr-film{min-height:clamp(300px,72vw,480px);}
+  .jr-body,.jr:nth-child(even) .jr-body{padding:3rem 1.5rem 3.5rem;border-left:0;border-right:0;border-top:1px solid var(--rule);}
+  .jr-body::before{top:1.35rem;right:1.5rem;}
+  .jr-route{margin:0 1.5rem 1.5rem;max-width:calc(100% - 3rem);}
+  .jr-title{font-size:clamp(28px,9vw,42px);max-width:13ch;}
 }
 </style>
 <style>@media(max-width:860px){.cta-wrap{grid-template-columns:1fr !important;gap:2.5rem !important;padding:6rem 1.5rem !important;}}
@@ -914,7 +924,7 @@ body.eh-locked{overflow:hidden;}
     <div class="jr-film j1">
       <span class="jr-route">Kilimanjaro &rarr; Serengeti &rarr; Rift Valley &rarr; Zanzibar</span>
     </div>
-    <div class="jr-body">
+    <div class="jr-body" data-index="01">
       <div class="jr-meta reveal">
         <span class="jr-stat"><strong>13</strong> nights</span>
         <span class="jr-stat"><strong>4</strong> worlds</span>
@@ -931,7 +941,7 @@ body.eh-locked{overflow:hidden;}
     <div class="jr-film j2">
       <span class="jr-route">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span>
     </div>
-    <div class="jr-body">
+    <div class="jr-body" data-index="02">
       <div class="jr-meta reveal">
         <span class="jr-stat"><strong>8</strong> nights</span>
         <span class="jr-stat"><strong>3</strong> worlds</span>
@@ -947,7 +957,7 @@ body.eh-locked{overflow:hidden;}
     <div class="jr-film j3">
       <span class="jr-route">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span>
     </div>
-    <div class="jr-body">
+    <div class="jr-body" data-index="03">
       <div class="jr-meta reveal">
         <span class="jr-stat"><strong>6</strong> nights</span>
         <span class="jr-stat"><strong>2</strong> worlds</span>
@@ -963,7 +973,7 @@ body.eh-locked{overflow:hidden;}
     <div class="jr-film j4">
       <span class="jr-route">Serengeti &rarr; Stone Town &rarr; Pemba</span>
     </div>
-    <div class="jr-body">
+    <div class="jr-body" data-index="04">
       <div class="jr-meta reveal">
         <span class="jr-stat"><strong>11</strong> nights</span>
         <span class="jr-stat"><strong>2</strong> worlds</span>
