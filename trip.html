@@ -62,11 +62,12 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
 
 /* ATLAS RAIL */
 .trip-atlas{position:sticky;top:0;z-index:8;height:0;pointer-events:none}
-.trip-atlas__rail{position:absolute;left:0;top:0;height:100vh;width:56px;border-right:1px solid var(--rule);display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,rgba(15,23,18,.96),rgba(15,23,18,.76));backdrop-filter:blur(8px);pointer-events:auto}
-.trip-atlas__list{display:flex;flex-direction:column;gap:.9rem;align-items:center}
-.trip-atlas__item{width:28px;height:28px;border:1px solid rgba(237,230,214,.13);display:grid;place-items:center;text-decoration:none;font-size:9px;color:rgba(237,230,214,.42);transition:.25s}
-.trip-atlas__item:hover,.trip-atlas__item.active{border-color:rgba(190,158,104,.62);color:var(--earth);background:rgba(190,158,104,.06)}
-.trip-atlas__title{position:absolute;left:18px;bottom:26px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,230,214,.28)}
+.trip-atlas__rail{position:absolute;left:0;top:0;height:100vh;width:34px;display:flex;align-items:center;justify-content:center;pointer-events:auto}
+.trip-atlas__list{display:flex;flex-direction:column;gap:.72rem;align-items:center;padding:.7rem .35rem;border:1px solid rgba(237,230,214,.08);background:rgba(15,23,18,.34);backdrop-filter:blur(5px)}
+.trip-atlas__item{width:18px;height:18px;border:0;display:grid;place-items:center;text-decoration:none;font-size:0;color:transparent;position:relative}
+.trip-atlas__item::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(237,230,214,.34);transition:transform .25s,background .25s}
+.trip-atlas__item:hover::before,.trip-atlas__item.active::before{background:var(--earth);transform:scale(1.7)}
+.trip-atlas__title{display:none}
 
 /* CHAPTERS */
 .trip-chapter{position:relative;border-bottom:1px solid var(--rule);background:var(--ink);scroll-margin-top:1px}
@@ -75,14 +76,17 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
 .trip-chapter--split.reverse .trip-chapter__media{order:2}.trip-chapter--split.reverse .trip-chapter__body{order:1}
 .trip-chapter--cinematic{display:grid;grid-template-rows:minmax(560px,72vh) auto}
 .trip-chapter--cinematic .trip-chapter__body{display:grid;grid-template-columns:minmax(200px,.55fr) minmax(0,1.45fr);gap:clamp(3rem,7vw,7rem)}
-.trip-chapter--diptych{display:grid;grid-template-columns:1fr 1fr;min-height:760px}
-.trip-chapter--diptych .trip-chapter__media{min-height:760px}
+.trip-chapter--diptych{display:grid;grid-template-rows:minmax(620px,72vh) auto;min-height:0}
+.trip-diptych-media{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:1px;background:var(--rule);min-height:620px}
+.trip-diptych-panel{position:relative;overflow:hidden;background:var(--ink2);min-height:620px}
+.trip-diptych-panel .trip-chapter__img{position:absolute;inset:0}
+.trip-diptych-panel--secondary .trip-chapter__img{background-position:center}
+.trip-chapter--diptych .trip-chapter__body{display:grid;grid-template-columns:minmax(220px,.58fr) minmax(0,1.42fr);gap:clamp(2.5rem,6vw,6rem);align-items:start}
 .trip-chapter__media{position:relative;min-height:760px;overflow:hidden;background:var(--ink2)}
 .trip-chapter__img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s cubic-bezier(.16,1,.3,1)}
-.trip-chapter.in .trip-chapter__img{transform:scale(1.025)}
-.trip-chapter__img:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,12,9,.02) 40%,rgba(7,12,9,.68) 100%)}
-.trip-chapter__secondary{position:absolute;z-index:3;right:clamp(1.2rem,3vw,2.4rem);top:clamp(1.2rem,3vw,2.4rem);width:min(31%,230px);aspect-ratio:4/5;background-size:cover;background-position:center;border:1px solid rgba(237,230,214,.12);box-shadow:0 24px 70px rgba(0,0,0,.28)}
-.trip-chapter__rail{position:absolute;left:clamp(1.4rem,3vw,2.5rem);right:clamp(1.4rem,3vw,2.5rem);bottom:clamp(1.4rem,3vw,2.4rem);z-index:3;padding-top:.9rem;border-top:1px solid rgba(237,230,214,.22);display:flex;justify-content:space-between;gap:1rem;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.trip-chapter.in .trip-chapter__img{transform:scale(1.018)}
+.trip-chapter__img:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,12,9,.015) 50%,rgba(7,12,9,.48) 100%)}
+.trip-chapter__rail{position:absolute;left:clamp(1.4rem,3vw,2.5rem);right:clamp(1.4rem,3vw,2.5rem);bottom:clamp(1.4rem,3vw,2.4rem);z-index:3;padding-top:.75rem;border-top:1px solid rgba(237,230,214,.18);display:flex;justify-content:space-between;gap:1rem;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,230,214,.58)}
 .trip-chapter__body{padding:clamp(4.5rem,7vw,7rem) clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center}
 .trip-chapter__idx{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--earth);margin-bottom:1.4rem}
 .trip-chapter__title{font-size:clamp(38px,4.6vw,68px);font-weight:300;line-height:.98;letter-spacing:-.035em;max-width:10ch}
@@ -91,7 +95,8 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
 .trip-fact{margin-top:2.6rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:96px 1fr;gap:1.3rem}
 .trip-fact span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}
 .trip-fact p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.55;color:rgba(237,230,214,.84)}
-.trip-chapter__number{position:absolute;right:1rem;bottom:1rem;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(86px,13vw,190px);line-height:.75;color:rgba(237,230,214,.035);pointer-events:none}
+.trip-chapter__body{position:relative}
+.trip-chapter__body::after{content:attr(data-folio);position:absolute;right:clamp(1rem,3vw,2rem);top:clamp(1rem,3vw,2rem);font-family:'Fraunces',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:.8;color:rgba(237,230,214,.028);pointer-events:none}
 
 /* MID-JOURNEY BREATH */
 .trip-breath{padding:clamp(4rem,7vw,6.5rem) clamp(1.5rem,6vw,6rem);background:var(--bone2);color:var(--ink);position:relative;overflow:hidden}
@@ -127,9 +132,11 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
 
 @media(max-width:1100px){
   .trip-atlas{display:none}
-  .trip-chapter--split,.trip-chapter--split.reverse,.trip-chapter--diptych{grid-template-columns:1fr;min-height:0}
+  .trip-chapter--split,.trip-chapter--split.reverse{grid-template-columns:1fr;min-height:0}
   .trip-chapter--split.reverse .trip-chapter__media,.trip-chapter--split.reverse .trip-chapter__body{order:initial}
-  .trip-chapter--diptych .trip-chapter__media{min-height:62vh}
+  .trip-diptych-media{grid-template-columns:1fr 1fr;min-height:58vh}
+  .trip-diptych-panel{min-height:58vh}
+  .trip-chapter--diptych .trip-chapter__body{grid-template-columns:1fr;gap:1.5rem}
   .trip-chapter__media{min-height:62vh}
   .trip-chapter--cinematic{grid-template-rows:62vh auto}
   .trip-chapter--cinematic .trip-chapter__body{grid-template-columns:1fr;gap:1.6rem}
@@ -140,10 +147,12 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
   .trip-hero__copy{padding-bottom:3.2rem}.trip-title{font-size:clamp(50px,15vw,76px)}
   .trip-intro{grid-template-columns:1fr;gap:2rem;padding:4.5rem 1.5rem}
   .trip-intro__left:after{display:none}
-  .trip-chapter__media,.trip-chapter--diptych .trip-chapter__media{min-height:54vh}
+  .trip-chapter__media{min-height:54vh}
+  .trip-diptych-media{grid-template-columns:1fr;min-height:0}
+  .trip-diptych-panel{min-height:48vh}
   .trip-chapter--cinematic{grid-template-rows:54vh auto}
   .trip-chapter__body{padding:4rem 1.5rem}
-  .trip-chapter__secondary{width:34%;max-width:150px}
+  .trip-chapter__body::after{display:none}
   .trip-chapter__title{font-size:clamp(36px,11vw,52px)}
   .trip-fact{grid-template-columns:1fr;gap:.5rem}
   .trip-related-head{grid-template-columns:1fr;gap:.75rem}
@@ -226,9 +235,20 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
   var $=function(id){return document.getElementById(id)};
   function fail(){$('tripLoading').style.display='none';$('tripError').style.display='grid'}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-  function secondaryFor(chapters,i,hero){
-    var n=chapters[(i+1)%chapters.length];
-    return n&&n.image?n.image:hero;
+  function detailImageFor(ch,hero){
+    var place=String((ch&&ch.place)||'').toLowerCase();
+    var title=String((ch&&ch.title)||'').toLowerCase();
+    if(place.indexOf('kibosho')>-1||place.indexOf('chagga')>-1||title.indexOf('coffee')>-1)return 'assets/images/culture-table.jpg';
+    if(place.indexOf('kilimanjaro')>-1||place.indexOf('moshi')>-1)return 'assets/images/kibosho-family.jpg';
+    if(place.indexOf('tarangire')>-1)return 'assets/images/camp-arrival.jpg';
+    if(place.indexOf('ngorongoro')>-1)return 'assets/images/elder-guide.jpg';
+    if(place.indexOf('serengeti')>-1)return 'assets/images/night-sky.jpg';
+    if(place.indexOf('maasai')>-1)return 'assets/images/group-fire.jpg';
+    if(place.indexOf('natron')>-1)return 'assets/images/great-rift.jpg';
+    if(place.indexOf('stone town')>-1)return 'assets/images/fatima-stonetown.jpg';
+    if(place.indexOf('nungwi')>-1||place.indexOf('zanzibar')>-1)return 'assets/images/stonetown.jpg';
+    if(place.indexOf('manyara')>-1)return 'assets/images/manyara.jpg';
+    return hero;
   }
   function render(j){
     document.title=j.title+' — Enkiama';
@@ -255,21 +275,28 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
         html+='<aside class="trip-breath"><p class="trip-breath__eyebrow">Halfway through</p><p class="trip-breath__quote">A good journey changes rhythm before it starts to feel <em>full.</em></p></aside>';
       }
 
-      var secondary=secondaryFor(chapters,i,j.hero_image);
+      var primary=ch.image||j.hero_image;
+      var detail=detailImageFor(ch,j.hero_image);
+      var folio=String(i+1).padStart(2,'0');
+
       if(mode==='cinematic'){
         html+='<article class="trip-chapter trip-chapter--cinematic" id="'+id+'" data-chapter="'+(i+1)+'">'
-          +'<div class="trip-chapter__media"><div class="trip-chapter__img" style="background-image:url(\''+esc(ch.image||j.hero_image)+'\')"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span><span>'+esc(ch.place||'')+'</span></div></div>'
-          +'<div class="trip-chapter__body"><div><p class="trip-chapter__idx">'+String(i+1).padStart(2,'0')+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
-          +'<div><p class="trip-chapter__lede">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div>'
-          +'<div class="trip-chapter__number">'+String(i+1).padStart(2,'0')+'</div></article>';
+          +'<div class="trip-chapter__media"><div class="trip-chapter__img" style="background-image:url(\''+esc(primary)+'\')"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span><span>'+esc(ch.place||'')+'</span></div></div>'
+          +'<div class="trip-chapter__body" data-folio="'+folio+'"><div><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
+          +'<div><p class="trip-chapter__lede">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div></article>';
+      }else if(mode==='diptych'){
+        html+='<article class="trip-chapter trip-chapter--diptych" id="'+id+'" data-chapter="'+(i+1)+'">'
+          +'<div class="trip-diptych-media">'
+          +'<div class="trip-diptych-panel trip-diptych-panel--primary"><div class="trip-chapter__img" style="background-image:url(\''+esc(primary)+'\')"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span><span>'+esc(ch.place||'')+'</span></div></div>'
+          +'<div class="trip-diptych-panel trip-diptych-panel--secondary"><div class="trip-chapter__img" style="background-image:url(\''+esc(detail)+'\')"></div></div>'
+          +'</div>'
+          +'<div class="trip-chapter__body" data-folio="'+folio+'"><div><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
+          +'<div><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div></article>';
       }else{
-        html+='<article class="trip-chapter trip-chapter--'+mode+reverse+'" id="'+id+'" data-chapter="'+(i+1)+'">'
-          +'<div class="trip-chapter__media"><div class="trip-chapter__img" style="background-image:url(\''+esc(ch.image||j.hero_image)+'\')"></div>'
-          +(mode==='split'?'<div class="trip-chapter__secondary" style="background-image:url(\''+esc(secondary)+'\')"></div>':'')
-          +'<div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span><span>'+esc(ch.place||'')+'</span></div></div>'
-          +'<div class="trip-chapter__body"><p class="trip-chapter__idx">'+String(i+1).padStart(2,'0')+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'
-          +(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div>'
-          +'<div class="trip-chapter__number">'+String(i+1).padStart(2,'0')+'</div></article>';
+        html+='<article class="trip-chapter trip-chapter--split'+reverse+'" id="'+id+'" data-chapter="'+(i+1)+'">'
+          +'<div class="trip-chapter__media"><div class="trip-chapter__img" style="background-image:url(\''+esc(primary)+'\')"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span><span>'+esc(ch.place||'')+'</span></div></div>'
+          +'<div class="trip-chapter__body" data-folio="'+folio+'"><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'
+          +(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></article>';
       }
     });
     $('tripChapters').innerHTML=html;
