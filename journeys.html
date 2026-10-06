@@ -233,7 +233,7 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
 .ph-inner{position:relative;z-index:2;}
 .ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(48px,8.2vw,112px);font-weight:700;line-height:0.92;letter-spacing:-0.03em;color:var(--bone);margin:2.5rem 0 1.5rem;}
 .ph-hed em{font-style:italic;color:var(--ochre);}
-.ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.78);line-height:1.55;max-width:640px;}
+.ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2vw,25px);font-weight:300;font-style:italic;color:rgba(237,230,214,.86);line-height:1.58;max-width:700px;}
 
 /* FEATURED STORY */
 .featured-story{border-bottom:1px solid var(--rule);}
@@ -420,18 +420,63 @@ nav.scrolled::before{ opacity:.035; }
 .j2{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 30%,rgba(9,14,11,.70) 100%),url('assets/serengeti.jpg');background-position:center 52%;}
 .j3{background-image:linear-gradient(180deg,rgba(9,14,11,.03) 28%,rgba(9,14,11,.72) 100%),url('assets/maasai.jpg');background-position:center 38%;}
 .j4{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 30%,rgba(9,14,11,.68) 100%),url('assets/zanzibar.jpg');background-position:center 60%;}
-.jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.16),transparent 45%);pointer-events:none;}
+.jr-film::before{content:'';position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(180deg,transparent,rgba(7,11,9,.64));pointer-events:none;z-index:1;}
+.jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.12),transparent 45%);pointer-events:none;}
 .jr:nth-child(even) .jr-film::after{background:linear-gradient(270deg,rgba(8,13,10,.14),transparent 45%);}
-.jr-route{position:relative;z-index:2;margin:0 0 2rem 2rem;padding:.75rem 0;border-top:1px solid rgba(237,230,214,.28);max-width:calc(100% - 4rem);font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(237,230,214,.86);line-height:1.55;}
+.jr-route{position:relative;z-index:2;margin:0 0 2rem 2rem;padding:.78rem 0;border-top:1px solid rgba(237,230,214,.38);max-width:calc(100% - 4rem);font-family:'Instrument Sans',sans-serif;font-size:11.5px;letter-spacing:.055em;color:rgba(247,242,231,.94);line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.34);}
 .jr-body{padding:clamp(3.5rem,6vw,6.5rem) clamp(2.5rem,4.5vw,5rem);display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule);position:relative;}
-.jr-body::before{content:attr(data-index);position:absolute;top:2.2rem;right:2.5rem;font-family:'Instrument Sans',sans-serif;font-size:10px;letter-spacing:.2em;color:rgba(190,158,104,.42);}
+.jr-body::before{content:attr(data-index);position:absolute;top:2.2rem;right:2.5rem;font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.18em;color:rgba(190,158,104,.60);}
 .jr-meta{display:flex;gap:1.1rem 1.5rem;margin-bottom:2rem;flex-wrap:wrap;}
-.jr-stat{font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(190,158,104,.78);}
+.jr-stat{font-family:'Instrument Sans',sans-serif;font-size:11px;letter-spacing:.065em;color:rgba(210,182,132,.88);}
 .jr-stat strong{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-weight:500;font-size:16px;color:var(--bone);margin-right:5px;}
 .jr-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(30px,3.4vw,48px);font-weight:500;line-height:1.02;letter-spacing:-0.025em;color:var(--bone);margin-bottom:1.6rem;max-width:12ch;}
 .jr-title em{font-style:italic;color:var(--earth);}
-.jr-desc{font-size:13.5px;font-weight:300;color:rgba(237,230,214,.78);line-height:1.95;margin-bottom:2.2rem;max-width:60ch;}
-.jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(190,158,104,.52);padding-top:1.25rem;border-top:1px solid var(--rule);}
+.jr-desc{font-size:14.5px;font-weight:300;color:rgba(241,235,222,.86);line-height:1.88;margin-bottom:2.2rem;max-width:58ch;}
+.jr-desc a{color:#D0B483 !important;border-bottom-color:rgba(208,180,131,.52) !important;text-underline-offset:3px;}
+.jr-desc a:hover{color:var(--bone) !important;border-bottom-color:rgba(237,230,214,.75) !important;}
+.jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-size:11px;letter-spacing:.065em;color:rgba(205,178,130,.70);padding-top:1.25rem;border-top:1px solid rgba(190,158,104,.15);}
+/* CINEMATIC INTERLUDE — water as a change of tempo */
+.water-interlude{border-bottom:1px solid var(--rule);background:#101813;padding:clamp(5rem,8vw,8rem) clamp(1.5rem,3vw,3rem);}
+.water-intro{display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,1.28fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-bottom:clamp(3rem,5vw,5rem);}
+.water-kicker{font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(210,182,132,.82);margin-bottom:1.4rem;}
+.water-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(34px,5.2vw,72px);font-weight:500;line-height:.98;letter-spacing:-.03em;max-width:10ch;}
+.water-title em{font-style:italic;color:var(--earth);}
+.water-copy{font-size:14.5px;line-height:1.9;color:rgba(241,235,222,.80);max-width:58ch;}
+.water-reel{display:grid;grid-template-columns:1.25fr .8fr 1fr;grid-template-rows:260px 220px;gap:1px;background:rgba(190,158,104,.14);border:1px solid rgba(190,158,104,.14);}
+.water-frame{position:relative;overflow:hidden;min-height:0;background:
+  radial-gradient(circle at 70% 20%,rgba(85,107,68,.20),transparent 42%),
+  linear-gradient(145deg,#17231b,#0c120f 70%);}
+.water-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(4,8,6,.74));pointer-events:none;}
+.water-frame--materuni{grid-row:1 / 3;}
+.water-frame--kikuletwa{grid-column:2;grid-row:1 / 3;background:
+  radial-gradient(circle at 50% 70%,rgba(42,108,101,.22),transparent 45%),
+  linear-gradient(165deg,#13211c,#0b1210 72%);}
+.water-frame--machame{grid-column:3;grid-row:1;}
+.water-frame--chala{grid-column:3;grid-row:2;background:
+  radial-gradient(circle at 38% 34%,rgba(58,86,106,.20),transparent 46%),
+  linear-gradient(155deg,#13201d,#0a1110 72%);}
+.water-slot{position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.4rem;z-index:2;}
+.water-slot::before{content:'image reserved';position:absolute;top:1rem;left:1.1rem;font-family:'Instrument Sans',sans-serif;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.30);}
+.water-place{font-family:'Instrument Sans',sans-serif;font-size:11px;line-height:1.55;letter-spacing:.045em;color:rgba(247,242,231,.90);}
+.water-place strong{display:block;font-family:'Fraunces',serif;font-size:clamp(20px,2.2vw,30px);font-weight:400;letter-spacing:-.015em;color:var(--bone);margin-bottom:.15rem;}
+.water-note{margin-top:1.3rem;font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.045em;color:rgba(190,158,104,.62);}
+@media(max-width:860px){
+  .water-interlude{padding:5rem 1.5rem;}
+  .water-intro{grid-template-columns:1fr;gap:2rem;}
+  .water-copy{font-size:14px;}
+  .water-reel{grid-template-columns:1fr 1fr;grid-template-rows:320px 220px 220px;}
+  .water-frame--materuni{grid-column:1 / 3;grid-row:1;}
+  .water-frame--kikuletwa{grid-column:1;grid-row:2 / 4;}
+  .water-frame--machame{grid-column:2;grid-row:2;}
+  .water-frame--chala{grid-column:2;grid-row:3;}
+}
+@media(max-width:560px){
+  .water-reel{display:block;border:0;background:transparent;}
+  .water-frame{min-height:270px;border-bottom:1px solid rgba(190,158,104,.14);}
+  .water-frame--kikuletwa{min-height:340px;}
+  .water-slot::before{font-size:9px;}
+}
+
 @media(min-width:1180px){
   .jr:first-child{grid-template-columns:minmax(0,1.28fr) minmax(390px,.72fr);min-height:640px;}
   .jr:first-child .jr-film{min-height:640px;}
@@ -445,6 +490,8 @@ nav.scrolled::before{ opacity:.035; }
   .jr-body::before{top:1.35rem;right:1.5rem;}
   .jr-route{margin:0 1.5rem 1.5rem;max-width:calc(100% - 3rem);}
   .jr-title{font-size:clamp(28px,9vw,42px);max-width:13ch;}
+  .jr-desc{font-size:14px;line-height:1.82;}
+  .jr-worlds{font-size:10.8px;}
 }
 </style>
 <style>@media(max-width:860px){.cta-wrap{grid-template-columns:1fr !important;gap:2.5rem !important;padding:6rem 1.5rem !important;}}
@@ -950,6 +997,50 @@ body.eh-locked{overflow:hidden;}
       <h2 class="jr-title reveal">A wildlife journey,<br>nothing <em>but the land.</em></h2>
       <p class="jr-desc reveal">A couple who came for one thing: animals, and the people who can read them. No coast, no cities. Tarangire&rsquo;s elephants, the northern Serengeti at the height of the crossing season, and a full day in the crater. Slow mornings, long game drives, a guide who had spent thirty years on that plain.</p>
       <p class="jr-worlds reveal">Savanna &middot; Crater &nbsp;&middot;&nbsp; August</p>
+    </div>
+  </div>
+
+  <!-- WATER INTERLUDE — reserved media slots; replace each frame with approved Enkiama imagery -->
+  <div class="water-interlude" aria-labelledby="water-title">
+    <div class="water-intro">
+      <div>
+        <p class="water-kicker">Interlude · Water</p>
+        <h2 class="water-title reveal" id="water-title">Water changes<br>the <em>pace.</em></h2>
+      </div>
+      <div>
+        <p class="water-copy reveal">Not every memorable hour belongs to a park or a summit. On the Kilimanjaro slopes, in volcanic country and across the Rift, water creates a different rhythm: walking through wet forest, standing inside waterfall mist, swimming in a spring, or doing almost nothing beside a crater lake.</p>
+        <p class="water-note reveal">These are media positions, not a fixed itinerary. They are here to hold quieter possibilities between the larger chapters.</p>
+      </div>
+    </div>
+
+    <div class="water-reel" aria-label="Reserved image sequence for water landscapes">
+      <!-- MEDIA SLOT: Materuni Waterfalls, Kilimanjaro -->
+      <figure class="water-frame water-frame--materuni">
+        <div class="water-slot">
+          <figcaption class="water-place"><strong>Materuni</strong>Waterfall · Kilimanjaro foothills</figcaption>
+        </div>
+      </figure>
+
+      <!-- MEDIA SLOT: Kikuletwa / Rundugai Springs (Chemka), Hai District -->
+      <figure class="water-frame water-frame--kikuletwa">
+        <div class="water-slot">
+          <figcaption class="water-place"><strong>Kikuletwa</strong>Underground spring · Rundugai / Chemka</figcaption>
+        </div>
+      </figure>
+
+      <!-- MEDIA SLOT: Nkosalulu Waterfalls, Makoa River, Machame -->
+      <figure class="water-frame water-frame--machame">
+        <div class="water-slot">
+          <figcaption class="water-place"><strong>Machame</strong>Nkosalulu Falls · Makoa River</figcaption>
+        </div>
+      </figure>
+
+      <!-- MEDIA SLOT: Lake Chala or another approved waterbody -->
+      <figure class="water-frame water-frame--chala">
+        <div class="water-slot">
+          <figcaption class="water-place"><strong>Lake Chala</strong>Volcanic water · eastern Kilimanjaro</figcaption>
+        </div>
+      </figure>
     </div>
   </div>
 
