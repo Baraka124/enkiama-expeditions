@@ -517,40 +517,57 @@ nav.scrolled::before{ opacity:.035; }
 .jr-desc a:hover{color:var(--bone) !important;border-bottom-color:rgba(237,230,214,.75) !important;}
 .jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-size:11px;letter-spacing:.065em;color:rgba(205,178,130,.70);padding-top:1.25rem;border-top:1px solid rgba(190,158,104,.15);}
 /* CINEMATIC INTERLUDE — water as a change of tempo */
-.water-interlude{border-bottom:1px solid var(--rule);background:#101813;padding:clamp(5rem,8vw,8rem) clamp(1.5rem,3vw,3rem);}
-.water-intro{display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,1.28fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-bottom:clamp(3rem,5vw,5rem);}
-.water-kicker{font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(210,182,132,.82);margin-bottom:1.4rem;}
-.water-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(34px,5.2vw,72px);font-weight:500;line-height:.98;letter-spacing:-.03em;max-width:10ch;}
+.water-interlude{position:relative;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#0D1511;padding:clamp(6rem,9vw,9rem) clamp(1.5rem,4vw,4rem) clamp(5rem,8vw,8rem);overflow:hidden;}
+.water-interlude::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 45% at 16% 8%,rgba(52,78,64,.18),transparent 72%);}
+.water-intro{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,1.28fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-bottom:clamp(3rem,5vw,5rem);}
+.water-kicker{font-family:'Instrument Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(210,182,132,.78);margin-bottom:1.4rem;}
+.water-title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(38px,5.6vw,78px);font-weight:500;line-height:.95;letter-spacing:-.035em;max-width:9ch;}
 .water-title em{font-style:italic;color:var(--earth);}
-.water-copy{font-size:14.5px;line-height:1.9;color:rgba(241,235,222,.80);max-width:58ch;}
-.water-reel{display:grid;grid-template-columns:1.25fr .8fr 1fr;grid-template-rows:260px 220px;gap:1px;background:rgba(190,158,104,.14);border:1px solid rgba(190,158,104,.14);}
-.water-frame{position:relative;overflow:hidden;min-height:0;background-color:#0f1712;background-size:cover;background-repeat:no-repeat;background-position:center;}
-.water-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(4,8,6,.74));pointer-events:none;}
-.water-frame--materuni{grid-row:1 / 3;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Materuni_Falls_1.jpg?width=1600');background-position:center 46%;}
-.water-frame--kikuletwa{grid-column:2;grid-row:1 / 3;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Chemka_Hot_Springs_01.jpg?width=1600');background-position:center 52%;}
-.water-frame--machame{grid-column:3;grid-row:1;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Osanja_waterfall_in_Kyaseni,_Moshi-Kilimanjaro,Tanzania.jpg?width=1200');background-position:center 44%;}
-.water-frame--chala{grid-column:3;grid-row:2;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Challa_of_Kenya.jpg?width=1600');background-position:center 50%;}
-.water-slot{position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.4rem;z-index:2;}
-.water-slot::before{content:'';}
-.water-place{font-family:'Instrument Sans',sans-serif;font-size:11px;line-height:1.55;letter-spacing:.045em;color:rgba(247,242,231,.90);}
-.water-place strong{display:block;font-family:'Fraunces',serif;font-size:clamp(20px,2.2vw,30px);font-weight:400;letter-spacing:-.015em;color:var(--bone);margin-bottom:.15rem;}
-.water-provisional{display:block;margin-top:.25rem;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:rgba(237,230,214,.54);}
-.water-note{margin-top:1.3rem;font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.045em;color:rgba(190,158,104,.62);}
+.water-copy{font-size:14.5px;line-height:1.88;color:rgba(241,235,222,.82);max-width:54ch;}
+.water-note{margin-top:1.35rem;font-family:'Instrument Sans',sans-serif;font-size:10.5px;line-height:1.65;letter-spacing:.035em;color:rgba(190,158,104,.64);max-width:52ch;}
+
+.water-sequence{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(320px,.68fr);grid-template-rows:auto auto;gap:clamp(1rem,1.8vw,1.6rem);}
+.water-pair{display:grid;grid-template-rows:1fr 1fr;gap:clamp(1rem,1.8vw,1.6rem);}
+.water-frame{position:relative;overflow:hidden;background-color:#0f1712;background-size:cover;background-repeat:no-repeat;background-position:center;isolation:isolate;}
+.water-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,9,7,.03) 34%,rgba(5,9,7,.68) 100%);z-index:1;pointer-events:none;}
+.water-frame::after{content:'';position:absolute;inset:0;border:1px solid rgba(237,230,214,.07);z-index:3;pointer-events:none;}
+.water-frame--materuni{grid-column:1;grid-row:1;min-height:clamp(600px,68vw,860px);background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Materuni_Falls_1.jpg?width=1800');background-position:center 44%;}
+.water-frame--kikuletwa{min-height:clamp(280px,31vw,390px);background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Chemka_Hot_Springs_01.jpg?width=1200');background-position:center 48%;}
+.water-frame--machame{min-height:clamp(280px,31vw,390px);background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Osanja_waterfall_in_Kyaseni,_Moshi-Kilimanjaro,Tanzania.jpg?width=1200');background-position:center 44%;}
+.water-frame--chala{grid-column:1 / 3;grid-row:2;min-height:clamp(320px,36vw,480px);background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Challa_of_Kenya.jpg?width=1800');background-position:center 54%;}
+.water-frame--chala::before{background:linear-gradient(90deg,rgba(5,9,7,.68) 0%,rgba(5,9,7,.14) 48%,rgba(5,9,7,.04) 100%);}
+.water-place{position:absolute;left:clamp(1.25rem,2.2vw,2rem);right:clamp(1.25rem,2.2vw,2rem);bottom:clamp(1.25rem,2.2vw,2rem);z-index:2;color:var(--bone);}
+.water-folio{display:block;font-family:'Instrument Sans',sans-serif;font-size:9.5px;letter-spacing:.15em;color:rgba(237,230,214,.58);margin-bottom:.45rem;}
+.water-place strong{display:block;font-family:'Fraunces',serif;font-size:clamp(24px,2.5vw,36px);font-weight:400;line-height:1;color:var(--bone);letter-spacing:-.02em;margin-bottom:.42rem;}
+.water-place span:last-child{display:block;font-family:'Instrument Sans',sans-serif;font-size:10.5px;line-height:1.45;letter-spacing:.035em;color:rgba(247,242,231,.78);}
+.water-place--wide{max-width:420px;}
+.water-provisional{display:none;}
+
+.pace-signature{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:clamp(.65rem,1.6vw,1.5rem);padding-top:clamp(2.5rem,4vw,4rem);font-family:'Instrument Sans',sans-serif;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(190,158,104,.54);}
+.pace-signature i{display:block;width:clamp(26px,5vw,72px);height:1px;background:linear-gradient(90deg,rgba(190,158,104,.12),rgba(190,158,104,.48),rgba(190,158,104,.12));}
+
+.silent-transition{grid-column:1 / -1;background:var(--bone);color:var(--ink);border-top:1px solid rgba(15,23,18,.08);border-bottom:1px solid rgba(15,23,18,.08);}
+.silent-transition__field{min-height:clamp(280px,34vw,440px);display:flex;flex-direction:column;justify-content:center;padding:clamp(4rem,8vw,8rem) clamp(1.5rem,8vw,8rem);}
+.silent-transition__line{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,72px);font-weight:400;line-height:1;letter-spacing:-.035em;max-width:11ch;}
+.silent-transition__sub{margin-top:1.5rem;font-family:'Instrument Sans',sans-serif;font-size:12.5px;line-height:1.7;color:rgba(15,23,18,.62);max-width:38ch;}
+
 @media(max-width:860px){
-  .water-interlude{padding:5rem 1.5rem;}
+  .water-interlude{padding:5.5rem 1.5rem 5rem;}
   .water-intro{grid-template-columns:1fr;gap:2rem;}
   .water-copy{font-size:14px;}
-  .water-reel{grid-template-columns:1fr 1fr;grid-template-rows:320px 220px 220px;}
-  .water-frame--materuni{grid-column:1 / 3;grid-row:1;}
-  .water-frame--kikuletwa{grid-column:1;grid-row:2 / 4;}
-  .water-frame--machame{grid-column:2;grid-row:2;}
-  .water-frame--chala{grid-column:2;grid-row:3;}
+  .water-sequence{grid-template-columns:1fr;grid-template-rows:auto;gap:1rem;}
+  .water-frame--materuni,.water-frame--chala{grid-column:1;grid-row:auto;}
+  .water-frame--materuni{min-height:clamp(440px,118vw,620px);}
+  .water-pair{grid-template-columns:1fr 1fr;grid-template-rows:none;}
+  .water-frame--kikuletwa,.water-frame--machame{min-height:clamp(240px,52vw,340px);}
+  .water-frame--chala{min-height:clamp(280px,68vw,400px);}
 }
 @media(max-width:560px){
-  .water-reel{display:block;border:0;background:transparent;}
-  .water-frame{min-height:270px;border-bottom:1px solid rgba(190,158,104,.14);}
-  .water-frame--kikuletwa{min-height:340px;}
-  .water-slot::before{font-size:9px;}
+  .water-pair{grid-template-columns:1fr;}
+  .water-frame--materuni{min-height:520px;}
+  .water-frame--kikuletwa,.water-frame--machame{min-height:300px;}
+  .pace-signature{justify-content:flex-start;overflow:hidden;white-space:nowrap;}
+  .silent-transition__field{min-height:340px;}
 }
 
 @media(max-width:860px){
@@ -1112,9 +1129,10 @@ body.eh-locked{overflow:hidden;}
       <p class="jr-worlds reveal">Savanna &middot; Crater &nbsp;&middot;&nbsp; August</p>
     </div>
   </div>
+</section>
 
-  <!-- WATER INTERLUDE -->
-  <div class="water-interlude" aria-labelledby="water-title">
+<!-- WATER INTERLUDE -->
+<section class="water-interlude" aria-labelledby="water-title">
     <div class="water-intro">
       <div>
         <p class="water-kicker">Interlude · Water</p>
@@ -1126,37 +1144,48 @@ body.eh-locked{overflow:hidden;}
       </div>
     </div>
 
-    <div class="water-reel" aria-label="Reserved image sequence for water landscapes">
-      <!-- MEDIA SLOT: Materuni Waterfalls, Kilimanjaro -->
+    <div class="water-sequence" aria-label="Water landscapes">
       <figure class="water-frame water-frame--materuni">
-        <div class="water-slot">
-          <figcaption class="water-place"><strong>Materuni</strong>Waterfall · Kilimanjaro foothills</figcaption>
-        </div>
+        <figcaption class="water-place">
+          <span class="water-folio">01</span>
+          <strong>Materuni</strong>
+          <span>Waterfall · Kilimanjaro foothills</span>
+        </figcaption>
       </figure>
 
-      <!-- MEDIA SLOT: Kikuletwa / Rundugai Springs (Chemka), Hai District -->
-      <figure class="water-frame water-frame--kikuletwa">
-        <div class="water-slot">
-          <figcaption class="water-place"><strong>Kikuletwa</strong>Underground spring · Rundugai / Chemka</figcaption>
-        </div>
-      </figure>
+      <div class="water-pair">
+        <figure class="water-frame water-frame--kikuletwa">
+          <figcaption class="water-place">
+            <span class="water-folio">02</span>
+            <strong>Kikuletwa</strong>
+            <span>Underground spring · Rundugai / Chemka</span>
+          </figcaption>
+        </figure>
 
-      <!-- MEDIA SLOT: Nkosalulu Waterfalls, Makoa River, Machame -->
-      <figure class="water-frame water-frame--machame">
-        <div class="water-slot">
-          <figcaption class="water-place"><strong>Machame</strong>Nkosalulu Falls · Makoa River <span class="water-provisional">provisional visual</span></figcaption>
-        </div>
-      </figure>
+        <figure class="water-frame water-frame--machame">
+          <figcaption class="water-place">
+            <span class="water-folio">03</span>
+            <strong>Machame</strong>
+            <span>Nkosalulu Falls · Makoa River</span>
+          </figcaption>
+        </figure>
+      </div>
 
-      <!-- MEDIA SLOT: Lake Chala or another approved waterbody -->
       <figure class="water-frame water-frame--chala">
-        <div class="water-slot">
-          <figcaption class="water-place"><strong>Lake Chala</strong>Volcanic water · eastern Kilimanjaro</figcaption>
-        </div>
+        <figcaption class="water-place water-place--wide">
+          <span class="water-folio">04</span>
+          <strong>Lake Chala</strong>
+          <span>Volcanic water · eastern Kilimanjaro</span>
+        </figcaption>
       </figure>
     </div>
-  </div>
 
+    <div class="pace-signature" aria-hidden="true">
+      <span>dust</span><i></i><span>forest</span><i></i><span>water</span><i></i><span>coast</span>
+    </div>
+</section>
+
+<section class="jr-grid jr-grid--after-water">
   <div class="jr jr--editorial">
     <div class="jr-film j3">
       <span class="jr-route">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span>
@@ -1172,6 +1201,13 @@ body.eh-locked{overflow:hidden;}
       <p class="jr-worlds reveal">Mountain &middot; Culture &nbsp;&middot;&nbsp; June</p>
     </div>
   </div>
+
+  <section class="silent-transition" aria-label="Change of pace">
+    <div class="silent-transition__field">
+      <p class="silent-transition__line">Sometimes the journey needs less.</p>
+      <p class="silent-transition__sub">A long road. One place. No rush to fill the day.</p>
+    </div>
+  </section>
 
   <div class="jr">
     <div class="jr-film j4">
