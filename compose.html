@@ -1656,7 +1656,18 @@ body.eh-locked{overflow:hidden;}
   }
 
   document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelector('.cmp-stage').classList.remove('result-mode');var ex=document.getElementById('cmpExample');if(ex)ex.style.display='none';document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
-  showStep(0);
+
+  var incomingInterest=new URLSearchParams(location.search).get('interest');
+  if(incomingInterest==='people'){
+    answers.pull='people';
+    var pre=document.querySelector('.cmp-opt[data-k="pull"][data-v="people"]');
+    if(pre)pre.classList.add('selected');
+    showStep(1);
+    document.getElementById('cmpNavNote').textContent='People & culture carried in from Society & Culture. Add the next decision.';
+    setTimeout(function(){document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});},120);
+  }else{
+    showStep(0);
+  }
 })();
 </script>
 <footer>
