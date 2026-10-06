@@ -1278,5 +1278,22 @@
   if(ask) ask.innerHTML='Ask what '+MONTHS[m]+' would give you \u2192';
 })();
 </script>
+<style id="experience-view-launcher">
+.ev-launch{
+  position:fixed;right:clamp(1rem,2vw,1.5rem);bottom:clamp(1rem,2vw,1.5rem);z-index:900;
+  display:flex;align-items:center;gap:.55rem;padding:.62rem .78rem;
+  border:1px solid rgba(237,230,214,.24);border-radius:999px;
+  background:rgba(12,18,14,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:#EDE6D6;text-decoration:none;font-family:'Instrument Sans',sans-serif;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;transition:border-color .25s,background .25s,transform .25s;
+}
+.ev-launch:hover{border-color:rgba(190,158,104,.72);background:rgba(12,18,14,.9);transform:translateY(-1px)}
+.ev-launch svg{width:15px;height:15px;display:block;stroke:currentColor;fill:none;stroke-width:1.4}
+@media(max-width:640px){.ev-launch span{display:none}.ev-launch{width:42px;height:42px;padding:0;justify-content:center}}
+</style>
+<a class="ev-launch" href="experience-view.html" aria-label="Open Experience View">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="12.5" rx="1.8"></rect><path d="M8 21h8M12 17.5V21"></path></svg>
+  <span>Experience View</span>
+</a>
 </body>
 </html>
