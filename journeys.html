@@ -445,14 +445,15 @@ nav.scrolled::before{ opacity:.035; }
 .water-reel{display:grid;grid-template-columns:1.25fr .8fr 1fr;grid-template-rows:260px 220px;gap:1px;background:rgba(190,158,104,.14);border:1px solid rgba(190,158,104,.14);}
 .water-frame{position:relative;overflow:hidden;min-height:0;background-color:#0f1712;background-size:cover;background-repeat:no-repeat;background-position:center;}
 .water-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(4,8,6,.74));pointer-events:none;}
-.water-frame--materuni{grid-row:1 / 3;background-image:url('https://nitembeze.com/storage/uploads/featured/materuni_1_1673103835.jpg');background-position:center 46%;}
-.water-frame--kikuletwa{grid-column:2;grid-row:1 / 3;background-image:url('https://live.staticflickr.com/65535/49399726066_eeaa3512a3_b.jpg');background-position:center 52%;}
-.water-frame--machame{grid-column:3;grid-row:1;background-image:url('https://machameculturaltourism.com/wp-content/uploads/2025/02/Guests-Enjoying-Swimming-in-Nkosalulu-Water-Falls-in-Ma-chame.jpg');background-position:center 44%;}
-.water-frame--chala{grid-column:3;grid-row:2;background-image:url('https://i0.wp.com/www.mawenziadventures.com/wp-content/uploads/2019/03/P1490917.jpg?fit=1500%2C1126&ssl=1');background-position:center 50%;}
+.water-frame--materuni{grid-row:1 / 3;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Materuni_Falls_1.jpg?width=1600');background-position:center 46%;}
+.water-frame--kikuletwa{grid-column:2;grid-row:1 / 3;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Chemka_Hot_Springs_01.jpg?width=1600');background-position:center 52%;}
+.water-frame--machame{grid-column:3;grid-row:1;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Osanja_waterfall_in_Kyaseni,_Moshi-Kilimanjaro,Tanzania.jpg?width=1200');background-position:center 44%;}
+.water-frame--chala{grid-column:3;grid-row:2;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Challa_of_Kenya.jpg?width=1600');background-position:center 50%;}
 .water-slot{position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.4rem;z-index:2;}
 .water-slot::before{content:'';}
 .water-place{font-family:'Instrument Sans',sans-serif;font-size:11px;line-height:1.55;letter-spacing:.045em;color:rgba(247,242,231,.90);}
 .water-place strong{display:block;font-family:'Fraunces',serif;font-size:clamp(20px,2.2vw,30px);font-weight:400;letter-spacing:-.015em;color:var(--bone);margin-bottom:.15rem;}
+.water-provisional{display:block;margin-top:.25rem;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:rgba(237,230,214,.54);}
 .water-note{margin-top:1.3rem;font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.045em;color:rgba(190,158,104,.62);}
 @media(max-width:860px){
   .water-interlude{padding:5rem 1.5rem;}
@@ -1025,7 +1026,7 @@ body.eh-locked{overflow:hidden;}
       <!-- MEDIA SLOT: Nkosalulu Waterfalls, Makoa River, Machame -->
       <figure class="water-frame water-frame--machame">
         <div class="water-slot">
-          <figcaption class="water-place"><strong>Machame</strong>Nkosalulu Falls · Makoa River</figcaption>
+          <figcaption class="water-place"><strong>Machame</strong>Nkosalulu Falls · Makoa River <span class="water-provisional">provisional visual</span></figcaption>
         </div>
       </figure>
 
