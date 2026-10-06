@@ -1598,7 +1598,9 @@ body.eh-locked{overflow:hidden;}
         if(!rec||!rec.journey){if(wrap)wrap.style.display='none';return null;}
         var j=rec.journey;
         document.getElementById('cmpExampleLink').href='trip.html?slug='+encodeURIComponent(j.slug);
-        document.getElementById('cmpExampleMedia').style.backgroundImage='url("'+j.hero_image+'")';
+        var heroMedia=(j.hero_media&&j.hero_media.primary)||{src:j.hero_image||'assets/images/hero-dawn.webp',focal_point:'50% 50%'};
+        document.getElementById('cmpExampleMedia').style.backgroundImage='url("'+heroMedia.src+'")';
+        document.getElementById('cmpExampleMedia').style.backgroundPosition=heroMedia.focal_point||'50% 50%';
         document.getElementById('cmpExampleParty').textContent=j.party_label||'Operated journey';
         document.getElementById('cmpExamplePeriod').textContent=j.period_label||'Tanzania';
         document.getElementById('cmpExampleTitle').textContent=j.title;
@@ -1622,7 +1624,8 @@ body.eh-locked{overflow:hidden;}
 
         var preview=document.getElementById('cmpExamplePreview');
         preview.innerHTML=(j.chapters||[]).slice(0,3).map(function(ch,i){
-          return '<div class="cmp-example-preview__item"><div class="cmp-example-preview__img" style="background-image:url(\''+(ch.image||j.hero_image)+'\')"></div><div class="cmp-example-preview__shade"></div><div class="cmp-example-preview__copy"><span>'+String(i+1).padStart(2,'0')+' · '+(ch.place||'Journey chapter')+'</span><strong>'+(ch.title||'')+'</strong></div></div>';
+          var pm=(ch.media&&ch.media.primary)||heroMedia;
+          return '<div class="cmp-example-preview__item" role="img" aria-label="'+(pm.alt||ch.place||'Journey chapter')+'"><div class="cmp-example-preview__img" style="background-image:url(\''+pm.src+'\');background-position:'+(pm.focal_point||'50% 50%')+'"></div><div class="cmp-example-preview__shade"></div><div class="cmp-example-preview__copy"><span>'+String(i+1).padStart(2,'0')+' · '+(ch.place||'Journey chapter')+'</span><strong>'+(ch.title||'')+'</strong></div></div>';
         }).join('');
 
         wrap.style.display='block';
