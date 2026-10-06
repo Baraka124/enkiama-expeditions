@@ -410,6 +410,37 @@ nav.scrolled::before{ opacity:.035; }
 </style>
 
 <style>
+/* JOURNEYS — philosophy layer */
+.journey-thesis{padding:clamp(6rem,10vw,10rem) clamp(1.5rem,4vw,4rem);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(10,16,12,.18);}
+.journey-thesis__lead{display:grid;grid-template-columns:minmax(180px,.55fr) minmax(0,1.45fr);gap:clamp(2rem,7vw,8rem);align-items:start;margin-bottom:clamp(4rem,7vw,7rem);}
+.journey-thesis__kicker{font-family:'Instrument Sans',sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage,#7A9470);padding-top:.6rem;}
+.journey-thesis__title{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(34px,5vw,68px);font-weight:500;line-height:1;letter-spacing:-.03em;max-width:14ch;}
+.journey-thesis__title em{font-style:italic;color:var(--earth);}
+.journey-thesis__lines{border-top:1px solid rgba(190,158,104,.16);}
+.journey-principle{display:grid;grid-template-columns:64px minmax(140px,.45fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);padding:1.6rem 0;border-bottom:1px solid rgba(190,158,104,.11);align-items:baseline;}
+.journey-principle__n{font-family:'Instrument Sans',sans-serif;font-size:10px;letter-spacing:.14em;color:rgba(190,158,104,.55);}
+.journey-principle h3{font-family:'Fraunces',serif;font-size:clamp(19px,2vw,26px);font-weight:400;color:var(--bone);}
+.journey-principle p{font-size:13.5px;line-height:1.75;color:rgba(237,230,214,.75);max-width:64ch;}
+.journey-thesis__note{margin:2rem 0 0 auto;max-width:62ch;font-size:12px;line-height:1.7;color:rgba(190,158,104,.66);}
+@media(max-width:760px){
+  .journey-thesis__lead{grid-template-columns:1fr;gap:1.4rem;}
+  .journey-principle{grid-template-columns:42px 1fr;gap:.75rem 1rem;}
+  .journey-principle p{grid-column:2;}
+  .journey-thesis__note{margin-left:42px;}
+}
+
+/* Journey records should read as editorial evidence, not package cards. */
+.jr-meta{gap:.65rem 1.1rem;}
+.jr-stat{position:relative;padding-right:1.1rem;color:rgba(210,182,132,.82);}
+.jr-stat:not(:last-child)::after{content:'·';position:absolute;right:.25rem;color:rgba(190,158,104,.34);}
+.jr-stat strong{display:none;}
+.jr-worlds{font-size:10.5px;text-transform:none;}
+.water-provisional{display:none;}
+@media(max-width:560px){
+  .jr-meta{display:block;}
+  .jr-stat{display:inline-block;margin:0 .8rem .45rem 0;padding-right:.8rem;}
+}
+
 .jr-grid{display:block;border-top:1px solid var(--rule);}
 .jr{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);min-height:560px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden;background:var(--ink);}
 .jr:nth-child(even){grid-template-columns:minmax(360px,.88fr) minmax(0,1.12fr);}
@@ -953,10 +984,41 @@ body.eh-locked{overflow:hidden;}
 <section class="ph" id="main">
   
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.25rem;">Journeys &nbsp;&middot;&nbsp; Composed for one group at a time</p>
-    <h1 class="ph-hed reveal">Four journeys.<br>Four different <em>rhythms.</em></h1>
-    <p class="ph-sub reveal">Each Enkiama journey is composed around one group: their pace, interests, season and appetite for distance. These four examples show how different that can look. The full day-by-day detail remains private; what matters here is the shape of the journey.</p>
+    <p class="eye" style="margin-bottom:2.25rem;">Journeys &nbsp;&middot;&nbsp; Composed, not packaged</p>
+    <h1 class="ph-hed reveal">A journey is<br>not a <em>route.</em></h1>
+    <p class="ph-sub reveal">A route tells you where you go. A journey is shaped by how long you stay, what you leave out, who you meet, when you move, and where the pace changes. That is the part we compose.</p>
   </div>
+</section>
+
+<!-- COMPOSITION THESIS -->
+<section class="journey-thesis" aria-labelledby="journey-thesis-title">
+  <div class="journey-thesis__lead">
+    <p class="journey-thesis__kicker">What we compose</p>
+    <h2 id="journey-thesis-title" class="journey-thesis__title reveal">The sequence matters<br>as much as the <em>places.</em></h2>
+  </div>
+  <div class="journey-thesis__lines">
+    <div class="journey-principle">
+      <span class="journey-principle__n">01</span>
+      <h3>Rhythm</h3>
+      <p>How much happens in a day, where the long pauses sit, and when the journey needs to breathe.</p>
+    </div>
+    <div class="journey-principle">
+      <span class="journey-principle__n">02</span>
+      <h3>Contrast</h3>
+      <p>Forest after dust. Water after altitude. A human day between two wildlife days. Contrast is what gives a journey memory.</p>
+    </div>
+    <div class="journey-principle">
+      <span class="journey-principle__n">03</span>
+      <h3>People</h3>
+      <p>The guide, host, historian, driver or family who changes how a place is understood—not an activity added to fill a schedule.</p>
+    </div>
+    <div class="journey-principle">
+      <span class="journey-principle__n">04</span>
+      <h3>Season</h3>
+      <p>The same route can become a different journey with rain, migration, heat, visibility, crowds and the length of the day.</p>
+    </div>
+  </div>
+  <p class="journey-thesis__note">The examples below are shown to reveal that thinking—not to sell a fixed itinerary.</p>
 </section>
 
 <!-- JOURNEY SHAPES -->
@@ -968,13 +1030,12 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="jr-body" data-index="01">
       <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>13</strong> nights</span>
-        <span class="jr-stat"><strong>4</strong> worlds</span>
-        <span class="jr-stat"><strong>9</strong> lodges</span>
-        <span class="jr-stat"><strong>3</strong> guides</span>
+        <span class="jr-stat">Friends travelling together</span>
+        <span class="jr-stat">Long arc</span>
+        <span class="jr-stat">Mountain to coast</span>
       </div>
       <h2 class="jr-title reveal">Five friends,<br>first time in <em>Tanzania.</em></h2>
-      <p class="jr-desc reveal">A group of five who wanted the whole arc: mountain culture, the migration on the open plain, the descent into the crater, and the slow exhale of the coast to finish. Composed around their pace and their appetite for both spectacle and stillness, with a cultural day in Mto wa Mbu in place of a fourth park. July, peak migration. <a href="companions.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">Travelling as a group, or forming one &rarr;</a></p>
+      <p class="jr-desc reveal">Five friends wanted the whole arc without turning the trip into a race: mountain culture, the migration on the open plain, the descent into the crater, and the coast at the end. The important decision was not adding more. It was protecting enough time for each change of landscape to register, including a cultural day in Mto wa Mbu instead of another park. <a href="companions.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">Travelling as a group, or forming one &rarr;</a></p>
       <p class="jr-worlds reveal">Mountain &middot; Savanna &middot; Rift Valley &middot; Coast &nbsp;&middot;&nbsp; July 2026</p>
     </div>
   </div>
@@ -985,9 +1046,9 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="jr-body" data-index="02">
       <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>8</strong> nights</span>
-        <span class="jr-stat"><strong>3</strong> worlds</span>
-        <span class="jr-stat"><strong>2</strong> guides</span>
+        <span class="jr-stat">Wildlife-led</span>
+        <span class="jr-stat">Slow mornings</span>
+        <span class="jr-stat">No coast</span>
       </div>
       <h2 class="jr-title reveal">A wildlife journey,<br>nothing <em>but the land.</em></h2>
       <p class="jr-desc reveal">A couple who came for one thing: animals, and the people who can read them. No coast, no cities. Tarangire&rsquo;s elephants, the northern Serengeti at the height of the crossing season, and a full day in the crater. Slow mornings, long game drives, a guide who had spent thirty years on that plain.</p>
@@ -995,7 +1056,7 @@ body.eh-locked{overflow:hidden;}
     </div>
   </div>
 
-  <!-- WATER INTERLUDE — reserved media slots; replace each frame with approved Enkiama imagery -->
+  <!-- WATER INTERLUDE -->
   <div class="water-interlude" aria-labelledby="water-title">
     <div class="water-intro">
       <div>
@@ -1003,8 +1064,8 @@ body.eh-locked{overflow:hidden;}
         <h2 class="water-title reveal" id="water-title">Water changes<br>the <em>pace.</em></h2>
       </div>
       <div>
-        <p class="water-copy reveal">Not every memorable hour belongs to a park or a summit. On the Kilimanjaro slopes, in volcanic country and across the Rift, water creates a different rhythm: walking through wet forest, standing inside waterfall mist, swimming in a spring, or doing almost nothing beside a crater lake.</p>
-        <p class="water-note reveal">These are not itinerary requirements. They are quieter possibilities that can sit between the larger chapters of a journey.</p>
+        <p class="water-copy reveal">Not every memorable hour belongs to a park or a summit. Water can reset the journey completely: wet forest after dust, cold spray after heat, a spring after a long road, stillness beside a crater lake.</p>
+        <p class="water-note reveal">The point is not to collect stops. It is to change the tempo at the right moment.</p>
       </div>
     </div>
 
@@ -1045,9 +1106,9 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="jr-body" data-index="03">
       <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>6</strong> nights</span>
-        <span class="jr-stat"><strong>2</strong> worlds</span>
-        <span class="jr-stat"><strong>1</strong> family host</span>
+        <span class="jr-stat">Foothills</span>
+        <span class="jr-stat">Family-led</span>
+        <span class="jr-stat">No summit</span>
       </div>
       <h2 class="jr-title reveal">The mountain,<br>without the <em>summit.</em></h2>
       <p class="jr-desc reveal">A journey for travellers who wanted the mountain&rsquo;s culture rather than its peak: the Chagga coffee farms at 1,700 metres, a homestay with a family who have worked the same slopes for four generations, the cloud forest, and an evening in Moshi that no itinerary planned. Quiet, human, and completely unlike a safari. <a href="kilimanjaro.html" style="color:var(--earth,#BE9E68);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">How we approach the mountain &rarr;</a></p>
@@ -1061,12 +1122,12 @@ body.eh-locked{overflow:hidden;}
     </div>
     <div class="jr-body" data-index="04">
       <div class="jr-meta reveal">
-        <span class="jr-stat"><strong>11</strong> nights</span>
-        <span class="jr-stat"><strong>2</strong> worlds</span>
-        <span class="jr-stat"><strong>2</strong> guides</span>
+        <span class="jr-stat">Plain to ocean</span>
+        <span class="jr-stat">Two speeds</span>
+        <span class="jr-stat">Long finish</span>
       </div>
       <h2 class="jr-title reveal">Plain and ocean,<br>one <em>long exhale.</em></h2>
-      <p class="jr-desc reveal">A journey built on contrast: the intensity of the savanna followed by the slow rhythm of the coast. Days on the open plain, then a flight to Zanzibar: Stone Town&rsquo;s seven centuries of Swahili history with a historian who knows every doorway, and the untouched reefs of Pemba to finish. The two halves spoke to each other.</p>
+      <p class="jr-desc reveal">This one is built around contrast. The first half belongs to the open plain; the second deliberately slows down. After the Serengeti comes Stone Town, then Pemba: less movement, more water, and enough time for the coast to feel like a second chapter rather than an extension of safari.</p>
       <p class="jr-worlds reveal">Savanna &middot; Coast &nbsp;&middot;&nbsp; September</p>
     </div>
   </div>
@@ -1077,14 +1138,14 @@ body.eh-locked{overflow:hidden;}
 <section class="b-rule" style="background:var(--ink2);">
   <div style="padding:9rem 3rem;display:grid;grid-template-columns:2fr 1fr;gap:5rem;" class="cta-wrap">
     <div>
-      <p class="eye" style="margin-bottom:2rem;">See one in full</p>
-      <h2 style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;" class="reveal">See how a journey<br><em style="font-style:italic;color:var(--ochre);">comes together.</em></h2>
+      <p class="eye" style="margin-bottom:2rem;">Begin with the way you want to travel</p>
+      <h2 style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;" class="reveal">Tell us what should<br><em style="font-style:italic;color:var(--ochre);">shape yours.</em></h2>
       <div style="width:24px;height:1px;background:var(--ochre);opacity:0.5;margin:2rem 0;"></div>
-      <p class="dim reveal">If one of these shapes is close to what you have in mind, we can walk you through a complete sample: pacing, lodges, transfers, guiding and the decisions that hold the journey together.</p>
+      <p class="dim reveal">You do not need to arrive with an itinerary. Tell us the people travelling, the time you have, what pulls you toward Tanzania, and what you do not want rushed. We can build from there.</p>
     </div>
     <div style="display:flex;flex-direction:column;justify-content:center;gap:1.5rem;" class="cta-btns">
-      <a href="begin.html" class="btn-primary">Ask to see a sample</a>
-      <a href="stories.html" class="btn-ghost">Read what guests felt &rarr;</a>
+      <a href="begin.html" class="btn-primary">Begin a conversation</a>
+      <a href="how.html" class="btn-ghost">How we compose a journey &rarr;</a>
     </div>
   </div>
 </section>
