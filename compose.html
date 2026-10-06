@@ -1142,6 +1142,34 @@ body.eh-locked{overflow:hidden;}
           <div class="cmp-reasoning" id="cmpReasoning"></div>
         </section>
 
+        <section class="cmp-example" id="cmpExample" style="display:none">
+          <div class="cmp-result-section-head">
+            <p class="cmp-result-section-label">A journey already operated</p>
+            <h3>This is the closest real journey in our archive.</h3>
+          </div>
+
+          <div class="cmp-example-shell">
+            <a class="cmp-example-hero" id="cmpExampleLink" href="#">
+              <div class="cmp-example-media" id="cmpExampleMedia"></div>
+              <div class="cmp-example-shade"></div>
+              <div class="cmp-example-copy">
+                <div class="cmp-example-meta"><span id="cmpExampleParty"></span><span id="cmpExamplePeriod"></span></div>
+                <h4 id="cmpExampleTitle"></h4>
+                <p id="cmpExampleSummary"></p>
+                <span class="cmp-example-cta">Open the full operated journey →</span>
+              </div>
+            </a>
+
+            <aside class="cmp-example-why">
+              <p class="cmp-example-why__eyebrow">Why it is relevant</p>
+              <h4 id="cmpExampleWhyTitle">Some of your choices already existed in this journey.</h4>
+              <div class="cmp-example-match" id="cmpExampleMatch"></div>
+            </aside>
+
+            <div class="cmp-example-preview" id="cmpExamplePreview" aria-label="Journey preview chapters"></div>
+          </div>
+        </section>
+
         <section class="cmp-open-decisions">
           <div>
             <p class="cmp-result-section-label">Still open</p>
@@ -1297,7 +1325,46 @@ body.eh-locked{overflow:hidden;}
 .cmp-result-reasoning .cmp-reason{min-height:150px;margin:0;padding:1.4rem 1.35rem;display:block;background:var(--ink);font-size:13px;line-height:1.75;}
 .cmp-result-reasoning .cmp-reason-mark{display:block;margin-bottom:1.1rem;color:var(--earth);}
 
-.cmp-open-decisions{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(2.5rem,5vw,5rem);padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
+
+.cmp-example{padding:clamp(4.5rem,7vw,7rem) 0;border-bottom:1px solid var(--rule);}
+.cmp-example-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);grid-template-areas:"hero why" "preview preview";gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.cmp-example-hero{grid-area:hero;position:relative;display:block;min-height:560px;overflow:hidden;text-decoration:none;background:var(--ink2);}
+.cmp-example-media{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 7s cubic-bezier(.16,1,.3,1);}
+.cmp-example-hero:hover .cmp-example-media{transform:scale(1.025);}
+.cmp-example-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.015) 48%,rgba(8,13,10,.78) 100%);}
+.cmp-example-copy{position:absolute;z-index:2;left:clamp(1.5rem,3vw,2.5rem);right:clamp(1.5rem,3vw,2.5rem);bottom:clamp(1.5rem,3vw,2.5rem);max-width:620px;}
+.cmp-example-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.56);padding-bottom:.9rem;border-bottom:1px solid rgba(237,230,214,.2);margin-bottom:1.1rem;}
+.cmp-example-copy h4{font-family:'Fraunces',serif;font-size:clamp(38px,4.9vw,66px);font-weight:350;line-height:.96;letter-spacing:-.035em;color:var(--bone);max-width:10ch;margin-bottom:1rem;}
+.cmp-example-copy p{font-size:13px;line-height:1.75;color:rgba(237,230,214,.74);max-width:54ch;margin-bottom:1.2rem;}
+.cmp-example-cta{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);border-bottom:1px solid rgba(190,158,104,.42);padding-bottom:.3rem;}
+
+.cmp-example-why{grid-area:why;background:var(--bone2);color:var(--ink);padding:clamp(2.4rem,4vw,4rem);display:flex;flex-direction:column;justify-content:flex-end;}
+.cmp-example-why__eyebrow{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#75603f;margin-bottom:1rem;}
+.cmp-example-why h4{font-family:'Fraunces',serif;font-size:clamp(28px,3vw,42px);font-weight:350;line-height:1.05;letter-spacing:-.025em;max-width:10ch;}
+.cmp-example-match{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(15,23,18,.14);}
+.cmp-example-match span{padding:.45rem .65rem;border:1px solid rgba(15,23,18,.14);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(15,23,18,.68);}
+
+.cmp-example-preview{grid-area:preview;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);}
+.cmp-example-preview__item{position:relative;min-height:270px;overflow:hidden;background:var(--ink2);}
+.cmp-example-preview__img{position:absolute;inset:0;background-size:cover;background-position:center;}
+.cmp-example-preview__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,0) 52%,rgba(8,13,10,.68) 100%);}
+.cmp-example-preview__copy{position:absolute;z-index:2;left:1rem;right:1rem;bottom:.9rem;padding-top:.7rem;border-top:1px solid rgba(237,230,214,.16);}
+.cmp-example-preview__copy span{display:block;font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,230,214,.5);margin-bottom:.35rem;}
+.cmp-example-preview__copy strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:350;line-height:1.05;color:var(--bone);}
+
+@media(max-width:980px){
+  .cmp-example-shell{grid-template-columns:1fr;grid-template-areas:"hero" "why" "preview";}
+  .cmp-example-hero{min-height:520px;}
+  .cmp-example-why{min-height:320px;}
+}
+@media(max-width:680px){
+  .cmp-example-hero{min-height:520px;}
+  .cmp-example-copy{max-width:88%;}
+  .cmp-example-preview{grid-template-columns:1fr;}
+  .cmp-example-preview__item{min-height:300px;}
+  .cmp-example-preview__copy strong{font-size:20px;max-width:12ch;}
+  .cmp-example-why{min-height:0;padding:2.25rem 1.35rem 2.5rem;}
+}.cmp-open-decisions{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(2.5rem,5vw,5rem);padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
 .cmp-open-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
 .cmp-open-grid>div{padding:1.3rem 1.25rem 1.5rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
 .cmp-open-grid span{display:block;font-size:8.5px;letter-spacing:.14em;color:rgba(190,158,104,.55);margin-bottom:1rem;}
@@ -1311,7 +1378,7 @@ body.eh-locked{overflow:hidden;}
 .cmp-handoff-actions .cmp-restart{margin:.65rem 0 0;width:100%;text-align:center;padding:.8rem 0;border-top:1px solid var(--rule);}
 
 .cmp-stage.result-mode{grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr);}
-.cmp-stage.result-mode .cmp-visual-inset{opacity:.82;width:min(27%,190px);}
+.cmp-stage.result-mode .cmp-visual-inset{opacity:0;pointer-events:none;}
 .cmp-stage.result-mode .cmp-memory{max-width:88%;}
 
 @media(max-width:980px){
@@ -1365,6 +1432,7 @@ body.eh-locked{overflow:hidden;}
 @media(prefers-reduced-motion:reduce){.cmp-step,.cmp-visual-bg,.cmp-route-card,.cmp-reason{transition:none!important;animation:none!important;}}
 </style>
 
+<script src="assets/js/journey-repository.js"></script>
 <script>
 (function(){
   var answers={},step=0,TOTAL=5;
@@ -1521,10 +1589,64 @@ body.eh-locked{overflow:hidden;}
     var rEl=document.getElementById('cmpReasoning');rEl.innerHTML='';
     rs.forEach(function(r){var d=document.createElement('div');d.className='cmp-reason';d.innerHTML='<span class="cmp-reason-mark">◇</span><span>'+r+'</span>';rEl.appendChild(d);});
 
+    var recommendationPromise=Promise.resolve(null);
+    if(window.EnkiamaJourneys){
+      recommendationPromise=window.EnkiamaJourneys.recommend({
+        pull:pull,time:time,season:season,pace:pace,coast:coast,who:who
+      }).then(function(rec){
+        var wrap=document.getElementById('cmpExample');
+        if(!rec||!rec.journey){if(wrap)wrap.style.display='none';return null;}
+        var j=rec.journey;
+        document.getElementById('cmpExampleLink').href='trip.html?slug='+encodeURIComponent(j.slug);
+        var heroMedia=(j.hero_media&&j.hero_media.primary)||{src:j.hero_image||'assets/images/hero-dawn.webp',focal_point:'50% 50%'};
+        document.getElementById('cmpExampleMedia').style.backgroundImage='url("'+heroMedia.src+'")';
+        document.getElementById('cmpExampleMedia').style.backgroundPosition=heroMedia.focal_point||'50% 50%';
+        document.getElementById('cmpExampleParty').textContent=j.party_label||'Operated journey';
+        document.getElementById('cmpExamplePeriod').textContent=j.period_label||'Tanzania';
+        document.getElementById('cmpExampleTitle').textContent=j.title;
+        document.getElementById('cmpExampleSummary').textContent=j.summary;
+
+        var matchLabels={
+          pull:{stillness:'space & quiet',spectacle:'wildlife-led',people:'people & culture',all:'broad journey'},
+          time:{short:'around a week',mid:'around ten days',long:'two weeks+'},
+          season:{'jan-mar':'Jan–Mar','apr-may':'Apr–May','jun-oct':'Jun–Oct','nov-dec':'Nov–Dec',unsure:'timing open'},
+          pace:{slow:'slow pace',balanced:'balanced pace',full:'active pace'},
+          coast:{yes:'coast included',no:'mainland focus',maybe:'coast optional'},
+          who:{couple:'two travellers',family:'family',friends:'friends',solo:'solo'}
+        };
+        var match=document.getElementById('cmpExampleMatch');
+        match.innerHTML='';
+        (rec.reasons||[]).forEach(function(key){
+          var value={pull:pull,time:time,season:season,pace:pace,coast:coast,who:who}[key];
+          var label=matchLabels[key]&&matchLabels[key][value];
+          if(label){var chip=document.createElement('span');chip.textContent=label;match.appendChild(chip);}
+        });
+
+        var preview=document.getElementById('cmpExamplePreview');
+        preview.innerHTML=(j.chapters||[]).slice(0,3).map(function(ch,i){
+          var pm=(ch.media&&ch.media.primary)||heroMedia;
+          return '<div class="cmp-example-preview__item" role="img" aria-label="'+(pm.alt||ch.place||'Journey chapter')+'"><div class="cmp-example-preview__img" style="background-image:url(\''+pm.src+'\');background-position:'+(pm.focal_point||'50% 50%')+'"></div><div class="cmp-example-preview__shade"></div><div class="cmp-example-preview__copy"><span>'+String(i+1).padStart(2,'0')+' · '+(ch.place||'Journey chapter')+'</span><strong>'+(ch.title||'')+'</strong></div></div>';
+        }).join('');
+
+        wrap.style.display='block';
+        return j;
+      }).catch(function(){return null;});
+    }
+
     var lab=function(k,v){return v&&labels[k]&&labels[k][v]?labels[k][v]:(v||'Open');};
     var msg='Hello Enkiama. I composed a first journey shape on the website:\n\n• Interest: '+lab('pull',pull)+'\n• Time: '+lab('time',time)+'\n• Rough timing: '+lab('season',season)+'\n• Pace: '+lab('pace',pace)+'\n• Coast: '+lab('coast',coast)+'\n• Travelling: '+lab('who',who)+'\n\nFirst route: '+arc.join(' → ')+'\n\nI would like to refine this direction with you.';
     document.getElementById('cmpWhatsapp').href='https://wa.me/34659447627?text='+encodeURIComponent(msg);
     document.getElementById('cmpBegin').href='begin.html?composed='+encodeURIComponent(msg);
+
+    recommendationPromise.then(function(example){
+      if(window.EnkiamaJourneys){
+        window.EnkiamaJourneys.recordComposition({
+          preferences:{pull:pull,time:time,season:season,pace:pace,coast:coast,who:who},
+          route:arc,
+          example_slug:example?example.slug:null
+        });
+      }
+    });
 
     document.querySelector('.cmp-stage').classList.add('result-mode');
     result.classList.add('show');
@@ -1533,7 +1655,7 @@ body.eh-locked{overflow:hidden;}
     var reasons=result.querySelectorAll('.cmp-reason'),base=180+cards.length*130;reasons.forEach(function(r,i){setTimeout(function(){r.classList.add('in');},base+i*120);});
   }
 
-  document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelector('.cmp-stage').classList.remove('result-mode');document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
+  document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelector('.cmp-stage').classList.remove('result-mode');var ex=document.getElementById('cmpExample');if(ex)ex.style.display='none';document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
   showStep(0);
 })();
 </script>
