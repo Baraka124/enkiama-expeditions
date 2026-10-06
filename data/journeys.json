@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-06",
+  "journeys": [
+    {
+      "slug": "july-five-travellers-2026",
+      "status": "operated",
+      "featured": true,
+      "title": "Five travellers, one slower rhythm",
+      "subtitle": "Kilimanjaro country, the northern circuit and Lake Natron",
+      "period_label": "July 2026",
+      "party_label": "5 travellers",
+      "duration_label": "Around two weeks",
+      "hero_image": "assets/images/hero-dawn.webp",
+      "summary": "A multi-generational group wanted wildlife, culture and time together without turning every day into a transfer. The route began around Kilimanjaro and Kibosho, moved through Tarangire, Ngorongoro and the Serengeti, and finished with Maasai country and Lake Natron.",
+      "why_it_worked": "The journey was paced around the group rather than around the maximum number of places. Early wildlife starts were balanced with lodge time, slower cultural days and enough flexibility for the group to develop its own rhythm.",
+      "route": [
+        "Moshi",
+        "Kibosho",
+        "Tarangire",
+        "Ngorongoro",
+        "Serengeti",
+        "Maasai country",
+        "Lake Natron"
+      ],
+      "match_profile": {
+        "pull": [
+          "all",
+          "people"
+        ],
+        "time": [
+          "long"
+        ],
+        "season": [
+          "jun-oct"
+        ],
+        "pace": [
+          "slow",
+          "balanced"
+        ],
+        "coast": [
+          "no",
+          "maybe"
+        ],
+        "who": [
+          "friends",
+          "family"
+        ]
+      },
+      "chapters": [
+        {
+          "order": 1,
+          "day_label": "Opening days",
+          "place": "Moshi & Kilimanjaro",
+          "title": "Arrive before the safari begins",
+          "image": "assets/images/kilimanjaro.jpg",
+          "narrative": "The first days stayed close to Kilimanjaro: waterfall walks, time around the mountain and a comfortable lodge base. The point was not to rush straight from the airport into a game drive.",
+          "fact": "Kilimanjaro rises to 5,895 metres, but the mountain can shape a journey without anyone attempting the summit."
+        },
+        {
+          "order": 2,
+          "day_label": "Kibosho",
+          "place": "Chagga country",
+          "title": "Coffee, village life and a different pace",
+          "image": "assets/images/kibosho-family.jpg",
+          "narrative": "In Kibosho the group spent time around Chagga culture and coffee-making. This was deliberately a human day: less distance, more conversation and a chance to experience the mountain region as a lived place.",
+          "fact": "Coffee has been part of the Kilimanjaro highlands for generations and remains closely tied to Chagga farming life."
+        },
+        {
+          "order": 3,
+          "day_label": "Safari begins",
+          "place": "Tarangire",
+          "title": "Baobabs, elephants and the first long wildlife day",
+          "image": "assets/images/tarangire.jpg",
+          "narrative": "Tarangire opened the safari chapter. The group could spend a full day watching rather than collecting sightings, then return to a lodge with enough time left to enjoy where they were staying.",
+          "fact": "Tarangire is especially associated with baobab landscapes and large elephant concentrations during the dry season."
+        },
+        {
+          "order": 4,
+          "day_label": "Crater country",
+          "place": "Ngorongoro",
+          "title": "A completely different geography",
+          "image": "assets/images/ngorongoro.webp",
+          "narrative": "Ngorongoro compressed a great deal of wildlife into one dramatic landscape. Because the route had not been overfilled, the crater could remain a distinct chapter rather than another stop squeezed between drives.",
+          "fact": "Ngorongoro is one of the world's largest intact volcanic calderas and supports wildlife year-round."
+        },
+        {
+          "order": 5,
+          "day_label": "Two nights",
+          "place": "Serengeti",
+          "title": "Enough time to wake up inside the plain",
+          "image": "assets/images/serengeti.jpg",
+          "narrative": "Two nights changed the Serengeti from a drive-through destination into somewhere the group could settle into. Early starts mattered, but so did music in the vehicle, jokes between sightings and the growing ease of travelling together.",
+          "fact": "The Serengeti ecosystem extends far beyond the national park boundary and changes character dramatically with season and rainfall."
+        },
+        {
+          "order": 6,
+          "day_label": "Final inland chapter",
+          "place": "Maasai country",
+          "title": "A visit that ended around the fire",
+          "image": "assets/images/maasai.jpg",
+          "narrative": "The community visit was allowed to become a longer encounter rather than a timed photo stop. The day ended with a shared barbecue and conversation before the route continued north.",
+          "fact": "Northern Tanzania is home to many Maasai communities whose pastoral traditions remain closely connected to cattle, land and seasonal movement."
+        },
+        {
+          "order": 7,
+          "day_label": "Unexpected highlight",
+          "place": "Lake Natron",
+          "title": "The place that was not supposed to be the headline",
+          "image": "assets/images/great-rift.jpg",
+          "narrative": "Lake Natron became one of the strongest memories of the journey. Its remoteness, Rift Valley landscape and slower final rhythm gave the trip an ending that felt very different from the classic safari circuit.",
+          "fact": "Lake Natron is highly alkaline and is one of the most important breeding areas for lesser flamingos in East Africa."
+        }
+      ]
+    },
+    {
+      "slug": "couple-northern-tanzania-zanzibar",
+      "status": "operated",
+      "featured": true,
+      "title": "From Kilimanjaro to the Indian Ocean",
+      "subtitle": "A couple's journey through mountain country, safari and Zanzibar",
+      "period_label": "Operated journey",
+      "party_label": "2 travellers",
+      "duration_label": "Multi-region journey",
+      "hero_image": "assets/images/zanzibar.jpg",
+      "summary": "A couple from Spain began around Kilimanjaro with waterfalls, the mountain base and geothermal hot springs, then travelled through Tarangire, Ngorongoro and two nights in the Serengeti before ending in Stone Town and Nungwi.",
+      "why_it_worked": "The route used contrast deliberately: active mainland days first, then a complete change of tempo on Zanzibar. The coast was part of the composition, not an automatic safari extension.",
+      "route": [
+        "Kilimanjaro",
+        "Hot springs",
+        "Tarangire",
+        "Ngorongoro",
+        "Serengeti",
+        "Stone Town",
+        "Nungwi"
+      ],
+      "match_profile": {
+        "pull": [
+          "all",
+          "spectacle"
+        ],
+        "time": [
+          "mid",
+          "long"
+        ],
+        "season": [
+          "jan-mar",
+          "jun-oct",
+          "nov-dec",
+          "unsure"
+        ],
+        "pace": [
+          "balanced"
+        ],
+        "coast": [
+          "yes"
+        ],
+        "who": [
+          "couple"
+        ]
+      },
+      "chapters": [
+        {
+          "order": 1,
+          "day_label": "Opening",
+          "place": "Kilimanjaro",
+          "title": "Mountain first, without climbing it",
+          "image": "assets/images/kilimanjaro.jpg",
+          "narrative": "Waterfalls, the lower mountain and time around Moshi gave the journey an opening that was active but not rushed.",
+          "fact": "Kilimanjaro can be experienced through its foothills, forest and surrounding communities without a summit itinerary."
+        },
+        {
+          "order": 2,
+          "day_label": "Before safari",
+          "place": "Geothermal springs",
+          "title": "A day built around water",
+          "image": "assets/images/arusha.jpg",
+          "narrative": "A geothermal spring day created a softer transition before the wildlife circuit began.",
+          "fact": "The Kilimanjaro–Arusha region contains geothermal springs fed by underground water systems associated with the volcanic landscape."
+        },
+        {
+          "order": 3,
+          "day_label": "Northern circuit",
+          "place": "Tarangire & Ngorongoro",
+          "title": "Two safari landscapes that feel nothing alike",
+          "image": "assets/images/ngorongoro.jpg",
+          "narrative": "Tarangire's river, elephants and baobabs were followed by the enclosed scale of Ngorongoro Crater.",
+          "fact": "The northern safari circuit works partly because major landscapes can change dramatically within relatively short distances."
+        },
+        {
+          "order": 4,
+          "day_label": "Two nights",
+          "place": "Serengeti",
+          "title": "The wildlife centre of the journey",
+          "image": "assets/images/serengeti.jpg",
+          "narrative": "Two nights allowed the couple to experience morning and evening wildlife rhythms rather than treating the Serengeti as a single long drive.",
+          "fact": "Wildlife activity often changes substantially between the cool early hours, midday heat and late afternoon."
+        },
+        {
+          "order": 5,
+          "day_label": "Coast",
+          "place": "Stone Town",
+          "title": "History before the beach",
+          "image": "assets/images/stonetown.jpg",
+          "narrative": "Stone Town gave the Zanzibar chapter an urban and historical beginning before the route moved north.",
+          "fact": "Stone Town is a UNESCO World Heritage Site shaped by centuries of African, Arab, Indian and European exchange."
+        },
+        {
+          "order": 6,
+          "day_label": "Final days",
+          "place": "Nungwi",
+          "title": "Nothing left to prove",
+          "image": "assets/images/zanzibar.jpg",
+          "narrative": "The final days were intentionally quieter: sea, rest and enough time for the journey to end gradually.",
+          "fact": "Northern Zanzibar has smaller tidal changes than many parts of the island, which strongly influences how beach days feel."
+        }
+      ]
+    },
+    {
+      "slug": "hakuna-matata-three-travellers",
+      "status": "operated",
+      "featured": false,
+      "title": "Three travellers, more than safari",
+      "subtitle": "Kilimanjaro region, northern parks and cultural encounters",
+      "period_label": "Operated journey",
+      "party_label": "3 travellers",
+      "duration_label": "Multi-world journey",
+      "hero_image": "assets/images/culture-table.jpg",
+      "summary": "The Hakuna Matata group spent their first days around Kilimanjaro with waterfalls, local visits and mountain views before moving into Arusha, Tarangire, Serengeti and Lake Manyara, with time for Maasai and other cultural encounters.",
+      "why_it_worked": "The group did not have to choose between safari and culture. The journey was arranged so the first part established place and people before the wildlife chapter became dominant.",
+      "route": [
+        "Kilimanjaro region",
+        "Arusha",
+        "Tarangire",
+        "Serengeti",
+        "Lake Manyara",
+        "Cultural visits"
+      ],
+      "match_profile": {
+        "pull": [
+          "people",
+          "all"
+        ],
+        "time": [
+          "mid",
+          "long"
+        ],
+        "season": [
+          "unsure",
+          "jun-oct",
+          "jan-mar",
+          "nov-dec"
+        ],
+        "pace": [
+          "balanced"
+        ],
+        "coast": [
+          "no",
+          "maybe"
+        ],
+        "who": [
+          "friends"
+        ]
+      },
+      "chapters": [
+        {
+          "order": 1,
+          "day_label": "First days",
+          "place": "Kilimanjaro region",
+          "title": "Stay near the mountain long enough to notice it",
+          "image": "assets/images/hero-dawn.webp",
+          "narrative": "The group spent several days around Kilimanjaro without turning the mountain into a climbing objective. Waterfalls, social visits and a good hotel base set the tone.",
+          "fact": "The inhabited slopes of Kilimanjaro are as much a cultural landscape as a mountain landscape."
+        },
+        {
+          "order": 2,
+          "day_label": "Safari",
+          "place": "Tarangire & Serengeti",
+          "title": "The wildlife chapter opens",
+          "image": "assets/images/serengeti.jpg",
+          "narrative": "Once the group moved into safari country, the pace changed: longer drives, wildlife observation and more time inside protected landscapes.",
+          "fact": "Tarangire and Serengeti complement each other because they differ in scale, vegetation and seasonal wildlife movement."
+        },
+        {
+          "order": 3,
+          "day_label": "Different landscape",
+          "place": "Lake Manyara",
+          "title": "Forest, escarpment and lake",
+          "image": "assets/images/manyara.jpg",
+          "narrative": "Lake Manyara added a smaller, greener landscape after the open plains.",
+          "fact": "Lake Manyara sits beneath the Rift Valley escarpment and combines groundwater forest, woodland and lake-edge habitats."
+        },
+        {
+          "order": 4,
+          "day_label": "Human thread",
+          "place": "Cultural encounters",
+          "title": "People remain part of the route",
+          "image": "assets/images/maasai.jpg",
+          "narrative": "Cultural visits were not isolated from the rest of the journey; they were part of how the group understood the places they were travelling through.",
+          "fact": "Northern Tanzania is culturally diverse, with Chagga, Maasai, Iraqw and many other communities living across the regions travellers pass through."
+        }
+      ]
+    }
+  ]
+}

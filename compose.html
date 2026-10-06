@@ -1104,21 +1104,97 @@ body.eh-locked{overflow:hidden;}
         </div>
       </div>
 
-      <div class="cmp-composing" id="cmpComposing"><p class="cmp-step-kicker">Your first shape</p><p class="cmp-composing-txt">Putting the pieces together&hellip;</p></div>
-      <div class="cmp-result" id="cmpResult">
-        <p class="cmp-result-eye">Your journey, in shape</p>
-        <h2 class="cmp-result-title" id="cmpTitle"></h2>
-        <p class="cmp-result-lede" id="cmpLede"></p>
-        <div class="cmp-arc" id="cmpArc"></div>
-        <div class="cmp-reasoning" id="cmpReasoning"></div>
-        <div class="cmp-handoff">
-          <p class="cmp-handoff-note">This is only the first shape. Lodges, exact timing, guides and the day-by-day sequence still need a conversation.</p>
-          <div class="hero-acts" style="justify-content:flex-start;">
-            <a href="#" id="cmpWhatsapp" class="btn-primary" target="_blank" rel="noopener">Continue on WhatsApp</a>
-            <a href="begin.html" id="cmpBegin" class="btn-ghost">Carry this into a letter &rarr;</a>
+      <div class="cmp-composing" id="cmpComposing">
+        <p class="cmp-step-kicker">Your first shape</p>
+        <p class="cmp-composing-txt">Putting the pieces together&hellip;</p>
+      </div>
+
+      <div class="cmp-result cmp-result--editorial" id="cmpResult">
+        <header class="cmp-result-hero">
+          <div>
+            <p class="cmp-result-eye">A first composition</p>
+            <h2 class="cmp-result-title" id="cmpTitle"></h2>
           </div>
-          <button class="cmp-restart" id="cmpRestart" type="button">Compose a different shape</button>
-        </div>
+          <div class="cmp-result-intro">
+            <p class="cmp-result-lede" id="cmpLede"></p>
+            <p class="cmp-result-status">Not an itinerary. A working direction for the conversation.</p>
+          </div>
+        </header>
+
+        <section class="cmp-result-ledger" aria-label="Choices shaping this journey">
+          <p class="cmp-result-section-label">What shaped this</p>
+          <div class="cmp-choice-ledger" id="cmpChoiceLedger"></div>
+        </section>
+
+        <section class="cmp-result-route" aria-labelledby="cmpRouteTitle">
+          <div class="cmp-result-section-head">
+            <p class="cmp-result-section-label">The first route</p>
+            <h3 id="cmpRouteTitle">A sequence, not a checklist.</h3>
+          </div>
+          <div class="cmp-route-sequence" id="cmpArc"></div>
+        </section>
+
+        <section class="cmp-result-reasoning">
+          <div class="cmp-result-section-head">
+            <p class="cmp-result-section-label">Why this shape</p>
+            <h3>What your choices changed.</h3>
+          </div>
+          <div class="cmp-reasoning" id="cmpReasoning"></div>
+        </section>
+
+        <section class="cmp-example" id="cmpExample" style="display:none">
+          <div class="cmp-result-section-head">
+            <p class="cmp-result-section-label">A journey already operated</p>
+            <h3>This is the closest real journey in our archive.</h3>
+          </div>
+
+          <div class="cmp-example-shell">
+            <a class="cmp-example-hero" id="cmpExampleLink" href="#">
+              <div class="cmp-example-media" id="cmpExampleMedia"></div>
+              <div class="cmp-example-shade"></div>
+              <div class="cmp-example-copy">
+                <div class="cmp-example-meta"><span id="cmpExampleParty"></span><span id="cmpExamplePeriod"></span></div>
+                <h4 id="cmpExampleTitle"></h4>
+                <p id="cmpExampleSummary"></p>
+                <span class="cmp-example-cta">Open the full operated journey →</span>
+              </div>
+            </a>
+
+            <aside class="cmp-example-why">
+              <p class="cmp-example-why__eyebrow">Why it is relevant</p>
+              <h4 id="cmpExampleWhyTitle">Some of your choices already existed in this journey.</h4>
+              <div class="cmp-example-match" id="cmpExampleMatch"></div>
+            </aside>
+
+            <div class="cmp-example-preview" id="cmpExamplePreview" aria-label="Journey preview chapters"></div>
+          </div>
+        </section>
+
+        <section class="cmp-open-decisions">
+          <div>
+            <p class="cmp-result-section-label">Still open</p>
+            <h3>The important decisions come next.</h3>
+          </div>
+          <div class="cmp-open-grid">
+            <div><span>01</span><strong>Exact dates</strong><p>Wildlife patterns, weather and availability need real dates.</p></div>
+            <div><span>02</span><strong>Stays</strong><p>Lodges should support the pace and geography, not dictate them.</p></div>
+            <div><span>03</span><strong>Daily rhythm</strong><p>Drive lengths, early starts and rest need balancing day by day.</p></div>
+            <div><span>04</span><strong>People</strong><p>Guides, hosts and local encounters are selected around the journey.</p></div>
+          </div>
+        </section>
+
+        <section class="cmp-handoff">
+          <div class="cmp-handoff-copy">
+            <p class="cmp-result-section-label">Continue from here</p>
+            <h3>If this direction feels right, we refine it with you.</h3>
+            <p class="cmp-handoff-note">Your choices and this first route can travel with the message, so the next conversation does not start from zero.</p>
+          </div>
+          <div class="cmp-handoff-actions">
+            <a href="#" id="cmpWhatsapp" class="btn-primary" target="_blank" rel="noopener">Continue on WhatsApp</a>
+            <a href="begin.html" id="cmpBegin" class="btn-ghost">Continue in writing &rarr;</a>
+            <button class="cmp-restart" id="cmpRestart" type="button">Compose another direction</button>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -1139,7 +1215,7 @@ body.eh-locked{overflow:hidden;}
 .cmp-memory{position:absolute;z-index:4;left:clamp(1.5rem,3vw,3rem);right:clamp(1.5rem,3vw,3rem);bottom:2rem;display:flex;gap:.55rem;flex-wrap:wrap;}
 .cmp-memory-chip{padding:.4rem .65rem;border:1px solid rgba(237,230,214,.14);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,230,214,.64);background:rgba(9,14,11,.26);backdrop-filter:blur(4px);}
 
-.cmp-visual.scene-pull .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/great-rift.jpg');}
+.cmp-visual.scene-pull .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/arusha.jpg');}
 .cmp-visual.scene-time .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/lodge.jpg');}
 .cmp-visual.scene-pace .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/hero-dawn.jpg');}
 .cmp-visual.scene-coast .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/zanzibar.jpg');}
@@ -1156,7 +1232,7 @@ body.eh-locked{overflow:hidden;}
 .cmp-visual.preview-spectacle .cmp-visual-bg,.cmp-visual.preview-full .cmp-visual-bg,.cmp-visual.preview-no .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.34)),url('assets/serengeti.jpg');}
 .cmp-visual.preview-people .cmp-visual-bg,.cmp-visual.preview-friends .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.34)),url('assets/maasai.jpg');}
 .cmp-visual.preview-all .cmp-visual-bg,.cmp-visual.preview-mid .cmp-visual-bg,.cmp-visual.preview-balanced .cmp-visual-bg,.cmp-visual.preview-solo .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.32)),url('assets/hero-dawn.jpg');}
-.cmp-visual.preview-long .cmp-visual-bg,.cmp-visual.preview-maybe .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/great-rift.jpg');}
+.cmp-visual.preview-long .cmp-visual-bg,.cmp-visual.preview-maybe .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/arusha.jpg');}
 .cmp-visual.preview-slow .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/lodge.jpg');}
 .cmp-visual.preview-yes .cmp-visual-bg,.cmp-visual.preview-couple .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.28)),url('assets/zanzibar.jpg');}
 .cmp-visual.preview-family .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.34)),url('assets/culture-table.jpg');}
@@ -1205,11 +1281,6 @@ body.eh-locked{overflow:hidden;}
 .cmp-result-title{font-family:'Fraunces',serif;font-size:clamp(34px,4.6vw,58px);font-weight:350;color:var(--bone);line-height:1.05;letter-spacing:-.03em;margin:0 0 1.5rem;max-width:11ch;}
 .cmp-result-title em{font-style:italic;color:var(--sage);}
 .cmp-result-lede{font-size:15px;line-height:1.8;color:rgba(237,230,214,.76);max-width:54ch;margin:0 0 2.5rem;}
-.cmp-arc{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem;margin:0 0 3rem;max-width:720px;}
-.cmp-arc-node{font-family:'Fraunces',serif;font-size:clamp(15px,2vw,20px);color:var(--bone);padding:.65rem .85rem;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;}
-.cmp-arc-node.in{opacity:1;transform:none;}
-.cmp-arc-sep{color:var(--earth);font-size:13px;opacity:0;transition:opacity .4s;}
-.cmp-arc-sep.in{opacity:.55;}
 .cmp-reasoning{max-width:600px;margin:0 0 3rem;display:flex;flex-direction:column;gap:1rem;}
 .cmp-reason{display:flex;gap:1rem;align-items:flex-start;font-size:13.5px;line-height:1.7;color:rgba(237,230,214,.72);opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;}
 .cmp-reason.in{opacity:1;transform:none;}
@@ -1218,6 +1289,117 @@ body.eh-locked{overflow:hidden;}
 .cmp-handoff-note{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--bone);line-height:1.6;max-width:48ch;margin:0 0 2rem;}
 .cmp-restart{display:block;margin:1.75rem 0 0;background:none;border:0;padding:0;color:var(--muted);cursor:pointer;font:400 10px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;}
 
+
+/* ══════════ COMPOSE · PHASE 3 EDITORIAL RESULT ══════════ */
+.cmp-result--editorial{width:100%;}
+.cmp-result-hero{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(280px,.94fr);gap:clamp(2rem,5vw,5rem);align-items:end;padding-bottom:clamp(3.5rem,5vw,5rem);border-bottom:1px solid var(--rule);}
+.cmp-result-hero .cmp-result-title{font-size:clamp(46px,5.8vw,82px);line-height:.96;max-width:9ch;margin-bottom:0;}
+.cmp-result-intro{padding-bottom:.4rem;}
+.cmp-result-intro .cmp-result-lede{margin-bottom:1.25rem;font-size:15px;line-height:1.85;max-width:48ch;}
+.cmp-result-status{padding-top:1rem;border-top:1px solid rgba(190,158,104,.14);font-size:10px;letter-spacing:.08em;color:rgba(190,158,104,.64);max-width:44ch;}
+.cmp-result-section-label{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:rgba(190,158,104,.7);margin-bottom:1rem;}
+.cmp-result-section-head{display:grid;grid-template-columns:minmax(120px,.36fr) minmax(0,1.64fr);gap:2rem;align-items:start;margin-bottom:2.2rem;}
+.cmp-result-section-head .cmp-result-section-label{margin-top:.55rem;margin-bottom:0;}
+.cmp-result-section-head h3,.cmp-open-decisions h3,.cmp-handoff h3{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,46px);font-weight:350;line-height:1.05;letter-spacing:-.025em;color:var(--bone);}
+.cmp-result-ledger{padding:2.6rem 0 3rem;border-bottom:1px solid var(--rule);}
+.cmp-choice-ledger{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+.cmp-choice-item{min-width:0;padding:1.1rem 1rem 1.2rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.cmp-choice-item span{display:block;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(173,167,145,.52);margin-bottom:.35rem;}
+.cmp-choice-item strong{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:350;color:var(--bone);line-height:1.2;}
+
+.cmp-result-route{padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
+.cmp-route-sequence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.cmp-route-card{position:relative;min-height:300px;overflow:hidden;background:var(--ink2);opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.cmp-route-card.in{opacity:1;transform:none;}
+.cmp-route-card__image{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s cubic-bezier(.16,1,.3,1);}
+.cmp-route-card.in .cmp-route-card__image{transform:scale(1.025);}
+.cmp-route-card__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.03) 28%,rgba(8,13,10,.84) 100%);}
+.cmp-route-card__body{position:absolute;z-index:2;left:1.4rem;right:1.4rem;bottom:1.35rem;padding-top:.9rem;border-top:1px solid rgba(237,230,214,.22);}
+.cmp-route-card__body span{display:block;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.56);margin-bottom:.4rem;}
+.cmp-route-card__body strong{display:block;font-family:'Fraunces',serif;font-size:clamp(24px,2.6vw,36px);font-weight:350;line-height:1;color:var(--bone);margin-bottom:.45rem;}
+.cmp-route-card__body p{font-size:11.5px;line-height:1.55;color:rgba(237,230,214,.7);max-width:32ch;}
+.cmp-route-card--wide{grid-column:1/-1;min-height:360px;}
+
+.cmp-result-reasoning{padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
+.cmp-result-reasoning .cmp-reasoning{margin:0;max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.cmp-result-reasoning .cmp-reason{min-height:150px;margin:0;padding:1.4rem 1.35rem;display:block;background:var(--ink);font-size:13px;line-height:1.75;}
+.cmp-result-reasoning .cmp-reason-mark{display:block;margin-bottom:1.1rem;color:var(--earth);}
+
+
+.cmp-example{padding:clamp(4.5rem,7vw,7rem) 0;border-bottom:1px solid var(--rule);}
+.cmp-example-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);grid-template-areas:"hero why" "preview preview";gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.cmp-example-hero{grid-area:hero;position:relative;display:block;min-height:560px;overflow:hidden;text-decoration:none;background:var(--ink2);}
+.cmp-example-media{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 7s cubic-bezier(.16,1,.3,1);}
+.cmp-example-hero:hover .cmp-example-media{transform:scale(1.025);}
+.cmp-example-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.015) 48%,rgba(8,13,10,.78) 100%);}
+.cmp-example-copy{position:absolute;z-index:2;left:clamp(1.5rem,3vw,2.5rem);right:clamp(1.5rem,3vw,2.5rem);bottom:clamp(1.5rem,3vw,2.5rem);max-width:620px;}
+.cmp-example-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.56);padding-bottom:.9rem;border-bottom:1px solid rgba(237,230,214,.2);margin-bottom:1.1rem;}
+.cmp-example-copy h4{font-family:'Fraunces',serif;font-size:clamp(38px,4.9vw,66px);font-weight:350;line-height:.96;letter-spacing:-.035em;color:var(--bone);max-width:10ch;margin-bottom:1rem;}
+.cmp-example-copy p{font-size:13px;line-height:1.75;color:rgba(237,230,214,.74);max-width:54ch;margin-bottom:1.2rem;}
+.cmp-example-cta{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);border-bottom:1px solid rgba(190,158,104,.42);padding-bottom:.3rem;}
+
+.cmp-example-why{grid-area:why;background:var(--bone2);color:var(--ink);padding:clamp(2.4rem,4vw,4rem);display:flex;flex-direction:column;justify-content:flex-end;}
+.cmp-example-why__eyebrow{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#75603f;margin-bottom:1rem;}
+.cmp-example-why h4{font-family:'Fraunces',serif;font-size:clamp(28px,3vw,42px);font-weight:350;line-height:1.05;letter-spacing:-.025em;max-width:10ch;}
+.cmp-example-match{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(15,23,18,.14);}
+.cmp-example-match span{padding:.45rem .65rem;border:1px solid rgba(15,23,18,.14);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(15,23,18,.68);}
+
+.cmp-example-preview{grid-area:preview;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);}
+.cmp-example-preview__item{position:relative;min-height:270px;overflow:hidden;background:var(--ink2);}
+.cmp-example-preview__img{position:absolute;inset:0;background-size:cover;background-position:center;}
+.cmp-example-preview__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,0) 52%,rgba(8,13,10,.68) 100%);}
+.cmp-example-preview__copy{position:absolute;z-index:2;left:1rem;right:1rem;bottom:.9rem;padding-top:.7rem;border-top:1px solid rgba(237,230,214,.16);}
+.cmp-example-preview__copy span{display:block;font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,230,214,.5);margin-bottom:.35rem;}
+.cmp-example-preview__copy strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:350;line-height:1.05;color:var(--bone);}
+
+@media(max-width:980px){
+  .cmp-example-shell{grid-template-columns:1fr;grid-template-areas:"hero" "why" "preview";}
+  .cmp-example-hero{min-height:520px;}
+  .cmp-example-why{min-height:320px;}
+}
+@media(max-width:680px){
+  .cmp-example-hero{min-height:520px;}
+  .cmp-example-copy{max-width:88%;}
+  .cmp-example-preview{grid-template-columns:1fr;}
+  .cmp-example-preview__item{min-height:300px;}
+  .cmp-example-preview__copy strong{font-size:20px;max-width:12ch;}
+  .cmp-example-why{min-height:0;padding:2.25rem 1.35rem 2.5rem;}
+}.cmp-open-decisions{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(2.5rem,5vw,5rem);padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
+.cmp-open-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+.cmp-open-grid>div{padding:1.3rem 1.25rem 1.5rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.cmp-open-grid span{display:block;font-size:8.5px;letter-spacing:.14em;color:rgba(190,158,104,.55);margin-bottom:1rem;}
+.cmp-open-grid strong{display:block;font-family:'Fraunces',serif;font-size:19px;font-weight:350;color:var(--bone);margin-bottom:.55rem;}
+.cmp-open-grid p{font-size:11.5px;line-height:1.65;color:rgba(237,230,214,.62);}
+
+.cmp-handoff{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);gap:clamp(2.5rem,5vw,5rem);align-items:end;padding:clamp(4.5rem,7vw,7rem) 0 1rem;border-top:0;}
+.cmp-handoff-copy .cmp-handoff-note{font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:13.5px;line-height:1.75;color:rgba(237,230,214,.68);margin:1.2rem 0 0;max-width:48ch;}
+.cmp-handoff-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;}
+.cmp-handoff-actions .btn-primary,.cmp-handoff-actions .btn-ghost{width:100%;text-align:center;}
+.cmp-handoff-actions .cmp-restart{margin:.65rem 0 0;width:100%;text-align:center;padding:.8rem 0;border-top:1px solid var(--rule);}
+
+.cmp-stage.result-mode{grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr);}
+.cmp-stage.result-mode .cmp-visual-inset{opacity:0;pointer-events:none;}
+.cmp-stage.result-mode .cmp-memory{max-width:88%;}
+
+@media(max-width:980px){
+  .cmp-stage.result-mode{grid-template-columns:1fr;}
+  .cmp-result-hero{grid-template-columns:1fr;gap:1.5rem;}
+  .cmp-choice-ledger{grid-template-columns:repeat(2,1fr);}
+  .cmp-open-decisions{grid-template-columns:1fr;gap:2rem;}
+  .cmp-handoff{grid-template-columns:1fr;gap:2.25rem;}
+}
+@media(max-width:680px){
+  .cmp-result-hero .cmp-result-title{font-size:clamp(42px,12vw,60px);}
+  .cmp-result-section-head{grid-template-columns:1fr;gap:.4rem;}
+  .cmp-result-section-head .cmp-result-section-label{margin-top:0;}
+  .cmp-choice-ledger{grid-template-columns:1fr 1fr;}
+  .cmp-choice-item strong{font-size:16px;}
+  .cmp-route-sequence{grid-template-columns:1fr;}
+  .cmp-route-card,.cmp-route-card--wide{grid-column:auto;min-height:360px;}
+  .cmp-result-reasoning .cmp-reasoning{grid-template-columns:1fr;}
+  .cmp-result-reasoning .cmp-reason{min-height:0;}
+  .cmp-open-grid{grid-template-columns:1fr;}
+}
 @media(max-width:980px){
   .cmp-stage{grid-template-columns:1fr;min-height:0;}
   .cmp-visual{position:relative;top:auto;height:auto;min-height:58vh;border-right:0;border-bottom:1px solid var(--rule);}
@@ -1247,9 +1429,10 @@ body.eh-locked{overflow:hidden;}
   .cmp-season-head small{display:block;margin-top:.3rem;}
   .cmp-season-opt{flex:1 1 calc(50% - .5rem);}
 }
-@media(prefers-reduced-motion:reduce){.cmp-step,.cmp-visual-bg,.cmp-arc-node,.cmp-reason{transition:none!important;animation:none!important;}}
+@media(prefers-reduced-motion:reduce){.cmp-step,.cmp-visual-bg,.cmp-route-card,.cmp-reason{transition:none!important;animation:none!important;}}
 </style>
 
+<script src="assets/js/journey-repository.js"></script>
 <script>
 (function(){
   var answers={},step=0,TOTAL=5;
@@ -1343,26 +1526,136 @@ body.eh-locked{overflow:hidden;}
   }
   function buildResult(){
     var pull=answers.pull,time=answers.time,pace=answers.pace,coast=answers.coast,who=answers.who,season=answers.season,arc=[];
-    if(pull==='stillness')arc=['Tarangire','Ngorongoro','Serengeti'];else if(pull==='spectacle')arc=['Serengeti','Ngorongoro'];else if(pull==='people')arc=['Kilimanjaro foothills','Ngorongoro','Serengeti'];else arc=['Kilimanjaro','Tarangire','Ngorongoro','Serengeti'];
-    if(time==='short')arc=arc.slice(0,Math.max(2,arc.length-1));if(time==='long'&&arc.indexOf('Ruaha')<0)arc.push('Ruaha');if(coast==='yes')arc.push('Zanzibar');else if(coast==='maybe'&&time!=='short')arc.push('Zanzibar (option)');
+    if(pull==='stillness')arc=['Tarangire','Ngorongoro','Serengeti'];
+    else if(pull==='spectacle')arc=['Serengeti','Ngorongoro'];
+    else if(pull==='people')arc=['Kilimanjaro foothills','Ngorongoro','Serengeti'];
+    else arc=['Kilimanjaro','Tarangire','Ngorongoro','Serengeti'];
+    if(time==='short')arc=arc.slice(0,Math.max(2,arc.length-1));
+    if(time==='long'&&arc.indexOf('Ruaha')<0)arc.push('Ruaha');
+    if(coast==='yes')arc.push('Zanzibar');
+    else if(coast==='maybe'&&time!=='short')arc.push('Zanzibar (option)');
+
     var titles={
       stillness:['A route with more <em>space.</em>','The first shape favours fewer transitions and places where longer stays make sense.'],
       spectacle:['A route led by <em>wildlife.</em>','The first shape concentrates time in the northern wildlife circuit rather than adding destinations for variety alone.'],
       people:['A route that begins with <em>people.</em>','The first shape opens around Kilimanjaro and Chagga country before moving into the wildlife circuit.'],
       all:['A broader first <em>arc.</em>','The first shape combines different parts of northern Tanzania while protecting enough time for each change of landscape to register.']
     },t=titles[pull];
-    document.getElementById('cmpTitle').innerHTML=t[0];document.getElementById('cmpLede').innerHTML=t[1];
-    var arcEl=document.getElementById('cmpArc');arcEl.innerHTML='';arc.forEach(function(node,i){if(i){var s=document.createElement('span');s.className='cmp-arc-sep';s.textContent='→';arcEl.appendChild(s);}var n=document.createElement('span');n.className='cmp-arc-node';n.textContent=node;arcEl.appendChild(n);});
-    var rs=[];if(pull==='stillness')rs.push('Your interest in quieter travel points toward fewer moves and more time in each landscape.');if(pull==='spectacle')rs.push('Wildlife is the priority, so the first shape keeps more time inside the northern safari circuit.');if(pull==='people')rs.push('Because people and culture matter, the route begins around Kilimanjaro and Chagga country before safari.');if(pull==='all')rs.push('You chose a broad first journey, so the route changes character several times rather than staying inside one type of experience.');
-    if(pace==='slow')rs.push('A slower rhythm means fewer hotel changes and longer stays.');if(pace==='full')rs.push('An active rhythm allows more movement, but actual drive times still need checking before the route is fixed.');if(time==='long')rs.push('With two weeks or more, a second region becomes possible; Ruaha is shown here as one direction, not a fixed inclusion.');if(time==='short')rs.push('With around a week, the route needs to remain geographically tighter.');if(coast==='yes')rs.push('You asked for the coast, so Zanzibar appears as a final change of pace.');if(who==='family')rs.push('For a family, drive lengths, lodge setup and the timing of each day need to be tested against the ages travelling.');if(who==='solo')rs.push('For a solo journey, guiding and independent time can be adjusted once we know how much company you want.');if(season&&season!=='unsure')rs.push('You indicated '+labels.season[season]+'. Exact dates would be used to check wildlife patterns, weather and availability before fixing the sequence.');if(season==='unsure')rs.push('Your timing is still open, so the route remains deliberately provisional.');
-    var rEl=document.getElementById('cmpReasoning');rEl.innerHTML='';rs.forEach(function(r){var d=document.createElement('div');d.className='cmp-reason';d.innerHTML='<span class="cmp-reason-mark">◇</span><span>'+r+'</span>';rEl.appendChild(d);});
+    document.getElementById('cmpTitle').innerHTML=t[0];
+    document.getElementById('cmpLede').innerHTML=t[1];
+
+    var ledger=document.getElementById('cmpChoiceLedger');ledger.innerHTML='';
+    [['Interest',labels.pull[pull]],['Time',labels.time[time]],['Rough timing',labels.season[season]||'Open'],['Pace',labels.pace[pace]],['Coast',labels.coast[coast]],['Travelling',labels.who[who]]].forEach(function(item){
+      var d=document.createElement('div');d.className='cmp-choice-item';d.innerHTML='<span>'+item[0]+'</span><strong>'+item[1]+'</strong>';ledger.appendChild(d);
+    });
+
+    var routeMeta={
+      'Kilimanjaro':{img:'assets/hero-dawn.jpg',note:'Mountain country can open the journey with landscape and local life before safari.'},
+      'Kilimanjaro foothills':{img:'assets/hero-dawn.jpg',note:'A human opening around Moshi, Chagga country and the lower slopes.'},
+      'Tarangire':{img:'assets/tarangire.jpg',note:'Elephants, baobabs and a quieter first safari landscape.'},
+      'Ngorongoro':{img:'assets/arusha.jpg',note:'A compact wildlife chapter inside a very different geography.'},
+      'Serengeti':{img:'assets/serengeti.jpg',note:'The route gives the open plain enough time to become more than a single game drive.'},
+      'Ruaha':{img:'assets/ruaha.jpg',note:'Shown as one possible second region when time allows more distance.'},
+      'Zanzibar':{img:'assets/zanzibar.jpg',note:'A final change of pace after the mainland.'},
+      'Zanzibar (option)':{img:'assets/zanzibar.jpg',note:'Kept visible as an option rather than assumed.'}
+    };
+    var arcEl=document.getElementById('cmpArc');arcEl.innerHTML='';
+    arc.forEach(function(node,i){
+      var meta=routeMeta[node]||{img:'assets/hero-dawn.jpg',note:'A possible chapter in the route.'};
+      var card=document.createElement('article');card.className='cmp-route-card'+(arc.length%2===1&&i===arc.length-1?' cmp-route-card--wide':'');
+      card.innerHTML='<div class="cmp-route-card__image" style="background-image:url(\''+meta.img+'\')"></div><div class="cmp-route-card__scrim"></div><div class="cmp-route-card__body"><span>'+String(i+1).padStart(2,'0')+' · route chapter</span><strong>'+node+'</strong><p>'+meta.note+'</p></div>';
+      arcEl.appendChild(card);
+    });
+
+    var rs=[];
+    if(pull==='stillness')rs.push('Your interest in quieter travel points toward fewer moves and more time in each landscape.');
+    if(pull==='spectacle')rs.push('Wildlife is the priority, so the first shape keeps more time inside the northern safari circuit.');
+    if(pull==='people')rs.push('Because people and culture matter, the route begins around Kilimanjaro and Chagga country before safari.');
+    if(pull==='all')rs.push('You chose a broad first journey, so the route changes character several times rather than staying inside one type of experience.');
+    if(pace==='slow')rs.push('A slower rhythm means fewer hotel changes, more lodge time and more room for unplanned hours.');
+    if(pace==='balanced')rs.push('A balanced rhythm keeps movement where it earns its place and protects pauses between longer days.');
+    if(pace==='full')rs.push('An active rhythm allows more movement, but real drive times still need checking before the route is fixed.');
+    if(time==='long')rs.push('With two weeks or more, a second region becomes possible; Ruaha is shown here as one direction, not a fixed inclusion.');
+    if(time==='short')rs.push('With around a week, the route needs to remain geographically tighter rather than collecting distant stops.');
+    if(coast==='yes')rs.push('You asked for the coast, so Zanzibar appears as a deliberate final change of pace.');
+    if(coast==='maybe')rs.push('The coast stays visible as an option so the mainland-only and coast-ending versions can be compared.');
+    if(who==='family')rs.push('For a family, drive lengths, lodge setup and the timing of each day need to be tested against the ages travelling.');
+    if(who==='friends')rs.push('For friends travelling together, the route needs enough structure to move well without over-scheduling the group.');
+    if(who==='solo')rs.push('For a solo journey, guiding and independent time can be adjusted once we know how much company you want.');
+    if(who==='couple')rs.push('For two travellers, stays and pacing can be tuned closely around how much time you want together and how much activity you want in each day.');
+    if(season&&season!=='unsure')rs.push('You indicated '+labels.season[season]+'. Exact dates would still be used to check wildlife patterns, weather and availability before fixing the sequence.');
+    if(season==='unsure')rs.push('Your timing is still open, so the route remains deliberately provisional rather than pretending season does not matter.');
+
+    var rEl=document.getElementById('cmpReasoning');rEl.innerHTML='';
+    rs.forEach(function(r){var d=document.createElement('div');d.className='cmp-reason';d.innerHTML='<span class="cmp-reason-mark">◇</span><span>'+r+'</span>';rEl.appendChild(d);});
+
+    var recommendationPromise=Promise.resolve(null);
+    if(window.EnkiamaJourneys){
+      recommendationPromise=window.EnkiamaJourneys.recommend({
+        pull:pull,time:time,season:season,pace:pace,coast:coast,who:who
+      }).then(function(rec){
+        var wrap=document.getElementById('cmpExample');
+        if(!rec||!rec.journey){if(wrap)wrap.style.display='none';return null;}
+        var j=rec.journey;
+        document.getElementById('cmpExampleLink').href='trip.html?slug='+encodeURIComponent(j.slug);
+        var heroMedia=(j.hero_media&&j.hero_media.primary)||{src:j.hero_image||'assets/images/hero-dawn.webp',focal_point:'50% 50%'};
+        document.getElementById('cmpExampleMedia').style.backgroundImage='url("'+heroMedia.src+'")';
+        document.getElementById('cmpExampleMedia').style.backgroundPosition=heroMedia.focal_point||'50% 50%';
+        document.getElementById('cmpExampleParty').textContent=j.party_label||'Operated journey';
+        document.getElementById('cmpExamplePeriod').textContent=j.period_label||'Tanzania';
+        document.getElementById('cmpExampleTitle').textContent=j.title;
+        document.getElementById('cmpExampleSummary').textContent=j.summary;
+
+        var matchLabels={
+          pull:{stillness:'space & quiet',spectacle:'wildlife-led',people:'people & culture',all:'broad journey'},
+          time:{short:'around a week',mid:'around ten days',long:'two weeks+'},
+          season:{'jan-mar':'Jan–Mar','apr-may':'Apr–May','jun-oct':'Jun–Oct','nov-dec':'Nov–Dec',unsure:'timing open'},
+          pace:{slow:'slow pace',balanced:'balanced pace',full:'active pace'},
+          coast:{yes:'coast included',no:'mainland focus',maybe:'coast optional'},
+          who:{couple:'two travellers',family:'family',friends:'friends',solo:'solo'}
+        };
+        var match=document.getElementById('cmpExampleMatch');
+        match.innerHTML='';
+        (rec.reasons||[]).forEach(function(key){
+          var value={pull:pull,time:time,season:season,pace:pace,coast:coast,who:who}[key];
+          var label=matchLabels[key]&&matchLabels[key][value];
+          if(label){var chip=document.createElement('span');chip.textContent=label;match.appendChild(chip);}
+        });
+
+        var preview=document.getElementById('cmpExamplePreview');
+        preview.innerHTML=(j.chapters||[]).slice(0,3).map(function(ch,i){
+          var pm=(ch.media&&ch.media.primary)||heroMedia;
+          return '<div class="cmp-example-preview__item" role="img" aria-label="'+(pm.alt||ch.place||'Journey chapter')+'"><div class="cmp-example-preview__img" style="background-image:url(\''+pm.src+'\');background-position:'+(pm.focal_point||'50% 50%')+'"></div><div class="cmp-example-preview__shade"></div><div class="cmp-example-preview__copy"><span>'+String(i+1).padStart(2,'0')+' · '+(ch.place||'Journey chapter')+'</span><strong>'+(ch.title||'')+'</strong></div></div>';
+        }).join('');
+
+        wrap.style.display='block';
+        return j;
+      }).catch(function(){return null;});
+    }
+
     var lab=function(k,v){return v&&labels[k]&&labels[k][v]?labels[k][v]:(v||'Open');};
-    var msg='Hello Enkiama. I composed a first journey shape on the website:\n\n• Interest: '+lab('pull',pull)+'\n• Time: '+lab('time',time)+'\n• Rough timing: '+lab('season',season)+'\n• Pace: '+lab('pace',pace)+'\n• Coast: '+lab('coast',coast)+'\n• Travelling: '+lab('who',who)+'\n\nFirst route: '+arc.join(' → ')+'\n\nI would like to discuss it further.';
-    document.getElementById('cmpWhatsapp').href='https://wa.me/34659447627?text='+encodeURIComponent(msg);document.getElementById('cmpBegin').href='begin.html?composed='+encodeURIComponent(msg);
-    result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'nearest'});
-    var nodes=result.querySelectorAll('.cmp-arc-node,.cmp-arc-sep');nodes.forEach(function(n,i){setTimeout(function(){n.classList.add('in');},120+i*90);});var reasons=result.querySelectorAll('.cmp-reason'),base=160+nodes.length*90;reasons.forEach(function(r,i){setTimeout(function(){r.classList.add('in');},base+i*120);});
+    var msg='Hello Enkiama. I composed a first journey shape on the website:\n\n• Interest: '+lab('pull',pull)+'\n• Time: '+lab('time',time)+'\n• Rough timing: '+lab('season',season)+'\n• Pace: '+lab('pace',pace)+'\n• Coast: '+lab('coast',coast)+'\n• Travelling: '+lab('who',who)+'\n\nFirst route: '+arc.join(' → ')+'\n\nI would like to refine this direction with you.';
+    document.getElementById('cmpWhatsapp').href='https://wa.me/34659447627?text='+encodeURIComponent(msg);
+    document.getElementById('cmpBegin').href='begin.html?composed='+encodeURIComponent(msg);
+
+    recommendationPromise.then(function(example){
+      if(window.EnkiamaJourneys){
+        window.EnkiamaJourneys.recordComposition({
+          preferences:{pull:pull,time:time,season:season,pace:pace,coast:coast,who:who},
+          route:arc,
+          example_slug:example?example.slug:null
+        });
+      }
+    });
+
+    document.querySelector('.cmp-stage').classList.add('result-mode');
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth',block:'start'});
+    var cards=result.querySelectorAll('.cmp-route-card');cards.forEach(function(card,i){setTimeout(function(){card.classList.add('in');},120+i*130);});
+    var reasons=result.querySelectorAll('.cmp-reason'),base=180+cards.length*130;reasons.forEach(function(r,i){setTimeout(function(){r.classList.add('in');},base+i*120);});
   }
-  document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
+
+  document.getElementById('cmpRestart').addEventListener('click',function(){answers={};step=0;result.classList.remove('show');document.querySelector('.cmp-stage').classList.remove('result-mode');var ex=document.getElementById('cmpExample');if(ex)ex.style.display='none';document.querySelectorAll('.selected').forEach(function(el){el.classList.remove('selected');});seasonPanel.classList.remove('show');seasonPanel.setAttribute('aria-hidden','true');document.getElementById('cmpNavNote').textContent='Choose what feels closest. We refine later.';showStep(0);document.getElementById('composer').scrollIntoView({behavior:'smooth',block:'start'});});
   showStep(0);
 })();
 </script>
