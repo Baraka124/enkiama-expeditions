@@ -176,6 +176,67 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   ]
 }
 </script>
+<style id="kili-system-v1">
+.km-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.km-hero{position:relative;min-height:94vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;overflow:hidden;background:#101713}
+.km-hero__img{position:absolute;inset:0;background:url('assets/images/kilimanjaro.jpg') center 48%/cover no-repeat;filter:saturate(.92) contrast(1.02)}
+.km-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.92) 0%,rgba(8,12,9,.58) 43%,rgba(8,12,9,.12) 72%,rgba(8,12,9,.32)),linear-gradient(180deg,rgba(8,12,9,.08),rgba(8,12,9,.72))}
+.km-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6.5rem);max-width:920px}
+.km-eye,.km-route__tag,.km-strip__label,.km-standard__label,.km-exp__tag,.km-compare__eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.km-hero h1{font-family:'Fraunces',serif;font-size:clamp(56px,7.4vw,112px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:9ch;margin:.9rem 0 1.5rem}
+.km-hero h1 em{font-style:italic;color:#8ea17e}
+.km-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.78;max-width:56ch;color:rgba(237,230,214,.82)}
+.km-hero__aside{position:relative;z-index:2;padding:0 clamp(1.5rem,4vw,4rem) clamp(4.5rem,8vh,6.5rem);justify-self:end;width:min(100%,470px)}
+.km-hero__aside div{border-top:1px solid rgba(237,230,214,.22);padding-top:1rem;display:grid;grid-template-columns:92px 1fr;gap:1.3rem}
+.km-hero__aside strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.28}.km-hero__aside p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62);margin-top:.6rem}
+.km-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink);border-bottom:1px solid rgba(15,23,18,.12)}
+.km-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.km-strip__item:last-child{border-right:0}
+.km-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300;margin-top:.4rem}
+.km-intro{display:grid;grid-template-columns:.72fr 1.28fr;background:var(--ink)}
+.km-intro__left{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}
+.km-intro__left h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,74px);font-weight:300;line-height:.98;letter-spacing:-.035em;max-width:9ch;margin:.8rem 0 1.4rem}
+.km-intro__left p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.65);max-width:44ch}
+.km-intro__right{padding:clamp(4.5rem,7vw,7rem);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule)}
+.km-intro__point{background:var(--ink);padding:2rem}.km-intro__point span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--earth)}
+.km-intro__point strong{display:block;font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1.12;margin:.8rem 0}.km-intro__point p{font-size:12px;line-height:1.7;color:rgba(237,230,214,.62)}
+.km-atlas{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.km-atlas__head{display:grid;grid-template-columns:.6fr 1.4fr;gap:3rem;align-items:end;margin-bottom:2.8rem}
+.km-atlas__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.4vw,76px);font-weight:300;line-height:.96;letter-spacing:-.035em;max-width:10ch}
+.km-atlas__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:50ch}
+.km-atlas__layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}
+.km-atlas__nav{background:#dcd3c0;padding:1.2rem}
+.km-route{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem .9rem;cursor:pointer;color:var(--ink)}
+.km-route:last-child{border-bottom:0}.km-route.active{background:rgba(85,107,68,.10)}
+.km-route__top{display:flex;align-items:center;justify-content:space-between;gap:1rem}.km-route__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.km-route__days{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(15,23,18,.58)}
+.km-route__meta{margin-top:.55rem;font-size:11px;line-height:1.5;color:rgba(15,23,18,.58)}
+.km-route__panel{background:var(--bone2);padding:clamp(2.4rem,4vw,4rem);min-height:620px;display:flex;flex-direction:column}
+.km-route__panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:.96;letter-spacing:-.035em;margin:.7rem 0 1.4rem}
+.km-route__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.72);max-width:60ch}
+.km-route__stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.4rem 0}
+.km-route__stat{background:var(--bone2);padding:1.1rem}.km-route__stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.km-route__stat strong{display:block;margin-top:.35rem;font-size:12px;line-height:1.4}
+.km-route__why{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.km-route__why h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.km-route__why p{font-size:12px;line-height:1.7;color:rgba(15,23,18,.64)}
+.km-route__stages{margin-top:auto;padding-top:2rem}.km-route__stages-label{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#75603f;margin-bottom:.8rem}.km-route__line{display:flex;gap:.55rem;flex-wrap:wrap}.km-route__line span{font-size:10px;padding:.45rem .6rem;border:1px solid rgba(15,23,18,.16)}
+.km-products{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}
+.km-products__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.km-products__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98}.km-products__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:52ch}
+.km-products__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.km-product{padding:2rem;min-height:300px;background:var(--ink2);display:flex;flex-direction:column}.km-product strong{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.9rem 0}.km-product p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.km-product small{margin-top:auto;padding-top:2rem;color:var(--earth);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.km-standards{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--bone2);color:var(--ink)}
+.km-standards__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.km-standards__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.1vw,72px);font-weight:300;line-height:.98;max-width:10ch;margin:.8rem 0 1.4rem}.km-standards__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.67)}
+.km-standards__grid{display:grid;grid-template-columns:1fr 1fr}.km-standard{padding:2.2rem;border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1)}.km-standard:nth-child(2n){border-right:0}.km-standard:nth-last-child(-n+2){border-bottom:0}.km-standard strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin:.8rem 0}.km-standard p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}
+.km-expeditions{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}
+.km-expeditions__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.km-expeditions__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98}.km-expeditions__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:52ch}
+.km-expeditions__grid{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.km-exp{position:relative;min-height:460px;overflow:hidden;text-decoration:none;color:var(--bone);background:var(--ink2)}
+.km-exp__img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.74}.km-exp__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.08) 30%,rgba(8,13,10,.92) 100%)}
+.km-exp__copy{position:absolute;z-index:2;left:1.4rem;right:1.4rem;bottom:1.4rem}.km-exp__copy h3{font-family:'Fraunces',serif;font-size:clamp(28px,3vw,42px);font-weight:300;line-height:1.04;margin:.6rem 0}.km-exp__copy p{font-size:11px;line-height:1.65;color:rgba(237,230,214,.66)}
+.km-exp--upcoming .km-exp__img{filter:saturate(.88)}
+.km-composer{display:grid;grid-template-columns:.72fr 1.28fr;background:var(--bone2);color:var(--ink)}
+.km-composer__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.km-composer__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.km-composer__copy p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.67)}
+.km-composer__panel{padding:clamp(3rem,5vw,5rem)}.km-question{margin-bottom:2rem}.km-question label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f;margin-bottom:.7rem}.km-options{display:flex;flex-wrap:wrap;gap:.55rem}.km-options button{background:transparent;border:1px solid rgba(15,23,18,.18);padding:.7rem .85rem;font:inherit;font-size:11px;color:var(--ink);cursor:pointer}.km-options button.active{background:var(--ink);color:var(--bone)}
+.km-result{border-top:1px solid rgba(15,23,18,.14);padding-top:1.6rem;margin-top:1.4rem}.km-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.km-result p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.64)}.km-result a{display:inline-block;margin-top:1rem;color:var(--ink);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:1050px){.km-hero,.km-intro,.km-atlas__layout,.km-standards,.km-composer{grid-template-columns:1fr}.km-hero__aside{justify-self:start}.km-intro__left,.km-standards__copy,.km-composer__copy{border-right:0;border-bottom:1px solid var(--rule)}.km-strip{grid-template-columns:1fr 1fr}.km-products__grid{grid-template-columns:1fr 1fr}.km-expeditions__grid{grid-template-columns:1fr}.km-exp{min-height:56vh}.km-atlas__head,.km-products__head,.km-expeditions__head{grid-template-columns:1fr;gap:1.2rem}}
+@media(max-width:680px){.km-hero{min-height:90vh}.km-strip{grid-template-columns:1fr}.km-strip__item{border-right:0;border-bottom:1px solid rgba(15,23,18,.1)}.km-intro__right,.km-standards__grid,.km-products__grid{grid-template-columns:1fr}.km-route__stats{grid-template-columns:1fr 1fr}.km-route__why{grid-template-columns:1fr}.km-atlas{padding-inline:1rem}.km-atlas__nav{padding:.7rem}.km-exp{min-height:50vh}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -511,141 +572,84 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
-
-<!-- ── HERO ── -->
-<section class="k-hero">
-  <div class="k-hero-photo">
-    <div class="ph-frame"><img data-src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro at dawn, summit above the cloud"></div>
+<main class="km-page" id="main-content">
+<section class="km-hero">
+  <div class="km-hero__img" aria-hidden="true"></div><div class="km-hero__veil"></div>
+  <div class="km-hero__copy">
+    <p class="km-eye">Kilimanjaro · expedition system</p>
+    <h1>Choose the <em>mountain</em>, not only the summit.</h1>
+    <p class="km-hero__lede">Kilimanjaro can be a seven-day Machame climb, a nine-day northern traverse, a private family expedition, or the opening chapter of a much larger Tanzania journey. The right answer depends on route, acclimatisation, experience, season, party and what you want the mountain to mean.</p>
   </div>
-  <div class="k-hero-scrim"></div>
-  <div class="k-hero-inner">
-    <p class="k-eyebrow">Kilimanjaro</p>
-    <h1 class="k-title vf-arrive">The mountain is not a<br>race to the top. <em>We climb it<br>the way it deserves.</em></h1>
-    <p class="k-hero-lede">Africa&rsquo;s highest point rewards patience, not speed. We compose a climb around acclimatisation, honesty, and a crew who are paid and treated as they should be &mdash; because how you reach the summit matters as much as whether you do.</p>
-  </div>
+  <aside class="km-hero__aside"><div><span class="km-eye">5,895 m</span><section><strong>There is no single “best route”.</strong><p>There are better and worse fits for a particular climber. We make that distinction visible before discussing price or departure dates.</p></section></div></aside>
 </section>
 
-<!-- ── THE STANCE ── -->
-<section class="k-sec">
-  <p class="k-sec-eyebrow reveal">Where we stand</p>
-  <h2 class="k-sec-title reveal vf-arrive">Fewer people. More days.<br>Done <em>properly.</em></h2>
-  <div class="k-rule reveal"></div>
-  <p class="k-p reveal">There is an industry around this mountain that measures itself in numbers &mdash; how many climbers, how fast, how cheaply. We understand the appeal. We simply do not build our climbs that way.</p>
-  <p class="k-p reveal">A climb rushed to save a day or two is a climb more likely to fail, and more likely to make you ill. The body needs time to meet the altitude. So we add the days that give you the best true chance of standing on the summit &mdash; and the best chance of enjoying the climb that gets you there. <strong>More days is not us selling you more. It is the honest way up.</strong></p>
-  <div class="k-stance reveal">
-    <p>We would rather put fewer people on the summit, well, than the most people on the summit, fast.</p>
-  </div>
+<section class="km-strip">
+  <div class="km-strip__item"><span class="km-strip__label">Routes in system</span><strong>7 established ascent lines</strong></div>
+  <div class="km-strip__item"><span class="km-strip__label">Default pacing</span><strong>7–9 mountain days</strong></div>
+  <div class="km-strip__item"><span class="km-strip__label">Formats</span><strong>Private · couple · family · small group</strong></div>
+  <div class="km-strip__item"><span class="km-strip__label">Wider journey</span><strong>Safari · Rift · coast</strong></div>
 </section>
 
-<!-- ── PORTER WELFARE — the wedge ── -->
-<section class="k-porters">
-  <div class="k-sec">
-    <p class="k-sec-eyebrow reveal">The people who carry the mountain</p>
-    <h2 class="k-sec-title reveal vf-arrive">A climb is only as honest as<br>the way it treats its <em>crew.</em></h2>
-    <div class="k-rule reveal"></div>
-    <p class="k-p reveal">No one summits Kilimanjaro alone. Behind every climber is a team &mdash; guides, cooks, and porters carrying what makes the mountain survivable. It is one of the hardest jobs in Tanzania, and across much of this industry it is quietly one of the worst paid, with loads too heavy, wages too low, and gear too thin for the cold up high.</p>
-    <p class="k-p reveal">We will not build a climb on that. <strong>Every porter and guide on an Enkiama climb is paid a fair wage, carries a fair load, and is properly equipped for the altitude</strong> &mdash; and we tell you who they are, by name, as we do with <a href="family.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.4);">every partner in every journey</a>. The people who carry your climb are not invisible labour. They are the reason you make it.</p>
-    <p class="k-p reveal">If an operator cannot tell you honestly how their crew is paid and treated, that silence is your answer. We would rather you ask us the hard question &mdash; and we will answer it plainly.</p>
-    <div class="k-standard reveal">
-      <p class="k-standard-eyebrow">What we hold ourselves to</p>
-      <ul class="k-standard-list">
-        <li>A wage set <strong>a quarter above the minimum</strong> advised by the recognised bodies &mdash; for every porter, cook, and guide, paid promptly after the climb, never withheld.</li>
-        <li>A load no porter should exceed &mdash; we keep to the twenty-kilogramme limit, and carry enough crew that no one is overburdened.</li>
-        <li>Three proper meals a day on the mountain, and gear warm enough for the altitude &mdash; not an afterthought, but part of the plan.</li>
-        <li>Every member of the crew named to you, and their tips paid to them in full.</li>
-      </ul>
-      <p class="k-standard-note">These are the terms set by the <a href="https://www.kiliporters.org/" target="_blank" rel="noopener">Kilimanjaro Porters Assistance Project</a> &mdash; the independent body that monitors how climbing crews are treated. We invite you to hold us, and any operator you consider, to them.</p>
-    </div>
+<section class="km-intro">
+  <div class="km-intro__left"><p class="km-eye">How Enkiama thinks about the climb</p><h2>Route is only one decision.</h2><p>Premium mountain operations become credible when the choices are explicit: number of days, guide standard, medical protocol, camp provision, group format, pre-climb acclimatisation and what happens when one climber needs a different decision from the rest of the party.</p></div>
+  <div class="km-intro__right">
+    <div class="km-intro__point"><span>01</span><strong>Acclimatisation first</strong><p>We favour itineraries that give the body enough time rather than treating fewer days as an automatic advantage.</p></div>
+    <div class="km-intro__point"><span>02</span><strong>Small operational unit</strong><p>Private and small-group formats keep guide attention and mountain decisions close to the climber.</p></div>
+    <div class="km-intro__point"><span>03</span><strong>Visible trade-offs</strong><p>Crowds, scenery, overnight format, route geometry and starting altitude are shown rather than hidden behind route names.</p></div>
+    <div class="km-intro__point"><span>04</span><strong>Tanzania beyond the gate</strong><p>The climb can connect directly into Kilimanjaro foothills, safari, Lake Natron, Serengeti or the coast.</p></div>
   </div>
 </section>
 
-<!-- ── HONEST ROUTES ── -->
-<section class="k-sec">
-  <p class="k-sec-eyebrow reveal">The route that fits you</p>
-  <h2 class="k-sec-title reveal vf-arrive">The shortest route is not<br>the same as the <em>right</em> one.</h2>
-  <div class="k-rule reveal"></div>
-  <p class="k-p reveal">There is a reason some operators steer everyone toward the quickest, cheapest path up the mountain: it moves more people, faster. But the shortest routes often carry the lowest success rates and the least time to acclimatise.</p>
-  <p class="k-p reveal">We choose the route around <strong>you</strong> &mdash; your fitness, your time, your experience, the season &mdash; not around our margin. Sometimes that means a longer, gentler line with better odds and finer scenery. Sometimes it means telling you honestly that now is not the moment, or that a different mountain, or the slopes rather than the summit, would serve you better.</p>
-  <div class="k-cols">
-    <div class="k-col reveal">
-      <span class="k-col-tag">The common way</span>
-      <p class="k-col-h">The shortest line, for everyone</p>
-      <p class="k-col-p">Fewer days, lower cost, more departures &mdash; and, quietly, lower success and less time to adjust to the height.</p>
-    </div>
-    <div class="k-col reveal">
-      <span class="k-col-tag">The Enkiama way</span>
-      <p class="k-col-h">The right line, for you</p>
-      <p class="k-col-p">The route matched to your body and your season, with the days acclimatisation actually needs. Composed for the summit &mdash; and for the climb itself.</p>
-    </div>
+<section class="km-atlas" id="routes">
+  <div class="km-atlas__head"><div><p class="km-compare__eyebrow">Phase 2 · Route intelligence</p><h2>Seven routes. Different reasons to choose them.</h2></div><p>The atlas below is opinionated by design. “Available” does not mean “recommended”. Enkiama’s role is to explain the trade-off clearly enough that a route can be rejected for the right reason.</p></div>
+  <div class="km-atlas__layout">
+    <div class="km-atlas__nav" id="kmRouteNav"></div>
+    <article class="km-route__panel" id="kmRoutePanel" aria-live="polite"></article>
   </div>
 </section>
 
-<!-- ── YOU DON'T NEED TO SUMMIT (repositioned) ── -->
-<section class="k-sec">
-  <p class="k-sec-eyebrow reveal">Two ways to be changed by it</p>
-  <h2 class="k-sec-title reveal">We will get you to the top,<br>if the top is your dream.</h2>
-  <div class="k-rule reveal"></div>
-  <p class="k-p reveal">And we will tell you, just as honestly, that the mountain gives as much to those who never intend to summit it. Its southern slopes hold the Chagga farms and coffee that have shaped this region for centuries. Its forests, its moorland, its silence rearrange your sense of scale whether or not you reach the ice.</p>
-  <p class="k-p reveal">So we offer both, with a view: <strong>the summit for those who came for it, and the mountain for those who came to understand it.</strong> Neither is the lesser journey. Both are Kilimanjaro.</p>
-</section>
-
-<!-- ── WHAT YOU CAN EXPECT ── -->
-<section class="k-sec">
-  <p class="k-sec-eyebrow reveal">On every Enkiama climb</p>
-  <h2 class="k-sec-title reveal">What holds, always.</h2>
-  <ul class="k-commit">
-    <li class="reveal"><span><strong>The days acclimatisation needs</strong> &mdash; we build the climb around your safest true chance of the summit, not around a lower price.</span></li>
-    <li class="reveal"><span><strong>A fairly paid, fairly loaded, properly equipped crew</strong> &mdash; named to you, as every partner is.</span></li>
-    <li class="reveal"><span><strong>The route chosen for you</strong> &mdash; your fitness, season, and time, never our margin.</span></li>
-    <li class="reveal"><span><strong>Honest odds</strong> &mdash; we tell you plainly what to expect of the altitude, and when not to attempt it.</span></li>
-    <li class="reveal"><span><strong>The mountain&rsquo;s people, not only its peak</strong> &mdash; the Chagga slopes and coffee are part of the journey, if you wish them.</span></li>
-    <li class="reveal"><span><strong>Small</strong> &mdash; we take few climbers at a time, so the care never thins.</span></li>
-  </ul>
-</section>
-
-<!-- ── CTA ── -->
-<div class="k-cta">
-  <p class="k-cta-txt">Whether you dream of the summit or the slopes, the climb begins the same way &mdash; with an honest conversation.</p>
-  <div class="k-cta-links">
-    <a class="k-link" href="begin.html">Begin a conversation &rarr;</a>
-    <a class="k-link" href="companions.html">Climb with companions &rarr;</a>
+<section class="km-products">
+  <div class="km-products__head"><div><p class="km-eye">Phase 3 · Expedition formats</p><h2>The same route can be a different expedition.</h2></div><p>Group composition changes guide attention, pacing and decision-making. These are not marketing packages; they are operational formats.</p></div>
+  <div class="km-products__grid">
+    <div class="km-product"><span class="km-eye">Private</span><strong>Private ascent</strong><p>One party, one climbing plan. Best when route choice, pace, camp provision or pre/post mountain travel needs to be highly specific.</p><small>Flexible route · bespoke dates</small></div>
+    <div class="km-product"><span class="km-eye">Two travellers</span><strong>Couple expedition</strong><p>Private enough to preserve two individual paces while keeping the climb shared. Particularly useful when one person has more altitude experience than the other.</p><small>Shared objective · individual monitoring</small></div>
+    <div class="km-product"><span class="km-eye">Family</span><strong>Family / adult family</strong><p>Pacing, age, prior altitude exposure and the possibility of different summit decisions are designed into the plan from the start.</p><small>Suitability before itinerary</small></div>
+    <div class="km-product"><span class="km-eye">Scheduled</span><strong>Small-group departure</strong><p>A defined route and date with a deliberately limited group. Best when travellers want company without becoming part of a large commercial departure.</p><small>Fixed date · controlled size</small></div>
   </div>
-</div>
+</section>
 
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  /* reveal on scroll */
-  var els = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)){
-    els.forEach(function(e){e.classList.add('in');});
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold:0.14, rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  /* lazy-load hero photo when a real file exists */
-  var img = document.querySelector('.k-hero-photo img[data-src]');
-  if (img){
-    var real = new Image();
-    real.onload = function(){ img.src = img.dataset.src; img.classList.add('ph-loaded'); };
-    real.onerror = function(){ /* placeholder dark panel stays — no broken image */ };
-    real.src = img.dataset.src;
-  }
-})();
-</script>
-<style>
-.grain-layer{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.02;mix-blend-mode:soft-light;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");}
-</style>
-<script>
-(function(){
-  if(!document.querySelector('.grain-layer')){
-    var el=document.createElement('div');el.className='grain-layer';document.body.appendChild(el);
-  }
-})();
-</script>
+<section class="km-standards">
+  <div class="km-standards__copy"><p class="km-eye">Operational standard</p><h2>What must be true before we call it an Enkiama climb.</h2><p>The old page made several very specific promises. This version separates aspiration from what must be operationally documented with the mountain partner. The public standard should contain only things we can verify consistently.</p></div>
+  <div class="km-standards__grid">
+    <div class="km-standard"><span class="km-standard__label">Safety</span><strong>Defined medical protocol</strong><p>Guide qualification, daily monitoring, oxygen availability, descent procedure and emergency escalation should be explicit before publication.</p></div>
+    <div class="km-standard"><span class="km-standard__label">Crew</span><strong>Transparent porter standard</strong><p>Load limits, wages, meals, equipment, tipping and welfare should be documented against recognised Kilimanjaro standards rather than implied.</p></div>
+    <div class="km-standard"><span class="km-standard__label">Camp</span><strong>Provision, not adjectives</strong><p>Tent size, mattress or cot, toilet arrangements, dining setup, meals and water are described concretely. We do not need the word “luxury”.</p></div>
+    <div class="km-standard"><span class="km-standard__label">Decision</span><strong>Descent is part of success</strong><p>If one climber needs to turn around, guide allocation and the rest of the group’s plan should already be clear. Summit rate never overrides health.</p></div>
+  </div>
+</section>
+
+<section class="km-expeditions">
+  <div class="km-expeditions__head"><div><p class="km-eye">Experience library</p><h2>Operated, documented and upcoming.</h2></div><p>We will not fabricate expedition history. Past climbs stay anonymised and are published only to the level we can verify; upcoming climbs are marked clearly as preparation, not presented as completed experience.</p></div>
+  <div class="km-expeditions__grid">
+    <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/images/kilimanjaro.jpg')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Couple ascent</h3><p>A private two-person climb will sit here once route, duration and operated details are confirmed from the original record.</p></div></article>
+    <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/hero-dawn.jpg')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Family ascent</h3><p>The family expedition will be published as an operational case study only after we recover the factual climb record.</p></div></article>
+    <article class="km-exp km-exp--upcoming"><div class="km-exp__img" style="background-image:url('assets/images/kilimanjaro.jpg');background-position:50% 38%"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">In preparation · August 2027</span><h3>Father &amp; son · Machame</h3><p>Seven mountain days via Machame, designed as the Kilimanjaro chapter of a wider Tanzania journey. This record will evolve from preparation into an operated expedition dossier after the climb.</p></div></article>
+  </div>
+</section>
+
+<section class="km-composer" id="mountain-composer">
+  <div class="km-composer__copy"><p class="km-eye">Phase 4 · Mountain composer</p><h2>Find a first route direction.</h2><p>This is not a medical recommendation and it does not “choose” Kilimanjaro for you. It simply turns time, experience and priorities into a sensible first route comparison.</p></div>
+  <div class="km-composer__panel">
+    <div class="km-question" data-key="days"><label>How many mountain days can you give it?</label><div class="km-options"><button data-v="7">7 days</button><button data-v="8">8 days</button><button data-v="9">9+ days</button></div></div>
+    <div class="km-question" data-key="priority"><label>What matters most?</label><div class="km-options"><button data-v="acclimatisation">Acclimatisation</button><button data-v="scenery">Scenery</button><button data-v="quiet">Quieter trail</button><button data-v="classic">Classic route</button></div></div>
+    <div class="km-question" data-key="experience"><label>Previous high-altitude trekking?</label><div class="km-options"><button data-v="first">First time</button><button data-v="some">Some experience</button><button data-v="experienced">Experienced</button></div></div>
+    <div class="km-question" data-key="camp"><label>Camping or huts?</label><div class="km-options"><button data-v="camping">Camping</button><button data-v="huts">Prefer huts</button><button data-v="either">Either</button></div></div>
+    <div class="km-result" id="kmResult"><span class="km-eye">First direction</span><h3>Answer the four questions.</h3><p>The route comparison will appear here.</p></div>
+  </div>
+</section>
+</main>
+
+<script src="assets/js/kilimanjaro-system.js" defer></script>
 
 <footer>
   <div class="f-brand">
