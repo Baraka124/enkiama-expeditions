@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bespoke Tanzania Safari Journeys — Enkiama</title>
 <!-- ── SEO / social meta (added at launch) ── -->
-<meta name="description" content="The shapes an Enkiama journey can take — from mountain to plain to ocean. Each one composed for a single group. Ask to see a sample.">
+<meta name="description" content="The shapes an Enkiama journey can take — from mountain to plain to ocean. Each one composed for a single group. See a sample journey.">
 <link rel="canonical" href="https://enkiama.com/journeys.html">
 <meta name="theme-color" content="#0F1712">
 
@@ -57,15 +57,17 @@ footer .f-contact a{color:var(--earth);text-decoration:none;}
 footer .f-base{border-top:1px solid rgba(190,158,104,0.07);padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
 footer .f-copy{font-family:'Instrument Sans',sans-serif;font-size:10.5px;color:var(--muted);opacity:0.78;letter-spacing:0.1em;}
 @media (max-width:640px){
+  footer .f-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.25rem;}
   footer .f-base{flex-direction:column;align-items:flex-start;}
   footer .f-col{gap:.15rem;}
-  footer .f-col a{padding:.62rem 0;line-height:1.35;}
+  footer .f-col a{padding:.5rem 0;line-height:1.35;font-size:12px;}
 }
+@media (max-width:339px){footer .f-cols{grid-template-columns:1fr;}}
 
 :root{--ink:#0F1712;--ink2:#131C16;--bone:#EDE6D6;--bone2:#E4DBC7;--ochre:#556B44;--earth:#BE9E68;--muted:#ADA791;--rule:rgba(190,158,104,0.11);--rule-md:rgba(190,158,104,0.18);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:15px;scroll-behavior:smooth;}
-body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.038;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;}
+
 body{background:var(--ink);color:var(--bone);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 .eye{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;font-weight:400;letter-spacing:0.18em;color:var(--earth);line-height:1;}
 .dim{font-family:'Instrument Sans',sans-serif;font-weight:300;font-size:15px;line-height:2;color:rgba(237,230,214,0.80);}
@@ -226,10 +228,10 @@ nav.scrolled .n-links a{letter-spacing:0.14em;}
 .film-hint{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:rgba(190,158,104,0.06);z-index:1;position:relative;}
 
 /* PAGE HEADER */
-.ph{padding:11rem 3rem 8rem;margin-top:28px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
+.ph{padding:10rem 3rem 6.5rem;margin-top:20px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
 .ph-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,19vw,300px);font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(190,158,104,0.03);white-space:nowrap;pointer-events:none;letter-spacing:-0.03em;}
 .ph-inner{position:relative;z-index:2;}
-.ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(56px,10vw,136px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:var(--bone);margin:2.5rem 0 1.5rem;}
+.ph-hed{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(48px,8.2vw,112px);font-weight:700;line-height:0.92;letter-spacing:-0.03em;color:var(--bone);margin:2.5rem 0 1.5rem;}
 .ph-hed em{font-style:italic;color:var(--ochre);}
 .ph-sub{font-family:'Fraunces',serif;font-variation-settings:'opsz' 36;font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(237,230,214,0.78);line-height:1.55;max-width:640px;}
 
@@ -411,13 +413,16 @@ nav.scrolled::before{ opacity:.035; }
 .jr-grid{display:grid;grid-template-columns:1fr 1fr;}
 .jr{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;display:flex;flex-direction:column;}
 .jr:nth-child(2n){border-right:none;}
-.jr-film{height:300px;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
-.j1{background:linear-gradient(150deg,#1c1c14 0%,#0e0e0a 55%,#080806 100%);}
-.j2{background:linear-gradient(150deg,#1e1a0c 0%,#120f06 55%,#090706 100%);}
-.j3{background:linear-gradient(150deg,#101810 0%,#0a1008 55%,#060806 100%);}
-.j4{background:linear-gradient(150deg,#0c1018 0%,#090e14 55%,#060810 100%);}
-.jr-film::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 25%,rgba(4,9,6,0.72) 100%);}
-.jr-route{position:relative;z-index:2;padding:1.5rem 2rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;color:rgba(190,158,104,0.55);}
+.jr-film{height:clamp(280px,31vw,430px);position:relative;overflow:hidden;display:flex;align-items:flex-end;background-color:var(--ink2);}
+.j1{background-image:linear-gradient(180deg,rgba(9,14,11,.08) 20%,rgba(9,14,11,.72) 100%),url('assets/hero-dawn.jpg');}
+.j2{background-image:linear-gradient(180deg,rgba(9,14,11,.06) 20%,rgba(9,14,11,.74) 100%),url('assets/serengeti.jpg');}
+.j3{background-image:linear-gradient(180deg,rgba(9,14,11,.08) 20%,rgba(9,14,11,.76) 100%),url('assets/maasai.jpg');}
+.j4{background-image:linear-gradient(180deg,rgba(9,14,11,.05) 20%,rgba(9,14,11,.72) 100%),url('assets/zanzibar.jpg');}
+.j1,.j2,.j3,.j4{background-size:cover;background-position:center;}
+.j3{background-position:center 42%;}
+.j4{background-position:center 58%;}
+.jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.22),transparent 55%);}
+.jr-route{position:relative;z-index:2;padding:1.5rem 2rem;font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.18em;color:rgba(237,230,214,0.84);}
 .jr-body{padding:3rem 2.5rem 3.5rem;flex:1;display:flex;flex-direction:column;}
 .jr-meta{display:flex;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap;}
 .jr-stat{font-family:'Instrument Sans',sans-serif;font-variant-caps:all-small-caps;font-size:11px;letter-spacing:0.14em;color:var(--earth);}
@@ -432,138 +437,9 @@ nav.scrolled::before{ opacity:.035; }
   .jr-body{padding:2.5rem 1.5rem 3rem;}
 }
 </style>
-<style>@media(max-width:860px){.cta-wrap{grid-template-columns:1fr !important;gap:2.5rem !important;padding:6rem 1.5rem !important;}}/* ══════════ MOTION & PHOTO ENHANCEMENTS ══════════ */
+<style>@media(max-width:860px){.cta-wrap{grid-template-columns:1fr !important;gap:2.5rem !important;padding:6rem 1.5rem !important;}}
 
-/* #1 — Ken Burns: slow cinematic drift on photo-bearing films.
-   Applied via .has-photo (JS adds it only when a real image loads),
-   so gradient placeholders stay still. */
-@keyframes kenburns-a {
-  0%   { transform: scale(1.0) translate(0, 0); }
-  100% { transform: scale(1.12) translate(-1.5%, -1%); }
-}
-@keyframes kenburns-b {
-  0%   { transform: scale(1.08) translate(1%, 0.5%); }
-  100% { transform: scale(1.0) translate(0, 0); }
-}
-.wr-film.has-photo::before,
-.hero-film.has-photo {
-  animation: kenburns-a 28s ease-in-out infinite alternate;
-  will-change: transform;
-}
-/* alternate direction on every other card for variety */
-.world-row:nth-child(even) .wr-film.has-photo::before {
-  animation-name: kenburns-b;
-  animation-duration: 32s;
-}
 
-/* For wr-film, the photo lives on a ::before so it can scale (Ken Burns)
-   and shift (parallax) under overflow:hidden without moving the text above. */
-.wr-film.has-photo::before {
-  content:'';
-  position:absolute; inset:-2%;
-  background-image: inherit;
-  background-size: cover;
-  background-position: center var(--py, 50%);
-  z-index:0;
-}
-.wr-film > * { position:relative; z-index:1; }
-
-/* #5 — Card hover: zoom within a fixed frame + gentle lift of caption.
-   The image scales, the card does not. */
-.world-row .wr-film { transition: box-shadow .5s ease; }
-.world-row:hover .wr-film.has-photo::before {
-  animation-play-state: paused;
-  transform: scale(1.14);
-  transition: transform 1.2s cubic-bezier(.16,1,.3,1);
-}
-.world-row:hover .wr-film {
-  box-shadow: inset 0 0 120px rgba(0,0,0,0.35);
-}
-.wr-film-lbl, .wr-film-tag { transition: transform .5s cubic-bezier(.16,1,.3,1), opacity .5s ease; }
-.world-row:hover .wr-film-lbl { transform: translateY(-3px); }
-.world-row:hover .wr-film-tag { transform: translateY(-3px); opacity:1; }
-
-/* #3 — Richer scroll reveals: park rows slide in from alternating sides,
-   staggered, so scrolling reads as a composed sequence. */
-.world-row { opacity:0; transform: translateY(30px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
-.world-row.in { opacity:1; transform: translateY(0); }
-.world-row:nth-child(odd)  { transform: translateY(30px) translateX(-24px); }
-.world-row:nth-child(even) { transform: translateY(30px) translateX(24px); }
-.world-row.in:nth-child(odd),
-.world-row.in:nth-child(even) { transform: translateY(0) translateX(0); }
-
-/* #4 — count-up figures: a subtle underline sweep as they enter */
-.cu-figure { position:relative; display:inline-block; }
-.cu-figure::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:var(--earth,#BE9E68); transition: width 1.4s cubic-bezier(.16,1,.3,1); }
-.cu-figure.in::after { width:100%; }
-
-/* Respect reduced-motion: kill all of the above for those who need it */
-@media (prefers-reduced-motion: reduce) {
-  .wr-film.has-photo::before,
-  .hero-film.has-photo { animation:none !important; }
-  .world-row { opacity:1 !important; transform:none !important; }
-  .world-row:hover .wr-film.has-photo::before { transform:none; }
-}
-/* ══════════ end motion enhancements ══════════ */
-
-/* ══════════ PREMIUM DETAILS ══════════ */
-
-/* #1 — Page-load experience: content arrives rather than pops.
-   Body starts faded; .loaded (added on load) fades it up. A thin
-   brass line wipes across the top as the page settles. */
-body{opacity:0;transition:opacity .9s cubic-bezier(.16,1,.3,1);}
-body.loaded{opacity:1;}
-.page-veil{position:fixed;inset:0;z-index:9999;background:var(--ink,#0F1712);pointer-events:none;
-  opacity:1;transition:opacity .7s ease .2s,visibility .7s ease .2s;}
-body.loaded .page-veil{opacity:0;visibility:hidden;}
-.page-veil::after{content:'';position:absolute;top:0;left:0;height:2px;width:0;background:var(--earth,#BE9E68);
-  transition:width .6s cubic-bezier(.4,0,.2,1);}
-body:not(.loaded) .page-veil::after{width:100%;transition:width 1.1s cubic-bezier(.4,0,.2,1);}
-
-/* #3 — Branded text selection */
-::selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
-::-moz-selection{background:rgba(85,107,68,0.85);color:#EDE6D6;}
-
-/* #6 — Button micro-interactions: arrow slides, fill sweeps */
-.btn-primary,.btn-ghost,.n-begin{position:relative;overflow:hidden;}
-.btn-primary::after,.btn-ghost::after{content:'';position:absolute;inset:0;z-index:0;
-  background:linear-gradient(120deg,transparent,rgba(237,230,214,0.12),transparent);
-  transform:translateX(-120%);transition:transform .7s cubic-bezier(.4,0,.2,1);}
-.btn-primary:hover::after,.btn-ghost:hover::after{transform:translateX(120%);}
-.btn-primary > *,.btn-ghost > *{position:relative;z-index:1;}
-/* arrow nudge on any button/link containing an arrow */
-a[href] .arw,.btn-primary,.btn-ghost{}
-.btn-primary,.btn-ghost{transition:background .3s,color .3s,border-color .3s,letter-spacing .3s,transform .3s;}
-.btn-primary:hover,.btn-ghost:hover{transform:translateY(-1px);}
-
-/* #7 — Subtle film grain over the whole page (tactility, not digital-flat) */
-.grain-layer{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.02;mix-blend-mode:soft-light;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");}
-
-/* #8 — Scroll progress indicator (thin brass line at top) */
-.scroll-prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:600;
-  background:linear-gradient(90deg,var(--earth,#BE9E68),var(--ochre,#556B44));
-  transition:width .1s linear;pointer-events:none;}
-
-/* #10 — Cursor refinement: interactive elements get a considered pointer feel */
-a,button,.cmp-opt,.world-row{cursor:pointer;}
-
-/* #9 — Print stylesheet: clean, ink-on-white, no motion/backgrounds */
-@media print{
-  *{background:transparent !important;color:#111 !important;box-shadow:none !important;text-shadow:none !important;}
-  nav,.n-mobile,.page-veil,.grain-layer,.scroll-prog,.hero-film,.wr-film,.btn-primary,.btn-ghost,.n-begin,.n-wa{display:none !important;}
-  body{opacity:1 !important;font-family:Georgia,serif;}
-  a::after{content:" (" attr(href) ")";font-size:0.8em;color:#555;}
-  h1,h2,h3{color:#000 !important;}
-}
-
-/* reduced-motion: skip load veil animation + button sweeps */
-@media (prefers-reduced-motion: reduce){
-  body{opacity:1 !important;}
-  .page-veil{display:none;}
-  .btn-primary::after,.btn-ghost::after{display:none;}
-}
-/* ══════════ end premium details ══════════ */
 
 
 /* header refinement: distinguish Compose (the differentiator) + spacing */
@@ -598,7 +474,6 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
       },
       "image": "https://enkiama.com/assets/enkiama-share.jpg",
       "description": "Private Tanzania safari journeys, composed for one group at a time across the Serengeti, Ngorongoro, Kilimanjaro and Zanzibar. Written with you, for English- and Spanish-speaking travellers.",
-      "slogan": "Curated, never sold.",
       "foundingDate": "2025-10",
       "knowsLanguage": [
         "en",
@@ -826,11 +701,11 @@ body.eh-locked{overflow:hidden;}
 
 <div class="eh-bar" id="ehBar">
   <a href="index.html" class="eh-logo" aria-label="Enkiama — home"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
-  <button class="eh-trigger" id="ehTrigger" aria-expanded="false" aria-controls="ehOverlay"><span>Índice</span><span class="eh-mark"><span></span><span></span></span></button>
+  <button class="eh-trigger" id="ehTrigger" aria-expanded="false" aria-controls="ehOverlay"><span>Index</span><span class="eh-mark"><span></span><span></span></span></button>
 </div>
 
 <div class="eh-overlay" id="ehOverlay" role="dialog" aria-modal="true" aria-label="Menu">
-  <button class="eh-close" id="ehClose" aria-label="Close menu"><span>Cerrar</span><span class="x"></span></button>
+  <button class="eh-close" id="ehClose" aria-label="Close menu"><span>Close</span><span class="x"></span></button>
   <div class="eh-watermark" aria-hidden="true">karibu</div>
 
   <div class="eh-left">
@@ -1024,11 +899,11 @@ body.eh-locked{overflow:hidden;}
 
 <!-- PAGE HEADER -->
 <section class="ph" id="main">
-  <div class="ph-ghost">journeys</div>
+  
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.5rem;">Journeys composed &nbsp;&middot;&nbsp; Never repeated</p>
-    <h1 class="ph-hed reveal">What a journey<br>actually <em>looks like.</em></h1>
-    <p class="ph-sub reveal">Every Enkiama journey is built from scratch for one group and never offered again. These are the shapes of a few we have composed: the routes, the rhythms, the worlds they moved through. The detail of each lives in a private document we share only with the people travelling. If one of these resembles what is pulling at you, ask us to walk you through it in full.</p>
+    <p class="eye" style="margin-bottom:2.25rem;">Journeys &nbsp;&middot;&nbsp; Composed for one group at a time</p>
+    <h1 class="ph-hed reveal">Four journeys.<br>Four different <em>rhythms.</em></h1>
+    <p class="ph-sub reveal">Each Enkiama journey is composed around one group: their pace, interests, season and appetite for distance. These four examples show how different that can look. The full day-by-day detail remains private; what matters here is the shape of the journey.</p>
   </div>
 </section>
 
@@ -1107,9 +982,9 @@ body.eh-locked{overflow:hidden;}
   <div style="padding:9rem 3rem;display:grid;grid-template-columns:2fr 1fr;gap:5rem;" class="cta-wrap">
     <div>
       <p class="eye" style="margin-bottom:2rem;">See one in full</p>
-      <h2 style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;" class="reveal">The shape is public.<br>The detail is <em style="font-style:italic;color:var(--ochre);">private.</em></h2>
+      <h2 style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 72;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.04;letter-spacing:-0.018em;color:var(--bone);margin-bottom:2rem;" class="reveal">See how a journey<br><em style="font-style:italic;color:var(--ochre);">comes together.</em></h2>
       <div style="width:24px;height:1px;background:var(--ochre);opacity:0.5;margin:2rem 0;"></div>
-      <p class="dim reveal">Each full itinerary &mdash; the day-by-day, the lodges, the practical detail &mdash; lives in a private document we send only to the people travelling. We keep them private out of respect for our guests. But if one of these journeys resembles what you have in mind, ask us, and we will walk you through a complete sample so you can see exactly how an Enkiama journey is composed.</p>
+      <p class="dim reveal">If one of these shapes is close to what you have in mind, we can walk you through a complete sample: pacing, lodges, transfers, guiding and the decisions that hold the journey together.</p>
     </div>
     <div style="display:flex;flex-direction:column;justify-content:center;gap:1.5rem;" class="cta-btns">
       <a href="begin.html" class="btn-primary">Ask to see a sample</a>
@@ -1177,289 +1052,12 @@ body.eh-locked{overflow:hidden;}
 <script>
 (function(){if(!window.IntersectionObserver)return;const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.07,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6)*0.06+'s';io.observe(el);});})();
 </script>
-<script>
-/* ── HEADER JS (shared) ── */
-(function(){
-  var nav=((((((((((((((((((document.getElementById('siteNav')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}})||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},querySelector:function(){return null},querySelectorAll:function(){return []}}); if(!nav)return;
-  function onScroll(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
-  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  var burger=(document.getElementById('navBurger')||{classList:{add:function(){},remove:function(){},toggle:function(){}},setAttribute:function(){},addEventListener:function(){}}), mob=((((((((((((((((((document.getElementById('navMobile')||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}})||{classList:{add:function(){},remove:function(){},toggle:function(){}}})||{classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false}},querySelectorAll:function(){return []},querySelector:function(){return null}});
-  function toggleMenu(open){ burger.classList.toggle('open',open); mob.classList.toggle('open',open);
-    burger.setAttribute('aria-expanded',open?'true':'false'); document.body.style.overflow=open?'hidden':''; }
-  if(burger&&mob){
-    burger.addEventListener('click',function(){toggleMenu(!mob.classList.contains('open'));});
-    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mob.classList.contains('open'))toggleMenu(false);});
-  }
-  var dt=document.querySelector('.n-drop-t'), dm=document.querySelector('.n-drop-m');
-  if(dt&&dm){
-    dt.addEventListener('click',function(e){e.preventDefault();var open=dm.classList.toggle('open');dt.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(e){if(!e.target.closest('.n-drop')){dm.classList.remove('open');dt.setAttribute('aria-expanded','false');}});
-  }
-  var page=(location.pathname.split('/').pop()||'index.html').replace('.html','');
-  var keys=['tanzania','how','family','notes','stories','journeys','begin'];
-  if(keys.indexOf(page)>-1){
-    document.querySelectorAll('[data-nav="'+page+'"]').forEach(function(el){el.classList.add('active');});
-    if(page==='notes'||page==='stories'||page==='parks'||page==='faq'){var jt=document.querySelector('.n-drop-t');if(jt)jt.classList.add('active');}
-  }
-})();
-</script>
-<script>
-/* ══════════ MOTION ENHANCEMENTS JS ══════════ */
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* #1 — detect real photos: for each film with a background-image URL,
-     test if it actually loads; only then add .has-photo (enables Ken Burns).
-     The photo is carried on the ::before (set via inherited background-image),
-     so gradient placeholders stay still and text stays put. */
-  function detectPhotos(){
-    var films = document.querySelectorAll('.wr-film, .hero-film');
-    films.forEach(function(el){
-      var inline = el.getAttribute('style') || '';
-      var bg = getComputedStyle(el).backgroundImage || '';
-      var m = (inline.match(/url\(['"]?([^'")]+)['"]?\)/) || bg.match(/url\(['"]?([^'")]+)['"]?\)/));
-      if(!m) return;
-      var url = m[1];
-      if(/\.(jpg|jpeg|png|webp|avif)$/i.test(url)){
-        var img = new Image();
-        img.onload = function(){ el.classList.add('has-photo'); };
-        img.onerror = function(){ /* stays gradient */ };
-        img.src = url;
-      }
-    });
-  }
-  detectPhotos();
 
-  if(reduce) return; // everything below is motion; honour the preference
 
-  /* #3 — row reveals via IntersectionObserver */
-  var rows = document.querySelectorAll('.world-row');
-  if(rows.length){
-    var ro = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-    }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
-    rows.forEach(function(r){ ro.observe(r); });
-  }
 
-  /* #4 — count-up figures */
-  var figs = document.querySelectorAll('[data-count]');
-  if(figs.length){
-    var fo = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(!e.isIntersecting) return;
-        var el=e.target, target=parseFloat(el.getAttribute('data-count')), suffix=el.getAttribute('data-suffix')||'', dur=1400, t0=null;
-        el.classList.add('in');
-        function tick(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var eased=1-Math.pow(1-p,3);
-          var val=Math.floor(eased*target); el.textContent = val.toLocaleString() + suffix;
-          if(p<1) requestAnimationFrame(tick); else el.textContent = target.toLocaleString()+suffix; }
-        requestAnimationFrame(tick); fo.unobserve(el);
-      });
-    }, {threshold:0.6});
-    figs.forEach(function(f){ fo.observe(f); });
-  }
 
-  /* #2 — gentle parallax: photo drifts via a CSS var the ::before reads
-     as background-position-y, so it never conflicts with Ken Burns transform. */
-  var ticking=false;
-  function parallax(){
-    var els = document.querySelectorAll('.wr-film.has-photo');
-    els.forEach(function(el){
-      var r=el.getBoundingClientRect(), vh=window.innerHeight;
-      if(r.bottom<0||r.top>vh) return;
-      var prog=(r.top+r.height/2 - vh/2)/vh; // -0.5..0.5
-      var shift = 50 - prog*12; // 44%..56%
-      el.style.setProperty('--py', shift.toFixed(1)+'%');
-    });
-    ticking=false;
-  }
-  if(document.querySelectorAll('.wr-film').length){
-    window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(parallax); ticking=true; } }, {passive:true});
-  }
-})();
-</script>
 
-<script>
-/* ══════════ PREMIUM DETAILS JS ══════════ */
-(function(){
-  // inject the load veil, grain layer, and scroll-progress bar once
-  function el(cls){var d=document.createElement('div');d.className=cls;return d;}
-  if(!document.querySelector('.page-veil')) document.body.appendChild(el('page-veil'));
-  if(!document.querySelector('.grain-layer')) document.body.appendChild(el('grain-layer'));
-  var prog=el('scroll-prog');
-  if(!document.querySelector('.scroll-prog')) document.body.appendChild(prog);
-
-  // #1 — trigger the load-in
-  function markLoaded(){ document.body.classList.add('loaded'); }
-  if(document.readyState==='complete') markLoaded();
-  else window.addEventListener('load', markLoaded);
-  // safety: never leave the veil stuck
-  setTimeout(markLoaded, 1400);
-
-  // #8 — scroll progress
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ticking=false;
-  function updateProg(){
-    var st=window.scrollY||document.documentElement.scrollTop;
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    var p=h>0?(st/h)*100:0;
-    prog.style.width=p+'%';
-    ticking=false;
-  }
-  window.addEventListener('scroll',function(){ if(!ticking){requestAnimationFrame(updateProg);ticking=true;} },{passive:true});
-  updateProg();
-})();
-</script>
-
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
-
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:7px;height:7px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),background .35s,opacity .3s;
-    box-shadow:0 0 8px rgba(237,230,214,0.5), 0 0 2px rgba(237,230,214,0.9);will-change:transform;}
-  .t1-cursor.t1-hover{width:10px;height:10px;background:var(--earth,#BE9E68);box-shadow:0 0 14px rgba(190,158,104,0.7),0 0 3px rgba(190,158,104,1);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(190,158,104,0.28);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    background:rgba(190,158,104,0.03);backdrop-filter:blur(1.5px) saturate(1.1);-webkit-backdrop-filter:blur(1.5px) saturate(1.1);
-    box-shadow:inset 0 0 12px rgba(190,158,104,0.06);
-    transition:width .55s cubic-bezier(.16,1,.3,1),height .55s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s,background .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:56px;height:56px;border-color:rgba(190,158,104,0.55);background:rgba(190,158,104,0.06);}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-
-/* ══════════ TIER-1 TYPOGRAPHY REFINEMENTS ══════════ */
-/* Balanced headings: no orphan words on the last line */
-h1,h2,h3,.hero-hed,.ph-hed,.eh-nav li a,.eco-hl,.lw-hl,.wr-name{text-wrap:balance;}
-/* Pretty body: prevents orphans/widows in paragraphs */
-p,.dim,li{text-wrap:pretty;}
-/* Reading measure: cap long-form body text for comfortable line length */
-.thesis-body,.byw-intro,.wd-intro,.tl-intro,.worlds-intro-body,.curate-sub,.df-body p,.jr-desc,.wr-desc,.fq-a,.i-title + p,.dim{max-width:68ch;}
-/* Hanging punctuation where supported (Safari) */
-html{hanging-punctuation:first last;}
-/* Kerning + ligatures on everything for crisp letterforms */
-body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
-/* Tighten big display serifs a touch more (tier-1 look) */
-.hero-hed,.ph-hed{letter-spacing:-0.035em;}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>
