@@ -73,11 +73,11 @@
         {
           "layout": "photo-pair",
           "primary": {
-            "src": "assets/images/maasai.jpg",
-            "alt": "Maasai community setting in northern Tanzania",
-            "focal_point": "50% 42%",
-            "caption": "A community visit allowed to become a longer encounter.",
-            "source_type": "existing-library"
+            "src": "assets/images/synthetic/july26-maasai-evening-fire.jpg",
+            "alt": "Evening gathering in Maasai country during the final inland chapter of the journey",
+            "focal_point": "50% 50%",
+            "caption": "The community visit continued into an evening around the fire.",
+            "source_type": "synthetic"
           },
           "secondary": {
             "src": "assets/images/group-fire.jpg",
@@ -90,11 +90,11 @@
         {
           "layout": "cinematic",
           "primary": {
-            "src": "assets/images/great-rift.jpg",
-            "alt": "Lake Natron and the Great Rift Valley landscape",
+            "src": "assets/images/synthetic/july26-lake-natron-flamingos-rift.jpg",
+            "alt": "Flamingos and the Rift Valley landscape at Lake Natron",
             "focal_point": "50% 48%",
-            "caption": "Lake Natron became an unexpected highlight.",
-            "source_type": "existing-library"
+            "caption": "Lake Natron became one of the most distinctive final chapters of the journey.",
+            "source_type": "synthetic"
           }
         }
       ]
@@ -170,11 +170,11 @@
         {
           "layout": "cinematic",
           "primary": {
-            "src": "assets/images/zanzibar.jpg",
-            "alt": "Zanzibar coast near Nungwi",
-            "focal_point": "50% 60%",
-            "caption": "The journey ends at a different speed.",
-            "source_type": "existing-library"
+            "src": "assets/images/synthetic/couple-zanzibar-indian-ocean.jpg",
+            "alt": "Indian Ocean coast in northern Zanzibar at the end of a couple's journey",
+            "focal_point": "50% 58%",
+            "caption": "The final days shift completely from safari to the Indian Ocean.",
+            "source_type": "synthetic"
           }
         }
       ]
