@@ -95,15 +95,19 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
 .trip-fact{margin-top:2.6rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:96px 1fr;gap:1.3rem}
 .trip-fact span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}
 .trip-fact p{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.55;color:rgba(237,230,214,.84)}
+.trip-discovery{margin-top:2rem;padding-top:1.15rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:96px minmax(0,1fr);gap:1.3rem;align-items:start}
+.trip-discovery__label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(190,158,104,.72)}
+.trip-discovery__link{display:inline-block;font-family:'Fraunces',serif;font-size:18px;line-height:1.25;text-decoration:none;color:var(--bone);border-bottom:1px solid rgba(190,158,104,.3);padding-bottom:.18rem}
+.trip-discovery__context{font-size:11.5px;line-height:1.65;color:rgba(237,230,214,.58);max-width:46ch;margin-top:.6rem}
+
 .trip-chapter__body{position:relative}
 .trip-chapter__body::after{content:attr(data-folio);position:absolute;right:clamp(1rem,3vw,2rem);top:clamp(1rem,3vw,2rem);font-family:'Fraunces',serif;font-style:italic;font-size:clamp(44px,6vw,84px);line-height:.8;color:rgba(237,230,214,.028);pointer-events:none}
 
 /* MID-JOURNEY BREATH */
-.trip-breath{padding:clamp(4rem,7vw,6.5rem) clamp(1.5rem,6vw,6rem);background:var(--bone2);color:var(--ink);position:relative;overflow:hidden}
+.trip-breath{padding:clamp(3.5rem,6vw,5.5rem) clamp(1.5rem,6vw,6rem);background:var(--bone2);color:var(--ink);position:relative;overflow:hidden}
 .trip-breath__eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#75603f;margin-bottom:1rem}
-.trip-breath__quote{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,72px);font-weight:300;line-height:1.02;letter-spacing:-.03em;max-width:15ch}
-.trip-breath__quote em{font-style:italic;color:#6A7D55}
-.trip-breath:after{content:'Tanzania';position:absolute;right:3vw;bottom:-.12em;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(82px,15vw,210px);color:rgba(15,23,18,.04);pointer-events:none}
+.trip-breath__quote{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,52px);font-weight:300;line-height:1.08;letter-spacing:-.025em;max-width:22ch}
+.trip-breath:after{content:'Route transition';position:absolute;right:3vw;bottom:-.08em;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(64px,11vw,150px);color:rgba(15,23,18,.035);pointer-events:none}
 
 /* RELATED */
 .trip-related{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);background:var(--ink2)}
@@ -155,6 +159,7 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
   .trip-chapter__body::after{display:none}
   .trip-chapter__title{font-size:clamp(36px,11vw,52px)}
   .trip-fact{grid-template-columns:1fr;gap:.5rem}
+  .trip-discovery{grid-template-columns:1fr;gap:.5rem}
   .trip-related-head{grid-template-columns:1fr;gap:.75rem}
   .trip-related-grid{grid-template-columns:1fr}
   .trip-cta__copy{padding:4.5rem 1.5rem}
@@ -235,6 +240,10 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
   var $=function(id){return document.getElementById(id)};
   function fail(){$('tripLoading').style.display='none';$('tripError').style.display='grid'}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function renderDiscovery(d){
+    if(!d||!d.href)return '';
+    return '<div class="trip-discovery"><span class="trip-discovery__label">Continue exploring</span><div><a class="trip-discovery__link" href="'+esc(d.href)+'">'+esc(d.label||'Explore this place')+' →</a>'+(d.context?'<p class="trip-discovery__context">'+esc(d.context)+'</p>':'')+'</div></div>';
+  }
   function render(j){
     document.title=j.title+' — Enkiama';
     var hero=(j.hero_media&&j.hero_media.primary)||{src:j.hero_image||'assets/images/hero-dawn.webp',focal_point:'50% 50%'};
@@ -267,7 +276,8 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
       atlas+='<a class="trip-atlas__item" href="#'+id+'" data-target="'+id+'" aria-label="'+esc(ch.place||('Chapter '+(i+1)))+'">'+String(i+1).padStart(2,'0')+'</a>';
 
       if(i===Math.ceil(chapters.length/2)&&chapters.length>4){
-        html+='<aside class="trip-breath"><p class="trip-breath__eyebrow">Halfway through</p><p class="trip-breath__quote">A good journey changes rhythm before it starts to feel <em>full.</em></p></aside>';
+        var midpoint=(j.discovery&&j.discovery.midpoint_note)||'The route changes character here.';
+        html+='<aside class="trip-breath"><p class="trip-breath__eyebrow">Route transition</p><p class="trip-breath__quote">'+esc(midpoint)+'</p></aside>';
       }
 
       var folio=String(i+1).padStart(2,'0');
@@ -278,7 +288,7 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
         html+='<article class="trip-chapter trip-chapter--cinematic" id="'+id+'" data-chapter="'+(i+1)+'">'
           +'<div class="trip-chapter__media" role="img" aria-label="'+esc(primary.alt||ch.place||'')+'"><div class="trip-chapter__img" style="'+primaryStyle+'"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span>'+caption+'</div></div>'
           +'<div class="trip-chapter__body" data-folio="'+folio+'"><div><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
-          +'<div><p class="trip-chapter__lede">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div></article>';
+          +'<div><p class="trip-chapter__lede">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+renderDiscovery(ch.discovery)+'</div></div></article>';
       }else if(mode==='photo-pair'){
         var secondaryStyle="background-image:url('"+esc(secondary.src)+"');background-position:"+esc(secondary.focal_point||'50% 50%');
         html+='<article class="trip-chapter trip-chapter--diptych" id="'+id+'" data-chapter="'+(i+1)+'">'
@@ -287,12 +297,12 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
           +'<div class="trip-diptych-panel trip-diptych-panel--secondary" role="img" aria-label="'+esc(secondary.alt||'')+'"><div class="trip-chapter__img" style="'+secondaryStyle+'"></div></div>'
           +'</div>'
           +'<div class="trip-chapter__body" data-folio="'+folio+'"><div><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2></div>'
-          +'<div><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></div></article>';
+          +'<div><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'+(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+renderDiscovery(ch.discovery)+'</div></div></article>';
       }else{
         html+='<article class="trip-chapter trip-chapter--split'+reverse+'" id="'+id+'" data-chapter="'+(i+1)+'">'
           +'<div class="trip-chapter__media" role="img" aria-label="'+esc(primary.alt||'')+'"><div class="trip-chapter__img" style="'+primaryStyle+'"></div><div class="trip-chapter__rail"><span>'+esc(ch.day_label||'Chapter')+'</span>'+caption+'</div></div>'
           +'<div class="trip-chapter__body" data-folio="'+folio+'"><p class="trip-chapter__idx">'+folio+' · '+esc(ch.place||'')+'</p><h2 class="trip-chapter__title fr">'+esc(ch.title||'')+'</h2><p class="trip-chapter__text">'+esc(ch.narrative||'')+'</p>'
-          +(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+'</div></article>';
+          +(ch.fact?'<div class="trip-fact"><span>Field note</span><p>'+esc(ch.fact)+'</p></div>':'')+renderDiscovery(ch.discovery)+'</div></article>';
       }
     });
     $('tripChapters').innerHTML=html;

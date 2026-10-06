@@ -3,6 +3,7 @@
 (function(){
   var STATIC_URL='data/journeys.json';
   var MEDIA_URL='data/journey-media.json';
+  var DISCOVERY_URL='data/journey-discovery.json';
   var cache=null;
 
   function normalizeMedia(journey,mediaSpec){
@@ -40,12 +41,33 @@
     return catalog;
   }
 
+  function mergeDiscovery(catalog,manifest){
+    var map=(manifest&&manifest.journeys)||{};
+    (catalog.journeys||[]).forEach(function(j){
+      var spec=map[j.slug]||{};
+      j.discovery={
+        midpoint_note:spec.midpoint_note||'',
+        chapters:spec.chapters||[]
+      };
+      (j.chapters||[]).forEach(function(ch,i){
+        ch.discovery=(spec.chapters||[])[i]||null;
+      });
+    });
+    catalog.discovery_version=(manifest&&manifest.version)||0;
+    return catalog;
+  }
+
   function staticLoad(){
     if(cache) return Promise.resolve(cache);
     return Promise.all([
       fetch(STATIC_URL,{headers:{'Accept':'application/json'}}).then(function(r){if(!r.ok) throw new Error('Journey catalog '+r.status); return r.json();}),
-      fetch(MEDIA_URL,{headers:{'Accept':'application/json'}}).then(function(r){return r.ok?r.json():{version:0,journeys:{}};}).catch(function(){return {version:0,journeys:{}};})
-    ]).then(function(parts){cache=mergeMedia(parts[0],parts[1]);return cache;});
+      fetch(MEDIA_URL,{headers:{'Accept':'application/json'}}).then(function(r){return r.ok?r.json():{version:0,journeys:{}};}).catch(function(){return {version:0,journeys:{}};}),
+      fetch(DISCOVERY_URL,{headers:{'Accept':'application/json'}}).then(function(r){return r.ok?r.json():{version:0,journeys:{}};}).catch(function(){return {version:0,journeys:{}};})
+    ]).then(function(parts){
+      var merged=mergeMedia(parts[0],parts[1]);
+      cache=mergeDiscovery(merged,parts[2]);
+      return cache;
+    });
   }
 
   function supabaseLoad(){
@@ -53,7 +75,12 @@
     return window.Enkiama.rpc('get_public_journey_catalog',{}).then(function(data){
       if(!data) throw new Error('Empty journey catalog');
       var normalized=Array.isArray(data)?{version:1,journeys:data}:data;
-      (normalized.journeys||[]).forEach(function(j){normalizeMedia(j,j.media_manifest||null);});
+      (normalized.journeys||[]).forEach(function(j){
+        normalizeMedia(j,j.media_manifest||null);
+        var d=j.discovery_manifest||j.discovery||{};
+        j.discovery={midpoint_note:d.midpoint_note||'',chapters:d.chapters||[]};
+        (j.chapters||[]).forEach(function(ch,i){ch.discovery=(j.discovery.chapters||[])[i]||ch.discovery||null;});
+      });
       cache=normalized;
       return normalized;
     });
