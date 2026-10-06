@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Experience View — Enkiama</title>
-<meta name="description" content="A full-screen cinematic view into Tanzania by Enkiama.">
+<meta name="description" content="A full-screen cinematic expression of Enkiama: Tanzania, its worlds and the journeys composed through them.">
 <meta name="theme-color" content="#0B110D">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,79 +15,198 @@
   --ink:#0B110D;
   --bone:#EDE6D6;
   --earth:#BE9E68;
+  --sage:#7A9470;
   --muted:rgba(237,230,214,.62);
+  --hair:rgba(237,230,214,.16);
 }
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;background:var(--ink);overflow:hidden}
-body{font-family:'Instrument Sans',sans-serif;color:var(--bone)}
+body{font-family:'Instrument Sans',sans-serif;color:var(--bone);-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.ev{position:relative;width:100vw;height:100dvh;background:#08100b;isolation:isolate}
-.ev-scene{position:absolute;inset:0;opacity:0;transform:scale(1.035);transition:opacity 1.8s ease,transform 8s ease;background-size:cover;background-position:center}
+button{font:inherit}
+.ev{position:relative;width:100vw;height:100dvh;background:#08100b;isolation:isolate;overflow:hidden}
+.ev-scene{position:absolute;inset:0;opacity:0;transform:scale(1.025);transition:opacity 1.45s ease,transform 9s ease;background-size:cover;background-position:center}
 .ev-scene.active{opacity:1;transform:scale(1)}
 .ev-scene::after{content:'';position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(6,11,8,.24),rgba(6,11,8,.04) 36%,rgba(6,11,8,.66) 100%),
-  linear-gradient(90deg,rgba(6,11,8,.46),transparent 45%)}
-.s1{background-image:url('assets/hero-dawn.jpg');background-position:center 48%}
-.s2{background-image:url('assets/serengeti.jpg');background-position:center}
-.s3{background-image:url('assets/maasai.jpg');background-position:center 42%}
-.s4{background-image:url('assets/ruaha.jpg');background-position:center}
-.s5{background-image:url('assets/zanzibar.jpg');background-position:center 58%}
+  linear-gradient(180deg,rgba(6,11,8,.25),rgba(6,11,8,.03) 35%,rgba(6,11,8,.73) 100%),
+  linear-gradient(90deg,rgba(6,11,8,.55),rgba(6,11,8,.14) 46%,transparent 72%)}
+.ev-scene.light::after{background:
+  linear-gradient(180deg,rgba(6,11,8,.18),rgba(6,11,8,.02) 35%,rgba(6,11,8,.68) 100%),
+  linear-gradient(90deg,rgba(6,11,8,.4),rgba(6,11,8,.08) 44%,transparent 70%)}
 
-.ev-top{position:absolute;z-index:5;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:clamp(1.3rem,3vw,2.5rem) clamp(1.3rem,4vw,3.5rem)}
+.s1{background-image:url('assets/images/hero-dawn.webp');background-position:center 54%}
+.s2{background-image:url('assets/images/kibosho-family.jpg');background-position:center 50%}
+.s3{background-image:url('assets/images/kilimanjaro.jpg');background-position:center 46%}
+.s4{background-image:url('assets/serengeti.jpg');background-position:center 52%}
+.s5{background-image:url('assets/images/ngorongoro.webp');background-position:center 55%}
+.s6{background-image:url('assets/images/manyara.jpg');background-position:center 54%}
+.s7{background-image:url('assets/images/kibosho-family.jpg');background-position:center 48%}
+.s8{background-image:url('assets/images/stonetown.jpg');background-position:center 52%}
+.s9{background-image:url('assets/zanzibar.jpg');background-position:center 58%}
+.s10{background-image:url('assets/images/camp-arrival.jpg');background-position:center 54%}
+
+.ev-top{position:absolute;z-index:8;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:clamp(1.25rem,3vw,2.3rem) clamp(1.3rem,4vw,3.5rem)}
 .ev-logo img{height:clamp(34px,4vw,48px);width:auto;display:block}
-.ev-exit{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,230,214,.78)}
-.ev-exit::after{content:'×';font-size:20px;line-height:1;color:var(--earth)}
+.ev-top-right{display:flex;align-items:center;gap:1rem}
+.ev-status{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(237,230,214,.44)}
+.ev-live{display:inline-flex;align-items:center;gap:.45rem}
+.ev-live::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--earth);box-shadow:0 0 0 4px rgba(190,158,104,.08)}
+.ev-exit{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,230,214,.74);padding:.5rem 0}
+.ev-exit::after{content:'×';font-size:19px;line-height:1;color:var(--earth)}
 
-.ev-copy{position:absolute;z-index:5;left:clamp(1.4rem,7vw,7rem);bottom:clamp(5.5rem,12vh,8.5rem);max-width:min(760px,76vw)}
+.ev-copy{position:absolute;z-index:6;left:clamp(1.4rem,7vw,7rem);bottom:clamp(6.7rem,14vh,10rem);max-width:min(860px,78vw)}
 .ev-kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--earth);margin:0 0 1rem}
-.ev-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(48px,8.2vw,118px);line-height:.92;letter-spacing:-.035em;margin:0;color:var(--bone);text-wrap:balance}
+.ev-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(44px,7.6vw,110px);line-height:.92;letter-spacing:-.035em;margin:0;color:var(--bone);text-wrap:balance;max-width:11ch}
 .ev-title em{font-style:italic;color:var(--earth)}
-.ev-note{max-width:48ch;margin:1.5rem 0 0;color:var(--muted);font-size:clamp(13px,1.2vw,16px);line-height:1.65}
+.ev-note{max-width:53ch;margin:1.5rem 0 0;color:var(--muted);font-size:clamp(13px,1.15vw,16px);line-height:1.72}
+.ev-route{display:none;margin:1.35rem 0 0;padding-top:1rem;border-top:1px solid var(--hair);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,230,214,.72);max-width:70ch}
+.ev-route.visible{display:block}
+.ev-stats{display:none;gap:.75rem 1.35rem;flex-wrap:wrap;margin-top:1rem}
+.ev-stats.visible{display:flex}
+.ev-stat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.46)}
+.ev-stat b{font-family:'Fraunces',serif;font-size:18px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--bone);margin-right:.3rem}
 
-.ev-rail{position:absolute;z-index:6;left:clamp(1.4rem,7vw,7rem);right:clamp(1.4rem,7vw,7rem);bottom:clamp(1.6rem,3vw,2.6rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
+.ev-chapter{position:absolute;z-index:6;left:clamp(1.4rem,4vw,3.5rem);top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(237,230,214,.36);white-space:nowrap}
+.ev-number{position:absolute;z-index:4;right:clamp(1rem,3vw,2.4rem);bottom:clamp(7rem,14vh,10rem);font-family:'Fraunces',serif;font-size:clamp(72px,12vw,180px);line-height:.75;font-style:italic;color:rgba(237,230,214,.055);user-select:none}
+
+.ev-rail{position:absolute;z-index:9;left:clamp(1.4rem,7vw,7rem);right:clamp(1.4rem,7vw,7rem);bottom:clamp(1.5rem,3vw,2.5rem);display:grid;grid-template-columns:minmax(120px,1fr) auto;gap:2rem;align-items:end}
 .ev-progress{height:1px;background:rgba(237,230,214,.18);position:relative;overflow:hidden}
 .ev-progress span{position:absolute;inset:0 auto 0 0;width:0;background:var(--earth)}
-.ev-progress span.run{animation:ev-progress 8s linear forwards}
+.ev-progress span.run{animation:ev-progress 9s linear forwards}
 @keyframes ev-progress{from{width:0}to{width:100%}}
-.ev-meta{display:flex;gap:1rem;align-items:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,230,214,.52)}
+.ev-meta{display:flex;gap:1rem;align-items:center;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,230,214,.5)}
 .ev-index{color:var(--earth)}
-.ev-controls{position:absolute;z-index:7;right:clamp(1.4rem,4vw,3.5rem);bottom:clamp(4.8rem,9vh,7rem);display:flex;gap:.5rem}
-.ev-btn{width:42px;height:42px;border:1px solid rgba(237,230,214,.22);border-radius:50%;background:rgba(7,12,9,.24);color:var(--bone);display:grid;place-items:center;cursor:pointer;font-size:17px;backdrop-filter:blur(6px)}
-.ev-btn:hover{border-color:rgba(190,158,104,.7);color:var(--earth)}
-.ev-tvmark{position:absolute;z-index:5;right:clamp(1.4rem,4vw,3.5rem);top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(237,230,214,.34)}
 
-@media(max-width:700px){
-  .ev-copy{max-width:88vw;bottom:7rem}
-  .ev-title{font-size:clamp(42px,14vw,72px)}
-  .ev-note{max-width:34ch}
-  .ev-controls{bottom:4.7rem}
-  .ev-rail{grid-template-columns:1fr}
+.ev-controls{position:absolute;z-index:10;right:clamp(1.4rem,4vw,3.5rem);bottom:clamp(4.7rem,8vh,6.5rem);display:flex;gap:.5rem}
+.ev-btn{width:40px;height:40px;border:1px solid rgba(237,230,214,.2);border-radius:50%;background:rgba(7,12,9,.22);color:var(--bone);display:grid;place-items:center;cursor:pointer;font-size:15px;backdrop-filter:blur(6px);transition:border-color .25s,color .25s,background .25s}
+.ev-btn:hover{border-color:rgba(190,158,104,.72);color:var(--earth);background:rgba(7,12,9,.45)}
+.ev-audio{position:absolute;z-index:7;right:clamp(1.4rem,4vw,3.5rem);top:50%;transform:translateY(-50%);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,230,214,.28);writing-mode:vertical-rl}
+
+.ev-link{display:none;margin-top:1.4rem;width:max-content;max-width:100%;font-size:10px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--bone);border-bottom:1px solid rgba(190,158,104,.45);padding-bottom:.35rem}
+.ev-link.visible{display:inline-block}
+
+@media(max-width:760px){
+  .ev-top{align-items:flex-start}
+  .ev-status{display:none}
+  .ev-copy{left:1.4rem;right:1.4rem;bottom:7.2rem;max-width:none}
+  .ev-title{font-size:clamp(40px,13vw,68px);max-width:10ch}
+  .ev-note{max-width:34ch;line-height:1.6}
+  .ev-route{font-size:9px;line-height:1.6}
+  .ev-stats{gap:.45rem .9rem}
+  .ev-stat b{font-size:16px}
+  .ev-number{right:.8rem;bottom:8rem;font-size:28vw}
+  .ev-chapter,.ev-audio{display:none}
+  .ev-controls{right:1.2rem;bottom:4.7rem}
+  .ev-rail{left:1.4rem;right:1.4rem;grid-template-columns:1fr}
   .ev-meta{display:none}
-  .ev-tvmark{display:none}
+}
+@media(max-height:700px) and (min-width:761px){
+  .ev-copy{bottom:5.8rem}
+  .ev-title{font-size:clamp(42px,7vw,82px)}
+  .ev-note{margin-top:1rem}
 }
 @media(prefers-reduced-motion:reduce){
-  .ev-scene{transition:opacity .35s ease;transform:none}
+  .ev-scene{transition:opacity .3s ease;transform:none}
   .ev-progress span.run{animation:none;width:100%}
 }
 </style>
 </head>
 <body>
 <main class="ev" aria-label="Enkiama Experience View">
-  <div class="ev-scene s1 active" data-kicker="Enkiama · Experience View" data-title="A window into <em>Tanzania.</em>" data-note="No itinerary. No catalogue. Just a sequence of places, people and landscapes that make the journey possible."></div>
-  <div class="ev-scene s2" data-kicker="Now showing · Serengeti" data-title="The plain keeps <em>moving.</em>" data-note="Distance, migration and the patience to let the landscape set the pace."></div>
-  <div class="ev-scene s3" data-kicker="People · Place · Continuity" data-title="Travel through <em>relationships.</em>" data-note="Enkiama is built around people who know the land, the seasons and the communities that give each place meaning."></div>
-  <div class="ev-scene s4" data-kicker="Wild Tanzania · South" data-title="Space enough to <em>disappear into.</em>" data-note="A quieter Tanzania: long horizons, fewer vehicles and a different rhythm of safari."></div>
-  <div class="ev-scene s5" data-kicker="Coast · Zanzibar" data-title="Then the journey <em>exhales.</em>" data-note="Stone, sea, heat and time — a coast that changes the final tempo of the journey."></div>
+
+  <div class="ev-scene s1 active light"
+    data-chapter="Opening · Enkiama"
+    data-kicker="Tanzania · Private journeys · From mountain to coast"
+    data-title="Tanzania already knows how to receive <em>you.</em>"
+    data-note="Private journeys through Tanzania — shaped around season, distance, pace and the people travelling."
+    data-link="index.html"
+    data-link-label="Return to the full landing page"></div>
+
+  <div class="ev-scene s2"
+    data-chapter="Landing · Karibu"
+    data-kicker="Based in Tanzania · journeys shaped here"
+    data-title="Safari is one part of <em>Tanzania.</em>"
+    data-note="We work from the country itself — its seasons, distances, people and changing conditions. What belongs together matters as much as what gets left out."></div>
+
+  <div class="ev-scene s3"
+    data-chapter="Landing · Six worlds"
+    data-kicker="One country · six ways into it"
+    data-title="A journey is built from <em>different worlds.</em>"
+    data-note="Mountains, savannas, craters, community, Rift Valley and coast are not a checklist. They are the building blocks of a route."></div>
+
+  <div class="ev-scene s4 light"
+    data-chapter="Journey 01 · July"
+    data-kicker="13 nights · 4 worlds · 5 friends"
+    data-title="Five friends. First time in <em>Tanzania.</em>"
+    data-note="A full arc: mountain culture, migration country, the crater and the slow exhale of the coast."
+    data-route="Kilimanjaro → Serengeti → Rift Valley → Zanzibar"
+    data-stats="13|nights;4|worlds;9|lodges;3|guides"
+    data-link="journeys.html"
+    data-link-label="See the journey collection"></div>
+
+  <div class="ev-scene s5"
+    data-chapter="Journey 02 · August"
+    data-kicker="8 nights · wildlife-led"
+    data-title="A wildlife journey. Nothing but <em>the land.</em>"
+    data-note="Tarangire’s elephants, the northern Serengeti in crossing season and a full day in the crater — no coast, no cities."
+    data-route="Tarangire → Serengeti → Ngorongoro"
+    data-stats="8|nights;3|worlds;2|guides"></div>
+
+  <div class="ev-scene s6"
+    data-chapter="Landing · Rhythm"
+    data-kicker="Season · distance · pace"
+    data-title="The route changes with <em>the month.</em>"
+    data-note="Wildlife movement, road time, altitude and the pace a group actually wants can completely change what a good journey looks like."></div>
+
+  <div class="ev-scene s7"
+    data-chapter="Journey 03 · June"
+    data-kicker="6 nights · mountain culture"
+    data-title="The mountain, without <em>the summit.</em>"
+    data-note="Chagga coffee farms, cloud forest, family hospitality and Moshi — a journey into the mountain’s culture rather than its peak."
+    data-route="Kilimanjaro foothills → Kibosho → Moshi"
+    data-stats="6|nights;2|worlds;1|family host"></div>
+
+  <div class="ev-scene s8"
+    data-chapter="Journey 04 · Coast"
+    data-kicker="11 nights · plain to ocean"
+    data-title="One journey. Two completely different <em>tempos.</em>"
+    data-note="The intensity of the Serengeti gives way to Stone Town’s layered history and the quieter reefs beyond Zanzibar."
+    data-route="Serengeti → Stone Town → Pemba"
+    data-stats="11|nights;2|worlds;2|guides"></div>
+
+  <div class="ev-scene s9 light"
+    data-chapter="Landing · Coast"
+    data-kicker="The final rhythm"
+    data-title="Then the journey <em>exhales.</em>"
+    data-note="The coast is not an add-on. In the right journey, it changes the final tempo completely."></div>
+
+  <div class="ev-scene s10"
+    data-chapter="Close · Compose"
+    data-kicker="Enkiama · one group at a time"
+    data-title="The next journey does not exist <em>yet.</em>"
+    data-note="Start with dates, people and what is drawing you to Tanzania. The route comes after."
+    data-link="begin.html"
+    data-link-label="Begin a conversation"></div>
 
   <header class="ev-top">
     <a class="ev-logo" href="index.html" aria-label="Back to Enkiama"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
-    <a class="ev-exit" href="index.html">Exit view</a>
+    <div class="ev-top-right">
+      <div class="ev-status"><span class="ev-live">Experience View</span></div>
+      <a class="ev-exit" href="index.html">Exit</a>
+    </div>
   </header>
 
+  <div class="ev-chapter" id="evChapter">Opening · Enkiama</div>
+  <div class="ev-number" id="evNumber" aria-hidden="true">01</div>
+  <div class="ev-audio">Silent edition · sound layer later</div>
+
   <section class="ev-copy" aria-live="polite">
-    <p class="ev-kicker" id="evKicker">Enkiama · Experience View</p>
-    <h1 class="ev-title" id="evTitle">A window into <em>Tanzania.</em></h1>
-    <p class="ev-note" id="evNote">No itinerary. No catalogue. Just a sequence of places, people and landscapes that make the journey possible.</p>
+    <p class="ev-kicker" id="evKicker">Tanzania · Private journeys · From mountain to coast</p>
+    <h1 class="ev-title" id="evTitle">Tanzania already knows how to receive <em>you.</em></h1>
+    <p class="ev-note" id="evNote">Private journeys through Tanzania — shaped around season, distance, pace and the people travelling.</p>
+    <p class="ev-route" id="evRoute"></p>
+    <div class="ev-stats" id="evStats"></div>
+    <a class="ev-link" id="evLink" href="index.html"></a>
   </section>
 
   <div class="ev-controls" aria-label="Experience controls">
@@ -96,11 +215,9 @@ a{color:inherit}
     <button class="ev-btn" id="evNext" aria-label="Next scene">→</button>
   </div>
 
-  <div class="ev-tvmark">Designed to live full screen</div>
-
   <div class="ev-rail">
     <div class="ev-progress"><span id="evProgress" class="run"></span></div>
-    <div class="ev-meta"><span class="ev-index" id="evIndex">01 / 05</span><span>Enkiama · Tanzania</span></div>
+    <div class="ev-meta"><span class="ev-index" id="evIndex">01 / 10</span><span id="evMeta">Enkiama · Tanzania</span></div>
   </div>
 </main>
 
@@ -110,10 +227,16 @@ a{color:inherit}
   var kicker=document.getElementById('evKicker');
   var title=document.getElementById('evTitle');
   var note=document.getElementById('evNote');
+  var route=document.getElementById('evRoute');
+  var stats=document.getElementById('evStats');
+  var chapter=document.getElementById('evChapter');
+  var number=document.getElementById('evNumber');
+  var link=document.getElementById('evLink');
   var index=document.getElementById('evIndex');
+  var meta=document.getElementById('evMeta');
   var progress=document.getElementById('evProgress');
   var pause=document.getElementById('evPause');
-  var current=0, timer=null, paused=false, interval=8000;
+  var current=0,timer=null,paused=false,interval=9000;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function restartProgress(){
@@ -121,20 +244,63 @@ a{color:inherit}
     void progress.offsetWidth;
     if(!paused&&!reduce) progress.classList.add('run');
   }
+
+  function setStats(raw){
+    stats.innerHTML='';
+    stats.classList.remove('visible');
+    if(!raw) return;
+    raw.split(';').forEach(function(item){
+      var p=item.split('|');
+      if(p.length<2) return;
+      var el=document.createElement('span');
+      el.className='ev-stat';
+      el.innerHTML='<b>'+p[0]+'</b>'+p[1];
+      stats.appendChild(el);
+    });
+    if(stats.children.length) stats.classList.add('visible');
+  }
+
   function show(i){
     current=(i+scenes.length)%scenes.length;
     scenes.forEach(function(s,n){s.classList.toggle('active',n===current);});
     var s=scenes[current];
-    kicker.textContent=s.dataset.kicker;
-    title.innerHTML=s.dataset.title;
-    note.textContent=s.dataset.note;
+
+    kicker.textContent=s.dataset.kicker||'';
+    title.innerHTML=s.dataset.title||'';
+    note.textContent=s.dataset.note||'';
+    chapter.textContent=s.dataset.chapter||'';
+    number.textContent=String(current+1).padStart(2,'0');
     index.textContent=String(current+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');
+    meta.textContent=current>=3&&current<=7?'Journeys · Enkiama':'Enkiama · Tanzania';
+
+    if(s.dataset.route){
+      route.textContent=s.dataset.route;
+      route.classList.add('visible');
+    }else{
+      route.textContent='';
+      route.classList.remove('visible');
+    }
+
+    setStats(s.dataset.stats||'');
+
+    if(s.dataset.link){
+      link.href=s.dataset.link;
+      link.textContent=(s.dataset.linkLabel||'Open')+' →';
+      link.classList.add('visible');
+    }else{
+      link.removeAttribute('href');
+      link.textContent='';
+      link.classList.remove('visible');
+    }
+
     restartProgress();
   }
+
   function schedule(){
     clearInterval(timer);
     if(!paused&&!reduce) timer=setInterval(function(){show(current+1);},interval);
   }
+
   document.getElementById('evPrev').addEventListener('click',function(){show(current-1);schedule();});
   document.getElementById('evNext').addEventListener('click',function(){show(current+1);schedule();});
   pause.addEventListener('click',function(){
@@ -144,12 +310,15 @@ a{color:inherit}
     if(paused){clearInterval(timer);progress.classList.remove('run');}
     else{restartProgress();schedule();}
   });
+
   document.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'){show(current+1);schedule();}
     if(e.key==='ArrowLeft'){show(current-1);schedule();}
     if(e.key===' '){e.preventDefault();pause.click();}
     if(e.key==='Escape')location.href='index.html';
   });
+
+  show(0);
   schedule();
 })();
 </script>
