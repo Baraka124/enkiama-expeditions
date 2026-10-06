@@ -437,19 +437,14 @@ nav.scrolled::before{ opacity:.035; }
   .jr-body{padding:2.5rem 1.5rem 3rem;}
 }
 </style>
-<style>@media(max-width:860px){.cta-wrap{grid-template-columns:1fr !important;gap:2.5rem !important;padding:6rem 1.5rem !important;}}
-
-
-
-
-/* header refinement: distinguish Compose (the differentiator) + spacing */
-.n-links .n-compose > a{position:relative;}
-.n-links .n-compose > a::before{content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);
-  width:4px;height:4px;border-radius:50%;background:var(--earth,#BE9E68);opacity:.7;transition:opacity .3s,transform .3s;}
-.n-links .n-compose > a:hover::before{opacity:1;transform:translateY(-50%) scale(1.3);}
-.n-right{gap:2.5rem;}
-.n-links{gap:2.4rem;}
-@media(min-width:1200px){ .n-links{gap:2.75rem;} .n-right{gap:2.75rem;} }
+<style id="journeys-responsive">
+@media(max-width:860px){
+  .cta-wrap{
+    grid-template-columns:1fr !important;
+    gap:2.5rem !important;
+    padding:6rem 1.5rem !important;
+  }
+}
 </style>
 
 <!-- ── structured data + hreflang ── -->
