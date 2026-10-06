@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "formats": [
+    {
+      "slug": "private",
+      "name": "Private ascent",
+      "public": true,
+      "description": "One travelling party with dates, route and mountain rhythm built around that party rather than a scheduled departure.",
+      "best_for": [
+        "couples",
+        "families",
+        "friends",
+        "different experience levels",
+        "wider Tanzania journeys"
+      ],
+      "operational_questions": [
+        "route and mountain days",
+        "guide ratio",
+        "camp provision",
+        "pre-climb acclimatisation",
+        "post-climb recovery"
+      ]
+    },
+    {
+      "slug": "couple",
+      "name": "Couple expedition",
+      "public": true,
+      "description": "A two-person private climb designed so one shared objective does not erase two different bodies, paces or altitude responses.",
+      "best_for": [
+        "honeymoon or milestone journeys",
+        "different trekking experience",
+        "private safari extension"
+      ],
+      "operational_questions": [
+        "individual health monitoring",
+        "pace management",
+        "what happens if one climber descends",
+        "private transfers and recovery"
+      ]
+    },
+    {
+      "slug": "family",
+      "name": "Family / adult family",
+      "public": true,
+      "description": "A family expedition designed around suitability first, with age, prior trekking, altitude exposure and independent descent decisions considered before itinerary.",
+      "best_for": [
+        "parent and adult child",
+        "adult siblings",
+        "multi-generational groups with suitable climbers"
+      ],
+      "operational_questions": [
+        "individual suitability",
+        "guide allocation",
+        "separate descent plan",
+        "training and equipment review"
+      ],
+      "regulatory_context": "TANAPA regulations state that children under 10 may not climb above 3,700 m. Enkiama suitability can be more conservative than the legal boundary."
+    },
+    {
+      "slug": "small-group",
+      "name": "Small-group departure",
+      "public": true,
+      "description": "A fixed date and route with intentionally limited climber numbers so guide attention does not thin as the group grows.",
+      "best_for": [
+        "solo travellers who want company",
+        "friends joining a scheduled date",
+        "defined budget and calendar"
+      ],
+      "operational_questions": [
+        "maximum group size",
+        "guide ratio",
+        "departure guarantee",
+        "room/tent sharing"
+      ]
+    },
+    {
+      "slug": "mountain-plus-tanzania",
+      "name": "Mountain + Tanzania",
+      "public": true,
+      "description": "The climb is treated as one chapter of a wider journey, with recovery and onward travel deliberately composed rather than appended automatically.",
+      "best_for": [
+        "first Tanzania journey",
+        "safari after summit",
+        "Rift Valley and Lake Natron",
+        "Zanzibar recovery"
+      ],
+      "operational_questions": [
+        "recovery night",
+        "transfer load after descent",
+        "safari pace",
+        "coast timing"
+      ]
+    }
+  ],
+  "future_specialist_formats": [
+    {
+      "slug": "research",
+      "name": "Research / field expedition",
+      "status": "capability-dependent",
+      "note": "Publish only when the scientific objective, permits, technical partner and mountain medical plan are defined."
+    },
+    {
+      "slug": "film",
+      "name": "Film / production logistics",
+      "status": "capability-dependent",
+      "note": "Publish only when permit handling, equipment loads, communications and production support are operationally verified."
+    },
+    {
+      "slug": "charity",
+      "name": "Charity / institutional climb",
+      "status": "capability-dependent",
+      "note": "Publish when fundraising, group governance and mountain operations are defined for the specific departure."
+    }
+  ]
+}
