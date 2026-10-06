@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kilimanjaro Route — Enkiama</title>
+<meta name="theme-color" content="#0F1712">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F1712;--ink2:#131C16;--bone:#EDE6D6;--bone2:#E4DBC7;--earth:#BE9E68;--sage:#7A9470;--rule:rgba(190,158,104,.12)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Instrument Sans',sans-serif;background:var(--ink);color:var(--bone)}
+.fr{font-family:'Fraunces',serif}.route-page{min-height:100vh}
+.route-hero{position:relative;min-height:78vh;display:flex;align-items:end;overflow:hidden}.route-hero__img{position:absolute;inset:0;background:url('assets/images/kilimanjaro.jpg') center/cover no-repeat}.route-hero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.12),rgba(8,12,9,.86))}
+.route-nav{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1.4rem clamp(1.3rem,4vw,3.5rem)}.route-nav img{height:38px}.route-nav a{color:var(--bone);text-decoration:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.route-hero__copy{position:relative;z-index:2;padding:clamp(7rem,12vh,10rem) clamp(1.5rem,6vw,6rem) clamp(4rem,7vh,5.5rem);max-width:980px}.route-eye{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.route-hero h1{font-size:clamp(56px,8vw,116px);font-weight:300;line-height:.9;letter-spacing:-.045em;margin:.8rem 0 1.3rem}.route-hero__copy>p:last-child{font-size:clamp(15px,1.4vw,19px);line-height:1.8;color:rgba(237,230,214,.78);max-width:58ch}
+.route-grid{display:grid;grid-template-columns:.62fr 1.38fr;background:var(--bone2);color:var(--ink)}.route-aside{padding:clamp(3rem,5vw,5rem);border-right:1px solid rgba(15,23,18,.12)}.route-aside h2{font-size:clamp(34px,4.5vw,58px);font-weight:300;line-height:1}.route-aside p{font-size:12px;line-height:1.75;color:rgba(15,23,18,.65);margin-top:1.2rem}
+.route-stats{display:grid;grid-template-columns:1fr 1fr}.route-stat{padding:2rem;border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1)}.route-stat:nth-child(2n){border-right:0}.route-stat span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.route-stat strong{display:block;font-size:14px;line-height:1.5;margin-top:.4rem}
+.route-body{display:grid;grid-template-columns:1fr 1fr;background:var(--ink)}.route-section{padding:clamp(3.5rem,6vw,6rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.route-section:nth-child(2n){border-right:0}.route-section h2{font-size:clamp(34px,4vw,56px);font-weight:300;line-height:1;margin:.7rem 0 1.1rem}.route-section p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.68)}
+.route-seq{padding:clamp(4rem,6vw,6rem);background:var(--ink2)}.route-seq h2{font-size:clamp(38px,4.8vw,64px);font-weight:300;margin-bottom:1.8rem}.route-line{display:flex;gap:.7rem;flex-wrap:wrap}.route-line span{border:1px solid var(--rule);padding:.65rem .8rem;font-size:10px;color:rgba(237,230,214,.75)}
+.route-actions{display:grid;grid-template-columns:1fr 1fr;background:var(--bone2);color:var(--ink)}.route-action{padding:clamp(3rem,5vw,5rem);text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.route-action:last-child{border-right:0}.route-action span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.route-action strong{display:block;font-family:'Fraunces',serif;font-size:clamp(28px,3vw,42px);font-weight:300;margin-top:.8rem}
+.route-error{padding:8rem 1.5rem;text-align:center}.route-error a{color:var(--earth)}
+@media(max-width:820px){.route-grid,.route-body,.route-actions{grid-template-columns:1fr}.route-aside,.route-action{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}.route-stats{grid-template-columns:1fr}.route-stat{border-right:0}.route-hero{min-height:70vh}}
+</style>
+</head>
+<body>
+<main class="route-page" id="routePage" hidden>
+<section class="route-hero">
+  <div class="route-hero__img"></div><div class="route-hero__shade"></div>
+  <nav class="route-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama"></a><a href="kilimanjaro.html#routes">All Kilimanjaro routes</a></nav>
+  <div class="route-hero__copy"><p class="route-eye" id="routeBadge"></p><h1 class="fr" id="routeTitle"></h1><p id="routeSummary"></p></div>
+</section>
+<section class="route-grid"><div class="route-aside"><p class="route-eye">Route position</p><h2 class="fr" id="routeFit"></h2><p id="routeFitCopy"></p></div><div class="route-stats" id="routeStats"></div></section>
+<section class="route-body"><article class="route-section"><p class="route-eye">Why choose it</p><h2 class="fr">Where this route earns its place.</h2><p id="routeWhy"></p></article><article class="route-section"><p class="route-eye">Trade-off</p><h2 class="fr">What you give up.</h2><p id="routeCaution"></p></article></section>
+<section class="route-seq"><p class="route-eye">Typical sequence</p><h2 class="fr">How the mountain unfolds.</h2><div class="route-line" id="routeLine"></div></section>
+<section class="route-actions"><a class="route-action" href="kilimanjaro.html#mountain-composer"><span>Compare before deciding</span><strong>Use the mountain composer →</strong></a><a class="route-action" href="compose.html"><span>Beyond Kilimanjaro</span><strong>Continue into Tanzania →</strong></a></section>
+</main>
+<div class="route-error" id="routeError" hidden><p>This Kilimanjaro route could not be loaded. <a href="kilimanjaro.html#routes">Return to the route atlas.</a></p></div>
+<script>
+(function(){
+ const slug=new URLSearchParams(location.search).get('route');
+ fetch('data/kilimanjaro-routes.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(data=>{
+   const x=data.routes.find(r=>r.slug===slug);if(!x)throw 0;
+   document.title=x.name+' Route on Kilimanjaro — Enkiama';
+   document.getElementById('routeBadge').textContent=x.badge+' · '+x.approach+' approach';
+   document.getElementById('routeTitle').textContent=x.name;
+   document.getElementById('routeSummary').textContent=x.summary;
+   document.getElementById('routeFit').textContent=x.fit.split('.')[0]+'.';
+   document.getElementById('routeFitCopy').textContent=x.fit;
+   const stats=[['Recommended',x.recommended_days+' days'],['Variants',x.variants],['Approach',x.approach],['Descent',x.descent],['Overnight',x.overnight],['Acclimatisation',x.acclimatisation],['Crowds',x.crowds],['Scenery',x.scenery]];
+   document.getElementById('routeStats').innerHTML=stats.map(v=>'<div class="route-stat"><span>'+v[0]+'</span><strong>'+v[1]+'</strong></div>').join('');
+   document.getElementById('routeWhy').textContent=x.why_enkiama;
+   document.getElementById('routeCaution').textContent=x.caution;
+   document.getElementById('routeLine').innerHTML=x.stages.map(s=>'<span>'+s+'</span>').join('');
+   document.getElementById('routePage').hidden=false;
+ }).catch(()=>document.getElementById('routeError').hidden=false);
+})();
+</script>
+</body></html>

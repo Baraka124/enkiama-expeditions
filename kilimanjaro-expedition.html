@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kilimanjaro Expedition — Enkiama</title>
+<meta name="theme-color" content="#0F1712">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F1712;--ink2:#131C16;--bone:#EDE6D6;--bone2:#E4DBC7;--earth:#BE9E68;--rule:rgba(190,158,104,.12)}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Instrument Sans',sans-serif;background:var(--ink);color:var(--bone)}.fr{font-family:'Fraunces',serif}
+.exp-hero{position:relative;min-height:86vh;display:flex;align-items:end;overflow:hidden}.exp-hero__img{position:absolute;inset:0;background:url('assets/images/kilimanjaro.jpg') center 40%/cover no-repeat}.exp-hero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.08),rgba(8,12,9,.88))}
+.exp-nav{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1.4rem clamp(1.3rem,4vw,3.5rem)}.exp-nav img{height:38px}.exp-nav a{color:var(--bone);text-decoration:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.exp-copy{position:relative;z-index:2;padding:clamp(7rem,12vh,10rem) clamp(1.5rem,6vw,6rem) clamp(4rem,7vh,5.5rem);max-width:980px}.eye{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.exp-copy h1{font-size:clamp(54px,7.5vw,106px);font-weight:300;line-height:.92;letter-spacing:-.045em;margin:.9rem 0 1.4rem;max-width:11ch}.exp-copy>p:last-child{font-size:clamp(15px,1.4vw,19px);line-height:1.8;color:rgba(237,230,214,.78);max-width:58ch}
+.exp-meta{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.exp-meta div{padding:1.8rem 2rem;border-right:1px solid rgba(15,23,18,.12)}.exp-meta div:last-child{border-right:0}.exp-meta span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.exp-meta strong{display:block;font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-top:.4rem}
+.exp-body{display:grid;grid-template-columns:.7fr 1.3fr}.exp-body__left{padding:clamp(4rem,6vw,6rem);border-right:1px solid var(--rule)}.exp-body__left h2{font-size:clamp(38px,4.8vw,64px);font-weight:300;line-height:1;margin:.8rem 0 1.2rem}.exp-body__left p,.exp-body__right p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.67)}
+.exp-body__right{padding:clamp(4rem,6vw,6rem)}.exp-steps{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule)}.exp-step{background:var(--ink);padding:1.7rem}.exp-step strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300;margin:.5rem 0}.exp-step p{font-size:11px;line-height:1.7}
+.exp-action{display:grid;grid-template-columns:1fr 1fr;background:var(--bone2)}.exp-action a{padding:clamp(3rem,5vw,5rem);text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.exp-action a:last-child{border-right:0}.exp-action span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.exp-action strong{display:block;font-family:'Fraunces',serif;font-size:clamp(28px,3.2vw,44px);font-weight:300;margin-top:.8rem}
+.err{padding:8rem 1.5rem;text-align:center}.err a{color:var(--earth)}
+@media(max-width:800px){.exp-meta{grid-template-columns:1fr 1fr}.exp-body,.exp-action{grid-template-columns:1fr}.exp-body__left,.exp-action a{border-right:0;border-bottom:1px solid var(--rule)}.exp-steps{grid-template-columns:1fr}}
+</style></head>
+<body>
+<main id="expPage" hidden>
+<section class="exp-hero"><div class="exp-hero__img"></div><div class="exp-hero__shade"></div><nav class="exp-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama"></a><a href="kilimanjaro.html">Kilimanjaro</a></nav><div class="exp-copy"><p class="eye" id="expLabel"></p><h1 class="fr" id="expTitle"></h1><p id="expSummary"></p></div></section>
+<section class="exp-meta" id="expMeta"></section>
+<section class="exp-body"><div class="exp-body__left"><p class="eye">Status</p><h2 class="fr">Prepared openly, before it becomes a story.</h2><p>This dossier is intentionally different from an operated-journey story. It records a climb that is still being prepared. Route, pacing and wider journey context can be shown; summit outcome and lived experience cannot exist until after the expedition.</p></div><div class="exp-body__right"><p class="eye">Current shape</p><div class="exp-steps"><div class="exp-step"><span class="eye">01</span><strong>Seven mountain days</strong><p>Machame is treated as a seven-day climb rather than compressed to six days.</p></div><div class="exp-step"><span class="eye">02</span><strong>Father + adult son</strong><p>A shared summit objective, with individual altitude response and mountain decisions remaining separate.</p></div><div class="exp-step"><span class="eye">03</span><strong>Machame route</strong><p>Southern approach through rainforest, Shira, Lava Tower, Barranco and Karanga before Barafu.</p></div><div class="exp-step"><span class="eye">04</span><strong>Wider Tanzania</strong><p>The climb is designed as one chapter of a broader journey rather than the entire visit.</p></div></div></div></section>
+<section class="exp-action"><a href="kilimanjaro-route.html?route=machame"><span>Route dossier</span><strong>Study Machame →</strong></a><a href="kilimanjaro.html#mountain-composer"><span>Compare</span><strong>Use the mountain composer →</strong></a></section>
+</main>
+<div class="err" id="expError" hidden><p>This expedition is not available for public viewing. <a href="kilimanjaro.html">Return to Kilimanjaro.</a></p></div>
+<script>
+(function(){
+ const slug=new URLSearchParams(location.search).get('expedition');
+ fetch('data/kilimanjaro-expeditions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(data=>{
+  const x=data.expeditions.find(e=>e.slug===slug && e.publishable===true);if(!x)throw 0;
+  document.title=x.title+' — Enkiama';
+  document.getElementById('expLabel').textContent=x.public_label;
+  document.getElementById('expTitle').textContent=x.title;
+  document.getElementById('expSummary').textContent=x.summary;
+  const meta=[['Period',x.period],['Route',x.route],['Mountain days',x.mountain_days],['Party','Father + adult son']];
+  document.getElementById('expMeta').innerHTML=meta.map(v=>'<div><span>'+v[0]+'</span><strong>'+v[1]+'</strong></div>').join('');
+  document.getElementById('expPage').hidden=false;
+ }).catch(()=>document.getElementById('expError').hidden=false);
+})();
+</script></body></html>
