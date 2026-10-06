@@ -816,6 +816,153 @@ nav.scrolled::before{ opacity:.035; }
 <!-- ── end structured data ── -->
 <style>
 /* JOURNEYS — phase 3: closure, restraint, typography */
+
+/* ══════════ JOURNEY RECORD DIFFERENTIATION ══════════ */
+/* 02 — Field study: denser, more observational, with a narrower photographic register. */
+.jr--field{
+  grid-template-columns:minmax(340px,.72fr) minmax(0,1.28fr);
+  min-height:640px;
+  background:#101814;
+}
+.jr--field .jr-film{
+  min-height:640px;
+  background-position:center 48%;
+}
+.jr--field .jr-body{
+  padding-left:clamp(3rem,6vw,7rem);
+  padding-right:clamp(3rem,6vw,7rem);
+  border-left:1px solid rgba(190,158,104,.13);
+}
+.jr--field .jr-title{
+  font-size:clamp(38px,4.7vw,66px);
+  max-width:9ch;
+  margin-bottom:2rem;
+}
+.jr--field .jr-desc{
+  max-width:48ch;
+}
+.jr--field .jr-meta{
+  max-width:34rem;
+  border-bottom:1px solid rgba(190,158,104,.12);
+  padding-bottom:1.1rem;
+  margin-bottom:2.4rem;
+}
+.jr--field .jr-worlds{
+  max-width:34rem;
+}
+
+/* 04 — Coast finish: the image gets the final word; text becomes a calm lower register. */
+.jr--coast{
+  display:block;
+  min-height:0;
+  background:#0D1511;
+}
+.jr--coast .jr-film{
+  min-height:clamp(560px,70vw,900px);
+  width:100%;
+  background-position:center 60%;
+}
+.jr--coast .jr-film::before{
+  height:44%;
+  background:linear-gradient(180deg,transparent,rgba(5,9,7,.72));
+}
+.jr--coast .jr-route{
+  margin-left:clamp(1.5rem,5vw,5rem);
+  margin-bottom:clamp(2rem,4vw,4rem);
+  max-width:min(760px,calc(100% - 3rem));
+}
+.jr--coast .jr-body{
+  border-left:0;
+  border-top:1px solid rgba(190,158,104,.12);
+  display:grid;
+  grid-template-columns:minmax(180px,.42fr) minmax(0,1.2fr) minmax(180px,.38fr);
+  gap:clamp(2rem,5vw,5.5rem);
+  align-items:start;
+  padding:clamp(3.8rem,6vw,6.5rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,7vw,7rem);
+}
+.jr--coast .jr-meta{
+  grid-column:1;
+  display:block;
+  margin:0;
+}
+.jr--coast .jr-stat{
+  display:block;
+  padding:0;
+  margin:0 0 .55rem;
+}
+.jr--coast .jr-stat::after{display:none;}
+.jr--coast .jr-title{
+  grid-column:2;
+  margin:0;
+  font-size:clamp(38px,4.8vw,68px);
+  max-width:10ch;
+}
+.jr--coast .jr-desc{
+  grid-column:2;
+  max-width:52ch;
+  margin:1.5rem 0 0;
+}
+.jr--coast .jr-worlds{
+  grid-column:3;
+  grid-row:1 / span 2;
+  margin:0;
+  padding:.2rem 0 0 clamp(1.25rem,2vw,2rem);
+  border-top:0;
+  border-left:1px solid rgba(190,158,104,.14);
+}
+.jr--coast .jr-body::before{
+  top:clamp(3.8rem,6vw,6.5rem);
+  right:clamp(1.5rem,5vw,5rem);
+}
+
+/* Close: Experience View is an alternate mode, never the primary CTA. */
+.journey-close__notes{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:.75rem;
+}
+.journey-close__experience{
+  color:rgba(190,158,104,.72);
+}
+.journey-close__experience span{
+  display:inline-block;
+  margin-left:.25rem;
+  transition:transform .25s ease;
+}
+.journey-close__experience:hover span{transform:translate(.15rem,-.15rem);}
+
+@media(max-width:860px){
+  .jr--field{
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+  .jr--field .jr-film{min-height:clamp(360px,86vw,560px);}
+  .jr--field .jr-body{
+    border-left:0;
+    border-top:1px solid rgba(190,158,104,.12);
+    padding:3rem 1.5rem 3.5rem;
+  }
+  .jr--coast .jr-film{min-height:clamp(420px,92vw,620px);}
+  .jr--coast .jr-body{
+    grid-template-columns:1fr;
+    padding:3rem 1.5rem 4rem;
+  }
+  .jr--coast .jr-meta,
+  .jr--coast .jr-title,
+  .jr--coast .jr-desc,
+  .jr--coast .jr-worlds{grid-column:1;}
+  .jr--coast .jr-worlds{
+    grid-row:auto;
+    border-left:0;
+    border-top:1px solid rgba(190,158,104,.14);
+    padding-left:0;
+    padding-top:1.25rem;
+    margin-top:2rem;
+  }
+  .journey-close__notes{align-items:flex-start;}
+}
+
 .journey-close{
   position:relative;
   display:grid;
@@ -1441,7 +1588,7 @@ body.eh-locked{overflow:hidden;}
     </div>
   </div>
 
-  <div class="jr">
+  <div class="jr jr--field">
     <div class="jr-film j2">
       <span class="jr-route">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span>
     </div>
@@ -1536,7 +1683,7 @@ body.eh-locked{overflow:hidden;}
     </div>
   </section>
 
-  <div class="jr">
+  <div class="jr jr--coast">
     <div class="jr-film j4">
       <span class="jr-route">Serengeti &rarr; Stone Town &rarr; Pemba</span>
     </div>
@@ -1563,7 +1710,10 @@ body.eh-locked{overflow:hidden;}
     <p class="journey-close__copy">You do not need to arrive with an itinerary. Tell us who is travelling, the time you have, what pulls you toward Tanzania, and what you do not want rushed.</p>
     <a href="begin.html" class="journey-close__action">Begin a conversation <span aria-hidden="true">&rarr;</span></a>
   </div>
-  <a href="how.html" class="journey-close__note">How we compose a journey</a>
+  <div class="journey-close__notes">
+    <a href="how.html" class="journey-close__note">How we compose a journey</a>
+    <a href="experience-view.html" class="journey-close__note journey-close__experience">Experience View <span aria-hidden="true">↗</span></a>
+  </div>
 </section>
 
 <footer class="journey-footer">
