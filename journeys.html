@@ -1164,6 +1164,122 @@ body[data-page="journeys"] .jr-worlds{
   .jr--editorial .jr-film,.jr--editorial .jr-body{order:initial !important;}
 }
 </style>
+<style>
+/* ═══ JOURNEYS — editorial readability correction ═══
+   Prevent the post-water mountain record from collapsing its copy column
+   at desktop/laptop widths. Keep the image-led composition, but guarantee
+   a usable reading measure before stacking. */
+@media (min-width:861px){
+  body[data-page="journeys"] .jr--editorial{
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(560px,.92fr);
+    min-height:680px;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-film{
+    width:auto;
+    min-height:680px;
+    height:100%;
+    background-size:cover;
+    background-position:center 38%;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-body{
+    border-top:0;
+    border-left:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:minmax(96px,128px) minmax(0,1fr);
+    grid-template-areas:
+      "meta worlds"
+      "meta title"
+      "meta desc";
+    column-gap:clamp(1.75rem,3vw,3.25rem);
+    row-gap:1.35rem;
+    align-content:center;
+    padding:clamp(3rem,5vw,5.5rem) clamp(2.5rem,4vw,4.5rem);
+    min-width:0;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-meta{
+    grid-area:meta;
+    align-self:start;
+    min-width:0;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-title{
+    grid-area:title;
+    width:min(100%,11ch);
+    max-width:11ch;
+    min-width:0;
+    font-size:clamp(42px,4.1vw,64px);
+    line-height:.98;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-desc{
+    grid-area:desc;
+    width:min(100%,44ch);
+    max-width:44ch;
+    min-width:0;
+    margin:0;
+    font-size:14.5px;
+    line-height:1.88;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-worlds{
+    grid-area:worlds;
+    justify-self:end;
+    align-self:start;
+    margin:0;
+    padding:0 0 .8rem;
+    border:0;
+    white-space:nowrap;
+    max-width:none;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-body::before{
+    top:auto;
+    right:auto;
+    bottom:2rem;
+    left:clamp(2.5rem,4vw,4.5rem);
+  }
+}
+
+/* Stack earlier than before: once the right panel would become cramped,
+   the editorial record becomes image-over-copy instead of squeezing text. */
+@media (min-width:861px) and (max-width:1260px){
+  body[data-page="journeys"] .jr--editorial{
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-film{
+    min-height:clamp(460px,58vw,680px);
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-body{
+    border-left:0;
+    border-top:1px solid var(--rule);
+    grid-template-columns:minmax(110px,140px) minmax(0,1fr);
+    padding:3.75rem clamp(2rem,5vw,4rem) 4.5rem;
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-title{
+    font-size:clamp(38px,5vw,58px);
+  }
+
+  body[data-page="journeys"] .jr--editorial .jr-desc{
+    width:min(100%,52ch);
+    max-width:52ch;
+  }
+}
+
+@media (max-width:860px){
+  body[data-page="journeys"] .jr--editorial .jr-desc{
+    width:100%;
+    max-width:58ch;
+  }
+}
+</style>
 </head>
 <body data-page="journeys">
 <!-- ENKIAMA_HEADER_START -->
