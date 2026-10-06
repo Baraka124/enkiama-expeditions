@@ -16,21 +16,21 @@
         {
           "layout": "cinematic",
           "primary": {
-            "src": "assets/images/kilimanjaro.jpg",
-            "alt": "Mount Kilimanjaro above the northern Tanzanian landscape",
-            "focal_point": "50% 42%",
-            "caption": "Kilimanjaro country before the safari chapter begins.",
-            "source_type": "existing-library"
+            "src": "assets/images/synthetic/july26-kilimanjaro-foothills-waterfall.jpg",
+            "alt": "Kilimanjaro foothills and waterfall landscape at the beginning of the journey",
+            "focal_point": "50% 46%",
+            "caption": "A slower opening around Kilimanjaro before the safari circuit.",
+            "source_type": "synthetic"
           }
         },
         {
           "layout": "photo-pair",
           "primary": {
-            "src": "assets/images/kibosho-family.jpg",
-            "alt": "Chagga family setting in the Kilimanjaro highlands",
-            "focal_point": "50% 44%",
-            "caption": "Kibosho and the lived landscape around Kilimanjaro.",
-            "source_type": "existing-library"
+            "src": "assets/images/synthetic/july26-kibosho-coffee-farmer.jpg",
+            "alt": "Coffee farmer working with freshly harvested coffee in the Kilimanjaro highlands",
+            "focal_point": "50% 48%",
+            "caption": "Coffee-making and village life in Chagga country.",
+            "source_type": "synthetic"
           },
           "secondary": {
             "src": "assets/images/culture-table.jpg",
@@ -63,11 +63,11 @@
         {
           "layout": "split",
           "primary": {
-            "src": "assets/images/serengeti.jpg",
-            "alt": "Open Serengeti plain in warm light",
-            "focal_point": "54% 46%",
-            "caption": "Two nights gave the group time inside the plain.",
-            "source_type": "existing-library"
+            "src": "assets/images/synthetic/july26-serengeti-wildebeest-crossing.jpg",
+            "alt": "Large wildebeest herd moving through water in the Serengeti ecosystem",
+            "focal_point": "54% 45%",
+            "caption": "The Serengeti chapter becomes visually distinct from the rest of the northern circuit.",
+            "source_type": "synthetic"
           }
         },
         {
