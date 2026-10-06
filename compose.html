@@ -1331,8 +1331,8 @@ body.eh-locked{overflow:hidden;}
 .cmp-example-hero{grid-area:hero;position:relative;display:block;min-height:560px;overflow:hidden;text-decoration:none;background:var(--ink2);}
 .cmp-example-media{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 7s cubic-bezier(.16,1,.3,1);}
 .cmp-example-hero:hover .cmp-example-media{transform:scale(1.025);}
-.cmp-example-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.08) 22%,rgba(8,13,10,.92) 100%),linear-gradient(90deg,rgba(8,13,10,.34),transparent 60%);}
-.cmp-example-copy{position:absolute;z-index:2;left:clamp(1.5rem,3vw,2.5rem);right:clamp(1.5rem,3vw,2.5rem);bottom:clamp(1.5rem,3vw,2.5rem);max-width:680px;}
+.cmp-example-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.015) 48%,rgba(8,13,10,.78) 100%);}
+.cmp-example-copy{position:absolute;z-index:2;left:clamp(1.5rem,3vw,2.5rem);right:clamp(1.5rem,3vw,2.5rem);bottom:clamp(1.5rem,3vw,2.5rem);max-width:620px;}
 .cmp-example-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,230,214,.56);padding-bottom:.9rem;border-bottom:1px solid rgba(237,230,214,.2);margin-bottom:1.1rem;}
 .cmp-example-copy h4{font-family:'Fraunces',serif;font-size:clamp(38px,4.9vw,66px);font-weight:350;line-height:.96;letter-spacing:-.035em;color:var(--bone);max-width:10ch;margin-bottom:1rem;}
 .cmp-example-copy p{font-size:13px;line-height:1.75;color:rgba(237,230,214,.74);max-width:54ch;margin-bottom:1.2rem;}
@@ -1347,8 +1347,8 @@ body.eh-locked{overflow:hidden;}
 .cmp-example-preview{grid-area:preview;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);}
 .cmp-example-preview__item{position:relative;min-height:270px;overflow:hidden;background:var(--ink2);}
 .cmp-example-preview__img{position:absolute;inset:0;background-size:cover;background-position:center;}
-.cmp-example-preview__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,.04),rgba(8,13,10,.8));}
-.cmp-example-preview__copy{position:absolute;z-index:2;left:1rem;right:1rem;bottom:1rem;padding-top:.8rem;border-top:1px solid rgba(237,230,214,.18);}
+.cmp-example-preview__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,10,0) 52%,rgba(8,13,10,.68) 100%);}
+.cmp-example-preview__copy{position:absolute;z-index:2;left:1rem;right:1rem;bottom:.9rem;padding-top:.7rem;border-top:1px solid rgba(237,230,214,.16);}
 .cmp-example-preview__copy span{display:block;font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,230,214,.5);margin-bottom:.35rem;}
 .cmp-example-preview__copy strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:350;line-height:1.05;color:var(--bone);}
 
@@ -1358,9 +1358,12 @@ body.eh-locked{overflow:hidden;}
   .cmp-example-why{min-height:320px;}
 }
 @media(max-width:680px){
-  .cmp-example-hero{min-height:460px;}
+  .cmp-example-hero{min-height:520px;}
+  .cmp-example-copy{max-width:88%;}
   .cmp-example-preview{grid-template-columns:1fr;}
-  .cmp-example-preview__item{min-height:240px;}
+  .cmp-example-preview__item{min-height:300px;}
+  .cmp-example-preview__copy strong{font-size:20px;max-width:12ch;}
+  .cmp-example-why{min-height:0;padding:2.25rem 1.35rem 2.5rem;}
 }.cmp-open-decisions{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(2.5rem,5vw,5rem);padding:clamp(4rem,6vw,6rem) 0;border-bottom:1px solid var(--rule);}
 .cmp-open-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
 .cmp-open-grid>div{padding:1.3rem 1.25rem 1.5rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
@@ -1375,7 +1378,7 @@ body.eh-locked{overflow:hidden;}
 .cmp-handoff-actions .cmp-restart{margin:.65rem 0 0;width:100%;text-align:center;padding:.8rem 0;border-top:1px solid var(--rule);}
 
 .cmp-stage.result-mode{grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr);}
-.cmp-stage.result-mode .cmp-visual-inset{opacity:.82;width:min(27%,190px);}
+.cmp-stage.result-mode .cmp-visual-inset{opacity:0;pointer-events:none;}
 .cmp-stage.result-mode .cmp-memory{max-width:88%;}
 
 @media(max-width:980px){
