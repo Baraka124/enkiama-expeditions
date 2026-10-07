@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "ruaha",
+  "title": "Ruaha remote safari system",
+  "framing": "A large southern Tanzanian park where river systems, dry-season water, miombo woodland, baobab country and predator-rich valleys reward longer stays and slower guiding more than checklist routing.",
+  "reference_facts": {
+    "park_area_km2": 20226,
+    "official_size_note": "TANAPA currently describes Ruaha as Tanzania's second-largest national park.",
+    "great_ruaha_note": "TANAPA describes the Great Ruaha River as the life of the park.",
+    "bird_species": 574,
+    "special_species_note": "Ruaha is known for both greater and lesser kudu, as well as sable and roan in suitable habitats.",
+    "walking_note": "Walking safaris are an official park activity; exact operating conditions and age/guide rules must be confirmed for the chosen camp and season."
+  },
+  "systems": [
+    {
+      "slug": "great-ruaha",
+      "name": "Great Ruaha River system",
+      "role": "dry-season lifeline",
+      "strongest_window": "June–October",
+      "summary": "Permanent pools, sand-river seeps and riverine habitat organise wildlife movement as the dry season deepens.",
+      "wildlife": "Elephants, buffalo, antelope, crocodiles, hippos and predators concentrate around remaining water.",
+      "experience": "The strongest Ruaha days often come from reading one river system slowly rather than covering maximum distance.",
+      "crowd_profile": "Lower overall vehicle density than the northern circuit, though prime river locations can still attract vehicles.",
+      "best_for": [
+        "predators",
+        "elephants",
+        "dry-season wildlife",
+        "photography"
+      ],
+      "tradeoff": "Peak dry-season concentration comes with hotter, dustier conditions and less lush scenery."
+    },
+    {
+      "slug": "mwagusi-sand-rivers",
+      "name": "Mwagusi & sand-river country",
+      "role": "predator / tracking landscape",
+      "strongest_window": "Dry season",
+      "summary": "Seasonal sand rivers and adjoining woodland create classic Ruaha tracking country where water, shade and crossings structure animal movement.",
+      "wildlife": "Lion, leopard, elephant, giraffe and plains game use the riverbeds and adjacent cover; wild dogs range more widely and remain unpredictable.",
+      "experience": "This is a landscape that rewards guide knowledge, tracks and patience rather than fast driving.",
+      "crowd_profile": "Usually quieter than classic northern-circuit predator hotspots.",
+      "best_for": [
+        "guiding depth",
+        "big cats",
+        "tracking",
+        "walking"
+      ],
+      "tradeoff": "Wildlife can be spread across large areas and sightings may require more searching."
+    },
+    {
+      "slug": "miombo-kudu",
+      "name": "Miombo & special-antelope country",
+      "role": "east / southern species overlap",
+      "strongest_window": "Dry season visibility strongest",
+      "summary": "Ruaha sits near an ecological transition where miombo woodland and more open savanna support species combinations unusual in northern Tanzania.",
+      "wildlife": "Greater kudu, lesser kudu, sable, roan and varied birdlife can occur alongside more familiar East African species.",
+      "experience": "Best for travellers interested in habitat and species range rather than only headline predators.",
+      "crowd_profile": "Often quiet because these habitats are less suited to high-speed game-viewing circuits.",
+      "best_for": [
+        "repeat safari",
+        "special species",
+        "birding",
+        "habitat"
+      ],
+      "tradeoff": "Woodland sightings can be brief and less predictable than open plains game viewing."
+    },
+    {
+      "slug": "usangu-southwest",
+      "name": "Usangu & wider south-west",
+      "role": "wetland / expedition edge",
+      "strongest_window": "Highly seasonal",
+      "summary": "The south-western Ruaha landscape extends into floodplain and wetland systems that behave very differently from the central river valleys.",
+      "wildlife": "Seasonal water, birdlife and wide-ranging mammals define this broader landscape.",
+      "experience": "This is specialist Ruaha: more expeditionary, more dependent on camp location and current water conditions.",
+      "crowd_profile": "Very low relative to the main tourism zones.",
+      "best_for": [
+        "repeat safari",
+        "wetlands",
+        "research-style travel",
+        "expedition feel"
+      ],
+      "tradeoff": "Access, camp operation and activities are strongly seasonal and should never be assumed."
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "key": "jun-jul",
+      "months": "Jun–Jul",
+      "ecology": "The park emerges from the rains greener than later dry-season Ruaha while wildlife begins to concentrate around permanent water.",
+      "planning_note": "Excellent for travellers wanting dry-season access before the landscape reaches its most austere stage."
+    },
+    {
+      "key": "aug-oct",
+      "months": "Aug–Oct",
+      "ecology": "The driest and most concentrated wildlife period, with river systems, pools and sand-river seeps becoming increasingly important.",
+      "planning_note": "Prime game-viewing and walking period, but expect heat, dust and a visibly dry landscape."
+    },
+    {
+      "key": "nov-jan",
+      "months": "Nov–Jan",
+      "ecology": "Short rains can rapidly green the park and begin to disperse wildlife away from dry-season concentration points.",
+      "planning_note": "Strong photography and birding can replace peak dry-season density as the reason to travel."
+    },
+    {
+      "key": "feb-early-mar",
+      "months": "Feb–early Mar",
+      "ecology": "Green-season Ruaha is quieter, more vegetated and rich in birdlife, with wildlife less tied to a few water points.",
+      "planning_note": "Good for experienced safari travellers comfortable with lower predictability and thicker vegetation."
+    },
+    {
+      "key": "mid-mar-may",
+      "months": "Mid-Mar–May",
+      "ecology": "Long rains can disrupt roads, air access and camp operations.",
+      "planning_note": "Many specialist camps close for part of this period. Do not design a Ruaha trip here without confirming actual operating status."
+    }
+  ],
+  "stay_logic": [
+    {
+      "nights": "2 nights",
+      "stance": "too compressed",
+      "note": "Possible, but travel effort is high relative to time on safari. Usually not how Enkiama should introduce Ruaha."
+    },
+    {
+      "nights": "3 nights",
+      "stance": "good minimum",
+      "note": "Enough for a first read of one Ruaha area, especially if flights and camp position are efficient."
+    },
+    {
+      "nights": "4 nights",
+      "stance": "preferred",
+      "note": "A strong default for game drives, slower guiding and at least one alternative activity where available."
+    },
+    {
+      "nights": "5–7 nights",
+      "stance": "deep safari",
+      "note": "Makes walking, two camp areas or a genuinely slower Ruaha journey credible without turning every day into transfer."
+    }
+  ],
+  "access_logic": [
+    {
+      "mode": "Light aircraft",
+      "stance": "default for most itineraries",
+      "note": "Usually the cleanest way to connect Ruaha with Dar es Salaam, Zanzibar or another southern/western safari area. Exact routes and frequencies are seasonal."
+    },
+    {
+      "mode": "Road via Iringa",
+      "stance": "selective",
+      "note": "Useful when Iringa and the southern highlands are deliberately part of the journey; not simply a cheaper substitute for flying."
+    },
+    {
+      "mode": "Fly + onward southern circuit",
+      "stance": "strong composition",
+      "note": "Ruaha combines naturally with Nyerere or, on a longer trip, western Tanzania and the coast without forcing a return to the northern circuit."
+    }
+  ],
+  "traveller_fit": [
+    {
+      "type": "First Tanzania safari",
+      "fit": "conditional",
+      "note": "Excellent if the traveller values wilderness, predators and guiding depth more than iconic northern-circuit names."
+    },
+    {
+      "type": "Second / repeat safari",
+      "fit": "excellent",
+      "note": "One of the strongest Enkiama recommendations for travellers who already know Serengeti-style safari and want a different ecological rhythm."
+    },
+    {
+      "type": "Walking-focused traveller",
+      "fit": "excellent in season",
+      "note": "Ruaha is one of Tanzania's strongest walking contexts when dry-season conditions and the chosen camp support it."
+    },
+    {
+      "type": "Short 7–8 day Tanzania trip",
+      "fit": "selective",
+      "note": "Works best if the trip is intentionally southern. It is usually a poor add-on to a short northern circuit."
+    },
+    {
+      "type": "Photography / predator focus",
+      "fit": "strong",
+      "note": "Dry-season river systems, open woodland and predator-rich country are especially compelling with enough time."
+    }
+  ],
+  "route_shapes": [
+    {
+      "slug": "ruaha-only",
+      "label": "Ruaha as the safari",
+      "sequence": [
+        "Arrival / airstrip",
+        "4–6 nights Ruaha",
+        "Coast or departure"
+      ],
+      "best_for": [
+        "depth",
+        "walking",
+        "photography",
+        "repeat safari"
+      ],
+      "note": "The cleanest expression of Ruaha: enough nights to let one large park become the journey rather than one stop."
+    },
+    {
+      "slug": "ruaha-nyerere",
+      "label": "Ruaha + Nyerere",
+      "sequence": [
+        "Ruaha",
+        "Light-aircraft connection",
+        "Nyerere",
+        "Coast / Dar"
+      ],
+      "best_for": [
+        "southern circuit",
+        "walking + boating",
+        "first southern safari"
+      ],
+      "note": "Combines Ruaha's dry-country predator landscape with Nyerere's river and boating dimension."
+    },
+    {
+      "slug": "ruaha-mahale",
+      "label": "Ruaha + western Tanzania",
+      "sequence": [
+        "Ruaha",
+        "Air connection",
+        "Mahale / Lake Tanganyika"
+      ],
+      "best_for": [
+        "long journey",
+        "repeat Tanzania",
+        "wildlife contrast"
+      ],
+      "note": "A high-complexity, high-reward composition for travellers prioritising contrast and remoteness over itinerary simplicity."
+    }
+  ],
+  "operated_evidence": [],
+  "evidence_note": "No verified Enkiama-operated Ruaha journey is currently published. The page should not invent one.",
+  "publication_rules": [
+    "Do not call Ruaha crowd-free or promise sightings without other vehicles.",
+    "Do not guarantee wild dogs, lions, elephants or special antelope sightings.",
+    "Do not hard-code flight routes, frequencies or transfer times.",
+    "Treat walking and night-drive availability as camp-, guide- and season-dependent.",
+    "Do not describe green-season Ruaha as equivalent to late dry season.",
+    "Do not create an operated Enkiama case study until an actual Ruaha trip record exists."
+  ]
+}

@@ -179,6 +179,45 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="ruaha-system-v1">
+.rh-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.rh-hero{position:relative;min-height:94vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:end;overflow:hidden;background:#101713}
+.rh-hero__img{position:absolute;inset:0;background:url('assets/images/ruaha.jpg') center 52%/cover no-repeat;filter:saturate(.95) contrast(1.02)}
+.rh-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.94) 0%,rgba(8,12,9,.6) 44%,rgba(8,12,9,.12) 73%,rgba(8,12,9,.35)),linear-gradient(180deg,rgba(8,12,9,.03),rgba(8,12,9,.74))}
+.rh-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6.5rem);max-width:940px}
+.rh-eye,.rh-kicker,.rh-system__type,.rh-season__label,.rh-fit__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.rh-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.6vw,110px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:8.7ch;margin:.9rem 0 1.6rem}
+.rh-hero h1 em{font-style:italic;color:#8ea17e}.rh-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:58ch;color:rgba(237,230,214,.82)}
+.rh-hero__aside{position:relative;z-index:2;padding:0 clamp(1.5rem,4vw,4rem) clamp(4.5rem,8vh,6.5rem);justify-self:end;width:min(100%,470px)}
+.rh-hero__aside>div{border-top:1px solid rgba(237,230,214,.22);padding-top:1rem;display:grid;grid-template-columns:92px 1fr;gap:1.3rem}
+.rh-hero__aside strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.28}.rh-hero__aside p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62);margin-top:.55rem}
+.rh-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}
+.rh-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.rh-strip__item:last-child{border-right:0}.rh-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.rh-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.rh-thesis{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink2)}.rh-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.rh-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.rh-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.rh-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.rh-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.rh-thesis__item:nth-child(2n){border-right:0}.rh-thesis__item:nth-last-child(-n+2){border-bottom:0}.rh-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.rh-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.rh-systems{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}.rh-systems__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.rh-systems__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.97;max-width:10ch}.rh-systems__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.rh-system-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.rh-system-nav{background:#dcd3c0;padding:1rem}.rh-system{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.rh-system:last-child{border-bottom:0}.rh-system.active{background:rgba(85,107,68,.1)}
+.rh-system__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.rh-system__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.rh-system__window{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.rh-system__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.rh-system-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:640px;display:flex;flex-direction:column}.rh-system-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.rh-system-panel__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.rh-system-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.rh-system-stat{background:var(--bone2);padding:1.1rem}.rh-system-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.rh-system-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.rh-system-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.rh-system-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.rh-system-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}
+.rh-seasons{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}.rh-seasons__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.rh-seasons__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.rh-seasons__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:54ch}
+.rh-season-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.3rem}.rh-season-tabs button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .9rem;font:inherit;font-size:10px;cursor:pointer}.rh-season-tabs button.active{background:var(--bone);color:var(--ink)}
+.rh-season-panel{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--rule)}.rh-season-panel__left,.rh-season-panel__right{padding:clamp(2.5rem,4vw,4rem)}.rh-season-panel__left{border-right:1px solid var(--rule)}.rh-season-panel h3{font-family:'Fraunces',serif;font-size:clamp(38px,4.5vw,60px);font-weight:300;line-height:.98;margin:.7rem 0}.rh-season-panel p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.66)}
+.rh-depth{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--bone2);color:var(--ink)}.rh-depth__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.rh-depth__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.rh-depth__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.rh-depth__body{padding:clamp(3rem,5vw,5rem)}.rh-stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.rh-stay-card{background:var(--bone2);padding:1.5rem}.rh-stay-card span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.rh-stay-card strong{display:block;font-family:'Fraunces',serif;font-size:23px;font-weight:300;margin:.7rem 0}.rh-stay-card p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62)}
+.rh-access{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12)}.rh-access article{background:var(--bone2);padding:1.5rem}.rh-access strong{font-family:'Fraunces',serif;font-size:21px;font-weight:300}.rh-access p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62);margin-top:.6rem}
+.rh-fit{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}.rh-fit__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.rh-fit__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.rh-fit__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.rh-fit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.rh-fit-card{padding:1.8rem;background:var(--ink2);min-height:310px;display:flex;flex-direction:column}.rh-fit-card strong{font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1.08;margin:.8rem 0}.rh-fit-card p{font-size:11.5px;line-height:1.7;color:rgba(237,230,214,.62)}.rh-fit-card small{margin-top:auto;padding-top:1.5rem;color:var(--earth);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.rh-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}.rh-routes__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.rh-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.rh-routes__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.65);max-width:53ch}
+.rh-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.rh-route{padding:2rem;background:var(--bone2);min-height:350px;display:flex;flex-direction:column}.rh-route h3{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.8rem 0}.rh-route p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}.rh-route ol{margin:1.2rem 0 0 1rem;font-size:11px;line-height:1.8;color:rgba(15,23,18,.66)}.rh-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#75603f}
+.rh-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink)}.rh-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.rh-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.rh-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.rh-compose__panel{padding:clamp(3rem,5vw,5rem)}.rh-q{margin-bottom:2rem}.rh-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.rh-opts{display:flex;gap:.55rem;flex-wrap:wrap}.rh-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.rh-opts button.active{background:var(--bone);color:var(--ink)}
+.rh-result{border-top:1px solid var(--rule);padding-top:1.5rem}.rh-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.rh-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.rh-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.rh-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.rh-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.rh-explore a:last-child{border-right:0}.rh-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.rh-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1100px){.rh-hero,.rh-thesis,.rh-system-layout,.rh-season-panel,.rh-depth,.rh-compose{grid-template-columns:1fr}.rh-hero__aside{justify-self:start}.rh-thesis__copy,.rh-depth__copy,.rh-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.rh-systems__head,.rh-seasons__head,.rh-fit__head,.rh-routes__head{grid-template-columns:1fr;gap:1.2rem}.rh-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.rh-stay-grid{grid-template-columns:1fr 1fr}.rh-fit-grid{grid-template-columns:1fr 1fr}.rh-route-grid{grid-template-columns:1fr}.rh-explore{grid-template-columns:1fr 1fr}.rh-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.rh-hero{min-height:90vh}.rh-strip{grid-template-columns:1fr 1fr}.rh-strip__item:nth-child(2n){border-right:0}.rh-thesis__grid,.rh-system-stats,.rh-system-grid,.rh-stay-grid,.rh-access,.rh-fit-grid{grid-template-columns:1fr}.rh-thesis__item{border-right:0}.rh-explore{grid-template-columns:1fr}.rh-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -514,71 +553,80 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="rh-page" id="main-content">
+<section class="rh-hero">
+  <div class="rh-hero__img" aria-hidden="true"></div><div class="rh-hero__veil"></div>
+  <div class="rh-hero__copy">
+    <p class="rh-eye">Ruaha · southern Tanzania</p>
+    <h1>Distance is part of the <em>product.</em></h1>
+    <p class="rh-hero__lede">Ruaha rewards travellers who are willing to give a large park enough time. River systems, seasonal sand rivers, miombo woodland and predator-rich valleys create a safari that is less about moving between famous names and more about staying long enough for guide knowledge and landscape to compound.</p>
+  </div>
+  <aside class="rh-hero__aside"><div><span class="rh-eye">Planning principle</span><section><strong>Do not add Ruaha. Build around it.</strong><p>The travel effort only makes sense when the park receives enough nights to become the safari rather than another pin on a Tanzania map.</p></section></div></aside>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/ruaha.jpg" alt="Ruaha, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Kusini</p>
-    <p class="d-eyebrow">The wilder south</p>
-    <h1 class="d-title">The Tanzania<br><em>almost nobody goes to.</em></h1>
-    <p class="d-lede">Ruaha is among the largest national parks in Africa and receives a fraction of the northern circuit&rsquo;s visitors. For travellers who want space rather than checklists, it is the most honest answer to what they are actually asking for.</p>
+<section class="rh-strip">
+  <div class="rh-strip__item"><span>Park area</span><strong>20,226 km²</strong></div>
+  <div class="rh-strip__item"><span>Ecological spine</span><strong>Great Ruaha River</strong></div>
+  <div class="rh-strip__item"><span>Birdlife</span><strong>574 recorded species</strong></div>
+  <div class="rh-strip__item"><span>Strong stay</span><strong>4–6 nights for depth</strong></div>
+</section>
+
+<section class="rh-thesis">
+  <div class="rh-thesis__copy"><p class="rh-kicker">What makes Ruaha different</p><h2>A park that rewards staying.</h2><p>Wildlife is not packed into one iconic plain. Ruaha asks the guide to read water, tracks, shade, riverbeds and woodland over time. That makes the quality of the stay more dependent on patience and fieldcraft.</p></div>
+  <div class="rh-thesis__grid">
+    <div class="rh-thesis__item"><span class="rh-kicker">01 · Water</span><strong>Dry-season ecology is legible.</strong><p>River pools and sand-river seeps organise wildlife as the landscape dries.</p></div>
+    <div class="rh-thesis__item"><span class="rh-kicker">02 · Predators</span><strong>Strong, but never guaranteed.</strong><p>Lion, leopard and wild dog are major reasons to travel, but the park is too large to behave like a checklist.</p></div>
+    <div class="rh-thesis__item"><span class="rh-kicker">03 · Species mix</span><strong>North meets south.</strong><p>Kudu, sable, roan and miombo habitats add a very different species vocabulary from the northern circuit.</p></div>
+    <div class="rh-thesis__item"><span class="rh-kicker">04 · Method</span><strong>Walking changes the reading.</strong><p>Where authorised and seasonally appropriate, walking turns Ruaha from vehicle safari into a much more detailed landscape experience.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The scale, and the emptiness</p>
-    <h2 class="d-sec-title reveal">Enormous, and largely to yourself.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Ruaha covers over twenty thousand square kilometres. On many days you will drive for hours and see no other vehicle. <strong>The trade is real: fewer roads, longer distances, and a wilder, less managed experience.</strong> For some travellers that is a compromise. For others it is the entire point.</p>
-    <p class="d-p reveal">The Great Ruaha river runs through it, and in the dry season the sand rivers and remaining pools concentrate wildlife in a way that rewards patience enormously.</p>
-  </section>
+<section class="rh-systems" id="systems">
+  <div class="rh-systems__head"><div><p class="rh-kicker">Landscape intelligence</p><h2>Four Ruaha systems worth understanding.</h2></div><p>Select a landscape system to see what it contributes, what wildlife pattern it supports and why some Ruaha trips feel completely different from others.</p></div>
+  <div class="rh-system-layout"><div class="rh-system-nav" id="rhSystemNav"></div><article class="rh-system-panel" id="rhSystemPanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">What it holds</p>
-    <h2 class="d-sec-title reveal">A meeting of two Africas.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Ruaha sits at a transition zone between eastern and southern African ecosystems, which gives it an unusual mix &mdash; greater and lesser kudu, sable and roan, alongside very large elephant populations and some of the most substantial lion prides in East Africa.</p>
-    <p class="d-p reveal">It is also serious wild dog country, which alone justifies the journey for a certain kind of traveller.</p>
-  </section>
+<section class="rh-seasons" id="season">
+  <div class="rh-seasons__head"><div><p class="rh-kicker">Seasonal system</p><h2>Dry season is not the only Ruaha.</h2></div><p>Late dry season gives the most obvious wildlife concentration, but green-season Ruaha replaces density with colour, birds, low traffic and different animal distribution. Camp operation itself also becomes part of seasonality.</p></div>
+  <div class="rh-season-tabs" id="rhSeasonTabs"></div>
+  <div class="rh-season-panel" id="rhSeasonPanel"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Honest about the effort</p>
-    <h2 class="d-sec-title reveal">It is not a convenient park.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Ruaha requires a flight or a long drive, and it does not combine neatly with the northern circuit in a short trip. If you have eight days and want the Serengeti and the crater, Ruaha is probably not your journey.</p>
-    <p class="d-p reveal"><strong>If you have twelve days and you would rather be alone with it, we will suggest Ruaha before almost anywhere.</strong> We will also tell you honestly when your dates or timeframe do not suit it.</p>
-  </section>
+<section class="rh-depth">
+  <div class="rh-depth__copy"><p class="rh-kicker">Stay & access</p><h2>Travel effort has to earn itself.</h2><p>Ruaha is usually a light-aircraft destination for international itineraries. That means two nights can be technically possible and strategically poor.</p></div>
+  <div class="rh-depth__body"><div class="rh-stay-grid" id="rhStayGrid"></div><div class="rh-access" id="rhAccess"></div></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Is Ruaha better than the Serengeti?</p><p class="d-faq-a">Different, not better. The Serengeti offers the migration and unmatched density; Ruaha offers space, solitude and an unusual mix of species. Travellers who prize quiet over spectacle often prefer Ruaha.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">How do you get to Ruaha?</p><p class="d-faq-a">Usually by light aircraft from Dar es Salaam or Arusha, or a long drive from Iringa. It is not a convenient add-on to a short northern itinerary, and we will say so rather than squeeze it in.</p></div>
-</div>
+<section class="rh-fit">
+  <div class="rh-fit__head"><div><p class="rh-kicker">Traveller fit</p><h2>Ruaha is not automatically the answer to “fewer people”.</h2></div><p>It works best when the traveller also wants the consequences of remoteness: longer stays, slower wildlife searching, less itinerary convenience and a stronger dependence on guide quality.</p></div>
+  <div class="rh-fit-grid" id="rhFitGrid"></div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="nyerere.html">Nyerere</a><a href="mahale.html">Mahale</a><a href="serengeti.html">Serengeti</a></div>
-</div>
+<section class="rh-routes">
+  <div class="rh-routes__head"><div><p class="rh-kicker">Southern composition</p><h2>Three ways Ruaha can anchor a journey.</h2></div><p>There is deliberately no “operated Enkiama Ruaha story” here yet. We do not have a verified Ruaha case in the public journey dataset, so the site stays factual until one exists.</p></div>
+  <div class="rh-route-grid" id="rhRoutes"></div>
+</section>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Ruaha belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
+<section class="rh-compose" id="ruaha-composer">
+  <div class="rh-compose__copy"><p class="rh-kicker">Ruaha composer</p><h2>Is Ruaha actually the right safari for you?</h2><p>The result combines available nights, safari experience, travel period and priority. It can tell you Ruaha is the wrong fit rather than romanticising remoteness.</p></div>
+  <div class="rh-compose__panel">
+    <div class="rh-q" data-k="nights"><label>How many Ruaha nights?</label><div class="rh-opts"><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5+</button></div></div>
+    <div class="rh-q" data-k="experience"><label>Your safari experience?</label><div class="rh-opts"><button data-v="first">First safari</button><button data-v="some">Some safari experience</button><button data-v="repeat">Repeat safari traveller</button></div></div>
+    <div class="rh-q" data-k="period"><label>When?</label><div class="rh-opts"><button data-v="jun-jul">Jun–Jul</button><button data-v="aug-oct">Aug–Oct</button><button data-v="nov-jan">Nov–Jan</button><button data-v="feb-early-mar">Feb–early Mar</button></div></div>
+    <div class="rh-q" data-k="priority"><label>What matters most?</label><div class="rh-opts"><button data-v="predators">Predators</button><button data-v="walking">Walking</button><button data-v="quiet">Space</button><button data-v="species">Special species / habitat</button></div></div>
+    <div class="rh-result" id="rhResult"><span class="rh-kicker">First direction</span><h3>Answer the four questions.</h3><p>We will tell you whether Ruaha should anchor the journey or stay off the route.</p></div>
+  </div>
+</section>
 
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
+<section class="rh-explore">
+  <a href="nyerere.html"><span>Southern circuit</span><strong>Nyerere →</strong></a>
+  <a href="mahale.html"><span>Western Tanzania</span><strong>Mahale →</strong></a>
+  <a href="serengeti.html"><span>Compare ecosystems</span><strong>Serengeti →</strong></a>
+  <a href="compose.html"><span>Start from your priorities</span><strong>Compose →</strong></a>
+</section>
+</main>
+<script src="assets/js/ruaha-system.js" defer></script>
+
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
