@@ -187,6 +187,51 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="ngorongoro-system-v1">
+.ng-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.ng-hero{position:relative;min-height:92vh;display:grid;grid-template-columns:1.08fr .92fr;align-items:end;overflow:hidden;background:#101713}
+.ng-hero__img{position:absolute;inset:0;background:url('assets/images/ngorongoro.webp') center 48%/cover no-repeat;filter:saturate(.94) contrast(1.03)}
+.ng-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.94) 0%,rgba(8,12,9,.6) 44%,rgba(8,12,9,.14) 72%,rgba(8,12,9,.34)),linear-gradient(180deg,rgba(8,12,9,.04),rgba(8,12,9,.72))}
+.ng-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6.5rem);max-width:930px}
+.ng-eye,.ng-kicker,.ng-context__type,.ng-route__label,.ng-journey__label,.ng-choice__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.ng-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.4vw,108px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:9ch;margin:.9rem 0 1.6rem}
+.ng-hero h1 em{font-style:italic;color:#8ea17e}
+.ng-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:59ch;color:rgba(237,230,214,.82)}
+.ng-hero__aside{position:relative;z-index:2;padding:0 clamp(1.5rem,4vw,4rem) clamp(4.5rem,8vh,6.5rem);justify-self:end;width:min(100%,470px)}
+.ng-hero__aside>div{border-top:1px solid rgba(237,230,214,.22);padding-top:1rem;display:grid;grid-template-columns:92px 1fr;gap:1.3rem}
+.ng-hero__aside strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.28}.ng-hero__aside p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62);margin-top:.55rem}
+.ng-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}
+.ng-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.ng-strip__item:last-child{border-right:0}
+.ng-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ng-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.ng-thesis{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink2)}
+.ng-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.ng-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.ng-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.ng-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.ng-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.ng-thesis__item:nth-child(2n){border-right:0}.ng-thesis__item:nth-last-child(-n+2){border-bottom:0}.ng-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.ng-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.ng-contexts{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.ng-contexts__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.ng-contexts__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.97;max-width:10ch}.ng-contexts__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.ng-context-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}
+.ng-context-nav{background:#dcd3c0;padding:1rem}.ng-context{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.ng-context:last-child{border-bottom:0}.ng-context.active{background:rgba(85,107,68,.1)}
+.ng-context__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.ng-context__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.ng-context__use{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.ng-context__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.ng-context-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:650px;display:flex;flex-direction:column}.ng-context-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.ng-context-panel__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.ng-context-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.ng-context-stat{background:var(--bone2);padding:1.1rem}.ng-context-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ng-context-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.ng-context-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.ng-context-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.ng-context-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}
+.ng-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}
+.ng-routes__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.ng-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.ng-routes__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:54ch}
+.ng-route-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.ng-route{padding:2rem;background:var(--ink);min-height:360px;display:flex;flex-direction:column}.ng-route h3{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.8rem 0}.ng-route p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.ng-route ol{margin:1.2rem 0 0 1rem;font-size:11px;line-height:1.8;color:rgba(237,230,214,.66)}.ng-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--earth)}
+.ng-planning{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--bone2);color:var(--ink)}
+.ng-planning__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.ng-planning__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.ng-planning__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.ng-planning__grid{display:grid;grid-template-columns:1fr 1fr}.ng-choice{padding:2.2rem;border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1)}.ng-choice:nth-child(2n){border-right:0}.ng-choice strong{display:block;font-family:'Fraunces',serif;font-size:24px;font-weight:300;margin:.8rem 0}.ng-choice p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}
+.ng-journeys{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}
+.ng-journeys__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.ng-journeys__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.ng-journeys__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.ng-journey-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.ng-journey{padding:2.2rem;min-height:340px;background:var(--ink2);color:var(--bone);text-decoration:none;display:flex;flex-direction:column}.ng-journey h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;line-height:1.08;margin:.8rem 0}.ng-journey p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.63)}.ng-journey small{margin-top:auto;padding-top:2rem;color:var(--earth);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.ng-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink)}
+.ng-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.ng-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.ng-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.ng-compose__panel{padding:clamp(3rem,5vw,5rem)}.ng-q{margin-bottom:2rem}.ng-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.ng-opts{display:flex;gap:.55rem;flex-wrap:wrap}.ng-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.ng-opts button.active{background:var(--bone);color:var(--ink)}
+.ng-result{border-top:1px solid var(--rule);padding-top:1.5rem}.ng-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.ng-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.ng-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.ng-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.ng-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.ng-explore a:last-child{border-right:0}.ng-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ng-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1050px){.ng-hero,.ng-thesis,.ng-context-layout,.ng-planning,.ng-compose{grid-template-columns:1fr}.ng-hero__aside{justify-self:start}.ng-thesis__copy,.ng-planning__copy,.ng-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.ng-contexts__head,.ng-routes__head,.ng-journeys__head{grid-template-columns:1fr;gap:1.2rem}.ng-route-grid{grid-template-columns:1fr 1fr}.ng-journey-grid{grid-template-columns:1fr}.ng-explore{grid-template-columns:1fr 1fr}.ng-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.ng-hero{min-height:90vh}.ng-strip{grid-template-columns:1fr 1fr}.ng-strip__item:nth-child(2n){border-right:0}.ng-thesis__grid,.ng-context-stats,.ng-context-grid,.ng-planning__grid,.ng-route-grid{grid-template-columns:1fr}.ng-thesis__item,.ng-choice{border-right:0}.ng-explore{grid-template-columns:1fr}.ng-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -522,80 +567,73 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="ng-page" id="main-content">
+<section class="ng-hero">
+  <div class="ng-hero__img" aria-hidden="true"></div><div class="ng-hero__veil"></div>
+  <div class="ng-hero__copy">
+    <p class="ng-eye">Ngorongoro · conservation landscape</p>
+    <h1>More than the <em>caldera.</em></h1>
+    <p class="ng-hero__lede">The crater is the famous image, but Ngorongoro is a much larger conservation landscape: highland forest, volcanic craters, archaeology, pastoral country and plains linking directly toward Serengeti. The stronger journey begins by deciding which of those layers actually deserves your time.</p>
+  </div>
+  <aside class="ng-hero__aside"><div><span class="ng-eye">Planning principle</span><section><strong>One descent can be enough.</strong><p>The most valuable additional day is often not a second crater drive. It may be the rim, Olmoti, Empakaai, archaeology or a more considered transition into Serengeti or the Rift.</p></section></div></aside>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/ngorongoro.jpg" alt="Ngorongoro Crater, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Kaldera</p>
-    <p class="d-eyebrow">The caldera</p>
-    <h1 class="d-title">A whole world,<br><em>inside one wall.</em></h1>
-    <p class="d-lede">The road climbs to a rim above two thousand metres, and then the land simply falls away. What lies below is not a park in the ordinary sense &mdash; it is a collapsed volcano holding a complete ecosystem, and the people who have always lived alongside it.</p>
+<section class="ng-strip">
+  <div class="ng-strip__item"><span>Conservation area</span><strong>809,440 ha</strong></div>
+  <div class="ng-strip__item"><span>Core distinction</span><strong>Crater ≠ whole Ngorongoro</strong></div>
+  <div class="ng-strip__item"><span>Protected value</span><strong>Natural + cultural UNESCO significance</strong></div>
+  <div class="ng-strip__item"><span>Best planning question</span><strong>Descent only or highland chapter?</strong></div>
+</section>
+
+<section class="ng-thesis">
+  <div class="ng-thesis__copy"><p class="ng-kicker">What changes when the area is read properly</p><h2>Five contexts, one conservation landscape.</h2><p>Wildlife density is only one layer. Forest, geology, archaeology, pastoral land use and highland walking all change what Ngorongoro can be inside a journey.</p></div>
+  <div class="ng-thesis__grid">
+    <div class="ng-thesis__item"><span class="ng-kicker">01 · Crater</span><strong>Concentration.</strong><p>A compact wildlife system where visibility and vehicle density are both unusually high.</p></div>
+    <div class="ng-thesis__item"><span class="ng-kicker">02 · Rim</span><strong>Transition.</strong><p>Cool highland forest and rim atmosphere change the sense of arrival completely.</p></div>
+    <div class="ng-thesis__item"><span class="ng-kicker">03 · Highlands</span><strong>Walking & geology.</strong><p>Olmoti and Empakaai extend Ngorongoro beyond a vehicle-based crater experience.</p></div>
+    <div class="ng-thesis__item"><span class="ng-kicker">04 · Human time</span><strong>Deep history + lived landscape.</strong><p>Olduvai, Laetoli and pastoral life make this more than a wildlife destination.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">What you are looking at</p>
-    <h2 class="d-sec-title reveal">A caldera, not a crater.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Ngorongoro is the largest intact volcanic caldera in the world &mdash; roughly nineteen kilometres across, with walls six hundred metres high. It formed when a mountain, once perhaps as tall as Kilimanjaro, collapsed into itself.</p>
-    <p class="d-p reveal">The effect is an enclosure. Grassland, soda lake, swamp and acacia forest sit inside a single bowl, and the density of animals within it is unlike anywhere else in Tanzania. <strong>You are not searching for wildlife here; you are among it from the moment you reach the floor.</strong></p>
-  </section>
+<section class="ng-contexts" id="contexts">
+  <div class="ng-contexts__head"><div><p class="ng-kicker">Context intelligence</p><h2>Five ways into Ngorongoro.</h2></div><p>Select a context to see what it adds, what it costs in time, and when Enkiama would recommend it instead of simply adding another crater descent.</p></div>
+  <div class="ng-context-layout"><div class="ng-context-nav" id="ngContextNav"></div><article class="ng-context-panel" id="ngContextPanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The honest caveat</p>
-    <h2 class="d-sec-title reveal">It is remarkable. It is also busy.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">We will not pretend otherwise. The floor is compact, access is controlled, and in high season the vehicles are many. There are mornings when you will share a lion with a dozen other cars.</p>
-    <p class="d-p reveal">What changes the experience entirely is <strong>timing</strong>. Descending at first light, before the day&rsquo;s vehicles arrive, is a completely different crater from the one people describe at ten in the morning. We plan for that descent, and we choose where you sleep to make it possible.</p>
-  </section>
+<section class="ng-routes">
+  <div class="ng-routes__head"><div><p class="ng-kicker">Route shapes</p><h2>Ngorongoro can play four different roles.</h2></div><p>The same conservation area can be a concentrated wildlife stop, a two- or three-night highland chapter, a transition into Serengeti or the beginning of a more unusual Rift route.</p></div>
+  <div class="ng-route-grid" id="ngRoutes"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">More than the floor</p>
-    <h2 class="d-sec-title reveal">The conservation area is far larger than the bowl.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Ngorongoro is not only the crater. The wider conservation area holds highland forest, the Empakaai and Olmoti craters, and highlands where Maasai communities graze cattle as they have for generations. <strong>This is one of the few protected areas in Africa where people and wildlife share the land by design rather than by exception.</strong></p>
-    <p class="d-p reveal">Walking in the highlands, standing above Empakaai&rsquo;s flamingo lake, or spending real time with a Maasai community are all possible here, and almost always more memorable than another hour on the crater floor. We will usually suggest at least one.</p>
-  </section>
+<section class="ng-planning">
+  <div class="ng-planning__copy"><p class="ng-kicker">Operational reality</p><h2>What should be decided before the descent.</h2><p>Ngorongoro becomes much better when the plan acknowledges its constraints rather than selling around them: crowding, cool highland weather, access rules, walking requirements and a sensitive social landscape.</p></div>
+  <div class="ng-planning__grid" id="ngFactors"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">How we compose it</p>
-    <h2 class="d-sec-title reveal">One descent, done properly.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Most itineraries give the crater a single rushed morning wedged between two long drives. We would rather you sleep on the rim, descend at dawn, and keep the rest of the day for the highlands or an unhurried drive onward.</p>
-    <p class="d-p reveal">A crater day is also expensive in permit terms, and we will show you exactly what it costs and why. If your journey would be better served by more time in the Serengeti and one crater day rather than two, we will say so.</p>
-  </section>
+<section class="ng-journeys">
+  <div class="ng-journeys__head"><div><p class="ng-kicker">Operated evidence</p><h2>How Ngorongoro has already functioned inside Enkiama journeys.</h2></div><p>One journey used the crater as a distinct chapter inside a deliberately slower route; another used it as the sharp landscape contrast between Tarangire and Serengeti.</p></div>
+  <div class="ng-journey-grid" id="ngJourneys"></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Is the Ngorongoro Crater worth visiting despite the crowds?</p><p class="d-faq-a">Yes, if it is timed well. The density of wildlife is genuinely unmatched in Tanzania. The difference between a crowded crater and a quiet one is almost entirely about descending at first light, which means sleeping on the rim rather than driving in from elsewhere.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">How long do you need at Ngorongoro?</p><p class="d-faq-a">One full day on the floor is usually enough, because access is time-limited and the area is compact. We would rather add a day in the wider highlands than a second descent.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Can you see the Big Five in Ngorongoro?</p><p class="d-faq-a">All five are present, though rhino are never guaranteed and leopard are uncommon on the open floor. The crater does offer one of the better chances in Tanzania of seeing black rhino, usually at distance.</p></div>
-</div>
+<section class="ng-compose" id="ngorongoro-composer">
+  <div class="ng-compose__copy"><p class="ng-kicker">Ngorongoro composer</p><h2>How much Ngorongoro should your journey contain?</h2><p>This is not a wildlife guarantee. It tests whether your available time and interests justify a crater-focused visit, a highland extension, or a direct onward transition.</p></div>
+  <div class="ng-compose__panel">
+    <div class="ng-q" data-k="time"><label>How much time can Ngorongoro have?</label><div class="ng-opts"><button data-v="1">1 night</button><button data-v="2">2 nights</button><button data-v="3">3+ nights</button></div></div>
+    <div class="ng-q" data-k="priority"><label>What matters most?</label><div class="ng-opts"><button data-v="wildlife">Wildlife density</button><button data-v="walking">Walking &amp; highlands</button><button data-v="history">Archaeology / deep time</button><button data-v="culture">Lived landscape</button></div></div>
+    <div class="ng-q" data-k="onward"><label>Where does the journey go next?</label><div class="ng-opts"><button data-v="serengeti">Serengeti</button><button data-v="rift">Rift / Natron</button><button data-v="south">Back toward Manyara / Tarangire</button><button data-v="open">Keep open</button></div></div>
+    <div class="ng-result" id="ngResult"><span class="ng-kicker">First direction</span><h3>Answer the three questions.</h3><p>We will suggest the role Ngorongoro should play.</p></div>
+  </div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="serengeti.html">Serengeti</a><a href="manyara.html">Lake Manyara</a><a href="tarangire.html">Tarangire</a></div>
-</div>
+<section class="ng-explore">
+  <a href="serengeti.html"><span>Onward west</span><strong>Serengeti →</strong></a>
+  <a href="great-rift.html"><span>Onward north-east</span><strong>Great Rift &amp; Natron →</strong></a>
+  <a href="manyara.html"><span>Rift edge</span><strong>Lake Manyara →</strong></a>
+  <a href="society-and-culture.html"><span>Human landscape</span><strong>Society &amp; culture →</strong></a>
+</section>
+</main>
+<script src="assets/js/ngorongoro-system.js" defer></script>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Ngorongoro Crater belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
-
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
