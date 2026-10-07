@@ -58,6 +58,21 @@
     return true;
   }
 
+  function setDrawer(panel,open){
+    var root=document.querySelector('.ev');
+    var panels=[document.getElementById('evLivePanel'),document.getElementById('evFieldGuide')].filter(Boolean);
+    panels.forEach(function(p){
+      if(p!==panel){p.classList.remove('open');p.setAttribute('aria-hidden','true');}
+    });
+    if(panel){
+      panel.classList.toggle('open',!!open);
+      panel.setAttribute('aria-hidden',open?'false':'true');
+    }
+    var any=panels.some(function(p){return p.classList.contains('open');});
+    if(root) root.classList.toggle('drawer-open',any);
+    document.dispatchEvent(new CustomEvent('enkiama-live-drawer',{detail:{open:any}}));
+  }
+
   function renderIndex(data){
     var panel=document.getElementById('evLivePanel');
     if(!panel) return;
@@ -74,7 +89,7 @@
     html+='</div>';
     panel.innerHTML=html;
     var close=document.getElementById('evLiveClose');
-    if(close) close.addEventListener('click',function(){panel.classList.remove('open');});
+    if(close) close.addEventListener('click',function(){setDrawer(panel,false);});
   }
 
   function renderFieldGuide(data,id){
@@ -85,16 +100,25 @@
       '<div class="ev-field__items">'+guide.items.map(function(item){
         return '<article><span>'+esc(item.kind)+'</span><strong>'+esc(item.name)+'</strong><p>'+esc(item.fact)+'</p></article>';
       }).join('')+'</div>';
-    panel.classList.add('open');
+    setDrawer(panel,true);
     var close=document.getElementById('evFieldClose');
-    if(close) close.addEventListener('click',function(){panel.classList.remove('open');});
+    if(close) close.addEventListener('click',function(){setDrawer(panel,false);});
   }
 
   function bindLive(data){
     renderIndex(data);
     var trigger=document.getElementById('evLiveOpen');
     var panel=document.getElementById('evLivePanel');
-    if(trigger&&panel) trigger.addEventListener('click',function(){panel.classList.toggle('open');});
+    if(trigger&&panel) trigger.addEventListener('click',function(){setDrawer(panel,!panel.classList.contains('open'));});
+    var scrim=document.getElementById('evPanelScrim');
+    if(scrim) scrim.addEventListener('click',function(){setDrawer(null,false);});
+
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){
+        var open=document.querySelector('.ev-live-panel.open,.ev-field.open');
+        if(open){e.preventDefault();e.stopPropagation();setDrawer(open,false);}
+      }
+    },true);
 
     document.addEventListener('click',function(e){
       var btn=e.target.closest('[data-field-guide]');
