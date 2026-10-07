@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "tarangire",
+  "title": "Tarangire wildlife system",
+  "framing": "A wildlife landscape organised by water. The Tarangire River, seasonal swamps, baobab woodland and the wider southern Maasailand ecosystem create very different safari conditions across the year.",
+  "reference_facts": {
+    "park_area_km2": 2850,
+    "wider_ecosystem_note": "Tarangire National Park sits inside a much larger southern Maasailand ecosystem, so wildlife abundance inside the park changes as animals move with water and forage.",
+    "dry_season_note": "Dry-season wildlife concentration is strongest around the Tarangire River, permanent pools and Silale Swamp.",
+    "birding_note": "Tarangire is one of Tanzania's strongest birding parks, with TANAPA listing more than 550 species."
+  },
+  "landscapes": [
+    {
+      "slug": "river-corridor",
+      "name": "Tarangire River corridor",
+      "role": "dry-season lifeline",
+      "strongest_window": "June–October",
+      "summary": "The river and its remaining pools become the organising feature of the park as surrounding seasonal water sources diminish.",
+      "wildlife": "Elephants, buffalo, zebra, wildebeest, giraffe and predators can concentrate strongly around water in the dry season.",
+      "experience": "Best for unhurried watching rather than driving continuously. Waterholes and river bends reward staying put.",
+      "crowd_profile": "The most obvious river loops can become busy in peak dry-season hours.",
+      "best_for": [
+        "elephants",
+        "dry-season density",
+        "first Tarangire",
+        "photography"
+      ],
+      "tradeoff": "Concentration is seasonal; green-season wildlife is more dispersed across the wider ecosystem."
+    },
+    {
+      "slug": "silale",
+      "name": "Silale Swamp & eastern wetlands",
+      "role": "wetland refuge",
+      "strongest_window": "Dry season especially strong",
+      "summary": "Silale Swamp creates a different Tarangire: broad wetland edges, open views, water-dependent wildlife and exceptional birdlife.",
+      "wildlife": "Elephants, buffalo and water-associated birdlife are especially important here; predators use the surrounding plains and woodland.",
+      "experience": "A slower, more open landscape than the tighter riverine loops and an important counterpoint to baobab country.",
+      "crowd_profile": "Can feel less compressed than the main river corridor, though access and seasonal road conditions matter.",
+      "best_for": [
+        "birding",
+        "elephants",
+        "landscape",
+        "longer stays"
+      ],
+      "tradeoff": "It takes time to reach from the main gate; a rushed day trip rarely does the area justice."
+    },
+    {
+      "slug": "baobab-country",
+      "name": "Baobab woodland & ridges",
+      "role": "signature landscape",
+      "strongest_window": "Year-round visually · wildlife density seasonal",
+      "summary": "Tarangire's baobab-dotted ridges, acacia woodland, termite mounds and open grassland create one of northern Tanzania's most distinctive visual identities.",
+      "wildlife": "Elephants use this habitat extensively; giraffe, browsers, birds and predators move through the woodland and open flats.",
+      "experience": "This is the Tarangire many travellers remember visually, even when wildlife density is lower than peak dry season.",
+      "crowd_profile": "Varies by loop and proximity to the main gate.",
+      "best_for": [
+        "landscape",
+        "elephants",
+        "baobabs",
+        "photography"
+      ],
+      "tradeoff": "The strongest imagery can tempt itineraries to reduce the park to a scenic drive rather than a full wildlife chapter."
+    },
+    {
+      "slug": "south",
+      "name": "Southern Tarangire",
+      "role": "space & depth",
+      "strongest_window": "Best with enough time and suitable road conditions",
+      "summary": "The southern half of the park is farther from the main gate and typically receives less day-trip traffic.",
+      "wildlife": "The same wider Tarangire ecology continues south, with seasonal access to swamps, woodland, plains and water-dependent wildlife.",
+      "experience": "Most useful when the itinerary includes an overnight location that makes the south practical rather than forcing long out-and-back driving.",
+      "crowd_profile": "Generally quieter than northern main-gate circuits.",
+      "best_for": [
+        "space",
+        "repeat safari",
+        "longer stays",
+        "slow travel"
+      ],
+      "tradeoff": "Distance is the point and the cost: it needs time, appropriate camp positioning and current road knowledge."
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "key": "jan-feb",
+      "months": "Jan–Feb",
+      "wildlife_pattern": "A drier interval within the broader green season can produce good wildlife, but conditions are less concentrated than the main June–October dry season.",
+      "landscape": "Green-to-drying woodland and open country.",
+      "planning_note": "Useful for mixed northern-circuit journeys; do not sell it as identical to September Tarangire."
+    },
+    {
+      "key": "mar-may",
+      "months": "Mar–May",
+      "wildlife_pattern": "Long rains spread water and forage through the wider ecosystem, so many animals disperse beyond the park's dry-season concentration points.",
+      "landscape": "Lush, green and strong for birdlife; roads can be slower or more difficult.",
+      "planning_note": "Best for travellers who value atmosphere, birding and lower visitor density more than peak large-mammal concentration."
+    },
+    {
+      "key": "jun-jul",
+      "months": "Jun–Jul",
+      "wildlife_pattern": "Dry-season concentration begins to build around the river, pools and swamps.",
+      "landscape": "Vegetation starts opening and wildlife becomes easier to watch around water.",
+      "planning_note": "A strong balance before the driest peak months."
+    },
+    {
+      "key": "aug-oct",
+      "months": "Aug–Oct",
+      "wildlife_pattern": "The classic dry-season Tarangire period, with high concentrations of elephants and other large mammals around permanent water.",
+      "landscape": "Dry, open and strongly structured by the river and swamps.",
+      "planning_note": "Excellent wildlife, but the best-known northern circuits can be busy. Overnight positioning matters."
+    },
+    {
+      "key": "nov-dec",
+      "months": "Nov–Dec",
+      "wildlife_pattern": "Short rains can disperse wildlife again as temporary water and fresh forage return across the wider ecosystem.",
+      "landscape": "Rapidly greening, dramatic skies and strong birding.",
+      "planning_note": "A beautiful transition season; choose it for the whole experience rather than expecting peak dry-season concentration."
+    }
+  ],
+  "stay_logic": [
+    {
+      "nights": "Day trip",
+      "stance": "selective",
+      "note": "Works when Tarangire is one element of a short northern circuit and expectations are modest. Best kept to the northern park rather than pretending to cover Tarangire."
+    },
+    {
+      "nights": "1 night",
+      "stance": "good",
+      "note": "Adds an evening and early morning, already making the park materially stronger than a transit stop."
+    },
+    {
+      "nights": "2 nights",
+      "stance": "preferred",
+      "note": "Allows proper early and late wildlife periods and enough time to reach beyond the nearest river loops."
+    },
+    {
+      "nights": "3+ nights",
+      "stance": "deep",
+      "note": "Makes Silale, quieter southern areas, walking or other permitted activities more realistic without turning each day into transfer time."
+    }
+  ],
+  "activities": [
+    {
+      "name": "Game drives",
+      "status": "core",
+      "note": "The primary way to read the river, woodland, swamp and seasonal concentration patterns."
+    },
+    {
+      "name": "Guided walking",
+      "status": "conditional",
+      "note": "Available in designated contexts with authorised guides; exact availability should be confirmed for the chosen camp/area."
+    },
+    {
+      "name": "Night drives",
+      "status": "conditional",
+      "note": "Possible in authorised contexts; not every accommodation or itinerary can offer them."
+    },
+    {
+      "name": "Birding",
+      "status": "core",
+      "note": "Strong year-round, with particularly rich wetland and green-season interest."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "july-five-travellers-2026",
+      "label": "July 2026 · five travellers",
+      "title": "The first full wildlife day",
+      "insight": "Tarangire opened the safari chapter with baobabs, elephants and enough time to watch rather than collect sightings.",
+      "href": "trip.html?slug=july-five-travellers-2026"
+    },
+    {
+      "journey_slug": "couple-northern-tanzania-zanzibar",
+      "label": "Operated · couple",
+      "title": "River country before the crater",
+      "insight": "Tarangire's open river-and-baobab landscape created a deliberate contrast before Ngorongoro's enclosed caldera.",
+      "href": "trip.html?slug=couple-northern-tanzania-zanzibar"
+    },
+    {
+      "journey_slug": "hakuna-matata-three-travellers",
+      "label": "Operated · three travellers",
+      "title": "The wildlife chapter begins here",
+      "insight": "Tarangire worked as the first protected-landscape chapter before the scale changed again in Serengeti.",
+      "href": "trip.html?slug=hakuna-matata-three-travellers"
+    }
+  ],
+  "publication_rules": [
+    "Do not describe dry-season wildlife concentration as a year-round constant.",
+    "Do not guarantee elephant herd size or specific predator sightings.",
+    "Treat walking and night drives as conditional on authorised operating context.",
+    "Do not claim a day trip represents the whole park.",
+    "Avoid exact drive-time claims without current road and accommodation context."
+  ]
+}
