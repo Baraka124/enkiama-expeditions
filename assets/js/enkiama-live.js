@@ -73,21 +73,68 @@
     document.dispatchEvent(new CustomEvent('enkiama-live-drawer',{detail:{open:any}}));
   }
 
+  function renderStoryList(data,channel){
+    var host=document.getElementById('evLiveStories');
+    if(!host) return;
+    var stories=(data.stories||[]).filter(function(s){
+      return s.visibility==='public' && (!channel || channel==='all' || s.channel===channel);
+    });
+    if(!stories.length){
+      host.innerHTML='<div class="ev-live-empty"><strong>Nothing public here yet.</strong><span>This channel is already part of the Live architecture and can be populated as Enkiama journeys are published.</span></div>';
+      return;
+    }
+    host.innerHTML=stories.map(function(s){
+      var route=(s.route||[]).join(' → ');
+      var meta=[s.status,(s.dateRange||'').split('/')[0],s.travellers?String(s.travellers)+' travellers':''].filter(Boolean).join(' · ');
+      return '<article class="ev-live-story">'+
+        '<a href="?story='+encodeURIComponent(s.slug||s.id)+'">'+
+          '<span>'+esc(meta)+'</span>'+
+          '<strong>'+esc(s.title)+'</strong>'+
+          '<small>'+esc(route)+'</small>'+
+        '</a>'+
+        (s.share&&s.share.enabled?'<button type="button" data-share-story="'+esc(s.slug||s.id)+'">Copy public link</button>':'')+
+      '</article>';
+    }).join('');
+  }
+
   function renderIndex(data){
     var panel=document.getElementById('evLivePanel');
     if(!panel) return;
-    var stories=(data.stories||[]).filter(function(s){return s.visibility==='public';});
     var html='<div class="ev-live-panel__head"><span>Enkiama Live</span><button type="button" id="evLiveClose" aria-label="Close Live index">×</button></div>';
-    html+='<div class="ev-live-panel__channels">';
-    (data.channels||[]).forEach(function(c){
-      html+='<button type="button" class="ev-live-channel" data-channel="'+esc(c.id)+'"><strong>'+esc(c.label)+'</strong><span>'+esc(c.description)+'</span></button>';
-    });
-    html+='</div><div class="ev-live-panel__stories">';
-    stories.forEach(function(s){
-      html+='<a href="?story='+encodeURIComponent(s.slug||s.id)+'"><span>'+esc(s.status)+'</span><strong>'+esc(s.title)+'</strong><small>'+esc((s.route||[]).join(' → '))+'</small></a>';
+    html+='<div class="ev-live-intro"><strong>A living layer over Enkiama journeys.</strong><p>Open a past journey, follow a current one when available, or enter the field-guide layer for place-aware context.</p></div>';
+    html+='<div class="ev-live-tabs"><button class="active" type="button" data-live-filter="all">All</button>';
+    (data.channels||[]).forEach(function(ch){
+      html+='<button type="button" data-live-filter="'+esc(ch.id)+'">'+esc(ch.label)+'</button>';
     });
     html+='</div>';
+    html+='<div class="ev-live-panel__channels">';
+    (data.channels||[]).forEach(function(ch){
+      html+='<div class="ev-live-channel"><strong>'+esc(ch.label)+'</strong><span>'+esc(ch.description)+'</span></div>';
+    });
+    html+='</div><div class="ev-live-panel__stories" id="evLiveStories"></div>';
     panel.innerHTML=html;
+    renderStoryList(data,'all');
+
+    panel.querySelectorAll('[data-live-filter]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        panel.querySelectorAll('[data-live-filter]').forEach(function(b){b.classList.toggle('active',b===btn);});
+        renderStoryList(data,btn.getAttribute('data-live-filter'));
+      });
+    });
+
+    panel.addEventListener('click',function(e){
+      var share=e.target.closest('[data-share-story]');
+      if(!share) return;
+      var slug=share.getAttribute('data-share-story');
+      var url=location.origin+location.pathname+'?story='+encodeURIComponent(slug);
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){
+          var original=share.textContent;share.textContent='Link copied';
+          setTimeout(function(){share.textContent=original;},1400);
+        });
+      }
+    });
+
     var close=document.getElementById('evLiveClose');
     if(close) close.addEventListener('click',function(){setDrawer(panel,false);});
   }
