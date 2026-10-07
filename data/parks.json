@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "parks",
+  "title": "Protected landscape chooser",
+  "destinations": [
+    {
+      "slug": "serengeti",
+      "name": "Serengeti",
+      "href": "serengeti.html",
+      "traits": [
+        "migration",
+        "predators",
+        "first safari",
+        "photography"
+      ],
+      "min_nights": 3,
+      "region": "north"
+    },
+    {
+      "slug": "tarangire",
+      "name": "Tarangire",
+      "href": "tarangire.html",
+      "traits": [
+        "elephants",
+        "birding",
+        "baobabs",
+        "dry season"
+      ],
+      "min_nights": 1,
+      "region": "north"
+    },
+    {
+      "slug": "ngorongoro",
+      "name": "Ngorongoro",
+      "href": "ngorongoro.html",
+      "traits": [
+        "wildlife density",
+        "geology",
+        "first safari",
+        "history"
+      ],
+      "min_nights": 1,
+      "region": "north"
+    },
+    {
+      "slug": "manyara",
+      "name": "Lake Manyara",
+      "href": "manyara.html",
+      "traits": [
+        "birding",
+        "forest",
+        "rift",
+        "short stop"
+      ],
+      "min_nights": 0,
+      "region": "north"
+    },
+    {
+      "slug": "ruaha",
+      "name": "Ruaha",
+      "href": "ruaha.html",
+      "traits": [
+        "predators",
+        "walking",
+        "repeat safari",
+        "space"
+      ],
+      "min_nights": 3,
+      "region": "south"
+    },
+    {
+      "slug": "nyerere",
+      "name": "Nyerere",
+      "href": "nyerere.html",
+      "traits": [
+        "boating",
+        "walking",
+        "river",
+        "mixed activities"
+      ],
+      "min_nights": 3,
+      "region": "south"
+    },
+    {
+      "slug": "mahale",
+      "name": "Mahale",
+      "href": "mahale.html",
+      "traits": [
+        "chimpanzees",
+        "forest",
+        "lake",
+        "expedition"
+      ],
+      "min_nights": 3,
+      "region": "west"
+    },
+    {
+      "slug": "arusha",
+      "name": "Arusha National Park",
+      "href": "arusha.html",
+      "traits": [
+        "forest",
+        "primates",
+        "arrival day",
+        "meru"
+      ],
+      "min_nights": 0,
+      "region": "north"
+    }
+  ],
+  "publication_rules": [
+    "Do not rank parks by a universal 'best'.",
+    "Minimum nights are planning guidance, not rules.",
+    "Do not guarantee species sightings.",
+    "Use activity and season fit before fame."
+  ]
+}
