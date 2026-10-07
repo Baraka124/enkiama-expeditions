@@ -177,6 +177,56 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="rift-system-v1">
+.rg-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.rg-hero{min-height:92vh;display:grid;grid-template-columns:1.15fr .85fr;background:var(--ink);border-bottom:1px solid var(--rule)}
+.rg-hero__copy{padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6rem);display:flex;flex-direction:column;justify-content:flex-end}
+.rg-eye,.rg-kicker,.rg-node__type,.rg-fact__label,.rg-journey__label,.rg-choice__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.rg-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.7vw,112px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:8.8ch;margin:.9rem 0 1.6rem}
+.rg-hero h1 em{font-style:italic;color:#8ea17e}
+.rg-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:57ch;color:rgba(237,230,214,.8)}
+.rg-hero__media{position:relative;min-height:92vh;background:linear-gradient(160deg,#1d2a21,#0d1510);overflow:hidden}
+.rg-hero__frame{position:absolute;left:10%;right:10%;top:14%;bottom:10%;overflow:hidden}
+.rg-hero__frame img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.rg-hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.08),rgba(8,12,9,.5))}
+.rg-hero__caption{position:absolute;left:10%;right:10%;bottom:5.5%;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,230,214,.2);padding-top:.8rem;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.rg-thesis{display:grid;grid-template-columns:.68fr 1.32fr;background:var(--bone2);color:var(--ink)}
+.rg-thesis__copy{padding:clamp(4rem,6vw,6rem);border-right:1px solid rgba(15,23,18,.12)}
+.rg-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98;letter-spacing:-.035em;max-width:9ch;margin:.8rem 0 1.3rem}
+.rg-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.67);max-width:46ch}
+.rg-thesis__facts{display:grid;grid-template-columns:1fr 1fr}
+.rg-fact{padding:clamp(2.2rem,4vw,4rem);border-right:1px solid rgba(15,23,18,.1);border-bottom:1px solid rgba(15,23,18,.1)}
+.rg-fact:nth-child(2n){border-right:0}.rg-fact:nth-last-child(-n+2){border-bottom:0}
+.rg-fact strong{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:300;line-height:1.1;margin:.8rem 0}.rg-fact p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}
+.rg-corridor{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}
+.rg-corridor__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.6rem}
+.rg-corridor__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98;max-width:10ch}
+.rg-corridor__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:54ch}
+.rg-corridor__layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.rg-nodes{background:var(--ink);padding:1rem}
+.rg-node{width:100%;display:block;text-align:left;padding:1.35rem 1rem;background:transparent;color:var(--bone);border:0;border-bottom:1px solid var(--rule);cursor:pointer}.rg-node:last-child{border-bottom:0}.rg-node.active{background:rgba(122,148,112,.08)}
+.rg-node__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.rg-node__name{font-family:'Fraunces',serif;font-size:25px;font-weight:300}.rg-node__role{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.48)}
+.rg-panel{background:var(--ink2);padding:clamp(2.5rem,4vw,4rem);min-height:580px;display:flex;flex-direction:column}
+.rg-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.rg-panel__summary{font-size:14px;line-height:1.9;color:rgba(237,230,214,.7);max-width:58ch}
+.rg-panel__grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--rule)}.rg-panel__grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.rg-panel__grid p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.rg-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.rg-routes__head{display:grid;grid-template-columns:.6fr 1.4fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.rg-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98}.rg-routes__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.rg-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}
+.rg-route{padding:2rem;background:var(--bone2);min-height:360px;display:flex;flex-direction:column}.rg-route span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.rg-route h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;line-height:1.08;margin:.9rem 0}.rg-route p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}.rg-route ol{margin-top:1.2rem;padding-left:1rem;font-size:11px;line-height:1.8;color:rgba(15,23,18,.66)}.rg-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#75603f}
+.rg-operational{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink)}
+.rg-operational__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.rg-operational__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:10ch;margin:.8rem 0 1.3rem}.rg-operational__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.rg-operational__grid{display:grid;grid-template-columns:1fr 1fr}.rg-choice{padding:2.2rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.rg-choice:nth-child(2n){border-right:0}.rg-choice:nth-last-child(-n+1){border-bottom:0}.rg-choice strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin:.8rem 0}.rg-choice p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.rg-journey{display:grid;grid-template-columns:1.05fr .95fr;background:var(--bone2);color:var(--ink)}
+.rg-journey__media{min-height:620px;background:url('assets/images/kilimanjaro.jpg') center 44%/cover no-repeat;position:relative}.rg-journey__media:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.42))}
+.rg-journey__copy{padding:clamp(4.5rem,7vw,7rem);display:flex;flex-direction:column;justify-content:center}.rg-journey__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;margin:.8rem 0 1.3rem;max-width:10ch}.rg-journey__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.67);max-width:50ch}.rg-journey__copy a{margin-top:1.6rem;color:var(--ink);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.rg-compose{display:grid;grid-template-columns:.72fr 1.28fr;background:var(--ink2)}
+.rg-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.rg-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.rg-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.rg-compose__panel{padding:clamp(3rem,5vw,5rem)}.rg-q{margin-bottom:2rem}.rg-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.rg-opts{display:flex;gap:.55rem;flex-wrap:wrap}.rg-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.rg-opts button.active{background:var(--bone);color:var(--ink)}
+.rg-result{border-top:1px solid var(--rule);padding-top:1.5rem}.rg-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.rg-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.rg-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.rg-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.rg-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.rg-explore a:last-child{border-right:0}.rg-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.rg-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1000px){.rg-hero,.rg-thesis,.rg-corridor__layout,.rg-operational,.rg-journey,.rg-compose{grid-template-columns:1fr}.rg-hero__media{min-height:65vh}.rg-thesis__copy,.rg-operational__copy,.rg-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.rg-route-grid{grid-template-columns:1fr}.rg-corridor__head,.rg-routes__head{grid-template-columns:1fr;gap:1.2rem}.rg-explore{grid-template-columns:1fr 1fr}.rg-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.rg-hero{min-height:0}.rg-hero__media{min-height:58vh}.rg-thesis__facts,.rg-operational__grid,.rg-panel__grid{grid-template-columns:1fr}.rg-fact,.rg-choice{border-right:0}.rg-explore{grid-template-columns:1fr}.rg-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -322,205 +372,71 @@ body.eh-locked{overflow:hidden;}
 
 <div class="eh-bar" id="ehBar">
   <a href="index.html" class="eh-logo" aria-label="Enkiama — home"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
-  <button class="eh-trigger" id="ehTrigger" aria-expanded="false" aria-controls="ehOverlay"><span>Índice</span><span class="eh-mark"><span></span><span></span></span></button>
-</div>
+  <button class="eh-trigger" id="ehTrigger" ari
 
-<div class="eh-overlay" id="ehOverlay" role="dialog" aria-modal="true" aria-label="Menu">
-  <button class="eh-close" id="ehClose" aria-label="Close menu"><span>Cerrar</span><span class="x"></span></button>
-  <div class="eh-watermark" aria-hidden="true">karibu</div>
-
-  <div class="eh-left">
-    <nav class="eh-nav">
-      <p class="eh-nav-eyebrow">The index</p>
-      <ul>
-        <li><a href="tanzania.html" data-nav="tanzania"><span class="eh-idx">01</span><span class="eh-lnk">Tanzania</span></a></li>
-        <li><a href="parks.html" data-nav="parks"><span class="eh-idx">02</span><span class="eh-lnk">Wild Tanzania</span></a></li>
-        <li><a href="kilimanjaro.html" data-nav="kilimanjaro"><span class="eh-idx">03</span><span class="eh-lnk">Kilimanjaro</span></a></li>
-        <li><a href="great-rift.html" data-nav="greatrift"><span class="eh-idx">04</span><span class="eh-lnk">The Great Rift</span></a></li>
-        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">05</span><span class="eh-lnk">Journeys</span></a></li>
-        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">06</span><span class="eh-lnk">Compose your journey</span></a></li>
-        <li><a href="family.html" data-nav="family"><span class="eh-idx">07</span><span class="eh-lnk">The family</span></a></li>
-        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">08</span><span class="eh-lnk">Begin</span></a></li>
-      </ul>
-    </nav>
-    <div class="eh-secondary">
-      <span class="eh-sec-lbl">Also</span>
-      <a href="how.html" data-nav="how">How we work</a>
-      <a href="why.html" data-nav="why">Why Enkiama</a>
-      <a href="notes.html" data-nav="notes">Field notes</a>
-      <a href="stories.html" data-nav="stories">Stories</a>
-      <a href="reflections.html" data-nav="reflections">Letters</a>
-      <a href="companions.html" data-nav="companions">Companions</a>
-      <a href="practical.html" data-nav="practical">Practical</a>
-      <a href="faq.html">Safari FAQ</a>
-    </div>
+<main class="rg-page" id="main-content">
+<section class="rg-hero">
+  <div class="rg-hero__copy">
+    <p class="rg-eye">Great Rift · northern Tanzania</p>
+    <h1>A corridor through <em>another Tanzania.</em></h1>
+    <p class="rg-hero__lede">The route north through the Rift Valley connects archaeological landscapes, pastoral country, an active volcano and Lake Natron before the journey turns toward the Serengeti or back toward the highlands. It works when those places are given time of their own—not when Natron is treated as a difficult shortcut between famous parks.</p>
   </div>
+  <div class="rg-hero__media">
+    <figure class="rg-hero__frame"><img src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="rg-hero__veil"></div></figure>
+    <div class="rg-hero__caption"><span>Rift Valley · northern Tanzania</span><span>Engaruka → Natron → onward</span></div>
+  </div>
+</section>
 
-  <aside class="eh-aside">
-    <div class="eh-aside-stack" aria-hidden="true">
-      <div class="eh-aside-img on" data-img="default" style="background-image:radial-gradient(ellipse 100% 80% at 65% 25%,rgba(85,107,68,0.14),transparent 62%),linear-gradient(158deg,#16211a,#0b120e);"></div>
-      <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
-      <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
-      <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
-      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
-      <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
-      <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
-      <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
-      <div class="eh-aside-img" data-img="greatrift" data-src="assets/images/great-rift.jpg"></div>
-      <div class="eh-aside-img" data-img="companions" data-src="assets/images/group-fire.jpg"></div>
-      <div class="eh-aside-img" data-img="reflections" data-src="assets/images/night-sky.jpg"></div>
-      <div class="eh-aside-img" data-img="practical" data-src="assets/images/arusha.jpg"></div>
-      <div class="eh-aside-img" data-img="stories" data-src="assets/images/stonetown.jpg"></div>
-      <div class="eh-aside-img" data-img="notes" data-src="assets/images/manyara.jpg"></div>
-      <div class="eh-aside-img" data-img="how" data-src="assets/images/maasai.jpg"></div>
-      <div class="eh-aside-img" data-img="why" data-src="assets/images/elder-guide.jpg"></div>
-    </div>
-    <div class="eh-aside-caption" id="ehAsideCaption"></div>
-    <div class="eh-aside-scrim"></div>
-    <div class="eh-aside-inner">
-      <p class="eh-aside-eyebrow">Curated, never sold</p>
-      <p class="eh-aside-q">Tanzania already knows how to receive you. We make sure you arrive.</p>
-      <div class="eh-aside-contact">
-        <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
-        <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
-        <span class="eh-aside-place" id="ehPlace">Arusha &middot; Tanzania</span>
-      </div>
-    </div>
-  </aside>
-</div>
-<script>
-(function(){
-  var bar=document.getElementById('ehBar'),trg=document.getElementById('ehTrigger'),ov=document.getElementById('ehOverlay'),cl=document.getElementById('ehClose'),photo=document.getElementById('ehAsidePhoto');
-  if(!bar||!trg||!ov) return;
-  var lastFocus=null;
-  function focusables(){return ov.querySelectorAll('a[href],button');}
-  function open(){
-    ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
-    lastFocus=document.activeElement;
-    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
-    setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
-  }
-  function close(){ov.classList.remove('open');document.body.classList.remove('eh-locked');trg.setAttribute('aria-expanded','false');if(lastFocus)lastFocus.focus();}
-  trg.addEventListener('click',open);cl.addEventListener('click',close);
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'&&ov.classList.contains('open'))close();
-    // focus trap
-    if(e.key==='Tab'&&ov.classList.contains('open')){
-      var f=focusables();if(!f.length)return;var first=f[0],last=f[f.length-1];
-      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-    }
-  });
-  // active state
-  var page=document.body.getAttribute('data-page');
-  if(page){var a=ov.querySelector('.eh-nav a[data-nav="'+page+'"]');if(a)a.classList.add('eh-active');}
-  // scroll condense
-  var ticking=false;
-  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){bar.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
-})();
-</script>
+<section class="rg-thesis">
+  <div class="rg-thesis__copy"><p class="rg-kicker">Why this corridor matters</p><h2>Landscape, history and ecology occupy the same road.</h2><p>Engaruka changes the historical reading of the valley. Natron changes the ecological one. Ol Doinyo Lengai changes the geological one. The communities living between them make clear that this is not empty space between safari destinations.</p></div>
+  <div class="rg-thesis__facts">
+    <div class="rg-fact"><span class="rg-fact__label">Lake Natron</span><strong>Ramsar wetland</strong><p>A highly alkaline soda lake with major importance for waterbirds and the only regular Lesser Flamingo breeding area in East Africa.</p></div>
+    <div class="rg-fact"><span class="rg-fact__label">Engaruka</span><strong>Historic agricultural landscape</strong><p>Terracing, irrigation channels and cultivated fields reveal centuries of intensive land and water management on the Rift floor.</p></div>
+    <div class="rg-fact"><span class="rg-fact__label">Ol Doinyo Lengai</span><strong>Active volcano</strong><p>The only volcano known for historical eruption of carbonatite lavas. It belongs in the landscape story even when climbing is not appropriate.</p></div>
+    <div class="rg-fact"><span class="rg-fact__label">Route logic</span><strong>Destination, not shortcut</strong><p>Natron is strongest when the journey allows time for the Rift itself rather than using the road only to connect larger names.</p></div>
+  </div>
+</section>
 
-<script>
-/* ══ MENU IMAGERY — the index reveals the country ══ */
-(function(){
-  var overlay=document.getElementById('ehOverlay');
-  if(!overlay) return;
-  var stack=overlay.querySelector('.eh-aside-stack');
-  if(!stack) return;
-  var caption=document.getElementById('ehAsideCaption');
-  var imgs=[].slice.call(stack.querySelectorAll('.eh-aside-img'));
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var loaded=false, holdTimer=null;
+<section class="rg-corridor" id="corridor">
+  <div class="rg-corridor__head"><div><p class="rg-kicker">Phase 2 · Corridor intelligence</p><h2>Four contexts along one landscape.</h2></div><p>Select a node to see what it contributes to the journey. The system separates archaeology, ecology, geology and human landscape rather than compressing everything into “remote Tanzania”.</p></div>
+  <div class="rg-corridor__layout"><div class="rg-nodes" id="rgNodes"></div><article class="rg-panel" id="rgPanel" aria-live="polite"></article></div>
+</section>
 
-  var LABELS={
-    tanzania:'The Serengeti', parks:'Ngorongoro', journeys:'Tarangire',
-    compose:'First light', family:'Kibosho', begin:'Camp, on arrival',
-    kilimanjaro:'Kilimanjaro', companions:'Around the fire', greatrift:'The Rift Valley',
-    reflections:'Night over the plain', practical:'Arusha',
-    stories:'Stone Town', notes:'Lake Manyara', how:'The people of the land',
-    why:'Those who guide'
-  };
+<section class="rg-routes">
+  <div class="rg-routes__head"><div><p class="rg-kicker">How it enters a journey</p><h2>The corridor can face three directions.</h2></div><p>The exact road, transfer time and seasonal feasibility must be checked close to travel. These are journey shapes, not promises that every road link operates identically year-round.</p></div>
+  <div class="rg-route-grid" id="rgRoutes"></div>
+</section>
 
-  /* only fetch the imagery once the menu is actually opened */
-  function preload(){
-    if(loaded) return; loaded=true;
-    imgs.forEach(function(el){
-      var src=el.getAttribute('data-src');
-      if(!src) return;
-      var pre=new Image();
-      pre.onload=function(){ el.style.backgroundImage='url("'+src+'")'; };
-      pre.src=src;
-    });
-  }
+<section class="rg-operational">
+  <div class="rg-operational__copy"><p class="rg-kicker">Operational reality</p><h2>What should be decided before the route is sold.</h2><p>The Rift asks for more honesty than a standard park-to-park itinerary. Heat, road conditions, flamingo ecology and volcanic activity can all materially change what makes sense.</p></div>
+  <div class="rg-operational__grid" id="rgFactors"></div>
+</section>
 
-  function show(key){
-    var found=false;
-    imgs.forEach(function(el){
-      var on = el.getAttribute('data-img')===key;
-      el.classList.toggle('on', on);
-      if(on) found=true;
-    });
-    if(!found){
-      var d=stack.querySelector('[data-img="default"]');
-      if(d) d.classList.add('on');
-    }
-    if(caption){
-      var label=LABELS[key]||'';
-      if(label){ caption.textContent=label; caption.classList.add('on'); }
-      else { caption.classList.remove('on'); }
-    }
-  }
+<section class="rg-journey">
+  <div class="rg-journey__media" aria-hidden="true"></div>
+  <div class="rg-journey__copy"><span class="rg-journey__label">Operated · July 2026 · five travellers</span><h2>Natron was not supposed to be the headline.</h2><p>After Kilimanjaro country, Kibosho, Tarangire, Ngorongoro, two nights in the Serengeti and time in Maasai country, Lake Natron became one of the strongest memories of the journey. That is useful evidence for how the Rift works: not as a replacement for the northern circuit, but as a completely different final rhythm.</p><a href="trip.html?slug=july-five-travellers-2026">Open the operated journey →</a></div>
+</section>
 
-  function reset(){
-    show('default');
-  }
+<section class="rg-compose" id="rift-composer">
+  <div class="rg-compose__copy"><p class="rg-kicker">Phase 4 · Rift composer</p><h2>Should the Rift be part of your route?</h2><p>This does not promise road conditions or wildlife. It simply tests whether your available time and priorities make Natron a sensible destination or an unnecessary detour.</p></div>
+  <div class="rg-compose__panel">
+    <div class="rg-q" data-k="time"><label>How much time can the Rift have?</label><div class="rg-opts"><button data-v="one">One transfer day</button><button data-v="two">2–3 days</button><button data-v="four">4+ days</button></div></div>
+    <div class="rg-q" data-k="pull"><label>What draws you here?</label><div class="rg-opts"><button data-v="landscape">Landscape</button><button data-v="people">People &amp; culture</button><button data-v="ecology">Natron ecology</button><button data-v="lengai">Lengai / geology</button></div></div>
+    <div class="rg-q" data-k="comfort"><label>How do you feel about rougher road days?</label><div class="rg-opts"><button data-v="fine">Part of the journey</button><button data-v="some">Some is fine</button><button data-v="avoid">Prefer smoother routing</button></div></div>
+    <div class="rg-result" id="rgResult"><span class="rg-kicker">First direction</span><h3>Answer the three questions.</h3><p>We will tell you whether the corridor earns its place.</p></div>
+  </div>
+</section>
 
-  /* bind every index + secondary link that names a destination */
-  var links=[].slice.call(overlay.querySelectorAll('a[data-nav]'));
-  links.forEach(function(a){
-    var key=a.getAttribute('data-nav');
-    function enter(){
-      if(holdTimer){clearTimeout(holdTimer);holdTimer=null;}
-      links.forEach(function(x){x.classList.remove('previewing');});
-      a.classList.add('previewing');
-      show(key);
-    }
-    function leave(){
-      a.classList.remove('previewing');
-      /* hold the last image briefly so quick passes do not flicker */
-      if(holdTimer) clearTimeout(holdTimer);
-      holdTimer=setTimeout(reset, 900);
-    }
-    a.addEventListener('mouseenter',enter);
-    a.addEventListener('focus',enter);
-    a.addEventListener('mouseleave',leave);
-    a.addEventListener('blur',leave);
-  });
+<section class="rg-explore">
+  <a href="society-and-culture.html"><span>Human landscape</span><strong>Society &amp; culture →</strong></a>
+  <a href="kilimanjaro.html"><span>Mountain</span><strong>Kilimanjaro →</strong></a>
+  <a href="serengeti.html"><span>Onward west</span><strong>Serengeti →</strong></a>
+  <a href="ngorongoro.html"><span>Highlands</span><strong>Ngorongoro →</strong></a>
+</section>
+</main>
+<script src="assets/js/great-rift-system.js" defer></script>
 
-  /* preload when the menu opens */
-  var trigger=document.getElementById('ehTrigger');
-  if(trigger) trigger.addEventListener('click', function(){ setTimeout(preload,120); });
-  if(!reduce){
-    var mo=new MutationObserver(function(){
-      if(overlay.classList.contains('open')) preload();
-    });
-    mo.observe(overlay,{attributes:true,attributeFilter:['class']});
-  } else {
-    preload();
-  }
-})();
-</script>
-<!-- ENKIAMA_HEADER_END -->
-
-
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/great-rift.jpg" alt="The Rift Valley escarpment above Lake Natron, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Bonde la Ufa &mdash; the valley of the crack</p>
-    <p class="d-eyebrow">The Great Rift</p>
-    <h1 class="d-title">The road almost<br>nobody takes.<br><em>It is the best one.</em></h1>
-    <p class="d-lede">West of the crater, the land drops into the Rift and the tour buses stop. What lies beyond is an abandoned irrigation city, an active volcano the Maasai call the Mountain of God, communities who have lived here for centuries, and a soda lake the colour of rust. Almost no one sells this route. We think it is the most honest week in Tanzania.</p>
+ Tanzania.</p>
   </div>
 </section>
 
