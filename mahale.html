@@ -179,6 +179,44 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="mahale-system-v1">
+.mh-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.mh-hero{min-height:90vh;display:grid;grid-template-columns:1.04fr .96fr;background:var(--ink);border-bottom:1px solid var(--rule)}
+.mh-hero__copy{padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6rem);display:flex;flex-direction:column;justify-content:flex-end}
+.mh-eye,.mh-kicker,.mh-system__type,.mh-season__label,.mh-fit__label,.mh-health__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.mh-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.5vw,110px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:8.8ch;margin:.9rem 0 1.6rem}
+.mh-hero h1 em{font-style:italic;color:#8ea17e}.mh-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:58ch;color:rgba(237,230,214,.8)}
+.mh-hero__media{position:relative;min-height:90vh;background:linear-gradient(160deg,#1c2a22,#0c1410);overflow:hidden}
+.mh-hero__frame{position:absolute;left:9%;right:9%;top:13%;bottom:10%;overflow:hidden}.mh-hero__frame img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.mh-hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.03),rgba(8,12,9,.48))}
+.mh-hero__caption{position:absolute;left:9%;right:9%;bottom:5%;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,230,214,.2);padding-top:.8rem;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.mh-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.mh-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.mh-strip__item:last-child{border-right:0}.mh-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.mh-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.mh-thesis{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink2)}.mh-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.mh-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.mh-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.mh-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.mh-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.mh-thesis__item:nth-child(2n){border-right:0}.mh-thesis__item:nth-last-child(-n+2){border-bottom:0}.mh-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.mh-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.mh-systems{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}.mh-systems__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.mh-systems__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.97;max-width:10ch}.mh-systems__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.mh-system-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.mh-system-nav{background:#dcd3c0;padding:1rem}.mh-system{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.mh-system:last-child{border-bottom:0}.mh-system.active{background:rgba(85,107,68,.1)}
+.mh-system__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.mh-system__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.mh-system__window{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.mh-system__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.mh-system-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:620px;display:flex;flex-direction:column}.mh-system-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.mh-system-panel__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.mh-system-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.mh-system-stat{background:var(--bone2);padding:1.1rem}.mh-system-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.mh-system-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.mh-system-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.mh-system-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.mh-system-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}
+.mh-seasons{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}.mh-seasons__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.mh-seasons__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.mh-seasons__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:54ch}
+.mh-season-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.3rem}.mh-season-tabs button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .9rem;font:inherit;font-size:10px;cursor:pointer}.mh-season-tabs button.active{background:var(--bone);color:var(--ink)}
+.mh-season-panel{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--rule)}.mh-season-panel__left,.mh-season-panel__right{padding:clamp(2.5rem,4vw,4rem)}.mh-season-panel__left{border-right:1px solid var(--rule)}.mh-season-panel h3{font-family:'Fraunces',serif;font-size:clamp(38px,4.5vw,60px);font-weight:300;line-height:.98;margin:.7rem 0}.mh-season-panel p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.66)}
+.mh-depth{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--bone2);color:var(--ink)}.mh-depth__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.mh-depth__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.mh-depth__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.mh-depth__body{padding:clamp(3rem,5vw,5rem)}.mh-stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.mh-stay-card{background:var(--bone2);padding:1.5rem}.mh-stay-card span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.mh-stay-card strong{display:block;font-family:'Fraunces',serif;font-size:23px;font-weight:300;margin:.7rem 0}.mh-stay-card p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62)}
+.mh-access{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12)}.mh-access article{background:var(--bone2);padding:1.5rem}.mh-access strong{font-family:'Fraunces',serif;font-size:21px;font-weight:300}.mh-access p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62);margin-top:.6rem}
+.mh-health{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}.mh-health__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.mh-health__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.mh-health__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.mh-health-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.mh-health-card{padding:1.8rem;background:var(--ink2);min-height:300px}.mh-health-card strong{font-family:'Fraunces',serif;font-size:23px;font-weight:300;line-height:1.08;display:block;margin:.8rem 0}.mh-health-card p{font-size:11.5px;line-height:1.7;color:rgba(237,230,214,.62)}
+.mh-fit{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}.mh-fit__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.mh-fit__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.mh-fit__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.65);max-width:53ch}
+.mh-fit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.mh-fit-card{padding:1.8rem;background:var(--bone2);min-height:300px;display:flex;flex-direction:column}.mh-fit-card strong{font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1.08;margin:.8rem 0}.mh-fit-card p{font-size:11.5px;line-height:1.7;color:rgba(15,23,18,.62)}.mh-fit-card small{margin-top:auto;padding-top:1.5rem;color:#75603f;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.mh-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}.mh-routes__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.mh-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.mh-routes__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.mh-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.mh-route{padding:2rem;background:var(--ink);min-height:350px;display:flex;flex-direction:column}.mh-route h3{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.8rem 0}.mh-route p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.mh-route ol{margin:1.2rem 0 0 1rem;font-size:11px;line-height:1.8;color:rgba(237,230,214,.66)}.mh-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--earth)}
+.mh-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink2)}.mh-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.mh-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.mh-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.mh-compose__panel{padding:clamp(3rem,5vw,5rem)}.mh-q{margin-bottom:2rem}.mh-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.mh-opts{display:flex;gap:.55rem;flex-wrap:wrap}.mh-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.mh-opts button.active{background:var(--bone);color:var(--ink)}
+.mh-result{border-top:1px solid var(--rule);padding-top:1.5rem}.mh-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.mh-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.mh-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.mh-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.mh-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.mh-explore a:last-child{border-right:0}.mh-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.mh-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1100px){.mh-hero,.mh-thesis,.mh-system-layout,.mh-season-panel,.mh-depth,.mh-compose{grid-template-columns:1fr}.mh-hero__media{min-height:62vh}.mh-thesis__copy,.mh-depth__copy,.mh-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.mh-systems__head,.mh-seasons__head,.mh-health__head,.mh-fit__head,.mh-routes__head{grid-template-columns:1fr;gap:1.2rem}.mh-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.mh-stay-grid{grid-template-columns:1fr 1fr}.mh-health-grid,.mh-fit-grid{grid-template-columns:1fr 1fr}.mh-route-grid{grid-template-columns:1fr}.mh-explore{grid-template-columns:1fr 1fr}.mh-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.mh-hero{min-height:0}.mh-hero__media{min-height:56vh}.mh-strip{grid-template-columns:1fr 1fr}.mh-strip__item:nth-child(2n){border-right:0}.mh-thesis__grid,.mh-system-stats,.mh-system-grid,.mh-stay-grid,.mh-access,.mh-health-grid,.mh-fit-grid{grid-template-columns:1fr}.mh-thesis__item{border-right:0}.mh-explore{grid-template-columns:1fr}.mh-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -514,71 +552,84 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="mh-page" id="main-content">
+<section class="mh-hero">
+  <div class="mh-hero__copy">
+    <p class="mh-eye">Mahale · western Tanzania</p>
+    <h1>Forest above the <em>old lake.</em></h1>
+    <p class="mh-hero__lede">Mahale is an expedition because every element depends on the others: chimpanzees move through steep forest, the mountains rise directly above Lake Tanganyika, access is remote, and the lake becomes the place where the day slows down after trekking.</p>
+  </div>
+  <div class="mh-hero__media"><figure class="mh-hero__frame"><img src="assets/images/mahale.jpg" alt="Mahale Mountains and Lake Tanganyika"><div class="mh-hero__veil"></div></figure><div class="mh-hero__caption"><span>Mahale Mountains · Lake Tanganyika</span><span>Forest → chimpanzees → lake</span></div></div>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/mahale.jpg" alt="Mahale Mountains, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Sokwe</p>
-    <p class="d-eyebrow">Forest and lake</p>
-    <h1 class="d-title">Mountains of forest,<br><em>above the oldest lake.</em></h1>
-    <p class="d-lede">Mahale is the most difficult place we send people, and one of the few that travellers describe afterwards in a lowered voice. Forested mountains falling straight into Lake Tanganyika, and chimpanzees living wild within them.</p>
+<section class="mh-strip">
+  <div class="mh-strip__item"><span>Core objective</span><strong>Wild chimpanzee trekking</strong></div>
+  <div class="mh-strip__item"><span>Landscape</span><strong>Mountain forest + lake</strong></div>
+  <div class="mh-strip__item"><span>Strong stay</span><strong>4–6 nights</strong></div>
+  <div class="mh-strip__item"><span>Normal access</span><strong>Light aircraft + boat</strong></div>
+</section>
+
+<section class="mh-thesis">
+  <div class="mh-thesis__copy"><p class="mh-kicker">What makes Mahale different</p><h2>The expedition has two rhythms.</h2><p>The forest is physical, humid and uncertain. The lake is open, slow and restorative. A strong Mahale stay needs enough time for both rather than organising every day around chimpanzee success.</p></div>
+  <div class="mh-thesis__grid">
+    <div class="mh-thesis__item"><span class="mh-kicker">01 · Chimpanzees</span><strong>A wild encounter, not a guarantee.</strong><p>Ranger-led tracking depends on where habituated groups are ranging that day.</p></div>
+    <div class="mh-thesis__item"><span class="mh-kicker">02 · Forest</span><strong>Terrain is part of the experience.</strong><p>Steep trails, humidity and dense vegetation make fitness and preparation meaningful.</p></div>
+    <div class="mh-thesis__item"><span class="mh-kicker">03 · Lake</span><strong>Recovery is built into the geography.</strong><p>Boat, shoreline and water activities create a second biological system after forest trekking.</p></div>
+    <div class="mh-thesis__item"><span class="mh-kicker">04 · Protection</span><strong>Health rules are part of the product.</strong><p>Chimpanzee disease risk means respiratory health, distance and ranger instructions cannot be treated as small print.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Why it is different</p>
-    <h2 class="d-sec-title reveal">There are no roads.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Mahale has no road access and no vehicles. You arrive by light aircraft and then by boat along the lake shore, and once there you move on foot. <strong>That inaccessibility is precisely what has preserved it.</strong></p>
-    <p class="d-p reveal">The setting is genuinely unusual in Africa: white sand beaches on a lake so deep and clear it feels oceanic, with forested peaks rising directly behind them.</p>
-  </section>
+<section class="mh-systems" id="systems">
+  <div class="mh-systems__head"><div><p class="mh-kicker">Expedition intelligence</p><h2>Four systems inside one Mahale stay.</h2></div><p>Select a system to see what it contributes, what preparation it demands and where the trade-off lies.</p></div>
+  <div class="mh-system-layout"><div class="mh-system-nav" id="mhSystemNav"></div><article class="mh-system-panel" id="mhSystemPanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The chimpanzees</p>
-    <h2 class="d-sec-title reveal">A privilege, not a guarantee.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The Mahale chimpanzee communities have been studied for decades and are habituated to human presence. Trekking to find them can take an hour or five, uphill, in heat and humidity, and <strong>sightings are likely but never certain.</strong></p>
-    <p class="d-p reveal">When it happens, it is not a viewing so much as an encounter. Time with them is deliberately limited, and the rules are strict, because these are wild animals susceptible to human disease. We regard those limits as a feature, not an inconvenience.</p>
-  </section>
+<section class="mh-seasons" id="season">
+  <div class="mh-seasons__head"><div><p class="mh-kicker">Seasonal system</p><h2>Mahale is year-round in theory, not identical year-round.</h2></div><p>Chimpanzees remain wild, forest conditions change, lake weather changes and some access/lodge operations become more difficult in the long rains.</p></div>
+  <div class="mh-season-tabs" id="mhSeasonTabs"></div>
+  <div class="mh-season-panel" id="mhSeasonPanel"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Honest about the journey</p>
-    <h2 class="d-sec-title reveal">It asks something of you.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Mahale requires time, money and a reasonable level of fitness. It does not slot conveniently into a two-week first visit alongside the Serengeti.</p>
-    <p class="d-p reveal">For travellers who want one extraordinary thing rather than several convenient ones, it may be the single most memorable place in Tanzania. We will tell you frankly whether your journey has room for it.</p>
-  </section>
+<section class="mh-depth">
+  <div class="mh-depth__copy"><p class="mh-kicker">Stay & access</p><h2>Remote access needs enough time to pay back.</h2><p>Two nights is usually poor expedition design. Four nights gives the trip margin for chimpanzee variability and lets the lake become part of the journey rather than only the arrival route.</p></div>
+  <div class="mh-depth__body"><div class="mh-stay-grid" id="mhStayGrid"></div><div class="mh-access" id="mhAccess"></div></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">How do you get to Mahale?</p><p class="d-faq-a">By light aircraft to an airstrip near the lake, then by boat along the shore. There is no road access and no vehicles in the park.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Are chimpanzee sightings guaranteed at Mahale?</p><p class="d-faq-a">No. The communities are habituated and sightings are likely, but they are wild animals in mountainous forest. Treks can be short or long, and occasionally unsuccessful.</p></div>
-</div>
+<section class="mh-health">
+  <div class="mh-health__head"><div><p class="mh-kicker">Chimpanzee protection</p><h2>Health rules belong in the main experience.</h2></div><p>Chimpanzees are susceptible to human respiratory disease. The visitor's behaviour therefore directly affects the animals being travelled to see.</p></div>
+  <div class="mh-health-grid" id="mhHealthGrid"></div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="ruaha.html">Ruaha</a><a href="nyerere.html">Nyerere</a><a href="zanzibar.html">Zanzibar</a></div>
-</div>
+<section class="mh-fit">
+  <div class="mh-fit__head"><div><p class="mh-kicker">Traveller fit</p><h2>Mahale is extraordinary precisely because it is inconvenient.</h2></div><p>The question is not whether Mahale is “worth it”. The question is whether your journey has enough time, fitness and intent for the access and uncertainty to become part of the experience rather than a frustration.</p></div>
+  <div class="mh-fit-grid" id="mhFitGrid"></div>
+</section>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Mahale Mountains belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
+<section class="mh-routes">
+  <div class="mh-routes__head"><div><p class="mh-kicker">Western composition</p><h2>Three ways Mahale can anchor a journey.</h2></div><p>There is no operated Enkiama Mahale case published yet. Until one exists, we use route logic rather than manufactured experience stories.</p></div>
+  <div class="mh-route-grid" id="mhRoutes"></div>
+</section>
 
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
+<section class="mh-compose" id="mahale-composer">
+  <div class="mh-compose__copy"><p class="mh-kicker">Mahale composer</p><h2>Is Mahale worth the expedition effort for this journey?</h2><p>The result combines nights, fitness, priority and safari experience. It can tell you Mahale does not belong in this trip rather than romanticising remoteness.</p></div>
+  <div class="mh-compose__panel">
+    <div class="mh-q" data-k="nights"><label>How many Mahale nights?</label><div class="mh-opts"><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5+</button></div></div>
+    <div class="mh-q" data-k="fitness"><label>How do you feel about steep, humid trekking?</label><div class="mh-opts"><button data-v="comfortable">Comfortable</button><button data-v="moderate">Moderate fitness</button><button data-v="avoid">Prefer easier activity</button></div></div>
+    <div class="mh-q" data-k="priority"><label>What matters most?</label><div class="mh-opts"><button data-v="chimps">Chimpanzees</button><button data-v="lake">Lake + recovery</button><button data-v="hiking">Hiking</button><button data-v="contrast">Complete contrast from safari</button></div></div>
+    <div class="mh-q" data-k="experience"><label>Your Tanzania experience?</label><div class="mh-opts"><button data-v="first">First journey</button><button data-v="repeat">Repeat traveller</button><button data-v="active">Active / expedition traveller</button></div></div>
+    <div class="mh-result" id="mhResult"><span class="mh-kicker">First direction</span><h3>Answer the four questions.</h3><p>We will tell you whether Mahale should anchor the western chapter.</p></div>
+  </div>
+</section>
+
+<section class="mh-explore">
+  <a href="ruaha.html"><span>Southern wildlife</span><strong>Ruaha →</strong></a>
+  <a href="nyerere.html"><span>River safari</span><strong>Nyerere →</strong></a>
+  <a href="zanzibar.html"><span>Coast</span><strong>Zanzibar →</strong></a>
+  <a href="compose.html"><span>Start from priorities</span><strong>Compose →</strong></a>
+</section>
+</main>
+<script src="assets/js/mahale-system.js" defer></script>
+
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
