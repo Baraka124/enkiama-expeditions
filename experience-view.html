@@ -124,6 +124,33 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 .s4 .ev-media{background-image:url('assets/images/ngorongoro.webp');background-position:center 55%}
 .s5 .ev-media{background-image:url('assets/zanzibar.jpg');background-position:center 58%}
 
+
+/* Phase 3 · Enkiama Live surfaces */
+.ev-live-open,.ev-field-open{border:0;background:none;color:rgba(237,230,214,.72);font:inherit;font-size:9px;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;padding:.45rem 0}
+.ev-live-open{border-bottom:1px solid rgba(190,158,104,.35)}
+.ev-field-open{display:none;margin-top:1rem;color:var(--earth)}
+.ev-field-open.visible{display:inline-block}
+.ev-live-panel,.ev-field{position:absolute;z-index:40;top:0;right:0;height:100%;width:min(480px,92vw);background:rgba(9,15,11,.975);backdrop-filter:blur(16px);border-left:1px solid rgba(237,230,214,.11);transform:translateX(102%);transition:transform .55s cubic-bezier(.16,1,.3,1);overflow:auto}
+.ev-live-panel.open,.ev-field.open{transform:translateX(0)}
+.ev-live-panel__head,.ev-field__head{position:sticky;top:0;z-index:2;background:rgba(9,15,11,.96);display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.5rem;border-bottom:1px solid rgba(237,230,214,.1);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--earth)}
+.ev-live-panel__head button,.ev-field__head button{border:0;background:none;color:var(--bone);font-size:20px;cursor:pointer}
+.ev-live-panel__channels{padding:1rem 1.5rem;border-bottom:1px solid rgba(237,230,214,.1)}
+.ev-live-channel{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(237,230,214,.08);padding:1rem 0;color:var(--bone);cursor:default}
+.ev-live-channel:last-child{border-bottom:0}
+.ev-live-channel strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300}
+.ev-live-channel span{display:block;margin-top:.35rem;font-size:11px;line-height:1.6;color:rgba(237,230,214,.55)}
+.ev-live-panel__stories{padding:1.2rem 1.5rem}
+.ev-live-panel__stories a{display:block;text-decoration:none;padding:1.1rem 0;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-panel__stories span{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--earth)}
+.ev-live-panel__stories strong{display:block;font-family:'Fraunces',serif;font-size:24px;font-weight:300;margin:.4rem 0}
+.ev-live-panel__stories small{display:block;font-size:10px;line-height:1.6;color:rgba(237,230,214,.5)}
+.ev-field__items{padding:1rem 1.5rem 2rem}
+.ev-field__items article{padding:1.25rem 0;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-field__items article span{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--earth)}
+.ev-field__items article strong{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:300;margin:.45rem 0}
+.ev-field__items article p{font-size:12px;line-height:1.7;color:rgba(237,230,214,.62);margin:0}
+@media(max-width:760px){.ev-live-panel,.ev-field{width:100vw}.ev-live-open{font-size:8px}}
+
 @media(max-width:760px){
   .ev-mode{display:none}
   .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,.ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{left:1.3rem;right:1.3rem;bottom:7rem;max-width:none;text-align:left;transform:none}
@@ -262,6 +289,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   <header class="ev-top">
     <a class="ev-logo" href="index.html" aria-label="Back to Enkiama"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
     <div class="ev-top-right">
+      <button class="ev-live-open" id="evLiveOpen" type="button">Enkiama Live</button>
       <span class="ev-mode">View · cinematic edition</span>
       <a class="ev-exit" href="index.html">Exit</a>
     </div>
@@ -277,6 +305,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <p class="ev-route" id="evRoute"></p>
     <div class="ev-evidence" id="evEvidence"></div>
     <a class="ev-link" id="evLink"></a>
+    <button class="ev-field-open" id="evFieldOpen" type="button">Open field guide →</button>
   </section>
 
   <div class="ev-controls" aria-label="View controls">
@@ -289,11 +318,15 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <div class="ev-progress"><span id="evProgress" class="run"></span></div>
     <div class="ev-meta"><span class="ev-index" id="evIndex">01 / 08</span><span id="evMeta">Opening</span></div>
   </div>
+  <aside class="ev-live-panel" id="evLivePanel" aria-label="Enkiama Live index"></aside>
+  <aside class="ev-field" id="evFieldGuide" aria-label="Field guide"></aside>
 </main>
 
+<script src="assets/js/enkiama-live.js"></script>
 <script>
 (function(){
-  var scenes=[].slice.call(document.querySelectorAll('.ev-scene'));
+  var scenes=[];
+  function refreshScenes(){scenes=[].slice.call(document.querySelectorAll('.ev-scene'));}
   var kicker=document.getElementById('evKicker');
   var title=document.getElementById('evTitle');
   var note=document.getElementById('evNote');
@@ -306,6 +339,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   var meta=document.getElementById('evMeta');
   var progress=document.getElementById('evProgress');
   var pause=document.getElementById('evPause');
+  var fieldOpen=document.getElementById('evFieldOpen');
   var current=0,timer=null,paused=false,interval=10000;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -331,6 +365,8 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   }
 
   function show(i){
+    refreshScenes();
+    if(!scenes.length) return;
     current=(i+scenes.length)%scenes.length;
     scenes.forEach(function(scene,n){scene.classList.toggle('active',n===current);});
     var s=scenes[current];
@@ -341,6 +377,15 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     number.textContent=String(current+1).padStart(2,'0');
     index.textContent=String(current+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');
     meta.textContent=s.dataset.meta||'Enkiama';
+    if(fieldOpen){
+      if(s.dataset.fieldGuide){
+        fieldOpen.classList.add('visible');
+        fieldOpen.setAttribute('data-field-guide',s.dataset.fieldGuide);
+      }else{
+        fieldOpen.classList.remove('visible');
+        fieldOpen.removeAttribute('data-field-guide');
+      }
+    }
 
     if(s.dataset.route){
       route.textContent=s.dataset.route;
@@ -386,8 +431,16 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(e.key==='Escape') location.href='index.html';
   });
 
+  refreshScenes();
   show(0);
   schedule();
+
+  document.addEventListener('enkiama-live-ready',function(){
+    refreshScenes();
+    current=0;
+    show(0);
+    schedule();
+  });
 })();
 </script>
 </body>
