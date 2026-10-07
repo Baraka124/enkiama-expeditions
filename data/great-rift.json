@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "great-rift",
+  "title": "Great Rift & Lake Natron",
+  "framing": "A northern Tanzania corridor linking inhabited Rift Valley landscapes, archaeology, Lake Natron, Ol Doinyo Lengai and onward safari country.",
+  "core_places": [
+    {
+      "slug": "engaruka",
+      "name": "Engaruka",
+      "type": "archaeology",
+      "role": "historic landscape",
+      "summary": "An extensive abandoned irrigated and terraced agricultural landscape on the Rift floor, with field systems that developed over centuries.",
+      "fit": "Adds historical depth to a route that might otherwise be read only as geology or wildlife.",
+      "public": true
+    },
+    {
+      "slug": "lake-natron",
+      "name": "Lake Natron",
+      "type": "wetland",
+      "role": "ecology",
+      "summary": "A highly alkaline Rift Valley soda lake and Ramsar wetland, especially important as East Africa’s only regular breeding area for Lesser Flamingos.",
+      "fit": "Best when the journey has enough time to treat Natron as a destination rather than a difficult transfer.",
+      "public": true
+    },
+    {
+      "slug": "oldoinyo-lengai",
+      "name": "Ol Doinyo Lengai",
+      "type": "active-volcano",
+      "role": "geology / conditional climb",
+      "summary": "An active stratovolcano south of Lake Natron, known for its unusual carbonatite lavas and for its significance in Maasai culture.",
+      "fit": "The mountain itself belongs in the landscape story; any ascent must remain conditional on current volcanic, route and local safety conditions.",
+      "public": true,
+      "activity_status": "conditional"
+    },
+    {
+      "slug": "engaruka-natron-communities",
+      "name": "Rift floor communities",
+      "type": "community-context",
+      "role": "human landscape",
+      "summary": "Pastoral and agricultural communities are part of the corridor itself, not an attraction added to it.",
+      "fit": "Best approached through local guides and host-led encounters that make geographic and social sense.",
+      "public": true
+    }
+  ],
+  "journey_directions": [
+    {
+      "slug": "kilimanjaro-to-natron",
+      "label": "Kilimanjaro → Natron",
+      "days": "2–4 corridor days before onward safari",
+      "sequence": [
+        "Kilimanjaro / Moshi",
+        "Mto wa Mbu or Engaruka",
+        "Lake Natron"
+      ],
+      "best_for": [
+        "mountain-plus-safari",
+        "culture",
+        "landscape",
+        "slower travel"
+      ],
+      "onward": [
+        "Serengeti",
+        "Ngorongoro"
+      ]
+    },
+    {
+      "slug": "ngorongoro-to-natron",
+      "label": "Ngorongoro → Natron",
+      "days": "2–3 corridor days",
+      "sequence": [
+        "Ngorongoro highlands",
+        "Engaruka",
+        "Lake Natron"
+      ],
+      "best_for": [
+        "Rift geology",
+        "archaeology",
+        "pastoral landscape"
+      ],
+      "onward": [
+        "Serengeti north / central",
+        "Kilimanjaro"
+      ]
+    },
+    {
+      "slug": "natron-to-serengeti",
+      "label": "Natron → Serengeti",
+      "days": "Transfer-dependent",
+      "sequence": [
+        "Lake Natron",
+        "northern Rift / Loliondo corridor",
+        "Serengeti"
+      ],
+      "best_for": [
+        "longer northern journeys",
+        "route contrast"
+      ],
+      "onward": [
+        "Serengeti"
+      ]
+    }
+  ],
+  "decision_factors": [
+    {
+      "key": "time",
+      "label": "Time",
+      "note": "Natron makes most sense when it is given destination time, not inserted as a rushed transfer."
+    },
+    {
+      "key": "roads",
+      "label": "Road conditions",
+      "note": "Rough-road time and seasonal conditions materially affect routing and comfort."
+    },
+    {
+      "key": "heat",
+      "label": "Heat",
+      "note": "The Rift floor can be very hot; walking and activity timing matter."
+    },
+    {
+      "key": "flamingos",
+      "label": "Flamingos",
+      "note": "Breeding and concentrations depend on ecological conditions; sightings are never guaranteed."
+    },
+    {
+      "key": "lengai",
+      "label": "Lengai",
+      "note": "The volcano is active. Climbing is conditional and must be assessed close to travel."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "july-five-travellers-2026",
+      "status": "operated",
+      "label": "July 2026 · five travellers",
+      "relevance": "Lake Natron became one of the strongest memories of a wider northern journey that had already included Kilimanjaro, Kibosho, Tarangire, Ngorongoro, Serengeti and Maasai country.",
+      "href": "trip.html?slug=july-five-travellers-2026"
+    }
+  ],
+  "sources_note": "Public copy should retain the distinction between verified geographic/ecological facts and Enkiama operational judgement."
+}
