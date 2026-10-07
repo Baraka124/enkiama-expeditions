@@ -226,12 +226,20 @@ textarea.sc-in:focus{box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 30px 56px
 </script>
 
 <style id="companions-editorial-recomposition">
-.c-hero{min-height:88svh!important;display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr)!important;align-items:end!important;padding:0!important;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
-.c-hero::before{content:'';position:absolute;inset:0 0 0 52%;background:linear-gradient(180deg,rgba(7,12,9,.08),rgba(7,12,9,.66)),url('assets/images/group-fire.jpg') center/cover no-repeat}
+/* layout reset: this hero is full-bleed, not the old centered 760px shell */
+.c-hero{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  text-align:left!important;
+}
+
+.c-hero{min-height:88svh!important;display:grid!important;grid-template-columns:minmax(0,1.08fr) minmax(420px,.92fr)!important;grid-template-rows:1fr auto auto auto 1fr;align-items:end!important;padding:0!important;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.c-hero::before{content:'';position:absolute;inset:0 0 0 55%;background:linear-gradient(90deg,rgba(12,20,16,.14),rgba(12,20,16,.02) 28%),linear-gradient(180deg,rgba(7,12,9,.04),rgba(7,12,9,.52)),url('assets/images/group-fire.jpg') center 48%/cover no-repeat}
 .c-hero::after{content:'together';position:absolute;right:-.03em;bottom:-.12em;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(96px,15vw,220px);line-height:.8;color:rgba(237,230,214,.035);pointer-events:none}
-.c-hero>.c-eyebrow,.c-hero>.c-title,.c-hero>.c-lede{grid-column:1;position:relative;z-index:2;margin-left:clamp(1.5rem,6vw,6rem)!important;margin-right:clamp(2rem,6vw,6rem)!important}
-.c-hero>.c-eyebrow{align-self:end;margin-bottom:1.5rem!important}.c-hero>.c-title{font-size:clamp(48px,6.4vw,94px)!important;line-height:.94!important;letter-spacing:-.035em!important;max-width:10ch!important}
-.c-hero>.c-lede{align-self:start;margin-top:1.8rem!important;margin-bottom:clamp(5rem,8vw,8rem)!important;max-width:45ch!important}
+.c-hero>.c-eyebrow,.c-hero>.c-title,.c-hero>.c-lede{grid-column:1;position:relative;z-index:2;width:min(100%,760px);margin-left:clamp(1.5rem,6vw,6rem)!important;margin-right:clamp(2rem,6vw,6rem)!important}
+.c-hero>.c-eyebrow{grid-row:2;align-self:end;margin-bottom:1.5rem!important}.c-hero>.c-title{grid-row:3;font-size:clamp(54px,6.1vw,96px)!important;line-height:.93!important;letter-spacing:-.04em!important;max-width:8.8ch!important;margin-bottom:0!important}
+.c-hero>.c-lede{grid-row:4;align-self:start;margin-top:1.6rem!important;margin-bottom:clamp(4.5rem,7vw,7rem)!important;max-width:43ch!important;margin-left:clamp(1.5rem,6vw,6rem)!important}
 .c-thesis{display:grid!important;grid-template-columns:.55fr 1.45fr;gap:3rem;max-width:none!important;padding:clamp(3rem,5vw,5rem) clamp(1.5rem,6vw,6rem)!important;border-bottom:1px solid var(--rule)}
 .c-thesis::before{content:'The principle';font-family:'Instrument Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
 .c-thesis p{text-align:left!important;max-width:44ch!important;margin:0!important;font-size:clamp(22px,3vw,36px)!important;line-height:1.35!important}.c-divider{display:none!important}
@@ -252,7 +260,7 @@ textarea.sc-in{min-height:210px!important;background:#E9E0CE!important;border-ra
 .c-trust{max-width:none!important;padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem)!important;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .c-trust-grid{grid-template-columns:repeat(3,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.12)}.c-trust-item{padding:2.5rem 2rem 2.8rem;border-right:1px solid rgba(190,158,104,.12)}.c-trust-item:last-child{border-right:0}.c-trust-h{font-size:clamp(19px,2vw,26px)!important}
 .c-foot{max-width:none!important;display:grid!important;grid-template-columns:1fr auto;gap:2rem;align-items:center;text-align:left!important;padding:clamp(4rem,6vw,6rem) clamp(1.5rem,6vw,6rem)!important;border-top:0!important}.c-foot-txt{margin:0!important;max-width:34ch!important;font-size:clamp(22px,2.8vw,34px)!important}.c-back{white-space:nowrap}
-@media(max-width:860px){.c-hero{display:flex!important;flex-direction:column;justify-content:flex-end;align-items:flex-start;min-height:82svh!important;background:linear-gradient(180deg,rgba(7,12,9,.18),rgba(7,12,9,.92)),url('assets/images/group-fire.jpg') center/cover no-repeat!important}.c-hero::before{display:none}.c-hero>.c-eyebrow,.c-hero>.c-title,.c-hero>.c-lede{margin-left:1.5rem!important;margin-right:1.5rem!important}.c-hero>.c-title{font-size:clamp(44px,12vw,70px)!important}.c-thesis{grid-template-columns:1fr!important;gap:1rem}.c-section:first-of-type .c-sec-head,.c-section:nth-of-type(2){grid-template-columns:1fr!important}.c-section:nth-of-type(2) .c-sec-head{position:static}.oj-empty{grid-template-columns:1fr}.oj-empty__actions{grid-column:1}.c-trust-grid{grid-template-columns:1fr!important}.c-trust-item{border-right:0;border-bottom:1px solid rgba(190,158,104,.12)}.c-foot{grid-template-columns:1fr!important}}
+@media(max-width:860px){.c-hero{display:flex!important;width:100%!important;max-width:none!important;margin:0!important;text-align:left!important;flex-direction:column;justify-content:flex-end;align-items:flex-start;min-height:82svh!important;background:linear-gradient(180deg,rgba(7,12,9,.18),rgba(7,12,9,.92)),url('assets/images/group-fire.jpg') center/cover no-repeat!important}.c-hero::before{display:none}.c-hero>.c-eyebrow,.c-hero>.c-title,.c-hero>.c-lede{margin-left:1.5rem!important;margin-right:1.5rem!important}.c-hero>.c-title{font-size:clamp(44px,12vw,70px)!important}.c-thesis{grid-template-columns:1fr!important;gap:1rem}.c-section:first-of-type .c-sec-head,.c-section:nth-of-type(2){grid-template-columns:1fr!important}.c-section:nth-of-type(2) .c-sec-head{position:static}.oj-empty{grid-template-columns:1fr}.oj-empty__actions{grid-column:1}.c-trust-grid{grid-template-columns:1fr!important}.c-trust-item{border-right:0;border-bottom:1px solid rgba(190,158,104,.12)}.c-foot{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -692,7 +700,7 @@ body.eh-locked{overflow:hidden;}
    `open_journeys` where status = 'open'. Shape below.
    For now, these are illustrative — replace with real ones as they open.
    ───────────────────────────────────────────── */
-var OPEN_JOURNEYS = []
+var OPEN_JOURNEYS = [];
 
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
