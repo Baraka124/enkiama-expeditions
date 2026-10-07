@@ -187,6 +187,53 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="serengeti-system-v1">
+.sg-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.sg-hero{position:relative;min-height:94vh;display:grid;grid-template-columns:1.12fr .88fr;align-items:end;overflow:hidden;background:#101713}
+.sg-hero__img{position:absolute;inset:0;background:url('assets/images/serengeti.jpg') center 52%/cover no-repeat;filter:saturate(.93) contrast(1.03)}
+.sg-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.93) 0%,rgba(8,12,9,.58) 44%,rgba(8,12,9,.13) 72%,rgba(8,12,9,.36)),linear-gradient(180deg,rgba(8,12,9,.05),rgba(8,12,9,.74))}
+.sg-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6.5rem);max-width:940px}
+.sg-eye,.sg-kicker,.sg-region__type,.sg-season__label,.sg-journey__label,.sg-choice__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.sg-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.7vw,112px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:9ch;margin:.9rem 0 1.6rem}
+.sg-hero h1 em{font-style:italic;color:#8ea17e}
+.sg-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:58ch;color:rgba(237,230,214,.82)}
+.sg-hero__aside{position:relative;z-index:2;padding:0 clamp(1.5rem,4vw,4rem) clamp(4.5rem,8vh,6.5rem);justify-self:end;width:min(100%,480px)}
+.sg-hero__aside>div{border-top:1px solid rgba(237,230,214,.22);padding-top:1rem;display:grid;grid-template-columns:92px 1fr;gap:1.3rem}
+.sg-hero__aside strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.28}.sg-hero__aside p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62);margin-top:.55rem}
+.sg-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}
+.sg-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.sg-strip__item:last-child{border-right:0}
+.sg-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.sg-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.sg-thesis{display:grid;grid-template-columns:.68fr 1.32fr;background:var(--ink2)}
+.sg-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.sg-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.sg-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.sg-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.sg-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.sg-thesis__item:nth-child(2n){border-right:0}.sg-thesis__item:nth-last-child(-n+2){border-bottom:0}.sg-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.sg-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.sg-regions{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.sg-regions__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.sg-regions__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.3vw,74px);font-weight:300;line-height:.97;max-width:10ch}.sg-regions__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.sg-region-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}
+.sg-region-nav{background:#dcd3c0;padding:1rem}.sg-region{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.sg-region:last-child{border-bottom:0}.sg-region.active{background:rgba(85,107,68,.1)}
+.sg-region__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.sg-region__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.sg-region__window{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.sg-region__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.sg-region-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:650px;display:flex;flex-direction:column}.sg-region-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,72px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.sg-region-panel__geo{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.sg-region-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.sg-region-stat{background:var(--bone2);padding:1.1rem}.sg-region-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.sg-region-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.sg-region-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.sg-region-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.sg-region-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}.sg-region-link{margin-top:auto;padding-top:2rem}.sg-region-link a{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.sg-seasons{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}
+.sg-seasons__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.sg-seasons__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.98}.sg-seasons__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:55ch}
+.sg-season-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.3rem}.sg-season-tabs button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .9rem;font:inherit;font-size:10px;cursor:pointer}.sg-season-tabs button.active{background:var(--bone);color:var(--ink)}
+.sg-season-panel{display:grid;grid-template-columns:.75fr 1.25fr;border:1px solid var(--rule)}.sg-season-panel__left,.sg-season-panel__right{padding:clamp(2.5rem,4vw,4rem)}.sg-season-panel__left{border-right:1px solid var(--rule)}.sg-season-panel h3{font-family:'Fraunces',serif;font-size:clamp(38px,4.5vw,62px);font-weight:300;line-height:.98;margin:.7rem 0}.sg-season-panel p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.66)}.sg-season-note{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:12px!important}
+.sg-planning{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--bone2);color:var(--ink)}
+.sg-planning__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.sg-planning__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.sg-planning__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.sg-planning__body{padding:clamp(3rem,5vw,5rem)}.sg-plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.sg-plan{background:var(--bone2);padding:1.5rem}.sg-plan span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.sg-plan strong{display:block;font-family:'Fraunces',serif;font-size:23px;font-weight:300;margin:.7rem 0}.sg-plan p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62)}
+.sg-access{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12)}.sg-access article{background:var(--bone2);padding:1.5rem}.sg-access strong{font-family:'Fraunces',serif;font-size:22px;font-weight:300}.sg-access p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62);margin-top:.6rem}
+.sg-journeys{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}
+.sg-journeys__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.sg-journeys__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.sg-journeys__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.sg-journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.sg-journey{padding:2.2rem;min-height:360px;background:var(--ink2);color:var(--bone);text-decoration:none;display:flex;flex-direction:column}.sg-journey h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;line-height:1.08;margin:.8rem 0}.sg-journey p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.63)}.sg-journey small{margin-top:auto;padding-top:2rem;color:var(--earth);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.sg-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink)}
+.sg-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.sg-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.sg-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.sg-compose__panel{padding:clamp(3rem,5vw,5rem)}.sg-q{margin-bottom:2rem}.sg-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.sg-opts{display:flex;gap:.55rem;flex-wrap:wrap}.sg-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.sg-opts button.active{background:var(--bone);color:var(--ink)}
+.sg-result{border-top:1px solid var(--rule);padding-top:1.5rem}.sg-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.sg-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.sg-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.sg-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.sg-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.sg-explore a:last-child{border-right:0}.sg-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.sg-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1050px){.sg-hero,.sg-thesis,.sg-region-layout,.sg-season-panel,.sg-planning,.sg-compose{grid-template-columns:1fr}.sg-hero__aside{justify-self:start}.sg-thesis__copy,.sg-planning__copy,.sg-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.sg-regions__head,.sg-seasons__head,.sg-journeys__head{grid-template-columns:1fr;gap:1.2rem}.sg-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.sg-plan-grid{grid-template-columns:1fr 1fr}.sg-journey-grid{grid-template-columns:1fr}.sg-explore{grid-template-columns:1fr 1fr}.sg-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.sg-hero{min-height:90vh}.sg-strip{grid-template-columns:1fr 1fr}.sg-strip__item:nth-child(2n){border-right:0}.sg-thesis__grid,.sg-region-stats,.sg-region-grid,.sg-plan-grid,.sg-access{grid-template-columns:1fr}.sg-thesis__item{border-right:0}.sg-explore{grid-template-columns:1fr}.sg-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -522,80 +569,75 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="sg-page" id="main-content">
+<section class="sg-hero">
+  <div class="sg-hero__img" aria-hidden="true"></div><div class="sg-hero__veil"></div>
+  <div class="sg-hero__copy">
+    <p class="sg-eye">Serengeti · ecosystem intelligence</p>
+    <h1>A year in <em>motion.</em></h1>
+    <p class="sg-hero__lede">The Serengeti is not one wildlife destination. Southern short-grass plains, central river valleys, the Western Corridor, the northern Mara landscape and the eastern predator country all behave differently through the year. The right Serengeti begins with your month, your available nights and what you actually want to watch.</p>
+  </div>
+  <aside class="sg-hero__aside"><div><span class="sg-eye">Planning principle</span><section><strong>Do not chase a photograph.</strong><p>Migration positioning matters, but a good Serengeti journey must still work if the herds shift, the rain arrives early or no river crossing happens.</p></section></div></aside>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/serengeti.jpg" alt="Serengeti, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Siringet</p>
-    <p class="d-eyebrow">The endless plain</p>
-    <h1 class="d-title">The Serengeti is not one place.<br><em>It is a year in motion.</em></h1>
-    <p class="d-lede">Most people arrive expecting a destination. What they find is a system &mdash; grass, rain, and close to two million animals following both. Understanding that is the difference between seeing the Serengeti and understanding it.</p>
+<section class="sg-strip">
+  <div class="sg-strip__item"><span>Park area</span><strong>14,763 km²</strong></div>
+  <div class="sg-strip__item"><span>Planning regions</span><strong>5 distinct Serengeti contexts</strong></div>
+  <div class="sg-strip__item"><span>Wildlife value</span><strong>Year-round, not migration-only</strong></div>
+  <div class="sg-strip__item"><span>Strong stay</span><strong>3–5 nights depending on route</strong></div>
+</section>
+
+<section class="sg-thesis">
+  <div class="sg-thesis__copy"><p class="sg-kicker">What changes when you plan properly</p><h2>The name stays the same. The safari does not.</h2><p>Premium Serengeti planning is mostly a positioning problem: where you sleep determines which landscape you can reach in the best hours, how much time is lost in transfer, and whether you are watching resident wildlife or waiting for seasonal movement.</p></div>
+  <div class="sg-thesis__grid">
+    <div class="sg-thesis__item"><span class="sg-kicker">01 · Region</span><strong>Choose the right part of the ecosystem.</strong><p>South, central, west, north and east are not interchangeable bases.</p></div>
+    <div class="sg-thesis__item"><span class="sg-kicker">02 · Season</span><strong>Use migration as probability, not timetable.</strong><p>Rainfall and grazing drive movement. Calendar windows help position a trip; they cannot guarantee exact herd location.</p></div>
+    <div class="sg-thesis__item"><span class="sg-kicker">03 · Camp</span><strong>Permanent and seasonal camps solve different problems.</strong><p>Mobile camps can follow seasonal movement; permanent camps can anchor strong resident wildlife and regional depth.</p></div>
+    <div class="sg-thesis__item"><span class="sg-kicker">04 · Time</span><strong>One region well can beat two regions rushed.</strong><p>The best wildlife hours are early and late. Constant repositioning can erase the advantage of covering more ground.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">What it actually is</p>
-    <h2 class="d-sec-title reveal">A plain that behaves like weather.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The Serengeti covers close to fifteen thousand square kilometres, and it is not uniform. The south is short-grass plain, open and treeless, where the wildebeest calve. The centre holds the rivers and the resident predators. The west runs as a corridor toward the lake. The north is broken country &mdash; kopjes and woodland &mdash; where the river crossings happen.</p>
-    <p class="d-p reveal">These are effectively different places with different seasons. <strong>A journey planned for the wrong region in the wrong month is the most common way a Serengeti trip disappoints</strong>, and it happens constantly, because a great many itineraries are sold on the name rather than composed around the calendar.</p>
-  </section>
+<section class="sg-regions" id="regions">
+  <div class="sg-regions__head"><div><p class="sg-kicker">Phase 2 · Region intelligence</p><h2>Five Serengetis inside one ecosystem.</h2></div><p>Select a region to see its strongest window, migration role, resident wildlife value, crowd profile and the trade-off Enkiama would explain before recommending it.</p></div>
+  <div class="sg-region-layout"><div class="sg-region-nav" id="sgRegionNav"></div><article class="sg-region-panel" id="sgRegionPanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The migration, honestly</p>
-    <h2 class="d-sec-title reveal">It is not an event. It is a circle that never stops.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The migration is usually sold as a single spectacle: the crossing, the leap, the crocodile. That moment is real and it is extraordinary. It is also perhaps three weeks of a twelve-month cycle, in one part of an enormous ecosystem, and nobody can promise you the day.</p>
-    <p class="d-p reveal">What we can do is tell you where the herds are most likely to be in your month and compose around it &mdash; while being clear that this is wildlife, not a timetable. <strong>Anyone who guarantees you a crossing is selling you something they do not control.</strong></p>
-    <p class="d-p reveal">The calving season on the southern plains, from late January into March, is in some ways the greater privilege: hundreds of thousands of births in a few weeks, and every predator on the plain drawn toward them. Fewer people ask for it, because it is less famous.</p>
-  </section>
+<section class="sg-seasons" id="season">
+  <div class="sg-seasons__head"><div><p class="sg-kicker">Seasonal movement</p><h2>Five windows, none of them a guarantee.</h2></div><p>The migration is a response to rain, grass and water across the wider Serengeti-Mara ecosystem. The calendar is useful only if it remains flexible enough to respect that.</p></div>
+  <div class="sg-season-tabs" id="sgSeasonTabs"></div>
+  <div class="sg-season-panel" id="sgSeasonPanel"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">When to go</p>
-    <h2 class="d-sec-title reveal">Every month gives something. None gives everything.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal"><strong>January to March</strong> &mdash; calving in the south. Green plains, dramatic predator activity, fewer vehicles.<br><strong>April to May</strong> &mdash; the long rains. Quiet, lush, awkward in places, and the best value of the year for anyone who does not mind weather.<br><strong>June to July</strong> &mdash; the herds move north and west, the dry season begins.<br><strong>August to October</strong> &mdash; the northern Serengeti and the crossings. The busiest and most expensive months, for good reason.<br><strong>November to December</strong> &mdash; short rains, the herds returning south. An underrated window.</p>
-  </section>
+<section class="sg-planning">
+  <div class="sg-planning__copy"><p class="sg-kicker">Stay & access logic</p><h2>Time on the plain is the scarce resource.</h2><p>The expensive mistake is often not the camp rate. It is losing the best wildlife hours to unnecessary movement. Stay length and access should therefore be designed together.</p></div>
+  <div class="sg-planning__body"><div class="sg-plan-grid" id="sgStayGrid"></div><div class="sg-access" id="sgAccess"></div></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">How we compose it</p>
-    <h2 class="d-sec-title reveal">Slowly, and in the right part of it.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">We would rather place you in one well-chosen region for four nights than move you three times in five. The Serengeti punishes hurry: the best hours are early and late, and a morning spent driving between camps is a morning not spent watching.</p>
-    <p class="d-p reveal">We also plan around where the vehicles are not. The central areas are superb and heavily visited; the north and the far south keep their quiet. Where your season allows, we will steer you toward the emptier ground and tell you plainly what you trade for it.</p>
-  </section>
+<section class="sg-journeys">
+  <div class="sg-journeys__head"><div><p class="sg-kicker">Phase 3 · Operated evidence</p><h2>How Serengeti has already sat inside Enkiama journeys.</h2></div><p>These are not generic sample itineraries. They show three different roles Serengeti has already played: a slower wildlife chapter, the centre of a couple’s journey, and one part of a broader first Tanzania experience.</p></div>
+  <div class="sg-journey-grid" id="sgJourneys"></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">When is the best time to visit the Serengeti?</p><p class="d-faq-a">There is no single best month. Calving season from late January to March gives dramatic predator activity in the southern plains with fewer vehicles. June to October brings the dry season and the northern river crossings, along with the largest crowds. April and May are quiet, green and considerably better value. We advise on the month around what you actually want to see.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Can you guarantee I will see a river crossing?</p><p class="d-faq-a">No, and anyone who does is being dishonest. Crossings depend on rain, grass and the herds own decisions. We can tell you where they are most likely to be in your month and position you well, but wildlife is not a schedule.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">How many days do I need in the Serengeti?</p><p class="d-faq-a">A minimum of three nights, and four is better. The ecosystem is vast and the best viewing is at the edges of the day, so arriving and leaving on consecutive days wastes most of what you came for.</p></div>
-</div>
+<section class="sg-compose" id="serengeti-composer">
+  <div class="sg-compose__copy"><p class="sg-kicker">Phase 4 · Serengeti composer</p><h2>Which Serengeti should you actually plan for?</h2><p>The result is a first planning direction, not a wildlife promise. It combines travel period, available nights, priority and tolerance for busier sightings.</p></div>
+  <div class="sg-compose__panel">
+    <div class="sg-q" data-k="period"><label>When are you travelling?</label><div class="sg-opts"><button data-v="jan-mar">Jan–Mar</button><button data-v="apr-may">Apr–May</button><button data-v="jun">June</button><button data-v="jul-oct">Jul–Oct</button><button data-v="nov-dec">Nov–Dec</button></div></div>
+    <div class="sg-q" data-k="nights"><label>How many Serengeti nights?</label><div class="sg-opts"><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5+</button></div></div>
+    <div class="sg-q" data-k="priority"><label>What matters most?</label><div class="sg-opts"><button data-v="migration">Migration positioning</button><button data-v="predators">Predators</button><button data-v="quiet">Space &amp; quieter sightings</button><button data-v="balanced">Broad first safari</button></div></div>
+    <div class="sg-q" data-k="crowds"><label>How do you feel about busy sightings?</label><div class="sg-opts"><button data-v="fine">Fine if wildlife is strong</button><button data-v="some">Prefer less traffic</button><button data-v="avoid">Avoid when possible</button></div></div>
+    <div class="sg-result" id="sgResult"><span class="sg-kicker">First direction</span><h3>Answer the four questions.</h3><p>We will suggest a region and stay strategy.</p></div>
+  </div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="ngorongoro.html">Ngorongoro</a><a href="tarangire.html">Tarangire</a><a href="zanzibar.html">Zanzibar</a></div>
-</div>
+<section class="sg-explore">
+  <a href="great-rift.html"><span>Approach from the north-east</span><strong>Great Rift &amp; Natron →</strong></a>
+  <a href="ngorongoro.html"><span>Highlands</span><strong>Ngorongoro →</strong></a>
+  <a href="tarangire.html"><span>Different wildlife rhythm</span><strong>Tarangire →</strong></a>
+  <a href="zanzibar.html"><span>Change of pace</span><strong>Zanzibar →</strong></a>
+</section>
+</main>
+<script src="assets/js/serengeti-system.js" defer></script>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Serengeti belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
-
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
@@ -664,139 +706,7 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
 
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
-    mix-blend-mode:difference;will-change:transform;}
-  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>

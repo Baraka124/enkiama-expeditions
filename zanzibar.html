@@ -179,6 +179,54 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="zanzibar-system-v1">
+.zz-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.zz-hero{position:relative;min-height:94vh;display:grid;grid-template-columns:1.08fr .92fr;align-items:end;overflow:hidden;background:#101713}
+.zz-hero__img{position:absolute;inset:0;background:url('assets/images/zanzibar.jpg') center 54%/cover no-repeat;filter:saturate(.96) contrast(1.02)}
+.zz-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.93) 0%,rgba(8,12,9,.58) 42%,rgba(8,12,9,.13) 72%,rgba(8,12,9,.30)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.72))}
+.zz-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6.5rem);max-width:930px}
+.zz-eye,.zz-kicker,.zz-zone__type,.zz-season__label,.zz-fit__label,.zz-journey__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.zz-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.6vw,110px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:8.8ch;margin:.9rem 0 1.6rem}
+.zz-hero h1 em{font-style:italic;color:#8ea17e}.zz-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:58ch;color:rgba(237,230,214,.82)}
+.zz-hero__aside{position:relative;z-index:2;padding:0 clamp(1.5rem,4vw,4rem) clamp(4.5rem,8vh,6.5rem);justify-self:end;width:min(100%,470px)}
+.zz-hero__aside>div{border-top:1px solid rgba(237,230,214,.22);padding-top:1rem;display:grid;grid-template-columns:92px 1fr;gap:1.3rem}
+.zz-hero__aside strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.28}.zz-hero__aside p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62);margin-top:.55rem}
+.zz-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}
+.zz-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.zz-strip__item:last-child{border-right:0}
+.zz-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.zz-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.zz-thesis{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink2)}
+.zz-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.zz-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.zz-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.zz-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.zz-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.zz-thesis__item:nth-child(2n){border-right:0}.zz-thesis__item:nth-last-child(-n+2){border-bottom:0}.zz-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.zz-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.zz-zones{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.zz-zones__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.zz-zones__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.97;max-width:10ch}.zz-zones__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.zz-zone-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}
+.zz-zone-nav{background:#dcd3c0;padding:1rem}.zz-zone{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.zz-zone:last-child{border-bottom:0}.zz-zone.active{background:rgba(85,107,68,.1)}
+.zz-zone__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.zz-zone__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.zz-zone__use{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.zz-zone__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.zz-zone-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:640px;display:flex;flex-direction:column}.zz-zone-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.zz-zone-panel__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.zz-zone-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.zz-zone-stat{background:var(--bone2);padding:1.1rem}.zz-zone-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.zz-zone-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.zz-zone-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.zz-zone-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.zz-zone-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}
+.zz-seasons{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}
+.zz-seasons__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.zz-seasons__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.zz-seasons__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:54ch}
+.zz-season-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.3rem}.zz-season-tabs button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .9rem;font:inherit;font-size:10px;cursor:pointer}.zz-season-tabs button.active{background:var(--bone);color:var(--ink)}
+.zz-season-panel{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--rule)}.zz-season-panel__left,.zz-season-panel__right{padding:clamp(2.5rem,4vw,4rem)}.zz-season-panel__left{border-right:1px solid var(--rule)}.zz-season-panel h3{font-family:'Fraunces',serif;font-size:clamp(38px,4.5vw,60px);font-weight:300;line-height:.98;margin:.7rem 0}.zz-season-panel p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.66)}
+.zz-depth{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--bone2);color:var(--ink)}
+.zz-depth__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.zz-depth__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.zz-depth__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.zz-depth__body{padding:clamp(3rem,5vw,5rem)}.zz-stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.zz-stay-card{background:var(--bone2);padding:1.5rem}.zz-stay-card span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.zz-stay-card strong{display:block;font-family:'Fraunces',serif;font-size:23px;font-weight:300;margin:.7rem 0}.zz-stay-card p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62)}
+.zz-activities{margin-top:2.2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(15,23,18,.12)}.zz-activities article{background:var(--bone2);padding:1.45rem}.zz-activities strong{font-family:'Fraunces',serif;font-size:20px;font-weight:300}.zz-activities p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62);margin-top:.6rem}
+.zz-fit{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}
+.zz-fit__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.zz-fit__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.zz-fit__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.zz-fit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.zz-fit-card{padding:1.8rem;background:var(--ink2);min-height:300px;display:flex;flex-direction:column}.zz-fit-card strong{font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1.08;margin:.8rem 0}.zz-fit-card p{font-size:11.5px;line-height:1.7;color:rgba(237,230,214,.62)}.zz-fit-card small{margin-top:auto;padding-top:1.5rem;color:var(--earth);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.zz-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.zz-routes__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.zz-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.zz-routes__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.65);max-width:53ch}
+.zz-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.zz-route{padding:2rem;background:var(--bone2);min-height:350px;display:flex;flex-direction:column}.zz-route h3{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.8rem 0}.zz-route p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}.zz-route ol{margin:1.2rem 0 0 1rem;font-size:11px;line-height:1.8;color:rgba(15,23,18,.66)}.zz-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#75603f}
+.zz-journey{display:grid;grid-template-columns:1.04fr .96fr;background:var(--ink);color:var(--bone)}.zz-journey__media{min-height:620px;background:url('assets/images/fatima-stonetown.jpg') center/cover no-repeat;position:relative}.zz-journey__media:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.04),rgba(8,12,9,.45))}.zz-journey__copy{padding:clamp(4.5rem,7vw,7rem);display:flex;flex-direction:column;justify-content:center}.zz-journey__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;margin:.8rem 0 1.3rem;max-width:10ch}.zz-journey__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.67);max-width:50ch}.zz-journey__copy a{margin-top:1.6rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.zz-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink2)}.zz-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.zz-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.zz-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.zz-compose__panel{padding:clamp(3rem,5vw,5rem)}.zz-q{margin-bottom:2rem}.zz-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.zz-opts{display:flex;gap:.55rem;flex-wrap:wrap}.zz-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.zz-opts button.active{background:var(--bone);color:var(--ink)}
+.zz-result{border-top:1px solid var(--rule);padding-top:1.5rem}.zz-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.zz-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.zz-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.zz-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.zz-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.zz-explore a:last-child{border-right:0}.zz-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.zz-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1100px){.zz-hero,.zz-thesis,.zz-zone-layout,.zz-season-panel,.zz-depth,.zz-journey,.zz-compose{grid-template-columns:1fr}.zz-hero__aside{justify-self:start}.zz-thesis__copy,.zz-depth__copy,.zz-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.zz-zones__head,.zz-seasons__head,.zz-fit__head,.zz-routes__head{grid-template-columns:1fr;gap:1.2rem}.zz-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.zz-stay-grid{grid-template-columns:1fr 1fr}.zz-activities,.zz-fit-grid{grid-template-columns:1fr 1fr}.zz-route-grid{grid-template-columns:1fr}.zz-explore{grid-template-columns:1fr 1fr}.zz-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.zz-hero{min-height:90vh}.zz-strip{grid-template-columns:1fr 1fr}.zz-strip__item:nth-child(2n){border-right:0}.zz-thesis__grid,.zz-zone-stats,.zz-zone-grid,.zz-stay-grid,.zz-activities,.zz-fit-grid{grid-template-columns:1fr}.zz-thesis__item{border-right:0}.zz-explore{grid-template-columns:1fr}.zz-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -514,71 +562,85 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="zz-page" id="main-content">
+<section class="zz-hero">
+  <div class="zz-hero__img" aria-hidden="true"></div><div class="zz-hero__veil"></div>
+  <div class="zz-hero__copy">
+    <p class="zz-eye">Zanzibar · Indian Ocean</p>
+    <h1>One island. <em>Several coasts.</em></h1>
+    <p class="zz-hero__lede">Zanzibar changes materially depending on where you stay. Stone Town is urban and historical. The north is easier for swimming. The north-east is reef-oriented and quieter. The east and south-east are tide-led. The south-west can be slower and lower-density. “Zanzibar” is therefore not enough information to choose a beach.</p>
+  </div>
+  <aside class="zz-hero__aside"><div><span class="zz-eye">Planning principle</span><section><strong>Choose the coast before the hotel.</strong><p>Swimming, tides, diving, nightlife, quiet and transfer load are coast-level decisions first. Property selection comes afterwards.</p></section></div></aside>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/zanzibar.jpg" alt="Zanzibar, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Pwani</p>
-    <p class="d-eyebrow">The coast</p>
-    <h1 class="d-title">The exhale<br><em>after the plain.</em></h1>
-    <p class="d-lede">Most journeys end here, and there is a reason. After days of early mornings and long light, the coast asks nothing of you. But Zanzibar is a place with its own history, not merely a beach at the end of a safari.</p>
+<section class="zz-strip">
+  <div class="zz-strip__item"><span>Urban layer</span><strong>Stone Town</strong></div>
+  <div class="zz-strip__item"><span>Swimming</span><strong>North generally easiest</strong></div>
+  <div class="zz-strip__item"><span>Tide-led coast</span><strong>East / south-east</strong></div>
+  <div class="zz-strip__item"><span>Strong stay</span><strong>4 nights as general default</strong></div>
+</section>
+
+<section class="zz-thesis">
+  <div class="zz-thesis__copy"><p class="zz-kicker">What changes when the island is planned properly</p><h2>The coast is a product decision.</h2><p>Beach appearance alone is not enough. The right Zanzibar depends on when you want to swim, how much tide movement you enjoy, whether marine activities matter, and whether the coast is recovery or a destination in its own right.</p></div>
+  <div class="zz-thesis__grid">
+    <div class="zz-thesis__item"><span class="zz-kicker">01 · Urban</span><strong>Stone Town deserves its own rhythm.</strong><p>History, architecture, food and evening life should not be compressed into a token excursion.</p></div>
+    <div class="zz-thesis__item"><span class="zz-kicker">02 · Tide</span><strong>The shoreline changes the day.</strong><p>On the east and south-east, low tide can transform swimming, walking and reef-flat access completely.</p></div>
+    <div class="zz-thesis__item"><span class="zz-kicker">03 · Marine</span><strong>Reef access matters more than brochure water colour.</strong><p>Diving and snorkeling quality depends on actual operator, site, sea state and coast.</p></div>
+    <div class="zz-thesis__item"><span class="zz-kicker">04 · Recovery</span><strong>Not every safari needs an active coast.</strong><p>Sometimes the best Zanzibar plan is the one with fewer transfers and fewer scheduled activities.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">More than a beach</p>
-    <h2 class="d-sec-title reveal">An island with a long memory.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Zanzibar sat at the centre of Indian Ocean trade for centuries &mdash; Persian, Omani, Indian and African influences layered into its architecture, language and food. <strong>Treating it purely as a beach is like treating Venice as a boat ride.</strong></p>
-    <p class="d-p reveal">Stone Town, the spice farms, the fishing villages and the reef each hold something entirely separate from the mainland experience, and we will usually suggest at least one day that is not spent horizontal.</p>
-  </section>
+<section class="zz-zones" id="zones">
+  <div class="zz-zones__head"><div><p class="zz-kicker">Island intelligence</p><h2>Five different Zanzibar experiences.</h2></div><p>Select a zone to see swimming, tides, atmosphere, best fit and the trade-off. This is the decision that should happen before choosing a hotel.</p></div>
+  <div class="zz-zone-layout"><div class="zz-zone-nav" id="zzZoneNav"></div><article class="zz-zone-panel" id="zzZonePanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Choosing where</p>
-    <h2 class="d-sec-title reveal">The island is not uniform.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The east coast has the finest sand and the most dramatic tides. The north stays swimmable throughout the tidal cycle and is busier. The south and west are quieter, better for sunsets, less good for swimming.</p>
-    <p class="d-p reveal">This is a practical matter that materially affects a stay, and it is regularly glossed over. <strong>We will ask what you actually want from the days &mdash; swimming, quiet, diving, or somewhere to do nothing &mdash; and place you accordingly.</strong></p>
-  </section>
+<section class="zz-seasons" id="season">
+  <div class="zz-seasons__head"><div><p class="zz-kicker">Seasonal system</p><h2>The coast has its own calendar.</h2></div><p>Mainland safari season is not the only variable. Heat, humidity, rain, wind, marine conditions, property closures and festive demand all change the island experience.</p></div>
+  <div class="zz-season-tabs" id="zzSeasonTabs"></div>
+  <div class="zz-season-panel" id="zzSeasonPanel"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">When to go</p>
-    <h2 class="d-sec-title reveal">The coast has its own calendar.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The long rains, roughly April into May, are genuinely wet here and many properties close. December to February is hot and clear. June to October is dry and pleasant, coinciding neatly with the mainland dry season.</p>
-    <p class="d-p reveal">We plan the coast around the safari, not the other way round &mdash; but we will tell you if your dates make the island a poor ending and suggest an alternative.</p>
-  </section>
+<section class="zz-depth">
+  <div class="zz-depth__copy"><p class="zz-kicker">Stay & activities</p><h2>How much island should follow the safari?</h2><p>Two nights can finish a trip. Four nights can change its rhythm. Five to seven nights can make Zanzibar its own destination instead of an appendix.</p></div>
+  <div class="zz-depth__body"><div class="zz-stay-grid" id="zzStayGrid"></div><div class="zz-activities" id="zzActivities"></div></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">How many days should I spend in Zanzibar after a safari?</p><p class="d-faq-a">Three to four nights suits most travellers. Fewer feels rushed after an early-morning safari rhythm; more suits those who genuinely want to stop.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Which part of Zanzibar is best?</p><p class="d-faq-a">It depends on what you want. The east has the best sand but dramatic tides; the north stays swimmable throughout; the south and west are quieter. We ask what you want from the days before suggesting where to stay.</p></div>
-</div>
+<section class="zz-fit">
+  <div class="zz-fit__head"><div><p class="zz-kicker">Traveller fit</p><h2>The same island solves different problems.</h2></div><p>Recovery, honeymoon, family travel, diving and culture-first journeys should not all be sent to the same part of Zanzibar.</p></div>
+  <div class="zz-fit-grid" id="zzFitGrid"></div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="stonetown.html">Stone Town</a><a href="serengeti.html">Serengeti</a><a href="nyerere.html">Nyerere</a></div>
-</div>
+<section class="zz-routes">
+  <div class="zz-routes__head"><div><p class="zz-kicker">Island composition</p><h2>Three strong ways to shape Zanzibar.</h2></div><p>Stone Town is valuable, but it does not need to be forced into every trip. Likewise, beach-only is legitimate when recovery is the actual priority.</p></div>
+  <div class="zz-route-grid" id="zzRoutes"></div>
+</section>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Zanzibar belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
+<section class="zz-journey">
+  <div class="zz-journey__media" aria-hidden="true"></div>
+  <div class="zz-journey__copy"><span class="zz-journey__label">Operated · couple</span><h2>History before the beach.</h2><p>In the operated couple journey, Zanzibar began in Stone Town and then moved north to Nungwi. The urban chapter came first; the final days were deliberately easier—sea, rest and a beach where swimming was less disrupted by tidal range.</p><a href="trip.html?slug=couple-northern-tanzania-zanzibar">Open the operated journey →</a></div>
+</section>
 
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
+<section class="zz-compose" id="zanzibar-composer">
+  <div class="zz-compose__copy"><p class="zz-kicker">Zanzibar composer</p><h2>Which Zanzibar actually fits the way you want to end?</h2><p>The result combines swimming priority, tide tolerance, desired atmosphere and available nights. It can recommend Stone Town + beach, a single coast, or skipping Stone Town when recovery matters more.</p></div>
+  <div class="zz-compose__panel">
+    <div class="zz-q" data-k="swim"><label>How important is easy swimming?</label><div class="zz-opts"><button data-v="high">Very</button><button data-v="some">Somewhat</button><button data-v="low">Not central</button></div></div>
+    <div class="zz-q" data-k="tide"><label>How do you feel about dramatic tides?</label><div class="zz-opts"><button data-v="avoid">Prefer not</button><button data-v="fine">Fine</button><button data-v="love">I like that rhythm</button></div></div>
+    <div class="zz-q" data-k="vibe"><label>What matters most?</label><div class="zz-opts"><button data-v="quiet">Quiet</button><button data-v="social">Social / restaurants</button><button data-v="marine">Diving / snorkeling</button><button data-v="culture">History / food</button></div></div>
+    <div class="zz-q" data-k="nights"><label>How many Zanzibar nights?</label><div class="zz-opts"><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5+</button></div></div>
+    <div class="zz-result" id="zzResult"><span class="zz-kicker">First direction</span><h3>Answer the four questions.</h3><p>We will suggest the coast and whether Stone Town earns a place.</p></div>
+  </div>
+</section>
+
+<section class="zz-explore">
+  <a href="stonetown.html"><span>Urban chapter</span><strong>Stone Town →</strong></a>
+  <a href="nyerere.html"><span>Southern safari</span><strong>Nyerere →</strong></a>
+  <a href="serengeti.html"><span>Northern safari</span><strong>Serengeti →</strong></a>
+  <a href="compose.html"><span>Whole journey</span><strong>Compose →</strong></a>
+</section>
+</main>
+<script src="assets/js/zanzibar-system.js" defer></script>
+
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
@@ -647,139 +709,7 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
 
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
-    mix-blend-mode:difference;will-change:transform;}
-  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>

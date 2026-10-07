@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "zanzibar",
+  "title": "Zanzibar island system",
+  "framing": "Zanzibar is not one beach. Stone Town, the north, north-east, east/south-east and south-west each produce different combinations of history, swimming, tides, reefs, nightlife, quiet and onward travel.",
+  "reference_facts": {
+    "stone_town_unesco": true,
+    "island_note": "The main island of Unguja combines a UNESCO-listed historic city, reef-fringed coasts, tidal flats, fishing villages, resorts and agricultural landscapes.",
+    "tide_note": "Tidal range strongly affects many east and south-east beaches; northern beaches such as Nungwi/Kendwa are generally less disrupted for swimming.",
+    "season_note": "June–October is generally drier/cooler; January–February is hotter and relatively dry; the long rains are typically concentrated around March–May with shorter rains often around November.",
+    "heritage_note": "Stone Town's urban fabric reflects long African, Arab, Indian and European interaction through Indian Ocean trade."
+  },
+  "zones": [
+    {
+      "slug": "stone-town-west",
+      "name": "Stone Town & west",
+      "role": "urban / history / first-night context",
+      "strongest_use": "1–2 nights before or after the beach",
+      "summary": "Historic streets, seafront, markets, architecture and food create a completely different Zanzibar from the beach resorts.",
+      "swimming": "Not the island's strongest beach base; the value is urban and cultural.",
+      "tides": "Tides matter less to the experience than on the east coast.",
+      "atmosphere": "Dense, walkable, social and historically layered.",
+      "best_for": [
+        "history",
+        "food",
+        "architecture",
+        "first night",
+        "short city stay"
+      ],
+      "tradeoff": "Heat, traffic and urban intensity make it a poor substitute for beach recovery."
+    },
+    {
+      "slug": "north",
+      "name": "North · Nungwi / Kendwa",
+      "role": "swimming / social beach",
+      "strongest_use": "Travellers prioritising easy swimming",
+      "summary": "Northern beaches are among the easiest places on the island for swimming through more of the tidal cycle, with stronger resort and nightlife infrastructure.",
+      "swimming": "One of the island's strongest swimming areas.",
+      "tides": "Less disruptive than many east-coast beaches, though tides still exist.",
+      "atmosphere": "More social, busier and more developed.",
+      "best_for": [
+        "swimming",
+        "couples",
+        "social atmosphere",
+        "short beach stays"
+      ],
+      "tradeoff": "Less quiet and less village-scale than many east/south-east locations."
+    },
+    {
+      "slug": "north-east",
+      "name": "North-east · Matemwe / Mnemba-facing coast",
+      "role": "reef / diving / quieter coast",
+      "strongest_use": "Diving, snorkeling and quieter beach time",
+      "summary": "The north-east combines long beaches with access toward the Mnemba reef system and a generally quieter atmosphere than Nungwi.",
+      "swimming": "Good in suitable tidal windows, but more tide-dependent than the north.",
+      "tides": "Meaningful; daily timing affects beach and water use.",
+      "atmosphere": "Quieter, more spacious and reef-oriented.",
+      "best_for": [
+        "diving",
+        "snorkeling",
+        "quiet",
+        "couples"
+      ],
+      "tradeoff": "Travellers wanting all-day easy swimming may prefer the north."
+    },
+    {
+      "slug": "east-southeast",
+      "name": "East & south-east · Paje / Jambiani / Bwejuu",
+      "role": "tides / wind / village-coast rhythm",
+      "strongest_use": "Long beach days, kitesurfing, slower stays",
+      "summary": "Broad pale beaches and dramatic tidal movement define much of the east and south-east coast.",
+      "swimming": "Excellent at the right tide, but shallow reef flats can make low tide a completely different experience.",
+      "tides": "A central part of the day rather than a minor detail.",
+      "atmosphere": "Long, open, active and increasingly social around Paje; quieter farther south or in smaller villages.",
+      "best_for": [
+        "kitesurfing",
+        "long walks",
+        "tide-aware beach stays",
+        "village context"
+      ],
+      "tradeoff": "Not ideal for travellers expecting deep-water swimming directly in front of the hotel all day."
+    },
+    {
+      "slug": "south-southwest",
+      "name": "South & south-west",
+      "role": "quiet / sunsets / lower-density coast",
+      "strongest_use": "Slow stays away from the busiest resort zones",
+      "summary": "Southern and south-western areas offer quieter coastal rhythms, mangrove/lagoon environments in places, fishing communities and west-facing sunset possibilities.",
+      "swimming": "Highly location-specific; some areas are less straightforward for classic beach swimming.",
+      "tides": "Can be significant depending on the exact bay or shoreline.",
+      "atmosphere": "Lower-density and quieter.",
+      "best_for": [
+        "quiet",
+        "sunsets",
+        "slow travel",
+        "repeat Zanzibar"
+      ],
+      "tradeoff": "Less convenient for travellers prioritising resort variety or guaranteed easy swimming."
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "key": "jan-feb",
+      "months": "Jan–Feb",
+      "climate": "Hot, relatively dry and bright.",
+      "planning_note": "Strong for beach and diving, but heat and humidity are more pronounced."
+    },
+    {
+      "key": "mar-may",
+      "months": "Mar–May",
+      "climate": "Long-rains period with heavier showers and more unsettled conditions.",
+      "planning_note": "Some properties or marine operators may reduce operations or close; confirm actual availability."
+    },
+    {
+      "key": "jun-aug",
+      "months": "Jun–Aug",
+      "climate": "Drier, cooler and breezier.",
+      "planning_note": "One of the easiest periods to combine with mainland dry-season safari."
+    },
+    {
+      "key": "sep-oct",
+      "months": "Sep–Oct",
+      "climate": "Warm, generally dry and increasingly hot toward October.",
+      "planning_note": "Strong all-round coast period; marine conditions still vary by day and coast."
+    },
+    {
+      "key": "nov",
+      "months": "November",
+      "climate": "Short-rain period can bring intermittent showers.",
+      "planning_note": "Often still highly usable for beach travel, but weather is less predictable."
+    },
+    {
+      "key": "dec",
+      "months": "December",
+      "climate": "Warmer festive-season conditions with mixed but often improving weather.",
+      "planning_note": "High-demand period; accommodation availability and pricing become major planning factors."
+    }
+  ],
+  "stay_logic": [
+    {
+      "nights": "2 nights",
+      "stance": "compressed",
+      "note": "Enough for either Stone Town or beach, but not both without rushing."
+    },
+    {
+      "nights": "3 nights",
+      "stance": "good minimum",
+      "note": "Works for a single beach base after safari or a short Stone Town + beach split."
+    },
+    {
+      "nights": "4 nights",
+      "stance": "preferred",
+      "note": "The strongest general default for safari recovery plus one layer of island context."
+    },
+    {
+      "nights": "5–7 nights",
+      "stance": "deep coast",
+      "note": "Makes two coastal contexts, diving, slower beach rhythm or Stone Town + beach feel deliberate rather than appended."
+    }
+  ],
+  "activities": [
+    {
+      "name": "Swimming",
+      "status": "zone-dependent",
+      "note": "Best matched by coast; north is generally easier for all-day swimming, while east/south-east is more tide-led."
+    },
+    {
+      "name": "Diving / snorkeling",
+      "status": "conditional",
+      "note": "Strong around reef systems, but visibility, sea state, certification and operator quality matter."
+    },
+    {
+      "name": "Kitesurfing",
+      "status": "season / coast dependent",
+      "note": "Especially associated with east/south-east areas such as Paje; wind conditions vary seasonally."
+    },
+    {
+      "name": "Stone Town",
+      "status": "core cultural layer",
+      "note": "Best treated as its own urban chapter rather than a half-day excursion from a distant beach."
+    },
+    {
+      "name": "Spice / food / village context",
+      "status": "selective",
+      "note": "Useful when locally guided and specific; avoid turning the island into a checklist of staged stops."
+    }
+  ],
+  "traveller_fit": [
+    {
+      "type": "Safari recovery",
+      "fit": "excellent",
+      "note": "Works best when the coast is designed around the traveller's energy after safari rather than automatically adding activities."
+    },
+    {
+      "type": "Honeymoon / couple",
+      "fit": "excellent",
+      "note": "Strongest when the exact coast is chosen around swimming, quiet, food and privacy rather than generic luxury."
+    },
+    {
+      "type": "Family",
+      "fit": "strong with correct coast",
+      "note": "Swimming conditions, room setup, transfers and activity age limits matter more than island-level labels."
+    },
+    {
+      "type": "Diver / snorkeler",
+      "fit": "strong",
+      "note": "Choose coast and property around actual marine access rather than beach appearance alone."
+    },
+    {
+      "type": "Culture-first traveller",
+      "fit": "strong with Stone Town",
+      "note": "The island becomes much richer when Stone Town and Swahili/Indian Ocean history are treated as central rather than optional."
+    }
+  ],
+  "route_shapes": [
+    {
+      "slug": "stone-town-north",
+      "label": "Stone Town + north",
+      "sequence": [
+        "Stone Town",
+        "Nungwi / Kendwa",
+        "Departure"
+      ],
+      "best_for": [
+        "first Zanzibar",
+        "history + easy swimming",
+        "couples"
+      ],
+      "note": "A strong first-island shape when travellers want both urban context and straightforward swimming."
+    },
+    {
+      "slug": "stone-town-east",
+      "label": "Stone Town + east/south-east",
+      "sequence": [
+        "Stone Town",
+        "Paje / Jambiani / Bwejuu",
+        "Departure"
+      ],
+      "best_for": [
+        "history + long beach",
+        "kitesurfing",
+        "slower coast"
+      ],
+      "note": "Best when the traveller understands and welcomes tidal beach rhythm."
+    },
+    {
+      "slug": "safari-beach-only",
+      "label": "Safari → beach only",
+      "sequence": [
+        "Safari",
+        "Direct beach transfer",
+        "Departure"
+      ],
+      "best_for": [
+        "recovery",
+        "shorter journeys",
+        "travellers who already know Stone Town"
+      ],
+      "note": "Valid when rest is the priority; Stone Town should not be forced into every trip."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "couple-northern-tanzania-zanzibar",
+      "label": "Operated · couple",
+      "title": "History before the beach",
+      "insight": "The couple began Zanzibar in Stone Town, then moved north to Nungwi so the final days could become deliberately quieter and easier to swim.",
+      "href": "trip.html?slug=couple-northern-tanzania-zanzibar"
+    }
+  ],
+  "publication_rules": [
+    "Do not describe all Zanzibar beaches as equivalent.",
+    "Do not guarantee all-day swimming outside specific coast/property context.",
+    "Treat tides as a practical planning factor, especially on the east and south-east coast.",
+    "Do not guarantee marine visibility, dolphin encounters or specific reef wildlife.",
+    "Do not hard-code marine-transfer times or seasonal operator availability.",
+    "Keep Stone Town heritage distinct from generic 'spice island' marketing."
+  ]
+}

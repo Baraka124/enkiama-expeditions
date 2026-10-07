@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "tanzania",
+  "title": "Tanzania master discovery",
+  "systems": [
+    {
+      "slug": "mountain",
+      "label": "Mountain",
+      "headline": "Kilimanjaro & Meru",
+      "href": "kilimanjaro.html",
+      "months": "Year-round with seasonal trade-offs",
+      "best_for": [
+        "summit",
+        "active travel",
+        "acclimatisation"
+      ]
+    },
+    {
+      "slug": "north",
+      "label": "Northern wildlife",
+      "headline": "Serengeti · Ngorongoro · Tarangire · Manyara",
+      "href": "serengeti.html",
+      "months": "Year-round; ecology changes by month",
+      "best_for": [
+        "first safari",
+        "migration",
+        "wildlife diversity"
+      ]
+    },
+    {
+      "slug": "rift",
+      "label": "Rift corridor",
+      "headline": "Natron · Engaruka · volcanic highlands",
+      "href": "great-rift.html",
+      "months": "Route-dependent",
+      "best_for": [
+        "geology",
+        "road journey",
+        "culture",
+        "walking"
+      ]
+    },
+    {
+      "slug": "south",
+      "label": "Southern safari",
+      "headline": "Ruaha · Nyerere",
+      "href": "ruaha.html",
+      "months": "Dry season strongest for access/wildlife concentration",
+      "best_for": [
+        "repeat safari",
+        "walking",
+        "boating",
+        "space"
+      ]
+    },
+    {
+      "slug": "west",
+      "label": "Western expedition",
+      "headline": "Mahale · Lake Tanganyika",
+      "href": "mahale.html",
+      "months": "Access and trekking strongly seasonal",
+      "best_for": [
+        "chimpanzees",
+        "remote travel",
+        "forest",
+        "lake"
+      ]
+    },
+    {
+      "slug": "coast",
+      "label": "Coast & island",
+      "headline": "Zanzibar · Stone Town",
+      "href": "zanzibar.html",
+      "months": "Year-round with rain/wind/tide trade-offs",
+      "best_for": [
+        "recovery",
+        "Indian Ocean",
+        "history",
+        "diving"
+      ]
+    },
+    {
+      "slug": "people",
+      "label": "People & society",
+      "headline": "Culture as context, not attraction",
+      "href": "society-and-culture.html",
+      "months": "Part of the whole route",
+      "best_for": [
+        "history",
+        "language",
+        "local context",
+        "slower travel"
+      ]
+    }
+  ],
+  "decision_factors": [
+    "month",
+    "available_days",
+    "first_or_repeat",
+    "activity_mix",
+    "travel_tolerance",
+    "coast_or_not"
+  ],
+  "publication_rules": [
+    "Do not reduce Tanzania to the northern circuit.",
+    "Do not present seasonality as a single national best-time rule.",
+    "Do not imply remoteness automatically means luxury or exclusivity.",
+    "Route by traveller fit, not destination fame."
+  ]
+}

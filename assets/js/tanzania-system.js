@@ -1,0 +1,1 @@
+(function(){var data;fetch('data/tanzania.json').then(r=>r.json()).then(d=>{data=d;document.getElementById('tzSystems').innerHTML=d.systems.map(x=>'<a class="tz-card" href="'+x.href+'"><span>'+x.label+'</span><h3>'+x.headline+'</h3><p>'+x.best_for.join(' · ')+'</p><small>'+x.months+'</small></a>').join('')});})();

@@ -179,6 +179,48 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="arusha-system-v2">
+.ar-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.ar-hero{min-height:92vh;position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:end;overflow:hidden;background:var(--ink)}
+.ar-hero:before{content:"";position:absolute;inset:0;background:url('assets/images/arusha.jpg') center/cover no-repeat;transform:scale(1.01)}
+.ar-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.96) 0%,rgba(8,12,9,.68) 48%,rgba(8,12,9,.2) 78%),linear-gradient(180deg,rgba(8,12,9,.08),rgba(8,12,9,.72))}
+.ar-hero__copy{position:relative;z-index:2;padding:clamp(8rem,15vh,11rem) 5vw clamp(4.5rem,8vh,6rem);max-width:900px}
+.ar-hero__note{position:relative;z-index:2;align-self:end;margin:0 5vw 5rem auto;max-width:360px;border-top:1px solid rgba(237,230,214,.32);padding-top:1.1rem}
+.ar-hero__note strong{display:block;font-family:'Fraunces',serif;font-size:clamp(24px,2.6vw,36px);font-weight:300;line-height:1.12;margin:.65rem 0}
+.ar-hero__note p{font-size:11.5px;line-height:1.75;color:rgba(237,230,214,.68);max-width:36ch}
+.ar-eye,.ar-kicker{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.ar-hero h1,.ar-section h2,.ar-arrival h2{font-family:'Fraunces',serif;font-weight:300;letter-spacing:-.04em}
+.ar-hero h1{font-size:clamp(52px,6.7vw,96px);line-height:.92;max-width:9ch;margin:.8rem 0 1.5rem}
+.ar-hero h1 em{font-style:italic;color:#8ea17e}.ar-hero__copy>p{font-size:clamp(15px,1.35vw,18px);line-height:1.82;color:rgba(237,230,214,.8);max-width:58ch}
+.ar-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}
+.ar-strip div{padding:1.65rem clamp(1.2rem,2.6vw,2.2rem);border-right:1px solid rgba(15,23,18,.1)}.ar-strip div:last-child{border-right:0}
+.ar-strip span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ar-strip strong{display:block;font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-top:.45rem}
+.ar-arrival{display:grid;grid-template-columns:.68fr 1.32fr;background:var(--ink2)}
+.ar-arrival__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}
+.ar-arrival h2{font-size:clamp(40px,4.8vw,68px);line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}
+.ar-arrival__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64);max-width:48ch}
+.ar-arrival__steps{display:grid;grid-template-columns:1fr 1fr}
+.ar-step{padding:clamp(2.5rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.ar-step:nth-child(2n){border-right:0}.ar-step:nth-last-child(-n+2){border-bottom:0}
+.ar-step strong{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:300;line-height:1.12;margin:.8rem 0}.ar-step p{font-size:12px;line-height:1.75;color:rgba(237,230,214,.62)}
+.ar-section{padding:clamp(5rem,8vw,8rem) 5vw}.ar-section.light{background:var(--bone2);color:var(--ink)}
+.ar-head{display:grid;grid-template-columns:.62fr 1.38fr;gap:3rem;align-items:end;margin-bottom:2.7rem}.ar-section h2{font-size:clamp(40px,4.8vw,68px);line-height:.98}
+.ar-head p{font-size:13px;line-height:1.82;max-width:56ch;color:rgba(15,23,18,.65)}.ar-section:not(.light) .ar-head p{color:rgba(237,230,214,.62)}
+.ar-grid{display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid rgba(15,23,18,.14);border-bottom:1px solid rgba(15,23,18,.14)}
+.ar-card{grid-column:span 3;padding:2.2rem 1.8rem 2.5rem;min-height:280px;border-right:1px solid rgba(15,23,18,.12);background:transparent}
+.ar-card:first-child{grid-column:span 4}.ar-card:nth-child(2){grid-column:span 3}.ar-card:nth-child(3){grid-column:span 3}.ar-card:last-child{grid-column:span 2;border-right:0}
+.ar-card h3{font-family:'Fraunces',serif;font-size:clamp(24px,2.2vw,31px);font-weight:300;line-height:1.08;margin:.85rem 0}.ar-card p{font-size:12px;line-height:1.75;color:rgba(15,23,18,.64)}
+.ar-stay{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.ar-stay .ar-card{grid-column:auto;background:transparent;border-right:1px solid var(--rule);min-height:230px}.ar-stay .ar-card:last-child{border-right:0}.ar-stay .ar-card p{color:rgba(237,230,214,.62)}
+.ar-compose{display:grid;grid-template-columns:.72fr 1.28fr;background:#111a14}.ar-compose>div{padding:clamp(3.5rem,6vw,6rem)}
+.ar-compose__copy{border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center}.ar-compose h2{font-family:'Fraunces',serif;font-size:clamp(40px,4.8vw,66px);font-weight:300;line-height:.98;max-width:10ch;margin:.8rem 0 1.3rem}
+.ar-compose p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.62)}.ar-q{margin:0 0 1.8rem}.ar-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}
+.ar-q button{background:transparent;border:0;border-bottom:1px solid rgba(237,230,214,.2);color:var(--bone);padding:.75rem .2rem;margin:0 1.1rem .35rem 0;font:inherit;font-size:11px;cursor:pointer}.ar-q button.active{border-color:var(--bone);color:var(--earth)}
+#arResult{border-top:1px solid var(--rule);padding-top:1.6rem}#arResult h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.5rem 0}
+.ar-links{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2)}.ar-links a{padding:2.3rem;color:var(--ink);text-decoration:none;border-right:1px solid rgba(15,23,18,.1)}.ar-links a:last-child{border-right:0}.ar-links strong{font-family:'Fraunces',serif;font-size:23px;font-weight:300}
+@media(max-width:1000px){.ar-hero{grid-template-columns:1fr}.ar-hero__note{margin:0 5vw 4rem}.ar-arrival{grid-template-columns:1fr}.ar-arrival__copy{border-right:0;border-bottom:1px solid var(--rule)}.ar-grid{grid-template-columns:1fr 1fr}.ar-card,.ar-card:first-child,.ar-card:nth-child(2),.ar-card:nth-child(3),.ar-card:last-child{grid-column:auto;border-right:1px solid rgba(15,23,18,.12)}.ar-card:nth-child(2n){border-right:0}.ar-stay,.ar-strip,.ar-links{grid-template-columns:1fr 1fr}.ar-head,.ar-compose{grid-template-columns:1fr}.ar-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}}
+@media(max-width:620px){.ar-grid,.ar-stay,.ar-links,.ar-arrival__steps{grid-template-columns:1fr}.ar-hero__copy{padding-left:1.4rem;padding-right:1.4rem}.ar-hero__note{margin-left:1.4rem;margin-right:1.4rem}.ar-card,.ar-card:nth-child(2n),.ar-step,.ar-step:nth-child(2n){border-right:0;border-bottom:1px solid var(--rule)}.ar-step:last-child,.ar-card:last-child{border-bottom:0}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -513,72 +555,31 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 <!-- ENKIAMA_HEADER_END -->
-
-
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/arusha.jpg" alt="Arusha, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Mlima Meru</p>
-    <p class="d-eyebrow">Where journeys begin</p>
-    <h1 class="d-title">The town beneath<br><em>the other mountain.</em></h1>
-    <p class="d-lede">Almost every northern journey begins in Arusha, and almost every itinerary treats it as an airport with a hotel attached. It deserves rather better than that.</p>
+<main class="ar-page" id="main-content">
+<section class="ar-hero">
+  <div class="ar-hero__copy"><span class="ar-eye">Arusha · northern Tanzania</span><h1>The journey often starts <em>before the safari.</em></h1><p>Arusha can be an arrival buffer, a Mount Meru base, a compact first wildlife day or a slower highland chapter. Its value depends on what the traveller needs before the route accelerates.</p></div>
+  <aside class="ar-hero__note"><span class="ar-kicker">Gateway principle</span><strong>Do not spend the first day recovering inside the next destination.</strong><p>Arrival space is useful when it protects sleep, luggage, timing and the quality of the first mountain or safari morning.</p></aside>
+</section>
+<section class="ar-strip"><div><span>Strong default</span><strong>1 arrival night</strong></div><div><span>Wildlife option</span><strong>Arusha National Park</strong></div><div><span>Mountain</span><strong>Mount Meru</strong></div><div><span>Onward</span><strong>Kilimanjaro · safari · Rift</strong></div></section>
+<section class="ar-arrival">
+  <div class="ar-arrival__copy"><span class="ar-kicker">Arrival rhythm</span><h2>Arusha should absorb pressure, not create more of it.</h2><p>The gateway works best when each extra hour has a clear purpose: recover, orient, see a compact landscape, or prepare for the mountain. It should never become an automatic holding pattern.</p></div>
+  <div class="ar-arrival__steps">
+    <article class="ar-step"><span class="ar-kicker">01 · Land</span><strong>Protect the arrival.</strong><p>International flights, bags, cash, connectivity and a first proper meal should not compete with a rushed transfer.</p></article>
+    <article class="ar-step"><span class="ar-kicker">02 · Reset</span><strong>Use the buffer deliberately.</strong><p>A quiet night can be more valuable than forcing a sightseeing stop after a long journey.</p></article>
+    <article class="ar-step"><span class="ar-kicker">03 · Add context</span><strong>Only when it earns the time.</strong><p>Arusha National Park, coffee country or the highlands make sense when they add something the later route will not repeat.</p></article>
+    <article class="ar-step"><span class="ar-kicker">04 · Move</span><strong>Leave with the route ready.</strong><p>The next transfer should begin the real chapter—mountain, wildlife or Rift—without carrying arrival fatigue into it.</p></article>
   </div>
 </section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Why it exists where it does</p>
-    <h2 class="d-sec-title reveal">Coffee, water, and a mountain.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Arusha sits on the southern slopes of Mount Meru, at around fourteen hundred metres. The altitude gives it a mild climate, the volcanic soil gives it coffee and agriculture, and the position made it a natural meeting point long before tourism.</p>
-    <p class="d-p reveal">It is a working East African town rather than a resort &mdash; busy, green, and considerably more interesting than the transit stop most travellers experience.</p>
-  </section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The first and last day</p>
-    <h2 class="d-sec-title reveal">The parts of a journey nobody plans.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The day you arrive and the day you leave are usually written off. We would rather use them: a coffee farm on the slopes of Meru, the cultural heritage centre, a market walk, or simply a quiet garden to recover from the flight before the early mornings begin.</p>
-    <p class="d-p reveal"><strong>Arriving tired into a long drive is the most common way a journey starts badly.</strong> We build in the recovery rather than pretending nobody feels the flight.</p>
-  </section>
-
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Meru itself</p>
-    <h2 class="d-sec-title reveal">A serious mountain in Kilimanjaro&rsquo;s shadow.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Mount Meru rises to nearly four and a half thousand metres directly above the town, and it is a genuinely fine climb &mdash; steeper, greener and far quieter than Kilimanjaro.</p>
-    <p class="d-p reveal">It is also an excellent acclimatisation climb for those going on to Kilimanjaro afterwards, and we will suggest it where the timing allows.</p>
-  </section>
-
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Is Arusha worth spending time in?</p><p class="d-faq-a">Most itineraries treat it as a transit point. We would rather give it the arrival and departure days properly — a coffee farm, a market, or simply time to recover before the early mornings start.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Can you climb Mount Meru?</p><p class="d-faq-a">Yes, and it is an excellent climb — steeper, greener and far quieter than Kilimanjaro, and a very good acclimatisation ascent for anyone going on to the higher mountain.</p></div>
-</div>
-
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="kilimanjaro.html">Kilimanjaro</a><a href="tarangire.html">Tarangire</a><a href="manyara.html">Lake Manyara</a></div>
-</div>
-
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Arusha belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
-
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
+<section class="ar-section light"><div class="ar-head"><div><span class="ar-kicker">Four roles</span><h2>Give the gateway a specific job.</h2></div><p>We do not add nights here by habit. The city and highlands earn time when they solve arrival, acclimatisation, wildlife, recovery or local-context needs.</p></div><div class="ar-grid">
+<article class="ar-card"><span class="ar-kicker">Arrival</span><h3>Arrival & reset</h3><p>Protect sleep, luggage, money, connectivity and a calm first day after international travel.</p></article>
+<article class="ar-card"><span class="ar-kicker">Wildlife</span><h3>Arusha National Park</h3><p>Forest, lakes, giraffe, primates and Mount Meru scenery make a useful compact first wildlife day without pretending to replace major safari parks.</p></article>
+<article class="ar-card"><span class="ar-kicker">Mountain</span><h3>Mount Meru</h3><p>A serious mountain in its own right and a possible acclimatisation chapter for travellers with enough time and fitness.</p></article>
+<article class="ar-card"><span class="ar-kicker">Highlands</span><h3>Coffee & local context</h3><p>Foothills and highland agriculture can slow the beginning of the journey and make the northern landscape more legible.</p></article>
+</div></section>
+<section class="ar-section"><div class="ar-head"><div><span class="ar-kicker">Stay logic</span><h2>Zero, one, two—or deliberately more.</h2></div><p>The question is not how many nights Arusha “deserves”. It is how much buffer or depth the wider journey needs.</p></div><div class="ar-stay"><article class="ar-card"><span class="ar-kicker">0 nights</span><h3>Direct transit</h3><p>Valid when arrival timing is reliable and the onward move is efficient.</p></article><article class="ar-card"><span class="ar-kicker">1 night</span><h3>Strong default</h3><p>The safest general buffer before mountain or safari.</p></article><article class="ar-card"><span class="ar-kicker">2 nights</span><h3>Useful depth</h3><p>Add a real recovery day, park day or highland context.</p></article><article class="ar-card"><span class="ar-kicker">3+ nights</span><h3>Selective</h3><p>Usually only when Mount Meru or another specific northern-highland objective is central.</p></article></div></section>
+<section class="ar-compose"><div class="ar-compose__copy"><span class="ar-kicker">Arusha composer</span><h2>How much arrival space does your route need?</h2><p>Use this to test whether Arusha should be transit, buffer or a chapter of its own.</p></div><div><div class="ar-q" data-k="nights"><label>Available nights</label><button data-v="0">0</button><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3+</button></div><div class="ar-q" data-k="priority"><label>Main reason</label><button data-v="rest">Rest / buffer</button><button data-v="park">Arusha NP</button><button data-v="meru">Mount Meru</button><button data-v="context">Highlands</button></div><div id="arResult"><h3>Choose the time and purpose.</h3><p>The recommendation will protect the wider journey rather than add nights automatically.</p></div></div></section>
+<section class="ar-links"><a href="kilimanjaro.html"><span class="ar-kicker">Mountain</span><strong>Kilimanjaro →</strong></a><a href="tarangire.html"><span class="ar-kicker">Wildlife</span><strong>Tarangire →</strong></a><a href="manyara.html"><span class="ar-kicker">Rift edge</span><strong>Lake Manyara →</strong></a><a href="ngorongoro.html"><span class="ar-kicker">Highlands</span><strong>Ngorongoro →</strong></a></section>
+</main><script src="assets/js/arusha-system.js" defer></script>
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
@@ -647,139 +648,7 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
 
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
-    mix-blend-mode:difference;will-change:transform;}
-  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>

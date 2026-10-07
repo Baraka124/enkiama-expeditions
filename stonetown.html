@@ -179,6 +179,42 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="stonetown-system-v1">
+.st-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.st-hero{min-height:90vh;display:grid;grid-template-columns:1.03fr .97fr;background:var(--ink);border-bottom:1px solid var(--rule)}
+.st-hero__copy{padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6rem);display:flex;flex-direction:column;justify-content:flex-end}
+.st-eye,.st-kicker,.st-layer__type,.st-time__label,.st-journey__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.st-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.2vw,106px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:8.6ch;margin:.9rem 0 1.6rem}
+.st-hero h1 em{font-style:italic;color:#8ea17e}.st-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:59ch;color:rgba(237,230,214,.8)}
+.st-hero__media{position:relative;min-height:90vh;background:linear-gradient(160deg,#1b281f,#0d1510);overflow:hidden}
+.st-hero__frame{position:absolute;left:8%;right:8%;top:12%;bottom:9%;overflow:hidden}.st-hero__frame img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.st-hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.46))}
+.st-hero__caption{position:absolute;left:8%;right:8%;bottom:4.6%;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,230,214,.2);padding-top:.8rem;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.st-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.st-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.st-strip__item:last-child{border-right:0}.st-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.st-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.st-thesis{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink2)}.st-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.st-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.st-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.st-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.st-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.st-thesis__item:nth-child(2n){border-right:0}.st-thesis__item:nth-last-child(-n+2){border-bottom:0}.st-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.st-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.st-layers{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}
+.st-layers__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.st-layers__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.97;max-width:10ch}.st-layers__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.st-layer-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}
+.st-layer-nav{background:#dcd3c0;padding:1rem}.st-layer{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.st-layer:last-child{border-bottom:0}.st-layer.active{background:rgba(85,107,68,.1)}
+.st-layer__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.st-layer__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.st-layer__use{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.st-layer__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.st-layer-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:620px;display:flex;flex-direction:column}.st-layer-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.st-layer-panel__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.st-layer-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.st-layer-stat{background:var(--bone2);padding:1.1rem}.st-layer-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.st-layer-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.st-layer-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.st-layer-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.st-layer-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}
+.st-depth{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink)}.st-depth__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.st-depth__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.st-depth__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.st-depth__body{padding:clamp(3rem,5vw,5rem)}.st-time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.st-time-card{background:var(--ink);padding:1.5rem}.st-time-card span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}.st-time-card strong{display:block;font-family:'Fraunces',serif;font-size:23px;font-weight:300;margin:.7rem 0}.st-time-card p{font-size:11px;line-height:1.7;color:rgba(237,230,214,.62)}
+.st-modes{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule)}.st-modes article{background:var(--ink);padding:1.5rem}.st-modes strong{font-family:'Fraunces',serif;font-size:21px;font-weight:300}.st-modes p{font-size:11px;line-height:1.7;color:rgba(237,230,214,.62);margin-top:.6rem}
+.st-memory{display:grid;grid-template-columns:.72fr 1.28fr;background:var(--bone2);color:var(--ink)}.st-memory__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.st-memory__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.st-memory__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.st-memory__body{padding:clamp(3rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center}.st-memory__body blockquote{font-family:'Fraunces',serif;font-size:clamp(28px,3.2vw,46px);font-weight:300;line-height:1.18;margin:0;max-width:19ch}.st-memory__body p{margin-top:1.2rem;font-size:12px;line-height:1.8;color:rgba(15,23,18,.62);max-width:55ch}
+.st-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}.st-routes__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.st-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.st-routes__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.st-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.st-route{padding:2rem;background:var(--ink2);min-height:350px;display:flex;flex-direction:column}.st-route h3{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.8rem 0}.st-route p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.st-route ol{margin:1.2rem 0 0 1rem;font-size:11px;line-height:1.8;color:rgba(237,230,214,.66)}.st-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--earth)}
+.st-journey{display:grid;grid-template-columns:1.02fr .98fr;background:var(--bone2);color:var(--ink)}.st-journey__media{min-height:600px;background:url('assets/images/fatima-stonetown.jpg') center/cover no-repeat;position:relative}.st-journey__media:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.03),rgba(8,12,9,.38))}.st-journey__copy{padding:clamp(4.5rem,7vw,7rem);display:flex;flex-direction:column;justify-content:center}.st-journey__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;margin:.8rem 0 1.3rem;max-width:10ch}.st-journey__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.67);max-width:50ch}.st-journey__copy a{margin-top:1.6rem;color:var(--ink);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.st-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink)}.st-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.st-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.st-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.st-compose__panel{padding:clamp(3rem,5vw,5rem)}.st-q{margin-bottom:2rem}.st-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.st-opts{display:flex;gap:.55rem;flex-wrap:wrap}.st-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.st-opts button.active{background:var(--bone);color:var(--ink)}
+.st-result{border-top:1px solid var(--rule);padding-top:1.5rem}.st-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.st-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.st-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.st-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.st-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.st-explore a:last-child{border-right:0}.st-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.st-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1100px){.st-hero,.st-thesis,.st-layer-layout,.st-depth,.st-memory,.st-journey,.st-compose{grid-template-columns:1fr}.st-hero__media{min-height:62vh}.st-thesis__copy,.st-depth__copy,.st-memory__copy,.st-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.st-layers__head,.st-routes__head{grid-template-columns:1fr;gap:1.2rem}.st-time-grid,.st-modes{grid-template-columns:1fr 1fr}.st-route-grid{grid-template-columns:1fr}.st-explore{grid-template-columns:1fr 1fr}.st-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.st-hero{min-height:0}.st-hero__media{min-height:56vh}.st-strip{grid-template-columns:1fr 1fr}.st-strip__item:nth-child(2n){border-right:0}.st-thesis__grid,.st-layer-stats,.st-layer-grid,.st-time-grid,.st-modes{grid-template-columns:1fr}.st-thesis__item{border-right:0}.st-explore{grid-template-columns:1fr}.st-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -514,71 +550,78 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="st-page" id="main-content">
+<section class="st-hero">
+  <div class="st-hero__copy">
+    <p class="st-eye">Stone Town · Zanzibar City</p>
+    <h1>A city read <em>on foot.</em></h1>
+    <p class="st-hero__lede">Stone Town is a living Swahili trading city, not a monument district. Its lanes, houses, shopfronts, religious buildings, markets and seafront record centuries of Indian Ocean exchange while still functioning as everyday urban space.</p>
+  </div>
+  <div class="st-hero__media"><figure class="st-hero__frame"><img src="assets/images/stonetown.jpg" alt="Historic lanes and buildings in Stone Town, Zanzibar"><div class="st-hero__veil"></div></figure><div class="st-hero__caption"><span>Mji Mkongwe · Zanzibar</span><span>Guide first → wander later</span></div></div>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/stonetown.jpg" alt="Stone Town, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Mji Mkongwe</p>
-    <p class="d-eyebrow">Coral stone and carved doors</p>
-    <h1 class="d-title">A city built<br><em>by everyone who arrived.</em></h1>
-    <p class="d-lede">Stone Town is the oldest part of Zanzibar City and a UNESCO World Heritage site &mdash; a dense maze of coral-stone buildings, carved doors and narrow lanes that record every culture that ever traded here.</p>
+<section class="st-strip">
+  <div class="st-strip__item"><span>UNESCO</span><strong>World Heritage since 2000</strong></div>
+  <div class="st-strip__item"><span>Best first step</span><strong>Guide-led orientation</strong></div>
+  <div class="st-strip__item"><span>Strong stay</span><strong>1–2 nights</strong></div>
+  <div class="st-strip__item"><span>Core principle</span><strong>Living city, not museum</strong></div>
+</section>
+
+<section class="st-thesis">
+  <div class="st-thesis__copy"><p class="st-kicker">What makes Stone Town different</p><h2>Meaning is hidden in ordinary streets.</h2><p>The city becomes more useful when architecture, trade, markets, slavery/abolition history and public life are read together rather than reduced to carved doors and a few landmark buildings.</p></div>
+  <div class="st-thesis__grid">
+    <div class="st-thesis__item"><span class="st-kicker">01 · Fabric</span><strong>The street is part of the archive.</strong><p>Lanes, courtyards, barazas and thresholds explain how the city works socially as well as visually.</p></div>
+    <div class="st-thesis__item"><span class="st-kicker">02 · Architecture</span><strong>Materials carry trade history.</strong><p>Coral-rag walls, timber, carved doors and shopfronts show long exchange without reducing the city to one cultural source.</p></div>
+    <div class="st-thesis__item"><span class="st-kicker">03 · Memory</span><strong>Hard history needs deliberate context.</strong><p>Slavery and abolition belong in the city's history, but should be interpreted rather than sensationalised.</p></div>
+    <div class="st-thesis__item"><span class="st-kicker">04 · Evening</span><strong>One overnight changes the city.</strong><p>Food, seafront public life and unstructured walking give Stone Town a different rhythm after day visits end.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">What it is</p>
-    <h2 class="d-sec-title reveal">Layers, not a monument.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Stone Town is not preserved as a museum; it is lived in. Swahili, Omani, Persian, Indian and European influences sit on top of one another in the same street, sometimes the same building. The famous carved doors alone tell you who built each house and what they believed.</p>
-    <p class="d-p reveal"><strong>It is best understood on foot, slowly, preferably with someone who grew up in it.</strong> A guided walk here is not a formality &mdash; without one, most visitors see a pretty maze and miss the history entirely.</p>
-  </section>
+<section class="st-layers" id="layers">
+  <div class="st-layers__head"><div><p class="st-kicker">Urban intelligence</p><h2>Five layers inside the same city.</h2></div><p>Select a layer to see what a guide can reveal, what is worth noticing independently, and why Stone Town should be read as a living urban system rather than a list of attractions.</p></div>
+  <div class="st-layer-layout"><div class="st-layer-nav" id="stLayerNav"></div><article class="st-layer-panel" id="stLayerPanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The harder history</p>
-    <h2 class="d-sec-title reveal">It should not be skipped.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">Stone Town was also a centre of the East African slave trade, and the former slave market and its memorial are part of any honest visit. We do not treat this as an optional or uncomfortable extra.</p>
-    <p class="d-p reveal">Travellers who engage with it invariably say it was among the most affecting parts of their journey. We will make space for it, and we will not narrate it for you &mdash; the people who guide there do it far better than we could.</p>
-  </section>
+<section class="st-depth">
+  <div class="st-depth__copy"><p class="st-kicker">Time & method</p><h2>How long does the city actually need?</h2><p>A few hours can orient you. One night lets the city breathe. Two nights separate interpretation from wandering. Beyond that, additional time should be earned by real interests in food, architecture, photography or urban history.</p></div>
+  <div class="st-depth__body"><div class="st-time-grid" id="stTimeGrid"></div><div class="st-modes" id="stModes"></div></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The pleasures</p>
-    <h2 class="d-sec-title reveal">Food, evening, and the sea in every direction.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The night market at Forodhani, the rooftops at sunset, a dhow going out with the tide, coffee at a street corner where three languages are being spoken at once. Stone Town rewards unstructured hours as much as guided ones.</p>
-    <p class="d-p reveal">We usually suggest a night or two here before the beach, rather than a rushed transfer through it.</p>
-  </section>
+<section class="st-memory">
+  <div class="st-memory__copy"><p class="st-kicker">Historical memory</p><h2>The harder history is part of the city.</h2><p>Stone Town's importance in the East African slave trade and later abolition cannot be treated as an optional dramatic stop. The subject deserves careful local interpretation, factual restraint and enough time to understand the wider trade and power system around it.</p></div>
+  <div class="st-memory__body"><blockquote>Interpretation matters more than spectacle.</blockquote><p>We do not use slavery history as emotional marketing. A strong visit makes room for it because it is part of the city's actual history.</p></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Is Stone Town worth staying in?</p><p class="d-faq-a">We think so. A night or two before the beaches gives the place its proper weight, rather than passing through on a transfer.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Do I need a guide in Stone Town?</p><p class="d-faq-a">You do not need one to enjoy it, but you need one to understand it. The architecture, doors and history are largely invisible without someone who knows them.</p></div>
-</div>
+<section class="st-routes">
+  <div class="st-routes__head"><div><p class="st-kicker">Island composition</p><h2>Three legitimate roles for Stone Town.</h2></div><p>Stone Town can lead into the beach, stand alone as a short city stay, or be omitted when pure safari recovery is the priority. It should not be forced into every Zanzibar route.</p></div>
+  <div class="st-route-grid" id="stRoutes"></div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="zanzibar.html">Zanzibar</a><a href="serengeti.html">Serengeti</a><a href="society-and-culture.html">Society &amp; culture</a></div>
-</div>
+<section class="st-journey">
+  <div class="st-journey__media" aria-hidden="true"></div>
+  <div class="st-journey__copy"><span class="st-journey__label">Operated · couple</span><h2>History before the beach.</h2><p>In the operated couple journey, Stone Town deliberately came before Nungwi. That sequencing allowed Zanzibar to begin as an urban and historical chapter before the trip shifted into sea, rest and easier swimming.</p><a href="trip.html?slug=couple-northern-tanzania-zanzibar">Open the operated journey →</a></div>
+</section>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Stone Town belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
+<section class="st-compose" id="stonetown-composer">
+  <div class="st-compose__copy"><p class="st-kicker">Stone Town composer</p><h2>How much city should your Zanzibar stay contain?</h2><p>The result combines time, interest and onward coast. It can recommend one night, two nights, a focused half-day, or no Stone Town at all when recovery matters more.</p></div>
+  <div class="st-compose__panel">
+    <div class="st-q" data-k="time"><label>How much time can Stone Town have?</label><div class="st-opts"><button data-v="hours">3–4 hours</button><button data-v="1">1 night</button><button data-v="2">2 nights</button><button data-v="3">3+ nights</button></div></div>
+    <div class="st-q" data-k="interest"><label>What matters most?</label><div class="st-opts"><button data-v="history">History</button><button data-v="architecture">Architecture</button><button data-v="food">Food / evening</button><button data-v="light">Just a little context</button></div></div>
+    <div class="st-q" data-k="guide"><label>How do you want to explore?</label><div class="st-opts"><button data-v="guided">Guided first</button><button data-v="mix">Guide + wander</button><button data-v="solo">Mostly independent</button></div></div>
+    <div class="st-q" data-k="onward"><label>Where next?</label><div class="st-opts"><button data-v="north">North coast</button><button data-v="east">East / south-east</button><button data-v="depart">Depart / mainland</button><button data-v="none">No beach</button></div></div>
+    <div class="st-result" id="stResult"><span class="st-kicker">First direction</span><h3>Answer the four questions.</h3><p>We will suggest how much Stone Town should enter the itinerary.</p></div>
+  </div>
+</section>
 
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
+<section class="st-explore">
+  <a href="zanzibar.html"><span>Island system</span><strong>Zanzibar →</strong></a>
+  <a href="society-and-culture.html"><span>Wider context</span><strong>Society &amp; culture →</strong></a>
+  <a href="nyerere.html"><span>Southern safari</span><strong>Nyerere →</strong></a>
+  <a href="compose.html"><span>Whole journey</span><strong>Compose →</strong></a>
+</section>
+</main>
+<script src="assets/js/stonetown-system.js" defer></script>
+
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
@@ -647,139 +690,7 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
 
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
-    mix-blend-mode:difference;will-change:transform;}
-  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>

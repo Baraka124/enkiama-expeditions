@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "ngorongoro",
+  "title": "Ngorongoro conservation system",
+  "framing": "Ngorongoro is not a crater stop. It is a large multiple-use conservation landscape of caldera, highland forest, volcanic craters, archaeological sites, pastoral country and plains linked ecologically to Serengeti.",
+  "reference_facts": {
+    "conservation_area_ha": 809440,
+    "crater_floor_km2": "about 250–260",
+    "crater_status": "world's largest intact / unbroken volcanic caldera",
+    "unesco_note": "The property is both naturally and culturally significant, including biodiversity, geology, Olduvai Gorge, Laetoli and long human-environment history."
+  },
+  "contexts": [
+    {
+      "slug": "crater-floor",
+      "name": "Ngorongoro Crater floor",
+      "role": "wildlife concentration",
+      "strongest_use": "One well-timed descent",
+      "summary": "A compact caldera floor of grassland, wetland, woodland and lake habitat with unusually high year-round wildlife density.",
+      "wildlife": "Strong for lion, buffalo, hyena, plains game and one of Tanzania's better chances of black rhino, while leopard remains less predictable.",
+      "experience": "The crater is visually and ecologically extraordinary, but its compactness also concentrates vehicles.",
+      "planning": "Choose accommodation and route timing to reduce unnecessary queueing and backtracking; current access rules should be checked close to travel.",
+      "best_for": [
+        "wildlife density",
+        "first Tanzania safari",
+        "geology",
+        "black rhino possibility"
+      ],
+      "tradeoff": "The same concentration that makes wildlife viewing efficient can make famous sightings feel busy."
+    },
+    {
+      "slug": "rim-forest",
+      "name": "Crater rim & highland forest",
+      "role": "altitude / forest transition",
+      "strongest_use": "Arrival, rim stay and early access positioning",
+      "summary": "The approach climbs through cool highland forest before the crater opens below, producing one of the northern circuit's sharpest ecological transitions.",
+      "wildlife": "Forest birds, elephant and other highland wildlife occur here, though the value is as much atmospheric and geographic as it is a checklist.",
+      "experience": "Sleeping on or near the rim changes the rhythm of a crater day and gives the landscape its own evening and morning rather than using it purely as a transit point.",
+      "planning": "Rim accommodation can be valuable for access and atmosphere, but should be chosen for route logic rather than prestige alone.",
+      "best_for": [
+        "rim atmosphere",
+        "photography",
+        "slower arrival",
+        "crater positioning"
+      ],
+      "tradeoff": "Rim stays can be colder, more expensive and not automatically better if onward routing suffers."
+    },
+    {
+      "slug": "volcanic-highlands",
+      "name": "Olmoti, Empakaai & volcanic highlands",
+      "role": "walking / geology",
+      "strongest_use": "1–2 additional highland days",
+      "summary": "North of the main crater, the volcanic highlands continue through Olmoti and Empakaai, moorland, forest and high escarpments.",
+      "wildlife": "The focus shifts from concentrated game drives toward landscape, birds, pastoral country and walking.",
+      "experience": "This is where Ngorongoro becomes a highland journey rather than a crater visit.",
+      "planning": "Some walks require ranger accompaniment and current route/access confirmation; exact walking options should be verified with NCAA and local operators.",
+      "best_for": [
+        "walking",
+        "geology",
+        "landscape",
+        "repeat Tanzania"
+      ],
+      "tradeoff": "Highland time competes directly with Serengeti or other safari nights, so it should be added only when the traveller values the change of pace."
+    },
+    {
+      "slug": "deep-time",
+      "name": "Olduvai, Laetoli & deep time",
+      "role": "human origins / archaeology",
+      "strongest_use": "Contextual stop or specialist extension",
+      "summary": "The conservation area contains a long archaeological and palaeoanthropological record, including Olduvai Gorge and the Laetoli footprint landscape.",
+      "wildlife": "This is not a wildlife chapter; its value is understanding how long humans and changing environments have occupied this landscape.",
+      "experience": "It adds time depth to a route otherwise dominated by wildlife and scenery.",
+      "planning": "Public access differs by site. Museum, gorge and specialist archaeological visits should be planned according to current permissions and guiding arrangements.",
+      "best_for": [
+        "archaeology",
+        "human evolution",
+        "education",
+        "specialist interest"
+      ],
+      "tradeoff": "It deserves real interpretive interest; it should not be inserted as a token roadside stop."
+    },
+    {
+      "slug": "pastoral-landscape",
+      "name": "Pastoral landscape",
+      "role": "lived conservation area",
+      "strongest_use": "Context, not a staged attraction",
+      "summary": "Ngorongoro was established as a multiple-use conservation area and remains a lived landscape where pastoral communities, livestock, wildlife and conservation policy intersect.",
+      "wildlife": "Wildlife and livestock share parts of the wider landscape under changing management rules and seasonal conditions.",
+      "experience": "The human landscape makes Ngorongoro fundamentally different from a national park.",
+      "planning": "Community encounters should be locally arranged, host-led and current to the social and management context; the site should avoid simplistic claims that erase contemporary tensions.",
+      "best_for": [
+        "society & culture",
+        "land-use understanding",
+        "longer highland routes"
+      ],
+      "tradeoff": "This is a sensitive, changing context and should not be reduced to a generic 'Maasai visit'."
+    }
+  ],
+  "route_shapes": [
+    {
+      "slug": "crater-only",
+      "label": "Crater-focused",
+      "minimum_shape": "1 night / 1 descent",
+      "sequence": [
+        "Highlands arrival",
+        "Crater descent",
+        "Onward"
+      ],
+      "best_for": [
+        "first safari",
+        "limited time",
+        "wildlife density"
+      ],
+      "note": "The efficient choice when Ngorongoro's wildlife and geology matter more than wider highland exploration."
+    },
+    {
+      "slug": "crater-highlands",
+      "label": "Crater + highlands",
+      "minimum_shape": "2–3 nights",
+      "sequence": [
+        "Rim / Karatu",
+        "Crater descent",
+        "Olmoti or Empakaai / highland context"
+      ],
+      "best_for": [
+        "walking",
+        "landscape",
+        "geology",
+        "slower travel"
+      ],
+      "note": "Turns Ngorongoro from one famous descent into a distinct highland chapter."
+    },
+    {
+      "slug": "serengeti-transition",
+      "label": "Ngorongoro → Serengeti",
+      "minimum_shape": "1–2 nights plus onward route",
+      "sequence": [
+        "Crater / highlands",
+        "Olduvai or plains context",
+        "Serengeti"
+      ],
+      "best_for": [
+        "northern circuit",
+        "first Tanzania",
+        "wildlife progression"
+      ],
+      "note": "Uses Ngorongoro as a genuine ecological and geographic transition rather than a stop wedged between long drives."
+    },
+    {
+      "slug": "rift-transition",
+      "label": "Ngorongoro → Rift / Natron",
+      "minimum_shape": "2+ nights depending on route",
+      "sequence": [
+        "Ngorongoro highlands",
+        "Empakaai / northern highlands",
+        "Engaruka / Lake Natron corridor"
+      ],
+      "best_for": [
+        "Rift geology",
+        "walking",
+        "complex-region journeys"
+      ],
+      "note": "A less conventional line that connects volcanic highlands directly into the northern Rift system."
+    }
+  ],
+  "planning_factors": [
+    {
+      "key": "crowding",
+      "label": "Crowding",
+      "note": "The crater floor is compact and popular. Timing, chosen access point and accommodation position matter more than pretending crowds do not exist."
+    },
+    {
+      "key": "altitude",
+      "label": "Altitude & weather",
+      "note": "The rim and highlands are cool and can be wet, especially compared with the crater floor or Serengeti plains."
+    },
+    {
+      "key": "walking",
+      "label": "Walking",
+      "note": "Highland walks can require ranger accompaniment and should be confirmed under current NCAA rules."
+    },
+    {
+      "key": "community",
+      "label": "Community context",
+      "note": "Ngorongoro is a lived multiple-use landscape; cultural encounters should be locally arranged and never treated as a fixed performance."
+    },
+    {
+      "key": "archaeology",
+      "label": "Archaeology",
+      "note": "Olduvai and Laetoli belong to the conservation area's identity, but access and interpretation vary by site."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "july-five-travellers-2026",
+      "label": "July 2026 · five travellers",
+      "title": "A completely different geography",
+      "insight": "Ngorongoro compressed a great deal of wildlife into one dramatic landscape. Because the route had not been overfilled, the crater remained a distinct chapter rather than another stop between drives.",
+      "href": "trip.html?slug=july-five-travellers-2026"
+    },
+    {
+      "journey_slug": "couple-northern-tanzania-zanzibar",
+      "label": "Operated · couple",
+      "title": "Tarangire to the caldera",
+      "insight": "The couple moved from Tarangire's river-and-baobab country into Ngorongoro's enclosed volcanic scale before continuing toward Serengeti and the coast.",
+      "href": "trip.html?slug=couple-northern-tanzania-zanzibar"
+    }
+  ],
+  "publication_rules": [
+    "Do not guarantee black rhino, Big Five completion or specific sightings.",
+    "Do not claim crowd-free crater experiences.",
+    "Do not hard-code crater access times without current NCAA verification.",
+    "Treat walking and archaeological access as subject to current rules and guiding requirements.",
+    "Do not reduce the wider conservation area's pastoral communities to a staged cultural attraction.",
+    "Distinguish Ngorongoro Crater from the wider Ngorongoro Conservation Area."
+  ]
+}

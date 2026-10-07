@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "arusha",
+  "title": "Arusha gateway system",
+  "framing": "Arusha is not only the place before safari. It can be arrival buffer, Mount Meru base, Arusha National Park day, coffee/highland context or a deliberate recovery night between very different Tanzania chapters.",
+  "roles": [
+    {
+      "slug": "arrival",
+      "name": "Arrival & reset",
+      "best_for": "First night after international travel",
+      "note": "Protect sleep, luggage, money, SIM/logistics and a calm first day rather than launching immediately into a long road transfer.",
+      "tradeoff": "Adds a night but usually improves the rest of the journey."
+    },
+    {
+      "slug": "arusha-park",
+      "name": "Arusha National Park",
+      "best_for": "Compact wildlife + forest + Momella / Ngurdoto context",
+      "note": "A useful first wildlife day with forest, lakes, giraffe, primates and Mount Meru scenery; not a substitute for major safari parks.",
+      "tradeoff": "Wildlife density and predator expectations should remain modest."
+    },
+    {
+      "slug": "meru",
+      "name": "Mount Meru",
+      "best_for": "Active travellers / acclimatisation",
+      "note": "A serious mountain in its own right and, for some travellers, a useful pre-Kilimanjaro acclimatisation chapter.",
+      "tradeoff": "Requires real days and fitness; do not treat it as a casual add-on."
+    },
+    {
+      "slug": "coffee-highlands",
+      "name": "Coffee & highland context",
+      "best_for": "Slower arrival / local landscape",
+      "note": "The foothills and coffee-growing highlands can give the arrival region more meaning before the journey moves into protected areas.",
+      "tradeoff": "Should be locally specific rather than a generic 'coffee tour' checkbox."
+    }
+  ],
+  "stay_logic": [
+    {
+      "shape": "0 nights",
+      "stance": "direct transit",
+      "note": "Valid for experienced travellers on an efficient arrival, but fragile after delays or long-haul travel."
+    },
+    {
+      "shape": "1 night",
+      "stance": "strong default",
+      "note": "Best general arrival buffer before mountain or safari."
+    },
+    {
+      "shape": "2 nights",
+      "stance": "useful depth",
+      "note": "Allows Arusha National Park, coffee/highland context or a proper recovery day."
+    },
+    {
+      "shape": "3+ nights",
+      "stance": "selective",
+      "note": "Only when Mount Meru, work/meeting, family context or deeper northern-highland travel is itself part of the journey."
+    }
+  ],
+  "onward": [
+    {
+      "to": "kilimanjaro",
+      "label": "Kilimanjaro",
+      "href": "kilimanjaro.html"
+    },
+    {
+      "to": "tarangire",
+      "label": "Tarangire",
+      "href": "tarangire.html"
+    },
+    {
+      "to": "manyara",
+      "label": "Lake Manyara",
+      "href": "manyara.html"
+    },
+    {
+      "to": "ngorongoro",
+      "label": "Ngorongoro",
+      "href": "ngorongoro.html"
+    }
+  ],
+  "publication_rules": [
+    "Do not present Arusha as only a transfer town.",
+    "Do not imply Arusha National Park substitutes for a major safari circuit.",
+    "Do not describe Mount Meru as an easy acclimatisation walk.",
+    "Avoid exact transfer times without current traffic/road context."
+  ]
+}

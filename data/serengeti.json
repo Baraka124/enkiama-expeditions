@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "serengeti",
+  "title": "Serengeti ecosystem",
+  "framing": "A wildlife system shaped by rainfall, grass, permanent water, predators and seasonal movement. The planning question is not simply whether to visit Serengeti, but which part of the ecosystem deserves your time in your month.",
+  "reference_facts": {
+    "park_area_km2": 14763,
+    "unesco_world_heritage": true,
+    "migration_note": "The annual migration is driven by rainfall, pasture and water across the wider Serengeti-Mara ecosystem. Exact herd positions and river crossings cannot be guaranteed."
+  },
+  "regions": [
+    {
+      "slug": "south",
+      "name": "Southern plains",
+      "geography": "Short-grass plains extending into the southern Serengeti ecosystem; the Ndutu area lies largely within the Ngorongoro Conservation Area rather than Serengeti National Park.",
+      "strongest_window": "December–March",
+      "migration_role": "Calving and wet-season congregation",
+      "resident_strength": "Cheetah, lion, hyena and plains game remain important beyond the migration itself.",
+      "crowd_profile": "Can become busy around peak calving areas, but distribution changes with rain and access.",
+      "stay_strategy": "A mobile or well-positioned seasonal camp can make more sense than commuting long distances from central Serengeti.",
+      "best_for": [
+        "calving",
+        "predator activity",
+        "green season",
+        "photography"
+      ],
+      "tradeoff": "Less useful for a migration-focused traveller outside the wet-season southern movement.",
+      "stance": "seasonal-priority"
+    },
+    {
+      "slug": "central",
+      "name": "Central Serengeti · Seronera",
+      "geography": "River valleys, kopjes and mixed habitats around Seronera in the centre of the park.",
+      "strongest_window": "Year-round",
+      "migration_role": "Herds may pass through during seasonal movement, but the region does not depend on migration for wildlife value.",
+      "resident_strength": "One of the most reliable areas for resident predators and general game viewing throughout the year.",
+      "crowd_profile": "The most consistently visited part of the Serengeti; excellent sightings can attract multiple vehicles.",
+      "stay_strategy": "Strong for first visits, shorter stays and travellers prioritising resident wildlife over migration positioning.",
+      "best_for": [
+        "first Serengeti",
+        "resident predators",
+        "year-round wildlife",
+        "shorter stays"
+      ],
+      "tradeoff": "Convenience and wildlife density come with more traffic than quieter outer regions.",
+      "stance": "year-round-anchor"
+    },
+    {
+      "slug": "west",
+      "name": "Western Corridor · Grumeti",
+      "geography": "Riverine woodland and open country stretching west toward the Grumeti River.",
+      "strongest_window": "May–July",
+      "migration_role": "The herds move west and north as the southern plains dry; river systems become part of the migration story.",
+      "resident_strength": "Buffalo, elephant, hippo, crocodile and predators add value beyond moving herds.",
+      "crowd_profile": "Generally less continuously busy than Seronera, with seasonal peaks around migration movement.",
+      "stay_strategy": "Best when the calendar genuinely supports western movement rather than treating the corridor as a generic Serengeti base.",
+      "best_for": [
+        "migration transition",
+        "riverine habitat",
+        "June travel",
+        "fewer central crowds"
+      ],
+      "tradeoff": "Migration timing through the west is highly rain-dependent and can be brief or dispersed.",
+      "stance": "seasonal"
+    },
+    {
+      "slug": "north",
+      "name": "Northern Serengeti · Mara River",
+      "geography": "Woodland, kopjes, open plains and the Mara River close to the Kenyan border.",
+      "strongest_window": "July–October",
+      "migration_role": "Dry-season concentration and potential Mara River crossings.",
+      "resident_strength": "The north remains a serious wildlife area even when the main herds are elsewhere.",
+      "crowd_profile": "Crossing zones can become very busy when herds gather; away from the river, the north can feel much quieter.",
+      "stay_strategy": "Worth enough nights to avoid spending the whole visit waiting at the river. Positioning matters more than promising a crossing.",
+      "best_for": [
+        "northern dry season",
+        "migration possibility",
+        "longer Serengeti stays",
+        "resident wildlife"
+      ],
+      "tradeoff": "Crossings are unpredictable, and peak-season pricing and vehicle density can be high around famous points.",
+      "stance": "seasonal-priority"
+    },
+    {
+      "slug": "east",
+      "name": "Eastern Serengeti",
+      "geography": "Open plains and kopje country east of Seronera, including areas known for strong cheetah and big-cat viewing.",
+      "strongest_window": "Variable · especially green season and shoulder periods",
+      "migration_role": "Not the headline migration zone for most itineraries, though herd movement can reach the eastern plains depending on rain.",
+      "resident_strength": "Strong predator country with space and a different feel from central Seronera.",
+      "crowd_profile": "Often quieter than the central circuit.",
+      "stay_strategy": "Best for travellers prioritising predators, space and a less conventional Serengeti rather than a checklist migration trip.",
+      "best_for": [
+        "big cats",
+        "space",
+        "repeat safari",
+        "photography"
+      ],
+      "tradeoff": "Less useful for travellers whose only objective is to position for a famous river crossing.",
+      "stance": "special-interest"
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "months": "Jan–Mar",
+      "key": "jan-mar",
+      "likely_focus": "Southern plains / Ndutu ecosystem",
+      "ecological_story": "Green short-grass plains, calving and intense predator-prey activity.",
+      "planning_note": "Excellent for wildlife even without a river crossing objective. Rain patterns still determine exact herd distribution."
+    },
+    {
+      "months": "Apr–May",
+      "key": "apr-may",
+      "likely_focus": "South → central / westward movement",
+      "ecological_story": "Long-rains period, greener landscapes and lower visitor density in many areas.",
+      "planning_note": "Road conditions and camp closures matter. This can be rewarding for travellers comfortable with weather."
+    },
+    {
+      "months": "Jun",
+      "key": "jun",
+      "likely_focus": "Western Corridor / central-west",
+      "ecological_story": "Drying conditions push movement north and west; Grumeti becomes more relevant.",
+      "planning_note": "Do not treat June as one fixed migration location. Herds can be spread across a large area."
+    },
+    {
+      "months": "Jul–Oct",
+      "key": "jul-oct",
+      "likely_focus": "Northern Serengeti",
+      "ecological_story": "Dry-season concentration in the north with possible Mara River crossings.",
+      "planning_note": "Crossings are never guaranteed. Build a northern safari that remains worthwhile even if no crossing occurs."
+    },
+    {
+      "months": "Nov–Dec",
+      "key": "nov-dec",
+      "likely_focus": "North/central → southward return",
+      "ecological_story": "Short rains can trigger southward movement and rapidly change grazing conditions.",
+      "planning_note": "An underrated transition period; exact herd position is especially rain-dependent."
+    }
+  ],
+  "stay_logic": [
+    {
+      "nights": "2 nights",
+      "stance": "compressed",
+      "note": "Enough to experience one area, but arrival/departure can consume valuable morning or afternoon wildlife time."
+    },
+    {
+      "nights": "3 nights",
+      "stance": "good-minimum",
+      "note": "A stronger minimum for one Serengeti region, giving two full dawn-to-dusk cycles."
+    },
+    {
+      "nights": "4 nights",
+      "stance": "preferred",
+      "note": "Allows a slower rhythm in one well-chosen area or a carefully planned split if distances are sensible."
+    },
+    {
+      "nights": "5+ nights",
+      "stance": "multi-region",
+      "note": "Makes a two-region Serengeti journey more credible, especially when migration positioning and resident wildlife are both priorities."
+    }
+  ],
+  "access_logic": [
+    {
+      "mode": "Drive",
+      "best_for": "Northern-circuit continuity",
+      "note": "Works naturally when Serengeti follows Ngorongoro, Manyara or Tarangire and the road journey itself is part of the route."
+    },
+    {
+      "mode": "Light aircraft",
+      "best_for": "Reducing transfer load",
+      "note": "Especially useful for northern Serengeti, shorter itineraries, or when linking the park with Zanzibar or other distant regions."
+    },
+    {
+      "mode": "Drive + fly",
+      "best_for": "One-way flow",
+      "note": "Often the strongest compromise: enter overland through the northern circuit and fly out rather than repeating long road transfers."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "july-five-travellers-2026",
+      "label": "July 2026 · five travellers · two nights",
+      "title": "Enough time to wake up inside the plain",
+      "insight": "Two nights changed the Serengeti from a drive-through destination into somewhere the group could settle into. Early starts mattered, but so did the growing rhythm of travelling together.",
+      "href": "trip.html?slug=july-five-travellers-2026"
+    },
+    {
+      "journey_slug": "couple-northern-tanzania-zanzibar",
+      "label": "Operated · couple · two nights",
+      "title": "The wildlife centre of the journey",
+      "insight": "Two nights gave the couple morning and evening wildlife rhythms before the journey changed completely on Zanzibar.",
+      "href": "trip.html?slug=couple-northern-tanzania-zanzibar"
+    },
+    {
+      "journey_slug": "hakuna-matata-three-travellers",
+      "label": "Operated · three travellers",
+      "title": "The wildlife chapter opens",
+      "insight": "The Serengeti sat inside a broader northern journey rather than becoming the entire definition of Tanzania.",
+      "href": "trip.html?slug=hakuna-matata-three-travellers"
+    }
+  ],
+  "publication_rules": [
+    "Never guarantee a river crossing or exact herd position.",
+    "Use month ranges as ecological guidance, not a timetable.",
+    "Distinguish Serengeti National Park from the wider Serengeti ecosystem and adjacent Ngorongoro Conservation Area.",
+    "Do not imply the migration is the only reason to visit.",
+    "Avoid publishing exact transfer times without route and camp context."
+  ]
+}

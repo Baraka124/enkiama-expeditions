@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "mahale",
+  "title": "Mahale expedition system",
+  "framing": "A remote western-Tanzania expedition where chimpanzee trekking, montane forest, Lake Tanganyika and mountain travel are inseparable from the access and health protocols that protect the experience.",
+  "reference_facts": {
+    "park_area_km2": 1613,
+    "shoreline_km_note": "TANAPA describes more than 20 km of Lake Tanganyika shoreline within the park.",
+    "highest_peak": "Mount Nkungwe, over 2,400 m",
+    "access_note": "Most international itineraries use light aircraft and boat transfer; TANAPA also notes limited dry-season 4x4 access via remote tracks.",
+    "chimp_note": "Mahale is internationally known for ranger-guided trekking to habituated wild chimpanzee groups.",
+    "health_note": "Visitors with cold/flu symptoms should not join chimp treks; distance, group-size and viewing-time rules apply."
+  },
+  "systems": [
+    {
+      "slug": "chimpanzee-trekking",
+      "name": "Chimpanzee trekking",
+      "role": "primary expedition objective",
+      "strongest_window": "June–October generally easiest",
+      "summary": "Ranger-led trekking through forest to locate habituated wild chimpanzees. Trek difficulty varies with where the animals are ranging that day.",
+      "wildlife": "Chimpanzees are the headline species, with other primates and forest wildlife adding context rather than replacing the trek.",
+      "experience": "The value is behavioural observation in a wild forest, not a guaranteed close encounter.",
+      "planning": "Fitness, humidity, forest terrain, health screening and current ranger guidance all matter.",
+      "best_for": [
+        "primates",
+        "behaviour",
+        "research-minded travel",
+        "repeat safari"
+      ],
+      "tradeoff": "Sightings are never guaranteed and trekking effort can vary substantially."
+    },
+    {
+      "slug": "forest",
+      "name": "Montane forest",
+      "role": "ecological context",
+      "strongest_window": "Year-round · access and trail conditions seasonal",
+      "summary": "Steep forested ridges, valleys, streams and sub-montane habitats form the chimpanzees' home range and make Mahale fundamentally different from savanna safari.",
+      "wildlife": "Red colobus, red-tailed monkeys, vervets, bushbuck, bushpig, forest birds and other species occupy different forest layers.",
+      "experience": "The forest makes the journey physical and intimate; visibility is selective rather than panoramic.",
+      "planning": "Closed shoes, rain protection and realistic fitness expectations matter more here than in a vehicle-led park.",
+      "best_for": [
+        "forest ecology",
+        "primates",
+        "walking",
+        "birding"
+      ],
+      "tradeoff": "Dense vegetation means wildlife can be heard or tracked without always being clearly seen."
+    },
+    {
+      "slug": "lake-tanganyika",
+      "name": "Lake Tanganyika",
+      "role": "recovery / aquatic landscape",
+      "strongest_window": "June–October for classic dry-season conditions",
+      "summary": "The lake is not a backdrop. Boat transfers, kayaking, snorkeling, swimming in designated areas and shoreline time create a second expedition rhythm after forest trekking.",
+      "wildlife": "Cichlids, fish eagles, kingfishers and other aquatic or shoreline life add a completely different biological system.",
+      "experience": "Mahale works best when the lake has real time, not when every day is organised only around chimpanzees.",
+      "planning": "Wind, lake safety, skipper guidance and local activity conditions should be checked daily.",
+      "best_for": [
+        "recovery",
+        "water activities",
+        "photography",
+        "honeymoon"
+      ],
+      "tradeoff": "Lake activities are weather-dependent and should not be treated as guaranteed daily programming."
+    },
+    {
+      "slug": "mountain",
+      "name": "Mahale Mountains",
+      "role": "hiking / elevation",
+      "strongest_window": "Drier months generally easier",
+      "summary": "The mountains rise directly behind the lakeshore and extend Mahale from low forest into higher ridges and Mount Nkungwe.",
+      "wildlife": "Forest and highland species shift with elevation, but the main value is topography, exertion and perspective over the lake.",
+      "experience": "For fit travellers, hiking can turn Mahale from primate trip into a genuine mountain-and-lake expedition.",
+      "planning": "Longer hikes require appropriate fitness, time, ranger/guide planning and current trail assessment.",
+      "best_for": [
+        "hiking",
+        "mountain landscape",
+        "active travel",
+        "long stays"
+      ],
+      "tradeoff": "Peak objectives compete directly with chimp trekking and lake time; not every stay is long enough for both."
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "key": "jun-aug",
+      "months": "Jun–Aug",
+      "ecology": "Drier conditions generally improve trail comfort and make access more reliable.",
+      "planning_note": "A strong all-round window for chimp trekking, lake time and hiking."
+    },
+    {
+      "key": "sep-oct",
+      "months": "Sep–Oct",
+      "ecology": "Late dry-season conditions can make chimp trekking especially rewarding as fruiting patterns and water influence ranging behaviour.",
+      "planning_note": "Often considered one of the strongest periods, but exact chimp location remains unpredictable."
+    },
+    {
+      "key": "nov-jan",
+      "months": "Nov–Jan",
+      "ecology": "Short rains green the forest and increase humidity while maintaining year-round chimp trekking potential.",
+      "planning_note": "Good for lush forest and lower visitor pressure; weather can affect lake and trail conditions."
+    },
+    {
+      "key": "feb-early-mar",
+      "months": "Feb–early Mar",
+      "ecology": "Humid green-season conditions continue with rich forest atmosphere and birdlife.",
+      "planning_note": "Best for travellers comfortable with heat, humidity and less predictable trail conditions."
+    },
+    {
+      "key": "mid-mar-may",
+      "months": "Mid-Mar–May",
+      "ecology": "Long rains can make access, trekking and camp operation more difficult.",
+      "planning_note": "Do not design a Mahale journey in this period without confirming actual lodge, flight and boat operations."
+    }
+  ],
+  "stay_logic": [
+    {
+      "nights": "2 nights",
+      "stance": "too short",
+      "note": "The access effort is too high for most travellers, and a missed or difficult chimp day leaves almost no recovery margin."
+    },
+    {
+      "nights": "3 nights",
+      "stance": "minimum",
+      "note": "A credible first Mahale stay if logistics are efficient and chimp trekking is the clear priority."
+    },
+    {
+      "nights": "4 nights",
+      "stance": "preferred",
+      "note": "The strongest default: enough room for multiple trekking opportunities and real lake time."
+    },
+    {
+      "nights": "5–7 nights",
+      "stance": "expedition depth",
+      "note": "Allows chimp trekking, lake life, hiking and slower recovery without making every day dependent on one activity."
+    }
+  ],
+  "access_logic": [
+    {
+      "mode": "Light aircraft + boat",
+      "stance": "default",
+      "note": "The standard high-end access pattern: fly into western Tanzania / Mahale airstrip logistics, then continue by boat to camp."
+    },
+    {
+      "mode": "Via Kigoma + boat",
+      "stance": "selective",
+      "note": "Can work when Kigoma itself matters to the journey or when flight routing makes it sensible."
+    },
+    {
+      "mode": "Remote 4x4 access",
+      "stance": "specialist",
+      "note": "TANAPA notes limited dry-season road access, but this should not be treated as the normal international-traveller route."
+    }
+  ],
+  "health_protocol": [
+    {
+      "item": "Respiratory health",
+      "rule": "Do not trek with cold/flu symptoms.",
+      "reason": "Chimpanzees are susceptible to human respiratory disease."
+    },
+    {
+      "item": "Viewing distance",
+      "rule": "Follow ranger-directed distance rules at all times.",
+      "reason": "Distance protects both visitors and chimpanzees."
+    },
+    {
+      "item": "Group / viewing limits",
+      "rule": "Group size and time with chimpanzees are controlled.",
+      "reason": "Trekking pressure must remain limited."
+    },
+    {
+      "item": "Food / behaviour",
+      "rule": "Do not feed wildlife, eat near chimpanzees or mimic calls.",
+      "reason": "Avoid behavioural disturbance and disease risk."
+    }
+  ],
+  "traveller_fit": [
+    {
+      "type": "First Tanzania safari",
+      "fit": "selective",
+      "note": "Best when the traveller deliberately prioritises primates and remoteness over a classic northern-circuit introduction."
+    },
+    {
+      "type": "Repeat Tanzania traveller",
+      "fit": "excellent",
+      "note": "One of the strongest options for someone who already knows savanna safari and wants a completely different ecosystem."
+    },
+    {
+      "type": "Honeymoon / couple",
+      "fit": "strong",
+      "note": "The forest-and-lake combination can work exceptionally well if both travellers are comfortable with trekking and remote logistics."
+    },
+    {
+      "type": "Active traveller",
+      "fit": "excellent",
+      "note": "Mahale rewards fitness through trekking, hiking, kayaking and walking."
+    },
+    {
+      "type": "Short 7–8 day trip",
+      "fit": "poor unless Mahale is the trip",
+      "note": "Remote access makes Mahale a weak add-on to a short multi-region itinerary."
+    }
+  ],
+  "route_shapes": [
+    {
+      "slug": "mahale-only",
+      "label": "Mahale as the expedition",
+      "sequence": [
+        "Air / Kigoma access",
+        "Boat to camp",
+        "4–6 nights Mahale",
+        "Departure"
+      ],
+      "best_for": [
+        "chimpanzees",
+        "lake time",
+        "honeymoon",
+        "active travel"
+      ],
+      "note": "The cleanest expression of Mahale: enough time for trekking and lake life without competing destinations."
+    },
+    {
+      "slug": "mahale-katavi",
+      "label": "Mahale + Katavi",
+      "sequence": [
+        "Katavi",
+        "Light-aircraft connection",
+        "Mahale",
+        "Departure"
+      ],
+      "best_for": [
+        "western Tanzania",
+        "repeat safari",
+        "savanna + primates"
+      ],
+      "note": "The classic western Tanzania contrast: remote savanna and predator country followed by forest, chimpanzees and Lake Tanganyika."
+    },
+    {
+      "slug": "ruaha-mahale",
+      "label": "Ruaha + Mahale",
+      "sequence": [
+        "Ruaha",
+        "Air connection",
+        "Mahale",
+        "Coast / departure"
+      ],
+      "best_for": [
+        "long journey",
+        "predators + primates",
+        "remote Tanzania"
+      ],
+      "note": "A high-complexity route that rewards travellers willing to spend more time and budget on access for ecological contrast."
+    }
+  ],
+  "operated_evidence": [],
+  "evidence_note": "No verified Enkiama-operated Mahale journey is currently published.",
+  "publication_rules": [
+    "Do not guarantee chimpanzee sightings or trekking duration.",
+    "Do not state that Mahale has no road access; limited dry-season 4x4 access exists, though air + boat is the normal traveller route.",
+    "Do not publish exact chimp viewing-time or group-size limits without current TANAPA verification.",
+    "Treat lake and hiking activities as weather-, guide- and camp-dependent.",
+    "Do not promise solitude or exclusive chimp encounters.",
+    "Do not create an operated Enkiama case study until a verified trip record exists."
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "nyerere",
+  "title": "Nyerere river safari system",
+  "framing": "A southern Tanzanian safari system organised by the Rufiji River, oxbow lakes, floodplains, woodland and the ability to move through the landscape by boat, vehicle and on foot.",
+  "reference_facts": {
+    "rufiji_note": "The Rufiji River and connected lakes are central to the park's tourism experience and ecology.",
+    "activity_note": "Boating, game drives and walking are established Nyerere safari activities; exact availability depends on current park, camp and guide arrangements.",
+    "seasonal_note": "Dry-season wildlife concentration increases around river and lake systems, while wetter months change access, vegetation and animal distribution.",
+    "former_selous_note": "Nyerere National Park was created from the northern sector of the former Selous Game Reserve."
+  },
+  "systems": [
+    {
+      "slug": "rufiji-river",
+      "name": "Rufiji River",
+      "role": "river spine",
+      "strongest_window": "Dry season especially strong",
+      "summary": "The Rufiji is the defining movement system of Nyerere, shaping wildlife, camp location and the park's most distinctive activity: safari by boat.",
+      "wildlife": "Hippo, crocodile, elephants, waterbirds and other mammals use the river and its margins; exact sightings remain variable.",
+      "experience": "Lower, slower and quieter than a vehicle drive. The river changes how distance and wildlife are perceived.",
+      "crowd_profile": "Boat traffic is typically dispersed by channel and camp area rather than concentrated at one major sighting point.",
+      "best_for": [
+        "boating",
+        "water ecology",
+        "photography",
+        "activity diversity"
+      ],
+      "tradeoff": "River conditions and activity availability vary by season and operating area."
+    },
+    {
+      "slug": "lakes-channels",
+      "name": "Lakes, channels & floodplain",
+      "role": "wetland mosaic",
+      "strongest_window": "Dry season concentration / green-season birding",
+      "summary": "Oxbow lakes, channels and floodplain habitats extend the river system into a patchwork of open water, marsh and woodland edge.",
+      "wildlife": "Waterbirds, hippos, crocodiles, elephants, buffalo and predators may use the mosaic depending on water levels and season.",
+      "experience": "This is the softer, greener side of southern Tanzania compared with Ruaha's dry sand-river country.",
+      "crowd_profile": "Usually low-density, though popular lake systems near camps can receive repeated use.",
+      "best_for": [
+        "birding",
+        "wetlands",
+        "slow safari",
+        "boat + drive"
+      ],
+      "tradeoff": "Water levels and road access materially affect what can be reached."
+    },
+    {
+      "slug": "woodland-savanna",
+      "name": "Woodland & savanna",
+      "role": "vehicle safari",
+      "strongest_window": "Dry season",
+      "summary": "Away from the river, miombo woodland, open glades and savanna support a broader game-drive safari system.",
+      "wildlife": "Elephant, giraffe, buffalo, antelope, lion and wild dog can occur, but Nyerere should not be sold as a guaranteed predator checklist.",
+      "experience": "Vehicle time complements boating rather than replacing it. The strongest itineraries use both.",
+      "crowd_profile": "Generally lower traffic than classic northern-circuit parks.",
+      "best_for": [
+        "general wildlife",
+        "predators",
+        "mixed activities",
+        "first southern safari"
+      ],
+      "tradeoff": "Wildlife density can feel less immediate than the Serengeti or Ngorongoro Crater."
+    },
+    {
+      "slug": "walking-country",
+      "name": "Walking country",
+      "role": "on-foot safari",
+      "strongest_window": "Dry season / camp-dependent",
+      "summary": "Nyerere is one of Tanzania's established walking-safari landscapes, with authorised guides and camp-specific operating areas.",
+      "wildlife": "The emphasis shifts from close-up species collection to tracks, plants, ecology, small signs and how animals use the landscape.",
+      "experience": "Walking changes the scale of the safari and makes Nyerere more than a river park.",
+      "crowd_profile": "Very low by design.",
+      "best_for": [
+        "walking",
+        "fieldcraft",
+        "repeat safari",
+        "slower travel"
+      ],
+      "tradeoff": "Not every camp offers the same walking programme, and heat, age, season and guide availability matter."
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "key": "jun-jul",
+      "months": "Jun–Jul",
+      "ecology": "Drying conditions improve road access while wildlife begins concentrating around river and lake systems.",
+      "planning_note": "A strong balance of access, water-based activity and comfortable temperatures."
+    },
+    {
+      "key": "aug-oct",
+      "months": "Aug–Oct",
+      "ecology": "Classic dry-season Nyerere, with increasing concentration around permanent water and more open vegetation.",
+      "planning_note": "Strongest for game viewing and activity diversity, but hotter and dustier later in the period."
+    },
+    {
+      "key": "nov-jan",
+      "months": "Nov–Jan",
+      "ecology": "Short rains green the park and spread wildlife more widely across the landscape.",
+      "planning_note": "Birding and scenery strengthen while dry-season concentration becomes less pronounced."
+    },
+    {
+      "key": "feb-early-mar",
+      "months": "Feb–early Mar",
+      "ecology": "Green-season conditions continue with lush vegetation and lower traffic.",
+      "planning_note": "Best for travellers comfortable with less predictable large-mammal viewing and more seasonal access variation."
+    },
+    {
+      "key": "mid-mar-may",
+      "months": "Mid-Mar–May",
+      "ecology": "Long rains can affect roads, airstrips and camp operations.",
+      "planning_note": "Some camps may close. Nyerere should not be planned in this period without checking actual operating status."
+    }
+  ],
+  "stay_logic": [
+    {
+      "nights": "2 nights",
+      "stance": "compressed",
+      "note": "Possible, but activity variety becomes hard to use well. A single boat trip plus one full game-drive day can feel rushed."
+    },
+    {
+      "nights": "3 nights",
+      "stance": "good minimum",
+      "note": "Enough time to combine game drives with at least one river or walking activity without sacrificing the entire safari to transfers."
+    },
+    {
+      "nights": "4 nights",
+      "stance": "preferred",
+      "note": "The strongest first Nyerere shape for mixed activities and slower river/lake exploration."
+    },
+    {
+      "nights": "5+ nights",
+      "stance": "deep",
+      "note": "Supports different activity types, multiple ecological zones or a split between camps without turning the trip into logistics."
+    }
+  ],
+  "activities": [
+    {
+      "name": "Boat safari",
+      "status": "signature",
+      "note": "The clearest differentiator from most northern parks; exact routes depend on river level, camp and current permissions."
+    },
+    {
+      "name": "Game drives",
+      "status": "core",
+      "note": "Essential for woodland, floodplain and general wildlife that is not best accessed from the river."
+    },
+    {
+      "name": "Walking safari",
+      "status": "conditional",
+      "note": "A major strength where offered by authorised guides and appropriate camps."
+    },
+    {
+      "name": "Birding",
+      "status": "core",
+      "note": "Strong across river, lake and woodland systems and especially rewarding in greener months."
+    }
+  ],
+  "traveller_fit": [
+    {
+      "type": "First safari",
+      "fit": "strong for the right traveller",
+      "note": "Best when activity diversity and a quieter southern style matter more than migration or northern-circuit iconography."
+    },
+    {
+      "type": "Repeat safari",
+      "fit": "excellent",
+      "note": "Especially good for travellers who want boats, walking and river ecology rather than another vehicle-only safari."
+    },
+    {
+      "type": "Family",
+      "fit": "camp-dependent",
+      "note": "Boat and walking activities may have age or safety restrictions; exact suitability must be checked with the chosen property."
+    },
+    {
+      "type": "Short safari",
+      "fit": "selective",
+      "note": "Works well if Nyerere is the core safari and access is efficient. Poor as a rushed add-on."
+    },
+    {
+      "type": "Safari + coast",
+      "fit": "excellent",
+      "note": "A natural southern composition because air connections can link the park efficiently with Dar es Salaam and Zanzibar."
+    }
+  ],
+  "route_shapes": [
+    {
+      "slug": "nyerere-only",
+      "label": "Nyerere as the safari",
+      "sequence": [
+        "Dar / Zanzibar connection",
+        "3–5 nights Nyerere",
+        "Coast or departure"
+      ],
+      "best_for": [
+        "activity diversity",
+        "short southern safari",
+        "coast pairing"
+      ],
+      "note": "The simplest way to let boating, walking and driving all matter."
+    },
+    {
+      "slug": "ruaha-nyerere",
+      "label": "Ruaha + Nyerere",
+      "sequence": [
+        "Ruaha",
+        "Light-aircraft connection",
+        "Nyerere",
+        "Dar / coast"
+      ],
+      "best_for": [
+        "southern circuit",
+        "dry-country + river contrast",
+        "repeat safari"
+      ],
+      "note": "Combines Ruaha's predator-rich dry systems with Nyerere's river and activity diversity."
+    },
+    {
+      "slug": "nyerere-zanzibar",
+      "label": "Nyerere + Zanzibar",
+      "sequence": [
+        "Nyerere",
+        "Light aircraft",
+        "Zanzibar"
+      ],
+      "best_for": [
+        "safari + coast",
+        "honeymoon",
+        "shorter Tanzania journey"
+      ],
+      "note": "One of the cleanest southern Tanzania pairings when the coast is important."
+    }
+  ],
+  "operated_evidence": [],
+  "evidence_note": "No verified Enkiama-operated Nyerere journey is currently published.",
+  "publication_rules": [
+    "Do not guarantee wild dogs, lions, elephants or any specific river wildlife.",
+    "Do not imply boat safaris operate identically across all camps and seasons.",
+    "Treat walking as camp-, guide-, age- and season-dependent.",
+    "Do not promise solitude or no other boats/vehicles.",
+    "Do not hard-code flight routes or transfer times.",
+    "Do not create an operated Enkiama case study until a verified trip record exists."
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "manyara",
+  "title": "Lake Manyara compact ecosystem",
+  "framing": "A compact Rift Valley park where spring-fed groundwater forest, acacia woodland, floodplain, alkaline lake, wetlands and escarpment compress into a short geographic transition.",
+  "reference_facts": {
+    "park_area_km2": 648.7,
+    "biosphere_reserve": true,
+    "bird_species_note": "TANAPA lists more than 400 bird species; UNESCO describes Lake Manyara as an important bird area within a broader Rift Valley biosphere reserve.",
+    "canopy_walkway_note": "TANAPA describes a canopy walkway approximately 470 m long and up to 18 m high.",
+    "lion_note": "Tree-climbing lions are associated with Manyara but should never be presented as guaranteed."
+  },
+  "habitats": [
+    {
+      "slug": "groundwater-forest",
+      "name": "Groundwater forest",
+      "role": "spring-fed entrance ecosystem",
+      "strongest_use": "Arrival / first landscape shift",
+      "summary": "Perennial groundwater and springs support dense evergreen forest immediately below the escarpment.",
+      "wildlife": "Blue monkeys, baboons, bushbuck, forest birds and elephants can use this cooler, shaded habitat.",
+      "experience": "The forest creates an unusually abrupt beginning for a northern-circuit safari: enclosed, green and humid before the park opens toward floodplain and lake.",
+      "crowd_profile": "The northern entrance zone is the most commonly used part of the park.",
+      "best_for": [
+        "primates",
+        "forest birds",
+        "landscape transition",
+        "first safari day"
+      ],
+      "tradeoff": "Dense vegetation can make large-mammal viewing less open than Tarangire or Serengeti."
+    },
+    {
+      "slug": "acacia-floodplain",
+      "name": "Acacia woodland & floodplain",
+      "role": "savanna transition",
+      "strongest_use": "General game viewing",
+      "summary": "Woodland and open floodplain sit between the groundwater forest and the lake, creating a quick transition into more open wildlife country.",
+      "wildlife": "Elephant, giraffe, buffalo, zebra, wildebeest and antelope use these habitats, with predators present but never guaranteed.",
+      "experience": "This is where Manyara starts to feel less like forest and more like northern Tanzania safari country.",
+      "crowd_profile": "Vehicle traffic varies with wildlife distribution and road access.",
+      "best_for": [
+        "elephants",
+        "mixed game",
+        "contrast",
+        "short visits"
+      ],
+      "tradeoff": "Wildlife density can be less concentrated than peak dry-season Tarangire."
+    },
+    {
+      "slug": "lake-wetlands",
+      "name": "Lake edge & wetlands",
+      "role": "waterbird / alkaline-lake system",
+      "strongest_use": "Birding and seasonal lake-edge ecology",
+      "summary": "The alkaline lake, marsh, reedbeds and wetland margins create the park's most important birding system.",
+      "wildlife": "Flamingos can occur seasonally alongside pelicans, storks, herons and many other waterbirds; hippos use wetland pools.",
+      "experience": "The value is ecological and visual rather than a fixed flamingo spectacle.",
+      "crowd_profile": "Birding can feel slower and less compressed than predator-focused game viewing.",
+      "best_for": [
+        "birding",
+        "wetlands",
+        "photography",
+        "seasonal ecology"
+      ],
+      "tradeoff": "Flamingo numbers and shoreline access change with water conditions and season."
+    },
+    {
+      "slug": "escarpment-hot-springs",
+      "name": "Escarpment & southern hot-spring country",
+      "role": "Rift geology",
+      "strongest_use": "Longer full-day exploration",
+      "summary": "The Rift escarpment frames the park while hot springs and mineral-streaked southern flats reveal the geological system behind the landscape.",
+      "wildlife": "Wildlife remains present, but the value shifts toward geology, scenery and route depth.",
+      "experience": "This is where Manyara becomes more than the northern entrance circuit.",
+      "crowd_profile": "Generally requires more time than a short stop allows.",
+      "best_for": [
+        "geology",
+        "Rift context",
+        "full-day visits",
+        "repeat safari"
+      ],
+      "tradeoff": "A rushed northern-circuit schedule often cannot justify the extra distance."
+    }
+  ],
+  "seasonal_calendar": [
+    {
+      "key": "jan-feb",
+      "months": "Jan–Feb",
+      "ecology": "A relatively drier interval with mixed forest, floodplain and lake-edge conditions.",
+      "planning_note": "Good for a compact northern-circuit chapter, but bird and lake conditions still depend on water levels."
+    },
+    {
+      "key": "mar-may",
+      "months": "Mar–May",
+      "ecology": "Long rains intensify the park's green character and wetland expression.",
+      "planning_note": "Strong for atmosphere and birding, while road and water conditions can affect access."
+    },
+    {
+      "key": "jun-aug",
+      "months": "Jun–Aug",
+      "ecology": "Drier conditions improve road reliability and concentrate some wildlife around persistent water and feeding areas.",
+      "planning_note": "A strong general safari period, but Manyara remains more about habitat variety than raw wildlife density."
+    },
+    {
+      "key": "sep-oct",
+      "months": "Sep–Oct",
+      "ecology": "Dry conditions continue, with open floodplain and woodland visibility often improved.",
+      "planning_note": "Useful as a compact contrast between Tarangire and Ngorongoro; do not oversell tree-climbing lions."
+    },
+    {
+      "key": "nov-dec",
+      "months": "Nov–Dec",
+      "ecology": "Short rains can refresh vegetation and wetland conditions quickly.",
+      "planning_note": "Good for changing skies, birdlife and a greener Rift-edge journey."
+    }
+  ],
+  "stay_logic": [
+    {
+      "shape": "Half day",
+      "stance": "compressed",
+      "note": "Can show the groundwater forest and some open habitats, but risks reducing Manyara to a transit stop."
+    },
+    {
+      "shape": "Full day",
+      "stance": "preferred",
+      "note": "The strongest default: enough time to move through forest, floodplain and lake-edge habitats without rushing."
+    },
+    {
+      "shape": "1 night nearby",
+      "stance": "strong",
+      "note": "Useful when Manyara also carries Mto wa Mbu, canopy-walk, night-drive or slower Rift-transition value."
+    },
+    {
+      "shape": "2 nights",
+      "stance": "selective",
+      "note": "Best only when the wider Manyara/Mto wa Mbu/Rift context genuinely matters; not an automatic upgrade."
+    }
+  ],
+  "activities": [
+    {
+      "name": "Game drive",
+      "status": "core",
+      "note": "Best for reading the park's rapid habitat changes rather than pursuing one headline species."
+    },
+    {
+      "name": "Birding",
+      "status": "core",
+      "note": "A major reason to choose Manyara, especially around lake and wetland habitats."
+    },
+    {
+      "name": "Canopy walkway",
+      "status": "conditional",
+      "note": "A TANAPA-managed forest activity; current operating status and access should be checked before travel."
+    },
+    {
+      "name": "Night drive",
+      "status": "conditional",
+      "note": "TANAPA lists night drives where permitted; exact operating context should be confirmed."
+    },
+    {
+      "name": "Mto wa Mbu context",
+      "status": "adjacent",
+      "note": "Town, farming, food and cultural context sit outside the park but can make Manyara a richer Rift-transition chapter."
+    }
+  ],
+  "route_roles": [
+    {
+      "slug": "first-safari-day",
+      "label": "First safari day",
+      "best_for": [
+        "gentle arrival",
+        "first-time safari",
+        "mixed habitats"
+      ],
+      "sequence": [
+        "Arusha / Kilimanjaro region",
+        "Lake Manyara",
+        "Ngorongoro / Karatu"
+      ],
+      "note": "A compact first wildlife chapter before the scale expands later in the route."
+    },
+    {
+      "slug": "tarangire-ngorongoro-bridge",
+      "label": "Tarangire → Ngorongoro bridge",
+      "best_for": [
+        "contrast",
+        "Rift geography",
+        "northern circuit flow"
+      ],
+      "sequence": [
+        "Tarangire",
+        "Lake Manyara / Mto wa Mbu",
+        "Ngorongoro highlands"
+      ],
+      "note": "Works when Manyara adds ecological contrast rather than simply filling a transfer day."
+    },
+    {
+      "slug": "rift-context",
+      "label": "Rift transition chapter",
+      "best_for": [
+        "landscape",
+        "birding",
+        "Mto wa Mbu",
+        "slower travel"
+      ],
+      "sequence": [
+        "Manyara Basin",
+        "Mto wa Mbu",
+        "Ngorongoro or Great Rift"
+      ],
+      "note": "Makes the Rift itself visible as part of the journey rather than as background scenery."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "hakuna-matata-three-travellers",
+      "label": "Operated · three travellers",
+      "title": "Forest, escarpment and lake",
+      "insight": "Lake Manyara added a smaller, greener landscape after the open safari plains and changed the visual rhythm of the journey.",
+      "href": "trip.html?slug=hakuna-matata-three-travellers"
+    }
+  ],
+  "publication_rules": [
+    "Do not guarantee tree-climbing lions or flamingo concentrations.",
+    "Treat flamingo presence and shoreline conditions as seasonal/ecological, not fixed.",
+    "Do not imply the UNESCO biosphere reserve boundary is identical to Lake Manyara National Park.",
+    "Treat canopy walk and night-drive availability as current-condition dependent.",
+    "Do not describe a half-day stop as representing the full park.",
+    "Avoid exact transfer-time claims without current route context."
+  ]
+}
