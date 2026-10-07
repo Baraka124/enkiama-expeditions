@@ -125,6 +125,113 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 .s5 .ev-media{background-image:url('assets/zanzibar.jpg');background-position:center 58%}
 
 
+
+/* Phase 4 · layout hardening */
+.ev{
+  --safe-top:clamp(5.8rem,11vh,8.2rem);
+  --safe-bottom:clamp(6.4rem,12vh,8.6rem);
+  --safe-x:clamp(1.4rem,7vw,7rem);
+}
+.ev-copy{top:auto;max-height:calc(100dvh - var(--safe-top) - var(--safe-bottom));overflow:visible}
+.ev-title{font-size:clamp(42px,6.6vw,94px)}
+.ev-note{max-width:48ch}
+.ev-number{pointer-events:none}
+.ev-controls{bottom:calc(var(--safe-bottom) - 1.2rem)}
+.ev-rail{bottom:clamp(1rem,2.4vw,2rem)}
+.ev-progress{min-width:0}
+.ev.drawer-open .ev-controls,.ev.drawer-open .ev-rail{opacity:.14;pointer-events:none}
+.ev.drawer-open .ev-scene.active{filter:saturate(.82) brightness(.72)}
+.ev-scene.active{transition:opacity .9s ease,filter .35s ease}
+
+/* contact sheet owns upper field; copy owns lower field */
+.ev-scene.sheet .ev-contact{inset:var(--safe-top) 8% 36%}
+.ev-scene.sheet .ev-copy{
+  left:8%;right:8%;bottom:var(--safe-bottom);max-width:none;text-align:left;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.68fr);column-gap:clamp(2rem,5vw,5rem);align-items:end
+}
+.ev-scene.sheet .ev-kicker,.ev-scene.sheet .ev-title{grid-column:1}
+.ev-scene.sheet .ev-note,.ev-scene.sheet .ev-route,.ev-scene.sheet .ev-evidence,.ev-scene.sheet .ev-link,.ev-scene.sheet .ev-field-open{grid-column:2;margin-left:0}
+.ev-scene.sheet .ev-title{margin-left:0;max-width:10ch}
+.ev-scene.sheet .ev-note{margin-top:0;max-width:42ch}
+
+/* route composition reserves a clean lower intelligence band */
+.ev-scene.route .ev-copy{bottom:clamp(13.5rem,24vh,17rem);max-width:min(690px,62vw)}
+.ev-scene.route .ev-atlas{left:var(--safe-x);right:var(--safe-x);bottom:var(--safe-bottom);height:clamp(70px,11vh,110px)}
+.ev-scene.route .ev-number{display:none}
+
+/* framed media never collides with copy */
+.ev-scene.frame .ev-media{inset:var(--safe-top) 8% 30%}
+.ev-scene.frame .ev-copy{bottom:var(--safe-bottom);max-width:min(660px,64vw)}
+.ev-frame-label{right:8%;bottom:calc(var(--safe-bottom) + .3rem)}
+
+/* split copy gets a real text column */
+.ev-scene.split .ev-media{clip-path:polygon(0 0,57% 0,49% 100%,0 100%)}
+.ev-scene.split::after{background:linear-gradient(90deg,transparent 0 48%,rgba(7,12,9,.6) 55%,rgba(7,12,9,.94) 68% 100%)}
+.ev-scene.split .ev-copy{right:var(--safe-x);bottom:var(--safe-bottom);max-width:min(500px,36vw)}
+
+/* header collision prevention */
+.ev-top{gap:1.5rem}
+.ev-top-right{min-width:0;flex-wrap:wrap;justify-content:flex-end}
+.ev-live-open,.ev-exit{white-space:nowrap}
+
+/* drawers behave like modal editorial surfaces */
+.ev-live-panel,.ev-field{overscroll-behavior:contain;box-shadow:-30px 0 90px rgba(0,0,0,.34)}
+.ev-live-panel[aria-hidden="true"],.ev-field[aria-hidden="true"]{visibility:hidden}
+.ev-live-panel.open,.ev-field.open{visibility:visible}
+.ev-panel-scrim{position:absolute;z-index:35;inset:0;background:rgba(4,8,6,.44);opacity:0;pointer-events:none;transition:opacity .35s ease}
+.ev.drawer-open .ev-panel-scrim{opacity:1;pointer-events:auto}
+
+@media(max-width:900px){
+  .ev{--safe-top:5.8rem;--safe-bottom:6.2rem}
+  .ev-title{font-size:clamp(40px,8.6vw,72px)}
+  .ev-scene.sheet .ev-contact{inset:5.8rem 1.4rem 44%}
+  .ev-scene.sheet .ev-copy{left:1.4rem;right:1.4rem;bottom:6.4rem;display:block;max-width:620px}
+  .ev-scene.sheet .ev-note{margin-top:1rem}
+  .ev-scene.route .ev-copy{bottom:12.5rem;max-width:76vw}
+  .ev-scene.route .ev-atlas{bottom:6.8rem;height:80px}
+  .ev-scene.split .ev-copy{max-width:44vw}
+}
+@media(max-width:760px){
+  .ev{--safe-top:5.1rem;--safe-bottom:5.6rem}
+  .ev-top{padding:1rem 1.15rem}
+  .ev-logo img{height:34px}
+  .ev-top-right{gap:.65rem}
+  .ev-live-open{order:1}
+  .ev-exit{order:2}
+  .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,.ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{
+    left:1.2rem;right:1.2rem;bottom:6.15rem;max-height:calc(100dvh - 12rem);overflow:hidden
+  }
+  .ev-title{font-size:clamp(36px,11.2vw,58px);line-height:.94;max-width:10ch}
+  .ev-note{font-size:12.5px;line-height:1.56;max-width:33ch;margin-top:.9rem}
+  .ev-kicker{font-size:8px;margin-bottom:.65rem}
+  .ev-route{font-size:8.5px;margin-top:.8rem;padding-top:.65rem}
+  .ev-evidence{margin-top:.65rem;gap:.4rem .7rem}
+  .ev-chip{font-size:8px}.ev-chip b{font-size:15px}
+  .ev-link{margin-top:.8rem;font-size:8.5px}
+  .ev-field-open{margin-top:.7rem;font-size:8.5px}
+  .ev-scene.sheet .ev-contact{inset:5.2rem 1rem 47%;gap:6px}
+  .ev-contact figcaption{font-size:7px;left:.5rem;bottom:.45rem}
+  .ev-scene.sheet .ev-copy{bottom:6.1rem}
+  .ev-scene.frame .ev-media{inset:5.3rem 1rem 43%}
+  .ev-frame-label{display:none}
+  .ev-scene.route .ev-copy{bottom:10.4rem;max-height:calc(100dvh - 15.7rem)}
+  .ev-scene.route .ev-atlas{left:1.2rem;right:1.2rem;bottom:6.25rem;height:54px}
+  .ev-scene.split .ev-media{clip-path:none;inset:0 0 42%}
+  .ev-scene.split::after{background:linear-gradient(180deg,rgba(6,11,8,.04) 0 42%,rgba(6,11,8,.9) 62% 100%)}
+  .ev-scene.split .ev-copy{max-width:none}
+  .ev-number{display:none}
+  .ev-controls{bottom:3.9rem;right:1rem}
+  .ev-btn{width:34px;height:34px}
+  .ev-rail{left:1.2rem;right:1.2rem;bottom:1rem}
+}
+@media(max-height:650px) and (min-width:761px){
+  .ev{--safe-top:5.2rem;--safe-bottom:5.3rem}
+  .ev-title{font-size:clamp(38px,5.5vw,68px)}
+  .ev-note{font-size:12px;line-height:1.55;margin-top:.8rem}
+  .ev-scene.route .ev-copy{bottom:10.5rem}
+  .ev-scene.route .ev-atlas{height:58px}
+}
+
 /* Phase 3 · Enkiama Live surfaces */
 .ev-live-open,.ev-field-open{border:0;background:none;color:rgba(237,230,214,.72);font:inherit;font-size:9px;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;padding:.45rem 0}
 .ev-live-open{border-bottom:1px solid rgba(190,158,104,.35)}
@@ -318,8 +425,9 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <div class="ev-progress"><span id="evProgress" class="run"></span></div>
     <div class="ev-meta"><span class="ev-index" id="evIndex">01 / 08</span><span id="evMeta">Opening</span></div>
   </div>
-  <aside class="ev-live-panel" id="evLivePanel" aria-label="Enkiama Live index"></aside>
-  <aside class="ev-field" id="evFieldGuide" aria-label="Field guide"></aside>
+  <div class="ev-panel-scrim" id="evPanelScrim" aria-hidden="true"></div>
+  <aside class="ev-live-panel" id="evLivePanel" aria-label="Enkiama Live index" aria-hidden="true"></aside>
+  <aside class="ev-field" id="evFieldGuide" aria-label="Field guide" aria-hidden="true"></aside>
 </main>
 
 <script src="assets/js/enkiama-live.js"></script>
