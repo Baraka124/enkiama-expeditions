@@ -278,6 +278,20 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 .ev-field__items article p{font-size:12px;line-height:1.7;color:rgba(237,230,214,.62);margin:0}
 @media(max-width:760px){.ev-live-panel,.ev-field{width:100vw}.ev-live-open{font-size:8px}}
 
+/* Phase 5 · final Live cascade */
+.ev-live-panel__channels{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;border-bottom:1px solid rgba(237,230,214,.1)}
+.ev-live-channel{display:block;width:auto;text-align:left;background:none;border:0;border-right:1px solid rgba(237,230,214,.08);border-bottom:1px solid rgba(237,230,214,.08);padding:1rem 1.2rem;color:var(--bone);cursor:default}
+.ev-live-channel:nth-child(2n){border-right:0}
+.ev-live-channel:last-child{border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-channel strong{font-size:18px}
+.ev-live-channel span{font-size:10px;line-height:1.55}
+.ev-live-panel__stories a{padding:0;border-bottom:0}
+@media(max-width:520px){
+  .ev-live-panel__channels{grid-template-columns:1fr}
+  .ev-live-channel{border-right:0}
+}
+
+
 @media(max-width:760px){
   .ev-mode{display:none}
   .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,.ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{left:1.3rem;right:1.3rem;bottom:7rem;max-width:none;text-align:left;transform:none}
