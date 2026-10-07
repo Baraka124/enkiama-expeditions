@@ -144,6 +144,128 @@
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/">
 <!-- ── end structured data ── -->
 
+
+<style id="homepage-immersion-v2">
+/* ══════════ HOME V2 · IMMERSION + PERFORMANCE ══════════ */
+body[data-page="home"]{background:#0c1410}
+
+/* HERO — one immediate image, one decision, no decorative machinery fighting it */
+body[data-page="home"] .hero{min-height:100svh!important;max-height:none!important;padding:clamp(7rem,10vh,9rem) clamp(1.4rem,5vw,5rem) clamp(4rem,7vh,6rem)!important;isolation:isolate}
+body[data-page="home"] .hero-film{animation:none!important;transform:none!important;will-change:auto!important}
+body[data-page="home"] .hero-film::before{display:none!important}
+body[data-page="home"] #heroFrame img{object-position:58% 52%!important;transform:none!important;animation:none!important}
+body[data-page="home"] .hero-film .hero-scrim{background:
+  linear-gradient(90deg,rgba(5,9,7,.86) 0%,rgba(5,9,7,.46) 42%,rgba(5,9,7,.08) 70%,rgba(5,9,7,.02) 100%),
+  linear-gradient(0deg,rgba(5,9,7,.62) 0%,rgba(5,9,7,.08) 38%,transparent 62%)!important}
+body[data-page="home"] .hero-content{width:min(760px,70vw)!important;max-width:none!important}
+body[data-page="home"] .hero-eye{margin-bottom:1.35rem!important;color:rgba(237,230,214,.68)!important}
+body[data-page="home"] .hero-hed{font-size:clamp(64px,8.2vw,126px)!important;line-height:.88!important;letter-spacing:-.045em!important;max-width:8.6ch!important;font-weight:500!important}
+body[data-page="home"] .hero-sub{font-size:clamp(14px,1.15vw,17px)!important;line-height:1.75!important;max-width:46ch!important;color:rgba(237,230,214,.75)!important;margin-top:1.8rem!important}
+body[data-page="home"] .hero-acts{margin-top:2rem!important;gap:.85rem 1.4rem!important}
+body[data-page="home"] .hero .btn-primary{background:rgba(237,230,214,.94)!important;color:#0f1712!important;border-color:rgba(237,230,214,.94)!important}
+body[data-page="home"] .hero .btn-ghost{color:rgba(237,230,214,.78)!important;border-bottom-color:rgba(237,230,214,.34)!important}
+body[data-page="home"] .hero::after{height:1px!important;background:rgba(237,230,214,.08)!important;opacity:1!important}
+
+/* INTRO — editorial pause, then one large human image */
+body[data-page="home"] .lp-editorial-intro{padding:clamp(7rem,10vw,10rem) clamp(1.4rem,6vw,6rem) clamp(6rem,9vw,9rem)!important;background:#e8dfcc!important}
+body[data-page="home"] .lp-editorial-grid{grid-template-columns:minmax(0,1.1fr) minmax(320px,.58fr)!important;gap:clamp(3rem,9vw,11rem)!important;align-items:end!important}
+body[data-page="home"] .lp-editorial-title{font-size:clamp(54px,7.4vw,106px)!important;line-height:.92!important;font-weight:500!important;max-width:9ch!important}
+body[data-page="home"] .lp-editorial-copy{font-size:clamp(14px,1.1vw,17px)!important;line-height:1.9!important;max-width:48ch!important}
+body[data-page="home"] .lp-welcome-stack{max-width:none!important;min-height:clamp(640px,78svh,900px)!important;display:block!important;margin:clamp(5rem,8vw,8rem) 0 0!important;position:relative!important;overflow:hidden!important;background:#0f1712!important}
+body[data-page="home"] .lp-welcome-photo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;grid-area:auto!important}
+body[data-page="home"] .lp-welcome-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.10) 20%,rgba(8,13,10,.78) 100%),linear-gradient(0deg,rgba(8,13,10,.44),transparent 48%);z-index:2}
+body[data-page="home"] .lp-welcome-photo img{width:100%;height:100%;object-fit:cover;object-position:center 48%;transform:none!important}
+body[data-page="home"] .lp-welcome-photo figcaption{z-index:4!important;color:rgba(237,230,214,.64)!important}
+body[data-page="home"] .lp-welcome-plate{position:absolute!important;z-index:5!important;right:clamp(1.4rem,6vw,6rem)!important;bottom:clamp(2rem,7vw,6rem)!important;width:min(520px,42vw)!important;background:transparent!important;border:0!important;color:#ede6d6!important;padding:0!important}
+body[data-page="home"] .lp-welcome-plate .lp-kicker{color:#be9e68!important}
+body[data-page="home"] .lp-welcome-plate h3{font-size:clamp(40px,5vw,72px)!important;line-height:.98!important;color:#ede6d6!important;max-width:8ch!important;font-weight:500!important}
+body[data-page="home"] .lp-welcome-plate>div{border-top:1px solid rgba(237,230,214,.16)!important;grid-template-columns:34px 1fr!important}
+body[data-page="home"] .lp-welcome-plate>div span{color:#be9e68!important}
+body[data-page="home"] .lp-welcome-plate>div p{color:rgba(237,230,214,.72)!important;line-height:1.7!important}
+
+/* WORLDS — remove carousel UI; let Tanzania unfold vertically */
+body[data-page="home"] #worlds{background:#0c1410!important;color:#ede6d6!important;overflow:visible!important}
+body[data-page="home"] #worlds .worlds-intro{display:block!important;padding:clamp(7rem,10vw,10rem) clamp(1.4rem,6vw,6rem) clamp(4rem,6vw,6rem)!important;background:#0c1410!important}
+body[data-page="home"] #worlds .worlds-intro-grid{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(300px,.55fr)!important;gap:clamp(3rem,8vw,9rem)!important;align-items:end!important}
+body[data-page="home"] #worlds .worlds-hl{font-size:clamp(56px,7vw,104px)!important;line-height:.92!important;font-weight:500!important;color:#ede6d6!important;max-width:8ch!important}
+body[data-page="home"] #worlds .worlds-hl em{color:#7a9470!important}
+body[data-page="home"] #worlds .worlds-intro-body{color:rgba(237,230,214,.66)!important;font-size:15px!important;line-height:1.85!important;max-width:48ch!important}
+body[data-page="home"] #worlds .worlds-track-wrap{background:#0c1410!important}
+body[data-page="home"] #worlds .worlds-track{display:block!important;overflow:visible!important;scroll-snap-type:none!important;width:100%!important}
+body[data-page="home"] #worlds .world-panel{display:grid!important;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)!important;height:auto!important;min-height:clamp(640px,82svh,900px)!important;max-height:none!important;width:100%!important;scroll-snap-align:none!important;border-top:1px solid rgba(237,230,214,.08)!important;background:#0c1410!important}
+body[data-page="home"] #worlds .world-panel:nth-child(even){grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr)!important}
+body[data-page="home"] #worlds .world-panel:nth-child(even) .wp-photo{grid-column:1;grid-row:1}
+body[data-page="home"] #worlds .world-panel:nth-child(even) .wp-text{grid-column:2;grid-row:1}
+body[data-page="home"] #worlds .wp-text{background:#0c1410!important;color:#ede6d6!important;padding:clamp(4rem,7vw,7rem) clamp(2rem,5vw,5rem)!important;display:flex!important;align-items:flex-end!important}
+body[data-page="home"] #worlds .wp-inner{max-width:540px!important}
+body[data-page="home"] #worlds .wp-world-meta{color:rgba(237,230,214,.42)!important}
+body[data-page="home"] #worlds .wp-tag{color:#be9e68!important}
+body[data-page="home"] #worlds .wp-name{font-size:clamp(52px,7vw,100px)!important;line-height:.88!important;color:#ede6d6!important;font-weight:500!important;letter-spacing:-.04em!important}
+body[data-page="home"] #worlds .wp-sw{color:#7a9470!important}
+body[data-page="home"] #worlds .wp-desc{color:rgba(237,230,214,.68)!important;font-size:14px!important;line-height:1.85!important;max-width:46ch!important}
+body[data-page="home"] #worlds .wp-facts{border-top-color:rgba(237,230,214,.12)!important}
+body[data-page="home"] #worlds .wp-facts span{color:rgba(237,230,214,.46)!important}
+body[data-page="home"] #worlds .wp-facts b{color:#ede6d6!important}
+body[data-page="home"] #worlds .wp-photo{height:auto!important;min-height:clamp(640px,82svh,900px)!important;border:0!important;padding:0!important;background:#101813!important}
+body[data-page="home"] #worlds .wp-photo-film,
+body[data-page="home"] #worlds .w4 .wp-photo-film,
+body[data-page="home"] #worlds .w6 .wp-photo-film{height:100%!important;width:100%!important;max-width:none!important;max-height:none!important;margin:0!important;box-shadow:none!important;border:0!important}
+body[data-page="home"] #worlds .wp-photo-film .ph-frame{position:absolute!important;inset:0!important}
+body[data-page="home"] #worlds .wp-photo-film img{width:100%!important;height:100%!important;object-fit:cover!important;transform:none!important}
+body[data-page="home"] #worlds .wp-photo-tag{top:1.5rem!important;right:1.5rem!important;color:rgba(255,255,255,.82)!important}
+body[data-page="home"] #worlds .wp-photo-note{bottom:1.5rem!important;left:1.5rem!important;color:rgba(255,255,255,.70)!important}
+body[data-page="home"] #worlds .worlds-nav{display:none!important}
+body[data-page="home"] #worlds .worlds-note{background:#0c1410!important;border-top:1px solid rgba(237,230,214,.08)!important;padding:2rem clamp(1.4rem,6vw,6rem) 4rem!important}
+body[data-page="home"] #worlds .worlds-note p{color:rgba(237,230,214,.56)!important}
+body[data-page="home"] #worlds .lp-country-index{background:#0c1410!important;color:#ede6d6!important;border-top:1px solid rgba(237,230,214,.08)!important;padding:0 clamp(1.4rem,6vw,6rem) 2rem!important}
+body[data-page="home"] #worlds .lp-country-index-label{color:#be9e68!important}
+body[data-page="home"] #worlds .lp-country-index a{color:#ede6d6!important;border-color:rgba(237,230,214,.10)!important}
+body[data-page="home"] #worlds .lp-country-index b{color:#ede6d6!important}
+body[data-page="home"] #worlds .lp-country-index small{color:rgba(237,230,214,.52)!important}
+
+/* Reduce work below the fold: let the browser skip layout/paint until sections approach the viewport */
+body[data-page="home"] .lp-archive,
+body[data-page="home"] .lp-proof,
+body[data-page="home"] .lp-stays,
+body[data-page="home"] .lp-people,
+body[data-page="home"] .lp-compose,
+body[data-page="home"] .lp-practical,
+body[data-page="home"] .lp-more,
+body[data-page="home"] footer{content-visibility:auto;contain-intrinsic-size:900px}
+
+@media(max-width:860px){
+  body[data-page="home"] .hero{min-height:92svh!important;padding:90px 1.3rem 3.5rem!important}
+  body[data-page="home"] .hero-content{width:100%!important}
+  body[data-page="home"] .hero-hed{font-size:clamp(48px,13vw,72px)!important;max-width:8.2ch!important}
+  body[data-page="home"] #heroFrame img{object-position:54% 52%!important}
+  body[data-page="home"] .lp-editorial-grid{grid-template-columns:1fr!important;gap:2rem!important}
+  body[data-page="home"] .lp-welcome-stack{min-height:78svh!important}
+  body[data-page="home"] .lp-welcome-photo::after{background:linear-gradient(0deg,rgba(8,13,10,.90) 0%,rgba(8,13,10,.22) 70%,rgba(8,13,10,.08) 100%)}
+  body[data-page="home"] .lp-welcome-plate{left:1.4rem!important;right:1.4rem!important;bottom:2rem!important;width:auto!important}
+  body[data-page="home"] .lp-welcome-plate h3{font-size:clamp(38px,10vw,58px)!important;max-width:9ch!important}
+  body[data-page="home"] .lp-welcome-plate>div:nth-of-type(n+3){display:none!important}
+  body[data-page="home"] #worlds .worlds-intro-grid{grid-template-columns:1fr!important;gap:2rem!important}
+  body[data-page="home"] #worlds .world-panel,
+  body[data-page="home"] #worlds .world-panel:nth-child(even){grid-template-columns:1fr!important;min-height:0!important}
+  body[data-page="home"] #worlds .world-panel .wp-photo,
+  body[data-page="home"] #worlds .world-panel:nth-child(even) .wp-photo{grid-column:1!important;grid-row:1!important;min-height:66svh!important}
+  body[data-page="home"] #worlds .world-panel .wp-text,
+  body[data-page="home"] #worlds .world-panel:nth-child(even) .wp-text{grid-column:1!important;grid-row:2!important;padding:3.5rem 1.4rem 4.5rem!important}
+  body[data-page="home"] #worlds .wp-name{font-size:clamp(50px,14vw,76px)!important}
+  body[data-page="home"] #worlds .lp-country-index{grid-template-columns:1fr 1fr!important;padding-left:1.4rem!important;padding-right:1.4rem!important}
+}
+@media(max-width:520px){
+  body[data-page="home"] .hero-hed{font-size:clamp(44px,12.6vw,58px)!important}
+  body[data-page="home"] .hero-sub{font-size:13.5px!important}
+  body[data-page="home"] .hero .btn-primary,body[data-page="home"] .hero .btn-ghost{font-size:10px!important}
+  body[data-page="home"] .lp-editorial-intro{padding-left:1.25rem!important;padding-right:1.25rem!important}
+  body[data-page="home"] #worlds .worlds-intro{padding-left:1.25rem!important;padding-right:1.25rem!important}
+  body[data-page="home"] #worlds .world-panel .wp-photo{min-height:58svh!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="home"] .hero-eye,body[data-page="home"] .hero-hed,body[data-page="home"] .hero-sub,body[data-page="home"] .hero-acts{opacity:1!important;transform:none!important}
+}
+</style>
 </head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
@@ -209,7 +331,7 @@
       <p class="eh-aside-q">Tanzania already knows how to receive you. We make sure you arrive.</p>
       <div class="eh-aside-contact">
         <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
-        <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
+        <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp +34 659 447 627</a>
         <span class="eh-aside-place" id="ehPlace">Arusha &middot; Tanzania</span>
       </div>
     </div>
@@ -342,7 +464,7 @@
 <a href="#about" class="skip-link">Skip to content</a>
 <!-- ── HERO ── -->
 <section class="hero tw:relative tw:flex tw:items-end tw:overflow-hidden" id="home">
-  <div class="hero-film tw:absolute tw:inset-0"><div class="ph-frame ph-graded" id="heroFrame" style="--crop:50% 54%;"><img data-src="assets/images/hero-dawn.webp" alt="Elephants beneath an acacia at golden hour in Tanzania" fetchpriority="high"><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
+  <div class="hero-film tw:absolute tw:inset-0"><div class="ph-frame ph-graded" id="heroFrame" style="--crop:50% 54%;"><img class="ph-loaded" src="assets/images/hero-dawn.webp" alt="Elephants beneath an acacia at golden hour in Tanzania" fetchpriority="high" loading="eager" decoding="async"><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
 
   <div class="hero-content tw:relative tw:z-[3]">
     <p class="eye hero-eye" id="hEye">
@@ -370,12 +492,6 @@
   <div class="lp-editorial-grid tw:grid">
     <h2 class="lp-editorial-title reveal">Safari is one part<br>of <em>Tanzania.</em></h2>
     <p class="lp-editorial-copy reveal">Enkiama plans private journeys for local and international guests. We work from the country itself &mdash; its seasons, distances, people and changing conditions. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
-  </div>
-
-  <div class="lp-editorial-meta tw:grid reveal">
-    <div><b>From here</b><span>Seasons, routes, places and people understood from inside Tanzania.</span></div>
-    <div><b>One journey</b><span>Wildlife, food, landscape and everyday life can sit naturally together.</span></div>
-    <div><b>Karibu</b><span>Every traveller arrives first as our guest.</span></div>
   </div>
 
   <div class="lp-welcome-stack tw:grid reveal">
@@ -416,7 +532,7 @@
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 46%;"><img class="ph-loaded" src="assets/images/kilimanjaro.jpg" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 46%;"><img class="ph-loaded" src="assets/images/kilimanjaro.jpg" loading="lazy" decoding="async" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">5,895m</span>
           <span class="wp-photo-note">Kilimanjaro &middot; northern highlands</span>
         </div>
@@ -424,7 +540,7 @@
 
       <div class="world-panel w2 tw:grid">
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 52%;"><img class="ph-loaded" src="assets/serengeti.jpg" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 52%;"><img class="ph-loaded" src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">The great migration</span>
           <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
         </div>
@@ -450,7 +566,7 @@
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/ngorongoro.webp" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">600m deep</span>
           <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
         </div>
@@ -458,7 +574,7 @@
 
       <div class="world-panel w4 tw:grid">
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 91%;"><img class="ph-loaded" src="assets/images/maasai.jpg" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 91%;"><img class="ph-loaded" src="assets/images/maasai.jpg" loading="lazy" decoding="async" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Ukarimu</span>
           <span class="wp-photo-note">Maasai &middot; Chagga &middot; Swahili coast</span>
         </div>
@@ -486,7 +602,7 @@
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/great-rift.jpg" loading="lazy" decoding="async" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Volcanic north</span>
           <span class="wp-photo-note">Great Rift &middot; northern Tanzania</span>
         </div>
@@ -503,7 +619,7 @@
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 58%;"><img class="ph-loaded" src="assets/zanzibar.jpg" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 58%;"><img class="ph-loaded" src="assets/zanzibar.jpg" loading="lazy" decoding="async" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Indian Ocean</span>
           <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
         </div>
@@ -920,7 +1036,7 @@
   </div>
 
   <div class="f-base tw:flex tw:flex-wrap tw:items-center tw:justify-between">
-    <div class="f-contact"><a href="mailto:hola@enkiama.com">hola@enkiama.com</a></div>
+    <div class="f-contact"><a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp +34 659 447 627</a></div>
     <div class="f-copy">Tanzania &nbsp;&middot;&nbsp; Private journeys &nbsp;&middot;&nbsp; &copy; 2025&ndash;2026 Enkiama</div>
   </div>
 </footer>
@@ -932,10 +1048,10 @@
   const hed=document.getElementById('hHed');
   const sub=document.getElementById('hSub');
   const acts=document.getElementById('hActs');
-  setTimeout(()=>eye.classList.add('in'),80);
-  setTimeout(()=>hed.classList.add('in'),160);
-  setTimeout(()=>sub.classList.add('in'),280);
-  setTimeout(()=>acts.classList.add('in'),380);
+  setTimeout(()=>eye.classList.add('in'),20);
+  setTimeout(()=>hed.classList.add('in'),70);
+  setTimeout(()=>sub.classList.add('in'),130);
+  setTimeout(()=>acts.classList.add('in'),190);
 })();
 
 /* ── SCROLL REVEALS ── */
@@ -946,106 +1062,11 @@
       if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
     });
   },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.reveal').forEach((el,i)=>{
-    el.style.transitionDelay=(i%5)*0.07+'s';
-    io.observe(el);
-  });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 
-/* ── WORLDS HORIZONTAL SCROLL ── */
-(function(){
-  const track=document.getElementById('wTrack');
-  const btns=document.querySelectorAll('.wn-btn');
-  const prev=document.getElementById('wPrev');
-  const next=document.getElementById('wNext');
-  let cur=0;const total=6;
-
-  function goTo(i,smooth=true){
-    cur=Math.max(0,Math.min(total-1,i));
-    track.scrollTo({left:cur*track.clientWidth,behavior:smooth?'smooth':'instant'});
-    btns.forEach((b,j)=>{
-      const active=j===cur;
-      b.classList.toggle('active',active);
-      b.setAttribute('aria-current',active?'true':'false');
-    });
-    if(prev)prev.disabled=cur===0;
-    if(next)next.disabled=cur===total-1;
-  }
-  btns.forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.w)));
-  prev.addEventListener('click',()=>goTo(cur-1));
-  next.addEventListener('click',()=>goTo(cur+1));
-
-
-  // the sequence always begins with Mountains; movement after that is deliberate.
-  goTo(0,false);
-
-  // drag to scroll
-  let drag=false,sx=0,sl=0;
-  track.addEventListener('mousedown',e=>{drag=true;sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;track.classList.add('grabbing');});
-  ['mouseleave','mouseup'].forEach(ev=>track.addEventListener(ev,()=>{drag=false;track.classList.remove('grabbing');}));
-  track.addEventListener('mousemove',e=>{if(!drag)return;e.preventDefault();track.scrollLeft=sl-(e.pageX-track.offsetLeft-sx)*1.6;});
-
-  // sync dots on scroll
-  track.addEventListener('scroll',()=>{
-    const idx=Math.round(track.scrollLeft/track.clientWidth);
-    if(idx!==cur){cur=idx;btns.forEach((b,j)=>b.classList.toggle('active',j===cur));}
-  },{passive:true});
-
-  // slow autonomous progression — pauses whenever the visitor takes control
-  var autoTimer=null, resumeTimer=null, sectionVisible=false, userPaused=false;
-  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function stopAuto(){
-    if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
-    var worldsEl=document.getElementById('worlds');
-    if(worldsEl)worldsEl.classList.remove('auto-running');
-  }
-  function startAuto(){
-    stopAuto();
-    if(reduceMotion||userPaused||!sectionVisible||document.hidden){
-      document.getElementById('worlds').classList.remove('auto-running');
-      return;
-    }
-    document.getElementById('worlds').classList.add('auto-running');
-    autoTimer=setInterval(function(){goTo((cur+1)%total,true);},7200);
-  }
-  function pauseForUser(){
-    userPaused=true;stopAuto();
-    if(resumeTimer)clearTimeout(resumeTimer);
-    resumeTimer=setTimeout(function(){userPaused=false;startAuto();},12000);
-  }
-
-  btns.forEach(function(b){b.addEventListener('click',pauseForUser);});
-  [prev,next].forEach(function(b){b.addEventListener('click',pauseForUser);});
-  track.addEventListener('pointerdown',pauseForUser,{passive:true});
-  track.addEventListener('touchstart',pauseForUser,{passive:true});
-  track.addEventListener('mouseenter',function(){userPaused=true;stopAuto();});
-  track.addEventListener('mouseleave',function(){userPaused=false;startAuto();});
-  track.addEventListener('focusin',function(){userPaused=true;stopAuto();});
-  track.addEventListener('focusout',function(){userPaused=false;startAuto();});
-
-  if('IntersectionObserver' in window){
-    var worldsIO=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        sectionVisible=e.isIntersecting&&e.intersectionRatio>.25;
-        if(sectionVisible)startAuto();else stopAuto();
-      });
-    },{threshold:[0,.25,.5]});
-    worldsIO.observe(document.getElementById('worlds'));
-  }else{sectionVisible=true;startAuto();}
-
-  document.addEventListener('visibilitychange',function(){if(document.hidden)stopAuto();else startAuto();});
-
-  // keyboard
-  document.addEventListener('keydown',e=>{
-    const w=document.getElementById('worlds');
-    const r=w.getBoundingClientRect();
-    if(r.top<window.innerHeight&&r.bottom>0){
-      if(e.key==='ArrowRight'){e.preventDefault();goTo(cur+1);}
-      if(e.key==='ArrowLeft'){e.preventDefault();goTo(cur-1);}
-    }
-  });
-})();
+/* ── WORLDS · VERTICAL EDITORIAL FLOW ── */
+/* No carousel timer, drag loop or automatic progression. The browser scroll is the interaction. */
 </script>
 <script>
 /* ══════════ MOTION ENHANCEMENTS JS ══════════ */
