@@ -232,6 +232,26 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   .ev-scene.route .ev-atlas{height:58px}
 }
 
+
+.ev-live-intro{padding:1.5rem;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-intro strong{display:block;font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.1;max-width:12ch}
+.ev-live-intro p{margin:.7rem 0 0;font-size:11px;line-height:1.65;color:rgba(237,230,214,.56);max-width:38ch}
+.ev-live-tabs{display:flex;gap:.4rem;overflow-x:auto;padding:.85rem 1.5rem;border-bottom:1px solid rgba(237,230,214,.08);scrollbar-width:none}
+.ev-live-tabs::-webkit-scrollbar{display:none}
+.ev-live-tabs button{flex:0 0 auto;border:1px solid rgba(237,230,214,.12);background:transparent;color:rgba(237,230,214,.58);padding:.55rem .7rem;font-size:8px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.ev-live-tabs button.active{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.ev-live-panel__channels{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.ev-live-channel{padding:1rem 1.2rem;border-right:1px solid rgba(237,230,214,.08);border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-channel:nth-child(2n){border-right:0}
+.ev-live-channel strong{font-size:18px}
+.ev-live-channel span{font-size:10px}
+.ev-live-story{padding:1.1rem 0;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-story>a{display:block;text-decoration:none;padding:0}
+.ev-live-story>button{margin-top:.7rem;border:0;background:none;padding:0;color:var(--earth);font-size:8px;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
+.ev-live-empty{padding:1.2rem 0}
+.ev-live-empty strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300}
+.ev-live-empty span{display:block;margin-top:.4rem;font-size:10px;line-height:1.6;color:rgba(237,230,214,.5)}
+
 /* Phase 3 · Enkiama Live surfaces */
 .ev-live-open,.ev-field-open{border:0;background:none;color:rgba(237,230,214,.72);font:inherit;font-size:9px;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;padding:.45rem 0}
 .ev-live-open{border-bottom:1px solid rgba(190,158,104,.35)}
@@ -448,13 +468,13 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   var progress=document.getElementById('evProgress');
   var pause=document.getElementById('evPause');
   var fieldOpen=document.getElementById('evFieldOpen');
-  var current=0,timer=null,paused=false,interval=10000;
+  var current=0,timer=null,paused=false,drawerPaused=false,interval=10000;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function restartProgress(){
     progress.classList.remove('run');
     void progress.offsetWidth;
-    if(!paused&&!reduce) progress.classList.add('run');
+    if(!paused&&!drawerPaused&&!reduce) progress.classList.add('run');
   }
 
   function setEvidence(raw){
@@ -519,7 +539,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 
   function schedule(){
     clearInterval(timer);
-    if(!paused&&!reduce) timer=setInterval(function(){show(current+1);},interval);
+    if(!paused&&!drawerPaused&&!reduce) timer=setInterval(function(){show(current+1);},interval);
   }
 
   document.getElementById('evPrev').addEventListener('click',function(){show(current-1);schedule();});
@@ -542,6 +562,17 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   refreshScenes();
   show(0);
   schedule();
+
+  document.addEventListener('enkiama-live-drawer',function(e){
+    drawerPaused=!!(e.detail&&e.detail.open);
+    if(drawerPaused){
+      clearInterval(timer);
+      progress.classList.remove('run');
+    }else{
+      restartProgress();
+      schedule();
+    }
+  });
 
   document.addEventListener('enkiama-live-ready',function(){
     refreshScenes();
