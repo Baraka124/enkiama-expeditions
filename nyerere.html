@@ -179,6 +179,42 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+<style id="nyerere-system-v1">
+.ny-page{background:var(--ink);color:var(--bone);overflow:hidden}
+.ny-hero{min-height:90vh;display:grid;grid-template-columns:1.04fr .96fr;background:var(--ink);border-bottom:1px solid var(--rule)}
+.ny-hero__copy{padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4.5rem,8vh,6rem);display:flex;flex-direction:column;justify-content:flex-end}
+.ny-eye,.ny-kicker,.ny-system__type,.ny-season__label,.ny-fit__label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
+.ny-hero h1{font-family:'Fraunces',serif;font-size:clamp(58px,7.5vw,110px);font-weight:300;line-height:.9;letter-spacing:-.045em;max-width:8.7ch;margin:.9rem 0 1.6rem}
+.ny-hero h1 em{font-style:italic;color:#8ea17e}.ny-hero__lede{font-size:clamp(16px,1.45vw,20px);line-height:1.8;max-width:58ch;color:rgba(237,230,214,.8)}
+.ny-hero__media{position:relative;min-height:90vh;background:linear-gradient(160deg,#1d2a21,#0d1510);overflow:hidden}
+.ny-hero__frame{position:absolute;left:9%;right:9%;top:13%;bottom:10%;overflow:hidden}.ny-hero__frame img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.ny-hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,9,.03),rgba(8,12,9,.46))}
+.ny-hero__caption{position:absolute;left:9%;right:9%;bottom:5%;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,230,214,.2);padding-top:.8rem;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.62)}
+.ny-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.ny-strip__item{padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-right:1px solid rgba(15,23,18,.1)}.ny-strip__item:last-child{border-right:0}.ny-strip__item span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ny-strip__item strong{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:.45rem}
+.ny-thesis{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--ink2)}.ny-thesis__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.ny-thesis__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.4rem}.ny-thesis__copy p{font-size:13px;line-height:1.85;color:rgba(237,230,214,.64)}
+.ny-thesis__grid{display:grid;grid-template-columns:1fr 1fr}.ny-thesis__item{padding:clamp(2.3rem,4vw,4rem);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.ny-thesis__item:nth-child(2n){border-right:0}.ny-thesis__item:nth-last-child(-n+2){border-bottom:0}.ny-thesis__item strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;line-height:1.1;margin:.8rem 0}.ny-thesis__item p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}
+.ny-systems{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}.ny-systems__head{display:grid;grid-template-columns:.58fr 1.42fr;gap:3rem;align-items:end;margin-bottom:2.6rem}.ny-systems__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.2vw,72px);font-weight:300;line-height:.97;max-width:10ch}.ny-systems__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.66);max-width:54ch}
+.ny-system-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.ny-system-nav{background:#dcd3c0;padding:1rem}.ny-system{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(15,23,18,.12);padding:1.25rem 1rem;cursor:pointer;color:var(--ink)}.ny-system:last-child{border-bottom:0}.ny-system.active{background:rgba(85,107,68,.1)}
+.ny-system__top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.ny-system__name{font-family:'Fraunces',serif;font-size:24px;font-weight:300}.ny-system__window{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(15,23,18,.56)}.ny-system__meta{font-size:10px;line-height:1.55;color:rgba(15,23,18,.56);margin-top:.5rem}
+.ny-system-panel{background:var(--bone2);padding:clamp(2.5rem,4vw,4rem);min-height:620px;display:flex;flex-direction:column}.ny-system-panel h3{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.96;margin:.7rem 0 1.3rem}.ny-system-panel__summary{font-size:14px;line-height:1.9;color:rgba(15,23,18,.7);max-width:60ch}
+.ny-system-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);margin:2.2rem 0}.ny-system-stat{background:var(--bone2);padding:1.1rem}.ny-system-stat span{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ny-system-stat strong{display:block;font-size:12px;line-height:1.45;margin-top:.35rem}
+.ny-system-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.ny-system-grid h4{font-family:'Fraunces',serif;font-size:20px;font-weight:300;margin-bottom:.55rem}.ny-system-grid p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.63)}
+.ny-seasons{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink)}.ny-seasons__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.5rem}.ny-seasons__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.ny-seasons__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:54ch}
+.ny-season-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.3rem}.ny-season-tabs button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .9rem;font:inherit;font-size:10px;cursor:pointer}.ny-season-tabs button.active{background:var(--bone);color:var(--ink)}
+.ny-season-panel{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--rule)}.ny-season-panel__left,.ny-season-panel__right{padding:clamp(2.5rem,4vw,4rem)}.ny-season-panel__left{border-right:1px solid var(--rule)}.ny-season-panel h3{font-family:'Fraunces',serif;font-size:clamp(38px,4.5vw,60px);font-weight:300;line-height:.98;margin:.7rem 0}.ny-season-panel p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.66)}
+.ny-depth{display:grid;grid-template-columns:.66fr 1.34fr;background:var(--bone2);color:var(--ink)}.ny-depth__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid rgba(15,23,18,.12)}.ny-depth__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.ny-depth__copy p{font-size:13px;line-height:1.85;color:rgba(15,23,18,.65)}
+.ny-depth__body{padding:clamp(3rem,5vw,5rem)}.ny-stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.ny-stay-card{background:var(--bone2);padding:1.5rem}.ny-stay-card span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ny-stay-card strong{display:block;font-family:'Fraunces',serif;font-size:23px;font-weight:300;margin:.7rem 0}.ny-stay-card p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62)}
+.ny-activities{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(15,23,18,.12)}.ny-activities article{background:var(--bone2);padding:1.5rem}.ny-activities strong{font-family:'Fraunces',serif;font-size:21px;font-weight:300}.ny-activities p{font-size:11px;line-height:1.7;color:rgba(15,23,18,.62);margin-top:.6rem}
+.ny-fit{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--ink2)}.ny-fit__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.ny-fit__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.ny-fit__head p{font-size:13px;line-height:1.8;color:rgba(237,230,214,.62);max-width:53ch}
+.ny-fit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}.ny-fit-card{padding:1.8rem;background:var(--ink2);min-height:300px;display:flex;flex-direction:column}.ny-fit-card strong{font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1.08;margin:.8rem 0}.ny-fit-card p{font-size:11.5px;line-height:1.7;color:rgba(237,230,214,.62)}.ny-fit-card small{margin-top:auto;padding-top:1.5rem;color:var(--earth);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.ny-routes{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:var(--bone2);color:var(--ink)}.ny-routes__head{display:grid;grid-template-columns:.55fr 1.45fr;gap:3rem;align-items:end;margin-bottom:2.4rem}.ny-routes__head h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98}.ny-routes__head p{font-size:13px;line-height:1.8;color:rgba(15,23,18,.65);max-width:53ch}
+.ny-route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,23,18,.12);border:1px solid rgba(15,23,18,.12)}.ny-route{padding:2rem;background:var(--bone2);min-height:350px;display:flex;flex-direction:column}.ny-route h3{font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.08;margin:.8rem 0}.ny-route p{font-size:12px;line-height:1.72;color:rgba(15,23,18,.62)}.ny-route ol{margin:1.2rem 0 0 1rem;font-size:11px;line-height:1.8;color:rgba(15,23,18,.66)}.ny-route small{margin-top:auto;padding-top:1.5rem;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#75603f}
+.ny-compose{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--ink)}.ny-compose__copy{padding:clamp(4.5rem,7vw,7rem);border-right:1px solid var(--rule)}.ny-compose__copy h2{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);font-weight:300;line-height:.98;max-width:9ch;margin:.8rem 0 1.3rem}.ny-compose__copy p{font-size:13px;line-height:1.82;color:rgba(237,230,214,.64)}
+.ny-compose__panel{padding:clamp(3rem,5vw,5rem)}.ny-q{margin-bottom:2rem}.ny-q label{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--earth);margin-bottom:.7rem}.ny-opts{display:flex;gap:.55rem;flex-wrap:wrap}.ny-opts button{background:transparent;border:1px solid var(--rule);color:var(--bone);padding:.7rem .85rem;font:inherit;font-size:11px;cursor:pointer}.ny-opts button.active{background:var(--bone);color:var(--ink)}
+.ny-result{border-top:1px solid var(--rule);padding-top:1.5rem}.ny-result h3{font-family:'Fraunces',serif;font-size:30px;font-weight:300;margin:.6rem 0}.ny-result p{font-size:12px;line-height:1.72;color:rgba(237,230,214,.62)}.ny-result a{display:inline-block;margin-top:1rem;color:var(--earth);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.ny-explore{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bone2);color:var(--ink)}.ny-explore a{padding:2.5rem;text-decoration:none;color:var(--ink);border-right:1px solid rgba(15,23,18,.12)}.ny-explore a:last-child{border-right:0}.ny-explore span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#75603f}.ny-explore strong{display:block;font-family:'Fraunces',serif;font-size:25px;font-weight:300;margin-top:.7rem}
+@media(max-width:1100px){.ny-hero,.ny-thesis,.ny-system-layout,.ny-season-panel,.ny-depth,.ny-compose{grid-template-columns:1fr}.ny-hero__media{min-height:62vh}.ny-thesis__copy,.ny-depth__copy,.ny-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.ny-systems__head,.ny-seasons__head,.ny-fit__head,.ny-routes__head{grid-template-columns:1fr;gap:1.2rem}.ny-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.ny-stay-grid,.ny-activities{grid-template-columns:1fr 1fr}.ny-fit-grid{grid-template-columns:1fr 1fr}.ny-route-grid{grid-template-columns:1fr}.ny-explore{grid-template-columns:1fr 1fr}.ny-explore a:nth-child(2){border-right:0}}
+@media(max-width:680px){.ny-hero{min-height:0}.ny-hero__media{min-height:56vh}.ny-strip{grid-template-columns:1fr 1fr}.ny-strip__item:nth-child(2n){border-right:0}.ny-thesis__grid,.ny-system-stats,.ny-system-grid,.ny-stay-grid,.ny-activities,.ny-fit-grid{grid-template-columns:1fr}.ny-thesis__item{border-right:0}.ny-explore{grid-template-columns:1fr}.ny-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -514,71 +550,79 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_HEADER_END -->
 
+<main class="ny-page" id="main-content">
+<section class="ny-hero">
+  <div class="ny-hero__copy">
+    <p class="ny-eye">Nyerere · southern Tanzania</p>
+    <h1>Safari by <em>river, foot and road.</em></h1>
+    <p class="ny-hero__lede">Nyerere is defined as much by how you move through it as by what you see. The Rufiji, oxbow lakes, floodplains and woodland make boating a core safari method, while walking and game drives reveal completely different scales of the same landscape.</p>
+  </div>
+  <div class="ny-hero__media"><figure class="ny-hero__frame"><img src="assets/images/nyerere.jpg" alt="River and wetland landscape in Nyerere National Park"><div class="ny-hero__veil"></div></figure><div class="ny-hero__caption"><span>Rufiji system · southern Tanzania</span><span>Boat → walk → drive</span></div></div>
+</section>
 
-<section class="d-hero">
-  <div class="d-hero-photo"><img data-src="assets/images/nyerere.jpg" alt="Nyerere, Tanzania"></div>
-  <div class="d-hero-scrim"></div>
-  <div class="d-hero-inner">
-    <p class="d-swa">Mto</p>
-    <p class="d-eyebrow">River and wetland</p>
-    <h1 class="d-title">A river journey,<br><em>in a park the size of a country.</em></h1>
-    <p class="d-lede">Formerly part of the Selous, Nyerere is among the largest protected areas in Africa &mdash; and the only major Tanzanian park where the defining experience happens on water.</p>
+<section class="ny-strip">
+  <div class="ny-strip__item"><span>Defining feature</span><strong>Rufiji River system</strong></div>
+  <div class="ny-strip__item"><span>Movement</span><strong>Boat · foot · vehicle</strong></div>
+  <div class="ny-strip__item"><span>Strong stay</span><strong>3–4 nights</strong></div>
+  <div class="ny-strip__item"><span>Natural pairing</span><strong>Ruaha + coast</strong></div>
+</section>
+
+<section class="ny-thesis">
+  <div class="ny-thesis__copy"><p class="ny-kicker">What makes Nyerere different</p><h2>The vehicle is only one way in.</h2><p>The park becomes much more interesting when boating, walking and driving are treated as different methods of reading the same ecosystem rather than optional activities added to a conventional safari.</p></div>
+  <div class="ny-thesis__grid">
+    <div class="ny-thesis__item"><span class="ny-kicker">01 · River</span><strong>Water reorganises the safari.</strong><p>Hippo, crocodile, elephants and waterbirds are encountered at a different scale from a boat.</p></div>
+    <div class="ny-thesis__item"><span class="ny-kicker">02 · Lakes</span><strong>Wetland mosaics slow the journey down.</strong><p>Channels, floodplains and lake edges reward waiting rather than constant movement.</p></div>
+    <div class="ny-thesis__item"><span class="ny-kicker">03 · Woodland</span><strong>Vehicle safari still matters.</strong><p>Predators and general game extend well beyond the water systems.</p></div>
+    <div class="ny-thesis__item"><span class="ny-kicker">04 · Walking</span><strong>Fieldcraft becomes part of the product.</strong><p>Tracks, plants and small signs matter when the safari is no longer viewed only through a windscreen.</p></div>
   </div>
 </section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">What makes it singular</p>
-    <h2 class="d-sec-title reveal">You can leave the vehicle behind.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">The Rufiji river and its network of lakes and channels run through Nyerere, and boat safaris here are not a novelty add-on &mdash; they are the best way to see the place. <strong>Approaching elephant, hippo and enormous crocodile from the water changes the register entirely</strong>: quieter, lower, closer.</p>
-    <p class="d-p reveal">Walking safaris are also well established here, which is uncommon in Tanzania&rsquo;s northern parks. Between boat, foot and vehicle, Nyerere offers more ways of moving through wild country than almost anywhere else.</p>
-  </section>
+<section class="ny-systems" id="systems">
+  <div class="ny-systems__head"><div><p class="ny-kicker">Ecosystem intelligence</p><h2>Four ways to read Nyerere.</h2></div><p>Select a system to see how it changes the wildlife, the activity and the trade-off. Nyerere should not be sold as one generic river safari.</p></div>
+  <div class="ny-system-layout"><div class="ny-system-nav" id="nySystemNav"></div><article class="ny-system-panel" id="nySystemPanel" aria-live="polite"></article></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">The character</p>
-    <h2 class="d-sec-title reveal">Wetland, woodland, and space.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">This is not open plain. Nyerere is riverine forest, palm-lined channels, borassus stands and miombo woodland &mdash; a softer, greener, more intricate landscape than the northern circuit.</p>
-    <p class="d-p reveal">Wildlife densities are lower than the crater or the dry-season Serengeti, and that is worth saying plainly. What you gain is intimacy and solitude.</p>
-  </section>
+<section class="ny-seasons" id="season">
+  <div class="ny-seasons__head"><div><p class="ny-kicker">Seasonal system</p><h2>Water remains central, but the pattern changes.</h2></div><p>Dry months concentrate wildlife and simplify access. Green months strengthen birding and atmosphere while dispersing animals and making operations more seasonal.</p></div>
+  <div class="ny-season-tabs" id="nySeasonTabs"></div>
+  <div class="ny-season-panel" id="nySeasonPanel"></div>
+</section>
 
-<section class="d-sec">
-    <p class="d-sec-eyebrow reveal">Who it suits</p>
-    <h2 class="d-sec-title reveal">Second journeys, and people who dislike crowds.</h2>
-    <div class="ochre-rule reveal"></div>
-    <p class="d-p reveal">We often suggest Nyerere to travellers returning to Tanzania, or to first-timers who have told us clearly that they would rather see less and feel more.</p>
-    <p class="d-p reveal">It combines naturally with Ruaha for a southern journey, or with Zanzibar, since both are reached easily from Dar es Salaam.</p>
-  </section>
+<section class="ny-depth">
+  <div class="ny-depth__copy"><p class="ny-kicker">Stay & activities</p><h2>Activity variety needs enough nights.</h2><p>Two nights can technically fit Nyerere into a route. Three or four nights are where boating, driving and walking can coexist without one of them becoming a token experience.</p></div>
+  <div class="ny-depth__body"><div class="ny-stay-grid" id="nyStayGrid"></div><div class="ny-activities" id="nyActivities"></div></div>
+</section>
 
-<div class="d-faq">
-  <h2 class="d-faq-h">Questions we are asked</h2>
-  <div class="d-faq-item reveal"><p class="d-faq-q">What is Nyerere National Park?</p><p class="d-faq-a">It is the northern section of the former Selous Game Reserve, redesignated as a national park. It is one of the largest protected areas in Africa and is best known for boat safaris on the Rufiji river.</p></div>
-  <div class="d-faq-item reveal"><p class="d-faq-q">Is Nyerere good for a first safari?</p><p class="d-faq-a">It can be, for travellers who value quiet and variety of activity over sheer density of animals. For a first-time visitor whose priority is the migration or the Big Five in a short window, the northern circuit is usually the better answer.</p></div>
-</div>
+<section class="ny-fit">
+  <div class="ny-fit__head"><div><p class="ny-kicker">Traveller fit</p><h2>Different priorities create different Nyerere journeys.</h2></div><p>First-timers can love Nyerere, but the reason should be activity diversity and southern rhythm—not a vague promise of solitude.</p></div>
+  <div class="ny-fit-grid" id="nyFitGrid"></div>
+</section>
 
-<div class="d-pair">
-  <p class="d-pair-h">Often composed alongside</p>
-  <div class="d-pair-links"><a href="ruaha.html">Ruaha</a><a href="zanzibar.html">Zanzibar</a><a href="mahale.html">Mahale</a></div>
-</div>
+<section class="ny-routes">
+  <div class="ny-routes__head"><div><p class="ny-kicker">Southern composition</p><h2>Three routes where Nyerere makes strategic sense.</h2></div><p>There is no published operated Enkiama Nyerere case yet. Until one exists, the page stays transparent and uses route logic rather than manufactured testimonials.</p></div>
+  <div class="ny-route-grid" id="nyRoutes"></div>
+</section>
 
-<div class="d-cta">
-  <p class="d-cta-txt">If you are wondering whether Nyerere belongs in your journey, ask us. We will tell you honestly.</p>
-  <a class="d-link" href="begin.html">Begin a conversation &rarr;</a>
-</div>
+<section class="ny-compose" id="nyerere-composer">
+  <div class="ny-compose__copy"><p class="ny-kicker">Nyerere composer</p><h2>Is the river-led safari actually what you want?</h2><p>The result combines nights, activity priority, safari experience and onward route. It can recommend Nyerere as the anchor—or tell you another park would fit better.</p></div>
+  <div class="ny-compose__panel">
+    <div class="ny-q" data-k="nights"><label>How many Nyerere nights?</label><div class="ny-opts"><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5+</button></div></div>
+    <div class="ny-q" data-k="priority"><label>What matters most?</label><div class="ny-opts"><button data-v="boat">Boat safari</button><button data-v="walking">Walking</button><button data-v="wildlife">General wildlife</button><button data-v="mixed">Mixed activities</button></div></div>
+    <div class="ny-q" data-k="experience"><label>Your safari experience?</label><div class="ny-opts"><button data-v="first">First safari</button><button data-v="some">Some experience</button><button data-v="repeat">Repeat traveller</button></div></div>
+    <div class="ny-q" data-k="onward"><label>Where next?</label><div class="ny-opts"><button data-v="ruaha">Ruaha</button><button data-v="zanzibar">Zanzibar</button><button data-v="depart">Dar / depart</button><button data-v="open">Keep open</button></div></div>
+    <div class="ny-result" id="nyResult"><span class="ny-kicker">First direction</span><h3>Answer the four questions.</h3><p>We will tell you whether Nyerere should anchor the safari.</p></div>
+  </div>
+</section>
 
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
-  else{
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  }
-  var img=document.querySelector('.d-hero-photo img[data-src]');
-  if(img){var r=new Image();r.onload=function(){img.src=img.dataset.src;img.classList.add('ph-loaded');};r.src=img.dataset.src;}
-})();
-</script>
+<section class="ny-explore">
+  <a href="ruaha.html"><span>Southern contrast</span><strong>Ruaha →</strong></a>
+  <a href="zanzibar.html"><span>Coast</span><strong>Zanzibar →</strong></a>
+  <a href="mahale.html"><span>Western Tanzania</span><strong>Mahale →</strong></a>
+  <a href="compose.html"><span>Start from priorities</span><strong>Compose →</strong></a>
+</section>
+</main>
+<script src="assets/js/nyerere-system.js" defer></script>
+
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
