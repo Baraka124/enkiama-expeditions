@@ -782,6 +782,79 @@ nav.scrolled::before{ opacity:.035; }
 }
 </style>
 
+<style id="compose-conversion-v3">
+/* Compose · conversion milestone */
+.compose-conversion{position:relative;z-index:2}
+.compose-conversion .compose-cover{min-height:82svh;grid-template-columns:minmax(0,.82fr) minmax(460px,1.18fr)}
+.compose-conversion .compose-cover__copy{padding:clamp(8rem,10vw,10rem) clamp(1.5rem,5vw,5rem) clamp(4rem,6vw,6rem)}
+.compose-conversion .compose-cover__title{font-size:clamp(54px,7vw,96px);font-weight:350;max-width:9.5ch}
+.compose-conversion .compose-cover__deck{font-size:clamp(14px,1.18vw,17px);max-width:46ch}
+.compose-conversion .compose-cover__cue{margin-top:1.8rem}
+.compose-conversion .compose-threshold{padding:clamp(4rem,6vw,6rem) clamp(1.5rem,5vw,5rem);grid-template-columns:minmax(220px,.48fr) minmax(0,1.52fr)}
+.compose-conversion .composer{display:grid;grid-template-columns:minmax(360px,.82fr) minmax(0,1.18fr);min-height:78svh;border-bottom:1px solid var(--rule)}
+.compose-conversion .cmp-visual{position:sticky;top:0;height:100svh;min-height:650px}
+.compose-conversion .cmp-panel{padding:clamp(5.5rem,8vw,8rem) clamp(1.5rem,5vw,5rem) clamp(4rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center}
+.compose-conversion .cmp-progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.45rem;margin-bottom:2rem}
+.compose-conversion .cmp-progress-item{height:2px;background:rgba(237,230,214,.12);overflow:hidden;text-indent:-9999px}
+.compose-conversion .cmp-progress-item::after{content:'';display:block;width:0;height:100%;background:var(--earth);transition:width .45s cubic-bezier(.16,1,.3,1)}
+.compose-conversion .cmp-progress-item.active::after,.compose-conversion .cmp-progress-item.done::after{width:100%}
+.compose-conversion .cmp-navline{margin-bottom:clamp(2rem,4vw,3.5rem);display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.compose-conversion .cmp-back{border:0;background:none;color:var(--earth);padding:0;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.compose-conversion .cmp-step-kicker{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:var(--earth);margin-bottom:.9rem}
+.compose-conversion .cmp-q{font-size:clamp(34px,4.2vw,58px);font-weight:350;line-height:1.02;letter-spacing:-.035em;max-width:11ch;margin-bottom:2.2rem}
+.compose-conversion .cmp-opts{display:block;border-top:1px solid var(--rule)}
+.compose-conversion .cmp-opt{display:grid;grid-template-columns:56px minmax(160px,.52fr) minmax(0,1fr);gap:1.4rem;width:100%;text-align:left;padding:1.35rem 0;border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--bone);transition:padding-left .35s ease,background .35s ease}
+.compose-conversion .cmp-opt:hover,.compose-conversion .cmp-opt:focus-visible{padding-left:.8rem;background:rgba(237,230,214,.025)}
+.compose-conversion .cmp-opt-index{font-size:9px;letter-spacing:.15em;color:var(--earth);padding-top:.35rem}
+.compose-conversion .cmp-opt-title{font-family:'Fraunces',serif;font-size:clamp(20px,2vw,27px);font-weight:350}
+.compose-conversion .cmp-opt-copy{font-size:13px;line-height:1.65;color:rgba(237,230,214,.62);max-width:42ch}
+.compose-conversion .cmp-season{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+.compose-conversion .cmp-season-opts{display:flex;gap:.5rem;flex-wrap:wrap}
+.compose-conversion .cmp-season-opt{border:1px solid rgba(237,230,214,.12);background:transparent;color:rgba(237,230,214,.72);padding:.65rem .8rem;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.compose-conversion .cmp-season-opt:hover,.compose-conversion .cmp-season-opt.active{background:var(--bone);color:var(--ink)}
+.compose-conversion .cmp-result{padding:0}
+.compose-conversion .cmp-result-hero{padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);border-bottom:1px solid var(--rule)}
+.compose-conversion .cmp-result-title{font-size:clamp(46px,6.4vw,86px);font-weight:350;line-height:.96;letter-spacing:-.04em}
+.compose-conversion .cmp-result-intro{display:grid;grid-template-columns:minmax(220px,.5fr) minmax(0,1.5fr);gap:clamp(2rem,7vw,7rem);margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+.compose-conversion .cmp-result-ledger{padding:clamp(3.5rem,6vw,6rem) clamp(1.5rem,6vw,6rem);border-bottom:1px solid var(--rule)}
+.compose-conversion .cmp-choice-ledger{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.compose-conversion .cmp-choice-item{padding:1.2rem 1rem 1.2rem 0;border-bottom:1px solid var(--rule)}
+.compose-conversion .cmp-result-route{padding:clamp(4rem,7vw,7rem) clamp(1.5rem,6vw,6rem);background:#e5dece;color:#101811}
+.compose-conversion .cmp-route-sequence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(15,23,18,.12);margin-top:2rem}
+.compose-conversion .cmp-route-card{min-height:320px;position:relative;overflow:hidden;background:#142019}
+.compose-conversion .cmp-route-card--wide{grid-column:1/-1;min-height:360px}
+.compose-conversion .cmp-result-reasoning{padding:clamp(4rem,7vw,7rem) clamp(1.5rem,6vw,6rem)}
+.compose-conversion .cmp-reasoning{max-width:980px;border-top:1px solid var(--rule)}
+.compose-conversion .cmp-reason{display:grid;grid-template-columns:32px 1fr;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--rule);font-size:14px;line-height:1.7;color:rgba(237,230,214,.72)}
+.compose-conversion .cmp-example-shell{margin:0 clamp(1.5rem,6vw,6rem) clamp(4rem,7vw,7rem)}
+.compose-conversion .cmp-handoff{display:grid;grid-template-columns:minmax(220px,.62fr) minmax(0,1.38fr);gap:clamp(2.5rem,7vw,7rem);padding:clamp(4rem,7vw,7rem) clamp(1.5rem,6vw,6rem);border-top:1px solid var(--rule)}
+.compose-conversion .cmp-handoff-actions{display:flex;align-items:flex-start;justify-content:flex-end;gap:1rem;flex-wrap:wrap}
+@media(max-width:980px){
+ .compose-conversion .compose-cover{grid-template-columns:1fr}
+ .compose-conversion .compose-cover__visual{min-height:54svh}
+ .compose-conversion .composer{grid-template-columns:1fr}
+ .compose-conversion .cmp-visual{position:relative;height:54svh;min-height:420px}
+ .compose-conversion .cmp-panel{padding-top:4rem}
+ .compose-conversion .cmp-result-intro,.compose-conversion .cmp-handoff{grid-template-columns:1fr}
+ .compose-conversion .cmp-handoff-actions{justify-content:flex-start}
+}
+@media(max-width:640px){
+ .compose-conversion .compose-cover__copy{padding:7rem 1.2rem 3.5rem}
+ .compose-conversion .compose-cover__title{font-size:clamp(46px,13vw,64px)}
+ .compose-conversion .compose-cover__visual{min-height:46svh}
+ .compose-conversion .compose-threshold{grid-template-columns:1fr;padding:3.5rem 1.2rem;gap:1.5rem}
+ .compose-conversion .cmp-visual{height:42svh;min-height:320px}
+ .compose-conversion .cmp-panel{padding:3rem 1.2rem 4rem}
+ .compose-conversion .cmp-q{font-size:clamp(32px,10vw,46px)}
+ .compose-conversion .cmp-opt{grid-template-columns:34px 1fr;padding:1rem 0}
+ .compose-conversion .cmp-opt-copy{grid-column:2}
+ .compose-conversion .cmp-result-hero,.compose-conversion .cmp-result-ledger,.compose-conversion .cmp-result-route,.compose-conversion .cmp-result-reasoning,.compose-conversion .cmp-handoff{padding-left:1.2rem;padding-right:1.2rem}
+ .compose-conversion .cmp-choice-ledger{grid-template-columns:1fr 1fr}
+ .compose-conversion .cmp-route-sequence{grid-template-columns:1fr}
+ .compose-conversion .cmp-route-card--wide{grid-column:auto}
+ .compose-conversion .cmp-example-shell{margin-left:1.2rem;margin-right:1.2rem}
+}
+</style>
 </head>
 <body data-page="compose">
 <!-- ENKIAMA_HEADER_START -->
@@ -1119,6 +1192,7 @@ body.eh-locked{overflow:hidden;}
 
 <!-- NAV -->
 <a href="#main" class="skip-link" id="skipLink">Skip to content</a>
+<main id="main" class="compose-conversion">
 <main id="main" class="compose-conversion">
 <!-- EDITORIAL ISSUE BAR -->
 
