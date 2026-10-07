@@ -1364,6 +1364,50 @@ body[data-page="journeys"] .jr-worlds{
   .jr--lead .jr-film,.jr--coast .jr-film{min-height:520px;}
 }
 </style>
+
+<style id="journeys-image-composition-fix">
+/* ══════════ JOURNEYS · IMAGE COMPOSITION FIX ══════════
+   One strong image field per chapter. No pasted-on picture-in-picture collage. */
+body[data-page="journeys"] .jr-film__inset{display:none!important}
+body[data-page="journeys"] .jr-film{
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+}
+body[data-page="journeys"] .jr--lead .jr-film{background-position:center 54%!important}
+body[data-page="journeys"] .jr--field .jr-film{background-position:center 50%!important}
+body[data-page="journeys"] .jr--editorial .jr-film{background-position:center 42%!important}
+body[data-page="journeys"] .jr--coast .jr-film{background-position:center 58%!important}
+body[data-page="journeys"] .jr-film::after{
+  background:linear-gradient(180deg,rgba(8,13,10,.02) 38%,rgba(8,13,10,.12) 64%,rgba(8,13,10,.48) 100%)!important;
+}
+body[data-page="journeys"] .jr:nth-child(even) .jr-film::after{
+  background:linear-gradient(180deg,rgba(8,13,10,.02) 38%,rgba(8,13,10,.12) 64%,rgba(8,13,10,.48) 100%)!important;
+}
+body[data-page="journeys"] .jr-route{
+  left:clamp(1.25rem,3vw,2.5rem)!important;
+  right:clamp(1.25rem,3vw,2.5rem)!important;
+  margin:0 0 clamp(1.25rem,2vw,2rem)!important;
+  max-width:none!important;
+  padding:.85rem 0 0!important;
+  border-top:1px solid rgba(237,230,214,.30)!important;
+  text-shadow:0 1px 12px rgba(0,0,0,.42);
+}
+body[data-page="journeys"] .jr-route__path{
+  max-width:min(74%,760px);
+  line-height:1.55;
+}
+body[data-page="journeys"] .jr-route__context{
+  color:rgba(247,242,231,.72)!important;
+}
+@media(max-width:860px){
+  body[data-page="journeys"] .jr-route{
+    display:block!important;
+  }
+  body[data-page="journeys"] .jr-route__path{max-width:none}
+  body[data-page="journeys"] .jr-route__context{margin-top:.45rem;white-space:normal}
+}
+</style>
 </head>
 <body data-page="journeys">
 <!-- ENKIAMA_HEADER_START -->
@@ -1774,7 +1818,6 @@ body.eh-locked{overflow:hidden;}
 
   <div class="jr jr--lead">
     <div class="jr-film j1">
-      <div class="jr-film__inset jr-film__inset--culture" aria-hidden="true"></div>
       <span class="jr-route"><span class="jr-route__path">Moshi &rarr; Kibosho &rarr; Tarangire &rarr; Ngorongoro &rarr; Serengeti &rarr; Lake Natron</span><span class="jr-route__context">5 travellers · July</span></span>
     </div>
     <div class="jr-body" data-index="01">
@@ -1797,7 +1840,6 @@ body.eh-locked{overflow:hidden;}
 
   <div class="jr jr--field">
     <div class="jr-film j2">
-      <div class="jr-film__inset jr-film__inset--lodge" aria-hidden="true"></div>
       <span class="jr-route"><span class="jr-route__path">Tarangire &rarr; Serengeti &rarr; Ngorongoro</span><span class="jr-route__context">Wildlife-led</span></span>
     </div>
     <div class="jr-body" data-index="02">
@@ -1871,7 +1913,6 @@ body.eh-locked{overflow:hidden;}
 <section class="jr-grid jr-grid--after-water">
   <div class="jr jr--editorial">
     <div class="jr-film j3">
-      <div class="jr-film__inset jr-film__inset--maasai" aria-hidden="true"></div>
       <span class="jr-route"><span class="jr-route__path">Kilimanjaro foothills &rarr; Kibosho &rarr; Moshi</span><span class="jr-route__context">No summit</span></span>
     </div>
     <div class="jr-body" data-index="03">
@@ -1896,7 +1937,6 @@ body.eh-locked{overflow:hidden;}
 
   <div class="jr jr--coast">
     <div class="jr-film j4">
-      <div class="jr-film__inset jr-film__inset--coast" aria-hidden="true"></div>
       <span class="jr-route"><span class="jr-route__path">Serengeti &rarr; Stone Town &rarr; Pemba</span><span class="jr-route__context">Plain to ocean</span></span>
     </div>
     <div class="jr-body" data-index="04">
