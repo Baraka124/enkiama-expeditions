@@ -124,6 +124,174 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 .s4 .ev-media{background-image:url('assets/images/ngorongoro.webp');background-position:center 55%}
 .s5 .ev-media{background-image:url('assets/zanzibar.jpg');background-position:center 58%}
 
+
+
+/* Phase 4 · layout hardening */
+.ev{
+  --safe-top:clamp(5.8rem,11vh,8.2rem);
+  --safe-bottom:clamp(6.4rem,12vh,8.6rem);
+  --safe-x:clamp(1.4rem,7vw,7rem);
+}
+.ev-copy{top:auto;max-height:calc(100dvh - var(--safe-top) - var(--safe-bottom));overflow:visible}
+.ev-title{font-size:clamp(42px,6.6vw,94px)}
+.ev-note{max-width:48ch}
+.ev-number{pointer-events:none}
+.ev-controls{bottom:calc(var(--safe-bottom) - 1.2rem)}
+.ev-rail{bottom:clamp(1rem,2.4vw,2rem)}
+.ev-progress{min-width:0}
+.ev.drawer-open .ev-controls,.ev.drawer-open .ev-rail{opacity:.14;pointer-events:none}
+.ev.drawer-open .ev-scene.active{filter:saturate(.82) brightness(.72)}
+.ev-scene.active{transition:opacity .9s ease,filter .35s ease}
+
+/* contact sheet owns upper field; copy owns lower field */
+.ev-scene.sheet .ev-contact{inset:var(--safe-top) 8% 36%}
+.ev-scene.sheet .ev-copy{
+  left:8%;right:8%;bottom:var(--safe-bottom);max-width:none;text-align:left;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.68fr);column-gap:clamp(2rem,5vw,5rem);align-items:end
+}
+.ev-scene.sheet .ev-kicker,.ev-scene.sheet .ev-title{grid-column:1}
+.ev-scene.sheet .ev-note,.ev-scene.sheet .ev-route,.ev-scene.sheet .ev-evidence,.ev-scene.sheet .ev-link,.ev-scene.sheet .ev-field-open{grid-column:2;margin-left:0}
+.ev-scene.sheet .ev-title{margin-left:0;max-width:10ch}
+.ev-scene.sheet .ev-note{margin-top:0;max-width:42ch}
+
+/* route composition reserves a clean lower intelligence band */
+.ev-scene.route .ev-copy{bottom:clamp(13.5rem,24vh,17rem);max-width:min(690px,62vw)}
+.ev-scene.route .ev-atlas{left:var(--safe-x);right:var(--safe-x);bottom:var(--safe-bottom);height:clamp(70px,11vh,110px)}
+.ev-scene.route .ev-number{display:none}
+
+/* framed media never collides with copy */
+.ev-scene.frame .ev-media{inset:var(--safe-top) 8% 30%}
+.ev-scene.frame .ev-copy{bottom:var(--safe-bottom);max-width:min(660px,64vw)}
+.ev-frame-label{right:8%;bottom:calc(var(--safe-bottom) + .3rem)}
+
+/* split copy gets a real text column */
+.ev-scene.split .ev-media{clip-path:polygon(0 0,57% 0,49% 100%,0 100%)}
+.ev-scene.split::after{background:linear-gradient(90deg,transparent 0 48%,rgba(7,12,9,.6) 55%,rgba(7,12,9,.94) 68% 100%)}
+.ev-scene.split .ev-copy{right:var(--safe-x);bottom:var(--safe-bottom);max-width:min(500px,36vw)}
+
+/* header collision prevention */
+.ev-top{gap:1.5rem}
+.ev-top-right{min-width:0;flex-wrap:wrap;justify-content:flex-end}
+.ev-live-open,.ev-exit{white-space:nowrap}
+
+/* drawers behave like modal editorial surfaces */
+.ev-live-panel,.ev-field{overscroll-behavior:contain;box-shadow:-30px 0 90px rgba(0,0,0,.34)}
+.ev-live-panel[aria-hidden="true"],.ev-field[aria-hidden="true"]{visibility:hidden}
+.ev-live-panel.open,.ev-field.open{visibility:visible}
+.ev-panel-scrim{position:absolute;z-index:35;inset:0;background:rgba(4,8,6,.44);opacity:0;pointer-events:none;transition:opacity .35s ease}
+.ev.drawer-open .ev-panel-scrim{opacity:1;pointer-events:auto}
+
+@media(max-width:900px){
+  .ev{--safe-top:5.8rem;--safe-bottom:6.2rem}
+  .ev-title{font-size:clamp(40px,8.6vw,72px)}
+  .ev-scene.sheet .ev-contact{inset:5.8rem 1.4rem 44%}
+  .ev-scene.sheet .ev-copy{left:1.4rem;right:1.4rem;bottom:6.4rem;display:block;max-width:620px}
+  .ev-scene.sheet .ev-note{margin-top:1rem}
+  .ev-scene.route .ev-copy{bottom:12.5rem;max-width:76vw}
+  .ev-scene.route .ev-atlas{bottom:6.8rem;height:80px}
+  .ev-scene.split .ev-copy{max-width:44vw}
+}
+@media(max-width:760px){
+  .ev{--safe-top:5.1rem;--safe-bottom:5.6rem}
+  .ev-top{padding:1rem 1.15rem}
+  .ev-logo img{height:34px}
+  .ev-top-right{gap:.65rem}
+  .ev-live-open{order:1}
+  .ev-exit{order:2}
+  .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,.ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{
+    left:1.2rem;right:1.2rem;bottom:6.15rem;max-height:calc(100dvh - 12rem);overflow:hidden
+  }
+  .ev-title{font-size:clamp(36px,11.2vw,58px);line-height:.94;max-width:10ch}
+  .ev-note{font-size:12.5px;line-height:1.56;max-width:33ch;margin-top:.9rem}
+  .ev-kicker{font-size:8px;margin-bottom:.65rem}
+  .ev-route{font-size:8.5px;margin-top:.8rem;padding-top:.65rem}
+  .ev-evidence{margin-top:.65rem;gap:.4rem .7rem}
+  .ev-chip{font-size:8px}.ev-chip b{font-size:15px}
+  .ev-link{margin-top:.8rem;font-size:8.5px}
+  .ev-field-open{margin-top:.7rem;font-size:8.5px}
+  .ev-scene.sheet .ev-contact{inset:5.2rem 1rem 47%;gap:6px}
+  .ev-contact figcaption{font-size:7px;left:.5rem;bottom:.45rem}
+  .ev-scene.sheet .ev-copy{bottom:6.1rem}
+  .ev-scene.frame .ev-media{inset:5.3rem 1rem 43%}
+  .ev-frame-label{display:none}
+  .ev-scene.route .ev-copy{bottom:10.4rem;max-height:calc(100dvh - 15.7rem)}
+  .ev-scene.route .ev-atlas{left:1.2rem;right:1.2rem;bottom:6.25rem;height:54px}
+  .ev-scene.split .ev-media{clip-path:none;inset:0 0 42%}
+  .ev-scene.split::after{background:linear-gradient(180deg,rgba(6,11,8,.04) 0 42%,rgba(6,11,8,.9) 62% 100%)}
+  .ev-scene.split .ev-copy{max-width:none}
+  .ev-number{display:none}
+  .ev-controls{bottom:3.9rem;right:1rem}
+  .ev-btn{width:34px;height:34px}
+  .ev-rail{left:1.2rem;right:1.2rem;bottom:1rem}
+}
+@media(max-height:650px) and (min-width:761px){
+  .ev{--safe-top:5.2rem;--safe-bottom:5.3rem}
+  .ev-title{font-size:clamp(38px,5.5vw,68px)}
+  .ev-note{font-size:12px;line-height:1.55;margin-top:.8rem}
+  .ev-scene.route .ev-copy{bottom:10.5rem}
+  .ev-scene.route .ev-atlas{height:58px}
+}
+
+
+.ev-live-intro{padding:1.5rem;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-intro strong{display:block;font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.1;max-width:12ch}
+.ev-live-intro p{margin:.7rem 0 0;font-size:11px;line-height:1.65;color:rgba(237,230,214,.56);max-width:38ch}
+.ev-live-tabs{display:flex;gap:.4rem;overflow-x:auto;padding:.85rem 1.5rem;border-bottom:1px solid rgba(237,230,214,.08);scrollbar-width:none}
+.ev-live-tabs::-webkit-scrollbar{display:none}
+.ev-live-tabs button{flex:0 0 auto;border:1px solid rgba(237,230,214,.12);background:transparent;color:rgba(237,230,214,.58);padding:.55rem .7rem;font-size:8px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.ev-live-tabs button.active{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.ev-live-panel__channels{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.ev-live-channel{padding:1rem 1.2rem;border-right:1px solid rgba(237,230,214,.08);border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-channel:nth-child(2n){border-right:0}
+.ev-live-channel strong{font-size:18px}
+.ev-live-channel span{font-size:10px}
+.ev-live-story{padding:1.1rem 0;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-story>a{display:block;text-decoration:none;padding:0}
+.ev-live-story>button{margin-top:.7rem;border:0;background:none;padding:0;color:var(--earth);font-size:8px;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
+.ev-live-empty{padding:1.2rem 0}
+.ev-live-empty strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300}
+.ev-live-empty span{display:block;margin-top:.4rem;font-size:10px;line-height:1.6;color:rgba(237,230,214,.5)}
+
+/* Phase 3 · Enkiama Live surfaces */
+.ev-live-open,.ev-field-open{border:0;background:none;color:rgba(237,230,214,.72);font:inherit;font-size:9px;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;padding:.45rem 0}
+.ev-live-open{border-bottom:1px solid rgba(190,158,104,.35)}
+.ev-field-open{display:none;margin-top:1rem;color:var(--earth)}
+.ev-field-open.visible{display:inline-block}
+.ev-live-panel,.ev-field{position:absolute;z-index:40;top:0;right:0;height:100%;width:min(480px,92vw);background:rgba(9,15,11,.975);backdrop-filter:blur(16px);border-left:1px solid rgba(237,230,214,.11);transform:translateX(102%);transition:transform .55s cubic-bezier(.16,1,.3,1);overflow:auto}
+.ev-live-panel.open,.ev-field.open{transform:translateX(0)}
+.ev-live-panel__head,.ev-field__head{position:sticky;top:0;z-index:2;background:rgba(9,15,11,.96);display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.5rem;border-bottom:1px solid rgba(237,230,214,.1);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--earth)}
+.ev-live-panel__head button,.ev-field__head button{border:0;background:none;color:var(--bone);font-size:20px;cursor:pointer}
+.ev-live-panel__channels{padding:1rem 1.5rem;border-bottom:1px solid rgba(237,230,214,.1)}
+.ev-live-channel{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(237,230,214,.08);padding:1rem 0;color:var(--bone);cursor:default}
+.ev-live-channel:last-child{border-bottom:0}
+.ev-live-channel strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300}
+.ev-live-channel span{display:block;margin-top:.35rem;font-size:11px;line-height:1.6;color:rgba(237,230,214,.55)}
+.ev-live-panel__stories{padding:1.2rem 1.5rem}
+.ev-live-panel__stories a{display:block;text-decoration:none;padding:1.1rem 0;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-panel__stories span{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--earth)}
+.ev-live-panel__stories strong{display:block;font-family:'Fraunces',serif;font-size:24px;font-weight:300;margin:.4rem 0}
+.ev-live-panel__stories small{display:block;font-size:10px;line-height:1.6;color:rgba(237,230,214,.5)}
+.ev-field__items{padding:1rem 1.5rem 2rem}
+.ev-field__items article{padding:1.25rem 0;border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-field__items article span{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--earth)}
+.ev-field__items article strong{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:300;margin:.45rem 0}
+.ev-field__items article p{font-size:12px;line-height:1.7;color:rgba(237,230,214,.62);margin:0}
+@media(max-width:760px){.ev-live-panel,.ev-field{width:100vw}.ev-live-open{font-size:8px}}
+
+/* Phase 5 · final Live cascade */
+.ev-live-panel__channels{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;border-bottom:1px solid rgba(237,230,214,.1)}
+.ev-live-channel{display:block;width:auto;text-align:left;background:none;border:0;border-right:1px solid rgba(237,230,214,.08);border-bottom:1px solid rgba(237,230,214,.08);padding:1rem 1.2rem;color:var(--bone);cursor:default}
+.ev-live-channel:nth-child(2n){border-right:0}
+.ev-live-channel:last-child{border-bottom:1px solid rgba(237,230,214,.08)}
+.ev-live-channel strong{font-size:18px}
+.ev-live-channel span{font-size:10px;line-height:1.55}
+.ev-live-panel__stories a{padding:0;border-bottom:0}
+@media(max-width:520px){
+  .ev-live-panel__channels{grid-template-columns:1fr}
+  .ev-live-channel{border-right:0}
+}
+
+
 @media(max-width:760px){
   .ev-mode{display:none}
   .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,.ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{left:1.3rem;right:1.3rem;bottom:7rem;max-width:none;text-align:left;transform:none}
@@ -262,6 +430,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   <header class="ev-top">
     <a class="ev-logo" href="index.html" aria-label="Back to Enkiama"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
     <div class="ev-top-right">
+      <button class="ev-live-open" id="evLiveOpen" type="button">Enkiama Live</button>
       <span class="ev-mode">View · cinematic edition</span>
       <a class="ev-exit" href="index.html">Exit</a>
     </div>
@@ -277,6 +446,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <p class="ev-route" id="evRoute"></p>
     <div class="ev-evidence" id="evEvidence"></div>
     <a class="ev-link" id="evLink"></a>
+    <button class="ev-field-open" id="evFieldOpen" type="button">Open field guide →</button>
   </section>
 
   <div class="ev-controls" aria-label="View controls">
@@ -289,11 +459,16 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <div class="ev-progress"><span id="evProgress" class="run"></span></div>
     <div class="ev-meta"><span class="ev-index" id="evIndex">01 / 08</span><span id="evMeta">Opening</span></div>
   </div>
+  <div class="ev-panel-scrim" id="evPanelScrim" aria-hidden="true"></div>
+  <aside class="ev-live-panel" id="evLivePanel" aria-label="Enkiama Live index" aria-hidden="true"></aside>
+  <aside class="ev-field" id="evFieldGuide" aria-label="Field guide" aria-hidden="true"></aside>
 </main>
 
+<script src="assets/js/enkiama-live.js"></script>
 <script>
 (function(){
-  var scenes=[].slice.call(document.querySelectorAll('.ev-scene'));
+  var scenes=[];
+  function refreshScenes(){scenes=[].slice.call(document.querySelectorAll('.ev-scene'));}
   var kicker=document.getElementById('evKicker');
   var title=document.getElementById('evTitle');
   var note=document.getElementById('evNote');
@@ -306,13 +481,14 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   var meta=document.getElementById('evMeta');
   var progress=document.getElementById('evProgress');
   var pause=document.getElementById('evPause');
-  var current=0,timer=null,paused=false,interval=10000;
+  var fieldOpen=document.getElementById('evFieldOpen');
+  var current=0,timer=null,paused=false,drawerPaused=false,interval=10000;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function restartProgress(){
     progress.classList.remove('run');
     void progress.offsetWidth;
-    if(!paused&&!reduce) progress.classList.add('run');
+    if(!paused&&!drawerPaused&&!reduce) progress.classList.add('run');
   }
 
   function setEvidence(raw){
@@ -331,6 +507,8 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   }
 
   function show(i){
+    refreshScenes();
+    if(!scenes.length) return;
     current=(i+scenes.length)%scenes.length;
     scenes.forEach(function(scene,n){scene.classList.toggle('active',n===current);});
     var s=scenes[current];
@@ -341,6 +519,15 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     number.textContent=String(current+1).padStart(2,'0');
     index.textContent=String(current+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');
     meta.textContent=s.dataset.meta||'Enkiama';
+    if(fieldOpen){
+      if(s.dataset.fieldGuide){
+        fieldOpen.classList.add('visible');
+        fieldOpen.setAttribute('data-field-guide',s.dataset.fieldGuide);
+      }else{
+        fieldOpen.classList.remove('visible');
+        fieldOpen.removeAttribute('data-field-guide');
+      }
+    }
 
     if(s.dataset.route){
       route.textContent=s.dataset.route;
@@ -366,7 +553,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 
   function schedule(){
     clearInterval(timer);
-    if(!paused&&!reduce) timer=setInterval(function(){show(current+1);},interval);
+    if(!paused&&!drawerPaused&&!reduce) timer=setInterval(function(){show(current+1);},interval);
   }
 
   document.getElementById('evPrev').addEventListener('click',function(){show(current-1);schedule();});
@@ -386,8 +573,27 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(e.key==='Escape') location.href='index.html';
   });
 
+  refreshScenes();
   show(0);
   schedule();
+
+  document.addEventListener('enkiama-live-drawer',function(e){
+    drawerPaused=!!(e.detail&&e.detail.open);
+    if(drawerPaused){
+      clearInterval(timer);
+      progress.classList.remove('run');
+    }else{
+      restartProgress();
+      schedule();
+    }
+  });
+
+  document.addEventListener('enkiama-live-ready',function(){
+    refreshScenes();
+    current=0;
+    show(0);
+    schedule();
+  });
 })();
 </script>
 </body>

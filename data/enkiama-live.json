@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-07",
+  "channels": [
+    {"id":"archive","label":"Archive","description":"Past journeys told through approved real moments."},
+    {"id":"journey","label":"Journey Live","description":"Selected moments from a current Enkiama journey."},
+    {"id":"field","label":"Field Guide","description":"Place-aware wildlife and landscape context during a journey."},
+    {"id":"private","label":"Private Share","description":"A richer traveller-only layer. Public publication remains selective."}
+  ],
+  "visibility": ["private","travellers","public"],
+  "stories": [
+    {
+      "id": "july-2026-five-friends",
+      "slug": "july-2026",
+      "channel": "archive",
+      "status": "archived",
+      "visibility": "public",
+      "title": "Five friends · Tanzania · July 2026",
+      "dateRange": "2026-07-03/2026-07-15",
+      "travellers": 5,
+      "route": ["Kilimanjaro","Tarangire","Ngorongoro","Serengeti","Zanzibar"],
+      "share": {"enabled": true, "publicSlug": "july-2026"},
+      "moments": [
+        {
+          "id":"arrival-highlands",
+          "visibility":"public",
+          "type":"people",
+          "place":"Kilimanjaro highlands",
+          "layout":"sheet",
+          "kicker":"Operated · July 2026 · 5 travellers",
+          "title":"The journey began before the safari.",
+          "note":"Highland context, family hospitality and a slower arrival gave the route a human beginning before the wildlife chapter.",
+          "media":[
+            {"src":"assets/images/kibosho-family.jpg","grade":"C","caption":"Kibosho · Kilimanjaro highlands"},
+            {"src":"assets/images/guide-daniel.jpg","grade":"C","caption":"Guide-led · locally operated"},
+            {"src":"assets/images/camp-arrival.jpg","grade":"C","caption":"Arrival · on the road"}
+          ]
+        },
+        {
+          "id":"serengeti",
+          "visibility":"public",
+          "type":"wildlife",
+          "place":"Serengeti",
+          "layout":"route",
+          "kicker":"Operated · wildlife chapter",
+          "title":"Serengeti was the centre of gravity.",
+          "note":"The route was built around wildlife time rather than collecting stops.",
+          "media":[{"src":"assets/serengeti.jpg","grade":"A","caption":"Serengeti"}],
+          "route":"Kilimanjaro → Tarangire → Ngorongoro → Serengeti → Zanzibar",
+          "evidence":"13|nights;5|travellers;4|journey worlds",
+          "fieldGuide":"serengeti"
+        },
+        {
+          "id":"coast",
+          "visibility":"public",
+          "type":"transition",
+          "place":"Zanzibar",
+          "layout":"full",
+          "kicker":"Final chapter · Indian Ocean",
+          "title":"Then the journey changed tempo.",
+          "note":"Stone Town and the coast were not filler after safari; they changed the ending of the trip.",
+          "media":[{"src":"assets/zanzibar.jpg","grade":"A","caption":"Zanzibar"}]
+        }
+      ]
+    }
+  ],
+  "fieldGuides": {
+    "serengeti": {
+      "title":"Serengeti field notes",
+      "place":"Serengeti ecosystem",
+      "items":[
+        {"name":"Lion","kind":"animal","fact":"Lions are social cats that often live in prides. Sightings depend on habitat, time of day and animal movement."},
+        {"name":"African elephant","kind":"animal","fact":"Elephants move across large ranges in response to water, forage and season. Family groups are led by experienced females."},
+        {"name":"Giraffe","kind":"animal","fact":"Giraffes are browsers, feeding mainly on leaves and shoots that many other herbivores cannot reach."},
+        {"name":"Migration","kind":"ecosystem","fact":"The migration is driven by rainfall, grass and water across the wider Serengeti–Mara ecosystem; exact herd position is never guaranteed."}
+      ]
+    }
+  }
+}
