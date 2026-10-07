@@ -372,7 +372,195 @@ body.eh-locked{overflow:hidden;}
 
 <div class="eh-bar" id="ehBar">
   <a href="index.html" class="eh-logo" aria-label="Enkiama — home"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
-  <button class="eh-trigger" id="ehTrigger" ari
+  <button class="eh-trigger" id="ehTrigger" aria-expanded="false" aria-controls="ehOverlay"><span>Índice</span><span class="eh-mark"><span></span><span></span></span></button>
+</div>
+
+<div class="eh-overlay" id="ehOverlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="eh-close" id="ehClose" aria-label="Close menu"><span>Cerrar</span><span class="x"></span></button>
+  <div class="eh-watermark" aria-hidden="true">karibu</div>
+
+  <div class="eh-left">
+    <nav class="eh-nav">
+      <p class="eh-nav-eyebrow">The index</p>
+      <ul>
+        <li><a href="tanzania.html" data-nav="tanzania"><span class="eh-idx">01</span><span class="eh-lnk">Tanzania</span></a></li>
+        <li><a href="parks.html" data-nav="parks"><span class="eh-idx">02</span><span class="eh-lnk">Wild Tanzania</span></a></li>
+        <li><a href="kilimanjaro.html" data-nav="kilimanjaro"><span class="eh-idx">03</span><span class="eh-lnk">Kilimanjaro</span></a></li>
+        <li><a href="great-rift.html" data-nav="greatrift"><span class="eh-idx">04</span><span class="eh-lnk">The Great Rift</span></a></li>
+        <li><a href="journeys.html" data-nav="journeys"><span class="eh-idx">05</span><span class="eh-lnk">Journeys</span></a></li>
+        <li><a href="compose.html" data-nav="compose"><span class="eh-idx">06</span><span class="eh-lnk">Compose your journey</span></a></li>
+        <li><a href="family.html" data-nav="family"><span class="eh-idx">07</span><span class="eh-lnk">The family</span></a></li>
+        <li><a href="begin.html" data-nav="begin"><span class="eh-idx">08</span><span class="eh-lnk">Begin</span></a></li>
+      </ul>
+    </nav>
+    <div class="eh-secondary">
+      <span class="eh-sec-lbl">Also</span>
+      <a href="how.html" data-nav="how">How we work</a>
+      <a href="why.html" data-nav="why">Why Enkiama</a>
+      <a href="notes.html" data-nav="notes">Field notes</a>
+      <a href="stories.html" data-nav="stories">Stories</a>
+      <a href="reflections.html" data-nav="reflections">Letters</a>
+      <a href="companions.html" data-nav="companions">Companions</a>
+      <a href="practical.html" data-nav="practical">Practical</a>
+      <a href="faq.html">Safari FAQ</a>
+    </div>
+  </div>
+
+  <aside class="eh-aside">
+    <div class="eh-aside-stack" aria-hidden="true">
+      <div class="eh-aside-img on" data-img="default" style="background-image:radial-gradient(ellipse 100% 80% at 65% 25%,rgba(85,107,68,0.14),transparent 62%),linear-gradient(158deg,#16211a,#0b120e);"></div>
+      <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
+      <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
+      <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
+      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
+      <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
+      <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
+      <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
+      <div class="eh-aside-img" data-img="greatrift" data-src="assets/images/great-rift.jpg"></div>
+      <div class="eh-aside-img" data-img="companions" data-src="assets/images/group-fire.jpg"></div>
+      <div class="eh-aside-img" data-img="reflections" data-src="assets/images/night-sky.jpg"></div>
+      <div class="eh-aside-img" data-img="practical" data-src="assets/images/arusha.jpg"></div>
+      <div class="eh-aside-img" data-img="stories" data-src="assets/images/stonetown.jpg"></div>
+      <div class="eh-aside-img" data-img="notes" data-src="assets/images/manyara.jpg"></div>
+      <div class="eh-aside-img" data-img="how" data-src="assets/images/maasai.jpg"></div>
+      <div class="eh-aside-img" data-img="why" data-src="assets/images/elder-guide.jpg"></div>
+    </div>
+    <div class="eh-aside-caption" id="ehAsideCaption"></div>
+    <div class="eh-aside-scrim"></div>
+    <div class="eh-aside-inner">
+      <p class="eh-aside-eyebrow">Curated, never sold</p>
+      <p class="eh-aside-q">Tanzania already knows how to receive you. We make sure you arrive.</p>
+      <div class="eh-aside-contact">
+        <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
+        <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
+        <span class="eh-aside-place" id="ehPlace">Arusha &middot; Tanzania</span>
+      </div>
+    </div>
+  </aside>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('ehBar'),trg=document.getElementById('ehTrigger'),ov=document.getElementById('ehOverlay'),cl=document.getElementById('ehClose'),photo=document.getElementById('ehAsidePhoto');
+  if(!bar||!trg||!ov) return;
+  var lastFocus=null;
+  function focusables(){return ov.querySelectorAll('a[href],button');}
+  function open(){
+    ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
+    lastFocus=document.activeElement;
+    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
+    setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
+  }
+  function close(){ov.classList.remove('open');document.body.classList.remove('eh-locked');trg.setAttribute('aria-expanded','false');if(lastFocus)lastFocus.focus();}
+  trg.addEventListener('click',open);cl.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&ov.classList.contains('open'))close();
+    // focus trap
+    if(e.key==='Tab'&&ov.classList.contains('open')){
+      var f=focusables();if(!f.length)return;var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+  // active state
+  var page=document.body.getAttribute('data-page');
+  if(page){var a=ov.querySelector('.eh-nav a[data-nav="'+page+'"]');if(a)a.classList.add('eh-active');}
+  // scroll condense
+  var ticking=false;
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){bar.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
+})();
+</script>
+
+<script>
+/* ══ MENU IMAGERY — the index reveals the country ══ */
+(function(){
+  var overlay=document.getElementById('ehOverlay');
+  if(!overlay) return;
+  var stack=overlay.querySelector('.eh-aside-stack');
+  if(!stack) return;
+  var caption=document.getElementById('ehAsideCaption');
+  var imgs=[].slice.call(stack.querySelectorAll('.eh-aside-img'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var loaded=false, holdTimer=null;
+
+  var LABELS={
+    tanzania:'The Serengeti', parks:'Ngorongoro', journeys:'Tarangire',
+    compose:'First light', family:'Kibosho', begin:'Camp, on arrival',
+    kilimanjaro:'Kilimanjaro', companions:'Around the fire', greatrift:'The Rift Valley',
+    reflections:'Night over the plain', practical:'Arusha',
+    stories:'Stone Town', notes:'Lake Manyara', how:'The people of the land',
+    why:'Those who guide'
+  };
+
+  /* only fetch the imagery once the menu is actually opened */
+  function preload(){
+    if(loaded) return; loaded=true;
+    imgs.forEach(function(el){
+      var src=el.getAttribute('data-src');
+      if(!src) return;
+      var pre=new Image();
+      pre.onload=function(){ el.style.backgroundImage='url("'+src+'")'; };
+      pre.src=src;
+    });
+  }
+
+  function show(key){
+    var found=false;
+    imgs.forEach(function(el){
+      var on = el.getAttribute('data-img')===key;
+      el.classList.toggle('on', on);
+      if(on) found=true;
+    });
+    if(!found){
+      var d=stack.querySelector('[data-img="default"]');
+      if(d) d.classList.add('on');
+    }
+    if(caption){
+      var label=LABELS[key]||'';
+      if(label){ caption.textContent=label; caption.classList.add('on'); }
+      else { caption.classList.remove('on'); }
+    }
+  }
+
+  function reset(){
+    show('default');
+  }
+
+  /* bind every index + secondary link that names a destination */
+  var links=[].slice.call(overlay.querySelectorAll('a[data-nav]'));
+  links.forEach(function(a){
+    var key=a.getAttribute('data-nav');
+    function enter(){
+      if(holdTimer){clearTimeout(holdTimer);holdTimer=null;}
+      links.forEach(function(x){x.classList.remove('previewing');});
+      a.classList.add('previewing');
+      show(key);
+    }
+    function leave(){
+      a.classList.remove('previewing');
+      /* hold the last image briefly so quick passes do not flicker */
+      if(holdTimer) clearTimeout(holdTimer);
+      holdTimer=setTimeout(reset, 900);
+    }
+    a.addEventListener('mouseenter',enter);
+    a.addEventListener('focus',enter);
+    a.addEventListener('mouseleave',leave);
+    a.addEventListener('blur',leave);
+  });
+
+  /* preload when the menu opens */
+  var trigger=document.getElementById('ehTrigger');
+  if(trigger) trigger.addEventListener('click', function(){ setTimeout(preload,120); });
+  if(!reduce){
+    var mo=new MutationObserver(function(){
+      if(overlay.classList.contains('open')) preload();
+    });
+    mo.observe(overlay,{attributes:true,attributeFilter:['class']});
+  } else {
+    preload();
+  }
+})();
+</script>
+<!-- ENKIAMA_HEADER_END -->
 
 <main class="rg-page" id="main-content">
 <section class="rg-hero">
@@ -504,139 +692,7 @@ body.eh-locked{overflow:hidden;}
 })();
 </script>
 
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
 
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),background .3s,opacity .3s;
-    mix-blend-mode:difference;will-change:transform;}
-  .t1-cursor.t1-hover{width:44px;height:44px;background:var(--earth,#BE9E68);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(237,230,214,0.4);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    transition:width .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:0;height:0;opacity:0;}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>
@@ -693,17 +749,7 @@ body.eh-locked{overflow:hidden;}
 </script>
 <!-- ENKIAMA_PAGETRANS_END -->
 
-<script>
-(function(){var r=[].slice.call(document.querySelectorAll('.ochre-rule'));
- var red=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
- if(red||!('IntersectionObserver' in window)){r.forEach(function(e){e.classList.add('drawn');});}
- else{var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('drawn');io.unobserve(e.target);}});},{threshold:0.6});
- r.forEach(function(e){io.observe(e);});}
- function sweep(){var vh=window.innerHeight;document.querySelectorAll('.reveal').forEach(function(e){if(!e.classList.contains('in')&&e.getBoundingClientRect().top<vh*0.92)e.classList.add('in');});}
- var t=null;window.addEventListener('scroll',function(){if(t)return;t=setTimeout(function(){t=null;sweep();},200);},{passive:true});
- setTimeout(sweep,1500);setTimeout(sweep,3200);
-})();
-</script>
+
 <script src="assets/js/enkiama.js" defer></script>
 </body>
 </html>
