@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-07",
+  "slug": "stonetown",
+  "title": "Stone Town urban heritage system",
+  "framing": "A living Swahili trading city where urban fabric, architecture, commerce, religious life, slavery history and Indian Ocean exchange are best understood on foot and over enough time to separate interpretation from wandering.",
+  "reference_facts": {
+    "unesco_inscribed": 2000,
+    "world_heritage_property_ha": 96,
+    "heritage_note": "UNESCO recognises Stone Town as an outstanding example of a Swahili trading town shaped by African, Arab, Indian and European interaction while retaining an indigenous urban character.",
+    "materials_note": "Historic buildings commonly use coral-rag masonry, lime mortar and plaster, mangrove timber and carved wooden architectural elements.",
+    "living_city_note": "Stone Town remains a residential, commercial, administrative and socio-cultural centre rather than a preserved museum district."
+  },
+  "city_layers": [
+    {
+      "slug": "urban-fabric",
+      "name": "Lanes, courtyards & urban fabric",
+      "role": "how the city is read",
+      "strongest_use": "Guided orientation + later wandering",
+      "summary": "Narrow lanes, small squares, courtyards, barazas and sudden openings to the sea make Stone Town legible through movement rather than from a checklist of monuments.",
+      "what_to_notice": "Street width, shade, thresholds, domestic-to-commercial transitions, public seating and how buildings meet the lane.",
+      "experience": "The city makes more sense after one guided walk; independent wandering becomes richer once the spatial logic has been explained.",
+      "best_for": [
+        "first visit",
+        "architecture",
+        "photography",
+        "slow walking"
+      ],
+      "tradeoff": "Without interpretation, the maze is beautiful but much of the social and historical meaning remains invisible."
+    },
+    {
+      "slug": "architecture",
+      "name": "Houses, doors & building traditions",
+      "role": "material history",
+      "strongest_use": "Architecture-led guided walk",
+      "summary": "Swahili courtyard houses, Omani-influenced townhouses, Indian shopfronts, verandas, carved doors and later European civic/religious buildings overlap within the same urban fabric.",
+      "what_to_notice": "Coral-rag walls, lime plaster, carved doors, balconies, shopfront proportions, courtyards and changing decorative languages.",
+      "experience": "Architecture works best when read as evidence of trade, migration, wealth, religion and adaptation rather than as decorative detail.",
+      "best_for": [
+        "design",
+        "history",
+        "craft",
+        "Indian Ocean exchange"
+      ],
+      "tradeoff": "Door symbolism and building attribution are often oversimplified in tourism narratives; avoid rigid one-symbol-one-identity explanations."
+    },
+    {
+      "slug": "trade-markets",
+      "name": "Trade, markets & everyday commerce",
+      "role": "living economy",
+      "strongest_use": "Morning / daytime city",
+      "summary": "Bazaar streets, shops, Darajani-area commerce and food networks continue the city's role as a commercial centre rather than a heritage shell.",
+      "what_to_notice": "Retail frontages, produce, spice and fish trade, movement between Stone Town and Ng'ambo, and how local daily life overlaps with visitor routes.",
+      "experience": "This layer keeps Stone Town contemporary and prevents the city from being narrated only through sultans and monuments.",
+      "best_for": [
+        "food",
+        "street life",
+        "markets",
+        "social context"
+      ],
+      "tradeoff": "Busy market areas can be hot and crowded; meaningful interpretation matters more than collecting photos."
+    },
+    {
+      "slug": "slavery-memory",
+      "name": "Slavery, abolition & memory",
+      "role": "hard history",
+      "strongest_use": "Deliberate guided context",
+      "summary": "Stone Town was one of the major East African slave-trading centres and later became symbolically important to abolition. The former slave-market area and related sites require careful historical interpretation.",
+      "what_to_notice": "How trade, power, religion and abolition are represented in the urban landscape and in present-day memorialisation.",
+      "experience": "This should be approached as historical memory, not as a dramatic attraction.",
+      "best_for": [
+        "history",
+        "education",
+        "context",
+        "responsible travel"
+      ],
+      "tradeoff": "The subject is complex and emotionally difficult; it should never be sensationalised or compressed into a token stop."
+    },
+    {
+      "slug": "seafront-evening",
+      "name": "Seafront, food & evening",
+      "role": "public life after the walk",
+      "strongest_use": "Late afternoon / evening",
+      "summary": "The seafront, Forodhani area, rooftops, cafés and evening street life shift the city from interpretation into lived public space.",
+      "what_to_notice": "Sea-facing urban form, evening gathering, food, dhow movement, public space and the change in temperature and pace after sunset.",
+      "experience": "One overnight stay changes Stone Town materially because the city feels different after day visitors leave and evening public life begins.",
+      "best_for": [
+        "food",
+        "sunset",
+        "unstructured time",
+        "couples"
+      ],
+      "tradeoff": "Forodhani and major seafront areas can be busy; the best evening is not necessarily the most scheduled one."
+    }
+  ],
+  "time_shapes": [
+    {
+      "shape": "3–4 hours",
+      "stance": "orientation only",
+      "note": "Enough for a focused guided walk or one historical theme. Do not describe this as having 'done Stone Town'."
+    },
+    {
+      "shape": "1 night",
+      "stance": "strong minimum",
+      "note": "Allows a guided afternoon or morning plus an evening and independent wandering. This is the best default before moving to the beach."
+    },
+    {
+      "shape": "2 nights",
+      "stance": "preferred for depth",
+      "note": "Separates history/architecture from food, markets and unstructured city time without turning the stay into a checklist."
+    },
+    {
+      "shape": "3+ nights",
+      "stance": "selective",
+      "note": "Best for architecture, photography, food or cultural-interest travellers; not automatically necessary for safari-recovery trips."
+    }
+  ],
+  "visit_modes": [
+    {
+      "name": "Guide-led orientation",
+      "status": "recommended",
+      "note": "Use a knowledgeable local guide for architecture, trade history, slavery/abolition context and the city's spatial logic."
+    },
+    {
+      "name": "Independent wandering",
+      "status": "core",
+      "note": "Best after orientation, when lanes and buildings have context and there is no pressure to keep moving."
+    },
+    {
+      "name": "Food / evening",
+      "status": "core",
+      "note": "Give the city an evening rather than treating it only as a daylight heritage visit."
+    },
+    {
+      "name": "Monument interiors",
+      "status": "conditional",
+      "note": "Access, conservation work and opening conditions change. Confirm major-site availability close to travel."
+    }
+  ],
+  "route_shapes": [
+    {
+      "slug": "stone-town-north",
+      "label": "Stone Town → north coast",
+      "sequence": [
+        "Stone Town",
+        "Nungwi / Kendwa",
+        "Departure"
+      ],
+      "best_for": [
+        "first Zanzibar",
+        "history + easy swimming",
+        "couples"
+      ],
+      "note": "A strong first-island sequence: urban context first, then the easiest-swimming coast."
+    },
+    {
+      "slug": "stone-town-east",
+      "label": "Stone Town → east / south-east",
+      "sequence": [
+        "Stone Town",
+        "Paje / Jambiani / Bwejuu",
+        "Departure"
+      ],
+      "best_for": [
+        "history + tide-led beach",
+        "longer stays",
+        "kitesurfing"
+      ],
+      "note": "A sharper contrast between dense urban heritage and open, tidal Indian Ocean coast."
+    },
+    {
+      "slug": "stone-town-only",
+      "label": "Stone Town only",
+      "sequence": [
+        "Arrival",
+        "1–2 nights Stone Town",
+        "Departure / onward Tanzania"
+      ],
+      "best_for": [
+        "short stop",
+        "culture-first",
+        "business / transit"
+      ],
+      "note": "Useful when the city itself is the reason for Zanzibar and a beach stay is not required."
+    }
+  ],
+  "operated_evidence": [
+    {
+      "journey_slug": "couple-northern-tanzania-zanzibar",
+      "label": "Operated · couple",
+      "title": "History before the beach",
+      "insight": "Stone Town gave the Zanzibar chapter an urban and historical beginning before the route moved north to Nungwi for quieter, easier-swimming final days.",
+      "href": "trip.html?slug=couple-northern-tanzania-zanzibar"
+    }
+  ],
+  "publication_rules": [
+    "Do not describe Stone Town as a museum or frozen historic district.",
+    "Do not reduce architectural history to simplistic door-symbol folklore.",
+    "Do not sensationalise slavery history or present memorial sites as attractions.",
+    "Do not hard-code monument opening/access status; conservation work changes availability.",
+    "Do not imply every visitor needs two nights; time should reflect interests and onward route.",
+    "Keep Stone Town distinct from generic 'spice island' or beach marketing."
+  ]
+}
