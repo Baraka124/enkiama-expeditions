@@ -633,6 +633,155 @@ nav.scrolled::before{ opacity:.035; }
   .compose-threshold h2{max-width:10ch;}
 }
 </style>
+
+<style id="compose-conversion-v2">
+/* Compose · conversion milestone */
+.compose-conversion{position:relative;z-index:2}
+.compose-conversion .compose-cover{
+  min-height:88svh;grid-template-columns:minmax(0,.78fr) minmax(420px,1.22fr);
+  background:#0d1510
+}
+.compose-conversion .compose-cover__copy{
+  padding:clamp(8rem,11vw,10rem) clamp(1.5rem,5.2vw,5rem) clamp(4.5rem,7vw,6rem)
+}
+.compose-conversion .compose-cover__title{
+  font-size:clamp(52px,6.7vw,98px);font-weight:350;line-height:.93;max-width:9.5ch
+}
+.compose-conversion .compose-cover__deck{
+  font-size:clamp(14px,1.15vw,17px);line-height:1.72;max-width:45ch;margin-top:2rem
+}
+.compose-conversion .compose-cover__cue{
+  margin-top:1.7rem;font-size:8.5px;letter-spacing:.14em
+}
+.compose-conversion .compose-cover__visual{min-height:88svh}
+.compose-conversion .compose-cover__inset{width:min(27%,220px);top:clamp(6.5rem,9vw,8rem)}
+.compose-conversion .compose-threshold{
+  grid-template-columns:minmax(200px,.46fr) minmax(0,1.54fr);
+  gap:clamp(3rem,7vw,8rem);padding:clamp(4rem,6vw,5.5rem) clamp(1.5rem,5vw,5rem)
+}
+.compose-conversion .compose-threshold h2{font-size:clamp(32px,4vw,56px);font-weight:350;max-width:10ch}
+.compose-conversion .composer{
+  min-height:auto;background:#0d1510;border-bottom:1px solid var(--rule)
+}
+.compose-conversion .cmp-stage{
+  display:grid;grid-template-columns:minmax(320px,.86fr) minmax(0,1.14fr);
+  min-height:760px
+}
+.compose-conversion .cmp-visual{
+  position:sticky;top:0;height:100svh;min-height:700px;border-right:1px solid rgba(190,158,104,.1)
+}
+.compose-conversion .cmp-panel{
+  padding:clamp(7rem,9vw,9rem) clamp(2rem,5vw,5rem) clamp(5rem,7vw,7rem);
+  display:flex;flex-direction:column;justify-content:center;min-height:100svh
+}
+.compose-conversion .cmp-progress{
+  position:sticky;top:1.1rem;z-index:4;background:rgba(13,21,16,.92);backdrop-filter:blur(10px);
+  padding:.7rem 0 1rem;margin-bottom:2rem
+}
+.compose-conversion .cmp-progress-item{font-size:8.5px;letter-spacing:.14em}
+.compose-conversion .cmp-navline{margin-bottom:2.2rem}
+.compose-conversion .cmp-q{
+  font-size:clamp(34px,4.2vw,58px);font-weight:350;line-height:1;letter-spacing:-.035em;max-width:10ch
+}
+.compose-conversion .cmp-step-kicker{font-size:9px;letter-spacing:.17em;margin-bottom:1rem}
+.compose-conversion .cmp-opts{margin-top:2rem}
+.compose-conversion .cmp-opts--grid{
+  display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(190,158,104,.12)
+}
+.compose-conversion .cmp-opt{
+  min-height:150px;border:0;border-right:1px solid rgba(190,158,104,.1);border-bottom:1px solid rgba(190,158,104,.1);
+  background:transparent;padding:1.5rem;text-align:left
+}
+.compose-conversion .cmp-opt:nth-child(2n){border-right:0}
+.compose-conversion .cmp-opt:hover,.compose-conversion .cmp-opt[aria-pressed="true"]{
+  background:rgba(237,230,214,.035)
+}
+.compose-conversion .cmp-opt-index{font-size:8px;letter-spacing:.13em;color:var(--earth)}
+.compose-conversion .cmp-opt-title{font-size:clamp(20px,2vw,28px);font-weight:350;margin:.6rem 0 .45rem}
+.compose-conversion .cmp-opt-copy{font-size:12px;line-height:1.6;color:rgba(237,230,214,.58);max-width:29ch}
+.compose-conversion .cmp-season{
+  margin-top:1.5rem;padding-top:1.3rem;border-top:1px solid rgba(190,158,104,.12)
+}
+.compose-conversion .cmp-season-opts{display:flex;flex-wrap:wrap;gap:.5rem}
+.compose-conversion .cmp-season-opt{
+  border:1px solid rgba(190,158,104,.18);background:transparent;color:var(--bone);padding:.65rem .8rem;font-size:9px
+}
+.compose-conversion .cmp-memory{
+  left:clamp(1.2rem,3vw,2.5rem);right:clamp(1.2rem,3vw,2.5rem);bottom:clamp(1.2rem,3vw,2.5rem);
+  background:rgba(7,12,9,.64);backdrop-filter:blur(8px);border-top:1px solid rgba(237,230,214,.16);padding:1rem 0
+}
+.compose-conversion .cmp-result{
+  padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);background:#0f1712
+}
+.compose-conversion .cmp-result-hero{
+  display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,.48fr);gap:clamp(3rem,8vw,8rem);align-items:end;
+  padding-bottom:3rem;border-bottom:1px solid var(--rule)
+}
+.compose-conversion .cmp-result-title{
+  font-size:clamp(44px,6vw,84px);font-weight:350;line-height:.95;letter-spacing:-.04em
+}
+.compose-conversion .cmp-result-lede{
+  font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:14px;line-height:1.75;color:rgba(237,230,214,.7)
+}
+.compose-conversion .cmp-choice-ledger{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:2rem
+}
+.compose-conversion .cmp-choice-item{padding:1.1rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.compose-conversion .cmp-choice-item span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.compose-conversion .cmp-choice-item strong{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:350;margin-top:.3rem}
+.compose-conversion .cmp-route-sequence{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:1.5rem
+}
+.compose-conversion .cmp-route-card{
+  min-height:280px;border:0;position:relative;overflow:hidden
+}
+.compose-conversion .cmp-route-card--wide{grid-column:1/-1;min-height:340px}
+.compose-conversion .cmp-route-card__body{padding:1.2rem}
+.compose-conversion .cmp-result-reasoning{
+  display:grid;grid-template-columns:minmax(220px,.44fr) minmax(0,1.56fr);gap:clamp(2rem,6vw,6rem);margin-top:4rem
+}
+.compose-conversion .cmp-reasoning{border-top:1px solid var(--rule)}
+.compose-conversion .cmp-reason{
+  display:grid;grid-template-columns:24px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);
+  font-size:13px;line-height:1.65;color:rgba(237,230,214,.7)
+}
+.compose-conversion .cmp-example-shell{border:0;border-top:1px solid rgba(190,158,104,.16);margin-top:4rem}
+.compose-conversion .cmp-handoff{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;
+  margin-top:4rem;padding-top:2rem;border-top:1px solid var(--rule)
+}
+.compose-conversion .cmp-handoff-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}
+.compose-conversion .btn-primary,.compose-conversion .btn-ghost{border-radius:0}
+@media(max-width:980px){
+  .compose-conversion .compose-cover{grid-template-columns:1fr;min-height:auto}
+  .compose-conversion .compose-cover__visual{min-height:56svh}
+  .compose-conversion .compose-threshold{grid-template-columns:1fr;gap:1.5rem}
+  .compose-conversion .cmp-stage{grid-template-columns:1fr}
+  .compose-conversion .cmp-visual{position:relative;height:58svh;min-height:440px;border-right:0;border-bottom:1px solid var(--rule)}
+  .compose-conversion .cmp-panel{min-height:auto;padding-top:4rem}
+  .compose-conversion .cmp-result-hero,.compose-conversion .cmp-result-reasoning{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .compose-conversion .compose-cover__copy{padding:7rem 1.25rem 3.5rem}
+  .compose-conversion .compose-cover__title{font-size:clamp(46px,13vw,66px)}
+  .compose-conversion .compose-cover__visual{min-height:48svh}
+  .compose-conversion .compose-cover__inset{display:none}
+  .compose-conversion .compose-threshold{padding:3.5rem 1.25rem}
+  .compose-conversion .cmp-visual{height:44svh;min-height:340px}
+  .compose-conversion .cmp-panel{padding:3.5rem 1.25rem}
+  .compose-conversion .cmp-q{font-size:clamp(32px,10vw,46px)}
+  .compose-conversion .cmp-opts--grid{grid-template-columns:1fr}
+  .compose-conversion .cmp-opt{min-height:0;border-right:0;padding:1.2rem 0}
+  .compose-conversion .cmp-progress{overflow-x:auto;white-space:nowrap}
+  .compose-conversion .cmp-result{padding:4rem 1.25rem}
+  .compose-conversion .cmp-choice-ledger{grid-template-columns:1fr 1fr}
+  .compose-conversion .cmp-route-sequence{grid-template-columns:1fr}
+  .compose-conversion .cmp-route-card--wide{grid-column:auto}
+  .compose-conversion .cmp-handoff{grid-template-columns:1fr}
+  .compose-conversion .cmp-handoff-actions{justify-content:flex-start}
+}
+</style>
+
 </head>
 <body data-page="compose">
 <!-- ENKIAMA_HEADER_START -->
@@ -970,12 +1119,13 @@ body.eh-locked{overflow:hidden;}
 
 <!-- NAV -->
 <a href="#main" class="skip-link" id="skipLink">Skip to content</a>
+<main id="main" class="compose-conversion">
 <!-- EDITORIAL ISSUE BAR -->
 
 
 
 <!-- PAGE HEADER -->
-<section id="main" class="compose-cover">
+<section class="compose-cover">
   <div class="compose-cover__copy">
     <p class="eye compose-cover__eye">Compose &nbsp;&middot;&nbsp; First sketch</p>
     <h1 class="compose-cover__title reveal">Start with what draws you<br>to <em>Tanzania.</em></h1>
@@ -1670,6 +1820,7 @@ body.eh-locked{overflow:hidden;}
   }
 })();
 </script>
+</main>
 <footer>
   <div class="f-brand">
     <div class="f-logo"><img src="assets/logo-footer.png" alt="Enkiama Tanzania" class="f-logo-img"></div>
