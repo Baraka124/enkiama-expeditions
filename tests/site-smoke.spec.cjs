@@ -202,7 +202,7 @@ for (const viewport of viewports) {
           expect(familyContinuity, 'Family continuity signature should exist').not.toBeNull();
           if (viewport.width <= 820) {
             expect(familyContinuity.transform, 'Family continuity copy should stop vertical centering below 820px').toBe('none');
-            expect(familyContinuity.top, 'Family continuity copy should release its top anchor below 820px').toBe('auto');
+            expect(familyContinuity.bottom, 'Family continuity copy should use its mobile/tablet bottom anchor').not.toBe('auto');
           }
         }
 
