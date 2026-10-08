@@ -15,6 +15,7 @@ const pages = [
 
   // trust / operating system
   'family.html',
+  'companions.html',
   'society-and-culture.html',
   'why.html',
   'how.html',
@@ -182,6 +183,39 @@ for (const viewport of viewports) {
           } else {
             expect(karibu.photoPosition, 'Karibu media should overlay at laptop width').toBe('absolute');
             expect(karibu.platePosition, 'Karibu copy should overlay at laptop width').toBe('absolute');
+          }
+        }
+
+        if (path === 'family.html') {
+          const familyContinuity = await page.evaluate(() => {
+            const section = document.querySelector('.family-continuity');
+            const copy = document.querySelector('.family-continuity__copy');
+            if (!section || !copy) return null;
+            const copyStyle = getComputedStyle(copy);
+            return {
+              display: getComputedStyle(section).display,
+              transform: copyStyle.transform,
+              top: copyStyle.top,
+              bottom: copyStyle.bottom,
+            };
+          });
+          expect(familyContinuity, 'Family continuity signature should exist').not.toBeNull();
+          if (viewport.width <= 820) {
+            expect(familyContinuity.transform, 'Family continuity copy should stop vertical centering below 820px').toBe('none');
+            expect(familyContinuity.top, 'Family continuity copy should release its top anchor below 820px').toBe('auto');
+          }
+        }
+
+        if (path === 'companions.html') {
+          const heroDisplay = await page.evaluate(() => {
+            const hero = document.querySelector('.c-hero');
+            return hero ? getComputedStyle(hero).display : null;
+          });
+          expect(heroDisplay, 'Companions hero should exist').not.toBeNull();
+          if (viewport.width <= 860) {
+            expect(heroDisplay, 'Companions hero should switch to flex below 860px').toBe('flex');
+          } else {
+            expect(heroDisplay, 'Companions hero should use editorial grid at laptop width').toBe('grid');
           }
         }
 
