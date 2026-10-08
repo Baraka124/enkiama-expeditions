@@ -161,6 +161,30 @@ for (const viewport of viewports) {
           ).toBeLessThanOrEqual(82);
         }
 
+        if (path === 'index.html') {
+          const karibu = await page.evaluate(() => {
+            const stack = document.querySelector('.lp-welcome-stack');
+            const photo = document.querySelector('.lp-welcome-photo');
+            const plate = document.querySelector('.lp-welcome-plate');
+            if (!stack || !photo || !plate) return null;
+            return {
+              stackDisplay: getComputedStyle(stack).display,
+              photoPosition: getComputedStyle(photo).position,
+              platePosition: getComputedStyle(plate).position,
+            };
+          });
+          expect(karibu, 'Homepage Karibu composition should exist').not.toBeNull();
+
+          if (viewport.width <= 860) {
+            expect(karibu.stackDisplay, 'Karibu should stack below laptop width').toBe('grid');
+            expect(karibu.photoPosition, 'Karibu media should join document flow below laptop width').toBe('relative');
+            expect(karibu.platePosition, 'Karibu copy should join document flow below laptop width').toBe('relative');
+          } else {
+            expect(karibu.photoPosition, 'Karibu media should overlay at laptop width').toBe('absolute');
+            expect(karibu.platePosition, 'Karibu copy should overlay at laptop width').toBe('absolute');
+          }
+        }
+
         const menuTrigger = page.locator('#ehTrigger');
         if (await menuTrigger.count()) {
           await menuTrigger.click();
