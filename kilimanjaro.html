@@ -431,7 +431,7 @@ body.eh-locked{overflow:hidden;}
       <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
       <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
       <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
-      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
+      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.webp"></div>
       <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
       <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
       <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
@@ -466,7 +466,7 @@ body.eh-locked{overflow:hidden;}
   function open(){
     ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
     lastFocus=document.activeElement;
-    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
+    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.webp')";};img.src='/assets/images/hero-dawn.webp';}
     setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
   }
   function close(){ov.classList.remove('open');document.body.classList.remove('eh-locked');trg.setAttribute('aria-expanded','false');if(lastFocus)lastFocus.focus();}
@@ -652,7 +652,7 @@ body.eh-locked{overflow:hidden;}
   <div class="km-expeditions__head"><div><p class="km-eye">Experience library</p><h2>Operated, documented and upcoming.</h2></div><p>We will not fabricate expedition history. Past climbs stay anonymised and are published only to the level we can verify; upcoming climbs are marked clearly as preparation, not presented as completed experience.</p></div>
   <div class="km-expeditions__grid">
     <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/images/kilimanjaro.jpg')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Couple ascent</h3><p>A private two-person climb will sit here once route, duration and operated details are confirmed from the original record.</p></div></article>
-    <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/hero-dawn.jpg')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Family ascent</h3><p>The family expedition will be published as an operational case study only after we recover the factual climb record.</p></div></article>
+    <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/images/hero-dawn.webp')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Family ascent</h3><p>The family expedition will be published as an operational case study only after we recover the factual climb record.</p></div></article>
     <a class="km-exp km-exp--upcoming" href="kilimanjaro-expedition.html?expedition=kilele-2027-machame"><div class="km-exp__img" style="background-image:url('assets/images/kilimanjaro.jpg');background-position:50% 38%"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">In preparation · August 2027</span><h3>Father &amp; son · Machame</h3><p>Seven mountain days via Machame, designed as the Kilimanjaro chapter of a wider Tanzania journey. Open the preparation dossier →</p></div></a>
   </div>
 </section>
