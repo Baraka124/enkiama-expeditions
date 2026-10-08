@@ -320,6 +320,21 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 }
 
 </style>
+
+<style id="phase5-ruaha">
+.rh-hero{min-height:100svh!important;grid-template-columns:minmax(0,.74fr) minmax(360px,.46fr)!important}
+.rh-hero__img{background-position:58% 50%!important}.rh-hero__veil{background:linear-gradient(90deg,rgba(8,12,9,.87) 0%,rgba(8,12,9,.50) 37%,rgba(8,12,9,.07) 69%,rgba(8,12,9,.16)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.56))!important}
+.rh-hero h1{font-size:clamp(68px,8.1vw,122px)!important;max-width:7.2ch!important}.rh-hero__lede{max-width:44ch!important}
+.rh-distance-field{position:relative;min-height:clamp(680px,84svh,920px);overflow:hidden;background:#0e1511}
+.rh-distance-field__image{position:absolute;inset:0;background:url('assets/images/ruaha.jpg') 54% 52%/cover no-repeat;filter:saturate(.84) contrast(1.06)}
+.rh-distance-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.80),rgba(7,11,9,.50) 32%,rgba(7,11,9,.08) 64%,rgba(7,11,9,.02)),linear-gradient(180deg,rgba(7,11,9,.04),rgba(7,11,9,.52))}
+.rh-distance-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4.5rem,9vh,7.5rem);width:min(560px,43vw);color:#f1eadc}
+.rh-distance-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(62px,7.7vw,114px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}.rh-distance-field__copy h2 em{font-style:italic;color:#a3b293}
+.rh-distance-field__copy p{font-size:14px;line-height:1.85;max-width:44ch;color:rgba(241,234,220,.78)}
+.rh-distance-field__line{position:absolute;z-index:3;top:clamp(1.5rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:.8rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}.rh-distance-field__line i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.rh-thesis{grid-template-columns:minmax(300px,.50fr) minmax(0,1.50fr)!important}.rh-thesis__grid{grid-template-columns:1fr!important}.rh-thesis__item{display:grid;grid-template-columns:110px minmax(180px,.68fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}.rh-thesis__item strong{margin:0!important}.rh-thesis__item p{max-width:47ch}
+@media(max-width:900px){.rh-distance-field__copy{width:auto;right:1.5rem}.rh-thesis__item{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -671,6 +686,17 @@ body.eh-locked{overflow:hidden;}
   <div class="rh-strip__item"><span>Ecological spine</span><strong>Great Ruaha River</strong></div>
   <div class="rh-strip__item"><span>Birdlife</span><strong>574 recorded species</strong></div>
   <div class="rh-strip__item"><span>Strong stay</span><strong>4–6 nights for depth</strong></div>
+</section>
+
+<section class="rh-distance-field" aria-label="Ruaha distance and river system">
+  <div class="rh-distance-field__image" aria-hidden="true"></div>
+  <div class="rh-distance-field__veil"></div>
+  <div class="rh-distance-field__copy">
+    <span class="rh-kicker">The organising idea</span>
+    <h2>Stay long<br><em>enough.</em></h2>
+    <p>Ruaha rewards accumulation: tracks, river pools, shade, guide memory and repeated movement through the same landscape. Distance is not friction to hide; it is part of why the park feels different.</p>
+  </div>
+  <div class="rh-distance-field__line"><span>Arrival</span><i></i><span>Read</span><i></i><span>Return</span><i></i><span>Understand</span></div>
 </section>
 
 <section class="rh-thesis">

@@ -227,6 +227,15 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1000px){.rg-hero,.rg-thesis,.rg-corridor__layout,.rg-operational,.rg-journey,.rg-compose{grid-template-columns:1fr}.rg-hero__media{min-height:65vh}.rg-thesis__copy,.rg-operational__copy,.rg-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.rg-route-grid{grid-template-columns:1fr}.rg-corridor__head,.rg-routes__head{grid-template-columns:1fr;gap:1.2rem}.rg-explore{grid-template-columns:1fr 1fr}.rg-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.rg-hero{min-height:0}.rg-hero__media{min-height:58vh}.rg-thesis__facts,.rg-operational__grid,.rg-panel__grid{grid-template-columns:1fr}.rg-fact,.rg-choice{border-right:0}.rg-explore{grid-template-columns:1fr}.rg-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+
+<style id="phase5-rift">
+.rg-hero{min-height:98svh!important;grid-template-columns:minmax(0,.70fr) minmax(430px,.60fr)!important}.rg-hero__copy{align-self:end;padding-bottom:clamp(4rem,8vh,6rem)!important}.rg-hero h1{font-size:clamp(64px,8.2vw,122px)!important;max-width:7.8ch!important}.rg-hero__lede{max-width:43ch!important}.rg-hero__media{min-height:80svh!important}
+.rg-line-field{position:relative;min-height:clamp(680px,84svh,920px);overflow:hidden;background:#101713}.rg-line-field__image{position:absolute;inset:0;background:url('assets/images/synthetic/july26-lake-natron-flamingos-rift.jpg') 56% 52%/cover no-repeat;filter:saturate(.88) contrast(1.04)}.rg-line-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.79),rgba(7,11,9,.47) 33%,rgba(7,11,9,.08) 64%,rgba(7,11,9,.02)),linear-gradient(180deg,rgba(7,11,9,.03),rgba(7,11,9,.48))}
+.rg-line-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4.5rem,9vh,7.5rem);width:min(560px,43vw);color:#f1eadc}.rg-line-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(62px,7.8vw,116px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}.rg-line-field__copy h2 em{font-style:italic;color:#a8b79b}.rg-line-field__copy p{font-size:14px;line-height:1.85;max-width:44ch;color:rgba(241,234,220,.78)}
+.rg-line-field__axis{position:absolute;z-index:3;top:clamp(1.5rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:.8rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}.rg-line-field__axis i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.rg-thesis{grid-template-columns:minmax(300px,.50fr) minmax(0,1.50fr)!important}.rg-thesis__facts{grid-template-columns:1fr!important}.rg-fact{display:grid!important;grid-template-columns:110px minmax(190px,.68fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start}.rg-fact strong{margin:0!important}.rg-fact p{max-width:47ch}
+@media(max-width:900px){.rg-line-field__copy{width:auto;right:1.5rem}.rg-fact{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -573,6 +582,17 @@ body.eh-locked{overflow:hidden;}
     <figure class="rg-hero__frame"><img src="assets/images/great-rift.jpg" alt="Great Rift Valley landscape in northern Tanzania"><div class="rg-hero__veil"></div></figure>
     <div class="rg-hero__caption"><span>Rift Valley · northern Tanzania</span><span>Engaruka → Natron → onward</span></div>
   </div>
+</section>
+
+<section class="rg-line-field" aria-label="Great Rift corridor">
+  <div class="rg-line-field__image" aria-hidden="true"></div>
+  <div class="rg-line-field__veil"></div>
+  <div class="rg-line-field__copy">
+    <span class="rg-kicker">The organising idea</span>
+    <h2>The road is<br><em>the chapter.</em></h2>
+    <p>Engaruka, Natron, Lengai and pastoral country are not empty distance between better-known places. The corridor becomes meaningful when the landscape itself is allowed to carry the journey.</p>
+  </div>
+  <div class="rg-line-field__axis"><span>Engaruka</span><i></i><span>Natron</span><i></i><span>Lengai</span><i></i><span>Onward</span></div>
 </section>
 
 <section class="rg-thesis">

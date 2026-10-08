@@ -49,10 +49,27 @@
   .exp-step p{grid-column:2!important}
 }
 </style>
+
+<style id="phase7-expedition-dossier">
+.exp-hero{min-height:96svh!important}.exp-hero__shade{background:linear-gradient(90deg,rgba(8,12,9,.84) 0%,rgba(8,12,9,.44) 37%,rgba(8,12,9,.07) 68%,rgba(8,12,9,.14)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.72))!important}.exp-copy{max-width:760px!important}.exp-copy h1{font-size:clamp(64px,8vw,118px)!important;max-width:8ch!important}
+.exp-statusrail{display:grid;grid-template-columns:repeat(3,1fr);background:var(--ink2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}.exp-statusrail>div{padding:1.6rem clamp(1.2rem,3vw,2.4rem);border-right:1px solid var(--rule)}.exp-statusrail>div:last-child{border-right:0}.exp-statusrail strong{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:300;line-height:1.15;margin-top:.45rem}
+.exp-meta{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.exp-body{grid-template-columns:minmax(300px,.48fr) minmax(0,1.52fr)!important}
+.exp-body__left{display:flex;flex-direction:column;justify-content:center}
+.exp-steps{grid-template-columns:1fr!important;background:transparent!important;gap:0!important;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.exp-step{display:grid!important;grid-template-columns:70px minmax(180px,.7fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;background:transparent!important;border-bottom:1px solid var(--rule)}.exp-step:last-child{border-bottom:0}.exp-step strong{margin:0!important}.exp-step p{max-width:48ch}
+.exp-action{border-top:1px solid rgba(15,23,18,.12)}
+@media(max-width:800px){.exp-statusrail{grid-template-columns:1fr}.exp-statusrail>div{border-right:0;border-bottom:1px solid var(--rule)}.exp-statusrail>div:last-child{border-bottom:0}.exp-meta{grid-template-columns:1fr 1fr!important}.exp-body{grid-template-columns:1fr!important}.exp-step{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <main id="expPage" hidden>
 <section class="exp-hero"><div class="exp-hero__img"></div><div class="exp-hero__shade"></div><nav class="exp-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama"></a><a href="kilimanjaro.html">Kilimanjaro</a></nav><div class="exp-copy"><p class="eye" id="expLabel"></p><h1 class="fr" id="expTitle"></h1><p id="expSummary"></p></div></section>
+<section class="exp-statusrail" aria-label="Preparation status">
+  <div><span class="eye">Dossier type</span><strong>In preparation</strong></div>
+  <div><span class="eye">Evidence rule</span><strong>No outcome claims before the climb</strong></div>
+  <div><span class="eye">Purpose</span><strong>Make the plan inspectable</strong></div>
+</section>
 <section class="exp-meta" id="expMeta"></section>
 <section class="exp-body"><div class="exp-body__left"><p class="eye">Status</p><h2 class="fr">Prepared openly, before it becomes a story.</h2><p>This dossier is intentionally different from an operated-journey story. It records a climb that is still being prepared. Route, pacing and wider journey context can be shown; summit outcome and lived experience cannot exist until after the expedition.</p></div><div class="exp-body__right"><p class="eye">Current shape</p><div class="exp-steps"><div class="exp-step"><span class="eye">01</span><strong>Seven mountain days</strong><p>Machame is treated as a seven-day climb rather than compressed to six days.</p></div><div class="exp-step"><span class="eye">02</span><strong>Father + adult son</strong><p>A shared summit objective, with individual altitude response and mountain decisions remaining separate.</p></div><div class="exp-step"><span class="eye">03</span><strong>Machame route</strong><p>Southern approach through rainforest, Shira, Lava Tower, Barranco and Karanga before Barafu.</p></div><div class="exp-step"><span class="eye">04</span><strong>Wider Tanzania</strong><p>The climb is designed as one chapter of a broader journey rather than the entire visit.</p></div></div></div></section>
 <section class="exp-action"><a href="kilimanjaro-route.html?route=machame"><span>Route dossier</span><strong>Study Machame →</strong></a><a href="kilimanjaro.html#mountain-composer"><span>Compare</span><strong>Use the mountain composer →</strong></a></section>

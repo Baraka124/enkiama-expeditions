@@ -130,6 +130,20 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+
+<style id="phase6-why">
+/* Phase 6 · positioning page */
+.w-hero{max-width:none!important;min-height:84svh!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;text-align:left!important;padding:clamp(8rem,15vh,11rem) clamp(1.5rem,7vw,7rem) clamp(4rem,8vh,6rem)!important}
+.w-hero>*{max-width:760px}.w-title{font-size:clamp(62px,8vw,116px)!important;line-height:.93!important;max-width:8.2ch!important}.w-sub{max-width:34ch!important}
+.w-continuity{position:relative;min-height:clamp(620px,78svh,860px);overflow:hidden;background:#0f1712}
+.w-continuity__media{position:absolute;inset:0 0 0 34%;background:url('assets/images/kibosho-family.jpg') 52% 50%/cover no-repeat;filter:saturate(.88) contrast(1.04)}
+.w-continuity__merge{position:absolute;inset:0;background:linear-gradient(90deg,#0f1712 0%,#0f1712 26%,rgba(15,23,18,.92) 35%,rgba(15,23,18,.56) 52%,rgba(15,23,18,.10) 72%,rgba(15,23,18,0) 100%),linear-gradient(180deg,rgba(15,23,18,.04),rgba(15,23,18,.38))}
+.w-continuity__copy{position:absolute;z-index:3;left:clamp(1.5rem,7vw,7rem);top:50%;transform:translateY(-50%);width:min(560px,40vw)}
+.w-continuity__copy h2{font-family:'Fraunces',serif;font-size:clamp(54px,6.5vw,96px);font-weight:300;line-height:.92;letter-spacing:-.045em;margin:.8rem 0 1.3rem}.w-continuity__copy h2 em{font-style:italic;color:var(--sage)}
+.w-continuity__copy p{font-size:14px;line-height:1.85;color:rgba(237,230,214,.74);max-width:42ch}
+.w-body{max-width:760px!important;padding-top:clamp(5rem,8vw,8rem)!important}.w-lead{font-size:clamp(1.5rem,3vw,2rem)!important;line-height:1.45!important}
+@media(max-width:760px){.w-continuity__media{inset:0}.w-continuity__merge{background:linear-gradient(0deg,#0f1712 0%,rgba(15,23,18,.86) 38%,rgba(15,23,18,.10) 72%)}.w-continuity__copy{left:1.4rem;right:1.4rem;top:auto;bottom:3rem;transform:none;width:auto}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -470,6 +484,16 @@ body.eh-locked{overflow:hidden;}
   <p class="w-eyebrow">Why Enkiama</p>
   <h1 class="w-title vf-arrive">A company built to<br>close a <em>gap.</em></h1>
   <p class="w-sub">A note from Baraka, its founder.</p>
+</section>
+
+<section class="w-continuity" aria-label="Enkiama origin">
+  <div class="w-continuity__media" aria-hidden="true"></div>
+  <div class="w-continuity__merge"></div>
+  <div class="w-continuity__copy">
+    <span class="w-eyebrow">The gap Enkiama was built to close</span>
+    <h2>Local context.<br><em>International understanding.</em></h2>
+    <p>Enkiama sits between two worlds that too often operate separately. The company exists to understand both without flattening either one.</p>
+  </div>
 </section>
 
 <article class="w-body">

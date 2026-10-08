@@ -187,6 +187,14 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+
+<style id="phase6-partners">
+.d-hero{min-height:100svh!important;padding-left:clamp(1.5rem,6vw,6rem)!important;padding-right:clamp(1.5rem,6vw,6rem)!important}.d-hero-photo img{object-position:58% 50%!important}.d-hero-scrim{background:linear-gradient(90deg,rgba(8,12,9,.86) 0%,rgba(8,12,9,.48) 37%,rgba(8,12,9,.07) 68%,rgba(8,12,9,.16)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.58))!important}.d-hero-inner{max-width:760px!important}.d-title{font-size:clamp(62px,7.7vw,114px)!important;line-height:.92!important;max-width:8ch!important}.d-lede{max-width:44ch!important}
+.partner-continuity{position:relative;min-height:clamp(620px,78svh,860px);overflow:hidden;background:#0f1712}.partner-continuity__media{position:absolute;inset:0 0 0 36%;background:url('assets/images/lodge.jpg') 54% 50%/cover no-repeat;filter:saturate(.88) contrast(1.04)}.partner-continuity__merge{position:absolute;inset:0;background:linear-gradient(90deg,#0f1712 0%,#0f1712 28%,rgba(15,23,18,.88) 40%,rgba(15,23,18,.45) 58%,rgba(15,23,18,.05) 78%,rgba(15,23,18,0))}
+.partner-continuity__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);top:50%;transform:translateY(-50%);width:min(560px,42vw)}.partner-continuity__copy h2{font-family:'Fraunces',serif;font-size:clamp(58px,7vw,104px);font-weight:300;line-height:.9;letter-spacing:-.045em;margin:.8rem 0 1.3rem}.partner-continuity__copy h2 em{font-style:italic;color:var(--sage)}.partner-continuity__copy p{font-size:14px;line-height:1.85;max-width:44ch;color:rgba(237,230,214,.74)}
+.d-sec{max-width:1180px!important;display:grid!important;grid-template-columns:minmax(180px,.42fr) minmax(0,1.58fr)!important;gap:clamp(2rem,6vw,7rem)!important;border-top:1px solid var(--rule)!important}.d-sec>p,.d-sec>.ochre-rule{grid-column:2}.d-sec-eyebrow{grid-column:1!important;grid-row:1/span 4!important}.d-sec-title{grid-column:2!important;font-size:clamp(34px,4vw,56px)!important}.d-sec .ochre-rule{margin-top:.5rem!important}
+@media(max-width:760px){.partner-continuity__media{inset:0}.partner-continuity__merge{background:linear-gradient(0deg,#0f1712 0%,rgba(15,23,18,.88) 42%,rgba(15,23,18,.12) 76%)}.partner-continuity__copy{left:1.4rem;right:1.4rem;top:auto;bottom:3rem;transform:none;width:auto}.d-sec{grid-template-columns:1fr!important}.d-sec>*{grid-column:1!important;grid-row:auto!important}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -531,6 +539,16 @@ body.eh-locked{overflow:hidden;}
     <p class="d-eyebrow">The people we work with</p>
     <h1 class="d-title">The people behind the journey.<br><em>Selected for a reason.</em></h1>
     <p class="d-lede">Enkiama works with guides, lodges, camps, families, transport teams and specialist operators across Tanzania. Who is selected matters because each partner affects the quality, pace and reliability of the journey.</p>
+  </div>
+</section>
+
+<section class="partner-continuity" aria-label="Partner selection">
+  <div class="partner-continuity__media" aria-hidden="true"></div>
+  <div class="partner-continuity__merge"></div>
+  <div class="partner-continuity__copy">
+    <p class="d-sec-eyebrow">The organising idea</p>
+    <h2>Fit before<br><em>familiarity.</em></h2>
+    <p>We select the partner that improves this particular route. Reputation matters less than location, reliability, treatment of people and the actual role a property or specialist needs to play.</p>
   </div>
 </section>
 

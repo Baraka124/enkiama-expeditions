@@ -232,6 +232,37 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1050px){.ng-hero,.ng-thesis,.ng-context-layout,.ng-planning,.ng-compose{grid-template-columns:1fr}.ng-hero__aside{justify-self:start}.ng-thesis__copy,.ng-planning__copy,.ng-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.ng-contexts__head,.ng-routes__head,.ng-journeys__head{grid-template-columns:1fr;gap:1.2rem}.ng-route-grid{grid-template-columns:1fr 1fr}.ng-journey-grid{grid-template-columns:1fr}.ng-explore{grid-template-columns:1fr 1fr}.ng-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.ng-hero{min-height:90vh}.ng-strip{grid-template-columns:1fr 1fr}.ng-strip__item:nth-child(2n){border-right:0}.ng-thesis__grid,.ng-context-stats,.ng-context-grid,.ng-planning__grid,.ng-route-grid{grid-template-columns:1fr}.ng-thesis__item,.ng-choice{border-right:0}.ng-explore{grid-template-columns:1fr}.ng-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+
+<style id="phase4-ngorongoro-descent">
+/* PHASE 4 · Ngorongoro is vertical, enclosed and geological */
+.ng-hero{min-height:100svh!important;grid-template-columns:minmax(0,.74fr) minmax(360px,.46fr)!important}
+.ng-hero__img{background-position:54% 48%!important;transform:scale(1.015)}
+.ng-hero__veil{background:linear-gradient(90deg,rgba(8,12,9,.86) 0%,rgba(8,12,9,.48) 36%,rgba(8,12,9,.08) 68%,rgba(8,12,9,.18)),linear-gradient(180deg,rgba(8,12,9,.04),rgba(8,12,9,.58))!important}
+.ng-hero h1{font-size:clamp(68px,8.3vw,124px)!important;max-width:7.8ch!important}
+.ng-hero__lede{max-width:44ch!important}
+.ng-descent{position:relative;min-height:clamp(700px,88svh,980px);overflow:hidden;background:#0d1511}
+.ng-descent__image{position:absolute;inset:0;background:url('assets/images/ngorongoro.webp') 50% 54%/cover no-repeat;filter:saturate(.82) contrast(1.06)}
+.ng-descent__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,9,.14) 0%,rgba(7,11,9,.02) 28%,rgba(7,11,9,.18) 56%,rgba(7,11,9,.78) 100%),linear-gradient(90deg,rgba(7,11,9,.10),rgba(7,11,9,.02) 58%,rgba(7,11,9,.16))}
+.ng-descent__copy{position:absolute;z-index:3;left:50%;transform:translateX(-50%);bottom:clamp(4rem,8vh,7rem);width:min(760px,76vw);text-align:center;color:#f1eadc}
+.ng-descent__copy h2{font-family:'Fraunces',serif;font-size:clamp(64px,8.3vw,124px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.7rem 0 1.2rem}
+.ng-descent__copy h2 em{font-style:italic;color:#a3b293}
+.ng-descent__copy p{max-width:50ch;margin:0 auto;font-size:14px;line-height:1.85;color:rgba(241,234,220,.78)}
+.ng-descent__scale{position:absolute;z-index:4;top:clamp(1.5rem,3vw,3rem);left:clamp(1.5rem,4vw,4rem);right:clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:auto 1fr auto 1fr auto;gap:1rem;align-items:center;color:rgba(241,234,220,.72);font-size:8px;letter-spacing:.14em;text-transform:uppercase}
+.ng-descent__scale i{height:1px;background:rgba(241,234,220,.22)}
+.ng-descent__scale b{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:#f1eadc;letter-spacing:0;text-transform:none}
+.ng-thesis{grid-template-columns:minmax(300px,.48fr) minmax(0,1.52fr)!important}
+.ng-thesis__copy{display:flex;flex-direction:column;justify-content:center}
+.ng-thesis__grid{grid-template-columns:1fr!important}
+.ng-thesis__item{display:grid;grid-template-columns:110px minmax(180px,.62fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}
+.ng-thesis__item strong{margin:0!important}
+.ng-thesis__item p{max-width:48ch}
+@media(max-width:820px){
+ .ng-descent__copy{width:auto;left:1.5rem;right:1.5rem;transform:none;text-align:left}
+ .ng-descent__copy p{margin:0}
+ .ng-descent__scale{grid-template-columns:auto 1fr auto}.ng-descent__scale i:nth-of-type(2),.ng-descent__scale span:last-child{display:none}
+ .ng-thesis__item{grid-template-columns:1fr;gap:.5rem}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -583,6 +614,17 @@ body.eh-locked{overflow:hidden;}
   <div class="ng-strip__item"><span>Core distinction</span><strong>Crater ≠ whole Ngorongoro</strong></div>
   <div class="ng-strip__item"><span>Protected value</span><strong>Natural + cultural UNESCO significance</strong></div>
   <div class="ng-strip__item"><span>Best planning question</span><strong>Descent only or highland chapter?</strong></div>
+</section>
+
+<section class="ng-descent" aria-label="Ngorongoro descent">
+  <div class="ng-descent__image" aria-hidden="true"></div>
+  <div class="ng-descent__shade"></div>
+  <div class="ng-descent__copy">
+    <span class="ng-kicker">The physical idea</span>
+    <h2>From rim<br>to <em>floor.</em></h2>
+    <p>Ngorongoro is one of the rare places where the journey itself changes altitude, temperature, vegetation and wildlife density in a single descent.</p>
+  </div>
+  <div class="ng-descent__scale"><span>Highland rim</span><i></i><b>600 m</b><i></i><span>Crater floor</span></div>
 </section>
 
 <section class="ng-thesis">

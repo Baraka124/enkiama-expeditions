@@ -686,6 +686,15 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 @media(max-width:900px){.ph{min-height:72svh;background-position:62% center!important}.family-field{grid-template-columns:1fr;gap:2rem}.family-field__line{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.family-field__line i{display:none}.portraits{display:block!important;background:none}.portrait{border-bottom:1px solid var(--rule)!important}.portrait-photo,.portrait.p2 .portrait-photo,.portrait.p3 .portrait-photo{min-height:62vw!important}.enkiama-intro{grid-template-columns:1fr!important;min-height:0}.ei-r{min-height:58vw!important}.ei-film{inset:0!important}.asili-grid{grid-template-columns:1fr!important}.asili-c{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 @media(max-width:560px){.ph{min-height:76svh}.portrait-photo,.portrait.p2 .portrait-photo,.portrait.p3 .portrait-photo{min-height:86vw!important}.portrait-txt,.portrait.flip .portrait-txt{min-height:0!important;padding:2.8rem 1.4rem!important}.family-field__line{grid-template-columns:1fr}}
 </style>
+
+<style id="phase6-family">
+.ph{min-height:82svh!important;display:flex!important;align-items:flex-end!important}.ph-inner{max-width:900px!important;margin-left:clamp(1.5rem,6vw,6rem)!important;padding-bottom:clamp(4rem,8vh,6rem)!important}.ph-hed{font-size:clamp(64px,8vw,118px)!important;line-height:.9!important;max-width:8ch!important}.ph-sub{max-width:46ch!important}
+.enkiama-intro{grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr)!important;min-height:72svh!important}.ei-l{padding:clamp(4rem,7vw,7rem)!important;align-self:center}.ei-r{position:relative;overflow:hidden;background:#0f1712}.ei-r:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0f1712 0%,rgba(15,23,18,.72) 16%,rgba(15,23,18,.12) 44%,rgba(15,23,18,0) 70%);pointer-events:none}
+.family-continuity{position:relative;min-height:clamp(620px,78svh,860px);overflow:hidden;background:#0f1712}.family-continuity__media{position:absolute;inset:0 0 0 36%;background:url('assets/images/kibosho-family.jpg') 52% 50%/cover no-repeat;filter:saturate(.88) contrast(1.04)}.family-continuity__merge{position:absolute;inset:0;background:linear-gradient(90deg,#0f1712 0%,#0f1712 28%,rgba(15,23,18,.88) 40%,rgba(15,23,18,.44) 57%,rgba(15,23,18,.05) 78%,rgba(15,23,18,0))}
+.family-continuity__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);top:50%;transform:translateY(-50%);width:min(560px,42vw)}.family-continuity__copy h2{font-family:'Fraunces',serif;font-size:clamp(56px,6.8vw,102px);font-weight:300;line-height:.9;letter-spacing:-.045em;margin:.8rem 0 1.3rem}.family-continuity__copy h2 em{font-style:italic;color:var(--sage)}.family-continuity__copy p{font-size:14px;line-height:1.85;color:rgba(237,230,214,.74);max-width:44ch}
+.portrait{grid-template-columns:minmax(0,1.14fr) minmax(380px,.86fr)!important;min-height:72svh!important}.portrait.flip{grid-template-columns:minmax(380px,.86fr) minmax(0,1.14fr)!important}.portrait-photo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(15,23,18,0) 70%,#0f1712 100%)}.portrait.flip .portrait-photo:after{background:linear-gradient(270deg,rgba(15,23,18,0) 70%,#0f1712 100%)}.portrait-txt{border-left:0!important}.portrait.flip .portrait-txt{border-right:0!important}
+@media(max-width:820px){.family-continuity__media{inset:0}.family-continuity__merge{background:linear-gradient(0deg,#0f1712 0%,rgba(15,23,18,.88) 40%,rgba(15,23,18,.12) 75%)}.family-continuity__copy{left:1.4rem;right:1.4rem;top:auto;bottom:3rem;transform:none;width:auto}.portrait,.portrait.flip,.enkiama-intro{grid-template-columns:1fr!important}.portrait-photo:after,.portrait.flip .portrait-photo:after{background:linear-gradient(0deg,#0f1712 0%,rgba(15,23,18,0) 28%)!important}}
+</style>
 </head>
 <body data-page="family">
 <!-- ENKIAMA_HEADER_START -->
@@ -1048,6 +1057,16 @@ body.eh-locked{overflow:hidden;}
   </div>
   <div class="ei-r">
     <div class="ei-film"><div class="ph-frame ph-graded"><img data-src="assets/images/camp-arrival.jpg" alt=""><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="film-hint">[ Enkiama — arrival moment, first welcome ]</span></div>
+  </div>
+</section>
+
+<section class="family-continuity" aria-label="People and place">
+  <div class="family-continuity__media" aria-hidden="true"></div>
+  <div class="family-continuity__merge"></div>
+  <div class="family-continuity__copy">
+    <p class="eye">People before roles</p>
+    <h2>Knowledge belongs<br><em>somewhere.</em></h2>
+    <p>Guiding is strongest when expertise remains connected to place. The team is assembled around the route rather than forcing one person to represent all of Tanzania.</p>
   </div>
 </section>
 

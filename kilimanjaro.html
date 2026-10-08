@@ -237,6 +237,15 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1050px){.km-hero,.km-intro,.km-atlas__layout,.km-standards,.km-composer{grid-template-columns:1fr}.km-hero__aside{justify-self:start}.km-intro__left,.km-standards__copy,.km-composer__copy{border-right:0;border-bottom:1px solid var(--rule)}.km-strip{grid-template-columns:1fr 1fr}.km-products__grid{grid-template-columns:1fr 1fr}.km-expeditions__grid{grid-template-columns:1fr}.km-exp{min-height:56vh}.km-atlas__head,.km-products__head,.km-expeditions__head{grid-template-columns:1fr;gap:1.2rem}}
 @media(max-width:680px){.km-hero{min-height:90vh}.km-strip{grid-template-columns:1fr}.km-strip__item{border-right:0;border-bottom:1px solid rgba(15,23,18,.1)}.km-intro__right,.km-standards__grid,.km-products__grid{grid-template-columns:1fr}.km-route__stats{grid-template-columns:1fr 1fr}.km-route__why{grid-template-columns:1fr}.km-atlas{padding-inline:1rem}.km-atlas__nav{padding:.7rem}.km-exp{min-height:50vh}}
 </style>
+
+<style id="phase5-kilimanjaro">
+.km-hero{min-height:100svh!important;grid-template-columns:minmax(0,.74fr) minmax(360px,.46fr)!important}.km-hero__img{background-position:54% 47%!important}.km-hero__veil{background:linear-gradient(90deg,rgba(8,12,9,.88),rgba(8,12,9,.48) 36%,rgba(8,12,9,.06) 67%,rgba(8,12,9,.14)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.55))!important}.km-hero h1{font-size:clamp(68px,8.5vw,128px)!important;max-width:7.5ch!important}.km-hero__lede{max-width:44ch!important}
+.km-altitude-field{position:relative;min-height:clamp(720px,90svh,1000px);overflow:hidden;background:#0d1511}.km-altitude-field__image{position:absolute;inset:0;background:url('assets/images/kilimanjaro.jpg') 52% 48%/cover no-repeat;filter:saturate(.84) contrast(1.05)}.km-altitude-field__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,9,.05) 10%,rgba(7,11,9,.03) 36%,rgba(7,11,9,.20) 64%,rgba(7,11,9,.76) 100%),linear-gradient(90deg,rgba(7,11,9,.54),rgba(7,11,9,.16) 46%,rgba(7,11,9,.02) 72%)}
+.km-altitude-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4.5rem,9vh,7.5rem);width:min(570px,44vw);color:#f1eadc}.km-altitude-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(64px,8vw,122px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}.km-altitude-field__copy h2 em{font-style:italic;color:#a7b699}.km-altitude-field__copy p{font-size:14px;line-height:1.85;max-width:44ch;color:rgba(241,234,220,.78)}
+.km-altitude-field__scale{position:absolute;z-index:3;top:clamp(1.5rem,3vw,3rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr auto;gap:1rem;align-items:center;color:rgba(241,234,220,.70);font-size:8px;letter-spacing:.14em;text-transform:uppercase}.km-altitude-field__scale i{height:1px;background:rgba(241,234,220,.20)}.km-altitude-field__scale b{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:#f1eadc;letter-spacing:0;text-transform:none}
+.km-intro{grid-template-columns:minmax(300px,.48fr) minmax(0,1.52fr)!important}.km-intro__right{grid-template-columns:1fr!important}.km-intro__point{display:grid!important;grid-template-columns:70px minmax(200px,.7fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start}.km-intro__point strong{margin:0!important}.km-intro__point p{max-width:47ch}
+@media(max-width:900px){.km-altitude-field__copy{width:auto;right:1.5rem}.km-altitude-field__scale{grid-template-columns:auto 1fr auto}.km-altitude-field__scale i:nth-of-type(n+2),.km-altitude-field__scale span:nth-of-type(n+2){display:none}.km-intro__point{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -590,6 +599,17 @@ body.eh-locked{overflow:hidden;}
   <div class="km-strip__item"><span class="km-strip__label">Wider journey</span><strong>Safari · Rift · coast</strong></div>
 </section>
 
+<section class="km-altitude-field" aria-label="Kilimanjaro altitude sequence">
+  <div class="km-altitude-field__image" aria-hidden="true"></div>
+  <div class="km-altitude-field__veil"></div>
+  <div class="km-altitude-field__copy">
+    <span class="km-eye">The organising idea</span>
+    <h2>Altitude<br><em>changes everything.</em></h2>
+    <p>The mountain is a sequence of physiological and ecological transitions. Route, pace and days matter because the body experiences every metre differently.</p>
+  </div>
+  <div class="km-altitude-field__scale"><span>Foothills</span><i></i><span>Forest</span><i></i><span>Alpine</span><i></i><b>5,895 m</b></div>
+</section>
+
 <section class="km-intro">
   <div class="km-intro__left"><p class="km-eye">How Enkiama thinks about the climb</p><h2>Route is only one decision.</h2><p>Premium mountain operations become credible when the choices are explicit: number of days, guide standard, medical protocol, camp provision, group format, pre-climb acclimatisation and what happens when one climber needs a different decision from the rest of the party.</p></div>
   <div class="km-intro__right">
@@ -632,7 +652,7 @@ body.eh-locked{overflow:hidden;}
   <div class="km-expeditions__head"><div><p class="km-eye">Experience library</p><h2>Operated, documented and upcoming.</h2></div><p>We will not fabricate expedition history. Past climbs stay anonymised and are published only to the level we can verify; upcoming climbs are marked clearly as preparation, not presented as completed experience.</p></div>
   <div class="km-expeditions__grid">
     <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/images/kilimanjaro.jpg')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Couple ascent</h3><p>A private two-person climb will sit here once route, duration and operated details are confirmed from the original record.</p></div></article>
-    <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/hero-dawn.jpg')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Family ascent</h3><p>The family expedition will be published as an operational case study only after we recover the factual climb record.</p></div></article>
+    <article class="km-exp"><div class="km-exp__img" style="background-image:url('assets/images/hero-dawn.webp')"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">Past experience · details being verified</span><h3>Family ascent</h3><p>The family expedition will be published as an operational case study only after we recover the factual climb record.</p></div></article>
     <a class="km-exp km-exp--upcoming" href="kilimanjaro-expedition.html?expedition=kilele-2027-machame"><div class="km-exp__img" style="background-image:url('assets/images/kilimanjaro.jpg');background-position:50% 38%"></div><div class="km-exp__shade"></div><div class="km-exp__copy"><span class="km-exp__tag">In preparation · August 2027</span><h3>Father &amp; son · Machame</h3><p>Seven mountain days via Machame, designed as the Kilimanjaro chapter of a wider Tanzania journey. Open the preparation dossier →</p></div></a>
   </div>
 </section>

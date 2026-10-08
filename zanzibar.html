@@ -329,6 +329,15 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 }
 
 </style>
+
+<style id="phase5-zanzibar">
+.zz-hero{min-height:100svh!important;grid-template-columns:minmax(0,.74fr) minmax(360px,.46fr)!important}.zz-hero__img{background-position:58% 54%!important}.zz-hero__veil{background:linear-gradient(90deg,rgba(8,12,9,.83),rgba(8,12,9,.43) 36%,rgba(8,12,9,.05) 68%,rgba(8,12,9,.12)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.48))!important}.zz-hero h1{font-size:clamp(68px,8.5vw,128px)!important;max-width:7.4ch!important}.zz-hero__lede{max-width:44ch!important}
+.zz-tide-field{position:relative;min-height:clamp(650px,82svh,900px);overflow:hidden;background:#0f1712}.zz-tide-field__image{position:absolute;inset:0;background:url('assets/images/zanzibar.jpg') 55% 55%/cover no-repeat;filter:saturate(.90) contrast(1.02)}.zz-tide-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.74),rgba(7,11,9,.40) 31%,rgba(7,11,9,.06) 62%,rgba(7,11,9,.01)),linear-gradient(180deg,rgba(7,11,9,.02),rgba(7,11,9,.42))}
+.zz-tide-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4rem,8vh,7rem);width:min(530px,42vw);color:#f1eadc}.zz-tide-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(64px,8vw,118px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}.zz-tide-field__copy h2 em{font-style:italic;color:#b3c2a5}.zz-tide-field__copy p{font-size:14px;line-height:1.85;max-width:43ch;color:rgba(241,234,220,.78)}
+.zz-tide-field__axis{position:absolute;z-index:3;top:clamp(1.5rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:.8rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}.zz-tide-field__axis i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.zz-thesis{grid-template-columns:minmax(300px,.50fr) minmax(0,1.50fr)!important}.zz-thesis__grid{grid-template-columns:1fr!important}.zz-thesis__item{display:grid;grid-template-columns:110px minmax(180px,.68fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}.zz-thesis__item strong{margin:0!important}.zz-thesis__item p{max-width:46ch}
+@media(max-width:900px){.zz-tide-field__copy{width:auto;right:1.5rem}.zz-thesis__item{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -680,6 +689,17 @@ body.eh-locked{overflow:hidden;}
   <div class="zz-strip__item"><span>Swimming</span><strong>North generally easiest</strong></div>
   <div class="zz-strip__item"><span>Tide-led coast</span><strong>East / south-east</strong></div>
   <div class="zz-strip__item"><span>Strong stay</span><strong>4 nights as general default</strong></div>
+</section>
+
+<section class="zz-tide-field" aria-label="Zanzibar tide and coast">
+  <div class="zz-tide-field__image" aria-hidden="true"></div>
+  <div class="zz-tide-field__veil"></div>
+  <div class="zz-tide-field__copy">
+    <span class="zz-kicker">The organising idea</span>
+    <h2>Read<br>the <em>tide.</em></h2>
+    <p>Zanzibar changes by coast, tide and purpose. A beach is not interchangeable with Stone Town, and one shoreline is not interchangeable with another.</p>
+  </div>
+  <div class="zz-tide-field__axis"><span>Town</span><i></i><span>Reef</span><i></i><span>Tide</span><i></i><span>Open water</span></div>
 </section>
 
 <section class="zz-thesis">

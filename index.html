@@ -353,6 +353,208 @@ body[data-page="home"] .em-sequence__n{color:#715d3a!important}
   }
 }
 </style>
+
+<style id="phase2-home-media-hierarchy">
+/* ══════════ PHASE 2 · HOME MEDIA HIERARCHY ══════════ */
+
+/* Hero: keep copy in the natural dark negative-space zone and cap its measure. */
+body[data-page="home"] .hero-content{
+  max-width:760px!important;
+  width:min(760px,72vw)!important;
+}
+body[data-page="home"] .hero-hed{
+  max-width:8.2ch!important;
+}
+body[data-page="home"] .hero-sub{
+  max-width:42ch!important;
+}
+
+/* Six worlds: text should read as an editorial field, not as copy pushed into a corner. */
+body[data-page="home"] #worlds .world-panel{
+  grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr)!important;
+  min-height:clamp(620px,78svh,860px)!important;
+}
+body[data-page="home"] #worlds .world-panel:nth-child(even){
+  grid-template-columns:minmax(0,1.28fr) minmax(360px,.72fr)!important;
+}
+body[data-page="home"] #worlds .wp-text{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:clamp(4rem,7vw,7rem) clamp(2.5rem,5vw,5rem)!important;
+}
+body[data-page="home"] #worlds .wp-inner{
+  width:min(100%,560px)!important;
+  max-width:560px!important;
+  margin:0!important;
+}
+body[data-page="home"] #worlds .wp-world-meta{
+  display:flex!important;
+  justify-content:space-between!important;
+  gap:1rem!important;
+  padding-bottom:1rem!important;
+  border-bottom:1px solid rgba(237,230,214,.10)!important;
+}
+body[data-page="home"] #worlds .wp-tag{
+  margin-top:1.35rem!important;
+}
+body[data-page="home"] #worlds .wp-name{
+  margin-top:1.25rem!important;
+  margin-bottom:.75rem!important;
+}
+body[data-page="home"] #worlds .wp-desc{
+  max-width:44ch!important;
+}
+body[data-page="home"] #worlds .wp-facts{
+  grid-template-columns:1fr!important;
+  gap:0!important;
+  margin-top:1.8rem!important;
+}
+body[data-page="home"] #worlds .wp-facts span{
+  display:grid!important;
+  grid-template-columns:110px 1fr!important;
+  gap:1rem!important;
+  align-items:baseline!important;
+  padding:.75rem 0!important;
+  border-top:1px solid rgba(237,230,214,.10)!important;
+}
+body[data-page="home"] #worlds .wp-facts span:last-child{
+  border-bottom:1px solid rgba(237,230,214,.10)!important;
+}
+body[data-page="home"] #worlds .wp-facts b{
+  margin:0!important;
+}
+body[data-page="home"] #worlds .wp-photo{
+  min-height:clamp(620px,78svh,860px)!important;
+}
+body[data-page="home"] #worlds .wp-photo-tag,
+body[data-page="home"] #worlds .wp-photo-note{
+  background:rgba(8,14,10,.46)!important;
+  color:#f1eadc!important;
+  border:1px solid rgba(241,234,220,.16)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+  backdrop-filter:blur(8px)!important;
+  text-shadow:none!important;
+}
+body[data-page="home"] #worlds .wp-photo-tag{
+  padding:.45rem .65rem!important;
+}
+body[data-page="home"] #worlds .wp-photo-note{
+  padding:.45rem .65rem!important;
+}
+
+/* Route archive: lead with one image; supporting images become evidence, not collage noise. */
+body[data-page="home"] .lp-journey-stack{
+  grid-template-columns:minmax(0,1.5fr) minmax(300px,.7fr)!important;
+  grid-template-rows:1fr 1fr auto!important;
+  gap:8px!important;
+}
+body[data-page="home"] .lp-journey-main{
+  min-height:clamp(520px,64svh,700px)!important;
+}
+body[data-page="home"] .lp-journey-inset,
+body[data-page="home"] .lp-journey-detail{
+  min-height:0!important;
+}
+body[data-page="home"] .lp-journey-routeplate{
+  margin-top:1.4rem!important;
+  border-top:1px solid rgba(15,23,18,.14)!important;
+  border-bottom:1px solid rgba(15,23,18,.14)!important;
+  padding:1.4rem 0!important;
+  background:transparent!important;
+}
+
+/* Proof / stays / people: image hierarchy should be obvious at a glance. */
+body[data-page="home"] .lp-proof-system,
+body[data-page="home"] .lp-network-stage{
+  grid-template-columns:minmax(0,1.55fr) minmax(300px,.65fr)!important;
+}
+body[data-page="home"] .lp-stay-stage{
+  grid-template-columns:minmax(0,1.55fr) minmax(280px,.65fr)!important;
+}
+body[data-page="home"] .lp-proof-main,
+body[data-page="home"] .lp-stay-main,
+body[data-page="home"] .lp-network-main{
+  min-height:clamp(480px,58svh,620px)!important;
+}
+body[data-page="home"] .lp-proof-ledger--editorial,
+body[data-page="home"] .lp-stay-criteria,
+body[data-page="home"] .lp-network-notes{
+  align-self:stretch!important;
+}
+
+/* Final photographic handoff: one consistent veil, copy uses the quiet lower-left zone. */
+body[data-page="home"] .lp-final-photo-link{
+  min-height:clamp(460px,56svh,620px)!important;
+}
+body[data-page="home"] .lp-final-photo-link figure{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+body[data-page="home"] .lp-final-photo-link::after{
+  z-index:2!important;
+}
+body[data-page="home"] .lp-final-photo-copy{
+  position:absolute!important;
+  z-index:4!important;
+  left:clamp(1.4rem,4vw,4rem)!important;
+  bottom:clamp(1.4rem,4vw,3.5rem)!important;
+  width:min(430px,70%)!important;
+  color:#f1eadc!important;
+}
+body[data-page="home"] .lp-final-photo-copy span{
+  color:#c6a16a!important;
+}
+body[data-page="home"] .lp-final-photo-copy strong{
+  color:#f1eadc!important;
+  font-size:clamp(44px,5vw,74px)!important;
+}
+body[data-page="home"] .lp-final-photo-copy small{
+  color:rgba(241,234,220,.72)!important;
+}
+
+@media(max-width:900px){
+  body[data-page="home"] .hero-content{width:min(100%,680px)!important}
+  body[data-page="home"] #worlds .world-panel,
+  body[data-page="home"] #worlds .world-panel:nth-child(even){
+    grid-template-columns:1fr!important;
+    min-height:0!important;
+  }
+  body[data-page="home"] #worlds .wp-photo,
+  body[data-page="home"] #worlds .world-panel:nth-child(even) .wp-photo{
+    grid-column:1!important;
+    grid-row:1!important;
+    min-height:58svh!important;
+  }
+  body[data-page="home"] #worlds .wp-text,
+  body[data-page="home"] #worlds .world-panel:nth-child(even) .wp-text{
+    grid-column:1!important;
+    grid-row:2!important;
+    padding:3.5rem 1.4rem 4.5rem!important;
+  }
+  body[data-page="home"] .lp-journey-stack,
+  body[data-page="home"] .lp-proof-system,
+  body[data-page="home"] .lp-stay-stage,
+  body[data-page="home"] .lp-network-stage{
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto!important;
+  }
+  body[data-page="home"] .lp-journey-main,
+  body[data-page="home"] .lp-journey-inset,
+  body[data-page="home"] .lp-journey-detail,
+  body[data-page="home"] .lp-proof-main,
+  body[data-page="home"] .lp-stay-main,
+  body[data-page="home"] .lp-stay-plain,
+  body[data-page="home"] .lp-stay-coast,
+  body[data-page="home"] .lp-network-main,
+  body[data-page="home"] .lp-network-inset{
+    grid-area:auto/1!important;
+    min-height:0!important;
+  }
+}
+</style>
 </head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
@@ -1032,12 +1234,12 @@ body[data-page="home"] .em-sequence__n{color:#715d3a!important}
 </section>
 
 <section class="lp-final-photo tw:bg-enkiama-paper" aria-label="Southern Tanzania">
-  <a href="nyerere.html" class="lp-final-photo-link tw:relative tw:block tw:overflow-hidden">
+  <a href="nyerere.html" class="lp-final-photo-link em-media em-veil em-safe-left tw:relative tw:block tw:overflow-hidden">
     <figure class="lp-photo" data-lp-media style="--lp-pos:50% 56%;--lp-mask:var(--lp-paper);">
       <img src="assets/images/nyerere.jpg" loading="lazy" decoding="async" alt="Boat safari on the Rufiji River in Nyerere National Park">
       <figcaption>Nyerere · Rufiji River · Southern Tanzania</figcaption>
     </figure>
-    <div class="lp-final-photo-copy">
+    <div class="lp-final-photo-copy em-copy">
       <span>South</span>
       <strong>Nyerere</strong>
       <small>Rufiji River · wildlife by boat and road</small>

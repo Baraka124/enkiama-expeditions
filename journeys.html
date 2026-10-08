@@ -475,7 +475,7 @@ nav.scrolled::before{ opacity:.035; }
   background:
     linear-gradient(90deg,rgba(15,23,18,.68) 0%,rgba(15,23,18,.12) 28%,rgba(15,23,18,.03) 62%),
     linear-gradient(180deg,rgba(9,14,11,.03) 45%,rgba(9,14,11,.55) 100%),
-    url('assets/hero-dawn.jpg') center 48% / cover no-repeat;
+    url('assets/images/hero-dawn.webp') center 48% / cover no-repeat;
 }
 .journey-cover__visual::after{
   content:'';
@@ -1410,6 +1410,144 @@ body[data-page="journeys"] .jr-route__context{
   }
   body[data-page="journeys"] .jr-route__path{max-width:none}
   body[data-page="journeys"] .jr-route__context{margin-top:.45rem;white-space:normal}
+}
+</style>
+
+<style id="phase3-journeys-media-standard">
+/* ══════════ PHASE 3 · JOURNEYS MEDIA STANDARD ══════════
+   Apply the same Enkiama readability logic without turning images into cards. */
+
+/* Journey records: image labels use a consistent lower veil. */
+.jr-film::before{
+  height:42%!important;
+  background:linear-gradient(180deg,rgba(7,11,9,0) 0%,rgba(7,11,9,.20) 34%,rgba(7,11,9,.74) 100%)!important;
+}
+.jr-film::after{
+  background:linear-gradient(90deg,rgba(8,13,10,.10),transparent 44%)!important;
+}
+.jr:nth-child(even) .jr-film::after{
+  background:linear-gradient(270deg,rgba(8,13,10,.10),transparent 44%)!important;
+}
+.jr-route{
+  margin:0 clamp(1.3rem,2.8vw,2.5rem) clamp(1.3rem,2.8vw,2.4rem)!important;
+  max-width:min(760px,calc(100% - 2.6rem))!important;
+  padding:1rem 0 .15rem!important;
+  border-top:1px solid rgba(247,242,231,.42)!important;
+  color:rgba(247,242,231,.96)!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.55)!important;
+}
+.jr-route__context{
+  color:rgba(247,242,231,.70)!important;
+}
+.jr-body{
+  justify-content:center!important;
+}
+.jr-title{
+  max-width:10.5ch!important;
+}
+.jr-desc{
+  max-width:50ch!important;
+}
+
+/* Large editorial record: copy gets deliberate breathing room, not corner compression. */
+.jr--editorial .jr-body{
+  grid-template-columns:minmax(150px,.42fr) minmax(0,1.08fr) minmax(190px,.50fr)!important;
+}
+.jr--editorial .jr-title{
+  max-width:10ch!important;
+}
+.jr--editorial .jr-desc{
+  max-width:46ch!important;
+}
+
+/* Water / landscape interludes: labels sit on a restrained local veil,
+   not directly on highlights or detailed foliage. */
+.water-frame::before{
+  background:linear-gradient(180deg,rgba(5,9,7,.01) 30%,rgba(5,9,7,.18) 58%,rgba(5,9,7,.70) 100%)!important;
+}
+.water-frame--chala::before{
+  background:linear-gradient(90deg,rgba(5,9,7,.70) 0%,rgba(5,9,7,.26) 42%,rgba(5,9,7,.03) 72%)!important;
+}
+.water-place{
+  width:min(430px,calc(100% - 2.6rem))!important;
+  padding:1.05rem 1.15rem 1.1rem!important;
+  background:linear-gradient(90deg,rgba(8,13,10,.68),rgba(8,13,10,.48) 80%,rgba(8,13,10,.30))!important;
+  border-left:1px solid rgba(190,158,104,.46)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+  backdrop-filter:blur(8px)!important;
+}
+.water-place strong{
+  font-size:clamp(26px,2.6vw,38px)!important;
+}
+.water-place span:last-child{
+  color:rgba(247,242,231,.82)!important;
+}
+
+/* Cover: visual and copy share the canvas more evenly. */
+.journey-cover{
+  grid-template-columns:minmax(0,.88fr) minmax(480px,1.12fr)!important;
+}
+.journey-cover__copy{
+  padding-left:clamp(2rem,5vw,5rem)!important;
+  padding-right:clamp(2rem,4vw,4rem)!important;
+}
+.journey-cover__copy .ph-hed{
+  max-width:8.1ch!important;
+}
+.journey-cover__deck{
+  max-width:680px!important;
+}
+.journey-cover__visual{
+  background-position:center 50%!important;
+}
+.journey-cover__visual::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(15,23,18,.28) 0%,rgba(15,23,18,.05) 28%,rgba(15,23,18,0) 52%);
+}
+.journey-cover__visual figcaption{
+  padding:.8rem 1rem!important;
+  background:rgba(8,13,10,.50)!important;
+  border-left:1px solid rgba(190,158,104,.36)!important;
+  -webkit-backdrop-filter:blur(7px)!important;
+  backdrop-filter:blur(7px)!important;
+}
+
+/* Small-screen rule: photographic subject first, copy second. */
+@media(max-width:860px){
+  .jr,.jr:nth-child(even){
+    grid-template-columns:1fr!important;
+  }
+  .jr .jr-film,.jr:nth-child(even) .jr-film{
+    order:1!important;
+    min-height:clamp(380px,72svh,600px)!important;
+  }
+  .jr .jr-body,.jr:nth-child(even) .jr-body{
+    order:2!important;
+    border-left:0!important;
+    border-right:0!important;
+    border-top:1px solid var(--rule)!important;
+  }
+  .journey-cover{
+    grid-template-columns:1fr!important;
+  }
+  .journey-cover__copy{
+    min-height:auto!important;
+    padding-bottom:3rem!important;
+  }
+  .journey-cover__visual{
+    min-height:58svh!important;
+  }
+}
+@media(max-width:560px){
+  .water-place{
+    left:1rem!important;
+    right:1rem!important;
+    bottom:1rem!important;
+    width:auto!important;
+  }
 }
 </style>
 </head>

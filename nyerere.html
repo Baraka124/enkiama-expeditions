@@ -317,6 +317,19 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 }
 
 </style>
+
+<style id="phase5-nyerere">
+.ny-hero{min-height:96svh!important;grid-template-columns:minmax(0,.70fr) minmax(430px,.60fr)!important}
+.ny-hero__copy{align-self:end;padding-bottom:clamp(4rem,8vh,6rem)!important}.ny-hero h1{font-size:clamp(64px,8vw,120px)!important;max-width:7.8ch!important}.ny-hero__lede{max-width:43ch!important}
+.ny-hero__media{min-height:78svh!important;align-self:stretch!important}.ny-hero__frame{height:100%!important}
+.ny-river-field{position:relative;min-height:clamp(650px,82svh,900px);overflow:hidden;background:#0f1712}
+.ny-river-field__image{position:absolute;inset:0;background:url('assets/images/nyerere.jpg') 56% 55%/cover no-repeat;filter:saturate(.86) contrast(1.04)}
+.ny-river-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.78),rgba(7,11,9,.46) 32%,rgba(7,11,9,.07) 62%,rgba(7,11,9,.02)),linear-gradient(180deg,rgba(7,11,9,.03),rgba(7,11,9,.46))}
+.ny-river-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4rem,8vh,7rem);width:min(540px,42vw);color:#f1eadc}.ny-river-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(62px,7.6vw,112px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}.ny-river-field__copy h2 em{font-style:italic;color:#a3b293}.ny-river-field__copy p{font-size:14px;line-height:1.85;max-width:43ch;color:rgba(241,234,220,.78)}
+.ny-river-field__mode{position:absolute;z-index:3;top:clamp(1.5rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:1rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}.ny-river-field__mode i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.ny-thesis{grid-template-columns:minmax(300px,.50fr) minmax(0,1.50fr)!important}.ny-thesis__grid{grid-template-columns:1fr!important}.ny-thesis__item{display:grid;grid-template-columns:110px minmax(180px,.66fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}.ny-thesis__item strong{margin:0!important}.ny-thesis__item p{max-width:46ch}
+@media(max-width:900px){.ny-river-field__copy{width:auto;right:1.5rem}.ny-thesis__item{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -667,6 +680,17 @@ body.eh-locked{overflow:hidden;}
   <div class="ny-strip__item"><span>Movement</span><strong>Boat · foot · vehicle</strong></div>
   <div class="ny-strip__item"><span>Strong stay</span><strong>3–4 nights</strong></div>
   <div class="ny-strip__item"><span>Natural pairing</span><strong>Ruaha + coast</strong></div>
+</section>
+
+<section class="ny-river-field" aria-label="Nyerere river-led safari">
+  <div class="ny-river-field__image" aria-hidden="true"></div>
+  <div class="ny-river-field__veil"></div>
+  <div class="ny-river-field__copy">
+    <span class="ny-kicker">The organising idea</span>
+    <h2>Change<br><em>how you move.</em></h2>
+    <p>The Rufiji changes the safari because the vehicle stops being the default. Boat, foot and road reveal different scales of the same place.</p>
+  </div>
+  <div class="ny-river-field__mode"><span>Boat</span><i></i><span>Foot</span><i></i><span>Road</span></div>
 </section>
 
 <section class="ny-thesis">
