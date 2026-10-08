@@ -475,7 +475,7 @@ nav.scrolled::before{ opacity:.035; }
   background:
     linear-gradient(90deg,rgba(15,23,18,.68) 0%,rgba(15,23,18,.12) 28%,rgba(15,23,18,.03) 62%),
     linear-gradient(180deg,rgba(9,14,11,.03) 45%,rgba(9,14,11,.55) 100%),
-    url('assets/hero-dawn.jpg') center 48% / cover no-repeat;
+    url('assets/images/hero-dawn.webp') center 48% / cover no-repeat;
 }
 .journey-cover__visual::after{
   content:'';
@@ -1735,7 +1735,7 @@ body.eh-locked{overflow:hidden;}
       <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
       <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
       <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
-      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
+      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.webp"></div>
       <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
       <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
       <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
@@ -1770,7 +1770,7 @@ body.eh-locked{overflow:hidden;}
   function open(){
     ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
     lastFocus=document.activeElement;
-    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
+    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.webp')";};img.src='/assets/images/hero-dawn.webp';}
     setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
   }
   function close(){ov.classList.remove('open');document.body.classList.remove('eh-locked');trg.setAttribute('aria-expanded','false');if(lastFocus)lastFocus.focus();}
