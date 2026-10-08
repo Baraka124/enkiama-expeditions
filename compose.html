@@ -554,7 +554,7 @@ nav.scrolled::before{ opacity:.035; }
   background-image:
     linear-gradient(90deg,rgba(15,23,18,.45) 0%,rgba(15,23,18,.07) 28%,rgba(15,23,18,.02) 68%),
     linear-gradient(180deg,rgba(8,12,9,.02) 44%,rgba(8,12,9,.56) 100%),
-    url('assets/hero-dawn.jpg');
+    url('assets/images/hero-dawn.webp');
   background-position:center 48%;
 }
 .compose-cover__visual::after{
@@ -1440,10 +1440,10 @@ body.eh-locked{overflow:hidden;}
 
 .cmp-visual.scene-pull .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/arusha.jpg');}
 .cmp-visual.scene-time .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/lodge.jpg');}
-.cmp-visual.scene-pace .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/hero-dawn.jpg');}
+.cmp-visual.scene-pace .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/images/hero-dawn.webp');}
 .cmp-visual.scene-coast .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/zanzibar.jpg');}
 .cmp-visual.scene-who .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.34)),url('assets/culture-table.jpg');}
-.cmp-visual.scene-result .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/hero-dawn.jpg');}
+.cmp-visual.scene-result .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/images/hero-dawn.webp');}
 .scene-pull .cmp-visual-inset{background-image:url('assets/culture-table.jpg');}
 .scene-time .cmp-visual-inset{background-image:url('assets/serengeti.jpg');}
 .scene-pace .cmp-visual-inset{background-image:url('assets/lodge.jpg');}
@@ -1454,7 +1454,7 @@ body.eh-locked{overflow:hidden;}
 .cmp-visual.preview-stillness .cmp-visual-bg,.cmp-visual.preview-short .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.32)),url('assets/tarangire.jpg');}
 .cmp-visual.preview-spectacle .cmp-visual-bg,.cmp-visual.preview-full .cmp-visual-bg,.cmp-visual.preview-no .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.34)),url('assets/serengeti.jpg');}
 .cmp-visual.preview-people .cmp-visual-bg,.cmp-visual.preview-friends .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.34)),url('assets/maasai.jpg');}
-.cmp-visual.preview-all .cmp-visual-bg,.cmp-visual.preview-mid .cmp-visual-bg,.cmp-visual.preview-balanced .cmp-visual-bg,.cmp-visual.preview-solo .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.32)),url('assets/hero-dawn.jpg');}
+.cmp-visual.preview-all .cmp-visual-bg,.cmp-visual.preview-mid .cmp-visual-bg,.cmp-visual.preview-balanced .cmp-visual-bg,.cmp-visual.preview-solo .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.32)),url('assets/images/hero-dawn.webp');}
 .cmp-visual.preview-long .cmp-visual-bg,.cmp-visual.preview-maybe .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/arusha.jpg');}
 .cmp-visual.preview-slow .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.3)),url('assets/lodge.jpg');}
 .cmp-visual.preview-yes .cmp-visual-bg,.cmp-visual.preview-couple .cmp-visual-bg{background-image:linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.28)),url('assets/zanzibar.jpg');}
@@ -1773,8 +1773,8 @@ body.eh-locked{overflow:hidden;}
     });
 
     var routeMeta={
-      'Kilimanjaro':{img:'assets/hero-dawn.jpg',note:'Mountain country can open the journey with landscape and local life before safari.'},
-      'Kilimanjaro foothills':{img:'assets/hero-dawn.jpg',note:'A human opening around Moshi, Chagga country and the lower slopes.'},
+      'Kilimanjaro':{img:'assets/images/hero-dawn.webp',note:'Mountain country can open the journey with landscape and local life before safari.'},
+      'Kilimanjaro foothills':{img:'assets/images/hero-dawn.webp',note:'A human opening around Moshi, Chagga country and the lower slopes.'},
       'Tarangire':{img:'assets/tarangire.jpg',note:'Elephants, baobabs and a quieter first safari landscape.'},
       'Ngorongoro':{img:'assets/arusha.jpg',note:'A compact wildlife chapter inside a very different geography.'},
       'Serengeti':{img:'assets/serengeti.jpg',note:'The route gives the open plain enough time to become more than a single game drive.'},
@@ -1784,7 +1784,7 @@ body.eh-locked{overflow:hidden;}
     };
     var arcEl=document.getElementById('cmpArc');arcEl.innerHTML='';
     arc.forEach(function(node,i){
-      var meta=routeMeta[node]||{img:'assets/hero-dawn.jpg',note:'A possible chapter in the route.'};
+      var meta=routeMeta[node]||{img:'assets/images/hero-dawn.webp',note:'A possible chapter in the route.'};
       var card=document.createElement('article');card.className='cmp-route-card'+(arc.length%2===1&&i===arc.length-1?' cmp-route-card--wide':'');
       card.innerHTML='<div class="cmp-route-card__image" style="background-image:url(\''+meta.img+'\')"></div><div class="cmp-route-card__scrim"></div><div class="cmp-route-card__body"><span>'+String(i+1).padStart(2,'0')+' · route chapter</span><strong>'+node+'</strong><p>'+meta.note+'</p></div>';
       arcEl.appendChild(card);
