@@ -184,6 +184,17 @@ def main() -> int:
         if INACTIVE_CONTACT.lower() in text.lower():
             errors.append(f"{page.name}: inactive contact {INACTIVE_CONTACT} has reappeared.")
 
+        # Guard known retired asset literals even when they live inside CSS/JS
+        # strings rather than directly in src/href attributes.
+        forbidden_literals = {
+            "hero-dawn.jpg": "retired hero fallback; use assets/images/hero-dawn.webp",
+            "assets/great-rift.jpg": "wrong Great Rift path; use assets/images/great-rift.jpg",
+        }
+        lowered_text = text.lower()
+        for literal, guidance in forbidden_literals.items():
+            if literal.lower() in lowered_text:
+                errors.append(f"{page.name}: forbidden literal {literal} ({guidance}).")
+
         for attr, value in parser.links:
             target = resolve_local(page, value)
             if target is None:
