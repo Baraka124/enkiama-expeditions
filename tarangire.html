@@ -226,6 +226,38 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1050px){.tg-hero,.tg-thesis,.tg-land-layout,.tg-season-panel,.tg-stay,.tg-compose{grid-template-columns:1fr}.tg-hero__aside{justify-self:start}.tg-thesis__copy,.tg-stay__copy,.tg-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.tg-landscapes__head,.tg-seasons__head,.tg-journeys__head{grid-template-columns:1fr;gap:1.2rem}.tg-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.tg-stay-grid,.tg-activities{grid-template-columns:1fr 1fr}.tg-journey-grid{grid-template-columns:1fr}.tg-explore{grid-template-columns:1fr 1fr}.tg-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.tg-hero{min-height:90vh}.tg-strip{grid-template-columns:1fr 1fr}.tg-strip__item:nth-child(2n){border-right:0}.tg-thesis__grid,.tg-land-stats,.tg-land-grid,.tg-stay-grid,.tg-activities{grid-template-columns:1fr}.tg-thesis__item{border-right:0}.tg-explore{grid-template-columns:1fr}.tg-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+
+<style id="phase4-tarangire-river">
+/* PHASE 4 · Tarangire is intimate, grounded and organised by water */
+.tg-hero{min-height:100svh!important;grid-template-columns:minmax(0,.76fr) minmax(360px,.44fr)!important}
+.tg-hero__img{background-position:58% 50%!important}
+.tg-hero__veil{background:linear-gradient(90deg,rgba(8,12,9,.87) 0%,rgba(8,12,9,.52) 38%,rgba(8,12,9,.08) 70%,rgba(8,12,9,.18)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.56))!important}
+.tg-hero h1{font-size:clamp(70px,8.5vw,126px)!important;max-width:6.8ch!important}
+.tg-hero__lede{max-width:43ch!important}
+.tg-river-field{position:relative;min-height:clamp(640px,80svh,880px);overflow:hidden;background:#101713}
+.tg-river-field__image{position:absolute;inset:0;background:url('assets/images/tarangire.jpg') 54% 52%/cover no-repeat;filter:saturate(.88) contrast(1.04)}
+.tg-river-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.78) 0%,rgba(7,11,9,.48) 31%,rgba(7,11,9,.08) 62%,rgba(7,11,9,.02) 100%),linear-gradient(180deg,rgba(7,11,9,.02),rgba(7,11,9,.52))}
+.tg-river-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4.5rem,9vh,7rem);width:min(540px,42vw);color:#f1eadc}
+.tg-river-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(62px,7.5vw,112px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}
+.tg-river-field__copy h2 em{font-style:italic;color:#a3b293}
+.tg-river-field__copy p{font-size:14px;line-height:1.85;max-width:43ch;color:rgba(241,234,220,.78)}
+.tg-river-field__note{position:absolute;z-index:3;top:clamp(1.5rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:.8rem;color:rgba(241,234,220,.68);font-size:8px;letter-spacing:.14em;text-transform:uppercase}
+.tg-river-field__note i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.tg-thesis{grid-template-columns:minmax(300px,.50fr) minmax(0,1.50fr)!important}
+.tg-thesis__copy{display:flex;flex-direction:column;justify-content:center}
+.tg-thesis__grid{grid-template-columns:1fr!important}
+.tg-thesis__item{display:grid;grid-template-columns:110px minmax(190px,.66fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}
+.tg-thesis__item strong{margin:0!important}
+.tg-thesis__item p{max-width:46ch}
+.tg-land-layout{grid-template-columns:minmax(240px,.42fr) minmax(0,1.58fr)!important}
+.tg-land-panel{min-height:720px!important;padding:clamp(3rem,5vw,5rem)!important}
+.tg-land-panel h3{max-width:8ch!important}
+@media(max-width:900px){
+ .tg-river-field__copy{width:auto;right:1.5rem}
+ .tg-thesis__item{grid-template-columns:1fr;gap:.5rem}
+ .tg-land-layout{grid-template-columns:1fr!important}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -577,6 +609,17 @@ body.eh-locked{overflow:hidden;}
   <div class="tg-strip__item"><span>Dry-season structure</span><strong>River · pools · swamps</strong></div>
   <div class="tg-strip__item"><span>Signature</span><strong>Elephants + baobab country</strong></div>
   <div class="tg-strip__item"><span>Birdlife</span><strong>550+ species listed by TANAPA</strong></div>
+</section>
+
+<section class="tg-river-field" aria-label="Tarangire river system">
+  <div class="tg-river-field__image" aria-hidden="true"></div>
+  <div class="tg-river-field__veil"></div>
+  <div class="tg-river-field__copy">
+    <span class="tg-kicker">The organising feature</span>
+    <h2>Follow<br>the <em>water.</em></h2>
+    <p>Tarangire is read from the river outward. Dry-season concentration, elephant movement, swamps and the quieter south all make more sense once water becomes the map.</p>
+  </div>
+  <div class="tg-river-field__note"><span>River</span><i></i><span>Pools</span><i></i><span>Swamps</span><i></i><span>South</span></div>
 </section>
 
 <section class="tg-thesis">
