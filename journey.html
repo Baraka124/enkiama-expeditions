@@ -124,6 +124,42 @@ a{color:inherit;}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.sec{opacity:1;transform:none;}}
 a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);outline-offset:3px;}
 </style>
+
+<style id="phase12-private-journey">
+/* Phase 1.2 · private journey reader = product interface, not marketing page */
+.hero{min-height:72svh!important}
+.hero-content{max-width:1180px!important;padding-left:clamp(1.4rem,6vw,6rem)!important;padding-right:clamp(1.4rem,6vw,6rem)!important}
+.hero-title{font-size:clamp(48px,6.5vw,88px)!important;max-width:12ch!important}
+.hero-countdown{background:transparent!important;border:0!important;border-top:1px solid rgba(237,230,214,.18)!important;border-radius:0!important;padding:1rem 0!important;backdrop-filter:none!important}
+.hero-scroll{display:none!important}
+.wrap{max-width:1180px!important;padding:clamp(3rem,6vw,6rem) clamp(1.4rem,6vw,6rem) 6rem!important}
+.band{display:grid!important;grid-template-columns:repeat(4,1fr)!important;margin-bottom:4rem!important}
+.stat{padding:1.4rem 1.2rem!important;min-width:0!important}
+.stat+.stat{padding-left:1.2rem!important}
+.sec{display:grid!important;grid-template-columns:minmax(180px,.42fr) minmax(0,1.58fr)!important;gap:clamp(2rem,7vw,7rem)!important;margin-bottom:0!important;padding:clamp(2.5rem,4vw,4rem) 0!important;border-top:1px solid var(--rule)!important;opacity:1!important;transform:none!important}
+.sec:last-of-type{border-bottom:1px solid var(--rule)!important}
+.sec-h{grid-column:1!important;align-self:start!important;margin:0!important;position:sticky!important;top:2rem!important;font-size:clamp(24px,2.3vw,34px)!important;line-height:1.1!important}
+.sec>:not(.sec-h){grid-column:2!important}
+.welcome{border-radius:0!important;box-shadow:none!important;padding:2rem!important}
+.list{border:0!important;border-radius:0!important;background:transparent!important}
+.row{display:grid!important;grid-template-columns:150px minmax(0,1fr)!important;gap:1.5rem!important;background:transparent!important;border-top:1px solid var(--rule)!important;padding:1.2rem 0!important}
+.row:last-child{border-bottom:1px solid var(--rule)!important}
+.doc{border:0!important;border-radius:0!important;background:transparent!important;border-top:1px solid var(--rule)!important;margin:0!important;padding:1.2rem 0!important;box-shadow:none!important}
+.doc:last-child{border-bottom:1px solid var(--rule)!important}
+.doc:hover{transform:none!important}
+.cta{border-radius:0!important;box-shadow:none!important}
+.foot{text-align:left!important}
+.foot-shuka{margin-left:0!important}
+.foot-txt{margin-left:0!important}
+@media(max-width:760px){
+  .hero{min-height:64svh!important}
+  .band{grid-template-columns:1fr 1fr!important}
+  .sec{grid-template-columns:1fr!important;gap:1rem!important}
+  .sec-h,.sec>:not(.sec-h){grid-column:1!important}
+  .sec-h{position:static!important}
+  .row{grid-template-columns:1fr!important;gap:.4rem!important}
+}
+</style>
 </head>
 <body>
 
@@ -153,7 +189,7 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 <!-- not found -->
 <div class="notfound" id="notfound" style="display:none">
   <p class="notfound-mark fr">This link isn&rsquo;t opening a journey.</p>
-  <p class="notfound-sub">The link may be incomplete, or the journey may have moved. Write to <a href="mailto:hola@enkiama.com" style="color:var(--earth)">hola@enkiama.com</a> and we&rsquo;ll send you a fresh one.</p>
+  <p class="notfound-sub">The link may be incomplete, or the journey may have moved. Contact us on <a href="https://wa.me/34659447627" target="_blank" rel="noopener" style="color:var(--earth)">WhatsApp</a> and we&rsquo;ll send you a fresh link.</p>
 </div>
 
 <!-- content -->
