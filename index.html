@@ -266,6 +266,93 @@ body[data-page="home"] footer{content-visibility:auto;contain-intrinsic-size:900
   body[data-page="home"] .hero-eye,body[data-page="home"] .hero-hed,body[data-page="home"] .hero-sub,body[data-page="home"] .hero-acts{opacity:1!important;transform:none!important}
 }
 </style>
+
+<style id="phase1-media-karibu">
+body[data-page="home"] .lp-welcome-stack{
+  max-width:none!important;
+  min-height:clamp(650px,78svh,900px)!important;
+  display:block!important;
+  margin:clamp(5rem,8vw,8rem) 0 0!important;
+  position:relative!important;
+  overflow:hidden!important;
+  background:#101813!important;
+}
+body[data-page="home"] .lp-welcome-photo{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+body[data-page="home"] .lp-welcome-photo img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:var(--em-focal-x) var(--em-focal-y)!important;
+  transform:none!important;
+}
+body[data-page="home"] .lp-welcome-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(10,16,12,.08) 0%,rgba(10,16,12,.03) 52%,rgba(10,16,12,.16) 100%);
+}
+body[data-page="home"] .lp-welcome-plate{
+  position:absolute!important;
+  z-index:5!important;
+  left:clamp(1.4rem,5vw,5rem)!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:min(560px,42vw)!important;
+  padding:clamp(2rem,3vw,3rem)!important;
+  border:0!important;
+}
+body[data-page="home"] .lp-welcome-plate .lp-kicker{
+  color:#715d3a!important;
+  margin-bottom:1rem!important;
+}
+body[data-page="home"] .lp-welcome-plate h3{
+  color:#152019!important;
+  font-size:clamp(40px,4.8vw,68px)!important;
+  line-height:.98!important;
+  max-width:8ch!important;
+  margin-bottom:0!important;
+}
+body[data-page="home"] .lp-welcome-plate>.em-sequence{
+  border-color:rgba(21,32,25,.14)!important;
+}
+body[data-page="home"] .em-sequence__row{
+  border-color:rgba(21,32,25,.12)!important;
+}
+body[data-page="home"] .em-sequence__body strong{color:#152019!important}
+body[data-page="home"] .em-sequence__body p{color:rgba(21,32,25,.70)!important}
+body[data-page="home"] .em-sequence__n{color:#715d3a!important}
+@media(max-width:640px){
+  body[data-page="home"] .lp-welcome-stack{
+    min-height:0!important;
+    display:grid!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  body[data-page="home"] .lp-welcome-photo{
+    position:relative!important;
+    inset:auto!important;
+    min-height:56svh!important;
+  }
+  body[data-page="home"] .lp-welcome-plate{
+    position:relative!important;
+    inset:auto!important;
+    transform:none!important;
+    width:100%!important;
+    padding:2rem 1.3rem 2.6rem!important;
+  }
+  body[data-page="home"] .lp-welcome-plate h3{
+    font-size:clamp(40px,11vw,58px)!important;
+    max-width:9ch!important;
+  }
+}
+</style>
 </head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
@@ -494,17 +581,28 @@ body[data-page="home"] footer{content-visibility:auto;contain-intrinsic-size:900
     <p class="lp-editorial-copy reveal">Enkiama plans private journeys for local and international guests. We work from the country itself &mdash; its seasons, distances, people and changing conditions. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
   </div>
 
-  <div class="lp-welcome-stack tw:grid reveal">
-    <figure class="lp-photo lp-welcome-photo" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-bone);">
-      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in the Kilimanjaro foothills">
+  <div class="lp-welcome-stack em-media em-paper em-paper-soft em-safe-left em-mobile-detach reveal" style="--em-focal-x:58%;--em-focal-y:48%;">
+    <figure class="lp-photo lp-welcome-photo em-visual" data-lp-media>
+      <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="Coffee country in the Kilimanjaro foothills">
       <figcaption>Kilimanjaro foothills · local hospitality</figcaption>
     </figure>
-    <aside class="lp-welcome-plate">
+    <aside class="lp-welcome-plate em-copy">
       <p class="lp-kicker">Karibu · welcome</p>
       <h3>A stranger arrives as a guest.</h3>
-      <div><span>01</span><p>We welcome people the way we welcome friends and family &mdash; with attention, generosity and a sense of belonging.</p></div>
-      <div><span>02</span><p>Our knowledge of the ground helps us choose the right people, places and rhythm for each part of the journey.</p></div>
-      <div><span>03</span><p>The result can move naturally from safari to community, mountain, town or coast without turning local life into a performance.</p></div>
+      <div class="em-sequence">
+        <div class="em-sequence__row">
+          <span class="em-sequence__n">01</span>
+          <div class="em-sequence__body"><strong>Receive</strong><p>With the attention and generosity we would give friends and family.</p></div>
+        </div>
+        <div class="em-sequence__row">
+          <span class="em-sequence__n">02</span>
+          <div class="em-sequence__body"><strong>Understand</strong><p>Choose the right people, place and pace for this particular journey.</p></div>
+        </div>
+        <div class="em-sequence__row">
+          <span class="em-sequence__n">03</span>
+          <div class="em-sequence__body"><strong>Connect</strong><p>Move between safari, mountain, town and coast without turning local life into performance.</p></div>
+        </div>
+      </div>
     </aside>
   </div>
 </section>
