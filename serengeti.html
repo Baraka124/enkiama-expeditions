@@ -234,6 +234,35 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1050px){.sg-hero,.sg-thesis,.sg-region-layout,.sg-season-panel,.sg-planning,.sg-compose{grid-template-columns:1fr}.sg-hero__aside{justify-self:start}.sg-thesis__copy,.sg-planning__copy,.sg-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.sg-regions__head,.sg-seasons__head,.sg-journeys__head{grid-template-columns:1fr;gap:1.2rem}.sg-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.sg-plan-grid{grid-template-columns:1fr 1fr}.sg-journey-grid{grid-template-columns:1fr}.sg-explore{grid-template-columns:1fr 1fr}.sg-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.sg-hero{min-height:90vh}.sg-strip{grid-template-columns:1fr 1fr}.sg-strip__item:nth-child(2n){border-right:0}.sg-thesis__grid,.sg-region-stats,.sg-region-grid,.sg-plan-grid,.sg-access{grid-template-columns:1fr}.sg-thesis__item{border-right:0}.sg-explore{grid-template-columns:1fr}.sg-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+
+<style id="phase4-serengeti-motion">
+/* PHASE 4 · Serengeti is about scale and movement */
+.sg-hero{min-height:100svh!important;grid-template-columns:minmax(0,.72fr) minmax(360px,.48fr)!important}
+.sg-hero__img{background-position:58% 48%!important}
+.sg-hero__veil{background:linear-gradient(90deg,rgba(8,12,9,.86) 0%,rgba(8,12,9,.50) 37%,rgba(8,12,9,.08) 68%,rgba(8,12,9,.20)),linear-gradient(180deg,rgba(8,12,9,.02),rgba(8,12,9,.55))!important}
+.sg-hero h1{font-size:clamp(70px,9vw,132px)!important;max-width:7ch!important}
+.sg-hero__lede{max-width:43ch!important}
+.sg-hero__aside>div{background:rgba(15,23,18,.46);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);padding:1.1rem!important;border-top-color:rgba(237,230,214,.34)!important}
+.sg-movement-field{position:relative;min-height:clamp(660px,84svh,920px);overflow:hidden;background:#0f1712}
+.sg-movement-field__image{position:absolute;inset:0;background:url('assets/images/synthetic/july26-serengeti-wildebeest-crossing.jpg') 58% 50%/cover no-repeat;filter:saturate(.88) contrast(1.04)}
+.sg-movement-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.82) 0%,rgba(7,11,9,.54) 32%,rgba(7,11,9,.10) 62%,rgba(7,11,9,.04) 100%),linear-gradient(180deg,rgba(7,11,9,.06),rgba(7,11,9,.45))}
+.sg-movement-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(5rem,10vh,8rem);width:min(560px,42vw);color:#f1eadc}
+.sg-movement-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(58px,7vw,108px);font-weight:300;line-height:.9;letter-spacing:-.045em;margin:.8rem 0 1.3rem}
+.sg-movement-field__copy h2 em{font-style:italic;color:#a3b293}
+.sg-movement-field__copy p{font-size:14px;line-height:1.85;max-width:45ch;color:rgba(241,234,220,.78)}
+.sg-movement-field__folio{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);top:clamp(1.4rem,3vw,2.8rem);display:flex;align-items:center;gap:.8rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}
+.sg-movement-field__folio i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.sg-thesis{grid-template-columns:minmax(300px,.52fr) minmax(0,1.48fr)!important}
+.sg-thesis__copy{display:flex;flex-direction:column;justify-content:center}
+.sg-thesis__grid{grid-template-columns:1fr!important}
+.sg-thesis__item{display:grid;grid-template-columns:110px minmax(190px,.7fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}
+.sg-thesis__item strong{margin:0!important}
+.sg-thesis__item p{max-width:48ch}
+@media(max-width:900px){
+ .sg-movement-field__copy{width:auto;right:1.5rem}
+ .sg-thesis__item{grid-template-columns:1fr;gap:.5rem}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -585,6 +614,17 @@ body.eh-locked{overflow:hidden;}
   <div class="sg-strip__item"><span>Planning regions</span><strong>5 distinct Serengeti contexts</strong></div>
   <div class="sg-strip__item"><span>Wildlife value</span><strong>Year-round, not migration-only</strong></div>
   <div class="sg-strip__item"><span>Strong stay</span><strong>3–5 nights depending on route</strong></div>
+</section>
+
+<section class="sg-movement-field" aria-label="Serengeti movement">
+  <div class="sg-movement-field__image" aria-hidden="true"></div>
+  <div class="sg-movement-field__veil"></div>
+  <div class="sg-movement-field__copy">
+    <span class="sg-kicker">The organising idea</span>
+    <h2>Movement,<br><em>not spectacle.</em></h2>
+    <p>The migration matters because it reorganises the landscape. The design question is not how to promise a crossing; it is where to place you so the whole ecosystem still works when nature changes the script.</p>
+  </div>
+  <div class="sg-movement-field__folio"><span>South</span><i></i><span>Central</span><i></i><span>West</span><i></i><span>North</span></div>
 </section>
 
 <section class="sg-thesis">
