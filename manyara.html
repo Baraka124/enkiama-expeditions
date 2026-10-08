@@ -213,6 +213,27 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1050px){.my-hero,.my-thesis,.my-habitat-layout,.my-season-panel,.my-depth,.my-journey,.my-compose{grid-template-columns:1fr}.my-hero__media{min-height:62vh}.my-thesis__copy,.my-depth__copy,.my-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.my-habitats__head,.my-seasons__head,.my-routes__head{grid-template-columns:1fr;gap:1.2rem}.my-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.my-depth-grid{grid-template-columns:1fr 1fr}.my-activities{grid-template-columns:1fr 1fr}.my-route-grid{grid-template-columns:1fr}.my-explore{grid-template-columns:1fr 1fr}.my-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.my-hero{min-height:0}.my-hero__media{min-height:56vh}.my-strip{grid-template-columns:1fr 1fr}.my-strip__item:nth-child(2n){border-right:0}.my-thesis__grid,.my-habitat-stats,.my-habitat-grid,.my-depth-grid,.my-activities{grid-template-columns:1fr}.my-thesis__item{border-right:0}.my-explore{grid-template-columns:1fr}.my-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+
+<style id="phase5-manyara">
+.my-hero{min-height:96svh!important;grid-template-columns:minmax(0,.72fr) minmax(420px,.58fr)!important}
+.my-hero__copy{align-self:end;padding-bottom:clamp(4rem,8vh,6rem)!important}
+.my-hero h1{font-size:clamp(62px,7.7vw,116px)!important;max-width:8.2ch!important}
+.my-hero__lede{max-width:42ch!important}
+.my-hero__media{min-height:76svh!important;align-self:stretch!important}
+.my-hero__frame{height:100%!important}
+.my-rift-field{position:relative;min-height:clamp(620px,78svh,860px);overflow:hidden;background:#101713}
+.my-rift-field__image{position:absolute;inset:0;background:url('assets/images/manyara.jpg') 54% 54%/cover no-repeat;filter:saturate(.88) contrast(1.04)}
+.my-rift-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.76) 0%,rgba(7,11,9,.44) 31%,rgba(7,11,9,.08) 62%,rgba(7,11,9,.02) 100%),linear-gradient(180deg,rgba(7,11,9,.03),rgba(7,11,9,.48))}
+.my-rift-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4rem,8vh,7rem);width:min(520px,42vw);color:#f1eadc}
+.my-rift-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(60px,7.4vw,108px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.7rem 0 1.2rem}
+.my-rift-field__copy h2 em{font-style:italic;color:#a3b293}.my-rift-field__copy p{font-size:14px;line-height:1.85;max-width:43ch;color:rgba(241,234,220,.78)}
+.my-rift-field__scale{position:absolute;z-index:3;top:clamp(1.4rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:.8rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}
+.my-rift-field__scale i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.my-thesis{grid-template-columns:minmax(300px,.50fr) minmax(0,1.50fr)!important}
+.my-thesis__grid{grid-template-columns:1fr!important}.my-thesis__item{display:grid;grid-template-columns:110px minmax(180px,.7fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}
+.my-thesis__item strong{margin:0!important}.my-thesis__item p{max-width:46ch}
+@media(max-width:900px){.my-rift-field__copy{width:auto;right:1.5rem}.my-thesis__item{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -563,6 +584,17 @@ body.eh-locked{overflow:hidden;}
   <div class="my-strip__item"><span>Core strength</span><strong>Habitat compression</strong></div>
   <div class="my-strip__item"><span>Birdlife</span><strong>400+ recorded species</strong></div>
   <div class="my-strip__item"><span>Best route role</span><strong>Rift transition, not checklist stop</strong></div>
+</section>
+
+<section class="my-rift-field" aria-label="Lake Manyara ecological transition">
+  <div class="my-rift-field__image" aria-hidden="true"></div>
+  <div class="my-rift-field__veil"></div>
+  <div class="my-rift-field__copy">
+    <span class="my-kicker">The organising idea</span>
+    <h2>Compressed<br><em>change.</em></h2>
+    <p>Forest, floodplain, lake and escarpment sit unusually close together. Manyara works because the landscape changes before the journey has time to become repetitive.</p>
+  </div>
+  <div class="my-rift-field__scale"><span>Forest</span><i></i><span>Floodplain</span><i></i><span>Lake</span><i></i><span>Escarpment</span></div>
 </section>
 
 <section class="my-thesis">
