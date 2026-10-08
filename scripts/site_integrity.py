@@ -163,7 +163,9 @@ def main() -> int:
         if "width=device-width" not in viewport:
             errors.append(f"{page.name}: missing responsive viewport metadata.")
 
-        if page.name != "404.html":
+        robots = parser.meta.get("robots", "").lower()
+        is_noindex = "noindex" in robots
+        if page.name != "404.html" and not is_noindex:
             if not parser.meta.get("description"):
                 errors.append(f"{page.name}: missing meta description.")
             if not parser.canonical:
