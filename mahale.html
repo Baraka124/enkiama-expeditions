@@ -217,6 +217,108 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1100px){.mh-hero,.mh-thesis,.mh-system-layout,.mh-season-panel,.mh-depth,.mh-compose{grid-template-columns:1fr}.mh-hero__media{min-height:62vh}.mh-thesis__copy,.mh-depth__copy,.mh-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.mh-systems__head,.mh-seasons__head,.mh-health__head,.mh-fit__head,.mh-routes__head{grid-template-columns:1fr;gap:1.2rem}.mh-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.mh-stay-grid{grid-template-columns:1fr 1fr}.mh-health-grid,.mh-fit-grid{grid-template-columns:1fr 1fr}.mh-route-grid{grid-template-columns:1fr}.mh-explore{grid-template-columns:1fr 1fr}.mh-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.mh-hero{min-height:0}.mh-hero__media{min-height:56vh}.mh-strip{grid-template-columns:1fr 1fr}.mh-strip__item:nth-child(2n){border-right:0}.mh-thesis__grid,.mh-system-stats,.mh-system-grid,.mh-stay-grid,.mh-access,.mh-health-grid,.mh-fit-grid{grid-template-columns:1fr}.mh-thesis__item{border-right:0}.mh-explore{grid-template-columns:1fr}.mh-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+<style id="phase1-mahale-editorial">
+
+/* Phase 1 · editorial de-cardification for MH */
+.mh-page{background:#0d1511}
+.mh-hero{min-height:90svh!important;position:relative!important;overflow:hidden!important}
+.mh-hero__copy{position:relative!important;z-index:3!important}
+.mh-hero__copy h1{font-size:clamp(56px,6.8vw,104px)!important;line-height:.93!important;letter-spacing:-.04em!important;max-width:9ch!important}
+.mh-hero__lede{max-width:48ch!important;line-height:1.8!important}
+.mh-hero__media,.mh-hero__img{min-height:90svh!important}
+.mh-hero__frame,.mh-hero__media figure{height:100%!important}
+.mh-hero__frame img,.mh-hero__media img{width:100%!important;height:100%!important;object-fit:cover!important}
+.mh-strip{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:0 clamp(1.5rem,5vw,5rem)!important;border:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important;background:#101813!important}
+.mh-strip__item{padding:2rem 1.8rem 2.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.11)!important}
+.mh-strip__item:last-child{border-right:0!important}
+
+.mh-thesis{padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important}
+.mh-thesis__copy{max-width:820px!important;margin-bottom:3rem!important}
+.mh-thesis__copy h2{font-size:clamp(44px,5vw,72px)!important;line-height:.98!important;max-width:10ch!important}
+.mh-thesis__grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.mh-thesis__item{padding:2.4rem 2rem 3rem!important;border:0!important;background:transparent!important}
+.mh-thesis__item+.mh-thesis__item{border-left:1px solid rgba(190,158,104,.11)!important}
+.mh-thesis__item strong{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.08!important}
+
+.mh-systems,.mh-seasons,.mh-depth,.mh-health,.mh-fit,.mh-routes,.mh-compose{
+  padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important
+}
+.mh-systems__head,.mh-seasons__head,.mh-health__head,.mh-fit__head,.mh-routes__head{
+  display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;
+  gap:clamp(3rem,8vw,8rem)!important;align-items:end!important;margin-bottom:3rem!important
+}
+.mh-systems__head h2,.mh-seasons__head h2,.mh-health__head h2,.mh-fit__head h2,.mh-routes__head h2,
+.mh-depth__copy h2,.mh-compose__copy h2{font-size:clamp(42px,5vw,70px)!important;line-height:.98!important;max-width:10ch!important}
+
+.mh-system-layout,.mh-zone-layout{display:grid!important;grid-template-columns:minmax(220px,.46fr) minmax(0,1.54fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.mh-system-nav,.mh-zone-nav{border-right:1px solid rgba(190,158,104,.12)!important}
+.mh-system,.mh-zone{border:0!important;border-bottom:1px solid rgba(190,158,104,.10)!important;background:transparent!important;border-radius:0!important;box-shadow:none!important;padding:1.4rem 1.2rem!important;text-align:left!important}
+.mh-system.active,.mh-zone.active{background:rgba(190,158,104,.06)!important}
+.mh-system-panel,.mh-zone-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:clamp(2.5rem,5vw,5rem)!important}
+.mh-system-stats,.mh-zone-stats,.mh-system-grid,.mh-zone-grid{gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important}
+.mh-system-stat,.mh-zone-stat,.mh-system-grid>div,.mh-zone-grid>div{padding:1.4rem 1.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.10)!important;background:transparent!important}
+.mh-system-stat:last-child,.mh-zone-stat:last-child{border-right:0!important}
+
+.mh-season-tabs{display:flex!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.mh-season-tabs button{border:0!important;border-radius:0!important;background:transparent!important;border-bottom:2px solid transparent!important;padding:1rem 1.4rem!important}
+.mh-season-tabs button.active{border-bottom-color:#be9e68!important}
+.mh-season-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-bottom:1px solid rgba(190,158,104,.12)!important;padding:2.4rem 0!important}
+
+.mh-depth{display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;align-items:start!important}
+.mh-depth__copy{position:sticky;top:7rem}
+.mh-depth__body{min-width:0}
+.mh-stay-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.mh-stay-card{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.mh-stay-card+.mh-stay-card{border-left:1px solid rgba(190,158,104,.10)!important}
+.mh-access,.mh-activities{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.mh-access article,.mh-activities article{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.mh-access article+article,.mh-activities article+article{border-left:1px solid rgba(190,158,104,.10)!important}
+
+.mh-health-grid,.mh-fit-grid,.mh-route-grid{display:block!important}
+.mh-health-card,.mh-fit-card,.mh-route{
+  display:grid!important;grid-template-columns:160px minmax(0,.75fr) minmax(280px,1.25fr)!important;
+  gap:clamp(1.5rem,3vw,3rem)!important;align-items:start!important;
+  padding:2rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.12)!important
+}
+.mh-health-card:last-child,.mh-fit-card:last-child,.mh-route:last-child{border-bottom:1px solid rgba(190,158,104,.12)!important}
+.mh-health-card strong,.mh-fit-card strong,.mh-route h3{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(26px,2.8vw,38px)!important;line-height:1.05!important}
+.mh-fit-card small,.mh-route small{grid-column:2 / 4!important;color:rgba(237,230,214,.48)!important}
+.mh-route ol{grid-column:2 / 4!important;display:flex!important;gap:.55rem 1.2rem!important;flex-wrap:wrap!important;list-style:none!important;padding:0!important;margin:.5rem 0!important}
+.mh-route li{font-size:11px!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:rgba(237,230,214,.52)!important}
+
+.mh-compose{display:grid!important;grid-template-columns:minmax(280px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;background:#0b120e!important}
+.mh-compose__copy{position:sticky;top:7rem}
+.mh-compose__panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:0!important}
+.mh-q{padding:1.5rem 0!important;border:0!important;border-top:1px solid rgba(190,158,104,.13)!important}
+.mh-opts{gap:.5rem 1.1rem!important}
+.mh-q button{border:0!important;border-bottom:1px solid rgba(237,230,214,.24)!important;border-radius:0!important;background:transparent!important;padding:.4rem 0!important;color:rgba(237,230,214,.72)!important}
+.mh-q button.active,.mh-q button:hover{color:#ede6d6!important;border-bottom-color:#be9e68!important}
+.mh-result{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.16)!important;padding:2rem 0 0!important}
+
+.mh-explore{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important}
+.mh-explore a{border:0!important;border-right:1px solid rgba(190,158,104,.11)!important;padding:2.4rem!important}
+.mh-explore a:last-child{border-right:0!important}
+
+@media(max-width:900px){
+  .mh-strip{grid-template-columns:1fr 1fr!important}
+  .mh-strip__item:nth-child(2){border-right:0!important}
+  .mh-thesis__grid{grid-template-columns:1fr 1fr!important}
+  .mh-thesis__item:nth-child(odd){border-left:0!important}
+  .mh-systems__head,.mh-seasons__head,.mh-health__head,.mh-fit__head,.mh-routes__head,.mh-depth,.mh-compose{grid-template-columns:1fr!important}
+  .mh-depth__copy,.mh-compose__copy{position:static}
+  .mh-system-layout,.mh-zone-layout{grid-template-columns:1fr!important}
+  .mh-system-nav,.mh-zone-nav{border-right:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+  .mh-stay-grid{grid-template-columns:1fr 1fr!important}
+  .mh-health-card,.mh-fit-card,.mh-route{grid-template-columns:1fr!important;gap:.8rem!important}
+  .mh-fit-card small,.mh-route small,.mh-route ol{grid-column:1!important}
+  .mh-explore{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:560px){
+  .mh-strip,.mh-thesis__grid,.mh-stay-grid,.mh-access,.mh-activities,.mh-explore{grid-template-columns:1fr!important}
+  .mh-strip__item,.mh-thesis__item,.mh-stay-card,.mh-access article,.mh-activities article,.mh-explore a{border-left:0!important;border-right:0!important;border-bottom:1px solid rgba(190,158,104,.11)!important}
+}
+
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->

@@ -218,6 +218,108 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1100px){.rh-hero,.rh-thesis,.rh-system-layout,.rh-season-panel,.rh-depth,.rh-compose{grid-template-columns:1fr}.rh-hero__aside{justify-self:start}.rh-thesis__copy,.rh-depth__copy,.rh-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.rh-systems__head,.rh-seasons__head,.rh-fit__head,.rh-routes__head{grid-template-columns:1fr;gap:1.2rem}.rh-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.rh-stay-grid{grid-template-columns:1fr 1fr}.rh-fit-grid{grid-template-columns:1fr 1fr}.rh-route-grid{grid-template-columns:1fr}.rh-explore{grid-template-columns:1fr 1fr}.rh-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.rh-hero{min-height:90vh}.rh-strip{grid-template-columns:1fr 1fr}.rh-strip__item:nth-child(2n){border-right:0}.rh-thesis__grid,.rh-system-stats,.rh-system-grid,.rh-stay-grid,.rh-access,.rh-fit-grid{grid-template-columns:1fr}.rh-thesis__item{border-right:0}.rh-explore{grid-template-columns:1fr}.rh-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+<style id="phase1-ruaha-editorial">
+
+/* Phase 1 · editorial de-cardification for RH */
+.rh-page{background:#0d1511}
+.rh-hero{min-height:90svh!important;position:relative!important;overflow:hidden!important}
+.rh-hero__copy{position:relative!important;z-index:3!important}
+.rh-hero__copy h1{font-size:clamp(56px,6.8vw,104px)!important;line-height:.93!important;letter-spacing:-.04em!important;max-width:9ch!important}
+.rh-hero__lede{max-width:48ch!important;line-height:1.8!important}
+.rh-hero__media,.rh-hero__img{min-height:90svh!important}
+.rh-hero__frame,.rh-hero__media figure{height:100%!important}
+.rh-hero__frame img,.rh-hero__media img{width:100%!important;height:100%!important;object-fit:cover!important}
+.rh-strip{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:0 clamp(1.5rem,5vw,5rem)!important;border:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important;background:#101813!important}
+.rh-strip__item{padding:2rem 1.8rem 2.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.11)!important}
+.rh-strip__item:last-child{border-right:0!important}
+
+.rh-thesis{padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important}
+.rh-thesis__copy{max-width:820px!important;margin-bottom:3rem!important}
+.rh-thesis__copy h2{font-size:clamp(44px,5vw,72px)!important;line-height:.98!important;max-width:10ch!important}
+.rh-thesis__grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.rh-thesis__item{padding:2.4rem 2rem 3rem!important;border:0!important;background:transparent!important}
+.rh-thesis__item+.rh-thesis__item{border-left:1px solid rgba(190,158,104,.11)!important}
+.rh-thesis__item strong{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.08!important}
+
+.rh-systems,.rh-seasons,.rh-depth,.rh-health,.rh-fit,.rh-routes,.rh-compose{
+  padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important
+}
+.rh-systems__head,.rh-seasons__head,.rh-health__head,.rh-fit__head,.rh-routes__head{
+  display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;
+  gap:clamp(3rem,8vw,8rem)!important;align-items:end!important;margin-bottom:3rem!important
+}
+.rh-systems__head h2,.rh-seasons__head h2,.rh-health__head h2,.rh-fit__head h2,.rh-routes__head h2,
+.rh-depth__copy h2,.rh-compose__copy h2{font-size:clamp(42px,5vw,70px)!important;line-height:.98!important;max-width:10ch!important}
+
+.rh-system-layout,.rh-zone-layout{display:grid!important;grid-template-columns:minmax(220px,.46fr) minmax(0,1.54fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.rh-system-nav,.rh-zone-nav{border-right:1px solid rgba(190,158,104,.12)!important}
+.rh-system,.rh-zone{border:0!important;border-bottom:1px solid rgba(190,158,104,.10)!important;background:transparent!important;border-radius:0!important;box-shadow:none!important;padding:1.4rem 1.2rem!important;text-align:left!important}
+.rh-system.active,.rh-zone.active{background:rgba(190,158,104,.06)!important}
+.rh-system-panel,.rh-zone-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:clamp(2.5rem,5vw,5rem)!important}
+.rh-system-stats,.rh-zone-stats,.rh-system-grid,.rh-zone-grid{gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important}
+.rh-system-stat,.rh-zone-stat,.rh-system-grid>div,.rh-zone-grid>div{padding:1.4rem 1.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.10)!important;background:transparent!important}
+.rh-system-stat:last-child,.rh-zone-stat:last-child{border-right:0!important}
+
+.rh-season-tabs{display:flex!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.rh-season-tabs button{border:0!important;border-radius:0!important;background:transparent!important;border-bottom:2px solid transparent!important;padding:1rem 1.4rem!important}
+.rh-season-tabs button.active{border-bottom-color:#be9e68!important}
+.rh-season-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-bottom:1px solid rgba(190,158,104,.12)!important;padding:2.4rem 0!important}
+
+.rh-depth{display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;align-items:start!important}
+.rh-depth__copy{position:sticky;top:7rem}
+.rh-depth__body{min-width:0}
+.rh-stay-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.rh-stay-card{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.rh-stay-card+.rh-stay-card{border-left:1px solid rgba(190,158,104,.10)!important}
+.rh-access,.rh-activities{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.rh-access article,.rh-activities article{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.rh-access article+article,.rh-activities article+article{border-left:1px solid rgba(190,158,104,.10)!important}
+
+.rh-health-grid,.rh-fit-grid,.rh-route-grid{display:block!important}
+.rh-health-card,.rh-fit-card,.rh-route{
+  display:grid!important;grid-template-columns:160px minmax(0,.75fr) minmax(280px,1.25fr)!important;
+  gap:clamp(1.5rem,3vw,3rem)!important;align-items:start!important;
+  padding:2rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.12)!important
+}
+.rh-health-card:last-child,.rh-fit-card:last-child,.rh-route:last-child{border-bottom:1px solid rgba(190,158,104,.12)!important}
+.rh-health-card strong,.rh-fit-card strong,.rh-route h3{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(26px,2.8vw,38px)!important;line-height:1.05!important}
+.rh-fit-card small,.rh-route small{grid-column:2 / 4!important;color:rgba(237,230,214,.48)!important}
+.rh-route ol{grid-column:2 / 4!important;display:flex!important;gap:.55rem 1.2rem!important;flex-wrap:wrap!important;list-style:none!important;padding:0!important;margin:.5rem 0!important}
+.rh-route li{font-size:11px!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:rgba(237,230,214,.52)!important}
+
+.rh-compose{display:grid!important;grid-template-columns:minmax(280px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;background:#0b120e!important}
+.rh-compose__copy{position:sticky;top:7rem}
+.rh-compose__panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:0!important}
+.rh-q{padding:1.5rem 0!important;border:0!important;border-top:1px solid rgba(190,158,104,.13)!important}
+.rh-opts{gap:.5rem 1.1rem!important}
+.rh-q button{border:0!important;border-bottom:1px solid rgba(237,230,214,.24)!important;border-radius:0!important;background:transparent!important;padding:.4rem 0!important;color:rgba(237,230,214,.72)!important}
+.rh-q button.active,.rh-q button:hover{color:#ede6d6!important;border-bottom-color:#be9e68!important}
+.rh-result{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.16)!important;padding:2rem 0 0!important}
+
+.rh-explore{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important}
+.rh-explore a{border:0!important;border-right:1px solid rgba(190,158,104,.11)!important;padding:2.4rem!important}
+.rh-explore a:last-child{border-right:0!important}
+
+@media(max-width:900px){
+  .rh-strip{grid-template-columns:1fr 1fr!important}
+  .rh-strip__item:nth-child(2){border-right:0!important}
+  .rh-thesis__grid{grid-template-columns:1fr 1fr!important}
+  .rh-thesis__item:nth-child(odd){border-left:0!important}
+  .rh-systems__head,.rh-seasons__head,.rh-health__head,.rh-fit__head,.rh-routes__head,.rh-depth,.rh-compose{grid-template-columns:1fr!important}
+  .rh-depth__copy,.rh-compose__copy{position:static}
+  .rh-system-layout,.rh-zone-layout{grid-template-columns:1fr!important}
+  .rh-system-nav,.rh-zone-nav{border-right:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+  .rh-stay-grid{grid-template-columns:1fr 1fr!important}
+  .rh-health-card,.rh-fit-card,.rh-route{grid-template-columns:1fr!important;gap:.8rem!important}
+  .rh-fit-card small,.rh-route small,.rh-route ol{grid-column:1!important}
+  .rh-explore{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:560px){
+  .rh-strip,.rh-thesis__grid,.rh-stay-grid,.rh-access,.rh-activities,.rh-explore{grid-template-columns:1fr!important}
+  .rh-strip__item,.rh-thesis__item,.rh-stay-card,.rh-access article,.rh-activities article,.rh-explore a{border-left:0!important;border-right:0!important;border-bottom:1px solid rgba(190,158,104,.11)!important}
+}
+
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->

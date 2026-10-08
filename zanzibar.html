@@ -227,6 +227,108 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1100px){.zz-hero,.zz-thesis,.zz-zone-layout,.zz-season-panel,.zz-depth,.zz-journey,.zz-compose{grid-template-columns:1fr}.zz-hero__aside{justify-self:start}.zz-thesis__copy,.zz-depth__copy,.zz-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.zz-zones__head,.zz-seasons__head,.zz-fit__head,.zz-routes__head{grid-template-columns:1fr;gap:1.2rem}.zz-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.zz-stay-grid{grid-template-columns:1fr 1fr}.zz-activities,.zz-fit-grid{grid-template-columns:1fr 1fr}.zz-route-grid{grid-template-columns:1fr}.zz-explore{grid-template-columns:1fr 1fr}.zz-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.zz-hero{min-height:90vh}.zz-strip{grid-template-columns:1fr 1fr}.zz-strip__item:nth-child(2n){border-right:0}.zz-thesis__grid,.zz-zone-stats,.zz-zone-grid,.zz-stay-grid,.zz-activities,.zz-fit-grid{grid-template-columns:1fr}.zz-thesis__item{border-right:0}.zz-explore{grid-template-columns:1fr}.zz-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+<style id="phase1-zanzibar-editorial">
+
+/* Phase 1 · editorial de-cardification for ZZ */
+.zz-page{background:#0d1511}
+.zz-hero{min-height:90svh!important;position:relative!important;overflow:hidden!important}
+.zz-hero__copy{position:relative!important;z-index:3!important}
+.zz-hero__copy h1{font-size:clamp(56px,6.8vw,104px)!important;line-height:.93!important;letter-spacing:-.04em!important;max-width:9ch!important}
+.zz-hero__lede{max-width:48ch!important;line-height:1.8!important}
+.zz-hero__media,.zz-hero__img{min-height:90svh!important}
+.zz-hero__frame,.zz-hero__media figure{height:100%!important}
+.zz-hero__frame img,.zz-hero__media img{width:100%!important;height:100%!important;object-fit:cover!important}
+.zz-strip{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:0 clamp(1.5rem,5vw,5rem)!important;border:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important;background:#101813!important}
+.zz-strip__item{padding:2rem 1.8rem 2.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.11)!important}
+.zz-strip__item:last-child{border-right:0!important}
+
+.zz-thesis{padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important}
+.zz-thesis__copy{max-width:820px!important;margin-bottom:3rem!important}
+.zz-thesis__copy h2{font-size:clamp(44px,5vw,72px)!important;line-height:.98!important;max-width:10ch!important}
+.zz-thesis__grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.zz-thesis__item{padding:2.4rem 2rem 3rem!important;border:0!important;background:transparent!important}
+.zz-thesis__item+.zz-thesis__item{border-left:1px solid rgba(190,158,104,.11)!important}
+.zz-thesis__item strong{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.08!important}
+
+.zz-systems,.zz-seasons,.zz-depth,.zz-health,.zz-fit,.zz-routes,.zz-compose{
+  padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important
+}
+.zz-systems__head,.zz-seasons__head,.zz-health__head,.zz-fit__head,.zz-routes__head{
+  display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;
+  gap:clamp(3rem,8vw,8rem)!important;align-items:end!important;margin-bottom:3rem!important
+}
+.zz-systems__head h2,.zz-seasons__head h2,.zz-health__head h2,.zz-fit__head h2,.zz-routes__head h2,
+.zz-depth__copy h2,.zz-compose__copy h2{font-size:clamp(42px,5vw,70px)!important;line-height:.98!important;max-width:10ch!important}
+
+.zz-system-layout,.zz-zone-layout{display:grid!important;grid-template-columns:minmax(220px,.46fr) minmax(0,1.54fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.zz-system-nav,.zz-zone-nav{border-right:1px solid rgba(190,158,104,.12)!important}
+.zz-system,.zz-zone{border:0!important;border-bottom:1px solid rgba(190,158,104,.10)!important;background:transparent!important;border-radius:0!important;box-shadow:none!important;padding:1.4rem 1.2rem!important;text-align:left!important}
+.zz-system.active,.zz-zone.active{background:rgba(190,158,104,.06)!important}
+.zz-system-panel,.zz-zone-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:clamp(2.5rem,5vw,5rem)!important}
+.zz-system-stats,.zz-zone-stats,.zz-system-grid,.zz-zone-grid{gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important}
+.zz-system-stat,.zz-zone-stat,.zz-system-grid>div,.zz-zone-grid>div{padding:1.4rem 1.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.10)!important;background:transparent!important}
+.zz-system-stat:last-child,.zz-zone-stat:last-child{border-right:0!important}
+
+.zz-season-tabs{display:flex!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.zz-season-tabs button{border:0!important;border-radius:0!important;background:transparent!important;border-bottom:2px solid transparent!important;padding:1rem 1.4rem!important}
+.zz-season-tabs button.active{border-bottom-color:#be9e68!important}
+.zz-season-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-bottom:1px solid rgba(190,158,104,.12)!important;padding:2.4rem 0!important}
+
+.zz-depth{display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;align-items:start!important}
+.zz-depth__copy{position:sticky;top:7rem}
+.zz-depth__body{min-width:0}
+.zz-stay-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.zz-stay-card{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.zz-stay-card+.zz-stay-card{border-left:1px solid rgba(190,158,104,.10)!important}
+.zz-access,.zz-activities{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.zz-access article,.zz-activities article{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.zz-access article+article,.zz-activities article+article{border-left:1px solid rgba(190,158,104,.10)!important}
+
+.zz-health-grid,.zz-fit-grid,.zz-route-grid{display:block!important}
+.zz-health-card,.zz-fit-card,.zz-route{
+  display:grid!important;grid-template-columns:160px minmax(0,.75fr) minmax(280px,1.25fr)!important;
+  gap:clamp(1.5rem,3vw,3rem)!important;align-items:start!important;
+  padding:2rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.12)!important
+}
+.zz-health-card:last-child,.zz-fit-card:last-child,.zz-route:last-child{border-bottom:1px solid rgba(190,158,104,.12)!important}
+.zz-health-card strong,.zz-fit-card strong,.zz-route h3{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(26px,2.8vw,38px)!important;line-height:1.05!important}
+.zz-fit-card small,.zz-route small{grid-column:2 / 4!important;color:rgba(237,230,214,.48)!important}
+.zz-route ol{grid-column:2 / 4!important;display:flex!important;gap:.55rem 1.2rem!important;flex-wrap:wrap!important;list-style:none!important;padding:0!important;margin:.5rem 0!important}
+.zz-route li{font-size:11px!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:rgba(237,230,214,.52)!important}
+
+.zz-compose{display:grid!important;grid-template-columns:minmax(280px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;background:#0b120e!important}
+.zz-compose__copy{position:sticky;top:7rem}
+.zz-compose__panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:0!important}
+.zz-q{padding:1.5rem 0!important;border:0!important;border-top:1px solid rgba(190,158,104,.13)!important}
+.zz-opts{gap:.5rem 1.1rem!important}
+.zz-q button{border:0!important;border-bottom:1px solid rgba(237,230,214,.24)!important;border-radius:0!important;background:transparent!important;padding:.4rem 0!important;color:rgba(237,230,214,.72)!important}
+.zz-q button.active,.zz-q button:hover{color:#ede6d6!important;border-bottom-color:#be9e68!important}
+.zz-result{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.16)!important;padding:2rem 0 0!important}
+
+.zz-explore{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important}
+.zz-explore a{border:0!important;border-right:1px solid rgba(190,158,104,.11)!important;padding:2.4rem!important}
+.zz-explore a:last-child{border-right:0!important}
+
+@media(max-width:900px){
+  .zz-strip{grid-template-columns:1fr 1fr!important}
+  .zz-strip__item:nth-child(2){border-right:0!important}
+  .zz-thesis__grid{grid-template-columns:1fr 1fr!important}
+  .zz-thesis__item:nth-child(odd){border-left:0!important}
+  .zz-systems__head,.zz-seasons__head,.zz-health__head,.zz-fit__head,.zz-routes__head,.zz-depth,.zz-compose{grid-template-columns:1fr!important}
+  .zz-depth__copy,.zz-compose__copy{position:static}
+  .zz-system-layout,.zz-zone-layout{grid-template-columns:1fr!important}
+  .zz-system-nav,.zz-zone-nav{border-right:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+  .zz-stay-grid{grid-template-columns:1fr 1fr!important}
+  .zz-health-card,.zz-fit-card,.zz-route{grid-template-columns:1fr!important;gap:.8rem!important}
+  .zz-fit-card small,.zz-route small,.zz-route ol{grid-column:1!important}
+  .zz-explore{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:560px){
+  .zz-strip,.zz-thesis__grid,.zz-stay-grid,.zz-access,.zz-activities,.zz-explore{grid-template-columns:1fr!important}
+  .zz-strip__item,.zz-thesis__item,.zz-stay-card,.zz-access article,.zz-activities article,.zz-explore a{border-left:0!important;border-right:0!important;border-bottom:1px solid rgba(190,158,104,.11)!important}
+}
+
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->

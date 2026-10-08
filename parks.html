@@ -843,6 +843,111 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 @media(max-width:1000px){.pk-hero,.pk-chooser,.pk-families{grid-template-columns:1fr}.pk-hero__rule{margin-left:5vw}.pk-chooser__intro,.pk-families__copy{border-right:0;border-bottom:1px solid var(--rule);padding-left:0}.pk-chooser__body{padding-left:0}.pk-grid{grid-template-columns:1fr 1fr}.pk-card,.pk-card:nth-child(1),.pk-card:nth-child(2){grid-column:auto}.pk-head,.pk-cta{grid-template-columns:1fr}.pk-cta a{justify-self:start}}
 @media(max-width:680px){.pk-controls,.pk-grid{grid-template-columns:1fr}.pk-hero__copy{padding-left:1.4rem;padding-right:1.4rem}.pk-hero__rule{margin-left:1.4rem;margin-right:1.4rem}.pk-card{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+<style id="phase1-parks-editorial">
+
+/* Phase 1 · parks as an editorial chooser, not a card catalogue */
+.pk-page{background:#0d1511}
+.pk-hero{
+  min-height:92svh!important;display:grid!important;grid-template-columns:minmax(0,.82fr) minmax(440px,1.18fr)!important;
+  align-items:end!important;position:relative!important;overflow:hidden!important;padding:0!important;max-width:none!important;margin:0!important
+}
+.pk-hero::before{
+  content:'';position:absolute;inset:0 0 0 43%;
+  background:
+    linear-gradient(90deg,rgba(10,16,12,.22),rgba(10,16,12,.02) 32%),
+    linear-gradient(180deg,rgba(9,14,11,.04),rgba(9,14,11,.55)),
+    url('assets/images/serengeti.jpg') center 47%/cover no-repeat
+}
+.pk-hero__copy{position:relative;z-index:2;grid-column:1;padding:clamp(8rem,12vw,12rem) clamp(2rem,6vw,6rem) clamp(5rem,8vw,8rem)!important}
+.pk-hero__copy h1{font-size:clamp(58px,7.2vw,110px)!important;line-height:.92!important;max-width:8ch!important}
+.pk-hero__copy p{max-width:46ch!important}
+.pk-hero__rule{
+  position:relative;z-index:2;grid-column:2;align-self:end!important;
+  margin:0 clamp(2rem,5vw,5rem) clamp(2.5rem,4vw,4rem)!important;padding:1.3rem 0 0!important;
+  background:transparent!important;border:0!important;border-top:1px solid rgba(237,230,214,.22)!important;max-width:420px!important
+}
+
+.pk-section{padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important}
+.pk-section.light{background:#e9e0ce!important;color:#0f1712!important}
+.pk-head{
+  display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;
+  gap:clamp(3rem,8vw,8rem)!important;align-items:end!important;margin-bottom:3rem!important
+}
+.pk-head h2{font-size:clamp(42px,5.2vw,72px)!important;line-height:.98!important;max-width:9ch!important}
+.pk-head>p{justify-self:end!important;max-width:52ch!important;color:rgba(15,23,18,.68)!important}
+.pk-chooser{
+  display:grid!important;grid-template-columns:minmax(260px,.6fr) minmax(0,1.4fr)!important;gap:clamp(3rem,7vw,7rem)!important;
+  padding:3rem 0!important;border:0!important;border-top:1px solid rgba(15,23,18,.18)!important;border-bottom:1px solid rgba(15,23,18,.18)!important;background:transparent!important
+}
+.pk-chooser__intro{padding:0!important;border:0!important}
+.pk-chooser__intro strong{font-family:'Fraunces',serif!important;font-size:clamp(28px,3vw,40px)!important;font-weight:400!important;line-height:1.05!important}
+.pk-chooser__body{padding:0!important}
+.pk-q{padding:1.5rem 0!important;border:0!important;border-top:1px solid rgba(15,23,18,.14)!important}
+.pk-q:first-child{border-top:0!important}
+.pk-q button{
+  border:0!important;border-bottom:1px solid rgba(15,23,18,.25)!important;background:transparent!important;border-radius:0!important;
+  padding:.4rem 0!important;margin:0 1rem .65rem 0!important;color:rgba(15,23,18,.68)!important
+}
+.pk-q button.active,.pk-q button:hover{color:#0f1712!important;border-bottom-color:#715d3a!important}
+.pk-grid{display:block!important;margin-top:3rem!important}
+.pk-card{
+  display:grid!important;grid-template-columns:160px minmax(0,.7fr) minmax(280px,1.3fr) 24px!important;
+  gap:clamp(1.2rem,3vw,3rem)!important;align-items:start!important;
+  padding:2rem 0!important;border:0!important;border-top:1px solid rgba(15,23,18,.14)!important;background:transparent!important;border-radius:0!important;box-shadow:none!important
+}
+.pk-card:last-child{border-bottom:1px solid rgba(15,23,18,.14)!important}
+.pk-card:hover{transform:none!important;box-shadow:none!important}
+.pk-card h3{font-size:clamp(26px,2.6vw,38px)!important;line-height:1.05!important}
+.pk-card p{max-width:52ch!important}
+.pk-card a{align-self:center!important}
+
+.pk-families{
+  display:grid!important;grid-template-columns:minmax(260px,.55fr) minmax(0,1.45fr)!important;
+  gap:clamp(3rem,8vw,8rem)!important;padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important;align-items:start!important
+}
+.pk-families__copy{position:sticky;top:7rem}
+.pk-families__copy h2{font-size:clamp(44px,5.3vw,74px)!important;line-height:.98!important;max-width:8ch!important}
+.pk-family{display:block!important}
+.pk-family article{
+  min-height:360px!important;display:grid!important;grid-template-columns:minmax(0,.85fr) minmax(280px,1.15fr)!important;
+  gap:2rem!important;align-content:end!important;position:relative!important;overflow:hidden!important;
+  padding:2.5rem!important;margin:0!important;border:0!important;border-top:1px solid rgba(190,158,104,.14)!important;background:#101813!important
+}
+.pk-family article::before{
+  content:'';position:absolute;inset:0 0 0 52%;background-size:cover;background-position:center;opacity:.62
+}
+.pk-family article:nth-child(1)::before{background-image:linear-gradient(90deg,#101813 0%,rgba(16,24,19,.15) 40%),url('assets/images/serengeti.jpg')}
+.pk-family article:nth-child(2)::before{background-image:linear-gradient(90deg,#101813 0%,rgba(16,24,19,.15) 40%),url('assets/images/ruaha.jpg')}
+.pk-family article:nth-child(3)::before{background-image:linear-gradient(90deg,#101813 0%,rgba(16,24,19,.15) 40%),url('assets/images/mahale.jpg')}
+.pk-family article>*{position:relative;z-index:2;grid-column:1}
+.pk-family article h3{font-size:clamp(30px,3.4vw,48px)!important;line-height:1!important}
+.pk-family article p{max-width:42ch!important;color:rgba(237,230,214,.68)!important}
+.pk-family article a{color:#be9e68!important;text-decoration:none!important;width:max-content}
+
+.pk-cta{
+  display:grid!important;grid-template-columns:1fr auto!important;gap:2rem!important;align-items:end!important;
+  padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,5rem)!important;background:#e9e0ce!important;color:#0f1712!important
+}
+.pk-cta h2{font-size:clamp(40px,5vw,68px)!important;line-height:1!important}
+
+@media(max-width:900px){
+  .pk-hero{grid-template-columns:1fr!important;background:linear-gradient(180deg,rgba(8,13,10,.18),rgba(8,13,10,.90)),url('assets/images/serengeti.jpg') center/cover no-repeat!important}
+  .pk-hero::before{display:none}
+  .pk-hero__copy,.pk-hero__rule{grid-column:1!important}
+  .pk-hero__rule{margin-left:1.5rem!important;margin-right:1.5rem!important}
+  .pk-head,.pk-chooser,.pk-families{grid-template-columns:1fr!important}
+  .pk-head>p{justify-self:start!important}
+  .pk-families__copy{position:static}
+  .pk-card{grid-template-columns:1fr!important;gap:.7rem!important}
+  .pk-family article{grid-template-columns:1fr!important;min-height:420px!important}
+  .pk-family article::before{inset:0!important;opacity:.38}
+  .pk-family article>*{grid-column:1}
+}
+@media(max-width:560px){
+  .pk-cta{grid-template-columns:1fr!important}
+}
+
+</style>
 </head>
 <body data-page="parks">
 <!-- ENKIAMA_HEADER_START -->

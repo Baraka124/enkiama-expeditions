@@ -215,6 +215,108 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1100px){.ny-hero,.ny-thesis,.ny-system-layout,.ny-season-panel,.ny-depth,.ny-compose{grid-template-columns:1fr}.ny-hero__media{min-height:62vh}.ny-thesis__copy,.ny-depth__copy,.ny-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.ny-systems__head,.ny-seasons__head,.ny-fit__head,.ny-routes__head{grid-template-columns:1fr;gap:1.2rem}.ny-season-panel__left{border-right:0;border-bottom:1px solid var(--rule)}.ny-stay-grid,.ny-activities{grid-template-columns:1fr 1fr}.ny-fit-grid{grid-template-columns:1fr 1fr}.ny-route-grid{grid-template-columns:1fr}.ny-explore{grid-template-columns:1fr 1fr}.ny-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.ny-hero{min-height:0}.ny-hero__media{min-height:56vh}.ny-strip{grid-template-columns:1fr 1fr}.ny-strip__item:nth-child(2n){border-right:0}.ny-thesis__grid,.ny-system-stats,.ny-system-grid,.ny-stay-grid,.ny-activities,.ny-fit-grid{grid-template-columns:1fr}.ny-thesis__item{border-right:0}.ny-explore{grid-template-columns:1fr}.ny-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+<style id="phase1-nyerere-editorial">
+
+/* Phase 1 · editorial de-cardification for NY */
+.ny-page{background:#0d1511}
+.ny-hero{min-height:90svh!important;position:relative!important;overflow:hidden!important}
+.ny-hero__copy{position:relative!important;z-index:3!important}
+.ny-hero__copy h1{font-size:clamp(56px,6.8vw,104px)!important;line-height:.93!important;letter-spacing:-.04em!important;max-width:9ch!important}
+.ny-hero__lede{max-width:48ch!important;line-height:1.8!important}
+.ny-hero__media,.ny-hero__img{min-height:90svh!important}
+.ny-hero__frame,.ny-hero__media figure{height:100%!important}
+.ny-hero__frame img,.ny-hero__media img{width:100%!important;height:100%!important;object-fit:cover!important}
+.ny-strip{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:0 clamp(1.5rem,5vw,5rem)!important;border:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important;background:#101813!important}
+.ny-strip__item{padding:2rem 1.8rem 2.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.11)!important}
+.ny-strip__item:last-child{border-right:0!important}
+
+.ny-thesis{padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important}
+.ny-thesis__copy{max-width:820px!important;margin-bottom:3rem!important}
+.ny-thesis__copy h2{font-size:clamp(44px,5vw,72px)!important;line-height:.98!important;max-width:10ch!important}
+.ny-thesis__grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.ny-thesis__item{padding:2.4rem 2rem 3rem!important;border:0!important;background:transparent!important}
+.ny-thesis__item+.ny-thesis__item{border-left:1px solid rgba(190,158,104,.11)!important}
+.ny-thesis__item strong{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.08!important}
+
+.ny-systems,.ny-seasons,.ny-depth,.ny-health,.ny-fit,.ny-routes,.ny-compose{
+  padding:clamp(6rem,9vw,9rem) clamp(1.5rem,5vw,5rem)!important
+}
+.ny-systems__head,.ny-seasons__head,.ny-health__head,.ny-fit__head,.ny-routes__head{
+  display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;
+  gap:clamp(3rem,8vw,8rem)!important;align-items:end!important;margin-bottom:3rem!important
+}
+.ny-systems__head h2,.ny-seasons__head h2,.ny-health__head h2,.ny-fit__head h2,.ny-routes__head h2,
+.ny-depth__copy h2,.ny-compose__copy h2{font-size:clamp(42px,5vw,70px)!important;line-height:.98!important;max-width:10ch!important}
+
+.ny-system-layout,.ny-zone-layout{display:grid!important;grid-template-columns:minmax(220px,.46fr) minmax(0,1.54fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.14)!important;border-bottom:1px solid rgba(190,158,104,.14)!important}
+.ny-system-nav,.ny-zone-nav{border-right:1px solid rgba(190,158,104,.12)!important}
+.ny-system,.ny-zone{border:0!important;border-bottom:1px solid rgba(190,158,104,.10)!important;background:transparent!important;border-radius:0!important;box-shadow:none!important;padding:1.4rem 1.2rem!important;text-align:left!important}
+.ny-system.active,.ny-zone.active{background:rgba(190,158,104,.06)!important}
+.ny-system-panel,.ny-zone-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:clamp(2.5rem,5vw,5rem)!important}
+.ny-system-stats,.ny-zone-stats,.ny-system-grid,.ny-zone-grid{gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important}
+.ny-system-stat,.ny-zone-stat,.ny-system-grid>div,.ny-zone-grid>div{padding:1.4rem 1.2rem!important;border:0!important;border-right:1px solid rgba(190,158,104,.10)!important;background:transparent!important}
+.ny-system-stat:last-child,.ny-zone-stat:last-child{border-right:0!important}
+
+.ny-season-tabs{display:flex!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.ny-season-tabs button{border:0!important;border-radius:0!important;background:transparent!important;border-bottom:2px solid transparent!important;padding:1rem 1.4rem!important}
+.ny-season-tabs button.active{border-bottom-color:#be9e68!important}
+.ny-season-panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-bottom:1px solid rgba(190,158,104,.12)!important;padding:2.4rem 0!important}
+
+.ny-depth{display:grid!important;grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;align-items:start!important}
+.ny-depth__copy{position:sticky;top:7rem}
+.ny-depth__body{min-width:0}
+.ny-stay-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;border-top:1px solid rgba(190,158,104,.12)!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.ny-stay-card{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.ny-stay-card+.ny-stay-card{border-left:1px solid rgba(190,158,104,.10)!important}
+.ny-access,.ny-activities{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+.ny-access article,.ny-activities article{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:2rem 1.4rem!important}
+.ny-access article+article,.ny-activities article+article{border-left:1px solid rgba(190,158,104,.10)!important}
+
+.ny-health-grid,.ny-fit-grid,.ny-route-grid{display:block!important}
+.ny-health-card,.ny-fit-card,.ny-route{
+  display:grid!important;grid-template-columns:160px minmax(0,.75fr) minmax(280px,1.25fr)!important;
+  gap:clamp(1.5rem,3vw,3rem)!important;align-items:start!important;
+  padding:2rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.12)!important
+}
+.ny-health-card:last-child,.ny-fit-card:last-child,.ny-route:last-child{border-bottom:1px solid rgba(190,158,104,.12)!important}
+.ny-health-card strong,.ny-fit-card strong,.ny-route h3{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(26px,2.8vw,38px)!important;line-height:1.05!important}
+.ny-fit-card small,.ny-route small{grid-column:2 / 4!important;color:rgba(237,230,214,.48)!important}
+.ny-route ol{grid-column:2 / 4!important;display:flex!important;gap:.55rem 1.2rem!important;flex-wrap:wrap!important;list-style:none!important;padding:0!important;margin:.5rem 0!important}
+.ny-route li{font-size:11px!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:rgba(237,230,214,.52)!important}
+
+.ny-compose{display:grid!important;grid-template-columns:minmax(280px,.62fr) minmax(0,1.38fr)!important;gap:clamp(3rem,8vw,8rem)!important;background:#0b120e!important}
+.ny-compose__copy{position:sticky;top:7rem}
+.ny-compose__panel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:0!important}
+.ny-q{padding:1.5rem 0!important;border:0!important;border-top:1px solid rgba(190,158,104,.13)!important}
+.ny-opts{gap:.5rem 1.1rem!important}
+.ny-q button{border:0!important;border-bottom:1px solid rgba(237,230,214,.24)!important;border-radius:0!important;background:transparent!important;padding:.4rem 0!important;color:rgba(237,230,214,.72)!important}
+.ny-q button.active,.ny-q button:hover{color:#ede6d6!important;border-bottom-color:#be9e68!important}
+.ny-result{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px solid rgba(190,158,104,.16)!important;padding:2rem 0 0!important}
+
+.ny-explore{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important}
+.ny-explore a{border:0!important;border-right:1px solid rgba(190,158,104,.11)!important;padding:2.4rem!important}
+.ny-explore a:last-child{border-right:0!important}
+
+@media(max-width:900px){
+  .ny-strip{grid-template-columns:1fr 1fr!important}
+  .ny-strip__item:nth-child(2){border-right:0!important}
+  .ny-thesis__grid{grid-template-columns:1fr 1fr!important}
+  .ny-thesis__item:nth-child(odd){border-left:0!important}
+  .ny-systems__head,.ny-seasons__head,.ny-health__head,.ny-fit__head,.ny-routes__head,.ny-depth,.ny-compose{grid-template-columns:1fr!important}
+  .ny-depth__copy,.ny-compose__copy{position:static}
+  .ny-system-layout,.ny-zone-layout{grid-template-columns:1fr!important}
+  .ny-system-nav,.ny-zone-nav{border-right:0!important;border-bottom:1px solid rgba(190,158,104,.12)!important}
+  .ny-stay-grid{grid-template-columns:1fr 1fr!important}
+  .ny-health-card,.ny-fit-card,.ny-route{grid-template-columns:1fr!important;gap:.8rem!important}
+  .ny-fit-card small,.ny-route small,.ny-route ol{grid-column:1!important}
+  .ny-explore{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:560px){
+  .ny-strip,.ny-thesis__grid,.ny-stay-grid,.ny-access,.ny-activities,.ny-explore{grid-template-columns:1fr!important}
+  .ny-strip__item,.ny-thesis__item,.ny-stay-card,.ny-access article,.ny-activities article,.ny-explore a{border-left:0!important;border-right:0!important;border-bottom:1px solid rgba(190,158,104,.11)!important}
+}
+
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
