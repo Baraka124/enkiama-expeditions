@@ -26,6 +26,35 @@
 .route-error{padding:8rem 1.5rem;text-align:center}.route-error a{color:var(--earth)}
 @media(max-width:820px){.route-grid,.route-body,.route-actions{grid-template-columns:1fr}.route-aside,.route-action{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}.route-stats{grid-template-columns:1fr}.route-stat{border-right:0}.route-hero{min-height:70vh}}
 </style>
+
+<style id="phase12-kilimanjaro-route">
+/* Phase 1.2 · route dossier */
+.route-hero{min-height:68svh!important}
+.route-nav{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:20!important;background:linear-gradient(180deg,rgba(8,13,10,.72),rgba(8,13,10,0))!important}
+.route-hero__copy{max-width:900px!important}
+.route-hero__copy h1{font-size:clamp(52px,6.4vw,94px)!important;line-height:.94!important}
+.route-grid{grid-template-columns:minmax(280px,.55fr) minmax(0,1.45fr)!important}
+.route-aside{padding:clamp(3rem,5vw,5rem)!important}
+.route-stats{grid-template-columns:repeat(4,1fr)!important}
+.route-stat{padding:1.7rem 1.4rem!important;border-right:1px solid rgba(15,23,18,.10)!important;border-bottom:1px solid rgba(15,23,18,.10)!important}
+.route-body{grid-template-columns:1fr!important}
+.route-section{
+  display:grid!important;grid-template-columns:minmax(200px,.48fr) minmax(0,1.52fr)!important;
+  gap:clamp(2rem,7vw,7rem)!important;padding:clamp(3.5rem,6vw,6rem)!important;border-right:0!important
+}
+.route-section .route-eye,.route-section h2{grid-column:1!important}
+.route-section p:last-child{grid-column:2!important;grid-row:1 / span 2!important;align-self:center!important;max-width:62ch!important}
+.route-seq{display:grid!important;grid-template-columns:minmax(240px,.5fr) minmax(0,1.5fr)!important;gap:clamp(2rem,7vw,7rem)!important}
+.route-seq .route-eye,.route-seq h2{grid-column:1!important}
+.route-line{grid-column:2!important;align-self:center!important;gap:0!important;border-top:1px solid var(--rule)!important;border-bottom:1px solid var(--rule)!important}
+.route-line span{border:0!important;border-right:1px solid var(--rule)!important;border-radius:0!important;padding:1rem!important}
+.route-actions{grid-template-columns:1fr 1fr!important}
+@media(max-width:820px){
+  .route-grid,.route-section,.route-seq,.route-actions{grid-template-columns:1fr!important}
+  .route-stats{grid-template-columns:1fr 1fr!important}
+  .route-section .route-eye,.route-section h2,.route-section p:last-child,.route-seq .route-eye,.route-seq h2,.route-line{grid-column:1!important;grid-row:auto!important}
+}
+</style>
 </head>
 <body>
 <main class="route-page" id="routePage" hidden>
