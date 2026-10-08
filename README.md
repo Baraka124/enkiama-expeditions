@@ -1,6 +1,8 @@
 # Enkiama Expeditions
 
-The website for Enkiama — curated premium journeys through Tanzania.
+The website for Enkiama — locally grounded, individually composed journeys through Tanzania.
+
+> **Design governance:** Before redesigning or visually extending any public page, read [`ENKIAMA_DESIGN_BENCHMARK_MASTER.md`](ENKIAMA_DESIGN_BENCHMARK_MASTER.md). It is the canonical benchmark, media, interaction, performance and page-family reference for the public site.
 
 A static site at runtime: plain HTML, JavaScript and compiled CSS. The public
 site still deploys directly to GitHub Pages, but the design system is now built
