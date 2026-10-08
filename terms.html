@@ -91,6 +91,57 @@ a.tm-link:hover{border-color:var(--earth);}
 .tm-back{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.16em;font-size:12px;color:var(--earth);text-decoration:none;}
 .tm-back:hover{opacity:.75;}
 </style>
+
+<style id="phase11-tm-document">
+/* Phase 1.1 · support page: calm document, not cinematic destination */
+.tm-hero{
+  min-height:auto!important;max-width:none!important;margin:0!important;
+  padding:clamp(8rem,12vw,11rem) clamp(1.5rem,8vw,8rem) clamp(4rem,6vw,6rem)!important;
+  text-align:left!important;background:#101813!important;border-bottom:1px solid rgba(190,158,104,.12)!important
+}
+.tm-eyebrow{margin-bottom:1.25rem!important}
+.tm-title{font-size:clamp(48px,6vw,88px)!important;line-height:.96!important;letter-spacing:-.035em!important;max-width:10ch!important;margin:0 0 1.5rem!important}
+.tm-lede{font-size:clamp(15px,1.2vw,18px)!important;line-height:1.85!important;max-width:58ch!important;margin:0!important;color:rgba(237,230,214,.72)!important}
+.tm-updated{margin-top:2rem!important;font-size:10px!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(190,158,104,.62)!important}
+
+.tm-body{
+  max-width:1180px!important;margin:0 auto!important;padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,5rem)!important
+}
+.tm-sec{
+  display:grid!important;grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr)!important;
+  gap:clamp(2rem,7vw,7rem)!important;padding:clamp(2.2rem,3.5vw,3.5rem) 0!important;
+  border:0!important;border-top:1px solid rgba(190,158,104,.13)!important;background:transparent!important
+}
+.tm-sec:last-child{border-bottom:1px solid rgba(190,158,104,.13)!important}
+.tm-h{grid-column:1;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.1!important;margin:0!important;font-weight:400!important}
+.tm-p,.tm-list,.tm-path{grid-column:2!important;max-width:64ch!important}
+.tm-p+.tm-p{margin-top:.9rem!important}
+.tm-list{padding-left:1.2rem!important}
+.tm-list li{margin:.65rem 0!important;line-height:1.75!important}
+.tm-note{
+  max-width:1180px!important;margin:0 auto!important;padding:clamp(2.5rem,4vw,4rem) clamp(1.5rem,5vw,5rem)!important;
+  border:0!important;border-top:1px solid rgba(190,158,104,.20)!important;border-bottom:1px solid rgba(190,158,104,.20)!important;
+  background:rgba(190,158,104,.04)!important
+}
+.tm-note p{font-family:'Fraunces',serif!important;font-size:clamp(20px,2vw,28px)!important;line-height:1.55!important;max-width:38ch!important;margin:0 auto!important}
+.tm-foot{max-width:1180px!important;margin:0 auto!important;padding:2.5rem clamp(1.5rem,5vw,5rem) 5rem!important}
+.tm-back{font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important}
+
+@media(max-width:760px){
+  .tm-hero{padding-top:7rem!important}
+  .tm-sec{grid-template-columns:1fr!important;gap:1.1rem!important}
+  .tm-h,.tm-p,.tm-list,.tm-path{grid-column:1!important}
+}
+</style>
+
+<style id="phase11-terms-process">
+.tm-path{display:block!important;border-top:1px solid rgba(190,158,104,.12)!important}
+.tm-step{display:grid!important;grid-template-columns:56px minmax(0,1fr)!important;gap:1rem!important;padding:1.25rem 0!important;border:0!important;border-bottom:1px solid rgba(190,158,104,.10)!important;background:transparent!important}
+.tm-step-n{font-size:10px!important;letter-spacing:.12em!important;color:#be9e68!important}
+.tm-step-t{display:grid!important;grid-template-columns:minmax(180px,.5fr) minmax(0,1.5fr)!important;gap:1.2rem!important;line-height:1.65!important}
+.tm-step-t strong{font-family:'Fraunces',serif!important;font-size:20px!important;font-weight:400!important}
+@media(max-width:620px){.tm-step-t{grid-template-columns:1fr!important;gap:.35rem!important}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -296,7 +347,7 @@ body.eh-locked{overflow:hidden;}
       <p class="eh-aside-q">Tanzania already knows how to receive you. We make sure you arrive.</p>
       <div class="eh-aside-contact">
         <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp &rarr;</a>
-        <a href="mailto:hola@enkiama.com">hola@enkiama.com</a>
+        <a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp +34 659 447 627</a>
         <span class="eh-aside-place" id="ehPlace">Arusha &middot; Tanzania</span>
       </div>
     </div>
@@ -503,7 +554,7 @@ body.eh-locked{overflow:hidden;}
     <p class="tm-n">ix</p>
     <h2 class="tm-h">If something goes wrong</h2>
     <p class="tm-p">Tell us immediately, while you are still travelling, so we can fix it rather than apologise for it later. We remain reachable throughout your journey.</p>
-    <p class="tm-p">If something cannot be resolved on the ground, write to <a class="tm-link" href="mailto:hola@enkiama.com">hola@enkiama.com</a> and Baraka will handle it personally. We would rather hear a complaint directly than read it later somewhere else.</p>
+    <p class="tm-p">If something cannot be resolved on the ground, contact us directly on <a class="tm-link" href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp</a> while the issue can still be acted on. We would rather hear a complaint directly than read it later somewhere else.</p>
   </div>
 
   <div class="tm-note">
@@ -573,7 +624,7 @@ body.eh-locked{overflow:hidden;}
   </div>
 
   <div class="f-base">
-    <div class="f-contact"><a href="mailto:hola@enkiama.com">hola@enkiama.com</a></div>
+    <div class="f-contact"><a href="https://wa.me/34659447627" target="_blank" rel="noopener">WhatsApp +34 659 447 627</a></div>
     <div class="f-copy">Year&ndash;round &nbsp;&middot;&nbsp; Composed for one group &nbsp;&middot;&nbsp; &copy; 2025&ndash;2026 Enkiama</div>
   </div>
 </footer>
