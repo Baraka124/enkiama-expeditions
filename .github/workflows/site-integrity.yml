@@ -24,7 +24,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@1e60f620b9541dca151540d0c0b6b9a4c08e3072 # v4.0.3
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.0.3
         with:
           node-version: '22'
           cache: npm
@@ -57,7 +57,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@1e60f620b9541dca151540d0c0b6b9a4c08e3072 # v4.0.3
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.0.3
         with:
           node-version: '22'
           cache: npm
