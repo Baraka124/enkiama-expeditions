@@ -290,6 +290,14 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
  .culture-faq__item{grid-template-columns:1fr;gap:.7rem}
 }
 </style>
+
+<style id="phase6-culture">
+.culture-hero{min-height:100svh!important;grid-template-columns:minmax(0,.74fr) minmax(360px,.46fr)!important}.culture-hero__media{background-position:56% 50%!important}.culture-hero__copy h1{font-size:clamp(68px,8.4vw,126px)!important;max-width:7.4ch!important}.culture-hero__lede{max-width:44ch!important}
+.culture-continuity{position:relative;min-height:clamp(660px,82svh,900px);overflow:hidden;background:#0f1712}.culture-continuity__media{position:absolute;inset:0 0 0 36%;background:url('assets/images/synthetic/july26-kibosho-coffee-farmer.jpg') 54% 50%/cover no-repeat;filter:saturate(.88) contrast(1.04)}.culture-continuity__merge{position:absolute;inset:0;background:linear-gradient(90deg,#0f1712 0%,#0f1712 28%,rgba(15,23,18,.88) 40%,rgba(15,23,18,.44) 58%,rgba(15,23,18,.05) 78%,rgba(15,23,18,0))}
+.culture-continuity__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);top:50%;transform:translateY(-50%);width:min(570px,43vw)}.culture-continuity__copy h2{font-family:'Fraunces',serif;font-size:clamp(58px,7vw,106px);font-weight:300;line-height:.9;letter-spacing:-.045em;margin:.8rem 0 1.3rem}.culture-continuity__copy h2 em{font-style:italic;color:#a7b699}.culture-continuity__copy p{font-size:14px;line-height:1.85;max-width:44ch;color:rgba(237,230,214,.74)}
+.culture-chapter{grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr)!important}.culture-chapter.reverse{grid-template-columns:minmax(360px,.88fr) minmax(0,1.12fr)!important}.culture-chapter__media{position:relative;overflow:hidden}.culture-chapter__media:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(15,23,18,0) 68%,#0f1712 100%)}.culture-chapter.reverse .culture-chapter__media:after{background:linear-gradient(270deg,rgba(15,23,18,0) 68%,#0f1712 100%)}.culture-chapter__body{border:0!important}
+@media(max-width:820px){.culture-continuity__media{inset:0}.culture-continuity__merge{background:linear-gradient(0deg,#0f1712 0%,rgba(15,23,18,.88) 42%,rgba(15,23,18,.12) 76%)}.culture-continuity__copy{left:1.4rem;right:1.4rem;top:auto;bottom:3rem;transform:none;width:auto}.culture-chapter,.culture-chapter.reverse{grid-template-columns:1fr!important}.culture-chapter__media:after,.culture-chapter.reverse .culture-chapter__media:after{background:linear-gradient(0deg,#0f1712 0%,rgba(15,23,18,0) 30%)!important}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -640,6 +648,16 @@ body.eh-locked{overflow:hidden;}
       <div><strong>Culture is not a stop added between parks.</strong><p>It appears through the places you stay, the people guiding you, the food you eat and the communities whose land the route passes through.</p></div>
     </div>
   </aside>
+</section>
+
+<section class="culture-continuity" aria-label="Culture as lived landscape">
+  <div class="culture-continuity__media" aria-hidden="true"></div>
+  <div class="culture-continuity__merge"></div>
+  <div class="culture-continuity__copy">
+    <p class="culture-kicker">The organising idea</p>
+    <h2>Culture is not<br><em>separate from place.</em></h2>
+    <p>Language, work, food, faith, land and family are not attractions added between parks. They are part of the same country the route is already moving through.</p>
+  </div>
 </section>
 
 <section class="culture-index">

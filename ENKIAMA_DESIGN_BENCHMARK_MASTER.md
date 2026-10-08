@@ -552,3 +552,36 @@ It is:
 > **Does Enkiama feel like the most intelligent, immersive and locally grounded way to understand and compose a journey through Tanzania?**
 
 If a design decision does not help answer that question, remove it.
+
+
+---
+
+## 17. Premium signature — Editorial Continuity Bleed
+
+Enkiama may use a controlled **editorial continuity bleed** as a recurring premium signature.
+
+The image should not end as a blunt rectangular object when the composition benefits from continuity. Instead, the photographic field can dissolve into the surrounding background so image and interface read as one visual plane.
+
+### Use it for
+- destination and section gateways;
+- trust / people / partner chapters;
+- editorial transitions;
+- circuit or route comparisons;
+- moments where atmosphere matters more than UI structure.
+
+### Do not use it for
+- every hero;
+- dense operational interfaces;
+- places where the image itself must remain fully legible;
+- sections where the treatment becomes decorative rather than functional.
+
+### Construction
+- match the page background to the dark tonal family of the image;
+- extend the image beyond the nominal content split;
+- use a directional gradient to merge image into background;
+- keep the gradient soft enough that the edge cannot be identified;
+- preserve the subject and focal point;
+- place text in the true negative-space zone;
+- on mobile, prefer a vertical merge or detach the copy below the image.
+
+The effect should feel atmospheric and inevitable, not like a filter.
