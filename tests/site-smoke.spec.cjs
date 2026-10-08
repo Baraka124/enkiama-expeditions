@@ -161,6 +161,31 @@ for (const viewport of viewports) {
           ).toBeLessThanOrEqual(82);
         }
 
+        // Homepage design contract: Karibu is stacked on mobile/tablet and
+        // returns to the editorial overlay only at laptop/desktop widths.
+        if (path === 'index.html') {
+          const karibu = await page.evaluate(() => {
+            const photo = document.querySelector('.lp-welcome-photo');
+            const plate = document.querySelector('.lp-welcome-plate');
+            if (!photo || !plate) return null;
+            return {
+              photoPosition: getComputedStyle(photo).position,
+              platePosition: getComputedStyle(plate).position,
+              stackDisplay: getComputedStyle(document.querySelector('.lp-welcome-stack')).display,
+            };
+          });
+          expect(karibu, 'Homepage Karibu composition should exist').not.toBeNull();
+
+          if (viewport.width <= 860) {
+            expect(karibu.photoPosition, 'Karibu media should participate in tablet/mobile flow').toBe('relative');
+            expect(karibu.platePosition, 'Karibu copy should participate in tablet/mobile flow').toBe('relative');
+            expect(karibu.stackDisplay, 'Karibu should use stacked grid below laptop width').toBe('grid');
+          } else {
+            expect(karibu.photoPosition, 'Karibu media should overlay at laptop/desktop widths').toBe('absolute');
+            expect(karibu.platePosition, 'Karibu copy should overlay at laptop/desktop widths').toBe('absolute');
+          }
+        }
+
         const menuTrigger = page.locator('#ehTrigger');
         if (await menuTrigger.count()) {
           await menuTrigger.click();
