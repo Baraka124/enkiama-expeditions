@@ -190,7 +190,7 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 <style id="culture-v3">
 .culture-page{background:var(--ink);color:var(--bone);overflow:hidden}
 .culture-hero{position:relative;min-height:92vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);align-items:end;background:#111a14;overflow:hidden}
-.culture-hero__media{position:absolute;inset:0;background:url('assets/hero-dawn.jpg') center 48%/cover no-repeat;filter:saturate(.92) contrast(1.02)}
+.culture-hero__media{position:absolute;inset:0;background:url('assets/images/hero-dawn.webp') center 48%/cover no-repeat;filter:saturate(.92) contrast(1.02)}
 .culture-hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,12,.88) 0%,rgba(10,15,12,.56) 45%,rgba(10,15,12,.16) 74%,rgba(10,15,12,.3) 100%),linear-gradient(180deg,rgba(10,15,12,.12),rgba(10,15,12,.68))}
 .culture-hero__copy{position:relative;z-index:2;padding:clamp(8rem,14vh,11rem) clamp(1.5rem,5vw,5rem) clamp(4rem,8vh,6rem);max-width:860px}
 .culture-hero__eyebrow,.culture-kicker,.culture-note__label,.culture-path__index,.culture-journey__eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--earth)}
@@ -483,7 +483,7 @@ body.eh-locked{overflow:hidden;}
       <div class="eh-aside-img" data-img="tanzania" data-src="assets/images/serengeti.jpg"></div>
       <div class="eh-aside-img" data-img="parks" data-src="assets/images/ngorongoro.jpg"></div>
       <div class="eh-aside-img" data-img="journeys" data-src="assets/images/tarangire.jpg"></div>
-      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.jpg"></div>
+      <div class="eh-aside-img" data-img="compose" data-src="assets/images/hero-dawn.webp"></div>
       <div class="eh-aside-img" data-img="family" data-src="assets/images/kibosho-family.jpg"></div>
       <div class="eh-aside-img" data-img="begin" data-src="assets/images/camp-arrival.jpg"></div>
       <div class="eh-aside-img" data-img="kilimanjaro" data-src="assets/images/kilimanjaro.jpg"></div>
@@ -518,7 +518,7 @@ body.eh-locked{overflow:hidden;}
   function open(){
     ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
     lastFocus=document.activeElement;
-    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.jpg')";};img.src='/assets/images/hero-dawn.jpg';}
+    if(photo&&!photo.dataset.tried){photo.dataset.tried=1;var img=new Image();img.onload=function(){photo.style.backgroundImage="url('/assets/images/hero-dawn.webp')";};img.src='/assets/images/hero-dawn.webp';}
     setTimeout(function(){var f=focusables();if(f.length)f[0].focus();},100);
   }
   function close(){ov.classList.remove('open');document.body.classList.remove('eh-locked');trg.setAttribute('aria-expanded','false');if(lastFocus)lastFocus.focus();}
