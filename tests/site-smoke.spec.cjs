@@ -39,6 +39,7 @@ const pages = [
 
 const viewports = [
   { name: 'mobile-390', width: 390, height: 844 },
+  { name: 'tablet-768', width: 768, height: 1024 },
   { name: 'laptop-1366', width: 1366, height: 900 },
 ];
 
