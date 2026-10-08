@@ -84,45 +84,63 @@ a.pv-link:hover{border-color:var(--earth);}
 .pv-back:hover{opacity:.75;}
 </style>
 
-<style id="phase11-pv-document">
-/* Phase 1.1 · support page: calm document, not cinematic destination */
+<style id="phase8-pv-document">
+/* Phase 8 · utility cleanup: quiet document scale, aligned to the mature Enkiama system */
 .pv-hero{
   min-height:auto!important;max-width:none!important;margin:0!important;
-  padding:clamp(8rem,12vw,11rem) clamp(1.5rem,8vw,8rem) clamp(4rem,6vw,6rem)!important;
-  text-align:left!important;background:#101813!important;border-bottom:1px solid rgba(190,158,104,.12)!important
+  padding:clamp(7rem,9vw,9rem) clamp(1.5rem,7vw,7rem) clamp(3.25rem,4.5vw,4.75rem)!important;
+  text-align:left!important;background:#101813!important;border-bottom:1px solid rgba(190,158,104,.11)!important
 }
-.pv-eyebrow{margin-bottom:1.25rem!important}
-.pv-title{font-size:clamp(48px,6vw,88px)!important;line-height:.96!important;letter-spacing:-.035em!important;max-width:10ch!important;margin:0 0 1.5rem!important}
-.pv-lede{font-size:clamp(15px,1.2vw,18px)!important;line-height:1.85!important;max-width:58ch!important;margin:0!important;color:rgba(237,230,214,.72)!important}
-.pv-updated{margin-top:2rem!important;font-size:10px!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(190,158,104,.62)!important}
-
+.pv-eyebrow{margin-bottom:1rem!important;font-size:10px!important;letter-spacing:.24em!important}
+.pv-title{
+  font-size:clamp(40px,4.8vw,68px)!important;line-height:1!important;letter-spacing:-.03em!important;
+  max-width:11ch!important;margin:0 0 1.35rem!important;font-weight:400!important
+}
+.pv-lede{
+  font-size:clamp(15px,1vw,17px)!important;line-height:1.78!important;max-width:60ch!important;
+  margin:0!important;color:rgba(237,230,214,.70)!important
+}
+.pv-updated{
+  margin-top:1.6rem!important;font-size:9px!important;letter-spacing:.13em!important;
+  text-transform:uppercase!important;color:rgba(190,158,104,.58)!important
+}
 .pv-body{
-  max-width:1180px!important;margin:0 auto!important;padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,5rem)!important
+  max-width:1100px!important;margin:0 auto!important;
+  padding:clamp(3.5rem,5.5vw,5.5rem) clamp(1.5rem,4.5vw,4.5rem)!important
 }
 .pv-sec{
-  display:grid!important;grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr)!important;
-  gap:clamp(2rem,7vw,7rem)!important;padding:clamp(2.2rem,3.5vw,3.5rem) 0!important;
-  border:0!important;border-top:1px solid rgba(190,158,104,.13)!important;background:transparent!important
+  display:grid!important;grid-template-columns:minmax(200px,.48fr) minmax(0,1.52fr)!important;
+  gap:clamp(1.75rem,5vw,5rem)!important;padding:clamp(2rem,3vw,3rem) 0!important;
+  border:0!important;border-top:1px solid rgba(190,158,104,.12)!important;background:transparent!important
 }
-.pv-sec:last-child{border-bottom:1px solid rgba(190,158,104,.13)!important}
-.pv-h{grid-column:1;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.1!important;margin:0!important;font-weight:400!important}
-.pv-p,.pv-list,.pv-path{grid-column:2!important;max-width:64ch!important}
-.pv-p+.pv-p{margin-top:.9rem!important}
-.pv-list{padding-left:1.2rem!important}
-.pv-list li{margin:.65rem 0!important;line-height:1.75!important}
+.pv-sec:last-child{border-bottom:1px solid rgba(190,158,104,.12)!important}
+.pv-h{
+  grid-column:1;font-size:clamp(21px,2vw,29px)!important;line-height:1.15!important;
+  margin:0!important;font-weight:400!important;max-width:12ch!important
+}
+.pv-p,.pv-list,.pv-path{grid-column:2!important;max-width:62ch!important}
+.pv-p{font-size:clamp(15px,.95vw,16.5px)!important;line-height:1.78!important}
+.pv-p+.pv-p{margin-top:.85rem!important}
+.pv-list{padding-left:0!important}
+.pv-list li{margin:.55rem 0!important;line-height:1.7!important;font-size:clamp(14.5px,.92vw,16px)!important}
 .pv-note{
-  max-width:1180px!important;margin:0 auto!important;padding:clamp(2.5rem,4vw,4rem) clamp(1.5rem,5vw,5rem)!important;
-  border:0!important;border-top:1px solid rgba(190,158,104,.20)!important;border-bottom:1px solid rgba(190,158,104,.20)!important;
-  background:rgba(190,158,104,.04)!important
+  max-width:1100px!important;margin:0 auto!important;
+  padding:clamp(2.2rem,3.5vw,3.4rem) clamp(1.5rem,4.5vw,4.5rem)!important;
+  border:0!important;border-top:1px solid rgba(190,158,104,.18)!important;
+  border-bottom:1px solid rgba(190,158,104,.18)!important;background:rgba(190,158,104,.028)!important
 }
-.pv-note p{font-family:'Fraunces',serif!important;font-size:clamp(20px,2vw,28px)!important;line-height:1.55!important;max-width:38ch!important;margin:0 auto!important}
-.pv-foot{max-width:1180px!important;margin:0 auto!important;padding:2.5rem clamp(1.5rem,5vw,5rem) 5rem!important}
-.pv-back{font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important}
-
+.pv-note p{
+  font-family:'Fraunces',serif!important;font-size:clamp(18px,1.7vw,24px)!important;
+  line-height:1.55!important;max-width:40ch!important;margin:0 auto!important
+}
+.pv-foot{max-width:1100px!important;margin:0 auto!important;padding:2rem clamp(1.5rem,4.5vw,4.5rem) 4rem!important}
+.pv-back{font-size:9px!important;letter-spacing:.11em!important;text-transform:uppercase!important}
 @media(max-width:760px){
-  .pv-hero{padding-top:7rem!important}
-  .pv-sec{grid-template-columns:1fr!important;gap:1.1rem!important}
+  .pv-hero{padding-top:6.5rem!important;padding-bottom:3rem!important}
+  .pv-title{font-size:clamp(38px,11vw,54px)!important;max-width:9ch!important}
+  .pv-sec{grid-template-columns:1fr!important;gap:.95rem!important;padding:1.9rem 0!important}
   .pv-h,.pv-p,.pv-list,.pv-path{grid-column:1!important}
+  .pv-h{max-width:none!important;font-size:22px!important}
 }
 </style>
 </head>
