@@ -215,6 +215,15 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 @media(max-width:1100px){.st-hero,.st-thesis,.st-layer-layout,.st-depth,.st-memory,.st-journey,.st-compose{grid-template-columns:1fr}.st-hero__media{min-height:62vh}.st-thesis__copy,.st-depth__copy,.st-memory__copy,.st-compose__copy{border-right:0;border-bottom:1px solid var(--rule)}.st-layers__head,.st-routes__head{grid-template-columns:1fr;gap:1.2rem}.st-time-grid,.st-modes{grid-template-columns:1fr 1fr}.st-route-grid{grid-template-columns:1fr}.st-explore{grid-template-columns:1fr 1fr}.st-explore a:nth-child(2){border-right:0}}
 @media(max-width:680px){.st-hero{min-height:0}.st-hero__media{min-height:56vh}.st-strip{grid-template-columns:1fr 1fr}.st-strip__item:nth-child(2n){border-right:0}.st-thesis__grid,.st-layer-stats,.st-layer-grid,.st-time-grid,.st-modes{grid-template-columns:1fr}.st-thesis__item{border-right:0}.st-explore{grid-template-columns:1fr}.st-explore a{border-right:0;border-bottom:1px solid rgba(15,23,18,.12)}}
 </style>
+
+<style id="phase5-stonetown">
+.st-hero{min-height:98svh!important;grid-template-columns:minmax(0,.70fr) minmax(420px,.60fr)!important}.st-hero__copy{align-self:end;padding-bottom:clamp(4rem,8vh,6rem)!important}.st-hero h1{font-size:clamp(62px,7.8vw,116px)!important;max-width:7.8ch!important}.st-hero__lede{max-width:42ch!important}.st-hero__media{min-height:78svh!important}
+.st-lane-field{position:relative;min-height:clamp(680px,84svh,920px);overflow:hidden;background:#101713}.st-lane-field__image{position:absolute;inset:0;background:url('assets/images/stonetown.jpg') 54% 52%/cover no-repeat;filter:saturate(.86) contrast(1.05)}.st-lane-field__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,9,.78),rgba(7,11,9,.47) 34%,rgba(7,11,9,.10) 65%,rgba(7,11,9,.02)),linear-gradient(180deg,rgba(7,11,9,.02),rgba(7,11,9,.50))}
+.st-lane-field__copy{position:absolute;z-index:3;left:clamp(1.5rem,6vw,6rem);bottom:clamp(4.5rem,9vh,7.5rem);width:min(540px,42vw);color:#f1eadc}.st-lane-field__copy h2{font-family:'Fraunces',serif;font-size:clamp(62px,7.8vw,116px);font-weight:300;line-height:.88;letter-spacing:-.05em;margin:.75rem 0 1.2rem}.st-lane-field__copy h2 em{font-style:italic;color:#b6bfa9}.st-lane-field__copy p{font-size:14px;line-height:1.85;max-width:44ch;color:rgba(241,234,220,.78)}
+.st-lane-field__axis{position:absolute;z-index:3;top:clamp(1.5rem,3vw,2.8rem);left:clamp(1.5rem,6vw,6rem);right:clamp(1.5rem,6vw,6rem);display:flex;align-items:center;gap:.8rem;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,234,220,.68)}.st-lane-field__axis i{height:1px;flex:1;background:rgba(241,234,220,.18)}
+.st-thesis{grid-template-columns:minmax(300px,.48fr) minmax(0,1.52fr)!important}.st-thesis__grid{grid-template-columns:1fr!important}.st-thesis__item{display:grid;grid-template-columns:110px minmax(180px,.66fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;border-right:0!important}.st-thesis__item strong{margin:0!important}.st-thesis__item p{max-width:46ch}
+@media(max-width:900px){.st-lane-field__copy{width:auto;right:1.5rem}.st-thesis__item{grid-template-columns:1fr;gap:.5rem}}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -565,6 +574,17 @@ body.eh-locked{overflow:hidden;}
   <div class="st-strip__item"><span>Best first step</span><strong>Guide-led orientation</strong></div>
   <div class="st-strip__item"><span>Strong stay</span><strong>1–2 nights</strong></div>
   <div class="st-strip__item"><span>Core principle</span><strong>Living city, not museum</strong></div>
+</section>
+
+<section class="st-lane-field" aria-label="Stone Town layered streets">
+  <div class="st-lane-field__image" aria-hidden="true"></div>
+  <div class="st-lane-field__veil"></div>
+  <div class="st-lane-field__copy">
+    <span class="st-kicker">The organising idea</span>
+    <h2>Read the<br><em>layers.</em></h2>
+    <p>Stone Town is strongest when the streets are read as evidence: trade, religion, migration, slavery, architecture, food and ordinary life occupying the same narrow geography.</p>
+  </div>
+  <div class="st-lane-field__axis"><span>Door</span><i></i><span>Lane</span><i></i><span>Market</span><i></i><span>Waterfront</span></div>
 </section>
 
 <section class="st-thesis">
