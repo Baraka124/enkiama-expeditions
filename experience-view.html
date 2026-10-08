@@ -322,6 +322,34 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   .ev-progress span.run{animation:none;width:100%}
 }
 </style>
+
+<style id="phase12-experience-view">
+/* Phase 1.2 · controlled journey viewer */
+.ev-top{position:fixed!important;background:linear-gradient(180deg,rgba(7,13,9,.72),rgba(7,13,9,0))!important}
+.ev-top-right{gap:1.2rem!important}
+.ev-mode{color:rgba(237,230,214,.62)!important}
+.ev-copy{max-width:min(760px,72vw)!important}
+.ev-title{font-size:clamp(46px,6.3vw,92px)!important;line-height:.94!important}
+.ev-note{max-width:48ch!important}
+.ev-controls{
+  position:fixed!important;right:clamp(1.2rem,3vw,2.5rem)!important;bottom:clamp(1.2rem,3vw,2.5rem)!important;
+  display:flex!important;gap:0!important;border:1px solid rgba(237,230,214,.16)!important;background:rgba(7,13,9,.56)!important;backdrop-filter:blur(10px)!important
+}
+.ev-btn{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.ev-btn+.ev-btn{border-left:1px solid rgba(237,230,214,.12)!important}
+.ev-rail{position:fixed!important;left:clamp(1.2rem,3vw,2.5rem)!important;right:clamp(8.5rem,14vw,13rem)!important;bottom:clamp(1.2rem,3vw,2.5rem)!important}
+.ev-progress{height:1px!important;background:rgba(237,230,214,.14)!important}
+.ev-progress span{background:#be9e68!important}
+.ev-meta{font-size:9px!important;letter-spacing:.12em!important}
+.ev-live-open,.ev-field-open{border:0!important;border-bottom:1px solid rgba(190,158,104,.40)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+@media(max-width:760px){
+  .ev-copy{left:1.3rem!important;right:1.3rem!important;max-width:none!important;bottom:8rem!important}
+  .ev-title{font-size:clamp(42px,12vw,64px)!important}
+  .ev-mode{display:none!important}
+  .ev-rail{right:1.3rem!important;bottom:5.3rem!important}
+  .ev-controls{right:1.3rem!important;bottom:1.1rem!important}
+}
+</style>
 </head>
 <body>
 <main class="ev" aria-label="Enkiama View">
@@ -431,7 +459,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <a class="ev-logo" href="index.html" aria-label="Back to Enkiama"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
     <div class="ev-top-right">
       <button class="ev-live-open" id="evLiveOpen" type="button">Enkiama Live</button>
-      <span class="ev-mode">View · cinematic edition</span>
+      <span class="ev-mode">Journey view</span>
       <a class="ev-exit" href="index.html">Exit</a>
     </div>
   </header>
@@ -451,7 +479,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 
   <div class="ev-controls" aria-label="View controls">
     <button class="ev-btn" id="evPrev" aria-label="Previous scene">←</button>
-    <button class="ev-btn" id="evPause" aria-label="Pause view">Ⅱ</button>
+    <button class="ev-btn" id="evPause" aria-label="Play view">▶</button>
     <button class="ev-btn" id="evNext" aria-label="Next scene">→</button>
   </div>
 
@@ -482,7 +510,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   var progress=document.getElementById('evProgress');
   var pause=document.getElementById('evPause');
   var fieldOpen=document.getElementById('evFieldOpen');
-  var current=0,timer=null,paused=false,drawerPaused=false,interval=10000;
+  var current=0,timer=null,paused=true,drawerPaused=false,interval=10000;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function restartProgress(){
