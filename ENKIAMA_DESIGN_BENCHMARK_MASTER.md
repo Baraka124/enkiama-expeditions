@@ -552,3 +552,79 @@ It is:
 > **Does Enkiama feel like the most intelligent, immersive and locally grounded way to understand and compose a journey through Tanzania?**
 
 If a design decision does not help answer that question, remove it.
+
+
+---
+
+## 16. Enkiama Media Editorial Standard
+
+This standard governs all future text-over-image and image/text compositions.
+
+### Approved modes
+
+**CLEAR**  
+Use when the photograph contains genuine negative space and typography can remain readable without intervention.
+
+**VEIL**  
+Use a directional gradient from the text side. Never darken the entire image merely because copy exists.
+
+**PAPER**  
+Use a warm translucent editorial field when the photograph is bright, detailed or visually complex. This is not a card: no hard container language, heavy border or floating box treatment.
+
+**SPLIT**  
+Separate text and image physically when overlay typography would damage either readability or the image itself.
+
+### Safe-zone rules
+
+Each major image should define:
+- focal X/Y position;
+- safe text side: left, right, bottom or detached;
+- copy maximum width;
+- desktop crop;
+- mobile crop.
+
+The default is not “text on the left”. Copy position follows the image.
+
+### Mobile rule
+
+Below ~640px, if copy overlaps the photographic subject or requires an aggressive veil, detach the copy below the image.
+
+### Approved utility classes
+
+Shared CSS utilities live in `assets/css/enkiama.css`:
+
+- `.em-media`
+- `.em-clear`
+- `.em-veil`
+- `.em-paper`
+- `.em-split`
+- `.em-safe-left`
+- `.em-safe-right`
+- `.em-safe-bottom`
+- `.em-mobile-detach`
+- `.em-sequence`
+
+### Three-phase implementation
+
+**Phase 1 — Foundation + Karibu prototype**  
+Establish the four-mode system and validate it on the homepage Karibu / hospitality scene.
+
+**Phase 2 — Homepage hierarchy**  
+Apply deliberate image hierarchy, text measure, focal positioning and safe-zone logic to the homepage hero, Six Worlds, route archive, proof, stays, people and final photographic handoff.
+
+**Phase 3 — Narrative rollout**  
+Apply the same readability and composition logic to Journeys and then progressively to Tanzania, destination, Family and Culture pages during their next visual passes.
+
+### Review test
+
+Before approving any text-over-image section:
+
+1. Can the image be understood before reading?
+2. Can the text be read without effort?
+3. Is the subject unobstructed?
+4. Is the copy sitting where the image gives it room?
+5. Would detaching the text improve the composition?
+6. Does the treatment look editorial rather than like a UI card?
+7. Does it still work after the mobile crop changes?
+
+If any answer is no, change the mode or crop.
