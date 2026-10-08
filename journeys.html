@@ -624,7 +624,7 @@ nav.scrolled::before{ opacity:.035; }
 .jr-film{min-height:560px;position:relative;overflow:hidden;display:flex;align-items:flex-end;background-color:var(--ink2);background-size:cover;background-repeat:no-repeat;}
 .j1{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 28%,rgba(9,14,11,.68) 100%),url('assets/tarangire.jpg');background-position:center 52%;}
 .j2{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 30%,rgba(9,14,11,.70) 100%),url('assets/serengeti.jpg');background-position:center 52%;}
-.j3{background-image:linear-gradient(180deg,rgba(9,14,11,.03) 28%,rgba(9,14,11,.72) 100%),url('assets/maasai.jpg');background-position:center 38%;}
+.j3{background-image:linear-gradient(180deg,rgba(9,14,11,.03) 28%,rgba(9,14,11,.58) 100%),url('assets/images/kilimanjaro-coffee-blossoms.svg');background-position:42% 52%;}
 .j4{background-image:linear-gradient(180deg,rgba(9,14,11,.02) 30%,rgba(9,14,11,.68) 100%),url('assets/zanzibar.jpg');background-position:center 60%;}
 .jr-film::before{content:'';position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(180deg,transparent,rgba(7,11,9,.64));pointer-events:none;z-index:1;}
 .jr-film::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.12),transparent 45%);pointer-events:none;}
@@ -641,6 +641,10 @@ nav.scrolled::before{ opacity:.035; }
 .jr-desc a{color:#D0B483 !important;border-bottom-color:rgba(208,180,131,.52) !important;text-underline-offset:3px;}
 .jr-desc a:hover{color:var(--bone) !important;border-bottom-color:rgba(237,230,214,.75) !important;}
 .jr-worlds{margin-top:auto;font-family:'Instrument Sans',sans-serif;font-size:11px;letter-spacing:.065em;color:rgba(205,178,130,.70);padding-top:1.25rem;border-top:1px solid rgba(190,158,104,.15);}
+
+@media(max-width:860px){
+  .j3{background-position:38% 50%!important;}
+}
 /* CINEMATIC INTERLUDE — water as a change of tempo */
 .water-interlude{position:relative;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#0D1511;padding:clamp(6rem,9vw,9rem) clamp(1.5rem,4vw,4rem) clamp(5rem,8vw,8rem);overflow:hidden;}
 .water-interlude::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 45% at 16% 8%,rgba(52,78,64,.18),transparent 72%);}
