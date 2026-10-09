@@ -8,7 +8,7 @@ const pages = {
   },
   'journeys.html': {
     hero: '.ph',
-    copy: '.ph-inner',
+    copy: '.journey-cover__copy',
     headline: '.ph-hed',
   },
   'tanzania.html': {
@@ -23,7 +23,7 @@ const pages = {
   },
   'companions.html': {
     hero: '.c-hero',
-    copy: '.c-hero',
+    copy: '.c-title',
     headline: '.c-title',
   },
   'compose.html': {
