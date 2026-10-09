@@ -22,6 +22,18 @@ REQUIRED_META_EXEMPT = {
     # Search-engine verification file, not a public page.
 }
 INACTIVE_CONTACT = "hola@enkiama.com"
+ACTIVE_WHATSAPP = "wa.me/34659447627"
+
+# These are intentionally self-contained story / client dossier surfaces with
+# their own navigation grammar rather than the shared public-site shell.
+SHARED_CHROME_EXEMPT = {
+    "barua.html",
+    "trip.html",
+    "experience-view.html",
+    "journey.html",
+    "kilimanjaro-expedition.html",
+    "kilimanjaro-route.html",
+}
 
 # Stable design-system landmarks. These are intentionally structural markers
 # (style IDs / section classes), not editorial copy, so wording can evolve.
@@ -229,6 +241,35 @@ def main() -> int:
 
         if INACTIVE_CONTACT.lower() in text.lower():
             errors.append(f"{page.name}: inactive contact {INACTIVE_CONTACT} has reappeared.")
+
+        if page.name not in SHARED_CHROME_EXEMPT:
+            chrome_expectations = {
+                "<!-- ENKIAMA_HEADER_START -->": 1,
+                "<!-- ENKIAMA_HEADER_END -->": 1,
+                'id="ehTrigger"': 1,
+                'id="ehOverlay"': 1,
+                "assets/logo-header.png": 1,
+                "assets/logo-footer.png": 1,
+            }
+            for marker, expected_count in chrome_expectations.items():
+                actual_count = text.count(marker)
+                if actual_count != expected_count:
+                    errors.append(
+                        f"{page.name}: shared chrome marker {marker!r} expected "
+                        f"{expected_count} time(s), found {actual_count}."
+                    )
+
+            footer_count = len(re.findall(r"<footer\b", text, flags=re.IGNORECASE))
+            if footer_count != 1:
+                errors.append(
+                    f"{page.name}: shared public shell expects exactly one footer, "
+                    f"found {footer_count}."
+                )
+
+            if ACTIVE_WHATSAPP.lower() not in text.lower():
+                errors.append(
+                    f"{page.name}: shared public shell is missing the active WhatsApp route."
+                )
 
         for marker in REQUIRED_DESIGN_MARKERS.get(page.name, ()):
             if marker not in text:
