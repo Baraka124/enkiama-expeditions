@@ -26,16 +26,41 @@ INACTIVE_CONTACT = "hola@enkiama.com"
 # Stable design-system landmarks. These are intentionally structural markers
 # (style IDs / section classes), not editorial copy, so wording can evolve.
 REQUIRED_DESIGN_MARKERS = {
+    # Phase 1/2 — homepage media hierarchy.
     "index.html": ('id="phase1-media-karibu"', 'id="phase2-home-media-hierarchy"'),
+
+    # Phase 3 — Journeys editorial/media rollout.
+    "journeys.html": ('id="phase3-journeys-media-standard"',),
+
+    # Phase 4/5 — destination ecosystem.
+    "tanzania.html": ('id="phase4-tanzania-atlas"',),
+    "serengeti.html": ('id="phase4-serengeti-motion"',),
+    "ngorongoro.html": ('id="phase4-ngorongoro-descent"',),
+    "tarangire.html": ('id="phase4-tarangire-river"',),
+    "arusha.html": ('id="phase5-arusha"',),
+    "great-rift.html": ('id="phase5-rift"',),
+    "kilimanjaro.html": ('id="phase5-kilimanjaro"',),
+    "mahale.html": ('id="phase5-mahale"',),
+    "manyara.html": ('id="phase5-manyara"',),
+    "nyerere.html": ('id="phase5-nyerere"',),
+    "ruaha.html": ('id="phase5-ruaha"',),
+    "stonetown.html": ('id="phase5-stonetown"',),
+    "zanzibar.html": ('id="phase5-zanzibar"',),
+
+    # Phase 6 — people, trust and editorial continuity.
     "family.html": ('id="phase6-family"', 'class="family-continuity"'),
     "how.html": ('id="phase6-how"', 'class="how-continuity"'),
     "partners.html": ('id="phase6-partners"', 'class="partner-continuity"'),
     "society-and-culture.html": ('id="phase6-culture"', 'class="culture-continuity"'),
     "why.html": ('id="phase6-why"', 'class="w-continuity"'),
+
+    # Phase 7 — client-facing dossier interfaces.
     "experience-view.html": ('id="phase7-experience-view"',),
     "journey.html": ('id="phase7-private-journey"',),
     "kilimanjaro-route.html": ('id="phase7-route-dossier"',),
     "kilimanjaro-expedition.html": ('id="phase7-expedition-dossier"',),
+
+    # Conversion and Phase 8 utility treatments.
     "begin.html": ('id="begin-conversion-v2"',),
     "compose.html": ('id="compose-conversion-v2"', 'id="compose-conversion-v3"'),
     "privacy.html": ('id="phase8-pv-document"',),
