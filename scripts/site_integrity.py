@@ -23,6 +23,27 @@ REQUIRED_META_EXEMPT = {
 }
 INACTIVE_CONTACT = "hola@enkiama.com"
 
+# Stable design-system landmarks. These are intentionally structural markers
+# (style IDs / section classes), not editorial copy, so wording can evolve.
+REQUIRED_DESIGN_MARKERS = {
+    "index.html": ('id="phase1-media-karibu"', 'id="phase2-home-media-hierarchy"'),
+    "family.html": ('id="phase6-family"', 'class="family-continuity"'),
+    "how.html": ('id="phase6-how"', 'class="how-continuity"'),
+    "partners.html": ('id="phase6-partners"', 'class="partner-continuity"'),
+    "society-and-culture.html": ('id="phase6-culture"', 'class="culture-continuity"'),
+    "why.html": ('id="phase6-why"', 'class="w-continuity"'),
+    "experience-view.html": ('id="phase7-experience-view"',),
+    "journey.html": ('id="phase7-private-journey"',),
+    "kilimanjaro-route.html": ('id="phase7-route-dossier"',),
+    "kilimanjaro-expedition.html": ('id="phase7-expedition-dossier"',),
+    "begin.html": ('id="begin-conversion-v2"',),
+    "compose.html": ('id="compose-conversion-v2"', 'id="compose-conversion-v3"'),
+    "privacy.html": ('id="phase8-pv-document"',),
+    "terms.html": ('id="phase8-tm-document"', 'id="phase8-terms-process"'),
+    "barua.html": ('id="phase8-barua"',),
+    "404.html": ('id="phase8-404"',),
+}
+
 class PageParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
@@ -183,6 +204,12 @@ def main() -> int:
 
         if INACTIVE_CONTACT.lower() in text.lower():
             errors.append(f"{page.name}: inactive contact {INACTIVE_CONTACT} has reappeared.")
+
+        for marker in REQUIRED_DESIGN_MARKERS.get(page.name, ()):
+            if marker not in text:
+                errors.append(
+                    f"{page.name}: required design-system marker missing: {marker}"
+                )
 
         # Guard known retired asset literals even when they live inside CSS/JS
         # strings rather than directly in src/href attributes.
