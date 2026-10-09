@@ -259,7 +259,7 @@ def main() -> int:
                         f"{expected_count} time(s), found {actual_count}."
                     )
 
-            footer_count = len(re.findall(r"<footer\\b", text, flags=re.IGNORECASE))
+            footer_count = len(re.findall(r"<footer\b", text, flags=re.IGNORECASE))
             if footer_count != 1:
                 errors.append(
                     f"{page.name}: shared public shell expects exactly one footer, "
