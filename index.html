@@ -328,6 +328,30 @@ body[data-page="home"] .em-sequence__row{
 body[data-page="home"] .em-sequence__body strong{color:#152019!important}
 body[data-page="home"] .em-sequence__body p{color:rgba(21,32,25,.70)!important}
 body[data-page="home"] .em-sequence__n{color:#715d3a!important}
+@media(min-width:641px) and (max-width:860px){
+  body[data-page="home"] .lp-welcome-stack{
+    min-height:0!important;
+    display:grid!important;
+  }
+  body[data-page="home"] .lp-welcome-photo{
+    position:relative!important;
+    inset:auto!important;
+    min-height:58svh!important;
+    height:auto!important;
+  }
+  body[data-page="home"] .lp-welcome-plate{
+    position:relative!important;
+    inset:auto!important;
+    transform:none!important;
+    width:100%!important;
+    padding:2.5rem clamp(1.4rem,5vw,3rem) 3.2rem!important;
+    background:#e8dfcc!important;
+  }
+  body[data-page="home"] .lp-welcome-plate h3{
+    font-size:clamp(44px,8vw,62px)!important;
+    max-width:9ch!important;
+  }
+}
 @media(max-width:640px){
   body[data-page="home"] .lp-welcome-stack{
     min-height:0!important;
