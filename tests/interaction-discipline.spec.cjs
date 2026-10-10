@@ -1,9 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
 const surfaces = [
-  { path: 'trip.html', selector: '.trip-nav a[href]' },
+  { path: 'trip.html?slug=july-five-travellers-2026', selector: '.trip-nav a[href]' },
   { path: 'kilimanjaro-route.html?route=machame', selector: '.route-nav a[href]' },
-  { path: 'kilimanjaro-expedition.html?expedition=kilele-2027', selector: '.exp-nav a[href]' },
+  { path: 'kilimanjaro-expedition.html?expedition=kilele-2027-machame', selector: '.exp-nav a[href]' },
   { path: 'experience-view.html', selector: '.ev button, .ev a[href]' },
 ];
 
@@ -33,6 +33,15 @@ test('experience viewer reduced-motion scene transitions are disabled', async ({
   await page.goto('/experience-view.html', { waitUntil: 'domcontentloaded' });
   const scene = page.locator('.ev-scene').first();
   await expect(scene).toBeVisible();
-  const duration = await scene.evaluate(el => getComputedStyle(el).transitionDuration);
-  expect(duration.split(',').every(v => parseFloat(v) === 0)).toBe(true);
+  const motion = await scene.evaluate(el => {
+    const style = getComputedStyle(el);
+    return {
+      reduce: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      property: style.transitionProperty,
+      duration: style.transitionDuration,
+    };
+  });
+  expect(motion.reduce).toBe(true);
+  const durationsAreZero = motion.duration.split(',').every(v => parseFloat(v) === 0);
+  expect(motion.property === 'none' || durationsAreZero).toBe(true);
 });
