@@ -255,6 +255,9 @@ def main() -> int:
             "ENKIAMA_TIER1_START",
             "t1-cursor",
             "new Lenis(",
+            "PREMIUM DETAILS JS",
+            "page-veil",
+            "scroll-prog",
         )
         for literal in legacy_ui_literals:
             if literal in text:
