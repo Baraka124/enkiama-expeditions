@@ -683,5 +683,72 @@ body[data-page="home"] .ev-launch.ev-hidden{
 
 
 <script src="assets/js/enkiama.js" defer></script>
+<script id="phase22a-scroll-behavior">
+(function(){
+  var body=document.body;
+  if(!body || (body.getAttribute('data-page')!=='home' && body.getAttribute('data-page')!=='tanzania')) return;
+
+  var bar=document.getElementById('ehBar');
+  var overlay=document.getElementById('ehOverlay');
+  var ev=document.querySelector('.ev-launch');
+  var lastY=window.scrollY||0;
+  var ticking=false;
+
+  function overlayOpen(){
+    return !!(overlay && overlay.classList.contains('open'));
+  }
+
+  function update(){
+    var y=window.scrollY||0;
+    var dy=y-lastY;
+    var readingDown=dy>5;
+    var readingUp=dy<-4;
+
+    if(bar){
+      var shouldYield = y>150 && readingDown && !overlayOpen() && !bar.matches(':focus-within');
+      if(shouldYield) bar.classList.add('eh-scroll-away');
+      if(readingUp || y<90 || overlayOpen() || bar.matches(':focus-within')) bar.classList.remove('eh-scroll-away');
+    }
+
+    if(ev){
+      ev.classList.toggle('ev-quiet', y>Math.max(420, window.innerHeight*.58));
+      var footer=document.querySelector('footer');
+      var nearFooter=false;
+      if(footer){
+        var fr=footer.getBoundingClientRect();
+        nearFooter=fr.top < window.innerHeight-24;
+      }
+      ev.classList.toggle('ev-hidden', nearFooter || overlayOpen());
+    }
+
+    /* Reveal safety: visible content should never sit inert in the viewport. */
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top < window.innerHeight*.88 && r.bottom > 0) el.classList.add('in');
+    });
+
+    lastY=y;
+    ticking=false;
+  }
+
+  function requestUpdate(){
+    if(ticking) return;
+    ticking=true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll',requestUpdate,{passive:true});
+  window.addEventListener('resize',requestUpdate,{passive:true});
+  document.addEventListener('focusin',function(){
+    if(bar) bar.classList.remove('eh-scroll-away');
+    requestUpdate();
+  });
+  if(overlay){
+    new MutationObserver(requestUpdate).observe(overlay,{attributes:true,attributeFilter:['class']});
+  }
+  window.addEventListener('load',requestUpdate,{once:true});
+  setTimeout(requestUpdate,250);
+})();
+</script>
 </body>
 </html>
