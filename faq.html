@@ -472,6 +472,53 @@ nav.scrolled::before{ opacity:.035; }
 <link rel="alternate" hreflang="es" href="https://enkiama.com/parks.html">
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/parks.html">
 <!-- ── end structured data ── -->
+
+<style id="phase15-faq-index">
+body[data-page="faq"] .ph{
+  min-height:62svh;display:flex;align-items:flex-end;margin-top:0;
+  padding:clamp(8rem,10vw,10rem) clamp(1.5rem,6vw,6rem) clamp(3.5rem,5vw,5rem);
+  background:linear-gradient(180deg,#101813 0%,#0f1712 100%)
+}
+body[data-page="faq"] .ph-inner{max-width:1100px}
+body[data-page="faq"] .ph-hed{
+  font-size:clamp(52px,6.8vw,100px);line-height:.96;font-weight:400;
+  max-width:10ch;margin:1.2rem 0 1.4rem
+}
+body[data-page="faq"] .ph-sub{
+  max-width:58ch;font-family:'Instrument Sans',sans-serif;font-style:normal;
+  font-size:clamp(15px,1.2vw,18px);line-height:1.8
+}
+body[data-page="faq"] .faq-index{padding:0;border-top:1px solid rgba(190,158,104,.10)}
+body[data-page="faq"] .faq-list{max-width:1200px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
+body[data-page="faq"] .faq-item{
+  display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:clamp(2rem,6vw,6rem);padding:clamp(2rem,3.4vw,3.4rem) 0;
+  border-color:rgba(190,158,104,.10)
+}
+body[data-page="faq"] .faq-item:first-child{border-top:0}
+body[data-page="faq"] .faq-q{
+  margin:0;font-size:clamp(22px,2.2vw,32px);line-height:1.16;font-weight:400;max-width:16ch
+}
+body[data-page="faq"] .faq-a{
+  font-size:clamp(15px,1vw,17px);line-height:1.78;max-width:64ch;color:rgba(237,230,214,.72)
+}
+body[data-page="faq"] .faq-close{
+  text-align:left;padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);
+  border-top:1px solid rgba(190,158,104,.12);background:#131c16
+}
+body[data-page="faq"] .faq-close .ph-inner{max-width:900px;margin:0}
+body[data-page="faq"] .faq-close .ph-hed{
+  font-size:clamp(34px,4.6vw,62px);line-height:1.02;max-width:11ch;margin:0 0 1.5rem
+}
+body[data-page="faq"] .faq-close .ph-sub{margin:0 0 2.2rem;max-width:54ch}
+body[data-page="faq"] .faq-close .hero-acts{justify-content:flex-start}
+@media(max-width:800px){
+  body[data-page="faq"] .ph{min-height:58svh;padding-top:7rem}
+  body[data-page="faq"] .ph-hed{font-size:clamp(46px,12vw,68px)}
+  body[data-page="faq"] .faq-item{grid-template-columns:1fr;gap:.9rem;padding:2.3rem 0}
+  body[data-page="faq"] .faq-q{max-width:none}
+}
+</style>
 </head>
 <body data-page="faq">
 <!-- ENKIAMA_HEADER_START -->
@@ -817,14 +864,14 @@ body.eh-locked{overflow:hidden;}
 <section id="main" class="ph">
   <div class="ph-ghost">maswali</div>
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.5rem;">Before you begin &nbsp;&middot;&nbsp; The real questions</p>
-    <h1 class="ph-hed reveal">Questions,<br>answered <em>honestly.</em></h1>
-    <p class="ph-sub reveal">The things people actually want to know before a Tanzania safari: when to come, what it costs, whether it is safe, how the migration works. Straight answers, the way we would give them in conversation.</p>
+    <p class="eye" style="margin-bottom:2.5rem;">Quick answers &nbsp;&middot;&nbsp; Safari FAQ</p>
+    <h1 class="ph-hed reveal">The questions<br><em>people ask first.</em></h1>
+    <p class="ph-sub reveal">A scan-first guide to timing, cost, safety, children, Kilimanjaro and shared journeys. For visas, health, insurance and packing, use Practical Tanzania.</p>
   </div>
 </section>
 
-<section class="worlds" style="padding:3rem 0 7rem;">
-  <div style="max-width:820px;margin:0 auto;padding:0 clamp(1.5rem,4vw,2rem);">
+<section class="worlds faq-index">
+  <div class="faq-list">
     <div class="faq-item reveal">
       <h2 class="faq-q">When is the best time to go on a Tanzania safari?</h2>
       <p class="faq-a">Tanzania is rewarding year-round. The dry season, June to October, offers the easiest game viewing and the famous Serengeti river crossings. The green season, December to March, brings the wildebeest calving, fewer crowds, and lush landscapes. There is no bad time, only different gifts.</p>
@@ -872,12 +919,12 @@ body.eh-locked{overflow:hidden;}
   </div>
 </section>
 
-<section class="thesis" style="padding:5rem 0 8rem;text-align:center;">
-  <div class="ph-inner" style="max-width:680px;margin:0 auto;">
+<section class="thesis faq-close">
+  <div class="ph-inner">
     <p class="eye" style="margin-bottom:2rem;">Still wondering</p>
-    <h2 class="ph-hed reveal" style="font-size:clamp(1.8rem,4.5vw,3rem);">Ask us anything<br>the page didn&rsquo;t <em>answer.</em></h2>
-    <p class="ph-sub reveal" style="margin:2rem auto 2.5rem;">The best answers come in conversation, shaped to your journey. Tell us what you are wondering and we will answer it directly, in English or Spanish.</p>
-    <div class="hero-acts" style="justify-content:center;">
+    <h2 class="ph-hed reveal">Ask the question<br>that is <em>specific to you.</em></h2>
+    <p class="ph-sub reveal">The best answers come in conversation, shaped to your journey. Tell us what you are wondering and we will answer it directly, in English or Spanish.</p>
+    <div class="hero-acts">
       <a href="begin.html" class="btn-primary">Begin the conversation</a>
       <a href="parks.html" class="btn-ghost">See the wild &rarr;</a>
     </div>
@@ -1085,156 +1132,6 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
   updateProg();
 })();
 </script>
-
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
-
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:7px;height:7px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),background .35s,opacity .3s;
-    box-shadow:0 0 8px rgba(237,230,214,0.5), 0 0 2px rgba(237,230,214,0.9);will-change:transform;}
-  .t1-cursor.t1-hover{width:10px;height:10px;background:var(--earth,#BE9E68);box-shadow:0 0 14px rgba(190,158,104,0.7),0 0 3px rgba(190,158,104,1);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(190,158,104,0.28);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    background:rgba(190,158,104,0.03);backdrop-filter:blur(1.5px) saturate(1.1);-webkit-backdrop-filter:blur(1.5px) saturate(1.1);
-    box-shadow:inset 0 0 12px rgba(190,158,104,0.06);
-    transition:width .55s cubic-bezier(.16,1,.3,1),height .55s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s,background .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:56px;height:56px;border-color:rgba(190,158,104,0.55);background:rgba(190,158,104,0.06);}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-
-/* ══════════ TIER-1 TYPOGRAPHY REFINEMENTS ══════════ */
-/* Balanced headings: no orphan words on the last line */
-h1,h2,h3,.hero-hed,.ph-hed,.eh-nav li a,.eco-hl,.lw-hl,.wr-name{text-wrap:balance;}
-/* Pretty body: prevents orphans/widows in paragraphs */
-p,.dim,li{text-wrap:pretty;}
-/* Reading measure: cap long-form body text for comfortable line length */
-.thesis-body,.byw-intro,.wd-intro,.tl-intro,.worlds-intro-body,.curate-sub,.df-body p,.jr-desc,.wr-desc,.fq-a,.i-title + p,.dim{max-width:68ch;}
-/* Hanging punctuation where supported (Safari) */
-html{hanging-punctuation:first last;}
-/* Kerning + ligatures on everything for crisp letterforms */
-body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
-/* Tighten big display serifs a touch more (tier-1 look) */
-.hero-hed,.ph-hed{letter-spacing:-0.035em;}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PAGETRANS_START -->
 <style>

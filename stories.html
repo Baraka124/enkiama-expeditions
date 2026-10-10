@@ -652,6 +652,112 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 <link rel="alternate" hreflang="es" href="https://enkiama.com/stories.html">
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/stories.html">
 <!-- ── end structured data ── -->
+
+<style id="phase15-stories-editorial">
+/* Phase 15 · Stories is an editorial case-study surface, not a testimonials grid. */
+body[data-page="stories"] .ph{
+  min-height:72svh;
+  display:flex;
+  align-items:flex-end;
+  padding:clamp(8rem,11vw,11rem) clamp(1.5rem,6vw,6rem) clamp(4rem,6vw,6rem);
+  margin-top:0;
+  background:
+    radial-gradient(circle at 82% 28%,rgba(85,107,68,.12),transparent 31%),
+    linear-gradient(180deg,#101813 0%,#0f1712 100%);
+}
+body[data-page="stories"] .ph-inner{max-width:1050px}
+body[data-page="stories"] .ph-ghost{
+  left:auto;right:-.035em;top:54%;transform:translateY(-50%);
+  font-size:clamp(120px,18vw,330px);opacity:.55
+}
+body[data-page="stories"] .ph-hed{
+  font-size:clamp(54px,7.1vw,108px);line-height:.94;font-weight:400;
+  max-width:11ch;margin:1.35rem 0 1.6rem;letter-spacing:-.035em
+}
+body[data-page="stories"] .ph-sub{
+  max-width:58ch;font-family:'Instrument Sans',sans-serif;font-style:normal;
+  font-size:clamp(15px,1.25vw,18px);line-height:1.8;color:rgba(237,230,214,.70)
+}
+body[data-page="stories"] .featured-story{border:0}
+body[data-page="stories"] .fs-top{
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  max-width:1500px;margin:0 auto;border:0;padding:clamp(5rem,8vw,9rem) clamp(1.5rem,5vw,5rem);
+  gap:clamp(3rem,7vw,8rem)
+}
+body[data-page="stories"] .fs-quote{
+  padding:0;border:0;background:transparent;align-self:start;position:sticky;top:7rem
+}
+body[data-page="stories"] .fs-mark{font-size:74px;margin-bottom:1.4rem;opacity:.18}
+body[data-page="stories"] .fs-q{
+  font-size:clamp(20px,2.1vw,29px);line-height:1.58;max-width:34ch
+}
+body[data-page="stories"] .fs-analysis{
+  padding:0;justify-content:flex-start;border-top:1px solid rgba(190,158,104,.16);
+  padding-top:1.6rem
+}
+body[data-page="stories"] .fs-hed{
+  font-size:clamp(34px,4vw,60px);font-weight:400;line-height:1.02;max-width:12ch
+}
+body[data-page="stories"] .fs-bottom{
+  max-width:1500px;margin:0 auto;background:transparent;
+  grid-template-columns:minmax(240px,.62fr) minmax(0,1.38fr);
+  gap:clamp(3rem,8vw,9rem);padding:0 clamp(1.5rem,5vw,5rem) clamp(5rem,8vw,8rem)
+}
+body[data-page="stories"] .fw-item{border-color:rgba(190,158,104,.10)}
+.stories-thesis{
+  min-height:64svh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:clamp(6rem,9vw,10rem) clamp(1.5rem,7vw,7rem);
+  border-top:1px solid rgba(190,158,104,.10);border-bottom:1px solid rgba(190,158,104,.10);
+  background:#131c16
+}
+.stories-thesis__ghost{
+  position:absolute;right:-.08em;bottom:-.18em;font-family:'Fraunces',serif;
+  font-size:clamp(110px,19vw,310px);font-style:italic;line-height:.8;
+  color:rgba(237,230,214,.018);pointer-events:none;white-space:nowrap
+}
+.stories-thesis__quote{position:relative;z-index:2;max-width:820px}
+.stories-thesis__quote p{
+  font-family:'Fraunces',serif;font-size:clamp(32px,4.5vw,64px);font-weight:400;
+  line-height:1.03;letter-spacing:-.025em;color:rgba(237,230,214,.88)
+}
+body[data-page="stories"] .story-grid{
+  display:block;border:0;max-width:1600px;margin:0 auto;padding:clamp(4rem,6vw,7rem) 0
+}
+body[data-page="stories"] .sg{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  min-height:560px;border:0;border-bottom:1px solid rgba(190,158,104,.10);
+  background:transparent
+}
+body[data-page="stories"] .sg:last-child{border-bottom:0}
+body[data-page="stories"] .sg:nth-child(even) .sg-film{order:2}
+body[data-page="stories"] .sg:nth-child(even) .sg-body{order:1}
+body[data-page="stories"] .sg-film{height:auto;min-height:560px}
+body[data-page="stories"] .sg-film .ph-frame,
+body[data-page="stories"] .sg-film .ph-frame img{width:100%;height:100%}
+body[data-page="stories"] .sg-film .ph-frame img{object-fit:cover}
+body[data-page="stories"] .sg-body{
+  padding:clamp(3rem,6vw,6.5rem);justify-content:center
+}
+body[data-page="stories"] .sg-q{
+  font-size:clamp(21px,2.2vw,30px);line-height:1.56;max-width:31ch
+}
+body[data-page="stories"] .sg-mark{font-size:46px}
+body[data-page="stories"] .sg-lbl{left:1.2rem;bottom:1rem;color:rgba(237,230,214,.62)}
+body[data-page="stories"] .sg-worlds{color:rgba(190,158,104,.56)}
+@media(max-width:860px){
+  body[data-page="stories"] .ph{min-height:68svh;padding-top:7rem}
+  body[data-page="stories"] .ph-hed{font-size:clamp(48px,12vw,72px)}
+  body[data-page="stories"] .fs-top{grid-template-columns:1fr;padding:4.5rem 1.5rem;gap:3.5rem}
+  body[data-page="stories"] .fs-quote{position:static}
+  body[data-page="stories"] .fs-bottom{grid-template-columns:1fr;padding:0 1.5rem 4.5rem}
+  .stories-thesis{min-height:52svh;padding:5rem 1.5rem}
+  body[data-page="stories"] .sg{grid-template-columns:1fr;min-height:0}
+  body[data-page="stories"] .sg:nth-child(even) .sg-film,
+  body[data-page="stories"] .sg:nth-child(even) .sg-body{order:initial}
+  body[data-page="stories"] .sg-film{min-height:54svh}
+  body[data-page="stories"] .sg-body{padding:3rem 1.5rem 4rem}
+}
+</style>
 </head>
 <body data-page="stories">
 <!-- ENKIAMA_HEADER_START -->
@@ -996,9 +1102,9 @@ body.eh-locked{overflow:hidden;}
 <section id="main" class="ph">
   <div class="ph-ghost">hadithi</div>
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.5rem;">Guest stories &nbsp;&middot;&nbsp; What people carry home</p>
-    <h1 class="ph-hed reveal">What people<br>carry <em>home.</em></h1>
-    <p class="ph-sub reveal">What guests said months later, when the photographs had faded and what remained was the specific thing they still couldn&rsquo;t fully explain to people who hadn&rsquo;t been there.</p>
+    <p class="eye" style="margin-bottom:2.5rem;">Operated journeys &nbsp;&middot;&nbsp; Case studies</p>
+    <h1 class="ph-hed reveal">Journeys,<br><em>remembered in detail.</em></h1>
+    <p class="ph-sub reveal">A small set of journeys examined after the fact: how the route was shaped, where the handoffs mattered, and what the travellers themselves remembered.</p>
   </div>
 </section>
 
@@ -1014,8 +1120,8 @@ body.eh-locked{overflow:hidden;}
       </div>
     </div>
     <div class="fs-analysis">
-      <p class="fs-lbl">Why this journey worked</p>
-      <h2 class="fs-hed reveal">Three worlds. Twelve days.<br>One <em>thread.</em></h2>
+      <p class="fs-lbl">Case study 01 &middot;&nbsp; Why the sequence worked</p>
+      <h2 class="fs-hed reveal">What held the journey <em>together.</em></h2>
       <div class="ochre-rule"></div>
       <p class="dim reveal">Marina&rsquo;s group came to us wanting the Serengeti. They had seen photographs of the migration for years. What they did not know when they arrived was that the thing they would carry home had nothing to do with wildebeest.</p>
       <p class="dim reveal" style="margin-top:1rem;">The Serengeti gave them a guide with thirty years of stories about the plain and the patience to share them in exactly the amount each guest could absorb. The crater gave them a guide who descended into it with them four times in three days and found something different each morning. The mountain gave them the Kibosho family and a dinner at a table that was not set for tourists.</p>
@@ -1041,10 +1147,10 @@ body.eh-locked{overflow:hidden;}
 
 
 <!-- EDITORIAL STATEMENT -->
-<section style="padding:10rem 3rem;border-bottom:1px solid rgba(190,158,104,0.11);position:relative;overflow:hidden;background:#131C16;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,19vw,290px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(85,107,68,0.042);pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-0.03em;">carry</div>
-  <blockquote style="position:relative;z-index:2;max-width:900px;">
-    <p style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(28px,4.8vw,62px);font-weight:700;line-height:0.97;letter-spacing:-0.025em;color:rgba(237,230,214,0.85);" class="reveal">The moment that changes the journey<br>is never in the itinerary.<br>It is in the <em style="font-style:italic;color:#556B44;">introduction.</em></p>
+<section class="stories-thesis">
+  <div class="stories-thesis__ghost" aria-hidden="true">sequence</div>
+  <blockquote class="stories-thesis__quote">
+    <p class="reveal">The route matters. So do the people who carry you through it, and the quality of every handoff between them.</p>
   </blockquote>
 </section>
 
@@ -1337,164 +1443,6 @@ body.eh-locked{overflow:hidden;}
   updateProg();
 })();
 </script>
-
-<!-- ENKIAMA_TIER1_START -->
-<style>
-/* ══════════ TIER-1 ENHANCEMENTS ══════════ */
-
-/* Custom cursor */
-@media (hover:hover) and (pointer:fine){
-  .t1-cursor{position:fixed;top:0;left:0;width:7px;height:7px;border-radius:50%;
-    background:var(--bone,#EDE6D6);pointer-events:none;z-index:99999;
-    transform:translate(-50%,-50%);transition:width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),background .35s,opacity .3s;
-    box-shadow:0 0 8px rgba(237,230,214,0.5), 0 0 2px rgba(237,230,214,0.9);will-change:transform;}
-  .t1-cursor.t1-hover{width:10px;height:10px;background:var(--earth,#BE9E68);box-shadow:0 0 14px rgba(190,158,104,0.7),0 0 3px rgba(190,158,104,1);}
-  .t1-cursor.t1-hide{opacity:0;}
-  .t1-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(190,158,104,0.28);border-radius:50%;
-    pointer-events:none;z-index:99998;transform:translate(-50%,-50%);
-    background:rgba(190,158,104,0.03);backdrop-filter:blur(1.5px) saturate(1.1);-webkit-backdrop-filter:blur(1.5px) saturate(1.1);
-    box-shadow:inset 0 0 12px rgba(190,158,104,0.06);
-    transition:width .55s cubic-bezier(.16,1,.3,1),height .55s cubic-bezier(.16,1,.3,1),opacity .4s,border-color .4s,background .4s;will-change:transform;}
-  .t1-ring.t1-hover{width:56px;height:56px;border-color:rgba(190,158,104,0.55);background:rgba(190,158,104,0.06);}
-  /* hide default cursor on interactive elements when custom is active */
-  body.t1-cursor-on,body.t1-cursor-on a,body.t1-cursor-on button{cursor:none;}
-}
-
-/* Split-text reveal: each word/line rises into place */
-.t1-line{display:block;overflow:hidden;}
-.t1-word{display:inline-block;transform:translateY(110%);opacity:0;
-  transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform;}
-.t1-word.t1-in{transform:translateY(0);opacity:1;}
-
-/* Magnetic buttons */
-.t1-magnetic{transition:transform .3s cubic-bezier(.16,1,.3,1);will-change:transform;}
-
-@media (prefers-reduced-motion:reduce){
-  .t1-word{transform:none;opacity:1;transition:none;}
-  .t1-cursor,.t1-ring{display:none;}
-}
-
-/* ══════════ TIER-1 TYPOGRAPHY REFINEMENTS ══════════ */
-/* Balanced headings: no orphan words on the last line */
-h1,h2,h3,.hero-hed,.ph-hed,.eh-nav li a,.eco-hl,.lw-hl,.wr-name{text-wrap:balance;}
-/* Pretty body: prevents orphans/widows in paragraphs */
-p,.dim,li{text-wrap:pretty;}
-/* Reading measure: cap long-form body text for comfortable line length */
-.thesis-body,.byw-intro,.wd-intro,.tl-intro,.worlds-intro-body,.curate-sub,.df-body p,.jr-desc,.wr-desc,.fq-a,.i-title + p,.dim{max-width:68ch;}
-/* Hanging punctuation where supported (Safari) */
-html{hanging-punctuation:first last;}
-/* Kerning + ligatures on everything for crisp letterforms */
-body{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1,"calt" 1;}
-/* Tighten big display serifs a touch more (tier-1 look) */
-.hero-hed,.ph-hed{letter-spacing:-0.035em;}
-
-/* ph-frame integration */
-.ph-frame{position:absolute;inset:0;z-index:0;}
-.sg-film{position:relative;overflow:hidden;}
-.ph-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(8,12,9,0.5) 0%,transparent 40%,transparent 65%,rgba(8,12,9,0.25) 100%);}
-.sg-film{position:relative;overflow:hidden;}
-.sg-film > *:not(.ph-frame){position:relative;z-index:2;}
-.sg-film .ph-frame{z-index:0;}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ── 1. LENIS SMOOTH SCROLL ── */
-  function initLenis(){
-    if(reduce || typeof Lenis==='undefined') return null;
-    try{
-      var lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
-      function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-      requestAnimationFrame(raf);
-      // keep anchor links working
-      document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});
-      });
-      return lenis;
-    }catch(e){return null;}
-  }
-  // wait for Lenis script to load
-  if(document.readyState!=='loading') setTimeout(initLenis,50);
-  else window.addEventListener('DOMContentLoaded',function(){setTimeout(initLenis,50);});
-
-  /* ── 2. CUSTOM CURSOR ── */
-  if(fine && !reduce){
-    var dot=document.createElement('div');dot.className='t1-cursor';
-    var ring=document.createElement('div');ring.className='t1-ring';
-    document.body.appendChild(dot);document.body.appendChild(ring);
-    document.body.classList.add('t1-cursor-on');
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-    (function ringRaf(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ringRaf);})();
-    // grow over interactive elements
-    function bindHover(){
-      document.querySelectorAll('a,button,.cmp-opt,.world-row,.eh-trigger,.eh-close').forEach(function(el){
-        if(el.dataset.t1bound)return;el.dataset.t1bound=1;
-        el.addEventListener('mouseenter',function(){dot.classList.add('t1-hover');ring.classList.add('t1-hover');});
-        el.addEventListener('mouseleave',function(){dot.classList.remove('t1-hover');ring.classList.remove('t1-hover');});
-      });
-    }
-    bindHover();
-    // hide when leaving window
-    document.addEventListener('mouseleave',function(){dot.classList.add('t1-hide');ring.classList.add('t1-hide');});
-    document.addEventListener('mouseenter',function(){dot.classList.remove('t1-hide');ring.classList.remove('t1-hide');});
-    // re-bind after menu opens (dynamic content)
-    var trg=document.getElementById('ehTrigger');if(trg)trg.addEventListener('click',function(){setTimeout(bindHover,100);});
-  }
-
-  /* ── 3. SPLIT-TEXT REVEALS on major headings ── */
-  if(!reduce){
-    // target the big serif headings; wrap words in spans
-    var heads=document.querySelectorAll('.hero-hed, .ph-hed, h1.hero-hed');
-    heads.forEach(function(h){
-      if(h.dataset.t1split)return;h.dataset.t1split=1;
-      // only split top-level text nodes, preserve inner tags like <em>/<br>/<span>
-      var html=h.innerHTML;
-      // split on spaces but keep tags intact - simple approach: wrap text between tags
-      var parts=html.split(/(<[^>]+>)/);
-      var out=parts.map(function(p){
-        if(p.startsWith('<')||p.trim()==='')return p;
-        return p.split(/(\s+)/).map(function(w){return w.trim()?'<span class="t1-word">'+w+'</span>':w;}).join('');
-      }).join('');
-      h.innerHTML=out;
-    });
-    var words=document.querySelectorAll('.t1-word');
-    if(words.length){
-      var wo=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var siblings=[].slice.call(e.target.parentNode.querySelectorAll('.t1-word'));
-            var idx=siblings.indexOf(e.target);
-            e.target.style.transitionDelay=(idx*0.04)+'s';
-            e.target.classList.add('t1-in');
-            wo.unobserve(e.target);
-          }
-        });
-      },{threshold:0.2,rootMargin:'0px 0px -10% 0px'});
-      words.forEach(function(w){wo.observe(w);});
-    }
-  }
-
-  /* ── 4. MAGNETIC BUTTONS ── */
-  if(fine && !reduce){
-    document.querySelectorAll('.btn-primary,.btn-ghost,.n-begin,.eh-trigger').forEach(function(btn){
-      btn.classList.add('t1-magnetic');
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.25;
-        var y=(e.clientY-r.top-r.height/2)*0.25;
-        btn.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      btn.addEventListener('mouseleave',function(){btn.style.transform='translate(0,0)';});
-    });
-  }
-})();
-</script>
-<!-- ENKIAMA_TIER1_END -->
 
 <!-- ENKIAMA_PHOTOSYS_START -->
 <style>

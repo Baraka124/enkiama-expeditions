@@ -16,7 +16,6 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_HTML = {
     "admin.html",
-    "notes.html",
 }
 REQUIRED_META_EXEMPT = {
     # Search-engine verification file, not a public page.
@@ -40,6 +39,8 @@ SHARED_CHROME_EXEMPT = {
 REQUIRED_DESIGN_MARKERS = {
     # Phase 1/2 — homepage media hierarchy.
     "index.html": ('id="phase1-media-karibu"', 'id="phase2-home-media-hierarchy"'),
+    "parks.html": ('id="phase1-parks-editorial"',),
+    "companions.html": ('id="companions-editorial-recomposition"',),
 
     # Phase 3 — Journeys editorial/media rollout.
     "journeys.html": ('id="phase3-journeys-media-standard"',),
@@ -79,6 +80,14 @@ REQUIRED_DESIGN_MARKERS = {
     "terms.html": ('id="phase8-tm-document"', 'id="phase8-terms-process"'),
     "barua.html": ('id="phase8-barua"',),
     "404.html": ('id="phase8-404"',),
+
+    # Phase 15 — previously untouched public surfaces.
+    "stories.html": ('id="phase15-stories-editorial"',),
+    "reflections.html": ('id="phase15-reflections-editorial"',),
+    "practical.html": ('id="phase15-practical-dossier"',),
+    "faq.html": ('id="phase15-faq-index"',),
+    "trip.html": ('id="phase15-trip-reader"',),
+    "notes.html": ('id="phase15-field-notes"',),
 }
 
 class PageParser(HTMLParser):
