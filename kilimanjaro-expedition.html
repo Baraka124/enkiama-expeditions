@@ -61,6 +61,15 @@
 .exp-action{border-top:1px solid rgba(15,23,18,.12)}
 @media(max-width:800px){.exp-statusrail{grid-template-columns:1fr}.exp-statusrail>div{border-right:0;border-bottom:1px solid var(--rule)}.exp-statusrail>div:last-child{border-bottom:0}.exp-meta{grid-template-columns:1fr 1fr!important}.exp-body{grid-template-columns:1fr!important}.exp-step{grid-template-columns:1fr;gap:.5rem}}
 </style>
+<style id="phase19-interaction-focus">
+/* Phase 19 · visible keyboard focus on the expedition dossier. */
+.exp-nav a:focus-visible,
+.exp-action a:focus-visible,
+.err a:focus-visible{
+  outline:1px solid #BE9E68;
+  outline-offset:5px;
+}
+</style>
 </head>
 <body>
 <main id="expPage" hidden>
