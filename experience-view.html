@@ -380,6 +380,18 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   .ev-controls{opacity:1!important}
 }
 </style>
+<style id="phase19-interaction-focus">
+/* Phase 19 · controls remain legible for keyboard users without adding card chrome. */
+.ev a:focus-visible,
+.ev button:focus-visible{
+  outline:1px solid #BE9E68!important;
+  outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+  .ev-scene{transition:none!important}
+  .ev-progress span{animation:none!important;transition:none!important}
+}
+</style>
 </head>
 <body>
 <main class="ev" aria-label="Enkiama View">
