@@ -296,6 +296,173 @@ body[data-page="home"] .ev-launch.ev-hidden{
   }
 }
 </style>
+<style id="phase23a-tanzania-hero-country-field">
+/* Phase 23A · Hero and country-field hierarchy.
+   Keep photography primary; turn utility boxes into integrated annotations. */
+
+body[data-page="tanzania"] .tz-hero{
+  grid-template-columns:minmax(0,1fr)!important;
+}
+body[data-page="tanzania"] .tz-hero__copy{
+  max-width:min(980px,72vw)!important;
+  padding-right:clamp(2rem,10vw,10rem)!important;
+}
+body[data-page="tanzania"] .tz-hero__index{
+  position:absolute!important;
+  z-index:3!important;
+  right:clamp(1.5rem,5vw,5rem)!important;
+  bottom:clamp(3.75rem,7vh,5.5rem)!important;
+  width:min(330px,26vw)!important;
+  margin:0!important;
+  padding:1rem 0 0!important;
+  background:transparent!important;
+  border:0!important;
+  border-top:1px solid rgba(237,230,214,.30)!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+body[data-page="tanzania"] .tz-hero__index:before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:-1px;
+  width:54px;
+  height:1px;
+  background:var(--earth);
+}
+body[data-page="tanzania"] .tz-hero__index strong{
+  max-width:11ch;
+  display:block;
+  font-size:clamp(22px,2.2vw,33px)!important;
+  line-height:1.06!important;
+  text-wrap:balance;
+}
+
+/* The four-line summary becomes a quiet editorial rail, not a utility strip. */
+body[data-page="tanzania"] .tz-strip{
+  grid-template-columns:1.15fr .85fr 1fr 1fr!important;
+  background:var(--bone2)!important;
+  padding:0 5vw;
+  border-top:0!important;
+  border-bottom:1px solid rgba(15,23,18,.10);
+}
+body[data-page="tanzania"] .tz-strip div{
+  padding:1.35rem clamp(.8rem,1.6vw,1.4rem) 1.4rem!important;
+  border-right:0!important;
+  border-top:1px solid rgba(15,23,18,.11);
+}
+body[data-page="tanzania"] .tz-strip div+div{
+  margin-left:clamp(.6rem,1.5vw,1.5rem);
+}
+body[data-page="tanzania"] .tz-strip strong{
+  font-size:clamp(17px,1.5vw,22px)!important;
+}
+
+/* Country field: one dominant landscape with two supporting chapters. */
+body[data-page="tanzania"] .tz-country-field{
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.55fr) minmax(0,.63fr)!important;
+  min-height:clamp(620px,76svh,840px)!important;
+}
+body[data-page="tanzania"] .tz-country-field__mountain{
+  min-height:88%;
+  align-self:end;
+}
+body[data-page="tanzania"] .tz-country-field__plain{
+  z-index:2;
+}
+body[data-page="tanzania"] .tz-country-field__coast{
+  min-height:76%;
+  align-self:start;
+}
+body[data-page="tanzania"] .tz-country-field__mountain:after,
+body[data-page="tanzania"] .tz-country-field__coast:after{
+  background:
+    linear-gradient(180deg,rgba(8,12,9,.10) 18%,rgba(8,12,9,.72) 100%),
+    linear-gradient(90deg,rgba(8,12,9,.18),transparent 62%)!important;
+}
+body[data-page="tanzania"] .tz-country-field__plain:after{
+  background:
+    linear-gradient(180deg,rgba(8,12,9,.02) 22%,rgba(8,12,9,.62) 100%),
+    linear-gradient(90deg,rgba(8,12,9,.10),transparent 55%)!important;
+}
+body[data-page="tanzania"] .tz-country-field__plain .tz-country-field__copy{
+  bottom:clamp(2.6rem,5vw,4.5rem)!important;
+}
+body[data-page="tanzania"] .tz-country-field__plain .tz-country-field__copy strong{
+  font-size:clamp(46px,5.4vw,78px)!important;
+}
+body[data-page="tanzania"] .tz-country-field__mountain .tz-country-field__copy,
+body[data-page="tanzania"] .tz-country-field__coast .tz-country-field__copy{
+  bottom:clamp(1.5rem,3vw,2.8rem)!important;
+}
+body[data-page="tanzania"] .tz-country-field__mountain .tz-country-field__copy strong,
+body[data-page="tanzania"] .tz-country-field__coast .tz-country-field__copy strong{
+  font-size:clamp(34px,3.6vw,52px)!important;
+}
+body[data-page="tanzania"] .tz-country-field__axis{
+  left:clamp(1.3rem,2.8vw,2.8rem)!important;
+  right:clamp(1.3rem,2.8vw,2.8rem)!important;
+}
+
+@media(max-width:1000px){
+  body[data-page="tanzania"] .tz-hero__copy{
+    max-width:min(760px,88vw)!important;
+  }
+  body[data-page="tanzania"] .tz-hero__index{
+    width:min(320px,36vw)!important;
+  }
+  body[data-page="tanzania"] .tz-country-field{
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) minmax(0,.8fr)!important;
+  }
+}
+@media(max-width:900px){
+  body[data-page="tanzania"] .tz-hero__copy{
+    max-width:none!important;
+    padding-right:clamp(1.4rem,5vw,3rem)!important;
+  }
+  body[data-page="tanzania"] .tz-hero__index{
+    position:relative!important;
+    right:auto!important;
+    bottom:auto!important;
+    width:auto!important;
+    margin:0 5vw clamp(3.5rem,6vw,5rem)!important;
+  }
+  body[data-page="tanzania"] .tz-strip{
+    grid-template-columns:1fr 1fr!important;
+    padding:0 5vw;
+  }
+  body[data-page="tanzania"] .tz-strip div,
+  body[data-page="tanzania"] .tz-strip div+div{
+    margin:0!important;
+  }
+  body[data-page="tanzania"] .tz-strip div:nth-child(2n){
+    margin-left:1.2rem!important;
+  }
+  body[data-page="tanzania"] .tz-country-field{
+    grid-template-columns:1fr!important;
+    min-height:0!important;
+  }
+  body[data-page="tanzania"] .tz-country-field__panel,
+  body[data-page="tanzania"] .tz-country-field__mountain,
+  body[data-page="tanzania"] .tz-country-field__plain,
+  body[data-page="tanzania"] .tz-country-field__coast{
+    min-height:54svh!important;
+    align-self:stretch!important;
+  }
+}
+@media(max-width:620px){
+  body[data-page="tanzania"] .tz-strip{
+    grid-template-columns:1fr!important;
+    padding:0 1.4rem;
+  }
+  body[data-page="tanzania"] .tz-strip div:nth-child(2n){
+    margin-left:0!important;
+  }
+  body[data-page="tanzania"] .tz-country-field__panel{
+    min-height:46svh!important;
+  }
+}
+</style>
 </head>
 <body data-page="tanzania">
 <!-- ENKIAMA_HEADER_START -->
