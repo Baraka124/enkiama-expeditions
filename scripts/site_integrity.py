@@ -79,6 +79,13 @@ REQUIRED_DESIGN_MARKERS = {
     "terms.html": ('id="phase8-tm-document"', 'id="phase8-terms-process"'),
     "barua.html": ('id="phase8-barua"',),
     "404.html": ('id="phase8-404"',),
+
+    # Phase 15 — previously untouched public surfaces.
+    "stories.html": ('id="phase15-stories-editorial"',),
+    "reflections.html": ('id="phase15-reflections-editorial"',),
+    "practical.html": ('id="phase15-practical-dossier"',),
+    "faq.html": ('id="phase15-faq-index"',),
+    "trip.html": ('id="phase15-trip-reader"',),
 }
 
 class PageParser(HTMLParser):
