@@ -251,6 +251,17 @@ def main() -> int:
         if INACTIVE_CONTACT.lower() in text.lower():
             errors.append(f"{page.name}: inactive contact {INACTIVE_CONTACT} has reappeared.")
 
+        legacy_ui_literals = (
+            "ENKIAMA_TIER1_START",
+            "t1-cursor",
+            "new Lenis(",
+        )
+        for literal in legacy_ui_literals:
+            if literal in text:
+                errors.append(
+                    f"{page.name}: retired Tier-1 interaction layer has reappeared ({literal})."
+                )
+
         if page.name not in SHARED_CHROME_EXEMPT:
             chrome_expectations = {
                 "<!-- ENKIAMA_HEADER_START -->": 1,
