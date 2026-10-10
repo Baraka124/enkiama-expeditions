@@ -16,7 +16,6 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_HTML = {
     "admin.html",
-    "notes.html",
 }
 REQUIRED_META_EXEMPT = {
     # Search-engine verification file, not a public page.
@@ -86,6 +85,7 @@ REQUIRED_DESIGN_MARKERS = {
     "practical.html": ('id="phase15-practical-dossier"',),
     "faq.html": ('id="phase15-faq-index"',),
     "trip.html": ('id="phase15-trip-reader"',),
+    "notes.html": ('id="phase15-field-notes"',),
 }
 
 class PageParser(HTMLParser):
