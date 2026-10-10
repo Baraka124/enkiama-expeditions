@@ -270,6 +270,17 @@ a{color:inherit}.fr{font-family:'Fraunces',serif}
 }
 @media(prefers-reduced-motion:reduce){.trip-state__line{animation:none;transform:none}}
 </style>
+<style id="phase19-interaction-focus">
+/* Phase 19 · keyboard focus must be as deliberate as hover. */
+.trip-nav a:focus-visible,
+.trip-state a:focus-visible,
+.related-card:focus-visible,
+.trip-cta a:focus-visible,
+.trip-footer a:focus-visible{
+  outline:1px solid #BE9E68;
+  outline-offset:5px;
+}
+</style>
 </head>
 <body>
 <div class="trip-loading" id="tripLoading"><div class="trip-state"><span class="trip-state__eyebrow">Operated journey</span><p class="fr">Opening the journey…</p><span class="trip-state__line" aria-hidden="true"></span></div></div>
