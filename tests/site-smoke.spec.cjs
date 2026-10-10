@@ -251,16 +251,34 @@ for (const viewport of viewports) {
         }
 
         const menuTrigger = page.locator('#ehTrigger');
+
         if (await menuTrigger.count()) {
+          const body = page.locator('body');
           await menuTrigger.click();
           const overlay = page.locator('#ehOverlay');
           await expect(overlay).toHaveClass(/open/);
           await expect(menuTrigger).toHaveAttribute('aria-expanded', 'true');
+          await expect(body).toHaveClass(/eh-locked/);
 
           const close = page.locator('#ehClose');
           if (await close.count()) {
-            await close.click();
+            await expect(close).toBeFocused();
+
+            // Shift+Tab from the first focusable should wrap to the final focusable.
+            await page.keyboard.press('Shift+Tab');
+            const focusWrapped = await page.evaluate(() => {
+              const ov = document.getElementById('ehOverlay');
+              const focusables = ov ? Array.from(ov.querySelectorAll('a[href],button')) : [];
+              return focusables.length > 0 && document.activeElement === focusables[focusables.length - 1];
+            });
+            expect(focusWrapped, path + ' Index overlay should trap reverse keyboard focus').toBe(true);
+
+            // Escape closes and returns focus to the Index trigger.
+            await page.keyboard.press('Escape');
             await expect(overlay).not.toHaveClass(/open/);
+            await expect(menuTrigger).toHaveAttribute('aria-expanded', 'false');
+            await expect(body).not.toHaveClass(/eh-locked/);
+            await expect(menuTrigger).toBeFocused();
           }
         }
 
