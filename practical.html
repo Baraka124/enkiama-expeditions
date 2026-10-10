@@ -140,8 +140,82 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
+
+<style id="phase15-practical-dossier">
+body[data-page="practical"] .p-hero{
+  max-width:1180px;margin:0 auto;text-align:left;
+  padding:clamp(8rem,11vw,11rem) clamp(1.5rem,5vw,5rem) clamp(4rem,5vw,5rem)
+}
+body[data-page="practical"] .p-title{
+  font-size:clamp(52px,6.8vw,98px);line-height:.98;max-width:10ch;margin-bottom:1.5rem
+}
+body[data-page="practical"] .p-lede{max-width:58ch;margin:0;font-size:clamp(15px,1.2vw,18px);line-height:1.8}
+body[data-page="practical"] .p-body{
+  max-width:1180px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem) clamp(5rem,8vw,8rem);
+  display:grid;grid-template-columns:180px minmax(0,1fr);gap:clamp(2.5rem,7vw,7rem)
+}
+body[data-page="practical"] .p-rail{
+  position:sticky;top:7rem;align-self:start;display:grid;grid-template-columns:30px 1fr;
+  gap:.55rem .75rem;padding-top:2.5rem;border-top:1px solid rgba(190,158,104,.15)
+}
+body[data-page="practical"] .p-rail span{
+  font-size:9px;letter-spacing:.12em;color:rgba(190,158,104,.55);padding-top:.12rem
+}
+body[data-page="practical"] .p-rail a{
+  color:rgba(237,230,214,.64);text-decoration:none;font-size:12px;line-height:1.4
+}
+body[data-page="practical"] .p-rail a:hover{color:var(--earth)}
+body[data-page="practical"] .p-content{min-width:0}
+body[data-page="practical"] .p-item{
+  display:grid;grid-template-columns:minmax(180px,.55fr) minmax(0,1.45fr);
+  gap:clamp(1.5rem,4vw,4rem);padding:clamp(2.6rem,4.5vw,4.5rem) 0;
+  border-color:rgba(190,158,104,.10);scroll-margin-top:7rem
+}
+body[data-page="practical"] .p-item-kicker{
+  grid-column:1;font-variant-caps:all-small-caps;letter-spacing:.18em;font-size:10px;
+  color:var(--earth);padding-top:.35rem
+}
+body[data-page="practical"] .p-q{
+  grid-column:1;font-size:clamp(26px,2.7vw,38px);line-height:1.12;margin:1.35rem 0 0;max-width:11ch
+}
+body[data-page="practical"] .p-a,
+body[data-page="practical"] .p-note{grid-column:2}
+body[data-page="practical"] .p-a{font-size:clamp(15px,1vw,17px);line-height:1.8;max-width:62ch}
+body[data-page="practical"] .p-a + .p-a{margin-top:1rem}
+body[data-page="practical"] .p-note{
+  margin:2.2rem 0 0;background:transparent;border:0;border-top:1px solid rgba(190,158,104,.16);
+  padding:1.5rem 0 0
+}
+body[data-page="practical"] .p-note p{max-width:56ch}
+body[data-page="practical"] .p-handled{
+  max-width:1180px;padding:clamp(4rem,6vw,6rem) clamp(1.5rem,5vw,5rem);
+  display:grid;grid-template-columns:minmax(220px,.58fr) minmax(0,1.42fr);gap:clamp(2rem,7vw,7rem);
+  border-top:1px solid rgba(190,158,104,.12)
+}
+body[data-page="practical"] .p-handled-h{font-size:clamp(30px,3.8vw,52px);line-height:1.05;margin:0}
+body[data-page="practical"] .p-list{gap:0}
+body[data-page="practical"] .p-list li{
+  padding:1rem 0;border-bottom:1px solid rgba(190,158,104,.09)
+}
+body[data-page="practical"] .p-cta{
+  max-width:1180px;text-align:left;padding:clamp(3rem,5vw,5rem) clamp(1.5rem,5vw,5rem) 6rem
+}
+body[data-page="practical"] .p-cta-txt{max-width:34ch;font-style:normal;font-size:clamp(22px,2.8vw,36px)}
+@media(max-width:820px){
+  body[data-page="practical"] .p-title{font-size:clamp(46px,12vw,66px)}
+  body[data-page="practical"] .p-body{grid-template-columns:1fr}
+  body[data-page="practical"] .p-rail{position:static;grid-template-columns:28px 1fr;padding-top:1.5rem}
+  body[data-page="practical"] .p-item{grid-template-columns:1fr;gap:.8rem;padding:2.6rem 0}
+  body[data-page="practical"] .p-item-kicker,
+  body[data-page="practical"] .p-q,
+  body[data-page="practical"] .p-a,
+  body[data-page="practical"] .p-note{grid-column:1}
+  body[data-page="practical"] .p-q{margin:.4rem 0 .8rem;max-width:none}
+  body[data-page="practical"] .p-handled{grid-template-columns:1fr}
+}
+</style>
 </head>
-<body>
+<body data-page="practical">
 <!-- ENKIAMA_HEADER_START -->
 <style>
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
@@ -477,20 +551,22 @@ body.eh-locked{overflow:hidden;}
 
 
 <section class="p-hero">
-  <p class="p-eyebrow">Practical Tanzania</p>
-  <h1 class="p-title">The unglamorous questions,<br><em>answered plainly.</em></h1>
-  <p class="p-lede">Visas, vaccinations, insurance, what to put in a bag. None of it is romantic, and all of it matters. Here is what we know &mdash; and where we would rather you trust a doctor than a travel company.</p>
+  <p class="p-eyebrow">Preparation dossier &nbsp;&middot;&nbsp; Practical Tanzania</p>
+  <h1 class="p-title">What needs to be<br><em>right before departure.</em></h1>
+  <p class="p-lede">Documents, health, insurance, packing and money. This is the operational side of the journey: what changes, what we verify, what remains your responsibility, and what we handle with you.</p>
 </section>
 
-<div class="p-body">
+<div class="p-body"><aside class="p-rail" aria-label="Preparation index"><span>01</span><a href="#p-docs">Documents</a><span>02</span><a href="#p-health">Health</a><span>03</span><a href="#p-cover">Insurance</a><span>04</span><a href="#p-pack">Packing</a><span>05</span><a href="#p-money">Money</a></aside><div class="p-content">
 
-  <div class="p-item reveal">
+  <div class="p-item reveal" id="p-docs">
+    <p class="p-item-kicker">01 · Documents</p>
     <h2 class="p-q">Do I need a visa?</h2>
     <p class="p-a">Visa requirements depend on nationality, passport type and the purpose of travel. Some travellers can apply online in advance and some may be eligible for a visa on arrival, but the correct route is passport-specific and can change.</p>
     <p class="p-a"><strong>What we do:</strong> before travel, we check the current official guidance relevant to your passport and route, and point you to the correct government process. The application itself remains yours to complete.</p>
   </div>
 
-  <div class="p-item reveal">
+  <div class="p-item reveal" id="p-health">
+    <p class="p-item-kicker">02 · Health</p>
     <h2 class="p-q">Yellow fever &mdash; do I need the certificate?</h2>
     <p class="p-a">Yellow-fever requirements depend on where you have travelled from and, in some cases, where you have transited. The answer can therefore change with your flight routing even when the Tanzania itinerary stays the same.</p>
     <p class="p-a"><strong>The practical point:</strong> send us your actual routing. We can flag whether the route creates a certificate question and direct you to the current official health guidance before departure.</p>
@@ -502,19 +578,22 @@ body.eh-locked{overflow:hidden;}
     <p class="p-a"><strong>Where we stop:</strong> this is a medical decision. Speak with a travel-health professional or your own doctor. We provide the route, altitude and season so they can advise you against the actual journey rather than a generic Tanzania itinerary.</p>
   </div>
 
-  <div class="p-item reveal">
+  <div class="p-item reveal" id="p-cover">
+    <p class="p-item-kicker">03 · Insurance</p>
     <h2 class="p-q">Do I need travel insurance?</h2>
     <p class="p-a">We strongly recommend comprehensive travel insurance that includes medical care, cancellation and emergency evacuation appropriate to the places you will visit.</p>
     <p class="p-a"><strong>If you are climbing Kilimanjaro:</strong> check that your policy covers trekking to the altitude you intend to reach. A great many standard policies quietly stop well below the summit, and travellers discover this at the worst possible moment.</p>
   </div>
 
-  <div class="p-item reveal">
+  <div class="p-item reveal" id="p-pack">
+    <p class="p-item-kicker">04 · Packing</p>
     <h2 class="p-q">What should I actually pack?</h2>
     <p class="p-a">Less than you think. Neutral, comfortable layers; a genuinely warm jacket for early mornings and the crater rim, which surprises people; a hat; sunscreen; binoculars if you own them; and any medication you need. Laundry is available on most journeys, which halves what you carry.</p>
     <p class="p-a"><strong>What we send:</strong> a packing note written for <em>your</em> route and season &mdash; not a generic list. What to bring for October in the Serengeti is not what to bring for February on the mountain&rsquo;s slopes.</p>
   </div>
 
-  <div class="p-item reveal">
+  <div class="p-item reveal" id="p-money">
+    <p class="p-item-kicker">05 · Money</p>
     <h2 class="p-q">Money, and the question of tipping</h2>
     <p class="p-a">The Tanzanian shilling is the local currency, and US dollars are widely accepted for larger payments. Cards work in cities and better lodges; cash still matters in smaller places.</p>
     <p class="p-a"><strong>On tipping:</strong> it is customary here, and genuinely appreciated. We will tell you honestly what is normal and what it means to the person receiving it, so you can decide for yourself. One thing we will say plainly: because our guides and crews are <a href="family.html" style="color:var(--earth);text-decoration:none;border-bottom:1px solid rgba(190,158,104,0.3);">paid properly to begin with</a>, a tip should remain a thank-you, not a substitute for fair pay.</p>
@@ -524,7 +603,7 @@ body.eh-locked{overflow:hidden;}
     <p>Rules change and personal circumstances differ. We use this page as orientation only. Before travel, we check the relevant official guidance against your passport, routing and itinerary and ask you to confirm medical matters with a qualified professional.</p>
   </div>
 
-</div>
+</div></div>
 
 <div class="p-handled">
   <h2 class="p-handled-h reveal">What we handle, so you do not have to.</h2>
