@@ -43,7 +43,7 @@ test('Tanzania atlas route blocks are not table rows', async ({ page }) => {
 
   for (const style of styles) {
     expect(parseFloat(style.borderRightWidth)).toBe(0);
-    expect(style.gridTemplateColumns === 'none' || style.gridTemplateColumns === '').toBe(true);
+    expect(style.display).toBe('block');
   }
 });
 
