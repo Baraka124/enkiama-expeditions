@@ -75,6 +75,15 @@
 .route-actions{border-top:1px solid rgba(15,23,18,.10)}
 @media(max-width:820px){.route-spine{grid-template-columns:1fr}.route-spine>div{border-right:0;border-bottom:1px solid var(--rule)}.route-spine>div:last-child{border-bottom:0}.route-aside{position:static}.route-body{grid-template-columns:1fr!important}}
 </style>
+<style id="phase19-interaction-focus">
+/* Phase 19 · visible keyboard focus on the route dossier. */
+.route-nav a:focus-visible,
+.route-action:focus-visible,
+.route-error a:focus-visible{
+  outline:1px solid #BE9E68;
+  outline-offset:5px;
+}
+</style>
 </head>
 <body>
 <main class="route-page" id="routePage" hidden>
