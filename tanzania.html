@@ -463,6 +463,153 @@ body[data-page="tanzania"] .tz-country-field__axis{
   }
 }
 </style>
+<style id="phase23b-tanzania-atlas">
+/* Phase 23B · Tanzania atlas.
+   Replace repeated row/table grammar with a staggered editorial field. */
+
+body[data-page="tanzania"] .tz-atlas{
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  align-items:start;
+  position:relative;
+  overflow:hidden;
+}
+body[data-page="tanzania"] .tz-atlas__copy{
+  grid-column:1/span 5;
+  border-right:0!important;
+  padding:clamp(4.8rem,7vw,7rem) clamp(2rem,5vw,5rem)!important;
+  padding-right:clamp(2rem,4vw,4rem)!important;
+  align-self:start;
+}
+body[data-page="tanzania"] .tz-atlas h2{
+  max-width:8.8ch!important;
+  font-size:clamp(42px,4.2vw,64px)!important;
+  line-height:.96!important;
+  margin:.8rem 0 1.25rem!important;
+  text-wrap:balance;
+}
+body[data-page="tanzania"] .tz-atlas__copy p{
+  max-width:42ch;
+  line-height:1.78!important;
+}
+body[data-page="tanzania"] .tz-atlas__copy:after{
+  content:'';
+  display:block;
+  width:min(180px,46%);
+  height:1px;
+  margin-top:clamp(2rem,4vw,3.5rem);
+  background:linear-gradient(90deg,var(--earth),rgba(190,158,104,0));
+  opacity:.68;
+}
+
+body[data-page="tanzania"] .tz-atlas__routes{
+  grid-column:6/span 7;
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  align-content:start;
+  gap:0 clamp(1.2rem,2.5vw,2.8rem);
+  padding:clamp(4.8rem,7vw,7rem) clamp(2rem,5vw,5rem) clamp(5rem,7vw,7rem) 0;
+}
+body[data-page="tanzania"] .tz-atlas__routes article{
+  display:block!important;
+  min-width:0;
+  padding:1rem 0 1.5rem!important;
+  border:0!important;
+  border-top:1px solid rgba(237,230,214,.16)!important;
+}
+body[data-page="tanzania"] .tz-atlas__routes article:nth-child(1){
+  grid-column:1/span 7;
+  margin-top:0;
+}
+body[data-page="tanzania"] .tz-atlas__routes article:nth-child(2){
+  grid-column:8/span 5;
+  margin-top:clamp(3.25rem,7vw,6.5rem);
+}
+body[data-page="tanzania"] .tz-atlas__routes article:nth-child(3){
+  grid-column:2/span 5;
+  margin-top:clamp(2rem,4.5vw,4rem);
+}
+body[data-page="tanzania"] .tz-atlas__routes article:nth-child(4){
+  grid-column:7/span 6;
+  margin-top:clamp(4.25rem,8vw,7rem);
+}
+body[data-page="tanzania"] .tz-atlas__routes .tz-kicker{
+  display:block;
+  margin-bottom:.8rem;
+}
+body[data-page="tanzania"] .tz-atlas__routes strong{
+  display:block!important;
+  max-width:13ch;
+  margin:0 0 .8rem!important;
+  font-size:clamp(23px,2.25vw,32px)!important;
+  line-height:1.08!important;
+  text-wrap:balance;
+}
+body[data-page="tanzania"] .tz-atlas__routes article:nth-child(1) strong{
+  max-width:11ch;
+  font-size:clamp(27px,2.8vw,38px)!important;
+}
+body[data-page="tanzania"] .tz-atlas__routes p{
+  max-width:39ch!important;
+  margin:0;
+  line-height:1.72!important;
+}
+
+@media(max-width:1050px){
+  body[data-page="tanzania"] .tz-atlas__copy{
+    grid-column:1/span 5;
+  }
+  body[data-page="tanzania"] .tz-atlas__routes{
+    grid-column:6/span 7;
+  }
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(1){grid-column:1/span 8}
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(2){grid-column:8/span 5}
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(3){grid-column:1/span 6}
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(4){grid-column:7/span 6}
+}
+@media(max-width:900px){
+  body[data-page="tanzania"] .tz-atlas{
+    grid-template-columns:1fr!important;
+  }
+  body[data-page="tanzania"] .tz-atlas__copy,
+  body[data-page="tanzania"] .tz-atlas__routes{
+    grid-column:1!important;
+  }
+  body[data-page="tanzania"] .tz-atlas__copy{
+    padding-bottom:clamp(2.8rem,5vw,4rem)!important;
+    border-bottom:1px solid rgba(237,230,214,.12)!important;
+  }
+  body[data-page="tanzania"] .tz-atlas__routes{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:clamp(1.8rem,4vw,3rem)!important;
+    padding:clamp(3rem,5vw,4.5rem) clamp(2rem,5vw,4rem) clamp(4.5rem,7vw,6rem)!important;
+  }
+  body[data-page="tanzania"] .tz-atlas__routes article,
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(1),
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(2),
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(3),
+  body[data-page="tanzania"] .tz-atlas__routes article:nth-child(4){
+    grid-column:auto!important;
+    margin-top:0!important;
+  }
+}
+@media(max-width:620px){
+  body[data-page="tanzania"] .tz-atlas__copy{
+    padding:4rem 1.4rem 2.8rem!important;
+  }
+  body[data-page="tanzania"] .tz-atlas h2{
+    font-size:clamp(40px,12vw,56px)!important;
+    max-width:9ch!important;
+  }
+  body[data-page="tanzania"] .tz-atlas__routes{
+    grid-template-columns:1fr!important;
+    padding:2.5rem 1.4rem 4rem!important;
+    gap:1.2rem!important;
+  }
+  body[data-page="tanzania"] .tz-atlas__routes article{
+    padding:1rem 0 1.25rem!important;
+  }
+}
+</style>
 </head>
 <body data-page="tanzania">
 <!-- ENKIAMA_HEADER_START -->
