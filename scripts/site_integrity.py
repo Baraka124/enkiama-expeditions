@@ -39,6 +39,8 @@ SHARED_CHROME_EXEMPT = {
 REQUIRED_DESIGN_MARKERS = {
     # Phase 1/2 — homepage media hierarchy.
     "index.html": ('id="phase1-media-karibu"', 'id="phase2-home-media-hierarchy"'),
+    "parks.html": ('id="phase1-parks-editorial"',),
+    "companions.html": ('id="companions-editorial-recomposition"',),
 
     # Phase 3 — Journeys editorial/media rollout.
     "journeys.html": ('id="phase3-journeys-media-standard"',),
