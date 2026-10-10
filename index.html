@@ -654,6 +654,149 @@ body[data-page="home"] .ev-launch.ev-hidden{
   }
 }
 </style>
+<style id="phase22b-home-rhythm-continuity">
+/* Phase 22B · Home rhythm and continuity.
+   Remove duplicated spacing layers and reserved blank paint areas without
+   changing the information architecture or the approved hero/media language. */
+
+body[data-page="home"] .lp-archive,
+body[data-page="home"] .lp-proof,
+body[data-page="home"] .lp-stays,
+body[data-page="home"] .lp-people,
+body[data-page="home"] .lp-compose{
+  content-visibility:visible!important;
+  contain-intrinsic-size:auto!important;
+}
+
+/* Route → proof: keep the end of the route close enough that the next chapter
+   reads as continuation rather than a separate page. */
+body[data-page="home"] .lp-archive{
+  padding-top:clamp(4rem,6vw,6rem)!important;
+  padding-bottom:clamp(3.25rem,5vw,4.5rem)!important;
+}
+body[data-page="home"] .lp-section-head{
+  margin-bottom:clamp(2.7rem,4vw,3.8rem)!important;
+}
+body[data-page="home"] .lp-journey-stack{
+  padding-bottom:clamp(2.6rem,4vw,4rem)!important;
+}
+body[data-page="home"] .lp-journey-decisions{
+  margin-top:0!important;
+}
+
+/* Proof: one deliberate interval from heading to evidence, not two stacked gaps. */
+body[data-page="home"] .lp-proof{
+  padding-top:clamp(4.75rem,7vw,6.5rem)!important;
+  padding-bottom:clamp(4rem,6vw,5.5rem)!important;
+  background:
+    linear-gradient(180deg,rgba(241,237,226,.78) 0,rgba(236,229,214,.96) 72px,var(--lp-bone) 150px)!important;
+}
+body[data-page="home"] .lp-proof-head{
+  margin-bottom:clamp(2.2rem,3.4vw,3.2rem)!important;
+}
+body[data-page="home"] .lp-proof-system{
+  margin-top:0!important;
+  padding-bottom:0!important;
+}
+
+/* Stays: preserve the lodge as the dominant image while removing the second
+   oversized pause before and after it. */
+body[data-page="home"] .lp-stays{
+  padding-top:clamp(4.6rem,6.8vw,6.25rem)!important;
+  padding-bottom:clamp(4rem,6vw,5.5rem)!important;
+  background:
+    linear-gradient(180deg,var(--lp-bone) 0,var(--lp-white) 76px,var(--lp-white) 100%)!important;
+}
+body[data-page="home"] .lp-stays-head{
+  margin-bottom:clamp(2.25rem,3.5vw,3.25rem)!important;
+}
+body[data-page="home"] .lp-stay-stage{
+  margin-top:0!important;
+}
+
+/* People: the human imagery should arrive close to the proposition rather than
+   after a near-empty viewport. */
+body[data-page="home"] .lp-people{
+  padding-top:clamp(4.6rem,6.8vw,6.25rem)!important;
+  padding-bottom:clamp(4rem,6vw,5.5rem)!important;
+  background:
+    linear-gradient(180deg,var(--lp-white) 0,var(--lp-paper) 76px,var(--lp-paper) 100%)!important;
+}
+body[data-page="home"] .lp-people-head{
+  margin-bottom:clamp(2.2rem,3.4vw,3.2rem)!important;
+}
+body[data-page="home"] .lp-network-stage{
+  padding-bottom:0!important;
+  margin-top:0!important;
+}
+
+/* Keep the later utility chapters from re-expanding after the tighter narrative
+   sequence above. */
+body[data-page="home"] .lp-compose{
+  padding-top:clamp(4.5rem,6.5vw,6rem)!important;
+  padding-bottom:clamp(4.5rem,6.5vw,6rem)!important;
+}
+body[data-page="home"] .lp-compose-top,
+body[data-page="home"] .lp-practical-head{
+  margin-bottom:clamp(2.4rem,3.6vw,3.4rem)!important;
+}
+body[data-page="home"] .lp-practical{
+  padding-top:clamp(4.4rem,6vw,5.75rem)!important;
+  padding-bottom:clamp(4.4rem,6vw,5.75rem)!important;
+}
+
+/* A hairline tonal seam is enough; avoid a decorative divider/card edge. */
+body[data-page="home"] .lp-proof::before,
+body[data-page="home"] .lp-stays::before,
+body[data-page="home"] .lp-people::before{
+  content:'';
+  position:absolute;
+  top:0;left:clamp(1.35rem,5vw,5rem);right:clamp(1.35rem,5vw,5rem);
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(85,107,68,.18),transparent);
+  pointer-events:none;
+}
+
+@media(max-width:900px){
+  body[data-page="home"] .lp-archive,
+  body[data-page="home"] .lp-proof,
+  body[data-page="home"] .lp-stays,
+  body[data-page="home"] .lp-people{
+    padding-top:4.25rem!important;
+    padding-bottom:3.75rem!important;
+  }
+  body[data-page="home"] .lp-section-head,
+  body[data-page="home"] .lp-proof-head,
+  body[data-page="home"] .lp-stays-head,
+  body[data-page="home"] .lp-people-head{
+    margin-bottom:2.4rem!important;
+  }
+  body[data-page="home"] .lp-journey-stack{
+    padding-bottom:2.5rem!important;
+  }
+}
+@media(max-width:620px){
+  body[data-page="home"] .lp-archive,
+  body[data-page="home"] .lp-proof,
+  body[data-page="home"] .lp-stays,
+  body[data-page="home"] .lp-people{
+    padding-top:3.7rem!important;
+    padding-bottom:3.35rem!important;
+  }
+  body[data-page="home"] .lp-proof,
+  body[data-page="home"] .lp-stays,
+  body[data-page="home"] .lp-people{
+    background-size:100% 42px!important;
+    background-repeat:no-repeat!important;
+  }
+  body[data-page="home"] .lp-section-head,
+  body[data-page="home"] .lp-proof-head,
+  body[data-page="home"] .lp-stays-head,
+  body[data-page="home"] .lp-people-head{
+    margin-bottom:2rem!important;
+  }
+}
+</style>
 </head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
