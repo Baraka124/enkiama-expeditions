@@ -252,7 +252,12 @@ for (const viewport of viewports) {
             await page.keyboard.press('Shift+Tab');
             const focusWrapped = await page.evaluate(() => {
               const ov = document.getElementById('ehOverlay');
-              const focusables = ov ? Array.from(ov.querySelectorAll('a[href],button')) : [];
+              const focusables = ov ? Array.from(ov.querySelectorAll('a[href],button')).filter(el =>
+                el.tabIndex >= 0 &&
+                el.offsetParent !== null &&
+                !el.hasAttribute('disabled') &&
+                el.getAttribute('aria-hidden') !== 'true'
+              ) : [];
               return focusables.length > 0 && document.activeElement === focusables[focusables.length - 1];
             });
             expect(focusWrapped, path + ' Index overlay should trap reverse keyboard focus').toBe(true);
