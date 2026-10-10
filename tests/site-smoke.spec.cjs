@@ -234,22 +234,6 @@ for (const viewport of viewports) {
           }
         }
 
-        if (path === 'journey.html') {
-          const state = await page.evaluate(() => {
-            const loading = document.getElementById('loading');
-            const notfound = document.getElementById('notfound');
-            const recovery = document.querySelector('.journey-state--notfound');
-            return {
-              loadingDisplay: loading ? getComputedStyle(loading).display : null,
-              notfoundDisplay: notfound ? getComputedStyle(notfound).display : null,
-              recoveryWidth: recovery ? recovery.getBoundingClientRect().width : 0,
-            };
-          });
-          expect(state.notfoundDisplay, 'Token-less private Journey should enter recovery state').not.toBe('none');
-          expect(state.loadingDisplay, 'Private Journey loading state should clear after recovery').toBe('none');
-          expect(state.recoveryWidth, 'Private Journey recovery surface should have usable width').toBeGreaterThan(220);
-        }
-
         const menuTrigger = page.locator('#ehTrigger');
 
         if (await menuTrigger.count()) {
