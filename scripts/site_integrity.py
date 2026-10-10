@@ -69,12 +69,12 @@ REQUIRED_DESIGN_MARKERS = {
 
     # Phase 7 — client-facing dossier interfaces.
     "experience-view.html": ('id="phase7-experience-view"',),
-    "journey.html": ('id="phase7-private-journey"',),
+    "journey.html": ('id="phase7-private-journey"', 'class="journey-state journey-state--loading"', 'class="journey-state journey-state--notfound"'),
     "kilimanjaro-route.html": ('id="phase7-route-dossier"',),
     "kilimanjaro-expedition.html": ('id="phase7-expedition-dossier"',),
 
     # Conversion and Phase 8 utility treatments.
-    "begin.html": ('id="begin-conversion-v2"',),
+    "begin.html": ('id="begin-conversion-v2"', 'class="lf-thanks lf-thanks--editorial"'),
     "compose.html": ('id="compose-conversion-v2"', 'id="compose-conversion-v3"'),
     "privacy.html": ('id="phase8-pv-document"',),
     "terms.html": ('id="phase8-tm-document"', 'id="phase8-terms-process"'),
