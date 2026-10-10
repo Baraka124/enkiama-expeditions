@@ -430,7 +430,7 @@ body.eh-locked{overflow:hidden;}
   var bar=document.getElementById('ehBar'),trg=document.getElementById('ehTrigger'),ov=document.getElementById('ehOverlay'),cl=document.getElementById('ehClose'),photo=document.getElementById('ehAsidePhoto');
   if(!bar||!trg||!ov) return;
   var lastFocus=null;
-  function focusables(){return ov.querySelectorAll('a[href],button');}
+  function focusables(){return [].slice.call(ov.querySelectorAll('a[href],button')).filter(function(el){return el.tabIndex>=0&&el.offsetParent!==null&&!el.hasAttribute('disabled')&&el.getAttribute('aria-hidden')!=='true';});}
   function open(){
     ov.classList.add('open');document.body.classList.add('eh-locked');trg.setAttribute('aria-expanded','true');
     lastFocus=document.activeElement;
