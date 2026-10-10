@@ -651,6 +651,102 @@ a,button,.cmp-opt,.world-row{cursor:pointer;}
 <link rel="alternate" hreflang="es" href="https://enkiama.com/notes.html">
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/notes.html">
 <!-- ── end structured data ── -->
+
+<style id="phase15-field-notes">
+/* Phase 15 · Field Notes is Enkiama's dispatch journal, distinct from Stories and Letters. */
+body[data-page="notes"] .ph{
+  min-height:64svh;display:flex;align-items:flex-end;margin-top:0;
+  padding:clamp(8rem,10vw,10rem) clamp(1.5rem,6vw,6rem) clamp(3.5rem,5vw,5rem);
+  background:linear-gradient(180deg,#101813 0%,#0f1712 100%)
+}
+body[data-page="notes"] .ph-inner{max-width:1100px}
+body[data-page="notes"] .ph-hed{
+  font-size:clamp(58px,7.2vw,110px);line-height:.94;font-weight:400;
+  max-width:8ch;margin:1.2rem 0 1.5rem
+}
+body[data-page="notes"] .ph-sub{
+  max-width:58ch;font-family:'Instrument Sans',sans-serif;font-style:normal;
+  font-size:clamp(15px,1.2vw,18px);line-height:1.8;color:rgba(237,230,214,.70)
+}
+body[data-page="notes"] .featured{
+  max-width:1600px;margin:0 auto;border:0;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  min-height:78svh
+}
+body[data-page="notes"] .fd-film{min-height:78svh}
+body[data-page="notes"] .fd-txt{
+  padding:clamp(4rem,7vw,7rem);justify-content:flex-end;border-left:1px solid rgba(190,158,104,.10)
+}
+body[data-page="notes"] .fd-hed{
+  font-size:clamp(40px,4.7vw,70px);font-weight:400;line-height:.98;max-width:10ch
+}
+body[data-page="notes"] .fd-body{max-width:50ch;line-height:1.9}
+body[data-page="notes"] .dispatches{
+  display:block;max-width:1600px;margin:0 auto;border-top:1px solid rgba(190,158,104,.10)
+}
+body[data-page="notes"] .dc{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  min-height:620px;border:0;border-bottom:1px solid rgba(190,158,104,.10)
+}
+body[data-page="notes"] .dc:nth-child(even) .dc-film{order:2}
+body[data-page="notes"] .dc:nth-child(even) .dc-body{order:1}
+body[data-page="notes"] .dc-film{height:auto;min-height:620px}
+body[data-page="notes"] .dc-film .ph-frame,
+body[data-page="notes"] .dc-film .ph-frame img{width:100%;height:100%}
+body[data-page="notes"] .dc-film .ph-frame img{object-fit:cover}
+body[data-page="notes"] .dc-body{
+  padding:clamp(3.5rem,6vw,6rem);justify-content:center
+}
+body[data-page="notes"] .dc-hed{
+  font-size:clamp(32px,3.6vw,52px);font-weight:400;line-height:1.02;max-width:11ch
+}
+body[data-page="notes"] .dc-lede{
+  font-size:clamp(17px,1.5vw,22px);line-height:1.6;max-width:36ch
+}
+body[data-page="notes"] .dc-rule{width:40px}
+body[data-page="notes"] .dc .dim{max-width:52ch;font-size:14.5px;line-height:1.9}
+.notes-thesis{
+  min-height:58svh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:clamp(5rem,8vw,8rem) clamp(1.5rem,7vw,7rem);
+  border-bottom:1px solid rgba(190,158,104,.10);background:#131c16
+}
+.notes-thesis__ghost{
+  position:absolute;right:-.04em;bottom:-.16em;font-family:'Fraunces',serif;
+  font-size:clamp(110px,18vw,290px);font-style:italic;line-height:.8;
+  color:rgba(237,230,214,.018);pointer-events:none
+}
+.notes-thesis__quote{position:relative;z-index:2;max-width:820px}
+.notes-thesis__quote p{
+  font-family:'Fraunces',serif;font-size:clamp(31px,4.2vw,60px);font-weight:400;
+  line-height:1.04;letter-spacing:-.025em;color:rgba(237,230,214,.86)
+}
+body[data-page="notes"] .dispatch-full{
+  max-width:1600px;margin:0 auto;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  border-top:0
+}
+body[data-page="notes"] .df-txt{padding:clamp(4rem,7vw,7rem);border-right:1px solid rgba(190,158,104,.10)}
+body[data-page="notes"] .df-hed{font-size:clamp(34px,4vw,58px);font-weight:400;line-height:1.02}
+body[data-page="notes"] .cta-strip{
+  grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr);
+  border-top:1px solid rgba(190,158,104,.10)
+}
+@media(max-width:860px){
+  body[data-page="notes"] .ph{min-height:58svh;padding-top:7rem}
+  body[data-page="notes"] .ph-hed{font-size:clamp(48px,13vw,72px)}
+  body[data-page="notes"] .featured{grid-template-columns:1fr;min-height:0}
+  body[data-page="notes"] .fd-film{min-height:58svh}
+  body[data-page="notes"] .fd-txt{border-left:0;padding:3.5rem 1.5rem 4.5rem}
+  body[data-page="notes"] .dc{grid-template-columns:1fr;min-height:0}
+  body[data-page="notes"] .dc:nth-child(even) .dc-film,
+  body[data-page="notes"] .dc:nth-child(even) .dc-body{order:initial}
+  body[data-page="notes"] .dc-film{min-height:55svh}
+  body[data-page="notes"] .dc-body{padding:3rem 1.5rem 4rem}
+  body[data-page="notes"] .dispatch-full{grid-template-columns:1fr}
+  body[data-page="notes"] .df-txt{border-right:0;padding:4rem 1.5rem}
+  body[data-page="notes"] .df-film{min-height:58svh}
+  body[data-page="notes"] .cta-strip{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body data-page="notes">
 <!-- ENKIAMA_HEADER_START -->
@@ -995,9 +1091,9 @@ body.eh-locked{overflow:hidden;}
 <section id="main" class="ph">
   <div class="ph-ghost">mazungumzo</div>
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.5rem;">From the field &nbsp;&middot;&nbsp; Dispatches &nbsp;&middot;&nbsp; Specific moments</p>
+    <p class="eye" style="margin-bottom:2.5rem;">Field journal &nbsp;&middot;&nbsp; Dispatches from Tanzania</p>
     <h1 class="ph-hed reveal">Field<br><em>notes.</em></h1>
-    <p class="ph-sub reveal">Not reviews. Not highlights. Specific things that happened: written close to the moment so the detail doesn&rsquo;t flatten into impression. The kind of thing that requires the right introduction to arrive at. Which is what the whole enterprise is for.</p>
+    <p class="ph-sub reveal">Short dispatches from specific places and specific days: what was noticed, what changed the reading of a place, and what was worth writing down before the detail disappeared.</p>
   </div>
 </section>
 
@@ -1119,10 +1215,10 @@ body.eh-locked{overflow:hidden;}
 
 
 <!-- EDITORIAL STATEMENT -->
-<section style="padding:10rem 3rem;border-top:1px solid rgba(190,158,104,0.11);border-bottom:1px solid rgba(190,158,104,0.11);position:relative;overflow:hidden;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(110px,19vw,290px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(190,158,104,0.028);pointer-events:none;user-select:none;white-space:nowrap;letter-spacing:-0.03em;">arrive</div>
-  <blockquote style="position:relative;z-index:2;max-width:860px;">
-    <p style="font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-size:clamp(28px,4.8vw,62px);font-weight:700;line-height:0.97;letter-spacing:-0.025em;color:rgba(237,230,214,0.85);" class="reveal">The person who knows this specific grove<br>is the person who was born near it.<br>We find that person.<br><em style="font-style:italic;color:#556B44;">Every time.</em></p>
+<section class="notes-thesis">
+  <div class="notes-thesis__ghost" aria-hidden="true">notice</div>
+  <blockquote class="notes-thesis__quote">
+    <p class="reveal">A field note is useful when it records something more specific than “beautiful”: a sound, a pause, a person, a decision, a change in light.</p>
   </blockquote>
 </section>
 
