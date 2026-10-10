@@ -1018,7 +1018,121 @@ body[data-page="home"] .lp-brief-sheet-foot{
   }
 }
 </style>
-</head>
+<style id="hotfix-karibu-reading-field">
+/* Blocking visual regression fix:
+   this photograph has no safe negative-space zone for naked overlay copy.
+   Restore the Enkiama continuity rule: attached editorial field -> controlled bleed -> image. */
+body[data-page="home"] .lp-welcome-stack{
+  display:grid!important;
+  grid-template-columns:minmax(330px,.72fr) minmax(0,1.28fr)!important;
+  min-height:clamp(620px,76svh,860px)!important;
+  overflow:hidden!important;
+  background:#e8dfcc!important;
+  isolation:isolate;
+}
+body[data-page="home"] .lp-welcome-photo{
+  position:relative!important;
+  inset:auto!important;
+  grid-column:2!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:inherit!important;
+}
+body[data-page="home"] .lp-welcome-photo img{
+  object-position:58% 48%!important;
+}
+body[data-page="home"] .lp-welcome-photo::before{
+  content:'';
+  display:block!important;
+  position:absolute;
+  z-index:3;
+  inset:0 auto 0 0;
+  width:clamp(96px,11vw,180px);
+  background:linear-gradient(90deg,#e8dfcc 0%,rgba(232,223,204,.92) 24%,rgba(232,223,204,.58) 58%,rgba(232,223,204,0) 100%);
+  pointer-events:none;
+}
+body[data-page="home"] .lp-welcome-photo::after{
+  content:'';
+  display:block!important;
+  position:absolute;
+  z-index:2;
+  inset:0;
+  background:linear-gradient(90deg,rgba(10,16,12,.08) 0%,rgba(10,16,12,.02) 30%,rgba(10,16,12,.06) 100%)!important;
+  pointer-events:none;
+}
+body[data-page="home"] .lp-welcome-plate{
+  position:relative!important;
+  inset:auto!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  align-self:stretch!important;
+  transform:none!important;
+  width:auto!important;
+  margin:0!important;
+  padding:clamp(3rem,5vw,5.5rem) clamp(2rem,4vw,4.5rem)!important;
+  background:#e8dfcc!important;
+  color:#152019!important;
+  border:0!important;
+  z-index:5!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+body[data-page="home"] .lp-welcome-plate .lp-kicker{
+  color:#715d3a!important;
+  margin-bottom:1rem!important;
+}
+body[data-page="home"] .lp-welcome-plate h3{
+  color:#152019!important;
+  font-size:clamp(42px,4.6vw,68px)!important;
+  line-height:.96!important;
+  max-width:8ch!important;
+  margin:0 0 1.4rem!important;
+  text-wrap:balance;
+}
+body[data-page="home"] .lp-welcome-plate>.em-sequence{
+  border-top:1px solid rgba(21,32,25,.14)!important;
+}
+body[data-page="home"] .em-sequence__row{
+  border-color:rgba(21,32,25,.12)!important;
+}
+body[data-page="home"] .em-sequence__body strong{color:#152019!important}
+body[data-page="home"] .em-sequence__body p{color:rgba(21,32,25,.70)!important}
+body[data-page="home"] .em-sequence__n{color:#715d3a!important}
+
+@media(max-width:900px){
+  body[data-page="home"] .lp-welcome-stack{
+    grid-template-columns:1fr!important;
+    min-height:0!important;
+  }
+  body[data-page="home"] .lp-welcome-photo{
+    grid-column:1!important;
+    grid-row:1!important;
+    min-height:54svh!important;
+  }
+  body[data-page="home"] .lp-welcome-photo::before{
+    inset:auto 0 0 0;
+    width:auto;
+    height:clamp(90px,14vw,150px);
+    background:linear-gradient(180deg,rgba(232,223,204,0) 0%,rgba(232,223,204,.58) 48%,#e8dfcc 100%);
+  }
+  body[data-page="home"] .lp-welcome-plate{
+    grid-column:1!important;
+    grid-row:2!important;
+    padding:clamp(2.8rem,6vw,4rem) clamp(1.4rem,5vw,3rem) clamp(3.5rem,7vw,5rem)!important;
+  }
+}
+@media(max-width:640px){
+  body[data-page="home"] .lp-welcome-photo{
+    min-height:48svh!important;
+  }
+  body[data-page="home"] .lp-welcome-plate h3{
+    font-size:clamp(40px,11vw,56px)!important;
+    max-width:9ch!important;
+  }
+}
+</style></head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
 <div class="eh-bar" id="ehBar">
