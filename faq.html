@@ -472,6 +472,53 @@ nav.scrolled::before{ opacity:.035; }
 <link rel="alternate" hreflang="es" href="https://enkiama.com/parks.html">
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/parks.html">
 <!-- ── end structured data ── -->
+
+<style id="phase15-faq-index">
+body[data-page="faq"] .ph{
+  min-height:62svh;display:flex;align-items:flex-end;margin-top:0;
+  padding:clamp(8rem,10vw,10rem) clamp(1.5rem,6vw,6rem) clamp(3.5rem,5vw,5rem);
+  background:linear-gradient(180deg,#101813 0%,#0f1712 100%)
+}
+body[data-page="faq"] .ph-inner{max-width:1100px}
+body[data-page="faq"] .ph-hed{
+  font-size:clamp(52px,6.8vw,100px);line-height:.96;font-weight:400;
+  max-width:10ch;margin:1.2rem 0 1.4rem
+}
+body[data-page="faq"] .ph-sub{
+  max-width:58ch;font-family:'Instrument Sans',sans-serif;font-style:normal;
+  font-size:clamp(15px,1.2vw,18px);line-height:1.8
+}
+body[data-page="faq"] .faq-index{padding:0;border-top:1px solid rgba(190,158,104,.10)}
+body[data-page="faq"] .faq-list{max-width:1200px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
+body[data-page="faq"] .faq-item{
+  display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:clamp(2rem,6vw,6rem);padding:clamp(2rem,3.4vw,3.4rem) 0;
+  border-color:rgba(190,158,104,.10)
+}
+body[data-page="faq"] .faq-item:first-child{border-top:0}
+body[data-page="faq"] .faq-q{
+  margin:0;font-size:clamp(22px,2.2vw,32px);line-height:1.16;font-weight:400;max-width:16ch
+}
+body[data-page="faq"] .faq-a{
+  font-size:clamp(15px,1vw,17px);line-height:1.78;max-width:64ch;color:rgba(237,230,214,.72)
+}
+body[data-page="faq"] .faq-close{
+  text-align:left;padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);
+  border-top:1px solid rgba(190,158,104,.12);background:#131c16
+}
+body[data-page="faq"] .faq-close .ph-inner{max-width:900px;margin:0}
+body[data-page="faq"] .faq-close .ph-hed{
+  font-size:clamp(34px,4.6vw,62px);line-height:1.02;max-width:11ch;margin:0 0 1.5rem
+}
+body[data-page="faq"] .faq-close .ph-sub{margin:0 0 2.2rem;max-width:54ch}
+body[data-page="faq"] .faq-close .hero-acts{justify-content:flex-start}
+@media(max-width:800px){
+  body[data-page="faq"] .ph{min-height:58svh;padding-top:7rem}
+  body[data-page="faq"] .ph-hed{font-size:clamp(46px,12vw,68px)}
+  body[data-page="faq"] .faq-item{grid-template-columns:1fr;gap:.9rem;padding:2.3rem 0}
+  body[data-page="faq"] .faq-q{max-width:none}
+}
+</style>
 </head>
 <body data-page="faq">
 <!-- ENKIAMA_HEADER_START -->
@@ -817,14 +864,14 @@ body.eh-locked{overflow:hidden;}
 <section id="main" class="ph">
   <div class="ph-ghost">maswali</div>
   <div class="ph-inner">
-    <p class="eye" style="margin-bottom:2.5rem;">Before you begin &nbsp;&middot;&nbsp; The real questions</p>
-    <h1 class="ph-hed reveal">Questions,<br>answered <em>honestly.</em></h1>
-    <p class="ph-sub reveal">The things people actually want to know before a Tanzania safari: when to come, what it costs, whether it is safe, how the migration works. Straight answers, the way we would give them in conversation.</p>
+    <p class="eye" style="margin-bottom:2.5rem;">Quick answers &nbsp;&middot;&nbsp; Safari FAQ</p>
+    <h1 class="ph-hed reveal">The questions<br><em>people ask first.</em></h1>
+    <p class="ph-sub reveal">A scan-first guide to timing, cost, safety, children, Kilimanjaro and shared journeys. For visas, health, insurance and packing, use Practical Tanzania.</p>
   </div>
 </section>
 
-<section class="worlds" style="padding:3rem 0 7rem;">
-  <div style="max-width:820px;margin:0 auto;padding:0 clamp(1.5rem,4vw,2rem);">
+<section class="worlds faq-index">
+  <div class="faq-list">
     <div class="faq-item reveal">
       <h2 class="faq-q">When is the best time to go on a Tanzania safari?</h2>
       <p class="faq-a">Tanzania is rewarding year-round. The dry season, June to October, offers the easiest game viewing and the famous Serengeti river crossings. The green season, December to March, brings the wildebeest calving, fewer crowds, and lush landscapes. There is no bad time, only different gifts.</p>
@@ -872,12 +919,12 @@ body.eh-locked{overflow:hidden;}
   </div>
 </section>
 
-<section class="thesis" style="padding:5rem 0 8rem;text-align:center;">
-  <div class="ph-inner" style="max-width:680px;margin:0 auto;">
+<section class="thesis faq-close">
+  <div class="ph-inner">
     <p class="eye" style="margin-bottom:2rem;">Still wondering</p>
-    <h2 class="ph-hed reveal" style="font-size:clamp(1.8rem,4.5vw,3rem);">Ask us anything<br>the page didn&rsquo;t <em>answer.</em></h2>
-    <p class="ph-sub reveal" style="margin:2rem auto 2.5rem;">The best answers come in conversation, shaped to your journey. Tell us what you are wondering and we will answer it directly, in English or Spanish.</p>
-    <div class="hero-acts" style="justify-content:center;">
+    <h2 class="ph-hed reveal">Ask the question<br>that is <em>specific to you.</em></h2>
+    <p class="ph-sub reveal">The best answers come in conversation, shaped to your journey. Tell us what you are wondering and we will answer it directly, in English or Spanish.</p>
+    <div class="hero-acts">
       <a href="begin.html" class="btn-primary">Begin the conversation</a>
       <a href="parks.html" class="btn-ghost">See the wild &rarr;</a>
     </div>
