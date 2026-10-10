@@ -9,6 +9,13 @@ const pages = [
   // representative destination families
   'serengeti.html',
   'ngorongoro.html',
+  'tarangire.html',
+  'arusha.html',
+  'great-rift.html',
+  'manyara.html',
+  'ruaha.html',
+  'nyerere.html',
+  'mahale.html',
   'kilimanjaro.html',
   'zanzibar.html',
   'stonetown.html',
@@ -44,6 +51,7 @@ const pages = [
 
 const viewports = [
   { name: 'mobile-390', width: 390, height: 844 },
+  { name: 'mobile-640', width: 640, height: 900 },
   { name: 'tablet-768', width: 768, height: 1024 },
   { name: 'laptop-1366', width: 1366, height: 900 },
 ];
