@@ -863,6 +863,186 @@ nav.scrolled::before{ opacity:.035; }
 }
 </style>
 
+
+<style id="phase21-begin-conversation-architecture">
+/* Phase 21 · Begin is a conversation desk, not a form card.
+   The dark green field deliberately bleeds into photography so the
+   contact surface belongs to the same visual language as the journeys. */
+.begin-conversion .ph-begin-cue{
+  display:inline-flex;align-items:center;gap:.8rem;margin-top:clamp(1.8rem,3vw,2.6rem);
+  color:var(--bone);text-decoration:none;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  border-bottom:1px solid rgba(190,158,104,.42);padding-bottom:.45rem;
+  transition:color .3s ease,border-color .3s ease,gap .35s cubic-bezier(.16,1,.3,1);
+}
+.begin-conversion .ph-begin-cue:hover{color:var(--earth);border-color:var(--earth);gap:1.05rem}
+
+.begin-conversion .leadform{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:clamp(700px,82svh,880px);
+  border-top:0!important;border-bottom:1px solid rgba(190,158,104,.12);
+  background:#17251d;
+}
+.begin-conversion .leadform::before{
+  content:'';position:absolute;z-index:-2;inset:0 0 0 34%;
+  background:url('assets/images/camp-arrival.jpg') 66% 50%/cover no-repeat;
+  filter:saturate(.82) contrast(.94) brightness(.72);
+  transform:scale(1.015);
+}
+.begin-conversion .leadform::after{
+  content:'';position:absolute;z-index:-1;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,#17251d 0%,#17251d 27%,rgba(23,37,29,.97) 43%,rgba(18,30,23,.86) 62%,rgba(12,20,15,.36) 100%),
+    linear-gradient(180deg,rgba(10,17,13,.08),rgba(10,17,13,.26));
+}
+.begin-conversion .leadform-shell{
+  position:relative;z-index:2;
+  display:grid!important;grid-template-columns:minmax(280px,.72fr) minmax(460px,1.28fr)!important;
+  align-items:center!important;gap:clamp(3rem,7vw,8rem)!important;
+  width:min(1520px,100%);max-width:none!important;min-height:inherit;
+  margin:0 auto!important;padding:clamp(5rem,8vw,8rem) clamp(2rem,6vw,7rem)!important;
+}
+.begin-conversion .leadform-intro{
+  position:static!important;align-self:center!important;max-width:470px;
+  padding:clamp(1rem,2vw,2rem) 0;
+}
+.begin-conversion .leadform-intro .eye{margin-bottom:1.6rem!important}
+.begin-conversion .leadform-title{
+  max-width:7.8ch!important;
+  font-size:clamp(48px,5.8vw,82px)!important;line-height:.92!important;
+  letter-spacing:-.045em!important;font-weight:320!important;
+}
+.begin-conversion .leadform-copy{
+  max-width:34ch!important;margin-top:2rem!important;
+  font-size:15px!important;line-height:1.75!important;color:rgba(237,230,214,.77)!important;
+}
+.begin-conversion .leadform-trust{
+  max-width:42ch;margin-top:2.2rem!important;padding-top:1.2rem!important;
+  border-top:1px solid rgba(190,158,104,.18)!important;
+  color:rgba(237,230,214,.55)!important;letter-spacing:.015em;
+}
+
+.begin-conversion .leadform-form{
+  position:relative;align-self:center!important;
+  padding:clamp(2.4rem,4.5vw,5rem)!important;
+  background:linear-gradient(120deg,rgba(11,19,14,.78),rgba(18,31,23,.48) 62%,rgba(18,31,23,.22))!important;
+  border:0!important;border-left:1px solid rgba(190,158,104,.22)!important;
+  box-shadow:none!important;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+}
+.begin-conversion .leadform-form::before{
+  content:'A note is enough';display:block;margin-bottom:2.2rem;
+  font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--earth);
+}
+.begin-conversion .lf-grid{gap:0!important}
+.begin-conversion .lf-row{gap:clamp(1.6rem,3vw,3rem)!important}
+.begin-conversion .lf-field{
+  position:relative!important;padding-top:1.55rem!important;
+  border-bottom:1px solid rgba(237,230,214,.16);
+}
+.begin-conversion .lf-field .lf-in,
+.begin-conversion textarea.lf-in{
+  width:100%!important;background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;color:var(--bone)!important;
+}
+.begin-conversion .lf-field .lf-in{
+  min-height:64px;padding:1.35rem 0 .75rem!important;font-size:16px!important;
+}
+.begin-conversion .lf-lab,
+.begin-conversion .lf-field.lf-area .lf-lab{
+  left:0!important;top:.48rem!important;
+  transform:none!important;position:absolute!important;
+  font-family:'Instrument Sans',sans-serif!important;font-style:normal!important;
+  font-size:9px!important;letter-spacing:.17em!important;text-transform:uppercase!important;
+  color:rgba(190,158,104,.82)!important;
+}
+.begin-conversion .lf-field .lf-in:focus + .lf-lab,
+.begin-conversion .lf-field .lf-in:not(:placeholder-shown) + .lf-lab,
+.begin-conversion .lf-field.lf-area .lf-in:focus + .lf-lab,
+.begin-conversion .lf-field.lf-area .lf-in:not(:placeholder-shown) + .lf-lab{
+  transform:none!important;font-size:9px!important;color:var(--earth)!important;left:0!important;
+}
+.begin-conversion .lf-area{
+  margin-top:1.4rem;padding-top:1.7rem!important;
+  border-top:1px solid rgba(237,230,214,.16);
+}
+.begin-conversion textarea.lf-in{
+  min-height:220px!important;margin:0!important;padding:1.7rem 0 1rem!important;
+  font-family:'Fraunces',serif!important;font-size:clamp(19px,1.8vw,26px)!important;
+  line-height:1.55!important;color:rgba(237,230,214,.92)!important;
+}
+.begin-conversion .lf-field:focus-within{border-bottom-color:rgba(190,158,104,.72)}
+.begin-conversion .lf-area:focus-within{border-top-color:rgba(190,158,104,.55)}
+.begin-conversion .lf-ready{
+  min-height:28px;margin:.9rem 0 0!important;font-size:12px!important;color:rgba(237,230,214,.62)!important;
+}
+.begin-conversion .lf-send{
+  display:inline-flex!important;align-items:center;justify-content:space-between;gap:2.5rem;
+  min-width:min(100%,270px);margin-top:1.5rem!important;padding:1rem 1.15rem!important;
+  background:var(--bone)!important;color:#152219!important;border:1px solid var(--bone)!important;
+  font-size:10px!important;letter-spacing:.18em!important;text-transform:uppercase!important;
+  transition:background .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease!important;
+}
+.begin-conversion .lf-send::after{display:none!important}
+.begin-conversion .lf-send:not(:disabled):hover{
+  background:var(--earth)!important;border-color:var(--earth)!important;color:#111a14!important;
+}
+.begin-conversion .lf-send:disabled{
+  opacity:.42!important;background:rgba(237,230,214,.13)!important;
+  border-color:rgba(237,230,214,.18)!important;color:rgba(237,230,214,.58)!important;
+}
+.begin-conversion .leadform-direct{
+  margin-top:2rem!important;padding-top:1.25rem!important;
+  border-top:1px solid rgba(237,230,214,.14)!important;
+}
+.begin-conversion .leadform-direct span{
+  color:rgba(237,230,214,.55)!important;font-size:10px!important;letter-spacing:.04em;
+}
+.begin-conversion .lf-wa{
+  color:var(--bone)!important;text-decoration:none!important;background:none!important;
+  font-size:10px!important;letter-spacing:.15em!important;text-transform:uppercase!important;
+  border:0!important;border-bottom:1px solid rgba(190,158,104,.52)!important;padding:.3rem 0!important;
+}
+.begin-conversion .lf-wa:hover{color:var(--earth)!important;border-bottom-color:var(--earth)!important}
+
+@media(max-width:980px){
+  .begin-conversion .leadform{min-height:0}
+  .begin-conversion .leadform::before{inset:0;background-position:68% 30%;opacity:.78}
+  .begin-conversion .leadform::after{
+    background:linear-gradient(180deg,rgba(19,32,24,.64) 0%,#17251d 34%,#17251d 100%);
+  }
+  .begin-conversion .leadform-shell{
+    grid-template-columns:1fr!important;gap:2.5rem!important;
+    padding:clamp(5rem,9vw,7rem) clamp(1.4rem,6vw,4rem)!important;
+  }
+  .begin-conversion .leadform-intro{
+    min-height:46svh;display:flex;flex-direction:column;justify-content:flex-end;
+    max-width:620px;padding-bottom:1rem;
+  }
+  .begin-conversion .leadform-title{max-width:9ch!important}
+  .begin-conversion .leadform-form{
+    margin:0 -1rem;padding:clamp(2rem,5vw,3.5rem) 1rem!important;
+    border-left:0!important;border-top:1px solid rgba(190,158,104,.22)!important;
+    background:linear-gradient(180deg,rgba(15,25,19,.86),rgba(23,37,29,.97))!important;
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+}
+@media(max-width:640px){
+  .begin-conversion .ph-begin-cue{margin-top:1.4rem}
+  .begin-conversion .leadform-shell{padding:4rem 1.2rem!important;gap:2rem!important}
+  .begin-conversion .leadform-intro{min-height:40svh}
+  .begin-conversion .leadform-title{font-size:clamp(46px,13.5vw,66px)!important}
+  .begin-conversion .lf-row{display:block!important}
+  .begin-conversion .lf-row .lf-field + .lf-field{margin-top:.8rem}
+  .begin-conversion .leadform-form{margin:0;padding:2rem 0!important}
+  .begin-conversion textarea.lf-in{min-height:180px!important}
+  .begin-conversion .lf-send{width:100%;min-width:0}
+  .begin-conversion .leadform-direct{align-items:flex-start!important;flex-direction:column!important;gap:.8rem!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .begin-conversion .ph-begin-cue,
+  .begin-conversion .lf-send{transition:none!important}
+  .begin-conversion .leadform::before{transform:none}
+}
+</style>
 </head>
 <body data-page="begin">
 <!-- ENKIAMA_HEADER_START -->
@@ -1212,38 +1392,43 @@ body.eh-locked{overflow:hidden;}
   <div class="ph-inner">
     <p class="ph-issue eye">A conversation, whenever you are ready</p>
     <h1 class="ph-hed reveal">Begin a<br><em>conversation.</em></h1>
-    <p class="ph-sub reveal">There is no form. No automated response. No consultant pulling from a brief. A conversation instead: unhurried, and honest. We write back ourselves, within a day, and we ask more than we tell. That is where every Enkiama journey begins.</p>
+    <p class="ph-sub reveal">There is no sales script. No automated response. No consultant pulling from a brief. A conversation instead: unhurried and direct. We read every note ourselves, reply within a day, and begin by understanding who is travelling and what is drawing them here.</p>
+    <a class="ph-begin-cue" href="#enquire">Write to us <span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
-<!-- CHANNELS -->
-<section class="channels">
-  <!-- WhatsApp -->
-  <div class="ch-l">
-    <div class="ch-l-ghost">wa</div>
-    <div class="ch-inner">
-      <span class="ch-preferred">By WhatsApp</span>
-      <h2 class="ch-hl reveal">Write to us<br>on <em>WhatsApp.</em></h2>
-      <div class="ochre-rule"></div>
-      <p class="dim reveal">Most people begin here. It is faster than email and more honest in tone: conversations that move quickly tend to get to the point more directly. We write back within a day, often sooner. Voice notes are fine.</p>
-      <p class="dim reveal" style="margin-top:1rem;">You do not need an itinerary in your head before writing. The first message can be as vague as a feeling: <em style="font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 9;color:rgba(237,230,214,0.7);">&ldquo;Tanzania keeps pulling at me and I don&rsquo;t quite know why.&rdquo;</em> We can work with that. We usually find it more useful than a detailed brief.</p>
-      <span class="ch-wa-num reveal">+34 &nbsp; · · · &nbsp; · · · &nbsp; · · · ·</span>
-      <a href="https://wa.me/34659447627" class="btn-primary reveal">Open WhatsApp &rarr;</a>
+<!-- EMAIL LEAD FORM -->
+<section class="leadform" id="enquire">
+  <div class="leadform-shell">
+    <div class="leadform-intro">
+      <p class="eye">A few useful things are enough</p>
+      <h2 class="leadform-title">When. Who. What is drawing you here.</h2>
+      <p class="leadform-copy">Approximate dates, who is travelling, and what keeps bringing you back to Tanzania are enough. We can work out the route afterwards.</p>
+      <p class="leadform-trust">Read personally by Enkiama. No mailing list. No automated sales sequence. English, Spanish or Swahili are all fine.</p>
+    </div>
+    <div class="leadform-form">
+      <div class="lf-grid" style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="lf-row" style="display:flex;gap:1.4rem;flex-wrap:wrap;">
+          <div class="lf-field" style="flex:1;min-width:200px;"><input class="lf-in" id="lfName" type="text" maxlength="120" placeholder=" " autocomplete="name"><label class="lf-lab" for="lfName">Your name</label></div>
+          <div class="lf-field" style="flex:1.4;min-width:220px;"><input class="lf-in" id="lfEmail" type="text" maxlength="200" placeholder=" " autocomplete="email"><label class="lf-lab" for="lfEmail">Email or WhatsApp</label></div>
+        </div>
+        <div class="lf-field lf-area"><textarea class="lf-in" id="lfMsg" rows="6" maxlength="5000" placeholder=" "></textarea><label class="lf-lab" for="lfMsg">Dates, travellers, and what is drawing you to Tanzania</label></div>
+        <div class="lf-ready" id="lfReady"><span class="lf-ready-dot"></span><span id="lfReadyTxt">Ready when you are.</span></div>
+        <button class="lf-send" id="lfSend">Send to Enkiama <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="lf-thanks lf-thanks--editorial" id="lfThanks" role="status" aria-live="polite" style="display:none;">
+        <span class="lf-thanks-eye">Message received</span>
+        <p class="lf-thanks-title">We have what we need to begin.</p>
+        <p class="lf-thanks-copy">We will read your note personally and reply directly. There is no automated sales sequence behind this form.</p>
+        <div class="lf-thanks-actions">
+          <a href="https://wa.me/34659447627" target="_blank" rel="noopener">Continue on WhatsApp &rarr;</a>
+          <a href="journeys.html">See operated journeys</a>
+        </div>
+      </div>
+      <div class="leadform-direct"><span>Prefer to start more informally?</span><a href="https://wa.me/34659447627?text=Hello%20Enkiama%2C%20I%27d%20like%20to%20begin%20a%20conversation%20about%20Tanzania." target="_blank" rel="noopener" class="lf-wa">Begin on WhatsApp <span aria-hidden="true">→</span></a></div>
     </div>
   </div>
-
-  <!-- Email -->
-  <div class="ch-r">
-    <p class="eye" style="margin-bottom:2rem;">Or by email</p>
-    <h2 class="ch-r-hl reveal">Some conversations<br>prefer the longer<br><em>form.</em></h2>
-    <div class="ochre-rule"></div>
-    <p class="dim reveal">If you want to write in more detail — describe your group, your interests, the things you have already dreamed about — email suits that kind of beginning. We read and respond with the same care, and we follow up promptly.</p>
-    <p class="dim reveal" style="margin-top:1rem;">Attach anything that helps us understand you: a past trip itinerary, a mood board, a photograph of a place you would like to find.</p>
-    <span class="ch-email-addr reveal">WhatsApp +34 659 447 627</span>
-    <a href="https://wa.me/34659447627?text=Hello%20Enkiama%2C%20I%27d%20like%20to%20begin%20a%20conversation%20about%20Tanzania." target="_blank" rel="noopener" class="btn-primary reveal">Write to us &rarr;</a>
-  </div>
 </section>
-
 
 <!-- EDITORIAL STATEMENT -->
 <section style="padding:10rem 3rem;border-bottom:1px solid rgba(190,158,104,0.11);position:relative;overflow:hidden;">
@@ -1398,38 +1583,7 @@ body.eh-locked{overflow:hidden;}
 </section>
 
 
-<!-- EMAIL LEAD FORM -->
-<section class="leadform" id="enquire">
-  <div class="leadform-shell">
-    <div class="leadform-intro">
-      <p class="eye">Begin with three useful things</p>
-      <h2 class="leadform-title">When. Who. What is drawing you here.</h2>
-      <p class="leadform-copy">You do not need an itinerary before writing. Approximate dates, who is travelling, and the part of Tanzania you keep thinking about are enough for us to start properly.</p>
-      <p class="leadform-trust">Read personally by Enkiama. We reply directly; no mailing list, no automated sales sequence. English, Spanish or Swahili are all fine.</p>
-    </div>
-    <div class="leadform-form">
-      <div class="lf-grid" style="display:flex;flex-direction:column;gap:1.2rem;">
-        <div class="lf-row" style="display:flex;gap:1.4rem;flex-wrap:wrap;">
-          <div class="lf-field" style="flex:1;min-width:200px;"><input class="lf-in" id="lfName" type="text" maxlength="120" placeholder=" " autocomplete="name"><label class="lf-lab" for="lfName">Your name</label></div>
-          <div class="lf-field" style="flex:1.4;min-width:220px;"><input class="lf-in" id="lfEmail" type="text" maxlength="200" placeholder=" " autocomplete="email"><label class="lf-lab" for="lfEmail">Email or WhatsApp</label></div>
-        </div>
-        <div class="lf-field lf-area"><textarea class="lf-in" id="lfMsg" rows="6" maxlength="5000" placeholder=" "></textarea><label class="lf-lab" for="lfMsg">Dates, travellers, and what is drawing you to Tanzania</label></div>
-        <div class="lf-ready" id="lfReady"><span class="lf-ready-dot"></span><span id="lfReadyTxt">Ready when you are.</span></div>
-        <button class="lf-send" id="lfSend">Send to Enkiama</button>
-      </div>
-      <div class="lf-thanks lf-thanks--editorial" id="lfThanks" role="status" aria-live="polite" style="display:none;">
-        <span class="lf-thanks-eye">Message received</span>
-        <p class="lf-thanks-title">We have what we need to begin.</p>
-        <p class="lf-thanks-copy">We will read your note personally and reply directly. There is no automated sales sequence behind this form.</p>
-        <div class="lf-thanks-actions">
-          <a href="https://wa.me/34659447627" target="_blank" rel="noopener">Continue on WhatsApp &rarr;</a>
-          <a href="journeys.html">See operated journeys</a>
-        </div>
-      </div>
-      <div class="leadform-direct"><span>Prefer a faster first message?</span><a href="https://wa.me/34659447627" target="_blank" rel="noopener" class="lf-wa">Open WhatsApp →</a></div>
-    </div>
-  </div>
-</section>
+
 <style>
 textarea
 
