@@ -25,12 +25,36 @@ a{color:inherit;}
 ::selection{background:rgba(85,107,68,0.85);color:var(--bone);}
 .svg-defs{position:absolute;width:0;height:0;}
 
-/* states */
-.loading,.notfound{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.3rem;padding:2rem;}
-.loading-sub,.notfound-sub{font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:15px;max-width:40ch;line-height:1.6;}
-.notfound-mark{font-family:'Fraunces',serif;font-variation-settings:'opsz' 96;font-weight:300;font-size:clamp(2rem,5vw,2.8rem);color:var(--bone);font-style:italic;}
-.spinner{width:24px;height:24px;border:2px solid rgba(190,158,104,0.25);border-top-color:var(--earth);border-radius:50%;animation:spin .8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
+/* states — private journey opening / recovery */
+.loading,.notfound{
+  min-height:100svh;display:grid;place-items:end start;text-align:left;
+  padding:clamp(6rem,10vw,10rem) clamp(1.5rem,7vw,7rem) clamp(4rem,7vw,7rem);
+  background:
+    radial-gradient(circle at 74% 24%,rgba(85,107,68,.10),transparent 28%),
+    linear-gradient(180deg,#101813,#0c130f)
+}
+.journey-state{width:min(760px,100%);position:relative;padding-top:1.3rem;border-top:1px solid rgba(190,158,104,.18)}
+.journey-state__eye{
+  display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--earth);margin-bottom:1.2rem
+}
+.journey-state__title{
+  font-family:'Fraunces',serif;font-weight:300;font-size:clamp(42px,6vw,82px);
+  line-height:.98;letter-spacing:-.035em;color:var(--bone);max-width:10ch;margin:0
+}
+.journey-state__copy{
+  display:block;margin-top:1.4rem;color:rgba(237,230,214,.62);font-size:14px;line-height:1.75;max-width:48ch
+}
+.journey-state__action{
+  display:inline-block;margin-top:2rem;color:var(--earth);text-decoration:none;
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid rgba(190,158,104,.34);padding-bottom:.2rem
+}
+.journey-state__line{
+  display:block;width:min(300px,52vw);height:1px;margin-top:2.2rem;
+  background:linear-gradient(90deg,var(--earth),rgba(190,158,104,.05));
+  transform-origin:left;animation:journeyStateLine 1.55s ease-in-out infinite alternate
+}
+@keyframes journeyStateLine{from{transform:scaleX(.16);opacity:.35}to{transform:scaleX(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.journey-state__line{animation:none;transform:none}}
 
 .content{display:none;}
 .content.show{display:block;}
@@ -213,14 +237,22 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 
 <!-- loading -->
 <div class="loading" id="loading">
-  <div class="spinner"></div>
-  <p class="loading-sub fr">Opening your journey&hellip;</p>
+  <div class="journey-state journey-state--loading">
+    <span class="journey-state__eye">Private journey</span>
+    <p class="journey-state__title">Opening your journey.</p>
+    <span class="journey-state__copy">Loading the latest itinerary, practical notes and documents attached to this private link.</span>
+    <span class="journey-state__line" aria-hidden="true"></span>
+  </div>
 </div>
 
 <!-- not found -->
 <div class="notfound" id="notfound" style="display:none">
-  <p class="notfound-mark fr">This link isn&rsquo;t opening a journey.</p>
-  <p class="notfound-sub">The link may be incomplete, or the journey may have moved. Contact us on <a href="https://wa.me/34659447627" target="_blank" rel="noopener" style="color:var(--earth)">WhatsApp</a> and we&rsquo;ll send you a fresh link.</p>
+  <div class="journey-state journey-state--notfound">
+    <span class="journey-state__eye">Private journey</span>
+    <p class="journey-state__title">This link is not available.</p>
+    <span class="journey-state__copy">It may be incomplete, expired, or the journey may have moved. We can send you the current private link directly.</span>
+    <a class="journey-state__action" href="https://wa.me/34659447627" target="_blank" rel="noopener">Ask Enkiama for the current link &rarr;</a>
+  </div>
 </div>
 
 <!-- content -->
