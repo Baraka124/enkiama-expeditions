@@ -227,8 +227,94 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   ]
 }
 </script>
+
+<style id="phase15-reflections-editorial">
+/* Phase 15 · Reflections is the intimate letter archive. */
+body[data-page="reflections"] .r-head{
+  text-align:left;max-width:1180px;margin:0 auto;
+  padding:clamp(8rem,11vw,11rem) clamp(1.5rem,5vw,5rem) clamp(3.5rem,5vw,5rem)
+}
+body[data-page="reflections"] .r-eyebrow{margin-bottom:1.2rem}
+body[data-page="reflections"] .r-title{
+  font-size:clamp(54px,7vw,104px);line-height:.96;max-width:10ch;
+  margin:0 0 1.5rem;font-weight:400
+}
+body[data-page="reflections"] .r-lede{
+  max-width:54ch;margin:0;font-size:clamp(15px,1.2vw,18px);line-height:1.8;
+  font-family:'Instrument Sans',sans-serif;color:rgba(237,230,214,.70)
+}
+body[data-page="reflections"] .r-toggle{
+  justify-content:flex-start;gap:1.6rem;margin:2.3rem 0 0;border-top:1px solid rgba(190,158,104,.12);
+  padding-top:1.2rem
+}
+body[data-page="reflections"] .r-toggle button{
+  padding:.45rem 0;border:0;border-radius:0;background:transparent;position:relative
+}
+body[data-page="reflections"] .r-toggle button::after{
+  content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--earth);
+  transition:right .35s ease
+}
+body[data-page="reflections"] .r-toggle button.active{background:transparent;border:0;color:var(--bone)}
+body[data-page="reflections"] .r-toggle button.active::after{right:0}
+body[data-page="reflections"] .r-letters{
+  max-width:1180px;margin:0 auto clamp(5rem,8vw,8rem);padding:0 clamp(1.5rem,5vw,5rem)
+}
+body[data-page="reflections"] .r-letter{
+  display:grid;grid-template-columns:minmax(150px,.34fr) minmax(0,1.66fr);
+  gap:clamp(2rem,6vw,6rem);padding:clamp(3.5rem,6vw,6rem) 0;
+  border-color:rgba(190,158,104,.10)
+}
+body[data-page="reflections"] .r-letter-head{
+  grid-column:1;display:block;margin:0;padding-top:.25rem
+}
+body[data-page="reflections"] .r-letter-quote{font-size:2.1rem;margin:0 0 1rem;opacity:.38}
+body[data-page="reflections"] .r-letter-place{padding:0;line-height:1.7}
+body[data-page="reflections"] .r-letter-body{
+  grid-column:2;font-size:clamp(20px,2vw,28px);line-height:1.65;max-width:31ch
+}
+body[data-page="reflections"] .r-letter-body p:first-of-type::first-letter{
+  float:none;font-size:inherit;line-height:inherit;margin:0;color:inherit;font-style:normal
+}
+body[data-page="reflections"] .r-letter-foot{grid-column:2;margin-top:.75rem}
+body[data-page="reflections"] .r-map-wrap{
+  max-width:1180px;margin:0 auto 6rem;padding:clamp(2rem,4vw,4rem) clamp(1.5rem,5vw,5rem);
+  border-top:1px solid rgba(190,158,104,.10);border-bottom:1px solid rgba(190,158,104,.10)
+}
+body[data-page="reflections"] .r-map-hint{text-align:left;max-width:45ch;margin-left:0}
+body[data-page="reflections"] .r-invite{
+  text-align:left;max-width:1180px;padding:clamp(4rem,6vw,6rem) clamp(1.5rem,5vw,5rem);
+  margin:0 auto;border-color:rgba(190,158,104,.10)
+}
+body[data-page="reflections"] .r-invite-txt{max-width:36ch;font-size:clamp(23px,2.8vw,38px);font-style:normal}
+body[data-page="reflections"] .r-invite-note{max-width:58ch}
+body[data-page="reflections"] .r-modal{
+  align-items:stretch;justify-content:flex-end;padding:0;background:rgba(7,12,9,.82)
+}
+body[data-page="reflections"] .r-modal-inner{
+  max-width:720px;min-height:100svh;margin:0;padding:clamp(6rem,9vw,9rem) clamp(2rem,6vw,5rem) 4rem;
+  border:0;border-left:1px solid rgba(190,158,104,.14);border-radius:0;
+  background:#111a14;transform:translateX(28px)
+}
+body[data-page="reflections"] .r-modal.open .r-modal-inner{transform:translateX(0)}
+body[data-page="reflections"] .r-modal-inner::before{display:none}
+body[data-page="reflections"] .r-modal-kicker,
+body[data-page="reflections"] .r-modal-place,
+body[data-page="reflections"] .r-modal-attr{text-align:left}
+body[data-page="reflections"] .r-modal-body{font-size:clamp(20px,2.1vw,29px);line-height:1.65}
+@media(max-width:760px){
+  body[data-page="reflections"] .r-head{padding-top:7rem}
+  body[data-page="reflections"] .r-title{font-size:clamp(48px,13vw,66px)}
+  body[data-page="reflections"] .r-toggle{gap:1.1rem;flex-wrap:wrap}
+  body[data-page="reflections"] .r-letter{grid-template-columns:1fr;gap:1.4rem;padding:3.25rem 0}
+  body[data-page="reflections"] .r-letter-head,
+  body[data-page="reflections"] .r-letter-body,
+  body[data-page="reflections"] .r-letter-foot{grid-column:1}
+  body[data-page="reflections"] .r-letter-body{font-size:21px;max-width:none}
+  body[data-page="reflections"] .r-modal-inner{max-width:none;border-left:0}
+}
+</style>
 </head>
-<body>
+<body data-page="reflections">
 <!-- ENKIAMA_HEADER_START -->
 <style>
 /* ══════════ PREMIUM OVERLAY HEADER ══════════ */
@@ -564,12 +650,12 @@ body.eh-locked{overflow:hidden;}
 
 <div class="grain-layer"></div>
 <header class="r-head">
-  <p class="r-eyebrow">Barua &mdash; letters from those who went</p>
-  <h1 class="r-title">What people carry <em>home</em></h1>
-  <p class="r-lede">Not reviews. Letters &mdash; written by travellers who have been, in their own words, shared with their blessing. A selection, kept small on purpose.</p>
+  <p class="r-eyebrow">Barua &nbsp;&middot;&nbsp; traveller letters</p>
+  <h1 class="r-title">Letters from<br><em>those who went.</em></h1>
+  <p class="r-lede">First-person letters, kept close to the words in which they were written. Not journey analysis and not a ratings page.</p>
   <div class="r-toggle">
-    <button id="tabLetters" class="active">As letters</button>
-    <button id="tabMap">On the land</button>
+    <button id="tabLetters" class="active">Read the letters</button>
+    <button id="tabMap">Place them on the map</button>
   </div>
 </header>
 
