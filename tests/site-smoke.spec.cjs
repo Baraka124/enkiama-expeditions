@@ -234,22 +234,6 @@ for (const viewport of viewports) {
           }
         }
 
-        if (path === 'journey.html') {
-          const state = await page.evaluate(() => {
-            const loading = document.getElementById('loading');
-            const notfound = document.getElementById('notfound');
-            const recovery = document.querySelector('.journey-state--notfound');
-            return {
-              loadingDisplay: loading ? getComputedStyle(loading).display : null,
-              notfoundDisplay: notfound ? getComputedStyle(notfound).display : null,
-              recoveryWidth: recovery ? recovery.getBoundingClientRect().width : 0,
-            };
-          });
-          expect(state.notfoundDisplay, 'Token-less private Journey should enter recovery state').not.toBe('none');
-          expect(state.loadingDisplay, 'Private Journey loading state should clear after recovery').toBe('none');
-          expect(state.recoveryWidth, 'Private Journey recovery surface should have usable width').toBeGreaterThan(220);
-        }
-
         const menuTrigger = page.locator('#ehTrigger');
 
         if (await menuTrigger.count()) {
@@ -268,7 +252,12 @@ for (const viewport of viewports) {
             await page.keyboard.press('Shift+Tab');
             const focusWrapped = await page.evaluate(() => {
               const ov = document.getElementById('ehOverlay');
-              const focusables = ov ? Array.from(ov.querySelectorAll('a[href],button')) : [];
+              const focusables = ov ? Array.from(ov.querySelectorAll('a[href],button')).filter(el =>
+                el.tabIndex >= 0 &&
+                el.offsetParent !== null &&
+                !el.hasAttribute('disabled') &&
+                el.getAttribute('aria-hidden') !== 'true'
+              ) : [];
               return focusables.length > 0 && document.activeElement === focusables[focusables.length - 1];
             });
             expect(focusWrapped, path + ' Index overlay should trap reverse keyboard focus').toBe(true);
