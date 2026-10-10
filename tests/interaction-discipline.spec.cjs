@@ -30,6 +30,7 @@ for (const surface of surfaces) {
 }
 
 test('experience viewer reduced-motion scene transitions are disabled', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/experience-view.html', { waitUntil: 'domcontentloaded' });
   const scene = page.locator('.ev-scene').first();
   await expect(scene).toBeVisible();
