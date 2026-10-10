@@ -191,14 +191,9 @@ for (const viewport of viewports) {
           });
           expect(karibu, 'Homepage Karibu composition should exist').not.toBeNull();
 
-          if (viewport.width <= 860) {
-            expect(karibu.stackDisplay, 'Karibu should stack below laptop width').toBe('grid');
-            expect(karibu.photoPosition, 'Karibu media should join document flow below laptop width').toBe('relative');
-            expect(karibu.platePosition, 'Karibu copy should join document flow below laptop width').toBe('relative');
-          } else {
-            expect(karibu.photoPosition, 'Karibu media should overlay at laptop width').toBe('absolute');
-            expect(karibu.platePosition, 'Karibu copy should overlay at laptop width').toBe('absolute');
-          }
+          expect(karibu.stackDisplay, 'Karibu should use the protected reading-field grid').toBe('grid');
+          expect(karibu.photoPosition, 'Karibu media should remain in document flow').toBe('relative');
+          expect(karibu.platePosition, 'Karibu copy should remain in its protected editorial field').toBe('relative');
         }
 
         if (path === 'family.html') {
