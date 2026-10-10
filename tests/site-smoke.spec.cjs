@@ -42,6 +42,9 @@ const pages = [
   'kilimanjaro-route.html',
   'kilimanjaro-expedition.html',
 
+  // delivered private journey dossiers
+  'journeys/marina-2026-ea47e70a.html',
+
   // support / utilities
   'privacy.html',
   'terms.html',
