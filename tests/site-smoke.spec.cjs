@@ -24,6 +24,7 @@ const pages = [
   'faq.html',
   'stories.html',
   'reflections.html',
+  'notes.html',
 
   // conversion / product interfaces
   'begin.html',
