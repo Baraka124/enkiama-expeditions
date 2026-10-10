@@ -20,13 +20,16 @@ test('Seven Systems is asymmetric and not a fixed-height card catalogue on deskt
     return entries.map(el => {
       const r=el.getBoundingClientRect();
       const s=getComputedStyle(el);
+      const meta=el.querySelector('.tz-system-entry__meta');
+      const mr=meta ? meta.getBoundingClientRect() : null;
       return {
         width:r.width,
         height:r.height,
         top:r.top,
         minHeight:s.minHeight,
         display:s.display,
-        borderRight:s.borderRightWidth
+        borderRight:s.borderRightWidth,
+        trailingSpace:mr ? Math.max(0,r.bottom-mr.bottom) : null
       };
     });
   });
@@ -39,7 +42,8 @@ test('Seven Systems is asymmetric and not a fixed-height card catalogue on deskt
     expect(m.display).toBe('grid');
     expect(parseFloat(m.minHeight || '0')).toBeLessThanOrEqual(1);
     expect(parseFloat(m.borderRight || '0')).toBe(0);
-    expect(m.height).toBeLessThan(260);
+    expect(m.trailingSpace).not.toBeNull();
+    expect(m.trailingSpace).toBeLessThanOrEqual(32);
   }
 });
 
