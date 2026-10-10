@@ -22,12 +22,15 @@ const pages = [
   'partners.html',
   'practical.html',
   'faq.html',
+  'stories.html',
+  'reflections.html',
 
   // conversion / product interfaces
   'begin.html',
   'compose.html',
   'journey.html',
   'experience-view.html',
+  'trip.html',
   'kilimanjaro-route.html',
   'kilimanjaro-expedition.html',
 
