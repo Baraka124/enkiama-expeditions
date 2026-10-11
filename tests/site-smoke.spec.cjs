@@ -248,17 +248,29 @@ for (const viewport of viewports) {
           // Home masthead should remain visually integrated with the hero until
           // the hero has actually left the active scene.
           const masthead = page.locator('#ehBar');
-          await page.evaluate(() => window.scrollTo(0, 60));
+          await page.evaluate(() => {
+            document.documentElement.style.scrollBehavior = 'auto';
+            window.scrollTo(0, 60);
+          });
+          await page.waitForFunction(() => Math.abs(window.scrollY - 60) <= 2);
           await page.waitForTimeout(80);
           await expect(masthead, 'Home masthead should stay transparent during early hero scroll').not.toHaveClass(/scrolled/);
 
           await page.evaluate(() => {
             const hero = document.querySelector('.hero');
-            window.scrollTo(0, Math.max(0, (hero?.offsetHeight || window.innerHeight) + 80));
+            const target = Math.max(0, (hero?.offsetTop || 0) + (hero?.offsetHeight || window.innerHeight) + 80);
+            window.scrollTo(0, target);
+          });
+          await page.waitForFunction(() => {
+            const hero = document.querySelector('.hero');
+            return !!hero && window.scrollY > hero.offsetTop + hero.offsetHeight;
           });
           await page.waitForTimeout(80);
           await expect(masthead, 'Home masthead should condense only after the hero exits').toHaveClass(/scrolled/);
-          await page.evaluate(() => window.scrollTo(0, 0));
+          await page.evaluate(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.style.scrollBehavior = '';
+          });
 
           const karibu = await page.evaluate(() => {
             const stack = document.querySelector('.lp-welcome-stack');
