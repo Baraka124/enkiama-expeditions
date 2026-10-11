@@ -1646,9 +1646,28 @@ body[data-page="home"] .hero-film .hero-scrim{
   // active state
   var page=document.body.getAttribute('data-page');
   if(page){var a=ov.querySelector('.eh-nav a[data-nav="'+page+'"]');if(a)a.classList.add('eh-active');}
-  // scroll condense
+  // Scroll condense: on Home, preserve the transparent masthead while the
+  // photographic hero is still the active scene. Condense only after it exits.
   var ticking=false;
-  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){bar.classList.toggle('scrolled',window.scrollY>40);ticking=false;});ticking=true;}},{passive:true});
+  var hero=document.body.getAttribute('data-page')==='home' ? document.querySelector('.hero') : null;
+  function syncBarState(){
+    var overHomeHero=false;
+    if(hero){
+      var hr=hero.getBoundingClientRect();
+      var mastheadH=bar.getBoundingClientRect().height||0;
+      overHomeHero=hr.bottom>mastheadH+18;
+    }
+    bar.classList.toggle('scrolled',!overHomeHero && window.scrollY>40);
+    ticking=false;
+  }
+  function requestBarState(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(syncBarState);
+  }
+  window.addEventListener('scroll',requestBarState,{passive:true});
+  window.addEventListener('resize',requestBarState,{passive:true});
+  requestBarState();
 })();
 </script>
 
