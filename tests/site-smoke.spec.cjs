@@ -272,6 +272,29 @@ for (const viewport of viewports) {
             document.documentElement.style.scrollBehavior = '';
           });
 
+          const cropState = await page.evaluate(() => {
+            const heroImg = document.querySelector('#heroFrame img');
+            const worldImgs = [...document.querySelectorAll('#worlds .wp-photo-film img')];
+            const editorialImg = document.querySelector('.lp-photo img');
+            if (!heroImg || worldImgs.length < 6 || !editorialImg) return null;
+            const read = el => {
+              const s = getComputedStyle(el);
+              return { position:s.objectPosition, scale:s.scale || 'none' };
+            };
+            return {
+              hero:read(heroImg),
+              worlds:worldImgs.map(read),
+              editorial:read(editorialImg)
+            };
+          });
+          expect(cropState, 'Responsive editorial crop system should resolve on Home imagery').not.toBeNull();
+          expect(cropState.hero.position, 'Hero must resolve an explicit focal crop').not.toBe('50% 50%');
+          expect(cropState.worlds, 'All Six Worlds images should resolve responsive focal crops').toHaveLength(6);
+          for (const crop of cropState.worlds) {
+            expect(crop.position, 'Each Six Worlds image should resolve an explicit focal crop').not.toBe('');
+          }
+          expect(cropState.editorial.position, 'Editorial photography must resolve an explicit focal crop').not.toBe('');
+
           const karibu = await page.evaluate(() => {
             const stack = document.querySelector('.lp-welcome-stack');
             const photo = document.querySelector('.lp-welcome-photo');
