@@ -207,6 +207,36 @@ for (const viewport of viewports) {
           expect(hero.primaryHref, 'Hero primary action should point to begin.html').toBe('begin.html');
           expect(hero.secondaryHref, 'Hero secondary action should remain the Tanzania exploration route').toBe('#worlds');
 
+          const heroReadability = await page.evaluate(() => {
+            const heroEl = document.querySelector('.hero');
+            const content = document.querySelector('.hero-content');
+            const eye = document.querySelector('.hero-eye');
+            const heading = document.querySelector('.hero-hed');
+            const sub = document.querySelector('.hero-sub');
+            const secondary = document.querySelector('.hero-acts .btn-ghost');
+            if (!heroEl || !content || !eye || !heading || !sub || !secondary) return null;
+            const style = el => getComputedStyle(el);
+            const rect = el => {
+              const r = el.getBoundingClientRect();
+              return { left:r.left, right:r.right, top:r.top, bottom:r.bottom, width:r.width, height:r.height };
+            };
+            const pseudo = getComputedStyle(content, '::before');
+            return {
+              heroAlignItems: style(heroEl).alignItems,
+              content: rect(content),
+              eyeColor: style(eye).color,
+              headingColor: style(heading).color,
+              subColor: style(sub).color,
+              secondaryColor: style(secondary).color,
+              veilBackground: pseudo.backgroundImage,
+              veilContent: pseudo.content,
+            };
+          });
+          expect(heroReadability, 'Homepage hero readability system should exist').not.toBeNull();
+          expect(heroReadability.heroAlignItems, 'Hero reading field must stay anchored to the editorial gutter').toBe('flex-start');
+          expect(heroReadability.veilContent, 'Hero should keep a local reading veil behind copy').not.toBe('none');
+          expect(heroReadability.veilBackground, 'Hero reading veil should remain present').not.toBe('none');
+
           if (viewport.width >= 1000) {
             expect(hero.contentWidth, 'Desktop hero reading field should remain editorially narrow').toBeLessThanOrEqual(620);
             expect(hero.headlineFontSize, 'Desktop hero headline should respect the restrained type ceiling').toBeLessThanOrEqual(108);
