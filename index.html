@@ -2719,22 +2719,48 @@ body[data-page="home"] .lp-welcome-photo img{
   var overlay=document.getElementById('ehOverlay');
   var ev=document.querySelector('.ev-launch');
   var lastY=window.scrollY||0;
+  var downTravel=0;
   var ticking=false;
 
   function overlayOpen(){
     return !!(overlay && overlay.classList.contains('open'));
   }
 
+  function homeHeroActive(){
+    if(body.getAttribute('data-page')!=='home' || !bar) return false;
+    var hero=document.getElementById('home');
+    if(!hero) return false;
+    var hr=hero.getBoundingClientRect();
+    var barH=bar.getBoundingClientRect().height||0;
+    return hr.bottom>barH+18;
+  }
+
   function update(){
     var y=window.scrollY||0;
     var dy=y-lastY;
-    var readingDown=dy>5;
-    var readingUp=dy<-4;
+    var readingUp=dy<-1;
+    var readingDown=dy>1;
+
+    if(readingUp){
+      downTravel=0;
+    }else if(readingDown){
+      downTravel+=dy;
+    }
 
     if(bar){
-      var shouldYield = y>150 && readingDown && !overlayOpen() && !bar.matches(':focus-within');
-      if(shouldYield) bar.classList.add('eh-scroll-away');
-      if(readingUp || y<90 || overlayOpen() || bar.matches(':focus-within')) bar.classList.remove('eh-scroll-away');
+      var protectedState =
+        homeHeroActive() ||
+        y<90 ||
+        readingUp ||
+        overlayOpen() ||
+        bar.matches(':focus-within');
+
+      if(protectedState){
+        bar.classList.remove('eh-scroll-away');
+      }else if(y>150 && downTravel>=28){
+        bar.classList.add('eh-scroll-away');
+        downTravel=0;
+      }
     }
 
     if(ev){
