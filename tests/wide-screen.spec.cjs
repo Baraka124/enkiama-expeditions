@@ -40,6 +40,7 @@ const pages = {
 
 const viewports = [
   { name: 'desktop-1440', width: 1440, height: 1000 },
+  { name: 'desktop-1792', width: 1792, height: 1120 },
   { name: 'wide-2048', width: 2048, height: 1152 },
 ];
 
@@ -100,6 +101,10 @@ for (const viewport of viewports) {
             } : null;
           };
 
+          const masthead = document.querySelector('#ehBar');
+          const heroImage = document.querySelector('#heroFrame img');
+          const worldImages = [...document.querySelectorAll('#worlds .wp-photo-film img')];
+
           return {
             innerWidth: window.innerWidth,
             innerHeight: window.innerHeight,
@@ -108,6 +113,9 @@ for (const viewport of viewports) {
             copy: rect(copyEl),
             headline: rect(headlineEl),
             headlineFontSize: headlineEl ? parseFloat(getComputedStyle(headlineEl).fontSize) : 0,
+            masthead: rect(masthead),
+            heroObjectPosition: heroImage ? getComputedStyle(heroImage).objectPosition : null,
+            worldObjectPositions: worldImages.map(img => getComputedStyle(img).objectPosition),
           };
         }, selectors);
 
@@ -158,6 +166,76 @@ for (const viewport of viewports) {
           metrics.copy.right,
           `${path} hero copy escapes the right viewport edge at ${viewport.name}`
         ).toBeLessThanOrEqual(metrics.innerWidth + 4);
+
+        if (path === 'index.html') {
+          expect(metrics.masthead, 'Home masthead should exist at wide desktop widths').not.toBeNull();
+          expect(
+            metrics.copy.top,
+            `Home hero copy collides with the masthead at ${viewport.name}`
+          ).toBeGreaterThanOrEqual(metrics.masthead.bottom + 20);
+
+          expect(
+            metrics.copy.width,
+            `Home hero reading field becomes too wide at ${viewport.name}`
+          ).toBeLessThanOrEqual(620);
+
+          expect(
+            metrics.heroObjectPosition,
+            `Home hero should resolve the wide editorial focal crop at ${viewport.name}`
+          ).toBe('62% 58%');
+
+          expect(
+            metrics.worldObjectPositions,
+            `All Six Worlds images should resolve at ${viewport.name}`
+          ).toHaveLength(6);
+          for (const position of metrics.worldObjectPositions) {
+            expect(position, `Six Worlds image fell back to an undefined crop at ${viewport.name}`).not.toBe('');
+          }
+
+          const masthead = page.locator('#ehBar');
+          await page.evaluate(() => {
+            document.documentElement.style.scrollBehavior = 'auto';
+            window.scrollTo(0, 60);
+          });
+          await page.waitForFunction(() => Math.abs(window.scrollY - 60) <= 2);
+          await expect(
+            masthead,
+            `Home masthead should remain integrated with the hero at ${viewport.name}`
+          ).not.toHaveClass(/scrolled/);
+
+          await page.evaluate(() => {
+            const hero = document.getElementById('home');
+            const target = Math.max(0, (hero?.offsetTop || 0) + (hero?.offsetHeight || window.innerHeight) + 90);
+            window.scrollTo(0, target);
+          });
+          await page.waitForFunction(() => {
+            const hero = document.getElementById('home');
+            return !!hero && window.scrollY > hero.offsetTop + hero.offsetHeight;
+          });
+          await expect(
+            masthead,
+            `Home masthead should condense after leaving the hero at ${viewport.name}`
+          ).toHaveClass(/scrolled/);
+          await expect(
+            masthead,
+            `Home masthead should yield during downward reading at ${viewport.name}`
+          ).toHaveClass(/eh-scroll-away/);
+
+          await page.evaluate(() => window.scrollBy(0, -2));
+          await page.waitForFunction(() => {
+            const bar = document.getElementById('ehBar');
+            return !!bar && !bar.classList.contains('eh-scroll-away');
+          });
+          await expect(
+            masthead,
+            `Home masthead should return on gentle upward intent at ${viewport.name}`
+          ).not.toHaveClass(/eh-scroll-away/);
+
+          await page.evaluate(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.style.scrollBehavior = '';
+          });
+        }
 
         expect(runtimeErrors, `${path} emitted runtime JS errors at ${viewport.name}`).toEqual([]);
         expect(badLocalResponses, `${path} requested missing local resources at ${viewport.name}`).toEqual([]);
