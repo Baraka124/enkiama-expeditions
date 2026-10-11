@@ -1550,6 +1550,79 @@ body[data-page="home"] .hero-film .hero-scrim{
 }
 </style>
 
+
+<style id="phase23k-responsive-editorial-crops">
+/* Phase 23K · Responsive editorial crops.
+   Important photography carries its own focal point for wide, tablet and mobile
+   layouts so object-fit:cover does not leave excessive sky/ground or clip the subject. */
+body[data-page="home"] #heroFrame img{
+  object-fit:cover!important;
+  object-position:var(--crop-wide,var(--crop,50% 50%))!important;
+  scale:var(--crop-scale-wide,1);
+  transform-origin:var(--crop-wide,var(--crop,50% 50%));
+}
+body[data-page="home"] #worlds .wp-photo-film .ph-frame img{
+  object-fit:cover!important;
+  object-position:var(--crop-wide,var(--crop,50% 50%))!important;
+  scale:var(--crop-scale-wide,1);
+  transform-origin:var(--crop-wide,var(--crop,50% 50%));
+}
+body[data-page="home"] .lp-photo img{
+  object-fit:cover!important;
+  object-position:var(--lp-pos-wide,var(--lp-pos,50% 50%))!important;
+  scale:var(--lp-scale-wide,1);
+  transform-origin:var(--lp-pos-wide,var(--lp-pos,50% 50%));
+}
+body[data-page="home"] .lp-welcome-photo img{
+  object-position:
+    var(--em-focal-wide-x,var(--em-focal-x,50%))
+    var(--em-focal-wide-y,var(--em-focal-y,50%))!important;
+  scale:var(--em-scale-wide,1);
+  transform-origin:
+    var(--em-focal-wide-x,var(--em-focal-x,50%))
+    var(--em-focal-wide-y,var(--em-focal-y,50%));
+}
+
+@media(max-width:1100px){
+  body[data-page="home"] #heroFrame img,
+  body[data-page="home"] #worlds .wp-photo-film .ph-frame img{
+    object-position:var(--crop-tablet,var(--crop-wide,var(--crop,50% 50%)))!important;
+    scale:var(--crop-scale-tablet,var(--crop-scale-wide,1));
+    transform-origin:var(--crop-tablet,var(--crop-wide,var(--crop,50% 50%)));
+  }
+  body[data-page="home"] .lp-photo img{
+    object-position:var(--lp-pos-tablet,var(--lp-pos-wide,var(--lp-pos,50% 50%)))!important;
+    scale:var(--lp-scale-tablet,var(--lp-scale-wide,1));
+    transform-origin:var(--lp-pos-tablet,var(--lp-pos-wide,var(--lp-pos,50% 50%)));
+  }
+  body[data-page="home"] .lp-welcome-photo img{
+    object-position:
+      var(--em-focal-tablet-x,var(--em-focal-wide-x,var(--em-focal-x,50%)))
+      var(--em-focal-tablet-y,var(--em-focal-wide-y,var(--em-focal-y,50%)))!important;
+    scale:var(--em-scale-tablet,var(--em-scale-wide,1));
+  }
+}
+@media(max-width:640px){
+  body[data-page="home"] #heroFrame img,
+  body[data-page="home"] #worlds .wp-photo-film .ph-frame img{
+    object-position:var(--crop-mobile,var(--crop-tablet,var(--crop-wide,var(--crop,50% 50%))))!important;
+    scale:var(--crop-scale-mobile,var(--crop-scale-tablet,var(--crop-scale-wide,1)));
+    transform-origin:var(--crop-mobile,var(--crop-tablet,var(--crop-wide,var(--crop,50% 50%))));
+  }
+  body[data-page="home"] .lp-photo img{
+    object-position:var(--lp-pos-mobile,var(--lp-pos-tablet,var(--lp-pos-wide,var(--lp-pos,50% 50%))))!important;
+    scale:var(--lp-scale-mobile,var(--lp-scale-tablet,var(--lp-scale-wide,1)));
+    transform-origin:var(--lp-pos-mobile,var(--lp-pos-tablet,var(--lp-pos-wide,var(--lp-pos,50% 50%))));
+  }
+  body[data-page="home"] .lp-welcome-photo img{
+    object-position:
+      var(--em-focal-mobile-x,var(--em-focal-tablet-x,var(--em-focal-x,50%)))
+      var(--em-focal-mobile-y,var(--em-focal-tablet-y,var(--em-focal-y,50%)))!important;
+    scale:var(--em-scale-mobile,var(--em-scale-tablet,var(--em-scale-wide,1)));
+  }
+}
+</style>
+
 </head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
@@ -1772,7 +1845,7 @@ body[data-page="home"] .hero-film .hero-scrim{
 <main id="main">
 <!-- ── HERO ── -->
 <section class="hero tw:relative tw:flex tw:items-end tw:overflow-hidden" id="home">
-  <div class="hero-film tw:absolute tw:inset-0"><div class="ph-frame ph-graded" id="heroFrame" style="--crop:50% 54%;"><img class="ph-loaded" src="assets/images/hero-dawn.webp" alt="Elephants beneath an acacia at golden hour in Tanzania" fetchpriority="high" loading="eager" decoding="async"><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
+  <div class="hero-film tw:absolute tw:inset-0"><div class="ph-frame ph-graded" id="heroFrame" style="--crop:62% 56%;--crop-wide:62% 58%;--crop-tablet:60% 56%;--crop-mobile:56% 54%;--crop-scale-wide:1.035;--crop-scale-tablet:1.025;--crop-scale-mobile:1.015;"><img class="ph-loaded" src="assets/images/hero-dawn.webp" alt="Elephants beneath an acacia at golden hour in Tanzania" fetchpriority="high" loading="eager" decoding="async"><div class="ph-grade"></div><div class="hero-scrim"></div></div></div>
 
   <div class="hero-content tw:relative tw:z-[3]">
     <p class="eye hero-eye" id="hEye">
@@ -1802,7 +1875,7 @@ body[data-page="home"] .hero-film .hero-scrim{
     <p class="lp-editorial-copy reveal">Enkiama plans private journeys for local and international guests. We work from the country itself &mdash; its seasons, distances, people and changing conditions. That knowledge shapes what we combine, what we leave out, and where we slow down.</p>
   </div>
 
-  <div class="lp-welcome-stack reveal" style="--em-focal-x:58%;--em-focal-y:48%;">
+  <div class="lp-welcome-stack reveal" style="--em-focal-x:58%;--em-focal-y:48%;--em-focal-wide-x:58%;--em-focal-wide-y:54%;--em-focal-tablet-x:56%;--em-focal-tablet-y:52%;--em-focal-mobile-x:52%;--em-focal-mobile-y:48%;--em-scale-wide:1.025;">
     <figure class="lp-photo lp-welcome-photo" data-lp-media>
       <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="Coffee country in the Kilimanjaro foothills">
       <figcaption>Kilimanjaro foothills · local hospitality</figcaption>
@@ -1851,7 +1924,7 @@ body[data-page="home"] .hero-film .hero-scrim{
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 46%;"><img class="ph-loaded" src="assets/images/kilimanjaro.jpg" loading="lazy" decoding="async" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 46%;--crop-wide:50% 48%;--crop-tablet:50% 46%;--crop-mobile:52% 44%;--crop-scale-wide:1.015;"><img class="ph-loaded" src="assets/images/kilimanjaro.jpg" loading="lazy" decoding="async" alt="Kilimanjaro rising above the Tanzanian highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">5,895m</span>
           <span class="wp-photo-note">Kilimanjaro &middot; northern highlands</span>
         </div>
@@ -1859,7 +1932,7 @@ body[data-page="home"] .hero-film .hero-scrim{
 
       <div class="world-panel w2 tw:grid">
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 52%;"><img class="ph-loaded" src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 52%;--crop-wide:50% 56%;--crop-tablet:50% 54%;--crop-mobile:52% 50%;--crop-scale-wide:1.02;"><img class="ph-loaded" src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at golden hour"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">The great migration</span>
           <span class="wp-photo-note">Serengeti &middot; northern corridor</span>
         </div>
@@ -1885,7 +1958,7 @@ body[data-page="home"] .hero-film .hero-scrim{
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;--crop-wide:50% 58%;--crop-tablet:50% 56%;--crop-mobile:52% 52%;--crop-scale-wide:1.02;"><img class="ph-loaded" src="assets/images/ngorongoro.webp" loading="lazy" decoding="async" alt="Wildlife on the floor of the Ngorongoro Crater"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">600m deep</span>
           <span class="wp-photo-note">Ngorongoro &middot; crater floor</span>
         </div>
@@ -1893,7 +1966,7 @@ body[data-page="home"] .hero-film .hero-scrim{
 
       <div class="world-panel w4 tw:grid">
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 91%;"><img class="ph-loaded" src="assets/images/maasai.jpg" loading="lazy" decoding="async" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 91%;--crop-wide:50% 84%;--crop-tablet:50% 78%;--crop-mobile:50% 72%;--crop-scale-wide:1.025;"><img class="ph-loaded" src="assets/images/maasai.jpg" loading="lazy" decoding="async" alt="Maasai walking along the Ngorongoro highlands"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Ukarimu</span>
           <span class="wp-photo-note">Maasai &middot; Chagga &middot; Swahili coast</span>
         </div>
@@ -1921,7 +1994,7 @@ body[data-page="home"] .hero-film .hero-scrim{
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;"><img class="ph-loaded" src="assets/images/great-rift.jpg" loading="lazy" decoding="async" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 55%;--crop-wide:50% 59%;--crop-tablet:50% 56%;--crop-mobile:50% 52%;--crop-scale-wide:1.02;"><img class="ph-loaded" src="assets/images/great-rift.jpg" loading="lazy" decoding="async" alt="Great Rift Valley landscape in northern Tanzania"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Volcanic north</span>
           <span class="wp-photo-note">Great Rift &middot; northern Tanzania</span>
         </div>
@@ -1938,7 +2011,7 @@ body[data-page="home"] .hero-film .hero-scrim{
           </div>
         </div>
         <div class="wp-photo tw:relative tw:overflow-hidden">
-          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 58%;"><img class="ph-loaded" src="assets/zanzibar.jpg" loading="lazy" decoding="async" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
+          <div class="wp-photo-film"><div class="ph-frame ph-graded ph-reveal" style="--crop:50% 58%;--crop-wide:50% 61%;--crop-tablet:50% 58%;--crop-mobile:50% 54%;--crop-scale-wide:1.02;"><img class="ph-loaded" src="assets/zanzibar.jpg" loading="lazy" decoding="async" alt="Sunset on the Zanzibar coast"><div class="ph-grade"></div><div class="ph-scrim"></div></div><span class="wp-ph-hint"></span></div>
           <span class="wp-photo-tag">Indian Ocean</span>
           <span class="wp-photo-note">Zanzibar &middot; Pemba &middot; Stone Town</span>
         </div>
@@ -1983,7 +2056,7 @@ body[data-page="home"] .hero-film .hero-scrim{
   </div>
 
   <div class="lp-journey-stack tw:grid reveal">
-    <figure class="lp-photo lp-journey-main" data-lp-media style="--lp-pos:50% 52%;--lp-mask:var(--lp-white);">
+    <figure class="lp-photo lp-journey-main" data-lp-media style="--lp-pos:50% 52%;--lp-pos-wide:50% 58%;--lp-pos-tablet:50% 56%;--lp-pos-mobile:52% 52%;--lp-scale-wide:1.02;--lp-mask:var(--lp-white);">
       <img src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at sunset">
       <figcaption>Serengeti · golden hour</figcaption>
     </figure>
@@ -2006,7 +2079,7 @@ body[data-page="home"] .hero-film .hero-scrim{
       </div>
     </div>
 
-    <figure class="lp-photo lp-journey-inset" data-lp-media style="--lp-pos:50% 55%;--lp-mask:var(--lp-bone);">
+    <figure class="lp-photo lp-journey-inset" data-lp-media style="--lp-pos:50% 55%;--lp-pos-wide:50% 59%;--lp-pos-tablet:50% 56%;--lp-pos-mobile:52% 52%;--lp-scale-wide:1.02;--lp-mask:var(--lp-bone);">
       <img src="assets/images/great-rift.jpg" loading="lazy" decoding="async" alt="Great Rift Valley landscape in northern Tanzania">
       <figcaption>Rift Valley · northern Tanzania</figcaption>
     </figure>
@@ -2054,7 +2127,7 @@ body[data-page="home"] .hero-film .hero-scrim{
     </div>
 
     <div class="lp-proof-system tw:grid reveal">
-      <figure class="lp-photo lp-proof-main" data-lp-media style="--lp-pos:50% 52%;--lp-mask:var(--lp-bone);">
+      <figure class="lp-photo lp-proof-main" data-lp-media style="--lp-pos:50% 52%;--lp-pos-wide:50% 57%;--lp-pos-tablet:50% 55%;--lp-pos-mobile:50% 52%;--lp-scale-wide:1.02;--lp-mask:var(--lp-bone);">
         <img src="assets/images/nyerere.jpg" loading="lazy" decoding="async" alt="Boat safari with elephants in Nyerere National Park">
         <figcaption>Nyerere · on the Rufiji</figcaption>
       </figure>
@@ -2081,17 +2154,17 @@ body[data-page="home"] .hero-film .hero-scrim{
     </div>
 
     <div class="lp-stay-stage tw:grid reveal">
-      <figure class="lp-photo lp-stay-main" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-white);">
+      <figure class="lp-photo lp-stay-main" data-lp-media style="--lp-pos:50% 50%;--lp-pos-wide:50% 52%;--lp-pos-tablet:50% 50%;--lp-pos-mobile:50% 48%;--lp-mask:var(--lp-white);">
         <img src="assets/images/lodge.jpg" loading="lazy" decoding="async" alt="Interior of a tented safari lodge in Tanzania">
         <figcaption>Canvas, timber, air and the landscape outside</figcaption>
       </figure>
 
-      <figure class="lp-photo lp-stay-context lp-stay-plain" data-lp-media style="--lp-pos:50% 54%;--lp-mask:var(--lp-bone);">
+      <figure class="lp-photo lp-stay-context lp-stay-plain" data-lp-media style="--lp-pos:50% 54%;--lp-pos-wide:50% 58%;--lp-pos-tablet:50% 55%;--lp-pos-mobile:52% 52%;--lp-scale-wide:1.02;--lp-mask:var(--lp-bone);">
         <img src="assets/serengeti.jpg" loading="lazy" decoding="async" alt="Serengeti landscape at sunset">
         <figcaption>Setting · the plain</figcaption>
       </figure>
 
-      <figure class="lp-photo lp-stay-context lp-stay-coast" data-lp-media style="--lp-pos:50% 54%;--lp-mask:var(--lp-paper);">
+      <figure class="lp-photo lp-stay-context lp-stay-coast" data-lp-media style="--lp-pos:50% 54%;--lp-pos-wide:50% 58%;--lp-pos-tablet:50% 55%;--lp-pos-mobile:50% 52%;--lp-scale-wide:1.02;--lp-mask:var(--lp-paper);">
         <img src="assets/zanzibar.jpg" loading="lazy" decoding="async" alt="Sunset on the Zanzibar coast">
         <figcaption>Setting · the coast</figcaption>
       </figure>
@@ -2122,12 +2195,12 @@ body[data-page="home"] .hero-film .hero-scrim{
     </div>
 
     <div class="lp-network-stage tw:grid reveal">
-      <figure class="lp-photo lp-network-main" data-lp-media style="--lp-pos:50% 50%;--lp-mask:var(--lp-paper);">
+      <figure class="lp-photo lp-network-main" data-lp-media style="--lp-pos:50% 50%;--lp-pos-wide:50% 52%;--lp-pos-tablet:50% 50%;--lp-pos-mobile:50% 48%;--lp-mask:var(--lp-paper);">
         <img src="assets/images/kibosho-family.jpg" loading="lazy" decoding="async" alt="A gathering in the Kilimanjaro foothills">
         <figcaption>Kilimanjaro foothills · local hospitality</figcaption>
       </figure>
 
-      <figure class="lp-photo lp-network-inset" data-lp-media style="--lp-pos:50% 100%;--lp-mask:var(--lp-bone);">
+      <figure class="lp-photo lp-network-inset" data-lp-media style="--lp-pos:50% 100%;--lp-pos-wide:50% 84%;--lp-pos-tablet:50% 78%;--lp-pos-mobile:50% 70%;--lp-scale-wide:1.025;--lp-mask:var(--lp-bone);">
         <img src="assets/images/maasai.jpg" loading="lazy" decoding="async" alt="Maasai walking along the Ngorongoro highlands">
         <figcaption>Ngorongoro highlands</figcaption>
       </figure>
@@ -2254,7 +2327,7 @@ body[data-page="home"] .hero-film .hero-scrim{
 
 <section class="lp-final-photo tw:bg-enkiama-paper" aria-label="Southern Tanzania">
   <a href="nyerere.html" class="lp-final-photo-link em-media em-veil em-safe-left tw:relative tw:block tw:overflow-hidden">
-    <figure class="lp-photo" data-lp-media style="--lp-pos:50% 56%;--lp-mask:var(--lp-paper);">
+    <figure class="lp-photo" data-lp-media style="--lp-pos:50% 56%;--lp-pos-wide:50% 61%;--lp-pos-tablet:50% 58%;--lp-pos-mobile:50% 54%;--lp-scale-wide:1.02;--lp-mask:var(--lp-paper);">
       <img src="assets/images/nyerere.jpg" loading="lazy" decoding="async" alt="Boat safari on the Rufiji River in Nyerere National Park">
       <figcaption>Nyerere · Rufiji River · Southern Tanzania</figcaption>
     </figure>
