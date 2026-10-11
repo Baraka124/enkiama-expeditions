@@ -1649,9 +1649,13 @@ body[data-page="home"] .hero-film .hero-scrim{
   // Scroll condense: on Home, preserve the transparent masthead while the
   // photographic hero is still the active scene. Condense only after it exits.
   var ticking=false;
-  var hero=document.body.getAttribute('data-page')==='home' ? document.querySelector('.hero') : null;
+  var isHome=document.body.getAttribute('data-page')==='home';
+  function getHomeHero(){
+    return isHome ? document.getElementById('home') : null;
+  }
   function syncBarState(){
     var overHomeHero=false;
+    var hero=getHomeHero();
     if(hero){
       var hr=hero.getBoundingClientRect();
       var mastheadH=bar.getBoundingClientRect().height||0;
