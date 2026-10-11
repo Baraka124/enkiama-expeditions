@@ -267,6 +267,16 @@ for (const viewport of viewports) {
           });
           await page.waitForTimeout(80);
           await expect(masthead, 'Home masthead should condense only after the hero exits').toHaveClass(/scrolled/);
+          await expect(masthead, 'Home masthead may yield during sustained downward reading after the hero').toHaveClass(/eh-scroll-away/);
+
+          // Even a gentle upward gesture should restore orientation immediately.
+          await page.evaluate(() => window.scrollBy(0, -2));
+          await page.waitForFunction(() => {
+            const bar = document.getElementById('ehBar');
+            return !!bar && !bar.classList.contains('eh-scroll-away');
+          });
+          await expect(masthead, 'Home masthead should return on gentle upward intent').not.toHaveClass(/eh-scroll-away/);
+
           await page.evaluate(() => {
             window.scrollTo(0, 0);
             document.documentElement.style.scrollBehavior = '';
