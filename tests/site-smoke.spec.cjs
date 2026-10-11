@@ -178,6 +178,43 @@ for (const viewport of viewports) {
         }
 
         if (path === 'index.html') {
+          const hero = await page.evaluate(() => {
+            const content = document.querySelector('.hero-content');
+            const headline = document.querySelector('.hero-hed');
+            const actions = document.querySelector('.hero-acts');
+            const primary = document.querySelector('.hero-acts .btn-primary');
+            const secondary = document.querySelector('.hero-acts .btn-ghost');
+            if (!content || !headline || !actions || !primary || !secondary) return null;
+            const cr = content.getBoundingClientRect();
+            const hr = headline.getBoundingClientRect();
+            return {
+              contentWidth: cr.width,
+              contentLeft: cr.left,
+              contentRight: cr.right,
+              headlineWidth: hr.width,
+              headlineFontSize: parseFloat(getComputedStyle(headline).fontSize),
+              primaryText: primary.textContent.trim(),
+              primaryHref: primary.getAttribute('href'),
+              secondaryText: secondary.textContent.trim(),
+              secondaryHref: secondary.getAttribute('href'),
+            };
+          });
+          expect(hero, 'Homepage editorial hero should exist').not.toBeNull();
+          expect(hero.contentRight, 'Hero reading field should remain inside the viewport').toBeLessThanOrEqual(metrics.innerWidth + 4);
+          expect(hero.contentLeft, 'Hero reading field should remain inside the viewport').toBeGreaterThanOrEqual(-4);
+          expect(hero.headlineWidth, 'Hero headline should not occupy the full viewport').toBeLessThanOrEqual(metrics.innerWidth * 0.72);
+          expect(hero.primaryText, 'Hero primary action should lead to journey planning').toBe('Begin a journey');
+          expect(hero.primaryHref, 'Hero primary action should point to begin.html').toBe('begin.html');
+          expect(hero.secondaryHref, 'Hero secondary action should remain the Tanzania exploration route').toBe('#worlds');
+
+          if (viewport.width >= 1000) {
+            expect(hero.contentWidth, 'Desktop hero reading field should remain editorially narrow').toBeLessThanOrEqual(620);
+            expect(hero.headlineFontSize, 'Desktop hero headline should respect the restrained type ceiling').toBeLessThanOrEqual(108);
+          }
+          if (viewport.width <= 520) {
+            expect(hero.headlineFontSize, 'Small-screen hero headline should remain compact').toBeLessThanOrEqual(58);
+          }
+
           const karibu = await page.evaluate(() => {
             const stack = document.querySelector('.lp-welcome-stack');
             const photo = document.querySelector('.lp-welcome-photo');
