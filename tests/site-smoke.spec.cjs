@@ -245,6 +245,21 @@ for (const viewport of viewports) {
             expect(hero.headlineFontSize, 'Small-screen hero headline should remain compact').toBeLessThanOrEqual(58);
           }
 
+          // Home masthead should remain visually integrated with the hero until
+          // the hero has actually left the active scene.
+          const masthead = page.locator('#ehBar');
+          await page.evaluate(() => window.scrollTo(0, 60));
+          await page.waitForTimeout(80);
+          await expect(masthead, 'Home masthead should stay transparent during early hero scroll').not.toHaveClass(/scrolled/);
+
+          await page.evaluate(() => {
+            const hero = document.querySelector('.hero');
+            window.scrollTo(0, Math.max(0, (hero?.offsetHeight || window.innerHeight) + 80));
+          });
+          await page.waitForTimeout(80);
+          await expect(masthead, 'Home masthead should condense only after the hero exits').toHaveClass(/scrolled/);
+          await page.evaluate(() => window.scrollTo(0, 0));
+
           const karibu = await page.evaluate(() => {
             const stack = document.querySelector('.lp-welcome-stack');
             const photo = document.querySelector('.lp-welcome-photo');
