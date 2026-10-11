@@ -1419,6 +1419,137 @@ body[data-page="home"] .hero::before{
 }
 </style>
 
+
+<style id="phase23i-hero-reading-field">
+/* Phase 23I · Hero reading field.
+   Fix the actual composition axes and protect all text placed over photography
+   without adding a visible card, panel or masthead treatment. */
+
+/* The shared hero is column-flex. Phase 23H centered the cross-axis by mistake,
+   which placed the reading field over the photographic subject. */
+body[data-page="home"] .hero{
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+}
+
+/* Keep the reading field anchored to the editorial gutter, not the image centre. */
+body[data-page="home"] .hero-content{
+  position:relative!important;
+  isolation:isolate;
+  margin:0!important;
+}
+body[data-page="home"] .hero-content::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  inset:-3.2rem -6.5rem -3.4rem -3.8rem;
+  background:
+    radial-gradient(
+      ellipse at 36% 50%,
+      rgba(5,9,7,.72) 0%,
+      rgba(5,9,7,.54) 34%,
+      rgba(5,9,7,.26) 56%,
+      rgba(5,9,7,.08) 72%,
+      transparent 84%
+    );
+  filter:blur(7px);
+}
+body[data-page="home"] .hero-content > *{
+  position:relative;
+  z-index:1;
+}
+
+/* Text over photography must not depend on a lucky patch of sky or foliage. */
+body[data-page="home"] .hero-eye{
+  color:rgba(248,241,227,.94)!important;
+  border-bottom-color:rgba(248,241,227,.42)!important;
+  font-size:11px!important;
+  font-weight:600!important;
+  letter-spacing:.15em!important;
+  text-shadow:0 1px 14px rgba(0,0,0,.34);
+}
+body[data-page="home"] .hero-hed{
+  color:#f4eddf!important;
+  text-shadow:0 2px 26px rgba(0,0,0,.24);
+}
+body[data-page="home"] .hero-hed em{
+  color:#eadfc9!important;
+  text-shadow:0 2px 24px rgba(0,0,0,.28);
+}
+body[data-page="home"] .hero-sub{
+  color:rgba(248,241,227,.94)!important;
+  font-weight:400!important;
+  text-shadow:0 1px 16px rgba(0,0,0,.34);
+}
+body[data-page="home"] .hero .btn-primary{
+  background:rgba(244,237,223,.97)!important;
+  border-color:rgba(244,237,223,.97)!important;
+}
+body[data-page="home"] .hero .btn-ghost{
+  color:rgba(248,241,227,.96)!important;
+  border-bottom-color:rgba(248,241,227,.56)!important;
+  text-shadow:0 1px 12px rgba(0,0,0,.28);
+}
+
+/* The broad image grade remains cinematic; the local veil does the reading work. */
+body[data-page="home"] .hero-film .hero-scrim{
+  background:
+    linear-gradient(90deg,
+      rgba(7,12,9,.62) 0%,
+      rgba(7,12,9,.34) 30%,
+      rgba(7,12,9,.12) 54%,
+      rgba(7,12,9,.03) 76%,
+      transparent 100%),
+    linear-gradient(0deg,
+      rgba(7,12,9,.42) 0%,
+      rgba(7,12,9,.06) 42%,
+      rgba(7,12,9,.08) 100%)!important;
+}
+
+@media(max-width:860px){
+  body[data-page="home"] .hero{
+    justify-content:flex-end!important;
+    align-items:flex-start!important;
+  }
+  body[data-page="home"] .hero-content::before{
+    inset:-2.5rem -3rem -2.7rem -2rem;
+    background:
+      radial-gradient(
+        ellipse at 42% 60%,
+        rgba(5,9,7,.76) 0%,
+        rgba(5,9,7,.56) 36%,
+        rgba(5,9,7,.28) 60%,
+        rgba(5,9,7,.08) 76%,
+        transparent 88%
+      );
+    filter:blur(5px);
+  }
+  body[data-page="home"] .hero-film .hero-scrim{
+    background:
+      linear-gradient(0deg,
+        rgba(7,12,9,.76) 0%,
+        rgba(7,12,9,.42) 35%,
+        rgba(7,12,9,.12) 68%,
+        rgba(7,12,9,.04) 100%),
+      linear-gradient(90deg,
+        rgba(7,12,9,.22) 0%,
+        rgba(7,12,9,.08) 75%,
+        transparent 100%)!important;
+  }
+}
+@media(max-width:520px){
+  body[data-page="home"] .hero-eye{
+    font-size:10px!important;
+    letter-spacing:.13em!important;
+  }
+  body[data-page="home"] .hero-content::before{
+    inset:-2rem -1.5rem -2.2rem -1.2rem;
+  }
+}
+</style>
+
 </head>
 <body data-page="home" class="tw:bg-enkiama-white tw:text-enkiama-ink tw:font-enkiama-sans">
 <!-- ENKIAMA_HEADER_START -->
