@@ -177,6 +177,76 @@ for (const viewport of viewports) {
           ).toBeLessThanOrEqual(82);
         }
 
+
+        if (path === 'begin.html') {
+          const beginState = await page.evaluate(() => {
+            const hero = document.querySelector('.begin-conversion .ph');
+            const heroInner = document.querySelector('.begin-conversion .ph-inner');
+            const form = document.getElementById('lfForm');
+            const name = document.getElementById('lfName');
+            const contact = document.getElementById('lfEmail');
+            const message = document.getElementById('lfMsg');
+            const send = document.getElementById('lfSend');
+            const redundantStatement = [...document.querySelectorAll('blockquote p')]
+              .some(el => /A number only ever follows/i.test(el.textContent || ''));
+            return {
+              hero: hero ? hero.getBoundingClientRect() : null,
+              heroInner: heroInner ? heroInner.getBoundingClientRect() : null,
+              formTag: form?.tagName || null,
+              formId: form?.id || null,
+              nameName: name?.getAttribute('name') || null,
+              contactName: contact?.getAttribute('name') || null,
+              messageName: message?.getAttribute('name') || null,
+              sendType: send?.getAttribute('type') || null,
+              sendText: send?.textContent?.trim() || '',
+              hasRedundantStatement: redundantStatement,
+              bodyText: document.body.innerText || '',
+            };
+          });
+
+          expect(beginState, 'Begin conversion state should exist').not.toBeNull();
+          expect(beginState.formTag, 'Begin enquiry should use a semantic form').toBe('FORM');
+          expect(beginState.formId, 'Begin enquiry should keep a stable form id').toBe('lfForm');
+          expect(beginState.nameName, 'Name field should be serializable').toBe('name');
+          expect(beginState.contactName, 'Contact field should be serializable').toBe('contact');
+          expect(beginState.messageName, 'Message field should be serializable').toBe('message');
+          expect(beginState.sendType, 'Begin action should submit the form semantically').toBe('submit');
+          expect(beginState.sendText, 'Public send action should remain Enkiama-branded').toContain('Send to Enkiama');
+          expect(beginState.bodyText, 'Public conversion UI must not expose a personal-name fallback').not.toContain('Send to Baraka');
+          expect(beginState.hasRedundantStatement, 'Begin should not repeat the same post-form conversation statement').toBe(false);
+
+          expect(beginState.hero, 'Begin hero should exist').not.toBeNull();
+          expect(
+            beginState.hero.height,
+            `Begin hero should not become another full-screen barrier at ${viewport.name}`
+          ).toBeLessThanOrEqual(viewport.height * 0.9);
+
+          if (viewport.width >= 1000) {
+            expect(
+              beginState.heroInner.width,
+              `Begin hero copy should retain a restrained editorial measure at ${viewport.name}`
+            ).toBeLessThanOrEqual(800);
+          }
+
+          // Keyboard-first submit path: once valid, Enter from a field should submit the form.
+          await page.fill('#lfEmail', 'traveller@example.com');
+          await page.fill('#lfMsg', 'We are considering Tanzania in August for two people and want a quieter wildlife journey.');
+          await expect(page.locator('#lfSend')).toBeEnabled();
+
+          const submitProbe = await page.evaluate(() => {
+            const form = document.getElementById('lfForm');
+            let count = 0;
+            const handler = event => {
+              count += 1;
+              event.preventDefault();
+            };
+            form.addEventListener('submit', handler, { once:true });
+            form.requestSubmit();
+            return count;
+          });
+          expect(submitProbe, 'Begin semantic form should support native submit behavior').toBe(1);
+        }
+
         if (path === 'index.html') {
           const hero = await page.evaluate(() => {
             const content = document.querySelector('.hero-content');
