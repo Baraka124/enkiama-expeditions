@@ -252,7 +252,11 @@ for (const viewport of viewports) {
             exitText: document.getElementById('evExit')?.textContent?.trim(),
             exitHref: document.getElementById('evExit')?.getAttribute('href'),
             route: document.getElementById('evRoute')?.textContent?.trim(),
-            title: document.getElementById('evTitle')?.textContent?.trim()
+            title: document.getElementById('evTitle')?.textContent?.trim(),
+            composedClass: document.querySelector('.ev')?.classList.contains('composed-mode'),
+            controlsOpacity: getComputedStyle(document.querySelector('.ev-controls')).opacity,
+            sceneRoles: [...document.querySelectorAll('.ev-scene:not([hidden])')].map(el => el.dataset.sceneRole),
+            routeStops: [...document.querySelectorAll('#evRouteDirector .ev-route-stop span')].map(el => el.textContent.trim())
           }));
           expect(state.mode).toBe('Your journey view');
           expect(state.exitText).toBe('Back to composition');
@@ -260,6 +264,34 @@ for (const viewport of viewports) {
           expect(state.route).toContain('Tarangire');
           expect(state.route).toContain('Zanzibar');
           expect(state.title).toContain('space');
+          expect(state.composedClass).toBe(true);
+          expect(Number(state.controlsOpacity)).toBeGreaterThanOrEqual(0.85);
+          expect(state.sceneRoles[0]).toBe('opening');
+          expect(state.sceneRoles).toContain('route');
+          expect(state.sceneRoles).toContain('coast-transition');
+          expect(state.sceneRoles).toContain('coast-exhale');
+          expect(state.sceneRoles[state.sceneRoles.length - 1]).toBe('close');
+          expect(state.routeStops).toEqual(['Tarangire','Ngorongoro','Serengeti','Zanzibar']);
+
+          await page.evaluate(() => {
+            sessionStorage.setItem('enkiama.composition', JSON.stringify({
+              version: 1,
+              preferences: {pull:'spectacle',time:'short',season:'jun-oct',pace:'full',coast:'no',who:'friends'},
+              labels: {pull:'Wildlife',time:'~1 week',season:'Jun–Oct',pace:'Active',coast:'Mainland only',who:'Friends'},
+              route: ['Serengeti','Ngorongoro'],
+              message: 'Mainland composition'
+            }));
+          });
+          await page.goto(composedURL, {waitUntil:'domcontentloaded'});
+          const noCoast = await page.evaluate(() => ({
+            roles: [...document.querySelectorAll('.ev-scene:not([hidden])')].map(el => el.dataset.sceneRole),
+            routeStops: [...document.querySelectorAll('#evRouteDirector .ev-route-stop span')].map(el => el.textContent.trim())
+          }));
+          expect(noCoast.roles).not.toContain('coast-transition');
+          expect(noCoast.roles).not.toContain('coast-exhale');
+          expect(noCoast.roles).not.toContain('human');
+          expect(noCoast.roles.slice(0,3)).toEqual(['opening','route','intelligence']);
+          expect(noCoast.routeStops).toEqual(['Serengeti','Ngorongoro']);
         }
 
         if (path === 'begin.html') {
