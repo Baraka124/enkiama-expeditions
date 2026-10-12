@@ -292,6 +292,25 @@ for (const viewport of viewports) {
           expect(noCoast.roles).not.toContain('human');
           expect(noCoast.roles.slice(0,3)).toEqual(['opening','route','intelligence']);
           expect(noCoast.routeStops).toEqual(['Serengeti','Ngorongoro']);
+
+          const interaction = await page.evaluate(async () => {
+            const viewer = document.querySelector('.ev');
+            viewer.classList.add('chrome-idle');
+            viewer.dispatchEvent(new PointerEvent('pointermove', {bubbles:true}));
+            const chromeRestored = !viewer.classList.contains('chrome-idle');
+            viewer.dispatchEvent(new WheelEvent('wheel', {deltaY:140,bubbles:true,cancelable:true}));
+            await new Promise(resolve => setTimeout(resolve, 260));
+            return {
+              chromeRestored,
+              activeRole: document.querySelector('.ev-scene.active')?.dataset.sceneRole,
+              routeDrawing: document.getElementById('evRouteDirector')?.classList.contains('route-drawing'),
+              indexText: document.getElementById('evIndex')?.textContent?.trim()
+            };
+          });
+          expect(interaction.chromeRestored).toBe(true);
+          expect(interaction.activeRole).toBe('route');
+          expect(interaction.routeDrawing).toBe(true);
+          expect(interaction.indexText).toMatch(/^02 \/ /);
         }
 
         if (path === 'begin.html') {
