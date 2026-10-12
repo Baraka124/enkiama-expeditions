@@ -1436,7 +1436,8 @@ body.eh-locked{overflow:hidden;}
             <p class="cmp-handoff-note">Your choices and this first route can travel with the message, so the next conversation does not start from zero.</p>
           </div>
           <div class="cmp-handoff-actions">
-            <a href="#" id="cmpWhatsapp" class="btn-primary" target="_blank" rel="noopener">Continue on WhatsApp</a>
+            <a href="experience-view.html?from=compose" id="cmpJourneyView" class="btn-primary">View this composition &rarr;</a>
+            <a href="#" id="cmpWhatsapp" class="btn-ghost" target="_blank" rel="noopener">Continue on WhatsApp</a>
             <a href="begin.html" id="cmpBegin" class="btn-ghost">Continue in writing &rarr;</a>
             <button class="cmp-restart" id="cmpRestart" type="button">Compose another direction</button>
           </div>
@@ -1883,6 +1884,18 @@ body.eh-locked{overflow:hidden;}
     var msg='Hello Enkiama. I composed a first journey shape on the website:\n\n• Interest: '+lab('pull',pull)+'\n• Time: '+lab('time',time)+'\n• Rough timing: '+lab('season',season)+'\n• Pace: '+lab('pace',pace)+'\n• Coast: '+lab('coast',coast)+'\n• Travelling: '+lab('who',who)+'\n\nFirst route: '+arc.join(' → ')+'\n\nI would like to refine this direction with you.';
     document.getElementById('cmpWhatsapp').href='https://wa.me/34659447627?text='+encodeURIComponent(msg);
     document.getElementById('cmpBegin').href='begin.html?composed='+encodeURIComponent(msg);
+    try{
+      sessionStorage.setItem('enkiama.composition',JSON.stringify({
+        version:1,
+        preferences:{pull:pull,time:time,season:season,pace:pace,coast:coast,who:who},
+        labels:{
+          pull:lab('pull',pull),time:lab('time',time),season:lab('season',season),
+          pace:lab('pace',pace),coast:lab('coast',coast),who:lab('who',who)
+        },
+        route:arc,
+        message:msg
+      }));
+    }catch(e){ /* Journey View remains available in its generic mode. */ }
 
     recommendationPromise.then(function(example){
       if(window.EnkiamaJourneys){
