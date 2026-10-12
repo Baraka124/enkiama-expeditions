@@ -110,7 +110,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 .ev-rail{position:absolute;z-index:20;left:clamp(1.4rem,7vw,7rem);right:clamp(1.4rem,7vw,7rem);bottom:clamp(1.4rem,3vw,2.4rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
 .ev-progress{height:1px;background:rgba(237,230,214,.16);overflow:hidden;position:relative}
 .ev-progress span{position:absolute;inset:0 auto 0 0;width:0;background:var(--earth)}
-.ev-progress span.run{animation:evProgress 10s linear forwards}
+.ev-progress span.run{animation:evProgress var(--ev-scene-duration,10s) linear forwards}
 @keyframes evProgress{from{width:0}to{width:100%}}
 .ev-meta{display:flex;gap:1rem;align-items:center;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,230,214,.46)}
 .ev-index{color:var(--earth)}
@@ -740,6 +740,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 
   function restartProgress(){
     progress.classList.remove('run');
+    progress.style.setProperty('--ev-scene-duration',(sceneDelay()/1000)+'s');
     void progress.offsetWidth;
     if(!paused&&!drawerPaused&&!reduce) progress.classList.add('run');
   }
