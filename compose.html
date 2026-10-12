@@ -1432,14 +1432,24 @@ body.eh-locked{overflow:hidden;}
         <section class="cmp-handoff">
           <div class="cmp-handoff-copy">
             <p class="cmp-result-section-label">Continue from here</p>
-            <h3>If this direction feels right, we refine it with you.</h3>
-            <p class="cmp-handoff-note">Your choices and this first route can travel with the message, so the next conversation does not start from zero.</p>
+            <h3>If this direction feels right, step into it.</h3>
+            <p class="cmp-handoff-note">Journey View turns the route you just shaped into a directed sequence. Nothing is booked or fixed; it is simply a more immersive way to read the direction before we refine it together.</p>
           </div>
-          <div class="cmp-handoff-actions">
-            <a href="experience-view.html?from=compose" id="cmpJourneyView" class="btn-primary">View this composition &rarr;</a>
-            <a href="#" id="cmpWhatsapp" class="btn-ghost" target="_blank" rel="noopener">Continue on WhatsApp</a>
-            <a href="begin.html" id="cmpBegin" class="btn-ghost">Continue in writing &rarr;</a>
-            <button class="cmp-restart" id="cmpRestart" type="button">Compose another direction</button>
+
+          <div class="cmp-view-entry">
+            <a href="experience-view.html?from=compose" id="cmpJourneyView" class="cmp-view-entry__primary">
+              <span class="cmp-view-entry__meta"><span>Your Journey View</span><span id="cmpViewMeta">Directed from your choices</span></span>
+              <strong>Enter the route you just shaped.</strong>
+              <span class="cmp-view-entry__route" id="cmpViewRoute">Your first route</span>
+              <span class="cmp-view-entry__cta">Open cinematic view &rarr;</span>
+            </a>
+
+            <div class="cmp-handoff-secondary" aria-label="Other ways to continue">
+              <span>Continue another way</span>
+              <a href="#" id="cmpWhatsapp" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="begin.html" id="cmpBegin">Writing</a>
+              <button class="cmp-restart" id="cmpRestart" type="button">Start again</button>
+            </div>
           </div>
         </section>
       </div>
@@ -1618,11 +1628,26 @@ body.eh-locked{overflow:hidden;}
 .cmp-open-grid strong{display:block;font-family:'Fraunces',serif;font-size:19px;font-weight:350;color:var(--bone);margin-bottom:.55rem;}
 .cmp-open-grid p{font-size:11.5px;line-height:1.65;color:rgba(237,230,214,.62);}
 
-.cmp-handoff{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);gap:clamp(2.5rem,5vw,5rem);align-items:end;padding:clamp(4.5rem,7vw,7rem) 0 1rem;border-top:0;}
+.cmp-handoff{display:grid;grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);gap:clamp(3rem,6vw,6rem);align-items:start;padding:clamp(4.5rem,7vw,7rem) 0 1.5rem;border-top:0;}
+.cmp-handoff-copy{padding-top:.45rem;}
 .cmp-handoff-copy .cmp-handoff-note{font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:13.5px;line-height:1.75;color:rgba(237,230,214,.68);margin:1.2rem 0 0;max-width:48ch;}
-.cmp-handoff-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;}
-.cmp-handoff-actions .btn-primary,.cmp-handoff-actions .btn-ghost{width:100%;text-align:center;}
-.cmp-handoff-actions .cmp-restart{margin:.65rem 0 0;width:100%;text-align:center;padding:.8rem 0;border-top:1px solid var(--rule);}
+
+.cmp-view-entry{min-width:0;border-top:1px solid rgba(190,158,104,.28);border-bottom:1px solid var(--rule);}
+.cmp-view-entry__primary{display:block;position:relative;padding:1.35rem 0 1.6rem;color:var(--bone);text-decoration:none;overflow:hidden;}
+.cmp-view-entry__primary::before{content:'';position:absolute;left:0;top:-1px;width:18%;height:1px;background:var(--earth);transition:width .7s cubic-bezier(.16,1,.3,1);}
+.cmp-view-entry__primary:hover::before,.cmp-view-entry__primary:focus-visible::before{width:100%;}
+.cmp-view-entry__primary:focus-visible{outline:1px solid rgba(190,158,104,.82);outline-offset:7px;}
+.cmp-view-entry__meta{display:flex;justify-content:space-between;gap:1rem;padding-bottom:1rem;margin-bottom:1.3rem;border-bottom:1px solid var(--rule);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,230,214,.48);}
+.cmp-view-entry__meta span:first-child{color:var(--earth);}
+.cmp-view-entry__primary strong{display:block;font-family:'Fraunces',serif;font-size:clamp(31px,3.5vw,50px);font-weight:350;line-height:1;letter-spacing:-.03em;max-width:10ch;}
+.cmp-view-entry__route{display:block;margin-top:1.3rem;max-width:62ch;font-size:9px;line-height:1.65;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.58);overflow-wrap:anywhere;}
+.cmp-view-entry__cta{display:inline-block;margin-top:1.55rem;padding-bottom:.3rem;border-bottom:1px solid rgba(190,158,104,.48);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,230,214,.86);}
+
+.cmp-handoff-secondary{display:flex;align-items:center;gap:.8rem 1rem;flex-wrap:wrap;padding:1rem 0;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.42);}
+.cmp-handoff-secondary>span{margin-right:auto;color:rgba(237,230,214,.34);}
+.cmp-handoff-secondary a,.cmp-handoff-secondary button{border:0;background:none;color:rgba(237,230,214,.64);font:inherit;letter-spacing:inherit;text-transform:inherit;text-decoration:none;cursor:pointer;padding:.35rem 0;border-bottom:1px solid transparent;}
+.cmp-handoff-secondary a:hover,.cmp-handoff-secondary button:hover,.cmp-handoff-secondary a:focus-visible,.cmp-handoff-secondary button:focus-visible{color:var(--earth);border-bottom-color:rgba(190,158,104,.38);}
+.cmp-handoff-secondary a:focus-visible,.cmp-handoff-secondary button:focus-visible{outline:none;}
 
 .cmp-stage.result-mode{grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr);}
 .cmp-stage.result-mode .cmp-visual-inset{opacity:0;pointer-events:none;}
@@ -1634,6 +1659,7 @@ body.eh-locked{overflow:hidden;}
   .cmp-choice-ledger{grid-template-columns:repeat(2,1fr);}
   .cmp-open-decisions{grid-template-columns:1fr;gap:2rem;}
   .cmp-handoff{grid-template-columns:1fr;gap:2.25rem;}
+  .cmp-view-entry__primary strong{max-width:12ch;}
 }
 @media(max-width:680px){
   .cmp-result-hero .cmp-result-title{font-size:clamp(42px,12vw,60px);}
@@ -1646,6 +1672,13 @@ body.eh-locked{overflow:hidden;}
   .cmp-result-reasoning .cmp-reasoning{grid-template-columns:1fr;}
   .cmp-result-reasoning .cmp-reason{min-height:0;}
   .cmp-open-grid{grid-template-columns:1fr;}
+  .cmp-handoff{padding-top:3.5rem;}
+  .cmp-view-entry__meta{display:block;}
+  .cmp-view-entry__meta span{display:block;}
+  .cmp-view-entry__meta span+span{margin-top:.4rem;}
+  .cmp-view-entry__primary strong{font-size:clamp(30px,9.5vw,42px);max-width:11ch;}
+  .cmp-view-entry__route{font-size:8px;line-height:1.55;}
+  .cmp-handoff-secondary>span{flex-basis:100%;margin-right:0;}
 }
 @media(max-width:980px){
   .cmp-stage{grid-template-columns:1fr;min-height:0;}
@@ -1781,6 +1814,14 @@ body.eh-locked{overflow:hidden;}
     if(time==='long'&&arc.indexOf('Ruaha')<0)arc.push('Ruaha');
     if(coast==='yes')arc.push('Zanzibar');
     else if(coast==='maybe'&&time!=='short')arc.push('Zanzibar (option)');
+
+    var viewMeta=document.getElementById('cmpViewMeta');
+    var viewRoute=document.getElementById('cmpViewRoute');
+    if(viewRoute)viewRoute.textContent=arc.join(' → ');
+    if(viewMeta){
+      var coastLabel=coast==='yes'?'coast included':(coast==='no'?'mainland only':'coast optional');
+      viewMeta.textContent=arc.length+' chapters · '+labels.pace[pace]+' · '+coastLabel;
+    }
 
     var titles={
       stillness:['A route with more <em>space.</em>','The first shape favours fewer transitions and places where longer stays make sense.'],

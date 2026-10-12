@@ -199,10 +199,20 @@ for (const viewport of viewports) {
               question: rect(q),
               stageDisplay: getComputedStyle(stage).display,
               stageColumns: getComputedStyle(stage).gridTemplateColumns,
+              journeyHref: document.getElementById('cmpJourneyView')?.getAttribute('href'),
+              journeyClass: document.getElementById('cmpJourneyView')?.className,
+              secondaryActions: document.querySelectorAll('.cmp-handoff-secondary a, .cmp-handoff-secondary button').length,
+              viewMetaExists: !!document.getElementById('cmpViewMeta'),
+              viewRouteExists: !!document.getElementById('cmpViewRoute'),
             };
           });
 
           expect(composeState, 'Compose stage should exist').not.toBeNull();
+          expect(composeState.journeyHref).toBe('experience-view.html?from=compose');
+          expect(composeState.journeyClass).toContain('cmp-view-entry__primary');
+          expect(composeState.secondaryActions).toBe(3);
+          expect(composeState.viewMetaExists).toBe(true);
+          expect(composeState.viewRouteExists).toBe(true);
 
           if (viewport.width >= 1000) {
             expect(
