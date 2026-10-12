@@ -392,6 +392,71 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   .ev-progress span{animation:none!important;transition:none!important}
 }
 </style>
+<style id="phase24d-journey-view-cinematic-refinement">
+/* Phase 24D · final cinematic authority layer.
+   Keep the viewer immersive, legible and calm; avoid card chrome. */
+.ev-scene{transition:opacity 1.15s cubic-bezier(.22,.61,.36,1)!important}
+.ev-media{transform:scale(1.028)!important;transition:transform 15s cubic-bezier(.16,1,.3,1)!important}
+.ev-scene.active .ev-media{transform:scale(1)!important}
+.ev-copy{
+  transition:opacity .46s ease,transform .62s cubic-bezier(.16,1,.3,1);
+  transform:translateY(0);
+  will-change:opacity,transform;
+}
+.ev-copy.is-changing{opacity:.12;transform:translateY(9px)}
+.ev-top{
+  border-bottom:0!important;
+  background:linear-gradient(180deg,rgba(7,13,9,.82) 0%,rgba(7,13,9,.36) 54%,rgba(7,13,9,0) 100%)!important;
+}
+.ev-controls{
+  opacity:.9!important;
+  background:rgba(7,13,9,.48)!important;
+  border-color:rgba(237,230,214,.13)!important;
+}
+.ev-btn{color:rgba(237,230,214,.84)!important}
+.ev-btn:hover,.ev-btn:focus-visible{color:var(--earth)!important;background:rgba(237,230,214,.035)!important}
+.ev-rail{align-items:center!important}
+.ev-progress{background:rgba(237,230,214,.12)!important}
+.ev-meta{color:rgba(237,230,214,.52)!important}
+
+/* A composition entered from Compose should feel owned by the traveller,
+   without turning the cinematic viewer into another form or dashboard. */
+.ev.composed-mode .ev-scene.quiet.active{
+  background:
+    radial-gradient(ellipse at 34% 44%,rgba(122,148,112,.12),transparent 42%),
+    radial-gradient(ellipse at 68% 62%,rgba(190,158,104,.07),transparent 36%),
+    #070d09;
+}
+.ev.composed-mode .ev-scene.quiet .ev-copy{max-width:min(980px,88vw)}
+.ev.composed-mode .ev-route{
+  max-width:78ch;
+  margin-top:1.6rem;
+  padding-top:1.15rem;
+  font-size:10px;
+  line-height:1.7;
+  letter-spacing:.11em;
+  color:rgba(237,230,214,.78);
+}
+.ev.composed-mode .ev-evidence{margin-top:1.15rem;gap:.8rem 1.5rem}
+.ev.composed-mode .ev-chip{color:rgba(237,230,214,.58)}
+.ev.composed-mode .ev-chip b{font-size:20px}
+.ev.composed-mode .ev-mode{color:rgba(190,158,104,.86)!important}
+
+@media(max-width:760px){
+  .ev-scene{transition-duration:.82s!important}
+  .ev-media{transition-duration:11s!important}
+  .ev-copy.is-changing{transform:translateY(6px)}
+  .ev-controls{opacity:1!important}
+  .ev.composed-mode .ev-scene.quiet .ev-copy{width:calc(100% - 2.6rem);max-width:none}
+  .ev.composed-mode .ev-route{font-size:8.5px;line-height:1.55;margin-top:1rem;padding-top:.75rem}
+  .ev.composed-mode .ev-evidence{gap:.4rem .8rem;margin-top:.7rem}
+  .ev.composed-mode .ev-chip b{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ev-scene,.ev-media,.ev-copy{transition:none!important;transform:none!important}
+  .ev-copy.is-changing{opacity:1!important}
+}
+</style>
 </head>
 <body>
 <main class="ev" aria-label="Enkiama View">
@@ -561,6 +626,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     try{composeState=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){composeState=null;}
   }
   if(composeState&&Array.isArray(composeState.route)&&composeState.route.length){
+    document.querySelector('.ev')?.classList.add('composed-mode');
     var firstScene=document.querySelector('.ev-scene');
     var closeScene=document.querySelector('.ev-scene:last-of-type');
     var pull=(composeState.preferences&&composeState.preferences.pull)||'all';
@@ -619,6 +685,8 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     refreshScenes();
     if(!scenes.length) return;
     current=(i+scenes.length)%scenes.length;
+    var copy=document.querySelector('.ev-copy');
+    if(copy)copy.classList.add('is-changing');
     scenes.forEach(function(scene,n){scene.classList.toggle('active',n===current);});
     var s=scenes[current];
     kicker.textContent=s.dataset.kicker||'';
@@ -658,6 +726,9 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
       link.classList.remove('visible');
     }
     restartProgress();
+    if(copy){
+      window.setTimeout(function(){copy.classList.remove('is-changing');},70);
+    }
   }
 
   function schedule(){
