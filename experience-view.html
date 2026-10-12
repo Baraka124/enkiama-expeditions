@@ -468,6 +468,85 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   .ev-copy.is-changing{opacity:1!important}
 }
 </style>
+<style id="phase24f-cinematic-interaction">
+/* Phase 24F · interaction should appear on intent, then recede again. */
+.ev-top,.ev-controls,.ev-rail,.ev-chapter{
+  transition:opacity .55s ease,filter .55s ease!important;
+}
+.ev.chrome-idle:not(:focus-within) .ev-top{opacity:.34}
+.ev.chrome-idle:not(:focus-within) .ev-controls{opacity:.12!important}
+.ev.chrome-idle:not(:focus-within) .ev-rail{opacity:.18}
+.ev.chrome-idle:not(:focus-within) .ev-chapter{opacity:.16}
+.ev.chrome-idle:not(:focus-within) .ev-copy{filter:saturate(1.02)}
+.ev-copy>.ev-kicker,
+.ev-copy>.ev-title,
+.ev-copy>.ev-note,
+.ev-copy>.ev-route,
+.ev-copy>.ev-evidence,
+.ev-copy>.ev-link,
+.ev-copy>.ev-field-open{
+  transition:opacity .48s ease,transform .64s cubic-bezier(.16,1,.3,1);
+}
+.ev-copy.is-entering>.ev-kicker,
+.ev-copy.is-entering>.ev-title,
+.ev-copy.is-entering>.ev-note,
+.ev-copy.is-entering>.ev-route,
+.ev-copy.is-entering>.ev-evidence,
+.ev-copy.is-entering>.ev-link,
+.ev-copy.is-entering>.ev-field-open{
+  opacity:0!important;
+  transform:translateY(10px);
+}
+.ev-copy>.ev-kicker{transition-delay:0ms}
+.ev-copy>.ev-title{transition-delay:55ms}
+.ev-copy>.ev-note{transition-delay:120ms}
+.ev-copy>.ev-route,.ev-copy>.ev-evidence{transition-delay:185ms}
+.ev-copy>.ev-link,.ev-copy>.ev-field-open{transition-delay:240ms}
+
+/* The composed route arrives progressively rather than as a finished diagram. */
+.ev-route-stop::before{
+  transform:scale(.45);opacity:0;
+  transition:transform .52s cubic-bezier(.16,1,.3,1),opacity .36s ease;
+  transition-delay:calc(var(--route-i,0) * 115ms);
+}
+.ev-route-stop:not(:last-child)::after{
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .8s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(90ms + (var(--route-i,0) * 115ms));
+}
+.ev-route-stop span{
+  opacity:0;transform:translateY(5px);
+  transition:opacity .44s ease,transform .55s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(170ms + (var(--route-i,0) * 115ms));
+}
+.ev-route-director.route-drawing .ev-route-stop::before{transform:scale(1);opacity:1}
+.ev-route-director.route-drawing .ev-route-stop:not(:last-child)::after{transform:scaleX(1)}
+.ev-route-director.route-drawing .ev-route-stop span{opacity:1;transform:none}
+
+@media(max-width:760px){
+  .ev.chrome-idle:not(:focus-within) .ev-top{opacity:.42}
+  .ev.chrome-idle:not(:focus-within) .ev-controls{opacity:.08!important}
+  .ev.chrome-idle:not(:focus-within) .ev-rail{opacity:.14}
+  .ev-copy.is-entering>.ev-kicker,
+  .ev-copy.is-entering>.ev-title,
+  .ev-copy.is-entering>.ev-note,
+  .ev-copy.is-entering>.ev-route,
+  .ev-copy.is-entering>.ev-evidence,
+  .ev-copy.is-entering>.ev-link,
+  .ev-copy.is-entering>.ev-field-open{transform:translateY(7px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .ev-top,.ev-controls,.ev-rail,.ev-chapter,
+  .ev-copy>*,
+  .ev-route-stop::before,.ev-route-stop::after,.ev-route-stop span{
+    transition:none!important;
+  }
+  .ev-copy.is-entering>*{opacity:1!important;transform:none!important}
+  .ev-route-stop::before{transform:scale(1)!important;opacity:1!important}
+  .ev-route-stop:not(:last-child)::after{transform:scaleX(1)!important}
+  .ev-route-stop span{opacity:1!important;transform:none!important}
+}
+</style>
 </head>
 <body>
 <main class="ev" aria-label="Enkiama View">
@@ -685,9 +764,9 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
       routeScene.dataset.orchestrated='true';
     }
     if(routeDirector){
-      routeDirector.innerHTML=composeState.route.map(function(stop){
+      routeDirector.innerHTML=composeState.route.map(function(stop,idx){
         var clean=String(stop).replace(/\s*\(option\)\s*/i,'');
-        return '<div class="ev-route-stop"><span>'+clean+'</span></div>';
+        return '<div class="ev-route-stop" style="--route-i:'+idx+'"><span>'+clean+'</span></div>';
       }).join('');
     }
 
@@ -736,7 +815,22 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(evExit){evExit.href=returnHref;evExit.textContent='Back to composition';}
   }
   var current=0,timer=null,paused=true,drawerPaused=false;
+  var viewer=document.querySelector('.ev');
+  var chromeTimer=null,wheelResetTimer=null,wheelAccumulator=0,lastWheelNav=0,touchStart=null;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function revealChrome(){
+    if(!viewer)return;
+    viewer.classList.remove('chrome-idle');
+    clearTimeout(chromeTimer);
+    if(!drawerPaused) chromeTimer=setTimeout(function(){viewer.classList.add('chrome-idle');},2800);
+  }
+
+  function navigateByIntent(direction){
+    show(current+(direction>0?1:-1));
+    schedule();
+    revealChrome();
+  }
 
   function restartProgress(){
     progress.classList.remove('run');
@@ -765,7 +859,9 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(!scenes.length) return;
     current=(i+scenes.length)%scenes.length;
     var copy=document.querySelector('.ev-copy');
-    if(copy)copy.classList.add('is-changing');
+    if(copy)copy.classList.add('is-changing','is-entering');
+    var routeDirector=document.getElementById('evRouteDirector');
+    if(routeDirector)routeDirector.classList.remove('route-drawing');
     scenes.forEach(function(scene,n){scene.classList.toggle('active',n===current);});
     var s=scenes[current];
     kicker.textContent=s.dataset.kicker||'';
@@ -807,6 +903,12 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     restartProgress();
     if(copy){
       window.setTimeout(function(){copy.classList.remove('is-changing');},70);
+      window.setTimeout(function(){copy.classList.remove('is-entering');},105);
+    }
+    if(routeDirector&&s.dataset.sceneRole==='route'&&!reduce){
+      window.setTimeout(function(){routeDirector.classList.add('route-drawing');},180);
+    }else if(routeDirector&&s.dataset.sceneRole==='route'){
+      routeDirector.classList.add('route-drawing');
     }
   }
 
@@ -822,8 +924,8 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(!paused&&!drawerPaused&&!reduce) timer=setTimeout(function(){show(current+1);schedule();},sceneDelay());
   }
 
-  document.getElementById('evPrev').addEventListener('click',function(){show(current-1);schedule();});
-  document.getElementById('evNext').addEventListener('click',function(){show(current+1);schedule();});
+  document.getElementById('evPrev').addEventListener('click',function(){navigateByIntent(-1);});
+  document.getElementById('evNext').addEventListener('click',function(){navigateByIntent(1);});
   pause.addEventListener('click',function(){
     paused=!paused;
     pause.textContent=paused?'▶':'Ⅱ';
@@ -833,18 +935,58 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   });
 
   document.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'){show(current+1);schedule();}
-    if(e.key==='ArrowLeft'){show(current-1);schedule();}
-    if(e.key===' '){e.preventDefault();pause.click();}
+    revealChrome();
+    if(drawerPaused)return;
+    var interactive=e.target&&e.target.closest&&e.target.closest('a,button,input,textarea,select');
+    if(e.key==='ArrowRight')navigateByIntent(1);
+    if(e.key==='ArrowLeft')navigateByIntent(-1);
+    if(e.key===' '&&!interactive){e.preventDefault();pause.click();}
     if(e.key==='Escape') location.href=returnHref;
   });
 
+  if(viewer){
+    viewer.addEventListener('pointermove',revealChrome,{passive:true});
+    viewer.addEventListener('pointerdown',revealChrome,{passive:true});
+    viewer.addEventListener('touchstart',function(e){
+      revealChrome();
+      if(drawerPaused||!e.touches||!e.touches[0]||e.target.closest('.ev-live-panel,.ev-field'))return;
+      touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()};
+    },{passive:true});
+    viewer.addEventListener('touchend',function(e){
+      if(!touchStart||drawerPaused||!e.changedTouches||!e.changedTouches[0]){touchStart=null;return;}
+      var dx=e.changedTouches[0].clientX-touchStart.x;
+      var dy=e.changedTouches[0].clientY-touchStart.y;
+      var elapsed=Date.now()-touchStart.t;
+      touchStart=null;
+      if(elapsed>850||Math.abs(dx)<56||Math.abs(dx)<Math.abs(dy)*1.08)return;
+      navigateByIntent(dx<0?1:-1);
+    },{passive:true});
+    viewer.addEventListener('wheel',function(e){
+      revealChrome();
+      if(drawerPaused||e.ctrlKey||e.target.closest('.ev-live-panel,.ev-field'))return;
+      var delta=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+      if(!delta)return;
+      wheelAccumulator+=delta;
+      clearTimeout(wheelResetTimer);
+      wheelResetTimer=setTimeout(function(){wheelAccumulator=0;},170);
+      var now=Date.now();
+      if(now-lastWheelNav<780||Math.abs(wheelAccumulator)<90)return;
+      if(e.cancelable)e.preventDefault();
+      lastWheelNav=now;
+      var direction=wheelAccumulator>0?1:-1;
+      wheelAccumulator=0;
+      navigateByIntent(direction);
+    },{passive:false});
+  }
+
+  revealChrome();
   refreshScenes();
   show(0);
   schedule();
 
   document.addEventListener('enkiama-live-drawer',function(e){
     drawerPaused=!!(e.detail&&e.detail.open);
+    revealChrome();
     if(drawerPaused){
       clearTimeout(timer);
       progress.classList.remove('run');
