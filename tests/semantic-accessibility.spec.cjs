@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const semanticPages = [
+const allSemanticPages = [
   'index.html',
   'journeys.html',
   'begin.html',
@@ -11,6 +11,15 @@ const semanticPages = [
   'kilimanjaro-expedition.html?expedition=kilele-2027-machame',
   'experience-view.html',
 ];
+
+const requestedPages = (process.env.ENKIAMA_SMOKE_PAGES || '')
+  .split(',')
+  .map(v => v.trim())
+  .filter(Boolean);
+
+const semanticPages = requestedPages.length
+  ? allSemanticPages.filter(path => requestedPages.some(requested => path === requested || path.startsWith(requested + '?')))
+  : allSemanticPages;
 
 for (const path of semanticPages) {
   test(path + ' semantic baseline', async ({ page }) => {
@@ -51,7 +60,10 @@ for (const path of semanticPages) {
   });
 }
 
-for (const path of ['index.html', 'journeys.html', 'begin.html', 'compose.html']) {
+const skipPages = ['index.html', 'journeys.html', 'begin.html', 'compose.html']
+  .filter(path => !requestedPages.length || requestedPages.includes(path));
+
+for (const path of skipPages) {
   test(path + ' skip link reaches primary content', async ({ page }) => {
     await page.goto('/' + path, { waitUntil: 'domcontentloaded' });
     const skip = page.locator('a[href="#main"]').first();
