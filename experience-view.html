@@ -501,8 +501,8 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     <a class="ev-logo" href="index.html" aria-label="Back to Enkiama"><img src="assets/logo-header.png" alt="Enkiama Tanzania"></a>
     <div class="ev-top-right">
       <button class="ev-live-open" id="evLiveOpen" type="button">Enkiama Live</button>
-      <span class="ev-mode">Journey view</span>
-      <a class="ev-exit" href="index.html">Exit</a>
+      <span class="ev-mode" id="evMode">Journey view</span>
+      <a class="ev-exit" id="evExit" href="index.html">Exit</a>
     </div>
   </header>
 
@@ -552,6 +552,45 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   var progress=document.getElementById('evProgress');
   var pause=document.getElementById('evPause');
   var fieldOpen=document.getElementById('evFieldOpen');
+  var evMode=document.getElementById('evMode');
+  var evExit=document.getElementById('evExit');
+  var returnHref='index.html';
+  var composeState=null;
+  var fromCompose=new URLSearchParams(location.search).get('from')==='compose';
+  if(fromCompose){
+    try{composeState=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){composeState=null;}
+  }
+  if(composeState&&Array.isArray(composeState.route)&&composeState.route.length){
+    var firstScene=document.querySelector('.ev-scene');
+    var closeScene=document.querySelector('.ev-scene:last-of-type');
+    var pull=(composeState.preferences&&composeState.preferences.pull)||'all';
+    var composedTitles={
+      stillness:'A first route with more <em>space.</em>',
+      spectacle:'A first route led by <em>wildlife.</em>',
+      people:'A first route that begins with <em>people.</em>',
+      all:'A broader first <em>arc.</em>'
+    };
+    firstScene.dataset.chapter='Your composition · First shape';
+    firstScene.dataset.kicker='Composed from your choices';
+    firstScene.dataset.title=composedTitles[pull]||composedTitles.all;
+    firstScene.dataset.note='This is the direction you just shaped — not a fixed itinerary. Move through the view, then return to refine the route or continue the conversation.';
+    firstScene.dataset.route=composeState.route.join(' → ');
+    if(composeState.labels){
+      firstScene.dataset.evidence=[
+        (composeState.labels.time||'Open')+'|time',
+        (composeState.labels.pace||'Open')+'|pace',
+        (composeState.labels.who||'Open')+'|travelling'
+      ].join(';');
+    }
+    firstScene.dataset.meta='Your first composition';
+    if(closeScene&&composeState.message){
+      closeScene.dataset.link='begin.html?composed='+encodeURIComponent(composeState.message);
+      closeScene.dataset.linkLabel='Continue this conversation';
+    }
+    returnHref='compose.html#cmpResult';
+    if(evMode)evMode.textContent='Your journey view';
+    if(evExit){evExit.href=returnHref;evExit.textContent='Back to composition';}
+  }
   var current=0,timer=null,paused=true,drawerPaused=false,interval=10000;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -640,7 +679,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(e.key==='ArrowRight'){show(current+1);schedule();}
     if(e.key==='ArrowLeft'){show(current-1);schedule();}
     if(e.key===' '){e.preventDefault();pause.click();}
-    if(e.key==='Escape') location.href='index.html';
+    if(e.key==='Escape') location.href=returnHref;
   });
 
   refreshScenes();
