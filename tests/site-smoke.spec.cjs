@@ -178,6 +178,61 @@ for (const viewport of viewports) {
         }
 
 
+
+        if (path === 'compose.html') {
+          const composeState = await page.evaluate(() => {
+            const composer = document.querySelector('.compose-conversion .composer');
+            const stage = document.querySelector('.compose-conversion .cmp-stage');
+            const visual = document.querySelector('.compose-conversion .cmp-visual');
+            const panel = document.querySelector('.compose-conversion .cmp-panel');
+            const q = document.querySelector('.compose-conversion .cmp-q');
+            if (!composer || !stage || !visual || !panel || !q) return null;
+            const rect = el => {
+              const r = el.getBoundingClientRect();
+              return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};
+            };
+            return {
+              composer: rect(composer),
+              stage: rect(stage),
+              visual: rect(visual),
+              panel: rect(panel),
+              question: rect(q),
+              stageDisplay: getComputedStyle(stage).display,
+              stageColumns: getComputedStyle(stage).gridTemplateColumns,
+            };
+          });
+
+          expect(composeState, 'Compose stage should exist').not.toBeNull();
+
+          if (viewport.width >= 1000) {
+            expect(
+              composeState.composer.width,
+              `Compose outer shell should span the viewport at ${viewport.name}`
+            ).toBeGreaterThanOrEqual(viewport.width * 0.92);
+            expect(
+              composeState.stage.width,
+              `Compose decision stage should span the outer shell at ${viewport.name}`
+            ).toBeGreaterThanOrEqual(composeState.composer.width * 0.98);
+            expect(
+              composeState.visual.width + composeState.panel.width,
+              `Compose visual and panel should consume the stage at ${viewport.name}`
+            ).toBeGreaterThanOrEqual(composeState.stage.width * 0.96);
+            expect(
+              composeState.panel.width,
+              `Compose decision panel should not collapse at ${viewport.name}`
+            ).toBeGreaterThanOrEqual(viewport.width * 0.42);
+            expect(
+              composeState.question.width,
+              `Compose question should remain readable at ${viewport.name}`
+            ).toBeGreaterThanOrEqual(Math.min(360, composeState.panel.width * 0.55));
+          } else {
+            expect(
+              composeState.stage.width,
+              `Compose stage should stay inside the viewport at ${viewport.name}`
+            ).toBeLessThanOrEqual(viewport.width + 4);
+          }
+        }
+
         if (path === 'begin.html') {
           const beginState = await page.evaluate(() => {
             const hero = document.querySelector('.begin-conversion .ph');
