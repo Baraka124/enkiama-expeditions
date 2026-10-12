@@ -1429,10 +1429,10 @@ body.eh-locked{overflow:hidden;}
   <div class="ph-film"></div>
   <div class="ph-ghost">rafiki</div>
   <div class="ph-inner">
-    <p class="ph-issue eye">Private journey enquiry</p>
-    <h1 class="ph-hed reveal">Begin a<br><em>conversation.</em></h1>
-    <p class="ph-sub reveal">Tell us roughly when you want to travel, who is coming, and what draws you to Tanzania. We read every note personally and reply directly, usually within a day.</p>
-    <a class="ph-begin-cue" href="#enquire">Tell us about the journey <span aria-hidden="true">↓</span></a>
+    <p class="ph-issue eye" id="beginHeroIssue">Private journey enquiry</p>
+    <h1 class="ph-hed reveal" id="beginHeroTitle">Begin a<br><em>conversation.</em></h1>
+    <p class="ph-sub reveal" id="beginHeroSub">Tell us roughly when you want to travel, who is coming, and what draws you to Tanzania. We read every note personally and reply directly, usually within a day.</p>
+    <a class="ph-begin-cue" id="beginHeroCue" href="#enquire">Tell us about the journey <span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
@@ -2107,6 +2107,15 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
 
     var stored=null;
     try{stored=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){stored=null;}
+
+    var heroIssue=document.getElementById('beginHeroIssue');
+    var heroTitle=document.getElementById('beginHeroTitle');
+    var heroSub=document.getElementById('beginHeroSub');
+    var heroCue=document.getElementById('beginHeroCue');
+    if(heroIssue)heroIssue.textContent='Your composed journey';
+    if(heroTitle)heroTitle.innerHTML='Continue the<br><em>conversation.</em>';
+    if(heroSub)heroSub.textContent='Your first direction is already with us. Add only the details, questions or constraints that should shape what comes next.';
+    if(heroCue)heroCue.innerHTML='Continue from your route <span aria-hidden="true">↓</span>';
 
     var carried=document.getElementById('lfCarried');
     var routeEl=document.getElementById('lfCarriedRoute');
