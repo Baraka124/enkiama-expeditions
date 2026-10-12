@@ -324,6 +324,31 @@ for (const viewport of viewports) {
         }
 
         if (path === 'begin.html') {
+          await page.evaluate(() => {
+            sessionStorage.setItem('enkiama.composition', JSON.stringify({
+              version:1,
+              preferences:{pull:'spectacle',time:'mid',season:'jun-oct',pace:'slow',coast:'yes',who:'couple'},
+              labels:{pull:'Wildlife',time:'~10 days',season:'Jun–Oct',pace:'Slow',coast:'Coast: yes',who:'Two travellers'},
+              route:['Serengeti','Ngorongoro','Zanzibar'],
+              message:'A composed journey'
+            }));
+          });
+          const beginComposedURL = new URL('/begin.html?composed='+encodeURIComponent('First route: Serengeti → Ngorongoro → Zanzibar'), page.url()).href;
+          await page.goto(beginComposedURL, {waitUntil:'domcontentloaded'});
+          const carried = await page.evaluate(() => ({
+            hidden: document.getElementById('lfCarried')?.hidden,
+            route: document.getElementById('lfCarriedRoute')?.textContent?.trim(),
+            meta: [...document.querySelectorAll('#lfCarriedMeta span')].map(el=>el.textContent.trim()),
+            message: document.getElementById('lfMsg')?.value,
+            label: document.getElementById('lfMsgLabel')?.textContent?.trim()
+          }));
+          expect(carried.hidden).toBe(false);
+          expect(carried.route).toContain('Serengeti');
+          expect(carried.route).toContain('Zanzibar');
+          expect(carried.meta).toContain('Slow');
+          expect(carried.message).toBe('');
+          expect(carried.label).toContain('What should we know next?');
+
           const beginState = await page.evaluate(() => {
             const hero = document.querySelector('.begin-conversion .ph');
             const heroInner = document.querySelector('.begin-conversion .ph-inner');
