@@ -233,6 +233,34 @@ for (const viewport of viewports) {
           }
         }
 
+        if (path === 'experience-view.html') {
+          const composedMode = await page.evaluate(() => {
+            sessionStorage.setItem('enkiama.composition', JSON.stringify({
+              version: 1,
+              preferences: {pull:'stillness',time:'mid',season:'jun-oct',pace:'slow',coast:'yes',who:'couple'},
+              labels: {pull:'Space & quiet',time:'~10 days',season:'Jun–Oct',pace:'Slow',coast:'Coast: yes',who:'Two travellers'},
+              route: ['Tarangire','Ngorongoro','Serengeti','Zanzibar'],
+              message: 'A composed journey'
+            }));
+            return true;
+          });
+          expect(composedMode).toBe(true);
+          await page.goto(baseURL + '/experience-view.html?from=compose', {waitUntil:'domcontentloaded'});
+          const state = await page.evaluate(() => ({
+            mode: document.getElementById('evMode')?.textContent?.trim(),
+            exitText: document.getElementById('evExit')?.textContent?.trim(),
+            exitHref: document.getElementById('evExit')?.getAttribute('href'),
+            route: document.getElementById('evRoute')?.textContent?.trim(),
+            title: document.getElementById('evTitle')?.textContent?.trim()
+          }));
+          expect(state.mode).toBe('Your journey view');
+          expect(state.exitText).toBe('Back to composition');
+          expect(state.exitHref).toBe('compose.html#cmpResult');
+          expect(state.route).toContain('Tarangire');
+          expect(state.route).toContain('Zanzibar');
+          expect(state.title).toContain('space');
+        }
+
         if (path === 'begin.html') {
           const beginState = await page.evaluate(() => {
             const hero = document.querySelector('.begin-conversion .ph');
