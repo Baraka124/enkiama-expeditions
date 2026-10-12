@@ -891,6 +891,126 @@ nav.scrolled::before{ opacity:.035; }
 }
 
 </style>
+<style id="phase26b-parks-shortlist-rhythm">
+/* Phase 26B · the chooser resolves into an editorial shortlist, not a catalogue. */
+.pk-results-head{
+  display:grid;
+  grid-template-columns:minmax(140px,.34fr) minmax(0,.66fr);
+  gap:clamp(2rem,6vw,6rem);
+  align-items:end;
+  margin-top:clamp(3.5rem,6vw,6rem);
+  padding:0 0 1.15rem;
+  border-bottom:1px solid rgba(15,23,18,.18);
+}
+.pk-results-head p{
+  justify-self:end;
+  margin:0;
+  max-width:54ch;
+  font-size:11.5px;
+  line-height:1.7;
+  color:rgba(15,23,18,.58);
+}
+.pk-grid{
+  display:block!important;
+  border:0!important;
+  counter-reset:pk-shortlist;
+}
+.pk-grid .pk-card{
+  counter-increment:pk-shortlist;
+  position:relative;
+  display:grid!important;
+  grid-template-columns:72px minmax(110px,.25fr) minmax(210px,.55fr) minmax(0,1.2fr) 22px!important;
+  gap:clamp(1rem,3vw,3rem)!important;
+  align-items:center!important;
+  min-height:0!important;
+  padding:1.9rem 0 2.05rem!important;
+  border:0!important;
+  border-bottom:1px solid rgba(15,23,18,.14)!important;
+  color:var(--ink)!important;
+  text-decoration:none!important;
+  background:transparent!important;
+}
+.pk-grid .pk-card::before{
+  content:"0" counter(pk-shortlist);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:#75603f;
+}
+.pk-grid .pk-card::after{
+  content:'→';
+  justify-self:end;
+  font-size:16px;
+  color:rgba(15,23,18,.38);
+  transform:translateX(0);
+  transition:transform .4s cubic-bezier(.16,1,.3,1),color .3s ease;
+}
+.pk-grid .pk-card:hover::after,
+.pk-grid .pk-card:focus-visible::after{
+  transform:translateX(5px);
+  color:#556B44;
+}
+.pk-grid .pk-card:focus-visible{
+  outline:1px solid rgba(85,107,68,.7);
+  outline-offset:6px;
+}
+.pk-grid .pk-card>span{
+  margin:0!important;
+  font-size:8px!important;
+  letter-spacing:.15em!important;
+  color:#75603f!important;
+}
+.pk-grid .pk-card h3{
+  margin:0!important;
+  font-size:clamp(27px,2.7vw,39px)!important;
+  line-height:1!important;
+  max-width:12ch;
+}
+.pk-grid .pk-card p{
+  margin:0!important;
+  max-width:52ch!important;
+  font-size:10px!important;
+  line-height:1.65!important;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+  color:rgba(15,23,18,.52)!important;
+}
+.pk-grid .pk-card:first-child h3{font-size:clamp(31px,3vw,44px)!important}
+.pk-grid .pk-card:first-child::before{color:#556B44}
+
+@media(max-width:900px){
+  .pk-results-head{
+    grid-template-columns:1fr;
+    gap:.65rem;
+  }
+  .pk-results-head p{justify-self:start}
+  .pk-grid .pk-card{
+    grid-template-columns:46px 92px minmax(180px,.65fr) minmax(0,1fr) 18px!important;
+    gap:.85rem 1.2rem!important;
+  }
+}
+@media(max-width:620px){
+  .pk-results-head{margin-top:3rem}
+  .pk-grid .pk-card{
+    grid-template-columns:34px minmax(0,1fr) 18px!important;
+    gap:.55rem .85rem!important;
+    align-items:start!important;
+    padding:1.45rem 0 1.6rem!important;
+  }
+  .pk-grid .pk-card::before{grid-column:1;grid-row:1 / span 3;padding-top:.25rem}
+  .pk-grid .pk-card>span{grid-column:2;grid-row:1}
+  .pk-grid .pk-card h3{
+    grid-column:2;grid-row:2;
+    margin-top:.1rem!important;
+    font-size:clamp(26px,8vw,34px)!important;
+  }
+  .pk-grid .pk-card p{
+    grid-column:2;grid-row:3;
+    font-size:9px!important;
+  }
+  .pk-grid .pk-card::after{grid-column:3;grid-row:2}
+}
+</style>
 </head>
 <body data-page="parks">
 <!-- ENKIAMA_HEADER_START -->
@@ -1236,7 +1356,11 @@ body.eh-locked{overflow:hidden;}
     <div class="pk-chooser__intro"><span class="pk-kicker">Decision frame</span><strong>Start from behaviour, not brand recognition.</strong><p>Migration, walking, boating, primates, elephants, birding and first-safari breadth all point to different landscapes. Region and night depth then remove choices that look attractive on paper but do not fit the trip.</p></div>
     <div class="pk-chooser__body"><div class="pk-controls"><div class="pk-q" data-k="priority"><label>Primary interest</label><button data-v="migration">Migration</button><button data-v="predators">Predators</button><button data-v="elephants">Elephants</button><button data-v="birding">Birding</button><button data-v="walking">Walking</button><button data-v="boating">Boating</button><button data-v="chimpanzees">Chimpanzees</button><button data-v="first safari">First safari</button></div><div class="pk-q" data-k="region"><label>Broad route</label><button data-v="north">North</button><button data-v="south">South</button><button data-v="west">West</button></div></div><div class="pk-q" data-k="nights"><label>Available nights for this landscape</label><button data-v="0">Day / transit</button><button data-v="1">1+</button><button data-v="3">3+</button><button data-v="5">5+</button></div></div>
   </div>
-  <div class="pk-grid" id="pkResults"></div>
+  <div class="pk-results-head">
+    <span class="pk-kicker">First shortlist</span>
+    <p>These are the four landscapes that currently fit your choices best. Change any answer above and the shortlist reorders.</p>
+  </div>
+  <div class="pk-grid" id="pkResults" aria-live="polite" aria-label="Recommended protected landscapes"></div>
 </section>
 <section class="pk-families"><div class="pk-families__copy"><span class="pk-kicker">Families</span><h2>Three different safari grammars.</h2><p>The protected areas become easier to compare when grouped by how they are experienced, not simply by geography.</p></div><div class="pk-family"><article><span class="pk-kicker">Northern circuit</span><h3>Density, breadth and first-safari logic.</h3><p>Serengeti, Ngorongoro, Tarangire and Manyara make it possible to move through several ecosystems overland.</p><a href="serengeti.html">Open Serengeti →</a></article><article><span class="pk-kicker">Southern circuit</span><h3>Walking, boating and longer stays.</h3><p>Ruaha and Nyerere reward deeper individual stays and activity diversity rather than collecting multiple parks.</p><a href="ruaha.html">Open Ruaha →</a></article><article><span class="pk-kicker">Western expedition</span><h3>Forest, primates and access complexity.</h3><p>Mahale changes the safari grammar completely: trekking, lake life and remote access replace the vehicle-led circuit.</p><a href="mahale.html">Open Mahale →</a></article></div></section>
 <section class="pk-cta"><div><span class="pk-kicker">Whole-country logic</span><h2>Not sure which family fits?</h2></div><a href="tanzania.html">Open Tanzania →</a></section>
