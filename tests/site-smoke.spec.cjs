@@ -245,7 +245,8 @@ for (const viewport of viewports) {
             return true;
           });
           expect(composedMode).toBe(true);
-          await page.goto(baseURL + '/experience-view.html?from=compose', {waitUntil:'domcontentloaded'});
+          const composedURL = new URL('/experience-view.html?from=compose', page.url()).href;
+          await page.goto(composedURL, {waitUntil:'domcontentloaded'});
           const state = await page.evaluate(() => ({
             mode: document.getElementById('evMode')?.textContent?.trim(),
             exitText: document.getElementById('evExit')?.textContent?.trim(),
