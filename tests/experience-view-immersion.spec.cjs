@@ -61,7 +61,7 @@ for (const viewport of cases) {
       await page.goto('/experience-view.html?from=compose', { waitUntil:'domcontentloaded' });
 
       // Advance to the route chapter without relying on animation timing.
-      await page.keyboard.press('ArrowRight');
+      // Wildlife-led compositions intentionally place route immediately after opening.
       await page.keyboard.press('ArrowRight');
 
       const route = await page.evaluate(() => {
