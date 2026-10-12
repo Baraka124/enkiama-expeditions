@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const pages = [
+const allPages = [
   // entry + editorial systems
   'index.html',
   'journeys.html',
@@ -51,6 +51,19 @@ const pages = [
   'barua.html',
   '404.html',
 ];
+
+const requestedPages = (process.env.ENKIAMA_SMOKE_PAGES || '')
+  .split(',')
+  .map(v => v.trim())
+  .filter(Boolean);
+
+const pages = requestedPages.length
+  ? allPages.filter(path => requestedPages.includes(path))
+  : allPages;
+
+if (requestedPages.length && !pages.length) {
+  throw new Error('ENKIAMA_SMOKE_PAGES did not match any public-site smoke pages');
+}
 
 const viewports = [
   { name: 'mobile-390', width: 390, height: 844 },
