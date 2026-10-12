@@ -441,6 +441,17 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 .ev.composed-mode .ev-chip{color:rgba(237,230,214,.58)}
 .ev.composed-mode .ev-chip b{font-size:20px}
 .ev.composed-mode .ev-mode{color:rgba(190,158,104,.86)!important}
+.ev-route-director{
+  position:absolute;z-index:6;left:var(--safe-x);right:var(--safe-x);bottom:var(--safe-bottom);
+  display:none;align-items:center;gap:0;min-height:56px;border-top:1px solid rgba(237,230,214,.13);
+}
+.ev.composed-mode .ev-scene.route .ev-atlas{display:none}
+.ev.composed-mode .ev-scene.route .ev-route-director{display:flex}
+.ev-route-stop{position:relative;flex:1 1 0;padding-top:1rem;min-width:0}
+.ev-route-stop::before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--earth)}
+.ev-route-stop:not(:last-child)::after{content:'';position:absolute;left:7px;right:0;top:-1px;height:1px;background:linear-gradient(90deg,rgba(190,158,104,.72),rgba(190,158,104,.24))}
+.ev-route-stop span{display:block;padding-right:.7rem;font-size:8px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.64);white-space:normal}
+.ev-scene[data-orchestrated="true"] .ev-number{opacity:.7}
 
 @media(max-width:760px){
   .ev-scene{transition-duration:.82s!important}
@@ -462,6 +473,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 <main class="ev" aria-label="Enkiama View">
 
   <section class="ev-scene quiet active"
+    data-scene-role="opening"
     data-chapter="Act I · Tanzania"
     data-kicker="Enkiama · Tanzania"
     data-title="You are not choosing <em>a safari.</em>"
@@ -469,6 +481,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     data-meta="Opening"></section>
 
   <section class="ev-scene full s2"
+    data-scene-role="place"
     data-chapter="Act II · We are here"
     data-kicker="Based in Tanzania · journeys shaped here"
     data-title="Start with the country, not the <em>checklist.</em>"
@@ -480,6 +493,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   </section>
 
   <section class="ev-scene sheet"
+    data-scene-role="human"
     data-chapter="Act III · Human scale"
     data-kicker="People · place · ordinary moments"
     data-title="The landscape is only part of the <em>journey.</em>"
@@ -493,6 +507,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   </section>
 
   <section class="ev-scene route s3"
+    data-scene-role="route"
     data-chapter="Act IV · Operated"
     data-kicker="Operated · July 2026 · 5 travellers"
     data-title="One journey. Four different <em>rhythms.</em>"
@@ -518,9 +533,11 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
         <text x="918" y="16">Zanzibar</text>
       </svg>
     </div>
+    <div class="ev-route-director" id="evRouteDirector" aria-hidden="true"></div>
   </section>
 
   <section class="ev-scene split s4"
+    data-scene-role="intelligence"
     data-chapter="Act V · The country changes"
     data-kicker="Season · distance · pace"
     data-title="The same Tanzania does not exist <em>every month.</em>"
@@ -532,6 +549,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   </section>
 
   <section class="ev-scene frame"
+    data-scene-role="coast-transition"
     data-chapter="Act VI · Coast"
     data-kicker="Stone Town · then the Indian Ocean"
     data-title="The journey can change <em>tempo.</em>"
@@ -545,6 +563,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   </section>
 
   <section class="ev-scene full s5"
+    data-scene-role="coast-exhale"
     data-chapter="Act VII · Exhale"
     data-kicker="Indian Ocean · final rhythm"
     data-title="Then the journey <em>exhales.</em>"
@@ -554,6 +573,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   </section>
 
   <section class="ev-scene quiet"
+    data-scene-role="close"
     data-chapter="Close · Begin"
     data-kicker="Enkiama · one group at a time"
     data-title="Tell us when you are <em>coming.</em>"
@@ -603,7 +623,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
 <script>
 (function(){
   var scenes=[];
-  function refreshScenes(){scenes=[].slice.call(document.querySelectorAll('.ev-scene'));}
+  function refreshScenes(){scenes=[].slice.call(document.querySelectorAll('.ev-scene')).filter(function(scene){return !scene.hidden;});}
   var kicker=document.getElementById('evKicker');
   var title=document.getElementById('evTitle');
   var note=document.getElementById('evNote');
@@ -620,6 +640,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   var evMode=document.getElementById('evMode');
   var evExit=document.getElementById('evExit');
   var returnHref='index.html';
+  var interval=10000;
   var composeState=null;
   var fromCompose=new URLSearchParams(location.search).get('from')==='compose';
   if(fromCompose){
@@ -649,6 +670,63 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
       ].join(';');
     }
     firstScene.dataset.meta='Your first composition';
+
+    var preferences=composeState.preferences||{};
+    var coastChoice=preferences.coast||'maybe';
+    var routeScene=document.querySelector('.ev-scene[data-scene-role="route"]');
+    var routeDirector=document.getElementById('evRouteDirector');
+    if(routeScene){
+      routeScene.dataset.chapter='Your route · First movement';
+      routeScene.dataset.kicker='Composed from your route';
+      routeScene.dataset.title='A sequence shaped around <em>your choices.</em>';
+      routeScene.dataset.note='The order is provisional, but the geography now reflects the direction you composed rather than a generic Tanzania circuit.';
+      routeScene.dataset.route=composeState.route.join(' → ');
+      routeScene.dataset.meta='Your route';
+      routeScene.dataset.orchestrated='true';
+    }
+    if(routeDirector){
+      routeDirector.innerHTML=composeState.route.map(function(stop){
+        var clean=String(stop).replace(/\s*\(option\)\s*/i,'');
+        return '<div class="ev-route-stop"><span>'+clean+'</span></div>';
+      }).join('');
+    }
+
+    var roleMap={};
+    document.querySelectorAll('.ev-scene[data-scene-role]').forEach(function(scene){roleMap[scene.dataset.sceneRole]=scene;});
+    var orders={
+      people:['opening','human','place','route','intelligence'],
+      spectacle:['opening','route','intelligence','place','human'],
+      stillness:['opening','place','intelligence','route','human'],
+      all:['opening','place','human','route','intelligence']
+    };
+    var order=(orders[pull]||orders.all).slice();
+
+    /* Short journeys stay concentrated. Keep the traveller's stated priority,
+       but remove one secondary editorial chapter rather than rushing every scene. */
+    if(preferences.time==='short'){
+      if(pull==='people') order=order.filter(function(role){return role!=='intelligence';});
+      else order=order.filter(function(role){return role!=='human';});
+    }
+
+    if(coastChoice==='yes'){
+      order.push('coast-transition','coast-exhale');
+    }else if(coastChoice==='maybe'){
+      order.push('coast-transition');
+    }
+    order.push('close');
+
+    Object.keys(roleMap).forEach(function(role){
+      roleMap[role].hidden=order.indexOf(role)===-1;
+    });
+    var sceneHost=document.querySelector('.ev');
+    order.forEach(function(role){
+      if(roleMap[role]) sceneHost.insertBefore(roleMap[role], document.querySelector('.ev-top'));
+    });
+
+    if(preferences.pace==='slow') interval=12500;
+    else if(preferences.pace==='full') interval=8200;
+    else interval=10000;
+
     if(closeScene&&composeState.message){
       closeScene.dataset.link='begin.html?composed='+encodeURIComponent(composeState.message);
       closeScene.dataset.linkLabel='Continue this conversation';
@@ -657,7 +735,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     if(evMode)evMode.textContent='Your journey view';
     if(evExit){evExit.href=returnHref;evExit.textContent='Back to composition';}
   }
-  var current=0,timer=null,paused=true,drawerPaused=false,interval=10000;
+  var current=0,timer=null,paused=true,drawerPaused=false;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function restartProgress(){
@@ -731,9 +809,16 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     }
   }
 
+  function sceneDelay(){
+    var active=scenes[current];
+    var role=active&&active.dataset.sceneRole;
+    if(role==='coast-exhale') return Math.round(interval*1.28);
+    if(role==='opening'||role==='close') return Math.round(interval*1.12);
+    return interval;
+  }
   function schedule(){
-    clearInterval(timer);
-    if(!paused&&!drawerPaused&&!reduce) timer=setInterval(function(){show(current+1);},interval);
+    clearTimeout(timer);
+    if(!paused&&!drawerPaused&&!reduce) timer=setTimeout(function(){show(current+1);schedule();},sceneDelay());
   }
 
   document.getElementById('evPrev').addEventListener('click',function(){show(current-1);schedule();});
@@ -742,7 +827,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     paused=!paused;
     pause.textContent=paused?'▶':'Ⅱ';
     pause.setAttribute('aria-label',paused?'Play view':'Pause view');
-    if(paused){clearInterval(timer);progress.classList.remove('run');}
+    if(paused){clearTimeout(timer);progress.classList.remove('run');}
     else{restartProgress();schedule();}
   });
 
@@ -760,7 +845,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   document.addEventListener('enkiama-live-drawer',function(e){
     drawerPaused=!!(e.detail&&e.detail.open);
     if(drawerPaused){
-      clearInterval(timer);
+      clearTimeout(timer);
       progress.classList.remove('run');
     }else{
       restartProgress();
