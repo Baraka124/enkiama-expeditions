@@ -58,11 +58,11 @@ const requestedPages = (process.env.ENKIAMA_SMOKE_PAGES || '')
   .filter(Boolean);
 
 const pages = requestedPages.length
-  ? allPages.filter(path => requestedPages.includes(path))
+  ? requestedPages
   : allPages;
 
-if (requestedPages.length && !pages.length) {
-  throw new Error('ENKIAMA_SMOKE_PAGES did not match any public-site smoke pages');
+if (requestedPages.some(path => !/^(?:[^/]+\.html|journeys\/[^/]+\.html)$/.test(path))) {
+  throw new Error('ENKIAMA_SMOKE_PAGES contains an unsupported public HTML path');
 }
 
 const viewports = [
