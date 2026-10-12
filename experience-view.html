@@ -547,6 +547,127 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
   .ev-route-stop span{opacity:1!important;transform:none!important}
 }
 </style>
+<style id="phase24g-immersion-qa">
+/* Phase 24G · viewing-condition hardening. No new visual language. */
+.ev-copy{pointer-events:none}
+.ev-copy a,.ev-copy button{pointer-events:auto}
+
+/* Route intelligence must never fight the transport chrome. */
+.ev-route-director{
+  max-width:100%;
+  min-width:0;
+}
+.ev-route-stop{min-width:0}
+.ev-route-stop span{
+  overflow-wrap:anywhere;
+  hyphens:auto;
+}
+
+/* Coarse pointers need real touch targets even while the chrome stays visually quiet. */
+@media(pointer:coarse){
+  .ev-btn{width:44px!important;height:44px!important}
+  .ev-live-open,.ev-exit,.ev-link,.ev-field-open{min-height:44px;display:inline-flex;align-items:center}
+}
+
+/* Narrow portrait: keep the route as a scrollable intelligence strip above progress,
+   not a compressed row of unreadable labels. */
+@media(max-width:760px) and (orientation:portrait){
+  .ev-route-director{
+    left:1.3rem;right:1.3rem;bottom:6.9rem;
+    min-height:46px;overflow-x:auto;overflow-y:hidden;
+    overscroll-behavior-inline:contain;scrollbar-width:none;
+    touch-action:pan-x;
+  }
+  .ev-route-director::-webkit-scrollbar{display:none}
+  .ev-route-stop{flex:0 0 clamp(100px,31vw,132px);padding-top:.8rem}
+  .ev-route-stop span{font-size:7.5px;line-height:1.35;padding-right:.65rem}
+  .ev-scene.route .ev-copy{
+    bottom:11.25rem!important;
+    max-height:calc(100dvh - 16.2rem)!important;
+  }
+}
+
+/* Short laptop windows need reduced vertical appetite, not smaller everything. */
+@media(max-height:680px) and (min-width:761px){
+  .ev{--safe-top:4.7rem;--safe-bottom:4.6rem}
+  .ev-top{padding:.8rem 1.4rem!important}
+  .ev-logo img{height:32px!important}
+  .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,
+  .ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{
+    bottom:5.25rem!important;
+    max-height:calc(100dvh - 9.7rem)!important;
+  }
+  .ev-title{font-size:clamp(34px,5vw,62px)!important;line-height:.94!important}
+  .ev-note{font-size:11.5px!important;line-height:1.5!important;margin-top:.65rem!important}
+  .ev-kicker{font-size:8px!important;margin-bottom:.6rem!important}
+  .ev-route{margin-top:.65rem!important;padding-top:.55rem!important}
+  .ev-evidence{margin-top:.55rem!important}
+  .ev-scene.route .ev-copy{bottom:8.9rem!important}
+  .ev-route-director{bottom:4.8rem;min-height:42px}
+  .ev-route-stop{padding-top:.65rem}
+  .ev-route-stop span{font-size:7px;line-height:1.3}
+  .ev-scene.sheet .ev-contact{inset:4.8rem 7% 34%}
+  .ev-scene.frame .ev-media{inset:4.8rem 7% 31%}
+}
+
+/* Phone / small-tablet landscape is a lateral composition:
+   reading field left, media / route intelligence right. */
+@media(max-width:900px) and (max-height:520px) and (orientation:landscape){
+  .ev{--safe-top:3.65rem;--safe-bottom:3.7rem}
+  .ev-top{padding:.55rem 1rem!important}
+  .ev-logo img{height:28px!important}
+  .ev-top-right{gap:.55rem!important}
+  .ev-live-open,.ev-exit{font-size:7.5px!important}
+  .ev-copy,.ev-scene.full .ev-copy,.ev-scene.frame .ev-copy,
+  .ev-scene.route .ev-copy,.ev-scene.split .ev-copy,.ev-scene.sheet .ev-copy{
+    left:1rem!important;right:auto!important;bottom:3.95rem!important;
+    width:47vw!important;max-width:47vw!important;
+    max-height:calc(100dvh - 7rem)!important;overflow:visible!important;
+    text-align:left!important;transform:none!important;
+  }
+  .ev-scene.quiet .ev-copy{
+    left:1rem!important;right:auto!important;top:50%!important;bottom:auto!important;
+    width:min(560px,62vw)!important;max-width:min(560px,62vw)!important;
+    transform:translateY(-50%)!important;text-align:left!important;
+  }
+  .ev-title{font-size:clamp(30px,5vw,44px)!important;line-height:.93!important;max-width:9.5ch!important}
+  .ev-note{font-size:10.5px!important;line-height:1.45!important;max-width:38ch!important;margin-top:.5rem!important}
+  .ev-kicker{font-size:7px!important;margin-bottom:.45rem!important}
+  .ev-route{font-size:7px!important;margin-top:.5rem!important;padding-top:.45rem!important}
+  .ev-evidence{margin-top:.45rem!important;gap:.3rem .55rem!important}
+  .ev-chip{font-size:7px!important}.ev-chip b{font-size:13px!important}
+  .ev-link,.ev-field-open{font-size:7.5px!important;margin-top:.5rem!important}
+
+  .ev-scene.sheet .ev-contact{
+    inset:3.8rem 1rem 3.8rem 53%;
+    grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+  }
+  .ev-scene.frame .ev-media{inset:3.8rem 1rem 3.8rem 53%}
+  .ev-scene.split .ev-media{inset:0 0 0 49%!important;clip-path:none!important}
+  .ev-scene.split::after{
+    background:linear-gradient(90deg,rgba(7,12,9,.97) 0 48%,rgba(7,12,9,.55) 58%,rgba(7,12,9,.06) 100%)!important
+  }
+  .ev-scene.route .ev-media{background-position:center 54%}
+  .ev-route-director{
+    left:53%;right:1rem;bottom:3.95rem;min-height:40px;
+    overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;
+    touch-action:pan-x;
+  }
+  .ev-route-director::-webkit-scrollbar{display:none}
+  .ev-route-stop{flex:0 0 clamp(88px,15vw,116px);padding-top:.6rem}
+  .ev-route-stop span{font-size:6.5px;line-height:1.25}
+  .ev-controls{right:1rem!important;bottom:.65rem!important}
+  .ev-btn{width:36px!important;height:36px!important}
+  .ev-rail{left:1rem!important;right:8.6rem!important;bottom:.82rem!important}
+  .ev-chapter,.ev-number,.ev-frame-label{display:none!important}
+}
+
+/* Do not let long route labels create page-level overflow. */
+html,body,.ev{max-width:100%;overscroll-behavior:none}
+@media(prefers-reduced-motion:reduce){
+  .ev-route-director{scroll-behavior:auto!important}
+}
+</style>
 </head>
 <body>
 <main class="ev" aria-label="Enkiama View">
@@ -949,7 +1070,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     viewer.addEventListener('pointerdown',revealChrome,{passive:true});
     viewer.addEventListener('touchstart',function(e){
       revealChrome();
-      if(drawerPaused||!e.touches||!e.touches[0]||e.target.closest('.ev-live-panel,.ev-field'))return;
+      if(drawerPaused||!e.touches||!e.touches[0]||e.target.closest('.ev-live-panel,.ev-field,.ev-route-director'))return;
       touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()};
     },{passive:true});
     viewer.addEventListener('touchend',function(e){
@@ -963,7 +1084,7 @@ linear-gradient(90deg,rgba(6,11,8,.58),rgba(6,11,8,.12) 48%,transparent 74%)}
     },{passive:true});
     viewer.addEventListener('wheel',function(e){
       revealChrome();
-      if(drawerPaused||e.ctrlKey||e.target.closest('.ev-live-panel,.ev-field'))return;
+      if(drawerPaused||e.ctrlKey||e.target.closest('.ev-live-panel,.ev-field,.ev-route-director'))return;
       var delta=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
       if(!delta)return;
       wheelAccumulator+=delta;
