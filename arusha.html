@@ -345,6 +345,130 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 .ar-grid,.ar-stay{grid-template-columns:1fr!important}.ar-card{display:grid!important;grid-template-columns:110px minmax(180px,.7fr) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;min-height:0!important}.ar-card h3{margin:0!important}.ar-card p{max-width:47ch}
 @media(max-width:900px){.ar-threshold-field__copy{width:auto;right:1.5rem}.ar-card{grid-template-columns:1fr;gap:.5rem}}
 </style>
+<style id="phase26a-arusha-editorial-register">
+/* Phase 26A · remove the last repeated card grids from Arusha. */
+.ar-section.light .ar-grid{
+  display:block!important;
+  border:0!important;
+  border-top:1px solid rgba(15,23,18,.18)!important;
+  counter-reset:ar-role;
+}
+.ar-section.light .ar-grid .ar-card{
+  counter-increment:ar-role;
+  display:grid!important;
+  grid-template-columns:minmax(72px,.18fr) minmax(220px,.62fr) minmax(280px,1.2fr)!important;
+  gap:clamp(1.5rem,4vw,4rem)!important;
+  align-items:start!important;
+  min-height:0!important;
+  padding:2rem 0 2.15rem!important;
+  border:0!important;
+  border-bottom:1px solid rgba(15,23,18,.14)!important;
+  background:transparent!important;
+}
+.ar-section.light .ar-grid .ar-card::before{
+  content:"0" counter(ar-role);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:9px;letter-spacing:.16em;color:#75603f;
+  padding-top:.35rem;
+}
+.ar-section.light .ar-grid .ar-card .ar-kicker{display:none}
+.ar-section.light .ar-grid .ar-card h3{
+  margin:0!important;
+  font-size:clamp(27px,2.7vw,38px)!important;
+  line-height:1.02!important;
+  max-width:9ch;
+}
+.ar-section.light .ar-grid .ar-card p{
+  margin:0!important;
+  max-width:48ch!important;
+  font-size:12.5px!important;
+  line-height:1.8!important;
+}
+
+/* Stay logic becomes a duration axis rather than another four-column card set. */
+.ar-section:not(.light) .ar-stay{
+  position:relative;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:clamp(1rem,2.5vw,2.5rem)!important;
+  border:0!important;
+  padding-top:2.4rem;
+}
+.ar-section:not(.light) .ar-stay::before{
+  content:'';
+  position:absolute;left:0;right:0;top:1.45rem;height:1px;
+  background:linear-gradient(90deg,rgba(190,158,104,.68),rgba(190,158,104,.12));
+}
+.ar-section:not(.light) .ar-stay .ar-card{
+  position:relative;
+  min-height:0!important;
+  padding:1.8rem 0 0!important;
+  border:0!important;
+  background:transparent!important;
+}
+.ar-section:not(.light) .ar-stay .ar-card::before{
+  content:'';
+  position:absolute;left:0;top:-1.23rem;width:8px;height:8px;border-radius:50%;
+  background:var(--earth);
+  box-shadow:0 0 0 6px #0d1511;
+}
+.ar-section:not(.light) .ar-stay .ar-card .ar-kicker{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,3vw,42px)!important;
+  font-weight:300;line-height:1;
+  letter-spacing:-.03em;text-transform:none;
+  color:var(--bone)!important;
+  margin-bottom:.85rem;
+}
+.ar-section:not(.light) .ar-stay .ar-card h3{
+  margin:0 0 .75rem!important;
+  font-size:clamp(20px,2vw,28px)!important;
+}
+.ar-section:not(.light) .ar-stay .ar-card p{
+  margin:0!important;
+  max-width:28ch!important;
+  font-size:11.5px!important;
+  line-height:1.7!important;
+  color:rgba(237,230,214,.6)!important;
+}
+
+@media(max-width:900px){
+  .ar-section.light .ar-grid .ar-card{
+    grid-template-columns:56px minmax(180px,.65fr) minmax(0,1.35fr)!important;
+    gap:1.25rem!important;
+  }
+  .ar-section:not(.light) .ar-stay{
+    grid-template-columns:1fr 1fr!important;
+    row-gap:3rem!important;
+  }
+  .ar-section:not(.light) .ar-stay::before{display:none}
+  .ar-section:not(.light) .ar-stay .ar-card{
+    padding:0 1.2rem 0 1.1rem!important;
+    border-left:1px solid rgba(190,158,104,.2)!important;
+  }
+  .ar-section:not(.light) .ar-stay .ar-card::before{
+    left:-4px;top:.4rem;width:7px;height:7px;box-shadow:0 0 0 5px #0d1511;
+  }
+}
+@media(max-width:620px){
+  .ar-section.light .ar-grid .ar-card{
+    grid-template-columns:42px minmax(0,1fr)!important;
+    gap:.8rem 1rem!important;
+    padding:1.6rem 0 1.8rem!important;
+  }
+  .ar-section.light .ar-grid .ar-card h3{max-width:12ch}
+  .ar-section.light .ar-grid .ar-card p{
+    grid-column:2;
+    max-width:none!important;
+  }
+  .ar-section:not(.light) .ar-stay{
+    grid-template-columns:1fr!important;
+    row-gap:2.25rem!important;
+  }
+  .ar-section:not(.light) .ar-stay .ar-card{padding-left:1.2rem!important}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
