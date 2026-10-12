@@ -777,6 +777,17 @@ nav.scrolled::before{ opacity:.035; }
 .begin-conversion .ch-inner{max-width:620px}
 .begin-conversion .dim{font-size:14px;line-height:1.75;color:rgba(237,230,214,.7)}
 .begin-conversion .btn-primary{border-radius:0}
+.begin-conversion .lf-carried{margin:0 0 2rem;padding:0 0 1.6rem;border-bottom:1px solid rgba(190,158,104,.18);}
+.begin-conversion .lf-carried[hidden]{display:none}
+.begin-conversion .lf-carried-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:1.1rem;font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,230,214,.45);}
+.begin-conversion .lf-carried-head span{color:var(--earth)}
+.begin-conversion .lf-carried-head a{color:rgba(237,230,214,.58);text-decoration:none;border-bottom:1px solid rgba(190,158,104,.25);padding-bottom:.2rem;}
+.begin-conversion .lf-carried strong{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,3vw,38px);font-weight:350;line-height:1.04;letter-spacing:-.025em;max-width:12ch;}
+.begin-conversion .lf-carried-route{margin-top:1rem;font-size:9px;line-height:1.65;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,230,214,.68);overflow-wrap:anywhere;}
+.begin-conversion .lf-carried-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem;}
+.begin-conversion .lf-carried-meta span{padding:.4rem .55rem;border:1px solid rgba(237,230,214,.12);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,230,214,.52);}
+.begin-conversion .lf-carried-note{margin-top:1rem;max-width:55ch;font-size:11.5px;line-height:1.65;color:rgba(237,230,214,.56);}
+
 .begin-conversion .byw{
   display:grid;grid-template-columns:minmax(220px,.52fr) minmax(0,1.48fr);gap:clamp(3rem,8vw,9rem);
   padding:clamp(5rem,8vw,8rem) clamp(1.5rem,6vw,6rem);border-bottom:1px solid var(--rule)
@@ -1435,12 +1446,22 @@ body.eh-locked{overflow:hidden;}
       <p class="leadform-trust">Read personally by Enkiama. No mailing list. No automated sales sequence. English, Spanish or Swahili are all fine.</p>
     </div>
     <div class="leadform-form">
+      <aside class="lf-carried" id="lfCarried" hidden aria-live="polite">
+        <div class="lf-carried-head">
+          <span>Your composed direction</span>
+          <a href="experience-view.html?from=compose">Reopen Journey View &rarr;</a>
+        </div>
+        <strong id="lfCarriedTitle">We already have your first route.</strong>
+        <p id="lfCarriedRoute"></p>
+        <div class="lf-carried-meta" id="lfCarriedMeta"></div>
+        <p class="lf-carried-note">You do not need to repeat any of this below. Add only what has changed, what is still missing, or what you want us to think about next.</p>
+      </aside>
       <form class="lf-grid" id="lfForm" novalidate style="display:flex;flex-direction:column;gap:1.2rem;">
         <div class="lf-row" style="display:flex;gap:1.4rem;flex-wrap:wrap;">
           <div class="lf-field" style="flex:1;min-width:200px;"><input class="lf-in" id="lfName" name="name" type="text" maxlength="120" placeholder=" " autocomplete="name"><label class="lf-lab" for="lfName">Your name</label></div>
           <div class="lf-field" style="flex:1.4;min-width:220px;"><input class="lf-in" id="lfEmail" name="contact" type="text" maxlength="200" placeholder=" " autocomplete="email" aria-describedby="lfReady"><label class="lf-lab" for="lfEmail">Email or WhatsApp</label></div>
         </div>
-        <div class="lf-field lf-area"><textarea class="lf-in" id="lfMsg" name="message" rows="6" maxlength="5000" placeholder=" " aria-describedby="lfReady"></textarea><label class="lf-lab" for="lfMsg">Dates, travellers, and what is drawing you to Tanzania</label></div>
+        <div class="lf-field lf-area"><textarea class="lf-in" id="lfMsg" name="message" rows="6" maxlength="5000" placeholder=" " aria-describedby="lfReady"></textarea><label class="lf-lab" id="lfMsgLabel" for="lfMsg">Dates, travellers, and what is drawing you to Tanzania</label></div>
         <div class="lf-ready" id="lfReady"><span class="lf-ready-dot"></span><span id="lfReadyTxt">Ready when you are.</span></div>
         <button class="lf-send" id="lfSend" type="submit">Send to Enkiama <span aria-hidden="true">→</span></button>
       </form>
@@ -2081,16 +2102,49 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
 (function(){
   try{
     var params=new URLSearchParams(window.location.search);
-    var composed=params.get('composed');
-    if(composed){
-      var msg=document.getElementById('lfMsg');
-      if(msg){
-        msg.value=composed;
-        // gentle nudge: focus + scroll to the form so they see it carried over
-        var form=document.getElementById('enquire');
-        if(form){ setTimeout(function(){ form.scrollIntoView({behavior:'smooth',block:'center'}); }, 400); }
+    var composed=params.get('composed')||'';
+    if(!composed)return;
+
+    var stored=null;
+    try{stored=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){stored=null;}
+
+    var carried=document.getElementById('lfCarried');
+    var routeEl=document.getElementById('lfCarriedRoute');
+    var metaEl=document.getElementById('lfCarriedMeta');
+    var label=document.getElementById('lfMsgLabel');
+    var readyTxt=document.getElementById('lfReadyTxt');
+    var msg=document.getElementById('lfMsg');
+
+    var route=(stored&&Array.isArray(stored.route)&&stored.route.length)?stored.route:null;
+    if(!route){
+      var match=composed.match(/First route:\s*([^\n]+)/i);
+      if(match&&match[1])route=match[1].split(/\s*→\s*/).filter(Boolean);
+    }
+
+    if(carried){
+      carried.hidden=false;
+      if(routeEl)routeEl.textContent=(route&&route.length)?route.join(' → '):'Your composed route is attached to this enquiry.';
+      if(metaEl&&stored&&stored.labels){
+        [
+          stored.labels.time,
+          stored.labels.pace,
+          stored.labels.coast,
+          stored.labels.who
+        ].filter(Boolean).forEach(function(value){
+          var chip=document.createElement('span');chip.textContent=value;metaEl.appendChild(chip);
+        });
       }
     }
+
+    if(label)label.textContent='What should we know next? Dates, constraints, questions, or anything that changed';
+    if(msg){
+      msg.value='';
+      msg.setAttribute('placeholder',' ');
+    }
+    if(readyTxt)readyTxt.textContent='Your composed route is already attached. Add a short note and a way to reach you.';
+
+    var form=document.getElementById('enquire');
+    if(form){setTimeout(function(){form.scrollIntoView({behavior:'smooth',block:'center'});},400);}
   }catch(e){}
 })();
 </script>
