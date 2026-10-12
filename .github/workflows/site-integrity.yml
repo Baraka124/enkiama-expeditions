@@ -22,7 +22,6 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.0.3
@@ -56,6 +55,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.0.3
@@ -90,19 +90,7 @@ jobs:
 
           # Any shared system, asset, test, build, workflow or infrastructure change
           # gets the complete regression suite.
-          if grep -Evq '^(?:[^/]+\.html|journeys/[^/]+\.html)
-
-      - name: Upload smoke diagnostics
-        if: always()
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
-        with:
-          name: enkiama-site-integrity
-          path: |
-            playwright-report/
-            test-results/
-          retention-days: 7
-          if-no-files-found: ignore
- /tmp/enkiama-changed-files.txt; then
+          if grep -Evq '^([^/]+\.html|journeys/[^/]+\.html)$' /tmp/enkiama-changed-files.txt; then
             echo "mode=full" >> "$GITHUB_OUTPUT"
             echo "pages=" >> "$GITHUB_OUTPUT"
             exit 0
@@ -123,7 +111,10 @@ jobs:
           ENKIAMA_SMOKE_PAGES: ${{ steps.smoke-scope.outputs.pages }}
         run: |
           echo "Focused smoke pages: $ENKIAMA_SMOKE_PAGES"
-          npx playwright test             tests/site-smoke.spec.cjs             tests/semantic-accessibility.spec.cjs             --config=playwright.config.cjs
+          npx playwright test \
+            tests/site-smoke.spec.cjs \
+            tests/semantic-accessibility.spec.cjs \
+            --config=playwright.config.cjs
 
       - name: Run full public-site smoke matrix
         if: steps.smoke-scope.outputs.mode == 'full'
