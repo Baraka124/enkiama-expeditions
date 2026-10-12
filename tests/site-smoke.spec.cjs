@@ -251,7 +251,9 @@ for (const viewport of viewports) {
             exitText: document.getElementById('evExit')?.textContent?.trim(),
             exitHref: document.getElementById('evExit')?.getAttribute('href'),
             route: document.getElementById('evRoute')?.textContent?.trim(),
-            title: document.getElementById('evTitle')?.textContent?.trim()
+            title: document.getElementById('evTitle')?.textContent?.trim(),
+            composedClass: document.querySelector('.ev')?.classList.contains('composed-mode'),
+            controlsOpacity: getComputedStyle(document.querySelector('.ev-controls')).opacity
           }));
           expect(state.mode).toBe('Your journey view');
           expect(state.exitText).toBe('Back to composition');
@@ -259,6 +261,8 @@ for (const viewport of viewports) {
           expect(state.route).toContain('Tarangire');
           expect(state.route).toContain('Zanzibar');
           expect(state.title).toContain('space');
+          expect(state.composedClass).toBe(true);
+          expect(Number(state.controlsOpacity)).toBeGreaterThanOrEqual(0.85);
         }
 
         if (path === 'begin.html') {
