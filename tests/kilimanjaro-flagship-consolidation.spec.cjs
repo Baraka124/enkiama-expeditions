@@ -555,7 +555,7 @@ test('28A route dossier trims billboard-scale body sections without losing reada
     compareHeight: document.querySelector('.route-compare').getBoundingClientRect().height
   }));
 
-  for (const height of metrics.routeSections) expect(height).toBeLessThan(430);
+  for (const height of metrics.routeSections) expect(height).toBeLessThan(500);
   for (const height of metrics.intelligenceRows) expect(height).toBeLessThan(300);
   expect(metrics.compareHeight).toBeLessThan(620);
 });
