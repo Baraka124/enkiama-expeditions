@@ -1,0 +1,181 @@
+{
+  "schema": "enkiama.kilimanjaro.operations.v1",
+  "updated_at": "2026-10-13",
+  "public_status": "standard-and-verification-boundary",
+  "product_thesis": "Premium mountain operations are expressed as documented provision and controlled handoffs, not adjectives.",
+  "benchmark_sources": {
+    "ak_kilimanjaro": {
+      "type": "premium_benchmark",
+      "label": "Abercrombie & Kent — Climb Mount Kilimanjaro",
+      "url": "https://www.abercrombiekent.com/journeys/tailormade-journeys/climb-mount-kilimanjaro",
+      "checked_at": "2026-10-13",
+      "scope": "Benchmark for concrete specification of tents, sleeping, meals, toilet/shower access and private journey continuity. Not Enkiama operating evidence."
+    },
+    "tusker_camp": {
+      "type": "specialist_benchmark",
+      "label": "Tusker Trail — Kilimanjaro Camps & Adventure Meals",
+      "url": "https://www.tusker.com/kilimanjaro/adventure-kitchen-and-camp/",
+      "checked_at": "2026-10-13",
+      "scope": "Benchmark for detailed mountain-camp and meal specification. Not Enkiama operating evidence."
+    },
+    "imec": {
+      "type": "responsible_trekking_benchmark",
+      "label": "IMEC / KRTO — Partnership for Responsible Travel",
+      "url": "https://mountainexplorers.org/partnership-for-responsible-travel/",
+      "checked_at": "2026-10-13",
+      "scope": "Benchmark for independently monitored crew-welfare systems. Enkiama does not claim partner status unless verified."
+    }
+  },
+  "public_standard": [
+    {
+      "id": "sleep",
+      "label": "Sleep system",
+      "question": "What does the climber actually sleep in and on?",
+      "verify": [
+        "tent make / dimensions",
+        "occupancy",
+        "mattress or sleep platform",
+        "weather rating",
+        "duffel / internal organisation"
+      ],
+      "public_copy": "Tent, occupancy and sleep system should be described as equipment, not as 'luxury'."
+    },
+    {
+      "id": "dining",
+      "label": "Dining system",
+      "question": "Where and how are meals served?",
+      "verify": [
+        "dining shelter",
+        "seating",
+        "table setup",
+        "lighting",
+        "meal-service format"
+      ],
+      "public_copy": "Dining should be documented as a working camp system: shelter, seating, service and recovery space."
+    },
+    {
+      "id": "sanitation",
+      "label": "Sanitation & privacy",
+      "question": "What toilet and washing provision is actually available?",
+      "verify": [
+        "toilet arrangement",
+        "cleaning responsibility",
+        "hand-washing provision",
+        "shower / wash provision if any"
+      ],
+      "public_copy": "Privacy and hygiene are operating specifications; no shower or toilet claim is made until confirmed."
+    },
+    {
+      "id": "water",
+      "label": "Water system",
+      "question": "How is drinking water collected, treated and issued?",
+      "verify": [
+        "source",
+        "treatment method",
+        "daily allocation process",
+        "hot-water availability",
+        "bottle / bladder refill process"
+      ],
+      "public_copy": "Water treatment and refill procedures belong in the expedition record before departure."
+    },
+    {
+      "id": "food",
+      "label": "Food system",
+      "question": "What is the mountain meal system and how are dietary needs handled?",
+      "verify": [
+        "meal pattern",
+        "menu examples",
+        "dietary requirement process",
+        "fresh-food / resupply model",
+        "summit-night nutrition"
+      ],
+      "public_copy": "Food should be specified by meal pattern, dietary handling and resupply logic—not by adjectives."
+    },
+    {
+      "id": "private_support",
+      "label": "Private support",
+      "question": "What actually changes when a climb is private?",
+      "verify": [
+        "departure flexibility",
+        "guide allocation",
+        "party decision protocol",
+        "briefing access",
+        "private transfer / handoff scope"
+      ],
+      "public_copy": "Private should describe decision control and operating attention, not exclusivity for its own sake."
+    }
+  ],
+  "partner_specification": {
+    "verification_status": "pending_partner_verification",
+    "public_render": false,
+    "sleep": {
+      "tent": null,
+      "occupancy": null,
+      "mattress": null,
+      "weather_rating": null,
+      "organisation": null
+    },
+    "dining": {
+      "shelter": null,
+      "seating": null,
+      "table_setup": null,
+      "lighting": null,
+      "service": null
+    },
+    "sanitation": {
+      "toilet": null,
+      "cleaning": null,
+      "handwashing": null,
+      "shower": null
+    },
+    "water": {
+      "source": null,
+      "treatment": null,
+      "allocation": null,
+      "hot_water": null,
+      "refill": null
+    },
+    "food": {
+      "meal_pattern": null,
+      "menu_examples": null,
+      "dietary_process": null,
+      "resupply": null,
+      "summit_nutrition": null
+    },
+    "private_support": {
+      "departure_flexibility": null,
+      "guide_allocation": null,
+      "party_decision_protocol": null,
+      "briefing_access": null,
+      "transfer_scope": null
+    },
+    "source_required": "Written operating specification from the actual Kilimanjaro partner used for the expedition."
+  },
+  "continuity_standard": [
+    {
+      "id": "arrival",
+      "label": "Arrival",
+      "public_copy": "Arrival and the handoff into the mountain programme should be explicit rather than left as generic logistics."
+    },
+    {
+      "id": "briefing",
+      "label": "Briefing & gear check",
+      "public_copy": "The pre-mountain handoff should resolve route, equipment, health-information process and outstanding operating questions."
+    },
+    {
+      "id": "mountain",
+      "label": "Mountain",
+      "public_copy": "The route dossier, operating specification and guide decision system become the active expedition record."
+    },
+    {
+      "id": "recovery",
+      "label": "Recovery",
+      "public_copy": "The first post-mountain night and recovery handoff should be planned with the same care as departure."
+    },
+    {
+      "id": "onward",
+      "label": "Onward Tanzania",
+      "public_copy": "Safari, Rift or coast continuation should connect to the climb deliberately rather than behave like a separate booking."
+    }
+  ]
+}
