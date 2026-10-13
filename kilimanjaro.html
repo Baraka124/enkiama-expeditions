@@ -1442,6 +1442,71 @@ html{
   :is(#routes,#formats,#standard,#operations,#evidence,#mountain-composer){scroll-margin-top:24px}
 }
 </style>
+<style id="phase28b-mountain-intelligence">
+/* 28B · route choice should read like mountain geometry, not another facts dashboard. */
+.km-route__shape{
+  padding:1.15rem 0 1.45rem;
+  border-top:1px solid rgba(15,23,18,.12);
+  border-bottom:1px solid rgba(15,23,18,.12);
+  margin-bottom:1.25rem;
+}
+.km-route__shape-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:0;
+}
+.km-route__shape-grid::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;top:1.7rem;height:1px;
+  background:linear-gradient(90deg,rgba(85,107,68,.38),rgba(117,96,63,.28));
+}
+.km-route__shape-part{
+  position:relative;
+  padding:0 .75rem 0 0;
+  min-width:0;
+}
+.km-route__shape-part::before{
+  content:'';
+  display:block;
+  width:8px;height:8px;border-radius:50%;
+  margin:1.43rem 0 .72rem;
+  background:#556B44;
+  box-shadow:0 0 0 4px var(--bone2);
+}
+.km-route__shape-part[data-shape="summit"]::before{background:#33422d;width:11px;height:11px;margin-top:1.32rem}
+.km-route__shape-part[data-shape="descent"]::before{background:#75603f}
+.km-route__shape-part span{
+  position:absolute;top:0;left:0;
+  font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,23,18,.42);
+}
+.km-route__shape-part strong{
+  display:block;
+  max-width:11ch;
+  font-family:'Fraunces',serif;
+  font-size:clamp(15px,1.3vw,19px);
+  font-weight:300;
+  line-height:1.12;
+  color:rgba(15,23,18,.82);
+}
+@media(max-width:760px){
+  .km-route__shape-grid{
+    grid-template-columns:1fr;
+    padding-left:1.5rem;
+  }
+  .km-route__shape-grid::before{
+    left:.35rem;right:auto;top:.3rem;bottom:.3rem;width:1px;height:auto;
+  }
+  .km-route__shape-part{padding:0 0 1.15rem}
+  .km-route__shape-part::before{
+    position:absolute;left:-1.42rem;top:.18rem;margin:0;
+    box-shadow:0 0 0 4px var(--bone2);
+  }
+  .km-route__shape-part span{position:static;display:block;margin-bottom:.22rem}
+  .km-route__shape-part strong{max-width:none}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
