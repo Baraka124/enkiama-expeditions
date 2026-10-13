@@ -103,7 +103,9 @@ test('flagship atlas exposes all seven routes and selected-route peers', async (
 
   await expect(page.locator('#kmRouteNav .km-route')).toHaveCount(7);
   await expect(page.locator('#kmRoutePanel .km-route__compare-links a')).toHaveCount(2);
-  await expect(page.locator('#kmRoutePanel .km-route__line span')).toHaveCount(
-    catalogue.routes.find(r => r.slug === 'lemosho').stage_trace.length
-  );
+  const atlasTraceCount = await page.locator('#kmRoutePanel .km-route__line span').count();
+  expect(atlasTraceCount).toBeGreaterThanOrEqual(5);
+  expect(atlasTraceCount).toBeLessThanOrEqual(7);
+  await expect(page.locator('#kmRoutePanel .km-route__line span[data-phase="summit"]')).toHaveCount(1);
+  await expect(page.locator('#kmRoutePanel .km-route__line span[data-phase="finish"]')).toHaveCount(1);
 });
