@@ -70,6 +70,99 @@
   outline-offset:5px;
 }
 </style>
+<style id="phase27d-expedition-continuity">
+.exp-continuity{
+  padding:clamp(4rem,7vw,7rem) clamp(1.5rem,6vw,6rem);
+  background:var(--bone2);
+  color:var(--ink);
+}
+.exp-continuity__head{
+  display:grid;
+  grid-template-columns:minmax(260px,.55fr) minmax(0,1.45fr);
+  gap:clamp(2rem,6vw,6rem);
+  align-items:end;
+  margin-bottom:2.7rem;
+}
+.exp-continuity__head .eye{grid-column:1}
+.exp-continuity__head h2{
+  grid-column:1;
+  font-size:clamp(38px,4.7vw,66px);
+  font-weight:300;
+  line-height:.98;
+  margin-top:.7rem;
+  max-width:9ch;
+}
+.exp-continuity__head>p:last-child{
+  grid-column:2;
+  grid-row:1 / span 2;
+  align-self:end;
+  max-width:54ch;
+  font-size:13px;
+  line-height:1.8;
+  color:rgba(15,23,18,.65);
+}
+.exp-continuity__rail{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  border-top:1px solid rgba(15,23,18,.18);
+  border-bottom:1px solid rgba(15,23,18,.18);
+}
+.exp-continuity__rail article{
+  position:relative;
+  min-width:0;
+  padding:1.45rem 1.2rem 1.6rem;
+  border-right:1px solid rgba(15,23,18,.12);
+}
+.exp-continuity__rail article:last-child{border-right:0}
+.exp-continuity__rail span{
+  display:block;
+  margin-bottom:.8rem;
+  font-size:8px;
+  letter-spacing:.13em;
+  color:#75603f;
+}
+.exp-continuity__rail strong{
+  display:block;
+  min-height:2.3em;
+  font-family:'Fraunces',serif;
+  font-size:clamp(19px,1.8vw,27px);
+  font-weight:300;
+  line-height:1.05;
+  margin-bottom:.75rem;
+}
+.exp-continuity__rail p{
+  font-size:10.5px;
+  line-height:1.65;
+  color:rgba(15,23,18,.6);
+}
+.exp-continuity__boundary{
+  margin-top:1.25rem;
+  max-width:72ch;
+  font-size:9px;
+  line-height:1.65;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:rgba(15,23,18,.45);
+}
+@media(max-width:900px){
+  .exp-continuity__rail{grid-template-columns:1fr 1fr}
+  .exp-continuity__rail article:nth-child(2n){border-right:0}
+  .exp-continuity__rail article:nth-child(n+3){border-top:1px solid rgba(15,23,18,.12)}
+  .exp-continuity__rail article:last-child{grid-column:1 / -1}
+}
+@media(max-width:650px){
+  .exp-continuity__head{grid-template-columns:1fr;gap:.8rem}
+  .exp-continuity__head .eye,
+  .exp-continuity__head h2,
+  .exp-continuity__head>p:last-child{grid-column:1;grid-row:auto}
+  .exp-continuity__rail{display:block}
+  .exp-continuity__rail article{
+    border-right:0!important;
+    border-top:1px solid rgba(15,23,18,.12);
+  }
+  .exp-continuity__rail article:first-child{border-top:0}
+}
+</style>
 </head>
 <body>
 <main id="expPage" hidden>
@@ -81,6 +174,22 @@
 </section>
 <section class="exp-meta" id="expMeta"></section>
 <section class="exp-body"><div class="exp-body__left"><p class="eye">Status</p><h2 class="fr">Prepared openly, before it becomes a story.</h2><p>This dossier is intentionally different from an operated-journey story. It records a climb that is still being prepared. Route, pacing and wider journey context can be shown; summit outcome and lived experience cannot exist until after the expedition.</p></div><div class="exp-body__right"><p class="eye">Current shape</p><div class="exp-steps"><div class="exp-step"><span class="eye">01</span><strong>Seven mountain days</strong><p>Machame is treated as a seven-day climb rather than compressed to six days.</p></div><div class="exp-step"><span class="eye">02</span><strong>Father + adult son</strong><p>A shared summit objective, with individual altitude response and mountain decisions remaining separate.</p></div><div class="exp-step"><span class="eye">03</span><strong>Machame route</strong><p>Southern approach through rainforest, Shira, Lava Tower, Barranco and Karanga before Barafu.</p></div><div class="exp-step"><span class="eye">04</span><strong>Wider Tanzania</strong><p>The climb is designed as one chapter of a broader journey rather than the entire visit.</p></div></div></div></section>
+<section class="exp-continuity" aria-label="Expedition continuity">
+  <div class="exp-continuity__head">
+    <p class="eye">Expedition continuity</p>
+    <h2 class="fr">The mountain is one chapter, not an isolated booking.</h2>
+    <p>The operating handoff should remain coherent before, during and after the climb. For KILELE 2027, these are the five continuity points that must eventually be specified in the expedition record.</p>
+  </div>
+  <div class="exp-continuity__rail">
+    <article><span>01</span><strong>Arrival</strong><p>Airport, first-night and programme handoff should be explicit rather than treated as generic logistics.</p></article>
+    <article><span>02</span><strong>Briefing &amp; gear check</strong><p>Route, equipment, health-information process and outstanding operating questions are resolved before departure.</p></article>
+    <article><span>03</span><strong>Mountain</strong><p>The route dossier, verified operating specification and guide decision system become the active expedition record.</p></article>
+    <article><span>04</span><strong>Recovery</strong><p>The first post-mountain night and recovery handoff are planned with the same care as the ascent departure.</p></article>
+    <article><span>05</span><strong>Onward Tanzania</strong><p>Safari, Rift or coast continuation should connect deliberately to the climb instead of behaving like a separate booking.</p></article>
+  </div>
+  <p class="exp-continuity__boundary">Exact hotel, transfer, briefing, gear-check and post-mountain service details remain subject to the confirmed 2027 operating plan.</p>
+</section>
+
 <section class="exp-action"><a href="kilimanjaro-route.html?route=machame"><span>Route dossier</span><strong>Study Machame →</strong></a><a href="kilimanjaro.html#mountain-composer"><span>Compare</span><strong>Use the mountain composer →</strong></a></section>
 </main>
 <div class="err" id="expError" hidden><p>This expedition is not available for public viewing. <a href="kilimanjaro.html">Return to Kilimanjaro.</a></p></div>
