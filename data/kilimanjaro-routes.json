@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-10-13",
+  "updated_at": "2026-10-14",
   "summit": {
     "name": "Uhuru Peak",
     "elevation_m": 5895
@@ -116,7 +116,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "Forest opening",
+          "note": "Lower western trail before the Shira Plateau."
+        },
+        "traverse": {
+          "label": "Shira Plateau",
+          "note": "Broad western highland progression with time before the summit corridor."
+        },
+        "convergence": {
+          "label": "Southern Circuit",
+          "note": "Joins shared southern terrain around Lava Tower / Barranco."
+        },
+        "summit": {
+          "label": "Barafu",
+          "note": "Southern summit approach after Karanga."
+        },
+        "descent": {
+          "label": "Mweka",
+          "note": "Separate descent corridor on the southern side."
+        }
+      }
     },
     {
       "slug": "northern-circuit",
@@ -223,7 +245,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "Western opening",
+          "note": "Shares the lower Lemosho side into Shira."
+        },
+        "traverse": {
+          "label": "Northern traverse",
+          "note": "Leaves the southern flow for the quieter north face."
+        },
+        "convergence": {
+          "label": "Long independent arc",
+          "note": "Remains distinct across Buffalo and Third Cave before turning east."
+        },
+        "summit": {
+          "label": "School Hut",
+          "note": "Approaches Uhuru from the eastern side."
+        },
+        "descent": {
+          "label": "Mweka",
+          "note": "Crosses the mountain to the southern descent corridor."
+        }
+      }
     },
     {
       "slug": "machame",
@@ -330,7 +374,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "Rainforest south",
+          "note": "Direct southern forest ascent from Machame Gate."
+        },
+        "traverse": {
+          "label": "Shira to Lava Tower",
+          "note": "Moves onto open high terrain before the Barranco sequence."
+        },
+        "convergence": {
+          "label": "Southern Circuit",
+          "note": "Runs through the shared Barranco / Karanga corridor."
+        },
+        "summit": {
+          "label": "Barafu",
+          "note": "Classic southern summit approach."
+        },
+        "descent": {
+          "label": "Mweka",
+          "note": "Returns by a separate southern descent line."
+        }
+      }
     },
     {
       "slug": "rongai",
@@ -426,7 +492,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "Dry northern side",
+          "note": "A quieter opening from Rongai Gate."
+        },
+        "traverse": {
+          "label": "Mawenzi / Saddle",
+          "note": "The route character is defined by Mawenzi and the open Saddle."
+        },
+        "convergence": {
+          "label": "Kibo corridor",
+          "note": "Crosses toward Kibo rather than joining the Southern Circuit."
+        },
+        "summit": {
+          "label": "Kibo Hut",
+          "note": "Eastern summit approach."
+        },
+        "descent": {
+          "label": "Marangu",
+          "note": "Descends the south-eastern corridor to Marangu Gate."
+        }
+      }
     },
     {
       "slug": "marangu",
@@ -517,7 +605,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "South-east forest",
+          "note": "Direct approach from Marangu Gate through the lower ecological zones."
+        },
+        "traverse": {
+          "label": "Horombo corridor",
+          "note": "Progresses through the same broad south-eastern line used on return."
+        },
+        "convergence": {
+          "label": "Single corridor",
+          "note": "No separate traverse; ascent and much of descent share the same side."
+        },
+        "summit": {
+          "label": "Kibo Hut",
+          "note": "Eastern summit approach from the hut system."
+        },
+        "descent": {
+          "label": "Marangu",
+          "note": "Returns through Horombo and Mandara to the same gate."
+        }
+      }
     },
     {
       "slug": "shira",
@@ -622,7 +732,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "High plateau start",
+          "note": "Vehicle-assisted access begins high on the western side."
+        },
+        "traverse": {
+          "label": "Shira Plateau",
+          "note": "Immediate highland exposure before moving toward Lava Tower."
+        },
+        "convergence": {
+          "label": "Southern Circuit",
+          "note": "Merges into the same Barranco / Karanga corridor as Lemosho and Machame."
+        },
+        "summit": {
+          "label": "Barafu",
+          "note": "Southern summit approach."
+        },
+        "descent": {
+          "label": "Mweka",
+          "note": "Separate southern descent corridor."
+        }
+      }
     },
     {
       "slug": "umbwe",
@@ -718,7 +850,29 @@
         "ultimate_best_route"
       ],
       "source_updated_at": "2026-10-13",
-      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification.",
+      "mountain_shape": {
+        "opening": {
+          "label": "Steep southern line",
+          "note": "Rapid early gain on the quieter Umbwe approach."
+        },
+        "traverse": {
+          "label": "Direct to Barranco",
+          "note": "Less lateral mountain time before reaching the shared southern terrain."
+        },
+        "convergence": {
+          "label": "Barranco",
+          "note": "Joins the Southern Circuit earlier than the western routes."
+        },
+        "summit": {
+          "label": "Barafu",
+          "note": "Continues through Karanga to the southern summit approach."
+        },
+        "descent": {
+          "label": "Mweka",
+          "note": "Uses the standard southern descent corridor."
+        }
+      }
     }
   ],
   "schema": "enkiama.kilimanjaro.routes.v2",
