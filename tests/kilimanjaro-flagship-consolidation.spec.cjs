@@ -102,3 +102,26 @@ test('Kilimanjaro atlas remains contained and readable at 390px', async ({ page 
   expect(metrics.panel.left).toBeGreaterThanOrEqual(-1);
   expect(metrics.register.right).toBeLessThanOrEqual(metrics.viewport + 1);
 });
+
+
+test('capture Kilimanjaro visual diagnostics', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1792, height: 1000 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+  await page.screenshot({
+    path: testInfo.outputPath('kilimanjaro-desktop-full.png'),
+    fullPage: true,
+  });
+  await page.locator('#routes').screenshot({
+    path: testInfo.outputPath('kilimanjaro-desktop-atlas.png'),
+  });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+  await page.screenshot({
+    path: testInfo.outputPath('kilimanjaro-mobile-full.png'),
+    fullPage: true,
+  });
+  await page.locator('#routes').screenshot({
+    path: testInfo.outputPath('kilimanjaro-mobile-atlas.png'),
+  });
+});
