@@ -1152,6 +1152,99 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   .km-mountain-scene{min-height:54svh!important}
 }
 </style>
+<style id="phase27d-premium-operations">
+.km-operations{
+  padding:clamp(5rem,8vw,8rem) clamp(1.5rem,5vw,5rem);
+  background:#101813;
+  color:var(--bone);
+  border-top:1px solid rgba(190,158,104,.1);
+  border-bottom:1px solid rgba(190,158,104,.1);
+}
+.km-operations__head{
+  display:grid;
+  grid-template-columns:minmax(280px,.6fr) minmax(0,1.4fr);
+  gap:clamp(2.5rem,7vw,7rem);
+  align-items:end;
+  margin-bottom:clamp(2.5rem,5vw,4rem);
+}
+.km-operations__head h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(44px,5.5vw,78px);
+  font-weight:300;
+  line-height:.95;
+  letter-spacing:-.035em;
+  max-width:8ch;
+  margin-top:.7rem;
+}
+.km-operations__head>p{
+  justify-self:end;
+  max-width:52ch;
+  font-size:13px;
+  line-height:1.8;
+  color:rgba(237,230,214,.65);
+}
+.km-operations__register{
+  border-top:1px solid rgba(190,158,104,.14);
+}
+.km-operation{
+  display:grid;
+  grid-template-columns:48px minmax(220px,.72fr) minmax(0,1.28fr);
+  gap:clamp(1rem,4vw,4rem);
+  align-items:start;
+  padding:1.7rem 0 1.9rem;
+  border-bottom:1px solid rgba(190,158,104,.11);
+}
+.km-operation>span{
+  font-size:8px;
+  letter-spacing:.14em;
+  color:rgba(190,158,104,.58);
+  padding-top:.25rem;
+}
+.km-operation small{
+  display:block;
+  margin-bottom:.55rem;
+  font-size:8px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--earth);
+}
+.km-operation strong{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:clamp(22px,2.25vw,31px);
+  font-weight:300;
+  line-height:1.08;
+  max-width:19ch;
+}
+.km-operation p{
+  max-width:56ch;
+  font-size:12.5px;
+  line-height:1.78;
+  color:rgba(237,230,214,.62);
+}
+.km-operations__boundary{
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr);
+  gap:2rem;
+  padding-top:1.5rem;
+}
+.km-operations__boundary p{
+  max-width:66ch;
+  font-size:10.5px;
+  line-height:1.7;
+  color:rgba(237,230,214,.46);
+}
+@media(max-width:800px){
+  .km-operations__head{grid-template-columns:1fr;gap:1rem}
+  .km-operations__head>p{justify-self:start}
+  .km-operation{
+    grid-template-columns:32px minmax(0,1fr);
+    gap:.7rem 1rem;
+  }
+  .km-operation>div,.km-operation>p{grid-column:2}
+  .km-operations__boundary{grid-template-columns:1fr;gap:.65rem}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -1572,6 +1665,30 @@ body.eh-locked{overflow:hidden;}
     <div class="km-standard"><span class="km-standard__label">Crew</span><strong>Crew welfare is inspectable</strong><p>Load limits, wages, meals, equipment, tipping and welfare standards belong in the operating record, not in vague ethical language.</p></div>
     <div class="km-standard"><span class="km-standard__label">Camp</span><strong>Provision is described concretely</strong><p>Tent, sleep system, toilet arrangements, dining setup, meals and water are specified as actual provision. Adjectives are not a substitute for detail.</p></div>
     <div class="km-standard"><span class="km-standard__label">Decision</span><strong>Descent outranks the summit</strong><p>The operating protocol must define who can stop an ascent, how a descent is staffed and how the remaining party is managed. The summit objective never outranks the descent decision.</p></div>
+  </div>
+</section>
+
+<section class="km-operations" id="operations">
+  <div class="km-operations__head">
+    <div>
+      <p class="km-eye">Premium mountain operations</p>
+      <h2>Specific enough to inspect.</h2>
+    </div>
+    <p>On Kilimanjaro, premium should describe provision and control—not adjectives. These are the six operating dimensions Enkiama expects to document before they become public product claims.</p>
+  </div>
+
+  <div class="km-operations__register">
+    <article class="km-operation"><span>01</span><div><small>Sleep system</small><strong>What does the climber actually sleep in and on?</strong></div><p>Tent, occupancy, sleep platform and weather protection should be specified as equipment. Until the operating partner confirms them, we do not publish a “luxury camp” claim.</p></article>
+    <article class="km-operation"><span>02</span><div><small>Dining system</small><strong>Where and how are meals served?</strong></div><p>Dining shelter, seating, lighting and meal service belong in the operating record. Comfort should be described as a working camp system rather than atmosphere alone.</p></article>
+    <article class="km-operation"><span>03</span><div><small>Sanitation &amp; privacy</small><strong>What toilet and washing provision is actually available?</strong></div><p>Toilet, cleaning, hand-washing and any wash or shower provision are verified separately. No sanitation amenity is implied before confirmation.</p></article>
+    <article class="km-operation"><span>04</span><div><small>Water system</small><strong>How is drinking water collected, treated and issued?</strong></div><p>Source, treatment, refill process and hot-water provision should be explicit before departure. The system matters more than the adjective attached to it.</p></article>
+    <article class="km-operation"><span>05</span><div><small>Food system</small><strong>What is the mountain meal pattern?</strong></div><p>Meal rhythm, dietary handling, resupply and summit-night nutrition should be documented as part of expedition preparation rather than left to generic “good food” language.</p></article>
+    <article class="km-operation"><span>06</span><div><small>Private support</small><strong>What actually changes when the climb is private?</strong></div><p>Private should mean clearer control of briefing, departure rhythm, guide attention, transfers and party decisions—not exclusivity for its own sake.</p></article>
+  </div>
+
+  <div class="km-operations__boundary">
+    <span class="km-eye">Verification boundary</span>
+    <p>Exact tents, mattresses, toilets, water treatment, menus, guide allocation and private-transfer scope remain unpublished until documented for the actual operating partner.</p>
   </div>
 </section>
 
