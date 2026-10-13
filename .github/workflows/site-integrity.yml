@@ -136,6 +136,7 @@ jobs:
             tests/semantic-accessibility.spec.cjs \
             tests/kilimanjaro-seven-route-intelligence.spec.cjs \
             tests/kilimanjaro-altitude-safety.spec.cjs \
+            tests/kilimanjaro-flagship-consolidation.spec.cjs \
             --config=playwright.config.cjs
 
       - name: Run full public-site smoke matrix
