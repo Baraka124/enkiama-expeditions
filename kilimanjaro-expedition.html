@@ -303,6 +303,91 @@
   .exp-track__state{display:block}
 }
 </style>
+<style id="phase27e-evidence-contract">
+.exp-evidence{
+  padding:clamp(4.5rem,7vw,7rem) clamp(1.5rem,6vw,6rem);
+  background:#0d1511;
+  color:var(--bone);
+}
+.exp-evidence__head{
+  display:grid;
+  grid-template-columns:minmax(260px,.58fr) minmax(0,1.42fr);
+  gap:clamp(2rem,6vw,6rem);
+  align-items:end;
+  margin-bottom:2.6rem;
+}
+.exp-evidence__head h2{
+  font-size:clamp(40px,5vw,70px);
+  font-weight:300;
+  line-height:.96;
+  letter-spacing:-.035em;
+  margin-top:.7rem;
+  max-width:8ch;
+}
+.exp-evidence__head>p{
+  justify-self:end;
+  max-width:54ch;
+  font-size:13px;
+  line-height:1.8;
+  color:rgba(237,230,214,.62);
+}
+.exp-evidence__register{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:1px solid rgba(190,158,104,.14);
+  border-bottom:1px solid rgba(190,158,104,.14);
+}
+.exp-evidence__register article{
+  padding:1.45rem 1.25rem 1.6rem;
+  border-right:1px solid rgba(190,158,104,.1);
+}
+.exp-evidence__register article:last-child{border-right:0}
+.exp-evidence__register span{
+  display:block;
+  margin-bottom:.8rem;
+  font-size:8px;
+  letter-spacing:.13em;
+  color:rgba(190,158,104,.55);
+}
+.exp-evidence__register strong{
+  display:block;
+  min-height:2.25em;
+  font-family:'Fraunces',serif;
+  font-size:clamp(19px,1.8vw,27px);
+  font-weight:300;
+  line-height:1.05;
+  margin-bottom:.75rem;
+}
+.exp-evidence__register p{
+  font-size:10.5px;
+  line-height:1.68;
+  color:rgba(237,230,214,.52);
+}
+.exp-evidence__boundary{
+  margin-top:1.2rem;
+  max-width:78ch;
+  font-size:9px!important;
+  line-height:1.65!important;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  color:rgba(237,230,214,.36)!important;
+}
+@media(max-width:900px){
+  .exp-evidence__register{grid-template-columns:1fr 1fr}
+  .exp-evidence__register article:nth-child(2n){border-right:0}
+  .exp-evidence__register article:nth-child(n+3){border-top:1px solid rgba(190,158,104,.1)}
+}
+@media(max-width:650px){
+  .exp-evidence__head{grid-template-columns:1fr;gap:.8rem}
+  .exp-evidence__head>p{justify-self:start}
+  .exp-evidence__register{display:block}
+  .exp-evidence__register article{
+    border-right:0!important;
+    border-top:1px solid rgba(190,158,104,.1);
+  }
+  .exp-evidence__register article:first-child{border-top:0}
+}
+</style>
 </head>
 <body>
 <main id="expPage" hidden>
@@ -324,6 +409,21 @@
   </div>
   <div class="exp-readiness__list" id="expReadiness"></div>
   <p class="exp-readiness__note">Training and gear information is preparation guidance, not medical clearance or a guarantee of performance. Final requirements are reconciled with the operating partner before departure.</p>
+</section>
+
+<section class="exp-evidence" aria-label="Future expedition evidence">
+  <div class="exp-evidence__head">
+    <p class="eye">After the mountain</p>
+    <h2 class="fr">The story follows the record.</h2>
+    <p>KILELE can become an operated case study only after the climb. The preparation dossier does not pre-write a success story; it defines what evidence may later be published.</p>
+  </div>
+  <div class="exp-evidence__register">
+    <article><span>01</span><strong>What actually happened</strong><p>Actual dates, route used, timing and any route variation replace preparation assumptions.</p></article>
+    <article><span>02</span><strong>Decisions that mattered</strong><p>Turnaround, descent, pacing or operating decisions are recorded as facts—not edited out to make the story cleaner.</p></article>
+    <article><span>03</span><strong>Operational lessons</strong><p>Camp, food, equipment and continuity observations can inform future product decisions once they are verified.</p></article>
+    <article><span>04</span><strong>Cleared media &amp; testimony</strong><p>Images and quotations enter the public case study only when they are appropriate and cleared for publication.</p></article>
+  </div>
+  <p class="exp-evidence__boundary">Summit outcome, altitude events, guide-team details, crew-welfare evidence and testimonials remain blank until the expedition has operated and the record is verified.</p>
 </section>
 
 <section class="exp-continuity" aria-label="Expedition continuity">
