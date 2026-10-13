@@ -1,5 +1,5 @@
 (function(){
-  var bar=document.getElementById('ehBar')||document.querySelector('.exp-nav');
+  var bar=document.getElementById('ehBar')||document.querySelector('.exp-nav')||document.querySelector('.route-nav');
   var overlay=document.getElementById('ehOverlay');
   if(!bar)return;
 
@@ -7,10 +7,10 @@
     var style=document.createElement('style');
     style.id='kilimanjaro-reading-header-style';
     style.textContent=
-      '.eh-bar,.exp-nav{will-change:transform;}'+
-      '.eh-bar.km-yield,.exp-nav.km-yield{transform:translateY(calc(-100% - 12px))!important;pointer-events:none;}'+
-      '@media(max-height:520px) and (orientation:landscape){.eh-bar,.exp-nav{position:absolute!important;transform:none!important;}}'+
-      '@media(prefers-reduced-motion:reduce){.eh-bar,.exp-nav{transition:none!important;}}';
+      '.eh-bar,.exp-nav,.route-nav{will-change:transform;}'+
+      '.eh-bar.km-yield,.exp-nav.km-yield,.route-nav.km-yield{transform:translateY(calc(-100% - 12px))!important;pointer-events:none;}'+
+      '@media(max-height:520px) and (orientation:landscape){.eh-bar,.exp-nav,.route-nav{position:absolute!important;transform:none!important;}}'+
+      '@media(prefers-reduced-motion:reduce){.eh-bar,.exp-nav,.route-nav{transition:none!important;}}';
     document.head.appendChild(style);
   }
 
