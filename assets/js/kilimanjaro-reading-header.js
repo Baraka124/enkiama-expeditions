@@ -17,13 +17,16 @@
   var shortLandscape=window.matchMedia&&window.matchMedia('(max-height:520px) and (orientation:landscape)');
   var lastY=window.scrollY||0;
   var ticking=false;
+  var anchorLandingUntil=0;
 
   function update(){
     var y=window.scrollY||0;
     var delta=y-lastY;
     var menuOpen=overlay&&overlay.classList.contains('open');
 
-    if(shortLandscape&&shortLandscape.matches){
+    if(anchorLandingUntil&&performance.now()<anchorLandingUntil){
+      bar.classList.remove('km-yield');
+    }else if(shortLandscape&&shortLandscape.matches){
       bar.classList.remove('km-yield');
     }else if(menuOpen||y<90){
       bar.classList.remove('km-yield');
@@ -69,6 +72,7 @@
         var shortMode=shortLandscape&&shortLandscape.matches;
         var reserve=shortMode?24:Math.min(Math.max(bar.getBoundingClientRect().height+24,82),124);
         var top=target.getBoundingClientRect().top+(window.scrollY||0)-reserve;
+        anchorLandingUntil=performance.now()+480;
         window.scrollTo({top:Math.max(0,top),behavior:'auto'});
         lastY=window.scrollY||0;
         bar.classList.remove('km-yield');
