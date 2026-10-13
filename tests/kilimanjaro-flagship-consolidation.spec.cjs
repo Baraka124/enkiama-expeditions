@@ -131,3 +131,17 @@ test('capture Kilimanjaro visual diagnostics', async ({ page }, testInfo) => {
     path: testInfo.outputPath('kilimanjaro-mobile-atlas.png'),
   });
 });
+
+
+test('Kilimanjaro header yields during downward reading and returns on upward intent', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'domcontentloaded' });
+
+  await page.evaluate(() => window.scrollTo(0, document.querySelector('#routes').offsetTop + 260));
+  await page.waitForTimeout(180);
+  await expect(page.locator('#ehBar')).toHaveClass(/km-yield/);
+
+  await page.evaluate(() => window.scrollBy(0, -180));
+  await page.waitForTimeout(180);
+  await expect(page.locator('#ehBar')).not.toHaveClass(/km-yield/);
+});
