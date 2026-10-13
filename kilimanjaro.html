@@ -721,14 +721,8 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   gap:clamp(2.5rem,6vw,6rem);
   align-items:start;
 }
-.km-route__panel> .km-route__tag,
-.km-route__panel> h3,
-.km-route__panel> .km-route__summary,
-.km-route__panel> p:last-child{grid-column:1}
-.km-route__panel> .km-route__stats,
-.km-route__panel> .km-route__why,
-.km-route__panel> .km-route__stages,
-.km-route__panel> .km-route__compare{grid-column:2}
+.km-route__identity{grid-column:1;align-self:start;min-width:0}
+.km-route__detail{grid-column:2;min-width:0}
 .km-route__panel h3{
   font-size:clamp(56px,6.2vw,88px)!important;
   line-height:.92!important;
@@ -742,9 +736,16 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   max-width:28ch!important;
   color:rgba(15,23,18,.72)!important;
 }
-.km-route__panel>p:last-child{
-  margin-top:1.4rem!important;
-  align-self:start;
+.km-route__dossier-link{margin-top:1.6rem!important}
+.km-route__dossier-link a{
+  display:inline-block;
+  padding-bottom:.35rem;
+  border-bottom:1px solid rgba(85,107,68,.28);
+  color:#435438;
+  font-size:9px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-decoration:none;
 }
 .km-route__stats{
   margin:0 0 1.6rem!important;
@@ -897,7 +898,7 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   .km-atlas__register .km-route:nth-child(4){border-right:0!important}
   .km-atlas__register .km-route:nth-child(n+5){border-top:1px solid rgba(15,23,18,.12)!important}
   .km-route__panel{grid-template-columns:1fr!important;gap:2rem}
-  .km-route__panel>*{grid-column:1!important}
+  .km-route__identity,.km-route__detail{grid-column:1!important}
   .km-route__panel h3{max-width:none}
   .km-mountain-scenes{grid-template-columns:1fr}
   .km-mountain-scene+.km-mountain-scene{border-left:0;border-top:1px solid rgba(190,158,104,.11)}
