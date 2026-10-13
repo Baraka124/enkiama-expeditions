@@ -1,0 +1,56 @@
+{
+  "schema": "enkiama.kilimanjaro.safety.v1",
+  "updated_at": "2026-10-13",
+  "public_status": "authoritative-principles-only",
+  "authoritative_sources": {
+    "cdc_yellow_book_2026": {
+      "label": "CDC Yellow Book 2026 — High-Altitude Travel and Altitude Illness",
+      "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+      "checked_at": "2026-10-13",
+      "scope": "General high-altitude acclimatisation, illness-recognition and descent principles. Not Enkiama operating-partner evidence."
+    },
+    "imec_responsible_travel": {
+      "label": "IMEC / Kilimanjaro Responsible Trekking — Partner for Responsible Travel",
+      "url": "https://mountainexplorers.org/partnership-for-responsible-travel/",
+      "checked_at": "2026-10-13",
+      "scope": "Benchmark framework for verifiable crew-welfare systems. Enkiama does not claim partner status unless independently confirmed."
+    }
+  },
+  "public_principles": [
+    {
+      "id": "time",
+      "label": "Time matters",
+      "statement": "Rate of ascent and sleeping altitude materially affect altitude-illness risk; a longer itinerary creates more opportunity to acclimatise but cannot guarantee an individual response.",
+      "source_ref": "cdc_yellow_book_2026"
+    },
+    {
+      "id": "hold",
+      "label": "Symptoms change the plan",
+      "statement": "A climber with symptoms of altitude illness should not continue ascending to a higher sleeping altitude.",
+      "source_ref": "cdc_yellow_book_2026"
+    },
+    {
+      "id": "descend",
+      "label": "Descent is a safety decision",
+      "statement": "If symptoms worsen despite rest or treatment at the same elevation, descent is the priority.",
+      "source_ref": "cdc_yellow_book_2026"
+    }
+  ],
+  "medical_boundary": "Enkiama route comparison does not assess medical fitness, diagnose altitude illness or replace advice from a clinician familiar with high-altitude travel.",
+  "operator_protocol": {
+    "verification_status": "pending_partner_verification",
+    "public_render": false,
+    "guide_qualification": null,
+    "assistant_guide_qualification": null,
+    "monitoring_cadence": null,
+    "pulse_oximetry_protocol": null,
+    "supplemental_oxygen": null,
+    "medical_kit": null,
+    "communications": null,
+    "descent_protocol": null,
+    "evacuation_protocol": null,
+    "rescue_coordination": null,
+    "guide_to_climber_ratio": null,
+    "source_required": "Documented confirmation from the actual Kilimanjaro operating partner and any applicable park/authority requirements."
+  }
+}
