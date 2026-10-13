@@ -689,3 +689,22 @@ test('28B capture mountain intelligence surfaces', async ({ page }, testInfo) =>
     path: testInfo.outputPath('28b-dossier-mountain-shape-mobile.png')
   });
 });
+
+
+test('28B route dossier header yields during mountain-shape reading', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro-route.html?route=northern-circuit', { waitUntil: 'networkidle' });
+
+  const shapeY = await page.locator('.route-mountain-shape').evaluate(el => el.offsetTop + 120);
+  await page.evaluate(y => window.scrollTo(0, y), shapeY);
+  await page.waitForTimeout(180);
+
+  await expect(page.locator('.route-nav')).toHaveClass(/km-yield/);
+
+  const overlap = await page.evaluate(() => {
+    const nav = document.querySelector('.route-nav').getBoundingClientRect();
+    const head = document.querySelector('.route-mountain-shape__head').getBoundingClientRect();
+    return Math.min(nav.bottom, head.bottom) - Math.max(nav.top, head.top);
+  });
+  expect(overlap).toBeLessThanOrEqual(0);
+});
