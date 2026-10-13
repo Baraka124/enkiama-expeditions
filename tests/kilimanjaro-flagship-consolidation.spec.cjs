@@ -231,3 +231,67 @@ test('27E preparation and evidence sections remain contained at 390px', async ({
   expect(metrics.readinessRight).toBeLessThanOrEqual(metrics.viewport + 1);
   expect(metrics.evidenceRight).toBeLessThanOrEqual(metrics.viewport + 1);
 });
+
+
+test('27F carries mountain composer direction into Begin without repetition', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro.html#mountain-composer', { waitUntil: 'networkidle' });
+
+  await page.locator('.km-question[data-key="days"] button[data-v="8"]').click();
+  await page.locator('.km-question[data-key="priority"] button[data-v="acclimatisation"]').click();
+  await page.locator('.km-question[data-key="experience"] button[data-v="first"]').click();
+  await page.locator('.km-question[data-key="camp"] button[data-v="camping"]').click();
+
+  await expect(page.locator('#kmResult h3')).toHaveText('8-day Lemosho');
+  await expect(page.locator('#kmResult .km-result__continue')).toBeVisible();
+
+  const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem('enkiama.kilimanjaro.direction')));
+  expect(stored.type).toBe('kilimanjaro_route_direction');
+  expect(stored.recommended.slug).toBe('lemosho');
+  expect(stored.alternative.slug).toBe('northern-circuit');
+  expect(stored.labels.days).toBe('8 mountain days');
+  expect(stored.labels.priority).toBe('Acclimatisation');
+  expect(stored.labels.experience).toBe('First high-altitude trek');
+  expect(stored.labels.camp).toBe('Camping');
+  expect(stored.score).toBeUndefined();
+
+  await page.locator('#kmResult .km-result__continue').click();
+  await page.waitForURL(/begin\.html\?kilimanjaro=direction/);
+
+  await expect(page.locator('#beginHeroIssue')).toHaveText('Your Kilimanjaro direction');
+  await expect(page.locator('#lfCarried')).toBeVisible();
+  await expect(page.locator('#lfCarriedTitle')).toHaveText('8-day Lemosho');
+  await expect(page.locator('#lfCarriedRoute')).toContainText('Lemosho · compare Northern Circuit');
+  await expect(page.locator('#lfCarriedMeta span')).toHaveCount(4);
+  await expect(page.locator('#lfCarriedReturn')).toHaveAttribute('href','kilimanjaro.html#mountain-composer');
+  await expect(page.locator('#lfMsg')).toHaveValue('');
+  await expect(page.locator('#lfMsgLabel')).toContainText('Approximate dates');
+});
+
+test('27F serializes Kilimanjaro direction through the existing enquiry schema', async ({ page }) => {
+  let saved = null;
+  await page.route('https://trhwjbavwiiqujcsjppo.supabase.co/rest/v1/enquiries', async route => {
+    saved = JSON.parse(route.request().postData() || '{}');
+    await route.fulfill({ status: 201, body: '' });
+  });
+
+  await page.goto('/kilimanjaro.html#mountain-composer', { waitUntil: 'networkidle' });
+  await page.locator('.km-question[data-key="days"] button[data-v="8"]').click();
+  await page.locator('.km-question[data-key="priority"] button[data-v="acclimatisation"]').click();
+  await page.locator('.km-question[data-key="experience"] button[data-v="first"]').click();
+  await page.locator('.km-question[data-key="camp"] button[data-v="camping"]').click();
+  await page.locator('#kmResult .km-result__continue').click();
+  await page.waitForURL(/begin\.html\?kilimanjaro=direction/);
+
+  await page.locator('#lfEmail').fill('traveller@example.com');
+  await page.locator('#lfMsg').fill('We are considering late August and would like to understand the preparation sequence.');
+  await page.locator('#lfSend').click();
+
+  await expect.poll(() => saved).not.toBeNull();
+  expect(saved.source_page).toBe('begin');
+  expect(saved.composed_journey).toContain('KILIMANJARO_DIRECTION_V1');
+  expect(saved.composed_journey).toContain('Recommended: Lemosho | 8 days | preferred');
+  expect(saved.composed_journey).toContain('Alternative: Northern Circuit | 9 days');
+  expect(saved.composed_journey).toContain('Acclimatisation');
+  expect(saved).not.toHaveProperty('kilimanjaro_direction');
+});

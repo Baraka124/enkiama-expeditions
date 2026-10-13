@@ -1448,13 +1448,13 @@ body.eh-locked{overflow:hidden;}
     <div class="leadform-form">
       <aside class="lf-carried" id="lfCarried" hidden aria-live="polite">
         <div class="lf-carried-head">
-          <span>Your composed direction</span>
-          <a href="experience-view.html?from=compose">Reopen Journey View &rarr;</a>
+          <span id="lfCarriedHeadLabel">Your composed direction</span>
+          <a id="lfCarriedReturn" href="experience-view.html?from=compose">Reopen Journey View &rarr;</a>
         </div>
         <strong id="lfCarriedTitle">We already have your first route.</strong>
         <p id="lfCarriedRoute"></p>
         <div class="lf-carried-meta" id="lfCarriedMeta"></div>
-        <p class="lf-carried-note">You do not need to repeat any of this below. Add only what has changed, what is still missing, or what you want us to think about next.</p>
+        <p class="lf-carried-note" id="lfCarriedNote">You do not need to repeat any of this below. Add only what has changed, what is still missing, or what you want us to think about next.</p>
       </aside>
       <form class="lf-grid" id="lfForm" novalidate style="display:flex;flex-direction:column;gap:1.2rem;">
         <div class="lf-row" style="display:flex;gap:1.4rem;flex-wrap:wrap;">
@@ -1721,12 +1721,35 @@ textarea
     b.disabled=true; b.textContent='Sending\u2026';
     var params=new URLSearchParams(window.location.search);
     var composed=params.get('composed')||'';
+    var kiliMode=params.get('kilimanjaro')||'';
+    var carriedContext=composed||'';
+
+    if(kiliMode){
+      try{
+        var kiliState=JSON.parse(sessionStorage.getItem('enkiama.kilimanjaro.direction')||'null');
+        if(kiliState&&kiliState.recommended){
+          carriedContext=[
+            'KILIMANJARO_DIRECTION_V1',
+            'Recommended: '+kiliState.recommended.name+' | '+kiliState.recommended.days+' days | '+kiliState.recommended.stance,
+            'Alternative: '+kiliState.alternative.name+' | '+kiliState.alternative.days+' days',
+            'Inputs: '+[
+              kiliState.labels.days,
+              kiliState.labels.priority,
+              kiliState.labels.experience,
+              kiliState.labels.camp
+            ].filter(Boolean).join('; '),
+            'Why: '+(kiliState.reasons||[]).join('; '),
+            'Boundary: '+kiliState.medical_boundary
+          ].join('\n');
+        }
+      }catch(e){}
+    }
 
     window.Enkiama.insert('enquiries', {
       name: name || null,
       contact: email || null,
       message: msg,
-      composed_journey: composed || null,
+      composed_journey: carriedContext || null,
       source_page: 'begin'
     }).then(function(res){
       if(!res.ok) throw new Error('save failed');
@@ -2098,59 +2121,91 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
 </script>
 <!-- ENKIAMA_LINES_END -->
 
-<script>
+<script id="phase27f-carried-context">
 (function(){
   try{
     var params=new URLSearchParams(window.location.search);
     var composed=params.get('composed')||'';
-    if(!composed)return;
+    var kiliMode=params.get('kilimanjaro')||'';
+    if(!composed&&!kiliMode)return;
 
     var stored=null;
-    try{stored=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){stored=null;}
+    var kili=null;
+    if(kiliMode){
+      try{kili=JSON.parse(sessionStorage.getItem('enkiama.kilimanjaro.direction')||'null');}catch(e){kili=null;}
+      if(!kili||!kili.recommended)return;
+    }else{
+      try{stored=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){stored=null;}
+    }
 
     var heroIssue=document.getElementById('beginHeroIssue');
     var heroTitle=document.getElementById('beginHeroTitle');
     var heroSub=document.getElementById('beginHeroSub');
     var heroCue=document.getElementById('beginHeroCue');
-    if(heroIssue)heroIssue.textContent='Your composed journey';
-    if(heroTitle)heroTitle.innerHTML='Continue the<br><em>conversation.</em>';
-    if(heroSub)heroSub.textContent='Your first direction is already with us. Add only the details, questions or constraints that should shape what comes next.';
-    if(heroCue)heroCue.innerHTML='Continue from your route <span aria-hidden="true">↓</span>';
-
     var carried=document.getElementById('lfCarried');
+    var headLabel=document.getElementById('lfCarriedHeadLabel');
+    var returnLink=document.getElementById('lfCarriedReturn');
+    var title=document.getElementById('lfCarriedTitle');
     var routeEl=document.getElementById('lfCarriedRoute');
     var metaEl=document.getElementById('lfCarriedMeta');
+    var note=document.getElementById('lfCarriedNote');
     var label=document.getElementById('lfMsgLabel');
     var readyTxt=document.getElementById('lfReadyTxt');
     var msg=document.getElementById('lfMsg');
 
-    var route=(stored&&Array.isArray(stored.route)&&stored.route.length)?stored.route:null;
-    if(!route){
-      var match=composed.match(/First route:\s*([^\n]+)/i);
-      if(match&&match[1])route=match[1].split(/\s*→\s*/).filter(Boolean);
-    }
+    if(metaEl)metaEl.innerHTML='';
 
-    if(carried){
-      carried.hidden=false;
-      if(routeEl)routeEl.textContent=(route&&route.length)?route.join(' → '):'Your composed route is attached to this enquiry.';
-      if(metaEl&&stored&&stored.labels){
-        [
-          stored.labels.time,
-          stored.labels.pace,
-          stored.labels.coast,
-          stored.labels.who
-        ].filter(Boolean).forEach(function(value){
+    if(kiliMode){
+      if(heroIssue)heroIssue.textContent='Your Kilimanjaro direction';
+      if(heroTitle)heroTitle.innerHTML='Continue the mountain<br><em>conversation.</em>';
+      if(heroSub)heroSub.textContent='Your route direction and the reasoning behind it are already with us. Add only dates, group context, questions, or anything that should change the comparison.';
+      if(heroCue)heroCue.innerHTML='Continue from this route <span aria-hidden="true">↓</span>';
+
+      if(carried)carried.hidden=false;
+      if(headLabel)headLabel.textContent='Your mountain direction';
+      if(returnLink){
+        returnLink.href='kilimanjaro.html#mountain-composer';
+        returnLink.textContent='Reopen mountain composer →';
+      }
+      if(title)title.textContent=kili.recommended.days+'-day '+kili.recommended.name;
+      if(routeEl)routeEl.textContent=kili.recommended.name+' · compare '+kili.alternative.name;
+      if(metaEl&&kili.labels){
+        [kili.labels.days,kili.labels.priority,kili.labels.experience,kili.labels.camp].filter(Boolean).forEach(function(value){
           var chip=document.createElement('span');chip.textContent=value;metaEl.appendChild(chip);
         });
       }
+      if(note)note.textContent='A first route direction, not a fitness assessment or medical clearance. You do not need to repeat these answers below.';
+      if(label)label.textContent='What should we know next? Approximate dates, who is climbing, questions, or anything that may change this direction';
+      if(readyTxt)readyTxt.textContent='Your Kilimanjaro route direction is attached. Add a short note and a way to reach you.';
+    }else{
+      if(heroIssue)heroIssue.textContent='Your composed journey';
+      if(heroTitle)heroTitle.innerHTML='Continue the<br><em>conversation.</em>';
+      if(heroSub)heroSub.textContent='Your first direction is already with us. Add only the details, questions or constraints that should shape what comes next.';
+      if(heroCue)heroCue.innerHTML='Continue from your route <span aria-hidden="true">↓</span>';
+
+      var route=(stored&&Array.isArray(stored.route)&&stored.route.length)?stored.route:null;
+      if(!route){
+        var match=composed.match(/First route:\s*([^\n]+)/i);
+        if(match&&match[1])route=match[1].split(/\s*→\s*/).filter(Boolean);
+      }
+
+      if(carried){
+        carried.hidden=false;
+        if(routeEl)routeEl.textContent=(route&&route.length)?route.join(' → '):'Your composed route is attached to this enquiry.';
+        if(metaEl&&stored&&stored.labels){
+          [stored.labels.time,stored.labels.pace,stored.labels.coast,stored.labels.who].filter(Boolean).forEach(function(value){
+            var chip=document.createElement('span');chip.textContent=value;metaEl.appendChild(chip);
+          });
+        }
+      }
+      if(label)label.textContent='What should we know next? Dates, constraints, questions, or anything that changed';
+      if(readyTxt)readyTxt.textContent='Your composed route is already attached. Add a short note and a way to reach you.';
     }
 
-    if(label)label.textContent='What should we know next? Dates, constraints, questions, or anything that changed';
     if(msg){
       msg.value='';
       msg.setAttribute('placeholder',' ');
     }
-    if(readyTxt)readyTxt.textContent='Your composed route is already attached. Add a short note and a way to reach you.';
 
     var form=document.getElementById('enquire');
     if(form){setTimeout(function(){form.scrollIntoView({behavior:'smooth',block:'center'});},400);}
