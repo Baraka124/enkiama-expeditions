@@ -148,7 +148,7 @@ test('Kilimanjaro header yields during downward reading and returns on upward in
 
   await page.evaluate(() => window.scrollTo(0, document.querySelector('#routes').offsetTop + 260));
   await page.waitForTimeout(180);
-  await expect(page.locator('.exp-nav')).toHaveClass(/km-yield/);
+  await expect(page.locator('#ehBar')).toHaveClass(/km-yield/);
 
   await page.evaluate(() => window.scrollBy(0, -180));
   await page.waitForTimeout(180);
@@ -470,7 +470,7 @@ test('27G expedition header yields during preparation-ledger reading', async ({ 
   const ledgerY = await page.locator('.exp-readiness').evaluate(el => el.offsetTop + 220);
   await page.evaluate(y => window.scrollTo(0,y), ledgerY);
   await page.waitForTimeout(180);
-  await expect(page.locator('#ehBar')).toHaveClass(/km-yield/);
+  await expect(page.locator('.exp-nav')).toHaveClass(/km-yield/);
 });
 
 test('27G Kilimanjaro Begin intro acknowledges the carried route instead of restarting discovery', async ({ page }) => {
