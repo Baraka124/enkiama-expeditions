@@ -11,25 +11,29 @@
     if(!r||!panel)return;
     document.querySelectorAll('.km-route').forEach(function(b){b.classList.toggle('active',b.dataset.slug===r.slug);});
     panel.innerHTML=
-      '<span class="km-route__tag">'+esc(r.badge)+'</span>'+
-      '<h3>'+esc(r.name)+'</h3>'+
-      '<p class="km-route__summary">'+esc(r.summary)+'</p>'+
-      '<div class="km-route__stats">'+
-        '<div class="km-route__stat"><span>Recommended</span><strong>'+esc(r.recommended_days)+' days</strong></div>'+
-        '<div class="km-route__stat"><span>Approach</span><strong>'+esc(r.approach)+'</strong></div>'+
-        '<div class="km-route__stat"><span>Acclimatisation</span><strong>'+esc(r.acclimatisation)+'</strong></div>'+
-        '<div class="km-route__stat"><span>Overnight</span><strong>'+esc(r.overnight)+'</strong></div>'+
+      '<div class="km-route__identity">'+
+        '<span class="km-route__tag">'+esc(r.badge)+'</span>'+
+        '<h3>'+esc(r.name)+'</h3>'+
+        '<p class="km-route__summary">'+esc(r.summary)+'</p>'+
+        '<p class="km-route__dossier-link"><a href="kilimanjaro-route.html?route='+encodeURIComponent(r.slug)+'">Open full '+esc(r.name)+' dossier →</a></p>'+
       '</div>'+
-      '<div class="km-route__why">'+
-        '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
-        '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
-      '</div>'+
-      '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+(r.stage_trace||r.stages.map(function(label){return {label:label,phase:'stage'};})).map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div></div>'+
-      '<div class="km-route__compare">'+
-        '<p class="km-route__stages-label">Compare next</p>'+
-        '<div class="km-route__compare-links">'+(r.comparison_peers||[]).map(function(peer){var p=find(peer.slug);return p?'<a href="kilimanjaro-route.html?route='+encodeURIComponent(p.slug)+'">'+esc(p.name)+'</a>':'';}).join('')+'</div>'+
-      '</div>'+
-      '<p style="margin-top:1.5rem"><a href="kilimanjaro-route.html?route='+encodeURIComponent(r.slug)+'" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:inherit">Open full '+esc(r.name)+' dossier →</a></p>';
+      '<div class="km-route__detail">'+
+        '<div class="km-route__stats">'+
+          '<div class="km-route__stat"><span>Recommended</span><strong>'+esc(r.recommended_days)+' days</strong></div>'+
+          '<div class="km-route__stat"><span>Approach</span><strong>'+esc(r.approach)+'</strong></div>'+
+          '<div class="km-route__stat"><span>Acclimatisation</span><strong>'+esc(r.acclimatisation)+'</strong></div>'+
+          '<div class="km-route__stat"><span>Overnight</span><strong>'+esc(r.overnight)+'</strong></div>'+
+        '</div>'+
+        '<div class="km-route__why">'+
+          '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
+          '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
+        '</div>'+
+        '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+(r.stage_trace||r.stages.map(function(label){return {label:label,phase:'stage'};})).map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div></div>'+
+        '<div class="km-route__compare">'+
+          '<p class="km-route__stages-label">Compare next</p>'+
+          '<div class="km-route__compare-links">'+(r.comparison_peers||[]).map(function(peer){var p=find(peer.slug);return p?'<a href="kilimanjaro-route.html?route='+encodeURIComponent(p.slug)+'">'+esc(p.name)+'</a>':'';}).join('')+'</div>'+
+        '</div>'+
+      '</div>';
   }
   function renderNav(){
     nav.innerHTML=catalogue.routes.map(function(r){
