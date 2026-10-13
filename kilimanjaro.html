@@ -953,6 +953,17 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
 }
+.eh-bar{
+  transform:translateY(0);
+  will-change:transform;
+}
+.eh-bar.km-yield{
+  transform:translateY(calc(-100% - 12px));
+  pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .eh-bar{transition:none!important}
+}
 #routes{scroll-margin-top:88px}
 
 /* Route index is editorially grouped, not seven equal boxes. */
@@ -1594,6 +1605,46 @@ body.eh-locked{overflow:hidden;}
   </div>
 </section>
 </main>
+
+<script id="phase27c6-header-yield">
+(function(){
+  var bar=document.getElementById('ehBar');
+  var overlay=document.getElementById('ehOverlay');
+  if(!bar)return;
+  var lastY=window.scrollY||0;
+  var ticking=false;
+
+  function update(){
+    var y=window.scrollY||0;
+    var delta=y-lastY;
+    var menuOpen=overlay&&overlay.classList.contains('open');
+
+    if(menuOpen||y<90){
+      bar.classList.remove('km-yield');
+    }else if(delta>5){
+      bar.classList.add('km-yield');
+    }else if(delta<-5){
+      bar.classList.remove('km-yield');
+    }
+    lastY=y;
+    ticking=false;
+  }
+
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      ticking=true;
+      requestAnimationFrame(update);
+    }
+  },{passive:true});
+
+  bar.addEventListener('focusin',function(){bar.classList.remove('km-yield');});
+  if(overlay){
+    new MutationObserver(function(){
+      if(overlay.classList.contains('open'))bar.classList.remove('km-yield');
+    }).observe(overlay,{attributes:true,attributeFilter:['class']});
+  }
+})();
+</script>
 
 <script src="assets/js/kilimanjaro-system.js" defer></script>
 
