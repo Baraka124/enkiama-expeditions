@@ -26,6 +26,7 @@
   function renderRoute(r){
     if(!r||!panel)return;
     document.querySelectorAll('.km-route').forEach(function(b){b.classList.toggle('active',b.dataset.slug===r.slug);});
+    var shape=routeShape(r);
     panel.innerHTML=
       '<div class="km-route__identity">'+
         '<span class="km-route__tag">'+esc(r.badge)+'</span>'+
@@ -44,7 +45,7 @@
           '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
           '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
         '</div>'+
-        '<div class="km-route__stages"><p class="km-route__stages-label">Route shape · selected milestones</p><div class="km-route__line">'+routeShape(r).map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div><p class="km-route__trace-note">The full day-by-day sequence remains in the route dossier.</p></div>'+
+        '<div class="km-route__stages"><p class="km-route__stages-label">Route shape · selected milestones</p><div class="km-route__line" style="--km-trace-count:'+shape.length+'">'+shape.map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div><p class="km-route__trace-note">The full day-by-day sequence remains in the route dossier.</p></div>'+
         '<div class="km-route__compare">'+
           '<p class="km-route__stages-label">Compare next</p>'+
           '<div class="km-route__compare-links">'+(r.comparison_peers||[]).map(function(peer){var p=find(peer.slug);return p?'<a href="kilimanjaro-route.html?route='+encodeURIComponent(p.slug)+'">'+esc(p.name)+'</a>':'';}).join('')+'</div>'+
