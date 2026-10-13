@@ -448,3 +448,41 @@ test('27G flagship preloads hero and defers heavy below-fold rendering', async (
   expect(visibility.operations).toBe('auto');
   expect(visibility.composer).toBe('auto');
 });
+
+
+test('27G short landscape lets the Kilimanjaro header scroll away instead of cutting content', async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+
+  const position = await page.locator('#ehBar').evaluate(el => getComputedStyle(el).position);
+  expect(position).toBe('absolute');
+
+  await page.locator('#routes').scrollIntoViewIfNeeded();
+  const headerBox = await page.locator('#ehBar').boundingBox();
+  expect(headerBox.bottom).toBeLessThanOrEqual(1);
+});
+
+test('27G expedition header yields during preparation-ledger reading', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro-expedition.html?expedition=kilele-2027-machame', { waitUntil: 'networkidle' });
+
+  const ledgerY = await page.locator('.exp-readiness').evaluate(el => el.offsetTop + 220);
+  await page.evaluate(y => window.scrollTo(0,y), ledgerY);
+  await page.waitForTimeout(180);
+  await expect(page.locator('#ehBar')).toHaveClass(/km-yield/);
+});
+
+test('27G Kilimanjaro Begin intro acknowledges the carried route instead of restarting discovery', async ({ page }) => {
+  await page.goto('/kilimanjaro.html#mountain-composer', { waitUntil: 'networkidle' });
+  await page.locator('.km-question[data-key="days"] button[data-v="8"]').click();
+  await page.locator('.km-question[data-key="priority"] button[data-v="acclimatisation"]').click();
+  await page.locator('.km-question[data-key="experience"] button[data-v="first"]').click();
+  await page.locator('.km-question[data-key="camp"] button[data-v="camping"]').click();
+  await page.locator('#kmResult .km-result__continue').click();
+  await page.waitForURL(/begin\.html\?kilimanjaro=direction/);
+
+  await expect(page.locator('#lfIntroEye')).toHaveText('Continue from the mountain');
+  await expect(page.locator('#lfIntroTitle')).toHaveText('Dates. People. What changes the route.');
+  await expect(page.locator('#lfIntroCopy')).toContainText('route direction is already attached');
+  await expect(page.locator('#lfIntroCopy')).not.toContainText('The route can wait');
+});
