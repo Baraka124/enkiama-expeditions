@@ -295,3 +295,142 @@ test('27F serializes Kilimanjaro direction through the existing enquiry schema',
   expect(saved.composed_journey).toContain('Acclimatisation');
   expect(saved).not.toHaveProperty('kilimanjaro_direction');
 });
+
+
+test('27G public metadata contains no unverified legacy Kilimanjaro claims', async ({ page }) => {
+  await page.goto('/kilimanjaro.html', { waitUntil: 'domcontentloaded' });
+
+  const head = await page.locator('head').innerText().catch(() => '');
+  const html = await page.locator('head').evaluate(node => node.innerHTML);
+
+  expect(html).not.toMatch(/crew paid fairly and named/i);
+  expect(html).not.toMatch(/fairly paid, fairly loaded/i);
+  expect(html).not.toMatch(/matched to your fitness, time and season/i);
+  expect(html).not.toMatch(/ethical, unhurried kilimanjaro climb/i);
+
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    'content',
+    /seven Kilimanjaro routes/i
+  );
+});
+
+test('27G flagship remains composed on a short 1366x650 laptop', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 650 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+
+  const metrics = await page.evaluate(() => ({
+    viewport: window.innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    atlas: document.querySelector('#routes')?.getBoundingClientRect(),
+    operations: document.querySelector('#operations')?.getBoundingClientRect(),
+    composer: document.querySelector('#mountain-composer')?.getBoundingClientRect(),
+  }));
+
+  expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.viewport + 2);
+  expect(metrics.atlas.right).toBeLessThanOrEqual(metrics.viewport + 1);
+  expect(metrics.operations.right).toBeLessThanOrEqual(metrics.viewport + 1);
+  expect(metrics.composer.right).toBeLessThanOrEqual(metrics.viewport + 1);
+
+  await page.locator('#mountain-composer').scrollIntoViewIfNeeded();
+  await expect(page.locator('#mountain-composer .km-question')).toHaveCount(4);
+  await expect(page.locator('#kmResult')).toBeVisible();
+});
+
+test('27G flagship remains readable in 844x390 mobile landscape', async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+
+  const metrics = await page.evaluate(() => ({
+    viewport: window.innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    routeGroups: document.querySelectorAll('.km-route-group').length,
+  }));
+  expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.viewport + 2);
+  expect(metrics.routeGroups).toBe(2);
+
+  await page.locator('#routes').scrollIntoViewIfNeeded();
+  await expect(page.locator('#kmRouteNav .km-route')).toHaveCount(7);
+});
+
+test('27G route catalogue failure degrades without breaking the flagship shell', async ({ page }) => {
+  await page.route('**/data/kilimanjaro-routes.json', route =>
+    route.fulfill({ status: 503, contentType: 'application/json', body: '{}' })
+  );
+  await page.goto('/kilimanjaro.html', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('#kmRouteNav')).toContainText('Route catalogue could not be loaded.');
+  await expect(page.locator('.km-hero')).toBeVisible();
+  await expect(page.locator('#mountain-composer')).toBeVisible();
+});
+
+test('27G route dossier exposes a clear fallback when route data fails', async ({ page }) => {
+  await page.route('**/data/kilimanjaro-routes.json', route =>
+    route.fulfill({ status: 503, contentType: 'application/json', body: '{}' })
+  );
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('#routePage')).toBeHidden();
+  await expect(page.locator('#routeError')).toBeVisible();
+  await expect(page.locator('#routeError')).toContainText('could not be loaded');
+});
+
+test('27G expedition dossier exposes a clear fallback when preparation data fails', async ({ page }) => {
+  await page.route('**/data/kilimanjaro-preparation.json', route =>
+    route.fulfill({ status: 503, contentType: 'application/json', body: '{}' })
+  );
+  await page.goto('/kilimanjaro-expedition.html?expedition=kilele-2027-machame', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('#expPage')).toBeHidden();
+  await expect(page.locator('#expError')).toBeVisible();
+  await expect(page.locator('#expError')).toContainText('not available for public viewing');
+});
+
+test('27G reduced-motion mode removes flagship reveal dependency', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+
+  const state = await page.evaluate(() => {
+    const reveal = document.querySelector('.reveal');
+    const header = document.querySelector('#ehBar');
+    return {
+      revealOpacity: reveal ? getComputedStyle(reveal).opacity : null,
+      revealTransform: reveal ? getComputedStyle(reveal).transform : null,
+      headerTransition: header ? getComputedStyle(header).transitionDuration : null,
+    };
+  });
+
+  if (state.revealOpacity !== null) expect(Number(state.revealOpacity)).toBeGreaterThan(0.99);
+  if (state.revealTransform !== null) expect(state.revealTransform).toBe('none');
+  expect(state.headerTransition === '0s' || state.headerTransition === '0s, 0s').toBeTruthy();
+});
+
+test('27G capture flagship release surfaces', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro.html#mountain-composer', { waitUntil: 'networkidle' });
+
+  await page.locator('.km-question[data-key="days"] button[data-v="8"]').click();
+  await page.locator('.km-question[data-key="priority"] button[data-v="acclimatisation"]').click();
+  await page.locator('.km-question[data-key="experience"] button[data-v="first"]').click();
+  await page.locator('.km-question[data-key="camp"] button[data-v="camping"]').click();
+  await page.locator('#mountain-composer').screenshot({
+    path: testInfo.outputPath('27g-composer-desktop.png'),
+  });
+
+  await page.locator('#kmResult .km-result__continue').click();
+  await page.waitForURL(/begin\.html\?kilimanjaro=direction/);
+  await page.locator('#enquire').screenshot({
+    path: testInfo.outputPath('27g-begin-kilimanjaro-desktop.png'),
+  });
+
+  await page.goto('/kilimanjaro-expedition.html?expedition=kilele-2027-machame', { waitUntil: 'networkidle' });
+  await page.locator('.exp-readiness').screenshot({
+    path: testInfo.outputPath('27g-kilele-preparation-desktop.png'),
+  });
+
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+  await page.locator('#routes').screenshot({
+    path: testInfo.outputPath('27g-atlas-mobile-landscape.png'),
+  });
+});
