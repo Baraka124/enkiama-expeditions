@@ -434,3 +434,17 @@ test('27G capture flagship release surfaces', async ({ page }, testInfo) => {
     path: testInfo.outputPath('27g-atlas-mobile-landscape.png'),
   });
 });
+
+
+test('27G flagship preloads hero and defers heavy below-fold rendering', async ({ page }) => {
+  await page.goto('/kilimanjaro.html', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.locator('link[rel="preload"][as="image"][href="assets/images/kilimanjaro.jpg"]')).toHaveCount(1);
+
+  const visibility = await page.evaluate(() => ({
+    operations: getComputedStyle(document.querySelector('.km-operations')).contentVisibility,
+    composer: getComputedStyle(document.querySelector('.km-composer')).contentVisibility,
+  }));
+  expect(visibility.operations).toBe('auto');
+  expect(visibility.composer).toBe('auto');
+});
