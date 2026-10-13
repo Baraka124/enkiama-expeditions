@@ -1,0 +1,160 @@
+{
+  "schema": "enkiama.kilimanjaro.preparation.v1",
+  "updated_at": "2026-10-13",
+  "public_status": "living-preparation-dossier",
+  "benchmark_sources": {
+    "ultimate_preparation": {
+      "type": "specialist_benchmark",
+      "label": "Ultimate Kilimanjaro — How to Prepare for Climbing Kilimanjaro",
+      "url": "https://www.ultimatekilimanjaro.com/how-to-prepare-for-climbing-kilimanjaro/",
+      "checked_at": "2026-10-13",
+      "scope": "Benchmark for preparation categories such as physical preparation and gear. Not Enkiama client-specific advice."
+    },
+    "ultimate_gear": {
+      "type": "specialist_benchmark",
+      "label": "Ultimate Kilimanjaro — 2026 Gear List Recommendations",
+      "url": "https://www.ultimatekilimanjaro.com/ultimate-kilimanjaro-gear-list-recommendations/",
+      "checked_at": "2026-10-13",
+      "scope": "Benchmark for organising personal gear by function and distinguishing required/recommended/optional equipment. Exact Enkiama requirements depend on the final operating partner."
+    }
+  },
+  "preparation_principles": [
+    "Preparation is tracked as readiness, not as a promise of summit success.",
+    "Training structure is non-medical and must be adapted to the climber rather than presented as a guarantee.",
+    "Gear is organised by function first; exact required items are confirmed against the operating partner before departure.",
+    "Health, medication, insurance and altitude questions belong in the appropriate professional/operating process rather than being inferred from a website.",
+    "The final briefing is where route, equipment, health-information process and unresolved operating questions are reconciled."
+  ],
+  "expeditions": {
+    "kilele-2027-machame": {
+      "expedition_slug": "kilele-2027-machame",
+      "status": "in_preparation",
+      "preparation_window": "October 2026 → August 2027",
+      "tracks": [
+        {
+          "id": "training",
+          "label": "Training base",
+          "status": "planning",
+          "status_label": "Plan next",
+          "public_summary": "Build a progressive walking and hiking base around time on feet, sustained uphill effort and recovery. The public dossier does not prescribe a medical or individual fitness programme.",
+          "evidence_needed": [
+            "individual starting point",
+            "available training terrain",
+            "progressive hiking schedule",
+            "recovery observations"
+          ],
+          "public_detail": [
+            "Progression should be gradual rather than compressed into the final weeks.",
+            "Hiking-specific time on feet matters more than chasing a single gym number.",
+            "The final plan should account for the two climbers separately even though they share one expedition."
+          ]
+        },
+        {
+          "id": "gear",
+          "label": "Gear system",
+          "status": "planning",
+          "status_label": "Build inventory",
+          "public_summary": "Personal kit is organised by weather protection, insulation, footwear, carrying, hydration, lighting and sleep before being reconciled with the partner’s final required list.",
+          "evidence_needed": [
+            "owned gear inventory",
+            "rental availability",
+            "partner required list",
+            "tested boots",
+            "cold-weather layering",
+            "daypack / duffel plan"
+          ],
+          "public_detail": [
+            "The aim is not to buy everything new; owned, borrowed and rented equipment can all be valid once suitability is checked.",
+            "Boots, layering and carrying systems should be tested before travel rather than discovered on the mountain.",
+            "Communal equipment and any rentable personal items remain partner-specific until confirmed."
+          ]
+        },
+        {
+          "id": "health_admin",
+          "label": "Health & administration",
+          "status": "pending",
+          "status_label": "Verification required",
+          "public_summary": "Insurance, medical questions, medication, required travel documents and the operator’s health-information process are resolved through the appropriate professional and operating channels.",
+          "evidence_needed": [
+            "insurance requirements",
+            "medical / medication process",
+            "passport / visa status",
+            "emergency contact",
+            "operator forms"
+          ],
+          "public_detail": [
+            "The website does not assess medical fitness or prescribe altitude medication.",
+            "Insurance requirements should match the confirmed mountain operator and expedition scope.",
+            "Health information is treated as an operational input, not public expedition content."
+          ]
+        },
+        {
+          "id": "briefing",
+          "label": "Briefing & gear check",
+          "status": "pending",
+          "status_label": "Schedule later",
+          "public_summary": "The final pre-mountain briefing should reconcile route, equipment, weather/operating updates, health-information process, baggage and unresolved questions.",
+          "evidence_needed": [
+            "briefing owner",
+            "briefing date",
+            "gear-check process",
+            "route confirmation",
+            "weather / operating update process"
+          ],
+          "public_detail": [
+            "The briefing is not a ceremonial welcome; it closes the remaining preparation gaps.",
+            "Any missing or unsuitable equipment should be identified before the mountain transfer.",
+            "Route and operating assumptions should be confirmed against the actual departure conditions."
+          ]
+        },
+        {
+          "id": "continuity",
+          "label": "Wider journey",
+          "status": "planning",
+          "status_label": "Shape next",
+          "public_summary": "KILELE is designed as a Kilimanjaro chapter inside a wider Tanzania journey. Recovery and onward travel should be sequenced around the mountain rather than bolted on afterwards.",
+          "evidence_needed": [
+            "pre-climb night",
+            "post-climb recovery night",
+            "onward destination",
+            "transfer sequence",
+            "recovery buffer"
+          ],
+          "public_detail": [
+            "The first post-mountain handoff should protect recovery time rather than force an immediate long transfer.",
+            "Safari, Rift or coast continuation should be planned with mountain fatigue and luggage transition in mind.",
+            "Exact properties and transfers remain unpublished until the wider itinerary is confirmed."
+          ]
+        }
+      ],
+      "milestone_rules": {
+        "public_states": [
+          "planning",
+          "pending",
+          "ready"
+        ],
+        "completed_state_requires_evidence": true,
+        "no_percentage_complete": true,
+        "no_summit_probability": true
+      },
+      "post_expedition_evidence": {
+        "public_render": false,
+        "status": "not_operated",
+        "actual_dates": null,
+        "guide_team": null,
+        "route_used": null,
+        "route_variations": null,
+        "summit_outcome": null,
+        "turnaround_or_descent_decisions": null,
+        "altitude_events": null,
+        "camp_and_food_record": null,
+        "gear_lessons": null,
+        "continuity_notes": null,
+        "crew_welfare_evidence": null,
+        "images_cleared_for_publication": [],
+        "testimonials_cleared_for_publication": [],
+        "editorial_rule": "After the climb, publish only verified facts, lessons and media with appropriate consent. Do not rewrite preparation assumptions as if they had always been certain."
+      }
+    }
+  }
+}

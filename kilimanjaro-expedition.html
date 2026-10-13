@@ -163,6 +163,231 @@
   .exp-continuity__rail article:first-child{border-top:0}
 }
 </style>
+<style id="phase27e-preparation-ledger">
+.exp-readiness{
+  padding:clamp(4.5rem,7vw,7rem) clamp(1.5rem,6vw,6rem);
+  background:#101813;
+  color:var(--bone);
+  border-top:1px solid rgba(190,158,104,.1);
+  border-bottom:1px solid rgba(190,158,104,.1);
+}
+.exp-readiness__head{
+  display:grid;
+  grid-template-columns:minmax(280px,.62fr) minmax(0,1.38fr);
+  gap:clamp(2rem,6vw,6rem);
+  align-items:end;
+  margin-bottom:clamp(2.5rem,4.5vw,4rem);
+}
+.exp-readiness__head h2{
+  font-size:clamp(40px,5vw,70px);
+  font-weight:300;
+  line-height:.96;
+  letter-spacing:-.035em;
+  margin-top:.7rem;
+  max-width:9ch;
+}
+.exp-readiness__head>p{
+  justify-self:end;
+  max-width:52ch;
+  font-size:13px;
+  line-height:1.8;
+  color:rgba(237,230,214,.63);
+}
+.exp-readiness__list{
+  border-top:1px solid rgba(190,158,104,.14);
+}
+.exp-track{
+  display:grid;
+  grid-template-columns:48px minmax(185px,.42fr) minmax(0,1fr) 130px;
+  gap:clamp(.9rem,3vw,2.8rem);
+  align-items:start;
+  padding:1.65rem 0 1.85rem;
+  border-bottom:1px solid rgba(190,158,104,.11);
+}
+.exp-track__index{
+  font-size:8px;
+  letter-spacing:.14em;
+  color:rgba(190,158,104,.55);
+  padding-top:.28rem;
+}
+.exp-track__title small{
+  display:block;
+  margin-bottom:.5rem;
+  font-size:8px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--earth);
+}
+.exp-track__title strong{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:clamp(22px,2.25vw,31px);
+  font-weight:300;
+  line-height:1.06;
+}
+.exp-track__copy>p{
+  font-size:12.5px!important;
+  line-height:1.76!important;
+  color:rgba(237,230,214,.64)!important;
+}
+.exp-track__detail{
+  margin-top:.75rem;
+  padding-left:0;
+  list-style:none;
+}
+.exp-track__detail li{
+  position:relative;
+  padding-left:1rem;
+  margin-top:.35rem;
+  font-size:9.5px;
+  line-height:1.6;
+  color:rgba(237,230,214,.47);
+}
+.exp-track__detail li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:.55em;
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(190,158,104,.55);
+}
+.exp-track__state{
+  justify-self:end;
+  text-align:right;
+}
+.exp-track__state span{
+  display:block;
+  font-size:8px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(237,230,214,.38);
+}
+.exp-track__state strong{
+  display:block;
+  margin-top:.45rem;
+  font-size:10px;
+  font-weight:400;
+  line-height:1.4;
+  color:var(--earth);
+}
+.exp-readiness__note{
+  margin-top:1.25rem;
+  max-width:76ch;
+  font-size:9px!important;
+  line-height:1.65!important;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  color:rgba(237,230,214,.38)!important;
+}
+@media(max-width:900px){
+  .exp-track{
+    grid-template-columns:34px minmax(170px,.5fr) minmax(0,1fr);
+  }
+  .exp-track__state{
+    grid-column:2 / 4;
+    justify-self:start;
+    text-align:left;
+    display:flex;
+    gap:.75rem;
+    align-items:baseline;
+  }
+}
+@media(max-width:650px){
+  .exp-readiness__head{grid-template-columns:1fr;gap:.8rem}
+  .exp-readiness__head>p{justify-self:start}
+  .exp-track{
+    grid-template-columns:28px minmax(0,1fr);
+    gap:.55rem 1rem;
+  }
+  .exp-track__title,.exp-track__copy,.exp-track__state{grid-column:2}
+  .exp-track__state{display:block}
+}
+</style>
+<style id="phase27e-evidence-contract">
+.exp-evidence{
+  padding:clamp(4.5rem,7vw,7rem) clamp(1.5rem,6vw,6rem);
+  background:#0d1511;
+  color:var(--bone);
+}
+.exp-evidence__head{
+  display:grid;
+  grid-template-columns:minmax(260px,.58fr) minmax(0,1.42fr);
+  gap:clamp(2rem,6vw,6rem);
+  align-items:end;
+  margin-bottom:2.6rem;
+}
+.exp-evidence__head h2{
+  font-size:clamp(40px,5vw,70px);
+  font-weight:300;
+  line-height:.96;
+  letter-spacing:-.035em;
+  margin-top:.7rem;
+  max-width:8ch;
+}
+.exp-evidence__head>p{
+  justify-self:end;
+  max-width:54ch;
+  font-size:13px;
+  line-height:1.8;
+  color:rgba(237,230,214,.62);
+}
+.exp-evidence__register{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:1px solid rgba(190,158,104,.14);
+  border-bottom:1px solid rgba(190,158,104,.14);
+}
+.exp-evidence__register article{
+  padding:1.45rem 1.25rem 1.6rem;
+  border-right:1px solid rgba(190,158,104,.1);
+}
+.exp-evidence__register article:last-child{border-right:0}
+.exp-evidence__register span{
+  display:block;
+  margin-bottom:.8rem;
+  font-size:8px;
+  letter-spacing:.13em;
+  color:rgba(190,158,104,.55);
+}
+.exp-evidence__register strong{
+  display:block;
+  min-height:2.25em;
+  font-family:'Fraunces',serif;
+  font-size:clamp(19px,1.8vw,27px);
+  font-weight:300;
+  line-height:1.05;
+  margin-bottom:.75rem;
+}
+.exp-evidence__register p{
+  font-size:10.5px;
+  line-height:1.68;
+  color:rgba(237,230,214,.52);
+}
+.exp-evidence__boundary{
+  margin-top:1.2rem;
+  max-width:78ch;
+  font-size:9px!important;
+  line-height:1.65!important;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  color:rgba(237,230,214,.36)!important;
+}
+@media(max-width:900px){
+  .exp-evidence__register{grid-template-columns:1fr 1fr}
+  .exp-evidence__register article:nth-child(2n){border-right:0}
+  .exp-evidence__register article:nth-child(n+3){border-top:1px solid rgba(190,158,104,.1)}
+}
+@media(max-width:650px){
+  .exp-evidence__head{grid-template-columns:1fr;gap:.8rem}
+  .exp-evidence__head>p{justify-self:start}
+  .exp-evidence__register{display:block}
+  .exp-evidence__register article{
+    border-right:0!important;
+    border-top:1px solid rgba(190,158,104,.1);
+  }
+  .exp-evidence__register article:first-child{border-top:0}
+}
+</style>
 </head>
 <body>
 <main id="expPage" hidden>
@@ -174,6 +399,33 @@
 </section>
 <section class="exp-meta" id="expMeta"></section>
 <section class="exp-body"><div class="exp-body__left"><p class="eye">Status</p><h2 class="fr">Prepared openly, before it becomes a story.</h2><p>This dossier is intentionally different from an operated-journey story. It records a climb that is still being prepared. Route, pacing and wider journey context can be shown; summit outcome and lived experience cannot exist until after the expedition.</p></div><div class="exp-body__right"><p class="eye">Current shape</p><div class="exp-steps"><div class="exp-step"><span class="eye">01</span><strong>Seven mountain days</strong><p>Machame is treated as a seven-day climb rather than compressed to six days.</p></div><div class="exp-step"><span class="eye">02</span><strong>Father + adult son</strong><p>A shared summit objective, with individual altitude response and mountain decisions remaining separate.</p></div><div class="exp-step"><span class="eye">03</span><strong>Machame route</strong><p>Southern approach through rainforest, Shira, Lava Tower, Barranco and Karanga before Barafu.</p></div><div class="exp-step"><span class="eye">04</span><strong>Wider Tanzania</strong><p>The climb is designed as one chapter of a broader journey rather than the entire visit.</p></div></div></div></section>
+<section class="exp-readiness" aria-label="KILELE preparation ledger">
+  <div class="exp-readiness__head">
+    <div>
+      <p class="eye">Preparation ledger</p>
+      <h2 class="fr">Readiness without pretending certainty.</h2>
+    </div>
+    <p>Preparation is tracked by what is decided, what is being built and what still requires evidence. There is no percentage score and no summit prediction.</p>
+  </div>
+  <div class="exp-readiness__list" id="expReadiness"></div>
+  <p class="exp-readiness__note">Training and gear information is preparation guidance, not medical clearance or a guarantee of performance. Final requirements are reconciled with the operating partner before departure.</p>
+</section>
+
+<section class="exp-evidence" aria-label="Future expedition evidence">
+  <div class="exp-evidence__head">
+    <p class="eye">After the mountain</p>
+    <h2 class="fr">The story follows the record.</h2>
+    <p>KILELE can become an operated case study only after the climb. The preparation dossier does not pre-write a success story; it defines what evidence may later be published.</p>
+  </div>
+  <div class="exp-evidence__register">
+    <article><span>01</span><strong>What actually happened</strong><p>Actual dates, route used, timing and any route variation replace preparation assumptions.</p></article>
+    <article><span>02</span><strong>Decisions that mattered</strong><p>Turnaround, descent, pacing or operating decisions are recorded as facts—not edited out to make the story cleaner.</p></article>
+    <article><span>03</span><strong>Operational lessons</strong><p>Camp, food, equipment and continuity observations can inform future product decisions once they are verified.</p></article>
+    <article><span>04</span><strong>Cleared media &amp; testimony</strong><p>Images and quotations enter the public case study only when they are appropriate and cleared for publication.</p></article>
+  </div>
+  <p class="exp-evidence__boundary">Summit outcome, altitude events, guide-team details, crew-welfare evidence and testimonials remain blank until the expedition has operated and the record is verified.</p>
+</section>
+
 <section class="exp-continuity" aria-label="Expedition continuity">
   <div class="exp-continuity__head">
     <p class="eye">Expedition continuity</p>
@@ -196,14 +448,33 @@
 <script>
 (function(){
  const slug=new URLSearchParams(location.search).get('expedition');
- fetch('data/kilimanjaro-expeditions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(data=>{
+ const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]);
+
+ Promise.all([
+   fetch('data/kilimanjaro-expeditions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}),
+   fetch('data/kilimanjaro-preparation.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()})
+ ]).then(([data,prep])=>{
   const x=data.expeditions.find(e=>e.slug===slug && e.publishable===true);if(!x)throw 0;
+  const readiness=prep.expeditions&&prep.expeditions[slug];if(!readiness)throw 0;
+
   document.title=x.title+' — Enkiama';
   document.getElementById('expLabel').textContent=x.public_label;
   document.getElementById('expTitle').textContent=x.title;
   document.getElementById('expSummary').textContent=x.summary;
   const meta=[['Period',x.period],['Route',x.route],['Mountain days',x.mountain_days],['Party','Father + adult son']];
-  document.getElementById('expMeta').innerHTML=meta.map(v=>'<div><span>'+v[0]+'</span><strong>'+v[1]+'</strong></div>').join('');
+  document.getElementById('expMeta').innerHTML=meta.map(v=>'<div><span>'+esc(v[0])+'</span><strong>'+esc(v[1])+'</strong></div>').join('');
+
+  document.getElementById('expReadiness').innerHTML=readiness.tracks.map((track,i)=>
+    '<article class="exp-track" data-track="'+esc(track.id)+'">'+
+      '<span class="exp-track__index">0'+(i+1)+'</span>'+
+      '<div class="exp-track__title"><small>'+esc(track.status_label)+'</small><strong>'+esc(track.label)+'</strong></div>'+
+      '<div class="exp-track__copy"><p>'+esc(track.public_summary)+'</p>'+
+        '<ul class="exp-track__detail">'+track.public_detail.map(item=>'<li>'+esc(item)+'</li>').join('')+'</ul>'+
+      '</div>'+
+      '<div class="exp-track__state"><span>Status</span><strong>'+esc(track.status.replace(/_/g,' '))+'</strong></div>'+
+    '</article>'
+  ).join('');
+
   document.getElementById('expPage').hidden=false;
  }).catch(()=>document.getElementById('expError').hidden=false);
 })();
