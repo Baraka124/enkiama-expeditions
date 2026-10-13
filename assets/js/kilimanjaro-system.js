@@ -99,6 +99,52 @@
     if(r.stance==='specialist' && answers.experience!=='experienced')s-=8;
     return s;
   }
+  function labelFor(key,value){
+    var labels={
+      days:{'7':'7 mountain days','8':'8 mountain days','9':'9+ mountain days'},
+      priority:{acclimatisation:'Acclimatisation',scenery:'Scenery',quiet:'Quieter trail',classic:'Classic route'},
+      experience:{first:'First high-altitude trek',some:'Some high-altitude experience',experienced:'Experienced at altitude'},
+      camp:{camping:'Camping',huts:'Prefer huts',either:'Either overnight format'}
+    };
+    return labels[key]&&labels[key][value]?labels[key][value]:value;
+  }
+  function persistDirection(top,alt,reasons){
+    var state={
+      version:1,
+      type:'kilimanjaro_route_direction',
+      created_at:new Date().toISOString(),
+      answers:{
+        days:answers.days,
+        priority:answers.priority,
+        experience:answers.experience,
+        camp:answers.camp
+      },
+      labels:{
+        days:labelFor('days',answers.days),
+        priority:labelFor('priority',answers.priority),
+        experience:labelFor('experience',answers.experience),
+        camp:labelFor('camp',answers.camp)
+      },
+      recommended:{
+        slug:top.slug,
+        name:top.name,
+        days:top.recommended_days,
+        stance:top.stance,
+        fit:top.fit,
+        caution:top.caution
+      },
+      alternative:{
+        slug:alt.slug,
+        name:alt.name,
+        days:alt.recommended_days,
+        stance:alt.stance
+      },
+      reasons:reasons.slice(),
+      medical_boundary:'Route direction only; not a fitness assessment or medical clearance.'
+    };
+    try{sessionStorage.setItem('enkiama.kilimanjaro.direction',JSON.stringify(state));}catch(e){}
+    return state;
+  }
   function updateResult(){
     if(!catalogue||Object.keys(answers).length<4)return;
     var ranked=catalogue.routes.map(function(r){return {r:r,s:score(r)};}).sort(function(a,b){return b.s-a.s;});
@@ -112,7 +158,33 @@
     if(answers.camp==='huts'&&top.slug==='marangu')reasons.push('you prefer huts rather than camping');
     if(answers.experience==='first'&&['lemosho','northern-circuit','machame','rongai'].includes(top.slug))reasons.push('its profile is more suitable for a first high-altitude trek than our specialist lines');
     if(!reasons.length)reasons.push('it gives the strongest overall match across your answers');
-    result.innerHTML='<span class="km-eye">First direction</span><h3>'+esc(top.recommended_days)+'-day '+esc(top.name)+'</h3><p><strong>Why:</strong> '+esc(reasons.join('; '))+'.</p><p>'+esc(top.fit)+'</p><p><strong>Compare with '+esc(alt.name)+':</strong> '+esc(alt.fit)+'</p><p>This is a route-direction result, not a fitness or medical clearance.</p><a href="kilimanjaro-route.html?route='+encodeURIComponent(top.slug)+'">Open the '+esc(top.name)+' dossier →</a> <a href="#routes" id="kmSeeRoute" style="margin-left:1rem">Compare in atlas →</a>';
+    persistDirection(top,alt,reasons);
+
+    result.innerHTML=
+      '<span class="km-eye">First direction</span>'+
+      '<div class="km-result__decision">'+
+        '<div class="km-result__route">'+
+          '<h3>'+esc(top.recommended_days)+'-day '+esc(top.name)+'</h3>'+
+          '<p>'+esc(top.fit)+'</p>'+
+        '</div>'+
+        '<div class="km-result__facts">'+
+          '<div><span>Mountain time</span><strong>'+esc(labelFor('days',answers.days))+'</strong></div>'+
+          '<div><span>Priority</span><strong>'+esc(labelFor('priority',answers.priority))+'</strong></div>'+
+          '<div><span>Altitude experience</span><strong>'+esc(labelFor('experience',answers.experience))+'</strong></div>'+
+          '<div><span>Overnight</span><strong>'+esc(labelFor('camp',answers.camp))+'</strong></div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="km-result__reason">'+
+        '<p><strong>Why this direction:</strong> '+esc(reasons.join('; '))+'.</p>'+
+        '<p><strong>Trade-off:</strong> '+esc(top.caution)+'</p>'+
+        '<p><strong>Compare with '+esc(alt.name)+':</strong> '+esc(alt.fit)+'</p>'+
+      '</div>'+
+      '<div class="km-result__actions">'+
+        '<a class="km-result__continue" href="begin.html?kilimanjaro=direction">Continue this mountain conversation →</a>'+
+        '<a class="km-result__secondary" href="kilimanjaro-route.html?route='+encodeURIComponent(top.slug)+'">Full '+esc(top.name)+' dossier →</a>'+
+        '<a class="km-result__secondary" href="#routes" id="kmSeeRoute">Compare in atlas →</a>'+
+      '</div>'+
+      '<p class="km-result__boundary">Route direction only. Season and party format are intentionally not scored here yet, and this is not a fitness assessment or medical clearance.</p>';
     var a=document.getElementById('kmSeeRoute');if(a)a.addEventListener('click',function(){renderRoute(top);});
   }
 
