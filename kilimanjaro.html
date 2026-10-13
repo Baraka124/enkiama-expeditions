@@ -10,6 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/images/kilimanjaro.jpg" fetchpriority="high">
 <link rel="alternate" hreflang="en" href="https://enkiama.com/kilimanjaro.html">
 <link rel="alternate" hreflang="x-default" href="https://enkiama.com/kilimanjaro.html">
 
@@ -1340,6 +1341,26 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   }
   .km-result__facts div:last-child{border-bottom:0}
   .km-result__continue{width:100%;justify-content:center}
+}
+</style>
+<style id="phase27g-performance">
+/* 27G · keep the cinematic first screen fast without changing its visual result. */
+.km-mountain-scenes,
+.km-products,
+.km-standards,
+.km-operations,
+.km-expeditions,
+.km-composer{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 900px;
+}
+@media(max-width:760px){
+  .km-mountain-scenes,
+  .km-products,
+  .km-standards,
+  .km-operations,
+  .km-expeditions,
+  .km-composer{contain-intrinsic-size:auto 1200px}
 }
 </style>
 </head>
