@@ -381,6 +381,88 @@
   .route-action{padding:2.6rem 1.5rem!important}
 }
 </style>
+<style id="phase28b-route-mountain-shape">
+.route-mountain-shape{
+  background:var(--ink2);
+  padding:clamp(4rem,5.6vw,5.75rem) clamp(1.5rem,5vw,5rem);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.route-mountain-shape__head{
+  display:grid;
+  grid-template-columns:minmax(250px,.5fr) minmax(0,1.5fr);
+  gap:clamp(2rem,5vw,5rem);
+  align-items:end;
+  margin-bottom:2.25rem;
+}
+.route-mountain-shape__head h2{
+  font-size:clamp(34px,4vw,54px);
+  font-weight:300;
+  line-height:.98;
+  margin:.65rem 0 0;
+}
+.route-mountain-shape__head p:last-child{
+  max-width:54ch;
+  font-size:12.5px;
+  line-height:1.75;
+  color:rgba(237,230,214,.62);
+}
+.route-mountain-shape__grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  border-top:1px solid rgba(190,158,104,.18);
+  border-bottom:1px solid rgba(190,158,104,.18);
+}
+.route-shape-part{
+  position:relative;
+  min-height:210px;
+  padding:1.5rem 1.25rem 1.65rem;
+  border-right:1px solid rgba(190,158,104,.12);
+}
+.route-shape-part:last-child{border-right:0}
+.route-shape-part>span{
+  display:block;
+  font-size:8px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--earth);
+}
+.route-shape-part>strong{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:clamp(22px,2vw,29px);
+  font-weight:300;
+  line-height:1.04;
+  margin:.7rem 0 .8rem;
+}
+.route-shape-part>p{
+  font-size:11.5px;
+  line-height:1.68;
+  color:rgba(237,230,214,.58);
+}
+.route-shape-part::after{
+  content:'';
+  position:absolute;
+  left:1.25rem;right:1.25rem;bottom:1rem;height:1px;
+  background:rgba(190,158,104,.16);
+}
+.route-shape-part[data-shape="summit"]{background:rgba(190,158,104,.035)}
+.route-shape-part[data-shape="descent"]{background:rgba(122,148,112,.035)}
+@media(max-width:900px){
+  .route-mountain-shape__head{grid-template-columns:1fr}
+  .route-mountain-shape__grid{grid-template-columns:1fr 1fr}
+  .route-shape-part:nth-child(2n){border-right:0}
+  .route-shape-part:last-child{grid-column:1 / -1}
+}
+@media(max-width:620px){
+  .route-mountain-shape{padding:3.5rem 1.5rem}
+  .route-mountain-shape__grid{grid-template-columns:1fr}
+  .route-shape-part,.route-shape-part:nth-child(2n){border-right:0;border-bottom:1px solid rgba(190,158,104,.12)}
+  .route-shape-part:last-child{grid-column:auto;border-bottom:0}
+  .route-shape-part{min-height:0;padding:1.35rem 0 1.45rem}
+  .route-shape-part::after{display:none}
+}
+</style>
 </head>
 <body>
 <main class="route-page" id="routePage" hidden>
@@ -396,6 +478,10 @@
 </section>
 <section class="route-grid"><div class="route-aside"><p class="route-eye">Route position</p><h2 class="fr" id="routeFit"></h2><p id="routeFitCopy"></p></div><div class="route-stats" id="routeStats"></div></section>
 <section class="route-body"><article class="route-section"><p class="route-eye">Why choose it</p><h2 class="fr">Where this route earns its place.</h2><p id="routeWhy"></p></article><article class="route-section"><p class="route-eye">Trade-off</p><h2 class="fr">What you give up.</h2><p id="routeCaution"></p></article></section>
+<section class="route-mountain-shape" aria-label="Mountain shape">
+  <div class="route-mountain-shape__head"><div><p class="route-eye">Mountain shape</p><h2 class="fr">How this route moves across Kilimanjaro.</h2></div><p>Five decisions make the route legible without turning the dossier into a day-by-day itinerary: how it opens, what it traverses, where it converges, the summit line it uses and where the descent finishes.</p></div>
+  <div class="route-mountain-shape__grid" id="routeMountainShape"></div>
+</section>
 <section class="route-intelligence" aria-label="Route intelligence">
   <article><p class="route-eye">Acclimatisation logic</p><h2 class="fr">How time and route shape the climb.</h2><p id="routeAcclimatisation"></p></article>
   <article><p class="route-eye">Trail character</p><h2 class="fr">What the route actually feels like.</h2><p id="routeCharacter"></p></article>
@@ -425,6 +511,11 @@
    document.getElementById('routeStats').innerHTML=stats.map(v=>'<div class="route-stat"><span>'+esc(v[0])+'</span><strong>'+esc(v[1])+'</strong></div>').join('');
    document.getElementById('routeWhy').textContent=x.why_enkiama;
    document.getElementById('routeCaution').textContent=x.caution;
+   const shapeOrder=['opening','traverse','convergence','summit','descent'];
+   document.getElementById('routeMountainShape').innerHTML=shapeOrder.map(key=>{
+     const part=x.mountain_shape&&x.mountain_shape[key];
+     return part?'<article class="route-shape-part" data-shape="'+esc(key)+'"><span>'+esc(key)+'</span><strong>'+esc(part.label)+'</strong><p>'+esc(part.note)+'</p></article>':'';
+   }).join('');
    document.getElementById('routeAcclimatisation').textContent=x.acclimatisation_logic||'';
    document.getElementById('routeCharacter').textContent=x.trail_character||'';
    document.getElementById('routeOperations').textContent=x.operational_notes||'';
