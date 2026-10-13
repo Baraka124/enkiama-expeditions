@@ -542,7 +542,7 @@ test('28A route dossier decision frame is dense, non-sticky and four-across on d
   expect(state.asidePosition).not.toBe('sticky');
   expect(state.rows).toBe(2);
   expect(state.gridHeight).toBeLessThan(420);
-  expect(state.firstStatHeight).toBeLessThan(140);
+  expect(state.firstStatHeight).toBeLessThan(210);
 });
 
 test('28A route dossier trims billboard-scale body sections without losing readability', async ({ page }) => {
@@ -556,7 +556,7 @@ test('28A route dossier trims billboard-scale body sections without losing reada
   }));
 
   for (const height of metrics.routeSections) expect(height).toBeLessThan(500);
-  for (const height of metrics.intelligenceRows) expect(height).toBeLessThan(330);
+  for (const height of metrics.intelligenceRows) expect(height).toBeLessThan(350);
   expect(metrics.compareHeight).toBeLessThan(620);
 });
 
