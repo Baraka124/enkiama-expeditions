@@ -1440,9 +1440,9 @@ body.eh-locked{overflow:hidden;}
 <section class="leadform" id="enquire">
   <div class="leadform-shell">
     <div class="leadform-intro">
-      <p class="eye">Start with what you know</p>
-      <h2 class="leadform-title">When. Who. What draws you here.</h2>
-      <p class="leadform-copy">Dates can be approximate. The route can wait. A few lines about the people travelling and the kind of experience you have in mind are enough to begin.</p>
+      <p class="eye" id="lfIntroEye">Start with what you know</p>
+      <h2 class="leadform-title" id="lfIntroTitle">When. Who. What draws you here.</h2>
+      <p class="leadform-copy" id="lfIntroCopy">Dates can be approximate. The route can wait. A few lines about the people travelling and the kind of experience you have in mind are enough to begin.</p>
       <p class="leadform-trust">Read personally by Enkiama. No mailing list. No automated sales sequence. English, Spanish or Swahili are all fine.</p>
     </div>
     <div class="leadform-form">
@@ -2152,6 +2152,9 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
     var label=document.getElementById('lfMsgLabel');
     var readyTxt=document.getElementById('lfReadyTxt');
     var msg=document.getElementById('lfMsg');
+    var introEye=document.getElementById('lfIntroEye');
+    var introTitle=document.getElementById('lfIntroTitle');
+    var introCopy=document.getElementById('lfIntroCopy');
 
     if(metaEl)metaEl.innerHTML='';
 
@@ -2160,6 +2163,9 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
       if(heroTitle)heroTitle.innerHTML='Continue the mountain<br><em>conversation.</em>';
       if(heroSub)heroSub.textContent='Your route direction and the reasoning behind it are already with us. Add only dates, group context, questions, or anything that should change the comparison.';
       if(heroCue)heroCue.innerHTML='Continue from this route <span aria-hidden="true">↓</span>';
+      if(introEye)introEye.textContent='Continue from the mountain';
+      if(introTitle)introTitle.textContent='Dates. People. What changes the route.';
+      if(introCopy)introCopy.textContent='Your first route direction is already attached. Approximate dates, who is climbing, and any constraint or question that may change the comparison are enough to continue.';
 
       if(carried)carried.hidden=false;
       if(headLabel)headLabel.textContent='Your mountain direction';
