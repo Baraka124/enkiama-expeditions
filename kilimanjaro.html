@@ -626,6 +626,323 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
 }
 .km-standard:first-child .km-standard__label{color:#556B44}
 </style>
+<style id="phase27c5-flagship-consolidation">
+/* 27C.5 · consolidate Kilimanjaro into one controlled flagship reading system. */
+.km-atlas{
+  padding:clamp(5.5rem,8vw,8rem) clamp(1.25rem,4vw,4rem)!important;
+}
+.km-atlas__inner{
+  width:min(1380px,100%);
+  margin:0 auto;
+}
+.km-atlas__head{
+  grid-template-columns:minmax(300px,.72fr) minmax(320px,.78fr)!important;
+  gap:clamp(3rem,7vw,7rem)!important;
+  margin-bottom:2.4rem!important;
+}
+.km-atlas__head h2{max-width:11ch}
+.km-atlas__head>p{
+  justify-self:end;
+  align-self:end;
+  max-width:48ch!important;
+  font-size:13px!important;
+}
+
+/* Seven-route register: every route remains visible and intentional. */
+.km-atlas__register{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:0;
+  margin:0 0 clamp(3rem,5vw,4.5rem);
+  border-top:1px solid rgba(15,23,18,.18);
+  border-bottom:1px solid rgba(15,23,18,.18);
+  counter-reset:km-route-order;
+}
+.km-atlas__register .km-route{
+  min-width:0;
+  min-height:132px;
+  padding:1.1rem .9rem 1.2rem!important;
+  border:0!important;
+  border-right:1px solid rgba(15,23,18,.12)!important;
+  background:transparent!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:.35rem!important;
+  align-items:flex-start!important;
+  text-align:left;
+}
+.km-atlas__register .km-route:last-child{border-right:0!important}
+.km-atlas__register .km-route::before{
+  position:static!important;
+  display:block;
+  content:"0" counter(km-route-order);
+  font-size:8px;
+  letter-spacing:.12em;
+  color:rgba(15,23,18,.38);
+  margin-bottom:.5rem;
+}
+.km-atlas__register .km-route__top,
+.km-atlas__register .km-route__meta{display:block!important;grid-column:auto!important}
+.km-atlas__register .km-route__name{
+  display:block;
+  font-size:clamp(18px,1.55vw,25px)!important;
+  line-height:1.02!important;
+  max-width:9ch;
+}
+.km-atlas__register .km-route__days{
+  display:block;
+  margin-top:.4rem;
+  font-size:8px!important;
+  color:#75603f;
+}
+.km-atlas__register .km-route__meta{
+  margin-top:auto!important;
+  font-size:8px!important;
+  line-height:1.45;
+  color:rgba(15,23,18,.48);
+}
+.km-atlas__register .km-route.active{
+  background:rgba(85,107,68,.055)!important;
+}
+.km-atlas__register .km-route.active::after{
+  left:0!important;right:0!important;bottom:-1px!important;height:2px!important;
+  background:#556B44!important;
+}
+
+/* Selected route becomes one coherent decision brief — no orphaned sticky column. */
+.km-route__panel{
+  position:relative!important;
+  top:auto!important;
+  padding:0!important;
+  border-left:0!important;
+  min-height:0!important;
+  display:grid;
+  grid-template-columns:minmax(260px,.74fr) minmax(0,1.26fr);
+  gap:clamp(2.5rem,6vw,6rem);
+  align-items:start;
+}
+.km-route__panel> .km-route__tag,
+.km-route__panel> h3,
+.km-route__panel> .km-route__summary,
+.km-route__panel> p:last-child{grid-column:1}
+.km-route__panel> .km-route__stats,
+.km-route__panel> .km-route__why,
+.km-route__panel> .km-route__stages,
+.km-route__panel> .km-route__compare{grid-column:2}
+.km-route__panel h3{
+  font-size:clamp(56px,6.2vw,88px)!important;
+  line-height:.92!important;
+  max-width:8ch;
+  margin:.65rem 0 1rem!important;
+}
+.km-route__summary{
+  font-family:'Fraunces',serif;
+  font-size:clamp(20px,2vw,28px)!important;
+  line-height:1.35!important;
+  max-width:28ch!important;
+  color:rgba(15,23,18,.72)!important;
+}
+.km-route__panel>p:last-child{
+  margin-top:1.4rem!important;
+  align-self:start;
+}
+.km-route__stats{
+  margin:0 0 1.6rem!important;
+}
+.km-route__stat span{font-size:8.5px!important}
+.km-route__stat strong{
+  font-size:clamp(13px,1.2vw,16px)!important;
+  line-height:1.35!important;
+}
+.km-route__why{
+  padding:1.6rem 0 1.8rem!important;
+  margin-bottom:1rem;
+}
+.km-route__why h4{
+  font-size:clamp(22px,2vw,29px)!important;
+  line-height:1.08;
+  margin-bottom:.65rem!important;
+}
+.km-route__why p{
+  font-size:12.5px!important;
+  line-height:1.75!important;
+  max-width:48ch;
+}
+
+/* Stage trace: actual ascent sequence rather than tiny debugging labels. */
+.km-route__stages{padding-top:.4rem!important}
+.km-route__stages-label{font-size:8.5px!important;margin-bottom:1.1rem!important}
+.km-route__line{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(92px,1fr))!important;
+  overflow:visible!important;
+  gap:0!important;
+  padding:2.15rem 0 .4rem!important;
+}
+.km-route__line::before{
+  top:.76rem!important;
+  background:linear-gradient(90deg,#556B44 0 65%,rgba(85,107,68,.16) 100%)!important;
+}
+.km-route__line span{
+  min-width:0;
+  flex:auto!important;
+  padding:.65rem .9rem 0 0!important;
+  font-size:9.5px!important;
+  line-height:1.4!important;
+  color:rgba(15,23,18,.62);
+}
+.km-route__line span::before{
+  width:8px!important;height:8px!important;top:-1.53rem!important;
+}
+.km-route__line span[data-phase="summit"]{
+  font-family:'Fraunces',serif;
+  font-size:13px!important;
+  color:#33422d;
+}
+.km-route__line span[data-phase="summit"]::before{
+  width:12px!important;height:12px!important;top:-1.65rem!important;background:#33422d!important;
+}
+.km-route__line span[data-phase="finish"]::before{background:#75603f!important}
+
+/* Tighten comparison so it reads as a continuation, not another module. */
+.km-route__compare{margin-top:1.35rem!important}
+.km-route__compare-links a{font-size:9.5px!important}
+
+/* Mountain-specific visual language: different assets, different editorial purpose. */
+.km-mountain-scenes{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  background:#0d1511;
+  border-top:1px solid rgba(190,158,104,.11);
+  border-bottom:1px solid rgba(190,158,104,.11);
+}
+.km-mountain-scene{
+  position:relative;
+  min-height:clamp(520px,68vw,760px);
+  margin:0;
+  overflow:hidden;
+}
+.km-mountain-scene+.km-mountain-scene{border-left:1px solid rgba(190,158,104,.11)}
+.km-mountain-scene__media{position:absolute;inset:0;background-size:cover;background-position:center}
+.km-mountain-scene--highland .km-mountain-scene__media{
+  background-image:
+    linear-gradient(180deg,rgba(8,13,10,.05),rgba(8,13,10,.72)),
+    url('assets/images/kilimanjaro-highland-table.webp');
+}
+.km-mountain-scene--coffee .km-mountain-scene__media{
+  background-image:
+    linear-gradient(180deg,rgba(8,13,10,.02),rgba(8,13,10,.72)),
+    url('assets/images/kilimanjaro-coffee-blossoms.webp');
+}
+.km-mountain-scene figcaption{
+  position:absolute;
+  z-index:2;
+  left:clamp(1.5rem,4vw,4rem);
+  right:clamp(1.5rem,4vw,4rem);
+  bottom:clamp(2rem,4vw,4rem);
+  color:var(--bone);
+  max-width:42ch;
+}
+.km-mountain-scene figcaption strong{
+  display:block;
+  margin:.7rem 0 .8rem;
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,3.2vw,46px);
+  font-weight:300;
+  line-height:1.02;
+}
+.km-mountain-scene figcaption p{
+  font-size:12px;
+  line-height:1.75;
+  color:rgba(237,230,214,.7);
+}
+
+/* Reduce dashboard feel in the hero summary strip. */
+.km-strip{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:0!important;
+  border-top:0!important;
+  border-bottom:1px solid rgba(15,23,18,.13);
+}
+.km-strip__item{
+  padding:1.35rem clamp(1rem,2.2vw,2rem)!important;
+  min-height:0!important;
+}
+.km-strip__item strong{font-size:clamp(14px,1.45vw,18px)!important;line-height:1.35}
+.km-strip__label{font-size:8px!important}
+
+/* Readability: expertise should not require squinting. */
+.km-intro__left p,
+.km-intro__point p,
+.km-standards__copy p,
+.km-standard p{font-size:13px!important;line-height:1.78!important}
+.km-intro__point strong{font-size:clamp(21px,2vw,28px)!important}
+.km-intro__point span{font-size:9px!important}
+
+/* Control vertical appetite in long dark/light transitions. */
+.km-intro__left,.km-standards__copy{padding-block:clamp(4rem,6vw,6rem)!important}
+.km-intro__point{padding-block:1.55rem!important}
+.km-standards__grid{padding-block:clamp(2.5rem,4vw,4rem)!important}
+.km-expeditions{padding-top:clamp(4.5rem,6vw,6rem)!important}
+
+/* Wide displays remain editorial rather than stretched. */
+@media(min-width:1500px){
+  .km-atlas__inner{width:min(1420px,86vw)}
+  .km-route__panel{grid-template-columns:minmax(320px,.68fr) minmax(0,1.32fr)}
+}
+@media(max-width:1050px){
+  .km-atlas__register{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .km-atlas__register .km-route:nth-child(4){border-right:0!important}
+  .km-atlas__register .km-route:nth-child(n+5){border-top:1px solid rgba(15,23,18,.12)!important}
+  .km-route__panel{grid-template-columns:1fr!important;gap:2rem}
+  .km-route__panel>*{grid-column:1!important}
+  .km-route__panel h3{max-width:none}
+  .km-mountain-scenes{grid-template-columns:1fr}
+  .km-mountain-scene+.km-mountain-scene{border-left:0;border-top:1px solid rgba(190,158,104,.11)}
+}
+@media(max-width:680px){
+  .km-atlas{padding-inline:1.15rem!important}
+  .km-atlas__head{grid-template-columns:1fr!important;gap:1rem!important}
+  .km-atlas__head>p{justify-self:start}
+  .km-atlas__register{
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+    border-bottom:1px solid rgba(15,23,18,.18);
+  }
+  .km-atlas__register::-webkit-scrollbar{display:none}
+  .km-atlas__register .km-route{
+    flex:0 0 150px;
+    min-height:118px;
+    border-top:0!important;
+  }
+  .km-route__panel h3{font-size:clamp(48px,14vw,68px)!important}
+  .km-route__summary{font-size:20px!important}
+  .km-route__line{
+    display:block!important;
+    padding:0 0 0 2rem!important;
+    position:relative;
+  }
+  .km-route__line::before{
+    left:.55rem!important;right:auto!important;top:0!important;bottom:0!important;
+    width:1px!important;height:auto!important;
+    background:linear-gradient(180deg,#556B44,rgba(85,107,68,.16))!important;
+  }
+  .km-route__line span{
+    display:block;
+    padding:0 0 1.25rem!important;
+    font-size:10px!important;
+  }
+  .km-route__line span::before{
+    top:.15rem!important;left:-1.7rem!important;
+  }
+  .km-route__line span[data-phase="summit"]::before{top:.05rem!important}
+  .km-mountain-scene{min-height:62svh}
+  .km-strip{grid-template-columns:1fr 1fr!important}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -1011,11 +1328,22 @@ body.eh-locked{overflow:hidden;}
 </section>
 
 <section class="km-atlas" id="routes">
-  <div class="km-atlas__head"><div><p class="km-compare__eyebrow">Route intelligence</p><h2>Seven routes. Different reasons to choose them.</h2></div><p>The atlas is intentionally selective. “Available” does not mean “recommended”. Route choice should make the acclimatisation profile, crowd pattern, overnight format and operational trade-off visible before a departure is discussed.</p></div>
-  <div class="km-atlas__layout">
-    <div class="km-atlas__nav" id="kmRouteNav"></div>
+  <div class="km-atlas__inner">
+    <div class="km-atlas__head"><div><p class="km-compare__eyebrow">Route intelligence</p><h2>Seven routes. Different reasons to choose them.</h2></div><p>The atlas is intentionally selective. “Available” does not mean “recommended”. Route choice should make the acclimatisation profile, crowd pattern, overnight format and operational trade-off visible before a departure is discussed.</p></div>
+    <div class="km-atlas__register" id="kmRouteNav" aria-label="Kilimanjaro route register"></div>
     <article class="km-route__panel" id="kmRoutePanel" aria-live="polite"></article>
   </div>
+</section>
+
+<section class="km-mountain-scenes" aria-label="Kilimanjaro mountain context">
+  <figure class="km-mountain-scene km-mountain-scene--highland">
+    <div class="km-mountain-scene__media" aria-hidden="true"></div>
+    <figcaption><span class="km-eye">Before the upper mountain</span><strong>The expedition begins below the summit narrative.</strong><p>Foothills, farming country, briefing, recovery and local context are part of the mountain experience—not dead time around the climb.</p></figcaption>
+  </figure>
+  <figure class="km-mountain-scene km-mountain-scene--coffee">
+    <div class="km-mountain-scene__media" aria-hidden="true"></div>
+    <figcaption><span class="km-eye">Kilimanjaro highlands</span><strong>Altitude has a landscape before it has a number.</strong><p>The lower mountain is inhabited, cultivated and ecological. The visual language should move through those layers rather than repeating one summit image.</p></figcaption>
+  </figure>
 </section>
 
 <section class="km-products" id="formats">
