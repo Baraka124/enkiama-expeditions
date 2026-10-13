@@ -17,14 +17,14 @@
   var shortLandscape=window.matchMedia&&window.matchMedia('(max-height:520px) and (orientation:landscape)');
   var lastY=window.scrollY||0;
   var ticking=false;
-  var anchorLandingUntil=0;
+  var anchorLandingLocked=false;
 
   function update(){
     var y=window.scrollY||0;
     var delta=y-lastY;
     var menuOpen=overlay&&overlay.classList.contains('open');
 
-    if(anchorLandingUntil&&performance.now()<anchorLandingUntil){
+    if(anchorLandingLocked){
       bar.classList.remove('km-yield');
     }else if(shortLandscape&&shortLandscape.matches){
       bar.classList.remove('km-yield');
@@ -72,13 +72,21 @@
         var shortMode=shortLandscape&&shortLandscape.matches;
         var reserve=shortMode?24:Math.min(Math.max(bar.getBoundingClientRect().height+24,82),124);
         var top=target.getBoundingClientRect().top+(window.scrollY||0)-reserve;
-        anchorLandingUntil=performance.now()+480;
+        anchorLandingLocked=true;
         window.scrollTo({top:Math.max(0,top),behavior:'auto'});
         lastY=window.scrollY||0;
         bar.classList.remove('km-yield');
       });
     });
   }
+
+  function releaseAnchorLandingLock(){
+    anchorLandingLocked=false;
+  }
+  window.addEventListener('wheel',releaseAnchorLandingLock,{passive:true});
+  window.addEventListener('touchstart',releaseAnchorLandingLock,{passive:true});
+  window.addEventListener('pointerdown',releaseAnchorLandingLock,{passive:true});
+  window.addEventListener('keydown',releaseAnchorLandingLock);
 
   window.addEventListener('hashchange',phase28aAnchorLanding);
   if(document.readyState==='complete')phase28aAnchorLanding();
