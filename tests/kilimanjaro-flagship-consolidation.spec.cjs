@@ -148,7 +148,7 @@ test('Kilimanjaro header yields during downward reading and returns on upward in
 
   await page.evaluate(() => window.scrollTo(0, document.querySelector('#routes').offsetTop + 260));
   await page.waitForTimeout(180);
-  await expect(page.locator('#ehBar')).toHaveClass(/km-yield/);
+  await expect(page.locator('.exp-nav')).toHaveClass(/km-yield/);
 
   await page.evaluate(() => window.scrollBy(0, -180));
   await page.waitForTimeout(180);
@@ -459,7 +459,8 @@ test('27G short landscape lets the Kilimanjaro header scroll away instead of cut
 
   await page.locator('#routes').scrollIntoViewIfNeeded();
   const headerBox = await page.locator('#ehBar').boundingBox();
-  expect(headerBox.bottom).toBeLessThanOrEqual(1);
+  expect(headerBox).not.toBeNull();
+  expect(headerBox.y + headerBox.height).toBeLessThanOrEqual(1);
 });
 
 test('27G expedition header yields during preparation-ledger reading', async ({ page }) => {
