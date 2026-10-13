@@ -45,6 +45,12 @@
           '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
           '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
         '</div>'+
+        '<div class="km-route__shape"><p class="km-route__stages-label">Mountain shape</p><div class="km-route__shape-grid">'+
+          ['opening','traverse','convergence','summit','descent'].map(function(key){
+            var part=r.mountain_shape&&r.mountain_shape[key];
+            return part?'<div class="km-route__shape-part" data-shape="'+esc(key)+'"><span>'+esc(key)+'</span><strong>'+esc(part.label)+'</strong></div>':'';
+          }).join('')+
+        '</div></div>'+
         '<div class="km-route__stages"><p class="km-route__stages-label">Route shape · selected milestones</p><div class="km-route__line" style="--km-trace-count:'+shape.length+'">'+shape.map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div><p class="km-route__trace-note">The full day-by-day sequence remains in the route dossier.</p></div>'+
         '<div class="km-route__compare">'+
           '<p class="km-route__stages-label">Compare next</p>'+
