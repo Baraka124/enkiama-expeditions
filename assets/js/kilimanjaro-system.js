@@ -24,7 +24,12 @@
         '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
         '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
       '</div>'+
-      '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+r.stages.map(function(s){return '<span>'+esc(s)+'</span>';}).join('')+'</div><p style="margin-top:1.5rem"><a href="kilimanjaro-route.html?route='+encodeURIComponent(r.slug)+'" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:inherit">Open full '+esc(r.name)+' dossier →</a></p></div>';
+      '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+(r.stage_trace||r.stages.map(function(label){return {label:label,phase:'stage'};})).map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div></div>'+
+      '<div class="km-route__compare">'+
+        '<p class="km-route__stages-label">Compare next</p>'+
+        '<div class="km-route__compare-links">'+(r.comparison_peers||[]).map(function(peer){var p=find(peer.slug);return p?'<a href="kilimanjaro-route.html?route='+encodeURIComponent(p.slug)+'">'+esc(p.name)+'</a>':'';}).join('')+'</div>'+
+      '</div>'+
+      '<p style="margin-top:1.5rem"><a href="kilimanjaro-route.html?route='+encodeURIComponent(r.slug)+'" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:inherit">Open full '+esc(r.name)+' dossier →</a></p>';
   }
   function renderNav(){
     nav.innerHTML=catalogue.routes.map(function(r){
