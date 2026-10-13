@@ -17,13 +17,16 @@
   var shortLandscape=window.matchMedia&&window.matchMedia('(max-height:520px) and (orientation:landscape)');
   var lastY=window.scrollY||0;
   var ticking=false;
+  var anchorLandingLocked=false;
 
   function update(){
     var y=window.scrollY||0;
     var delta=y-lastY;
     var menuOpen=overlay&&overlay.classList.contains('open');
 
-    if(shortLandscape&&shortLandscape.matches){
+    if(anchorLandingLocked){
+      bar.classList.remove('km-yield');
+    }else if(shortLandscape&&shortLandscape.matches){
       bar.classList.remove('km-yield');
     }else if(menuOpen||y<90){
       bar.classList.remove('km-yield');
@@ -54,4 +57,38 @@
   if(shortLandscape&&shortLandscape.addEventListener){
     shortLandscape.addEventListener('change',update);
   }
+
+  /* 28A: make direct/hash returns land as complete editorial sections.
+     CSS scroll-margin handles normal navigation; this settles initial/hashchange
+     after layout and fonts have finished moving the document. */
+  function phase28aAnchorLanding(){
+    if(!location.hash)return;
+    var id=decodeURIComponent(location.hash.slice(1));
+    if(!['routes','formats','standard','operations','evidence','mountain-composer'].includes(id))return;
+    var target=document.getElementById(id);
+    if(!target)return;
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        var shortMode=shortLandscape&&shortLandscape.matches;
+        var reserve=shortMode?24:Math.min(Math.max(bar.getBoundingClientRect().height+24,82),124);
+        var top=target.getBoundingClientRect().top+(window.scrollY||0)-reserve;
+        anchorLandingLocked=true;
+        window.scrollTo({top:Math.max(0,top),behavior:'auto'});
+        lastY=window.scrollY||0;
+        bar.classList.remove('km-yield');
+      });
+    });
+  }
+
+  function releaseAnchorLandingLock(){
+    anchorLandingLocked=false;
+  }
+  window.addEventListener('wheel',releaseAnchorLandingLock,{passive:true});
+  window.addEventListener('touchstart',releaseAnchorLandingLock,{passive:true});
+  window.addEventListener('pointerdown',releaseAnchorLandingLock,{passive:true});
+  window.addEventListener('keydown',releaseAnchorLandingLock);
+
+  window.addEventListener('hashchange',phase28aAnchorLanding);
+  if(document.readyState==='complete')phase28aAnchorLanding();
+  else window.addEventListener('load',phase28aAnchorLanding,{once:true});
 })();

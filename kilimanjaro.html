@@ -1363,6 +1363,85 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   .km-composer{contain-intrinsic-size:auto 1200px}
 }
 </style>
+<style id="phase28a-reading-flow-density">
+/* 28A · anchor safety + editorial density. No new product layer. */
+html{
+  scroll-padding-top:clamp(92px,9vh,116px);
+}
+:is(#routes,#formats,#standard,#operations,#evidence,#mountain-composer){
+  scroll-margin-top:clamp(92px,9vh,116px);
+}
+
+/* Keep long-form sections generous, but remove the accumulated empty vertical appetite. */
+.km-intro__left,
+.km-intro__right{
+  padding-block:clamp(3.75rem,5.4vw,5.4rem)!important;
+}
+.km-products,
+.km-expeditions,
+.km-composer{
+  padding-top:clamp(4.25rem,5.8vw,6rem)!important;
+  padding-bottom:clamp(4.25rem,5.8vw,6rem)!important;
+}
+.km-products__head,
+.km-expeditions__head{
+  margin-bottom:clamp(1.8rem,2.8vw,2.35rem)!important;
+}
+.km-product{
+  min-height:250px!important;
+  padding:1.65rem 1.75rem!important;
+}
+.km-product strong{
+  font-size:clamp(24px,2.1vw,29px)!important;
+  margin:.72rem 0!important;
+}
+.km-product small{padding-top:1.45rem!important}
+
+.km-standards__copy{
+  padding:clamp(3.75rem,5.4vw,5.5rem)!important;
+}
+.km-standard{
+  padding:clamp(1.55rem,2.4vw,2rem)!important;
+}
+.km-standard strong{
+  font-size:clamp(21px,2vw,25px)!important;
+  margin:.65rem 0!important;
+}
+
+.km-operations{
+  padding-top:clamp(4.25rem,5.8vw,6rem)!important;
+  padding-bottom:clamp(4.25rem,5.8vw,6rem)!important;
+}
+.km-operation{
+  padding-top:clamp(1.4rem,2vw,1.8rem)!important;
+  padding-bottom:clamp(1.4rem,2vw,1.8rem)!important;
+}
+.km-exp{
+  min-height:0!important;
+}
+
+/* Anchor targets should arrive as composed sections, not with their heading hidden at the top edge. */
+#routes .km-atlas__head,
+#operations .km-operations__head,
+#mountain-composer .km-composer__head{
+  scroll-margin-top:inherit;
+}
+
+@media(max-width:760px){
+  html{scroll-padding-top:82px}
+  :is(#routes,#formats,#standard,#operations,#evidence,#mountain-composer){scroll-margin-top:82px}
+  .km-intro__left,.km-intro__right{padding-block:3.5rem!important}
+  .km-products,.km-expeditions,.km-composer,.km-operations{
+    padding-top:3.75rem!important;
+    padding-bottom:3.75rem!important;
+  }
+  .km-product{min-height:0!important}
+}
+@media(max-height:520px) and (orientation:landscape){
+  html{scroll-padding-top:24px}
+  :is(#routes,#formats,#standard,#operations,#evidence,#mountain-composer){scroll-margin-top:24px}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->

@@ -248,6 +248,139 @@
   .route-peer .route-peer__arrow{grid-column:3;grid-row:1 / span 2}
 }
 </style>
+<style id="phase28a-route-density">
+/* 28A · preserve the premium hero; make the decision body read faster. */
+.route-spine>div{
+  padding:1.25rem clamp(1.1rem,2.4vw,2rem)!important;
+}
+.route-spine strong{
+  font-size:clamp(23px,2vw,27px)!important;
+  margin:.32rem 0!important;
+}
+.route-spine p{line-height:1.5!important}
+
+.route-grid{
+  grid-template-columns:minmax(280px,.40fr) minmax(0,1.60fr)!important;
+  align-items:stretch;
+}
+.route-aside{
+  position:relative!important;
+  top:auto!important;
+  min-height:0!important;
+  padding:clamp(2.5rem,3.8vw,3.75rem)!important;
+  align-self:stretch!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.route-aside h2{
+  font-size:clamp(30px,3.45vw,47px)!important;
+  line-height:1.03!important;
+  max-width:12ch;
+}
+.route-aside p{
+  margin-top:.9rem!important;
+  max-width:38ch;
+  font-size:12.5px!important;
+  line-height:1.7!important;
+}
+.route-stats{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+.route-stat{
+  min-height:108px;
+  padding:1.25rem 1.15rem!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.route-stat:nth-child(2n){border-right:1px solid rgba(15,23,18,.10)!important}
+.route-stat:nth-child(4n){border-right:0!important}
+.route-stat strong{
+  font-size:13px!important;
+  line-height:1.42!important;
+  margin-top:.32rem!important;
+}
+
+.route-body{
+  grid-template-columns:1fr 1fr!important;
+}
+.route-section{
+  min-height:330px!important;
+  padding:clamp(3rem,4.5vw,4.5rem)!important;
+}
+.route-section h2{
+  font-size:clamp(30px,3.45vw,46px)!important;
+  margin:.62rem 0 .9rem!important;
+}
+.route-section p{
+  line-height:1.75!important;
+}
+
+.route-intelligence{
+  padding-inline:clamp(1.5rem,5vw,5rem)!important;
+}
+.route-intelligence article{
+  grid-template-columns:42px minmax(190px,.46fr) minmax(0,1.54fr)!important;
+  gap:clamp(1rem,4vw,4rem)!important;
+  padding:clamp(1.7rem,2.4vw,2.35rem) 0!important;
+}
+.route-intelligence h2{
+  font-size:clamp(28px,2.9vw,41px)!important;
+  margin:.5rem 0 0!important;
+}
+.route-intelligence article>p:last-child{
+  line-height:1.75!important;
+}
+
+.route-seq{
+  padding:clamp(4rem,5.4vw,5.5rem) clamp(1.5rem,5vw,5rem)!important;
+  gap:clamp(2rem,5vw,5rem)!important;
+}
+.route-seq h2{
+  font-size:clamp(34px,4vw,54px)!important;
+  margin-bottom:1.2rem!important;
+}
+.route-compare{
+  padding:clamp(3.75rem,5.2vw,5.25rem) clamp(1.5rem,5vw,5rem)!important;
+  gap:clamp(2rem,5vw,5rem)!important;
+}
+.route-compare__head h2{
+  font-size:clamp(34px,4vw,54px)!important;
+}
+.route-action{
+  padding:clamp(2.5rem,4vw,3.75rem)!important;
+}
+.route-action strong{
+  font-size:clamp(26px,2.6vw,38px)!important;
+}
+
+@media(max-width:1120px){
+  .route-grid{grid-template-columns:minmax(250px,.48fr) minmax(0,1.52fr)!important}
+  .route-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .route-stat:nth-child(2n){border-right:0!important}
+  .route-stat:nth-child(4n){border-right:0!important}
+}
+@media(max-width:820px){
+  .route-grid{grid-template-columns:1fr!important}
+  .route-aside{
+    padding:2.4rem 1.5rem!important;
+    border-bottom:1px solid rgba(15,23,18,.12)!important;
+  }
+  .route-aside h2{max-width:15ch}
+  .route-stats{grid-template-columns:1fr 1fr!important}
+  .route-body{grid-template-columns:1fr!important}
+  .route-section{min-height:0!important;padding:3rem 1.5rem!important}
+  .route-intelligence{padding-inline:1.5rem!important}
+  .route-intelligence article{
+    grid-template-columns:30px minmax(0,1fr)!important;
+    gap:.55rem 1rem!important;
+    padding:2.05rem 0!important;
+  }
+  .route-seq,.route-compare{padding:3.5rem 1.5rem!important}
+  .route-action{padding:2.6rem 1.5rem!important}
+}
+</style>
 </head>
 <body>
 <main class="route-page" id="routePage" hidden>
@@ -286,7 +419,7 @@
    document.getElementById('routeTitle').textContent=x.name;
    document.getElementById('routeSummary').textContent=x.summary;
    const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]);
-   document.getElementById('routeFit').textContent=x.fit.split('.')[0]+'.';
+   document.getElementById('routeFit').textContent=x.badge+'.';
    document.getElementById('routeFitCopy').textContent=x.fit;
    const stats=[['Recommended',x.recommended_days+' days'],['Variants',x.variants],['Approach',x.approach],['Descent',x.descent],['Overnight',x.overnight],['Acclimatisation',x.acclimatisation],['Crowds',x.crowds],['Scenery',x.scenery]];
    document.getElementById('routeStats').innerHTML=stats.map(v=>'<div class="route-stat"><span>'+esc(v[0])+'</span><strong>'+esc(v[1])+'</strong></div>').join('');
