@@ -944,6 +944,203 @@ a:focus-visible,button:focus-visible{outline:1px solid rgba(190,158,104,0.5);out
   .km-strip{grid-template-columns:1fr 1fr!important}
 }
 </style>
+<style id="phase27c6-atlas-rebuild">
+/* 27C.6 · evidence-led rebuild after rendered screenshot review. */
+
+/* The fixed header must not blur editorial content beneath it on this page. */
+.eh-bar.scrolled{
+  background:rgba(13,19,15,.985)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+#routes{scroll-margin-top:88px}
+
+/* Route index is editorially grouped, not seven equal boxes. */
+.km-atlas__register{
+  display:grid!important;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;
+  gap:clamp(2rem,5vw,5rem)!important;
+  margin:0 0 clamp(3rem,5vw,4.5rem)!important;
+  border:0!important;
+  counter-reset:none!important;
+}
+.km-route-group{min-width:0}
+.km-route-group__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1rem;
+  padding:0 0 .85rem;
+  border-bottom:1px solid rgba(15,23,18,.2);
+}
+.km-route-group__head span{
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#75603f;
+}
+.km-route-group__head small{
+  font-size:8px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(15,23,18,.42);
+}
+.km-route-group__list{display:block}
+.km-route-group__list .km-route{
+  counter-increment:none!important;
+  position:relative;
+  min-height:0!important;
+  width:100%;
+  padding:1.15rem 0 1.25rem!important;
+  border:0!important;
+  border-bottom:1px solid rgba(15,23,18,.12)!important;
+  background:transparent!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:.35rem 1rem!important;
+  align-items:baseline!important;
+  text-align:left;
+}
+.km-route-group__list .km-route::before{display:none!important}
+.km-route-group__list .km-route::after{
+  content:'';
+  position:absolute;
+  left:0;bottom:-1px;
+  width:0;height:2px;
+  background:#556B44;
+  transition:width .35s ease;
+}
+.km-route-group__list .km-route.active::after{width:100%}
+.km-route-group__list .km-route.active{background:transparent!important}
+.km-route-group__list .km-route__name{
+  grid-column:1;
+  font-family:'Fraunces',serif;
+  font-size:clamp(24px,2.25vw,34px)!important;
+  line-height:1!important;
+  max-width:none!important;
+  color:var(--ink);
+}
+.km-route-group--specific .km-route__name{
+  font-size:clamp(20px,1.8vw,28px)!important;
+}
+.km-route-group__list .km-route__days{
+  grid-column:2;
+  grid-row:1;
+  margin:0!important;
+  font-size:8px!important;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#75603f;
+}
+.km-route-group__list .km-route__meta{
+  grid-column:1 / -1!important;
+  display:block!important;
+  margin:0!important;
+  font-size:8.5px!important;
+  letter-spacing:.04em;
+  line-height:1.45;
+  color:rgba(15,23,18,.48);
+}
+
+/* Selected route: tighter editorial brief. */
+.km-route__panel{
+  padding-top:clamp(1rem,2vw,2rem)!important;
+  border-top:1px solid rgba(15,23,18,.18);
+}
+.km-route__identity{
+  padding-right:clamp(1rem,3vw,3rem);
+}
+.km-route__panel h3{
+  font-size:clamp(58px,5.7vw,82px)!important;
+}
+.km-route__summary{
+  font-size:clamp(20px,1.7vw,25px)!important;
+  line-height:1.38!important;
+}
+
+/* One continuous route-shape trace: max seven selected milestones, never wraps. */
+.km-route__line{
+  display:grid!important;
+  grid-template-columns:repeat(var(--km-trace-count,7),minmax(0,1fr))!important;
+  gap:0!important;
+  overflow:visible!important;
+  padding:2rem 0 .25rem!important;
+}
+.km-route__line span{
+  min-width:0!important;
+  padding:.65rem .6rem 0 0!important;
+  font-size:9px!important;
+  overflow-wrap:anywhere;
+}
+.km-route__trace-note{
+  margin:.8rem 0 0!important;
+  font-size:8.5px!important;
+  line-height:1.6;
+  letter-spacing:.05em;
+  color:rgba(15,23,18,.45)!important;
+}
+.km-route__line span[data-phase="summit"]{
+  font-size:12.5px!important;
+}
+
+/* Mountain context should support the expedition rather than dominate it. */
+.km-mountain-scenes{
+  grid-template-columns:1.3fr .7fr!important;
+}
+.km-mountain-scene{
+  min-height:clamp(420px,48vw,620px)!important;
+}
+.km-mountain-scene figcaption strong{
+  max-width:13ch;
+}
+.km-mountain-scene figcaption p{max-width:38ch}
+
+/* Reduce accumulated whitespace around atlas-to-context transition. */
+.km-atlas{padding-bottom:clamp(4.5rem,6vw,6rem)!important}
+.km-mountain-scenes{margin-top:0}
+
+@media(max-width:1050px){
+  .km-atlas__register{
+    grid-template-columns:1fr!important;
+    gap:2rem!important;
+  }
+  .km-route-group__list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:1.5rem;
+  }
+  .km-route-group__list .km-route:nth-child(odd){
+    border-right:0!important;
+  }
+}
+@media(max-width:680px){
+  .km-atlas__register{
+    display:block!important;
+    overflow:visible!important;
+  }
+  .km-route-group+.km-route-group{margin-top:2rem}
+  .km-route-group__head{padding-bottom:.7rem}
+  .km-route-group__list{
+    display:block!important;
+  }
+  .km-route-group__list .km-route{
+    min-height:0!important;
+    padding:1rem 0 1.05rem!important;
+  }
+  .km-route-group__list .km-route__name,
+  .km-route-group--specific .km-route__name{
+    font-size:clamp(24px,8vw,31px)!important;
+  }
+  .km-route__panel{padding-top:2rem!important}
+  .km-route__identity{padding-right:0}
+  .km-route__line{
+    display:block!important;
+    padding:0 0 0 2rem!important;
+  }
+  .km-mountain-scenes{grid-template-columns:1fr!important}
+  .km-mountain-scene{min-height:54svh!important}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
