@@ -109,12 +109,21 @@ jobs:
         if: steps.smoke-scope.outputs.mode == 'focused'
         env:
           ENKIAMA_SMOKE_PAGES: ${{ steps.smoke-scope.outputs.pages }}
+        shell: bash
         run: |
+          set -euo pipefail
           echo "Focused smoke pages: $ENKIAMA_SMOKE_PAGES"
-          npx playwright test \
-            tests/site-smoke.spec.cjs \
-            tests/semantic-accessibility.spec.cjs \
-            --config=playwright.config.cjs
+
+          tests=(
+            tests/site-smoke.spec.cjs
+            tests/semantic-accessibility.spec.cjs
+          )
+
+          if [[ ",$ENKIAMA_SMOKE_PAGES," == *",kilimanjaro.html,"* || ",$ENKIAMA_SMOKE_PAGES," == *",kilimanjaro-route.html,"* ]]; then
+            tests+=(tests/kilimanjaro-seven-route-intelligence.spec.cjs)
+          fi
+
+          npx playwright test "${tests[@]}" --config=playwright.config.cjs
 
       - name: Run full public-site smoke matrix
         if: steps.smoke-scope.outputs.mode == 'full'
