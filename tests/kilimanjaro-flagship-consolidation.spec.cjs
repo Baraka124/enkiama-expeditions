@@ -601,3 +601,91 @@ test('28A capture reading-flow release surfaces', async ({ page }, testInfo) => 
     fullPage: false
   });
 });
+
+
+test('28B all seven Kilimanjaro routes expose the shared five-part mountain shape', async () => {
+  const catalogue = require('../data/kilimanjaro-routes.json');
+  expect(catalogue.routes).toHaveLength(7);
+
+  const keys = ['opening','traverse','convergence','summit','descent'];
+  for (const route of catalogue.routes) {
+    expect(route.mountain_shape).toBeTruthy();
+    expect(Object.keys(route.mountain_shape)).toEqual(keys);
+    for (const key of keys) {
+      expect(route.mountain_shape[key].label).toBeTruthy();
+      expect(route.mountain_shape[key].note).toBeTruthy();
+      expect(route.mountain_shape[key].note.length).toBeGreaterThan(20);
+    }
+  }
+});
+
+test('28B atlas renders five-part mountain shape for selected route', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro.html#routes', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(180);
+
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part')).toHaveCount(5);
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="opening"] strong')).toContainText('Forest opening');
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="summit"] strong')).toContainText('Barafu');
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="descent"] strong')).toContainText('Mweka');
+});
+
+test('28B switching route updates mountain shape rather than leaving generic geometry', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro.html#routes', { waitUntil: 'networkidle' });
+
+  await page.locator('#kmRouteNav .km-route[data-slug="northern-circuit"]').click();
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="traverse"] strong')).toContainText('Northern traverse');
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="summit"] strong')).toContainText('School Hut');
+
+  await page.locator('#kmRouteNav .km-route[data-slug="rongai"]').click();
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="traverse"] strong')).toContainText('Mawenzi / Saddle');
+  await expect(page.locator('#kmRoutePanel .km-route__shape-part[data-shape="descent"] strong')).toContainText('Marangu');
+});
+
+test('28B full route dossier renders mountain-shape intelligence from the same data source', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'networkidle' });
+
+  await expect(page.locator('.route-mountain-shape')).toBeVisible();
+  await expect(page.locator('.route-shape-part')).toHaveCount(5);
+  await expect(page.locator('.route-shape-part[data-shape="opening"] strong')).toHaveText('Forest opening');
+  await expect(page.locator('.route-shape-part[data-shape="convergence"] strong')).toHaveText('Southern Circuit');
+  await expect(page.locator('.route-shape-part[data-shape="summit"] strong')).toHaveText('Barafu');
+});
+
+test('28B mountain-shape system remains contained at 390px', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro-route.html?route=northern-circuit', { waitUntil: 'networkidle' });
+
+  const geometry = await page.evaluate(() => ({
+    viewport: innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    shapeRight: document.querySelector('.route-mountain-shape').getBoundingClientRect().right,
+    parts: document.querySelectorAll('.route-shape-part').length
+  }));
+
+  expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.viewport + 2);
+  expect(geometry.shapeRight).toBeLessThanOrEqual(geometry.viewport + 1);
+  expect(geometry.parts).toBe(5);
+});
+
+test('28B capture mountain intelligence surfaces', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro.html#routes', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(180);
+  await page.locator('#kmRoutePanel').screenshot({
+    path: testInfo.outputPath('28b-atlas-mountain-shape-desktop.png')
+  });
+
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'networkidle' });
+  await page.locator('.route-mountain-shape').screenshot({
+    path: testInfo.outputPath('28b-dossier-mountain-shape-desktop.png')
+  });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro-route.html?route=northern-circuit', { waitUntil: 'networkidle' });
+  await page.locator('.route-mountain-shape').screenshot({
+    path: testInfo.outputPath('28b-dossier-mountain-shape-mobile.png')
+  });
+});
