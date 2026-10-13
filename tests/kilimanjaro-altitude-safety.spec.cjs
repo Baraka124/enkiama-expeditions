@@ -116,8 +116,9 @@ test('KILELE dossier renders five-stage expedition continuity', async ({ page })
   await expect(page.locator('#expPage')).toBeVisible();
   await expect(page.locator('.exp-continuity')).toBeVisible();
   await expect(page.locator('.exp-continuity__rail article')).toHaveCount(5);
-  await expect(page.getByText('Briefing & gear check')).toBeVisible();
-  await expect(page.getByText('Onward Tanzania')).toBeVisible();
+  const continuity = page.locator('.exp-continuity');
+  await expect(continuity.getByText('Briefing & gear check')).toBeVisible();
+  await expect(continuity.getByText('Onward Tanzania')).toBeVisible();
 });
 
 test('27D operations and continuity remain contained at 390px', async ({ page }) => {
