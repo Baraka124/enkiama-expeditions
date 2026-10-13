@@ -40,13 +40,17 @@ test('all seven Kilimanjaro routes retain meaningful visible authority', async (
   const routes = page.locator('#kmRouteNav .km-route');
   await expect(routes).toHaveCount(7);
 
+  await expect(page.locator('.km-route-group')).toHaveCount(2);
+  await expect(page.locator('.km-route-group--primary .km-route')).toHaveCount(3);
+  await expect(page.locator('.km-route-group--specific .km-route')).toHaveCount(4);
+
   for (let i = 0; i < 7; i++) {
     const route = routes.nth(i);
     await expect(route.locator('.km-route__name')).not.toBeEmpty();
     await expect(route.locator('.km-route__days')).not.toBeEmpty();
     const box = await route.boundingBox();
-    expect(box.width).toBeGreaterThan(110);
-    expect(box.height).toBeGreaterThan(95);
+    expect(box.width).toBeGreaterThan(180);
+    expect(box.height).toBeGreaterThan(55);
   }
 });
 
@@ -67,7 +71,9 @@ test('selected route uses a clear middle typographic tier and structured ascent 
   expect(sizes.title).toBeGreaterThan(sizes.summary * 1.8);
   expect(sizes.summary).toBeGreaterThan(sizes.metric * 1.25);
 
-  await expect(page.locator('#kmRoutePanel .km-route__line span')).toHaveCount(11);
+  const traceCount = await page.locator('#kmRoutePanel .km-route__line span').count();
+  expect(traceCount).toBeGreaterThanOrEqual(5);
+  expect(traceCount).toBeLessThanOrEqual(7);
   await expect(page.locator('#kmRoutePanel .km-route__line span[data-phase="summit"]')).toHaveCount(1);
   await expect(page.locator('#kmRoutePanel .km-route__line span[data-phase="finish"]')).toHaveCount(1);
 });
@@ -101,4 +107,41 @@ test('Kilimanjaro atlas remains contained and readable at 390px', async ({ page 
   expect(metrics.panel.right).toBeLessThanOrEqual(metrics.viewport + 1);
   expect(metrics.panel.left).toBeGreaterThanOrEqual(-1);
   expect(metrics.register.right).toBeLessThanOrEqual(metrics.viewport + 1);
+});
+
+
+test('capture Kilimanjaro visual diagnostics', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1792, height: 1000 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+  await page.screenshot({
+    path: testInfo.outputPath('kilimanjaro-desktop-full.png'),
+    fullPage: true,
+  });
+  await page.locator('#routes').screenshot({
+    path: testInfo.outputPath('kilimanjaro-desktop-atlas.png'),
+  });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'networkidle' });
+  await page.screenshot({
+    path: testInfo.outputPath('kilimanjaro-mobile-full.png'),
+    fullPage: true,
+  });
+  await page.locator('#routes').screenshot({
+    path: testInfo.outputPath('kilimanjaro-mobile-atlas.png'),
+  });
+});
+
+
+test('Kilimanjaro header yields during downward reading and returns on upward intent', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro.html', { waitUntil: 'domcontentloaded' });
+
+  await page.evaluate(() => window.scrollTo(0, document.querySelector('#routes').offsetTop + 260));
+  await page.waitForTimeout(180);
+  await expect(page.locator('#ehBar')).toHaveClass(/km-yield/);
+
+  await page.evaluate(() => window.scrollBy(0, -180));
+  await page.waitForTimeout(180);
+  await expect(page.locator('#ehBar')).not.toHaveClass(/km-yield/);
 });
