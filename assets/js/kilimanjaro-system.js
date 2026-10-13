@@ -7,6 +7,22 @@
 
   function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(ch){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch];});}
   function find(slug){return catalogue&&catalogue.routes.find(function(r){return r.slug===slug;});}
+  function routeShape(r){
+    var trace=(r.stage_trace&&r.stage_trace.length?r.stage_trace:r.stages.map(function(label){return {label:label,phase:'stage'};}));
+    if(trace.length<=7)return trace;
+    var chosen=[];
+    function add(stage){if(stage&&!chosen.includes(stage))chosen.push(stage);}
+    add(trace[0]);
+    add(trace.find(function(s){return s.phase==='high-point';}));
+    var camps=trace.filter(function(s){return s.phase==='camp';});
+    add(camps[Math.floor((camps.length-1)/2)]);
+    add(trace.find(function(s){return s.phase==='summit-camp';}));
+    add(trace.find(function(s){return s.phase==='summit';}));
+    add(trace.find(function(s){return s.phase==='descent';}));
+    add(trace[trace.length-1]);
+    return chosen.filter(Boolean);
+  }
+
   function renderRoute(r){
     if(!r||!panel)return;
     document.querySelectorAll('.km-route').forEach(function(b){b.classList.toggle('active',b.dataset.slug===r.slug);});
@@ -28,7 +44,7 @@
           '<div><h4>Why Enkiama would choose it</h4><p>'+esc(r.why_enkiama)+'</p></div>'+
           '<div><h4>Trade-off</h4><p>'+esc(r.caution)+'</p></div>'+
         '</div>'+
-        '<div class="km-route__stages"><p class="km-route__stages-label">Typical route sequence</p><div class="km-route__line">'+(r.stage_trace||r.stages.map(function(label){return {label:label,phase:'stage'};})).map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div></div>'+
+        '<div class="km-route__stages"><p class="km-route__stages-label">Route shape · selected milestones</p><div class="km-route__line">'+routeShape(r).map(function(s){return '<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>';}).join('')+'</div><p class="km-route__trace-note">The full day-by-day sequence remains in the route dossier.</p></div>'+
         '<div class="km-route__compare">'+
           '<p class="km-route__stages-label">Compare next</p>'+
           '<div class="km-route__compare-links">'+(r.comparison_peers||[]).map(function(peer){var p=find(peer.slug);return p?'<a href="kilimanjaro-route.html?route='+encodeURIComponent(p.slug)+'">'+esc(p.name)+'</a>':'';}).join('')+'</div>'+
@@ -36,9 +52,14 @@
       '</div>';
   }
   function renderNav(){
-    nav.innerHTML=catalogue.routes.map(function(r){
-      return '<button class="km-route" data-slug="'+esc(r.slug)+'"><div class="km-route__top"><span class="km-route__name">'+esc(r.name)+'</span><span class="km-route__days">'+esc(r.recommended_days)+' days</span></div><div class="km-route__meta">'+esc(r.badge)+' · '+esc(r.acclimatisation)+'</div></button>';
-    }).join('');
+    var primary=catalogue.routes.filter(function(r){return ['preferred','recommended'].includes(r.stance);});
+    var specific=catalogue.routes.filter(function(r){return !['preferred','recommended'].includes(r.stance);});
+    function button(r){
+      return '<button class="km-route" data-slug="'+esc(r.slug)+'"><span class="km-route__name">'+esc(r.name)+'</span><span class="km-route__days">'+esc(r.recommended_days)+' days</span><span class="km-route__meta">'+esc(r.badge)+'</span></button>';
+    }
+    nav.innerHTML=
+      '<div class="km-route-group km-route-group--primary"><div class="km-route-group__head"><span>Start comparison here</span><small>Preferred / recommended</small></div><div class="km-route-group__list">'+primary.map(button).join('')+'</div></div>'+
+      '<div class="km-route-group km-route-group--specific"><div class="km-route-group__head"><span>Specific-fit routes</span><small>Different reasons to choose</small></div><div class="km-route-group__list">'+specific.map(button).join('')+'</div></div>';
     nav.querySelectorAll('.km-route').forEach(function(b){b.addEventListener('click',function(){renderRoute(find(b.dataset.slug));});});
     renderRoute(find('lemosho'));
   }
