@@ -159,13 +159,102 @@
   .route-line span:last-child{padding-bottom:0!important}
 }
 </style>
+<style id="phase27b-route-intelligence">
+.route-intelligence{
+  display:block;
+  background:var(--bone2);
+  color:var(--ink);
+  padding:0 clamp(1.5rem,6vw,6rem);
+  counter-reset:route-intelligence;
+}
+.route-intelligence article{
+  counter-increment:route-intelligence;
+  display:grid;
+  grid-template-columns:52px minmax(210px,.48fr) minmax(0,1.52fr);
+  gap:clamp(1rem,5vw,5rem);
+  align-items:start;
+  padding:clamp(2.5rem,4.5vw,4rem) 0;
+  border-top:1px solid rgba(15,23,18,.14);
+}
+.route-intelligence article:last-child{border-bottom:1px solid rgba(15,23,18,.14)}
+.route-intelligence article::before{
+  content:"0" counter(route-intelligence);
+  font-size:8px;letter-spacing:.14em;color:#75603f;padding-top:.4rem;
+}
+.route-intelligence .route-eye{grid-column:2}
+.route-intelligence h2{grid-column:2;font-size:clamp(30px,3.3vw,48px);font-weight:300;line-height:1;margin:.65rem 0 0}
+.route-intelligence article>p:last-child{
+  grid-column:3;grid-row:1 / span 3;
+  align-self:center;
+  max-width:62ch;
+  font-size:13px;line-height:1.86;color:rgba(15,23,18,.68);
+}
+
+.route-compare{
+  display:grid;
+  grid-template-columns:minmax(280px,.55fr) minmax(0,1.45fr);
+  gap:clamp(2rem,7vw,7rem);
+  padding:clamp(4rem,7vw,7rem) clamp(1.5rem,6vw,6rem);
+  background:var(--bone2);
+  color:var(--ink);
+  border-top:1px solid rgba(15,23,18,.12);
+}
+.route-compare__head h2{font-size:clamp(38px,4.6vw,64px);font-weight:300;line-height:.98;margin:.7rem 0 1.1rem}
+.route-compare__head>p:last-child{font-size:12px;line-height:1.75;color:rgba(15,23,18,.62);max-width:42ch}
+.route-compare__list{border-top:1px solid rgba(15,23,18,.18)}
+.route-peer{
+  display:grid;
+  grid-template-columns:38px minmax(150px,.42fr) minmax(0,1fr) auto;
+  gap:clamp(.8rem,2.5vw,2rem);
+  align-items:start;
+  padding:1.55rem 0 1.75rem;
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1px solid rgba(15,23,18,.14);
+}
+.route-peer>span:first-child{font-size:8px;letter-spacing:.14em;color:#75603f;padding-top:.3rem}
+.route-peer strong{font-family:'Fraunces',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;line-height:1}
+.route-peer p{font-size:11.5px;line-height:1.72;color:rgba(15,23,18,.62);max-width:54ch}
+.route-peer .route-peer__arrow{font-size:18px;color:#556B44}
+.route-peer:hover .route-peer__arrow,.route-peer:focus-visible .route-peer__arrow{transform:translateX(4px)}
+.route-peer__arrow{transition:transform .3s ease}
+
+.route-record{
+  display:flex;gap:.8rem;flex-wrap:wrap;
+  margin-top:1rem;
+  font-size:8px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(237,230,214,.48);
+}
+.route-record b{font-weight:400;color:var(--earth)}
+
+@media(max-width:820px){
+  /* Final mobile authority: Phase 7 reintroduced a two-column route-grid after
+     the older collapse rule. Keep the full dossier physically inside the viewport. */
+  .route-grid{grid-template-columns:1fr!important}
+  .route-aside{position:static!important;border-right:0!important;border-bottom:1px solid rgba(15,23,18,.12)!important}
+  .route-stats{min-width:0}
+  .route-stat{min-width:0;overflow-wrap:anywhere}
+  .route-intelligence article{
+    grid-template-columns:32px minmax(0,1fr);
+    gap:.55rem 1rem;
+  }
+  .route-intelligence .route-eye,.route-intelligence h2,.route-intelligence article>p:last-child{
+    grid-column:2;grid-row:auto;
+  }
+  .route-intelligence article>p:last-child{margin-top:.4rem}
+  .route-compare{grid-template-columns:1fr}
+  .route-peer{grid-template-columns:30px minmax(0,1fr) auto}
+  .route-peer strong,.route-peer p{grid-column:2}
+  .route-peer .route-peer__arrow{grid-column:3;grid-row:1 / span 2}
+}
+</style>
 </head>
 <body>
 <main class="route-page" id="routePage" hidden>
 <section class="route-hero">
   <div class="route-hero__img"></div><div class="route-hero__shade"></div>
   <nav class="route-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama"></a><a href="kilimanjaro.html#routes">All Kilimanjaro routes</a></nav>
-  <div class="route-hero__copy"><p class="route-eye" id="routeBadge"></p><h1 class="fr" id="routeTitle"></h1><p id="routeSummary"></p></div>
+  <div class="route-hero__copy"><p class="route-eye" id="routeBadge"></p><h1 class="fr" id="routeTitle"></h1><p id="routeSummary"></p><div class="route-record" id="routeRecord"></div></div>
 </section>
 <section class="route-spine" aria-label="Route dossier summary">
   <div><span class="route-eye">Decision frame</span><strong>Fit</strong><p>Who this route suits and why.</p></div>
@@ -174,7 +263,16 @@
 </section>
 <section class="route-grid"><div class="route-aside"><p class="route-eye">Route position</p><h2 class="fr" id="routeFit"></h2><p id="routeFitCopy"></p></div><div class="route-stats" id="routeStats"></div></section>
 <section class="route-body"><article class="route-section"><p class="route-eye">Why choose it</p><h2 class="fr">Where this route earns its place.</h2><p id="routeWhy"></p></article><article class="route-section"><p class="route-eye">Trade-off</p><h2 class="fr">What you give up.</h2><p id="routeCaution"></p></article></section>
+<section class="route-intelligence" aria-label="Route intelligence">
+  <article><p class="route-eye">Acclimatisation logic</p><h2 class="fr">How time and route shape the climb.</h2><p id="routeAcclimatisation"></p></article>
+  <article><p class="route-eye">Trail character</p><h2 class="fr">What the route actually feels like.</h2><p id="routeCharacter"></p></article>
+  <article><p class="route-eye">Operational notes</p><h2 class="fr">How the route works on the ground.</h2><p id="routeOperations"></p></article>
+</section>
 <section class="route-seq"><p class="route-eye">Typical sequence</p><h2 class="fr">How the mountain unfolds.</h2><div class="route-line" id="routeLine"></div></section>
+<section class="route-compare" aria-label="Compare this Kilimanjaro route">
+  <div class="route-compare__head"><p class="route-eye">Compare intelligently</p><h2 class="fr">The nearest alternatives.</h2><p>Not every route deserves comparison with every other route. These are the two alternatives that most directly test the decision behind this one.</p></div>
+  <div class="route-compare__list" id="routeCompare"></div>
+</section>
 <section class="route-actions"><a class="route-action" href="kilimanjaro.html#mountain-composer"><span>Compare before deciding</span><strong>Use the mountain composer →</strong></a><a class="route-action" href="compose.html"><span>Beyond Kilimanjaro</span><strong>Continue into Tanzania →</strong></a></section>
 </main>
 <div class="route-error" id="routeError" hidden><p>This Kilimanjaro route could not be loaded. <a href="kilimanjaro.html#routes">Return to the route atlas.</a></p></div>
@@ -187,13 +285,25 @@
    document.getElementById('routeBadge').textContent=x.badge+' · '+x.approach+' approach';
    document.getElementById('routeTitle').textContent=x.name;
    document.getElementById('routeSummary').textContent=x.summary;
+   const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]);
    document.getElementById('routeFit').textContent=x.fit.split('.')[0]+'.';
    document.getElementById('routeFitCopy').textContent=x.fit;
    const stats=[['Recommended',x.recommended_days+' days'],['Variants',x.variants],['Approach',x.approach],['Descent',x.descent],['Overnight',x.overnight],['Acclimatisation',x.acclimatisation],['Crowds',x.crowds],['Scenery',x.scenery]];
-   document.getElementById('routeStats').innerHTML=stats.map(v=>'<div class="route-stat"><span>'+v[0]+'</span><strong>'+v[1]+'</strong></div>').join('');
+   document.getElementById('routeStats').innerHTML=stats.map(v=>'<div class="route-stat"><span>'+esc(v[0])+'</span><strong>'+esc(v[1])+'</strong></div>').join('');
    document.getElementById('routeWhy').textContent=x.why_enkiama;
    document.getElementById('routeCaution').textContent=x.caution;
-   document.getElementById('routeLine').innerHTML=x.stages.map(s=>'<span>'+s+'</span>').join('');
+   document.getElementById('routeAcclimatisation').textContent=x.acclimatisation_logic||'';
+   document.getElementById('routeCharacter').textContent=x.trail_character||'';
+   document.getElementById('routeOperations').textContent=x.operational_notes||'';
+   const trace=(x.stage_trace&&x.stage_trace.length?x.stage_trace:x.stages.map(label=>({label,phase:'stage'})));
+   document.getElementById('routeLine').innerHTML=trace.map(s=>'<span data-phase="'+esc(s.phase||'stage')+'">'+esc(s.label)+'</span>').join('');
+   const peers=(x.comparison_peers||[]).map((peer,i)=>{
+     const p=data.routes.find(r=>r.slug===peer.slug);
+     if(!p)return '';
+     return '<a class="route-peer" href="kilimanjaro-route.html?route='+encodeURIComponent(p.slug)+'"><span>0'+(i+1)+'</span><strong>'+esc(p.name)+'</strong><p>'+esc(peer.reason)+'</p><span class="route-peer__arrow" aria-hidden="true">→</span></a>';
+   }).join('');
+   document.getElementById('routeCompare').innerHTML=peers;
+   document.getElementById('routeRecord').innerHTML='<span><b>'+esc(x.stance)+'</b> stance</span><span>Record reviewed '+esc(x.source_updated_at||data.updated_at||'')+'</span>';
    document.getElementById('routePage').hidden=false;
  }).catch(()=>document.getElementById('routeError').hidden=false);
 })();
