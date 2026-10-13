@@ -487,3 +487,117 @@ test('27G Kilimanjaro Begin intro acknowledges the carried route instead of rest
   await expect(page.locator('#lfIntroCopy')).toContainText('route direction is already attached');
   await expect(page.locator('#lfIntroCopy')).not.toContainText('The route can wait');
 });
+
+
+test('28A direct route hash lands below the Kilimanjaro reading header', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro.html#routes', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(220);
+
+  const geometry = await page.evaluate(() => {
+    const target = document.querySelector('#routes').getBoundingClientRect();
+    const heading = document.querySelector('#routes .km-atlas__head').getBoundingClientRect();
+    const header = document.querySelector('#ehBar').getBoundingClientRect();
+    return {
+      targetTop: target.top,
+      headingTop: heading.top,
+      headerBottom: header.bottom,
+      headerYielded: document.querySelector('#ehBar').classList.contains('km-yield')
+    };
+  });
+
+  expect(geometry.targetTop).toBeGreaterThanOrEqual(70);
+  expect(geometry.headingTop).toBeGreaterThanOrEqual(70);
+  expect(geometry.headerYielded).toBeFalsy();
+});
+
+test('28A composer hash returns as a composed section rather than under the masthead', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/kilimanjaro.html#mountain-composer', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(220);
+
+  const top = await page.locator('#mountain-composer').evaluate(el => el.getBoundingClientRect().top);
+  expect(top).toBeGreaterThanOrEqual(70);
+  await expect(page.locator('#mountain-composer .km-question')).toHaveCount(4);
+});
+
+test('28A route dossier decision frame is dense, non-sticky and four-across on desktop', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'networkidle' });
+
+  const state = await page.evaluate(() => {
+    const grid = document.querySelector('.route-grid').getBoundingClientRect();
+    const aside = document.querySelector('.route-aside');
+    const stat = document.querySelector('.route-stat').getBoundingClientRect();
+    const stats = [...document.querySelectorAll('.route-stat')].map(el => el.getBoundingClientRect());
+    const distinctRows = [...new Set(stats.map(r => Math.round(r.top)))];
+    return {
+      gridHeight: grid.height,
+      asidePosition: getComputedStyle(aside).position,
+      firstStatHeight: stat.height,
+      rows: distinctRows.length
+    };
+  });
+
+  expect(state.asidePosition).not.toBe('sticky');
+  expect(state.rows).toBe(2);
+  expect(state.gridHeight).toBeLessThan(360);
+  expect(state.firstStatHeight).toBeLessThan(140);
+});
+
+test('28A route dossier trims billboard-scale body sections without losing readability', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'networkidle' });
+
+  const metrics = await page.evaluate(() => ({
+    routeSections: [...document.querySelectorAll('.route-section')].map(el => el.getBoundingClientRect().height),
+    intelligenceRows: [...document.querySelectorAll('.route-intelligence article')].map(el => el.getBoundingClientRect().height),
+    compareHeight: document.querySelector('.route-compare').getBoundingClientRect().height
+  }));
+
+  for (const height of metrics.routeSections) expect(height).toBeLessThan(430);
+  for (const height of metrics.intelligenceRows) expect(height).toBeLessThan(300);
+  expect(metrics.compareHeight).toBeLessThan(620);
+});
+
+test('28A route density remains contained at 390px', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'networkidle' });
+
+  const geometry = await page.evaluate(() => ({
+    viewport: innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    gridRight: document.querySelector('.route-grid').getBoundingClientRect().right,
+    compareRight: document.querySelector('.route-compare').getBoundingClientRect().right
+  }));
+
+  expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.viewport + 2);
+  expect(geometry.gridRight).toBeLessThanOrEqual(geometry.viewport + 1);
+  expect(geometry.compareRight).toBeLessThanOrEqual(geometry.viewport + 1);
+});
+
+test('28A capture reading-flow release surfaces', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/kilimanjaro.html#routes', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(220);
+  await page.screenshot({
+    path: testInfo.outputPath('28a-routes-anchor-desktop.png'),
+    fullPage: false
+  });
+
+  await page.goto('/kilimanjaro-route.html?route=lemosho', { waitUntil: 'networkidle' });
+  await page.locator('.route-grid').screenshot({
+    path: testInfo.outputPath('28a-route-decision-desktop.png')
+  });
+  await page.locator('.route-intelligence').screenshot({
+    path: testInfo.outputPath('28a-route-intelligence-desktop.png')
+  });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/kilimanjaro.html#routes', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(220);
+  await page.screenshot({
+    path: testInfo.outputPath('28a-routes-anchor-mobile.png'),
+    fullPage: false
+  });
+});
