@@ -419,7 +419,7 @@
    document.getElementById('routeTitle').textContent=x.name;
    document.getElementById('routeSummary').textContent=x.summary;
    const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]);
-   document.getElementById('routeFit').textContent=x.fit.split('.')[0]+'.';
+   document.getElementById('routeFit').textContent=x.badge+'.';
    document.getElementById('routeFitCopy').textContent=x.fit;
    const stats=[['Recommended',x.recommended_days+' days'],['Variants',x.variants],['Approach',x.approach],['Descent',x.descent],['Overnight',x.overnight],['Acclimatisation',x.acclimatisation],['Crowds',x.crowds],['Scenery',x.scenery]];
    document.getElementById('routeStats').innerHTML=stats.map(v=>'<div class="route-stat"><span>'+esc(v[0])+'</span><strong>'+esc(v[1])+'</strong></div>').join('');
