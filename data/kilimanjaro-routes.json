@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated_at": "2026-10-07",
+  "version": 2,
+  "updated_at": "2026-10-13",
   "summit": {
     "name": "Uhuru Peak",
     "elevation_m": 5895
@@ -39,9 +39,84 @@
         "Karanga",
         "Barafu",
         "Uhuru Peak",
-        "Mweka"
+        "Mweka Camp",
+        "Mweka Gate"
       ],
-      "fit": "Strong first choice for climbers who can give the mountain eight days and value acclimatisation, landscape and a less abrupt opening."
+      "fit": "Strong first choice for climbers who can give the mountain eight days and value acclimatisation, landscape and a less abrupt opening.",
+      "public_status": "verified",
+      "start_gate": "Londorossi Gate / Lemosho trailhead",
+      "start_altitude_m": null,
+      "summit_approach": "Barafu",
+      "route_merge_notes": "Western opening remains quieter before joining the shared Southern Circuit near the Lava Tower / Barranco sequence.",
+      "season_notes": null,
+      "transfer_notes": "Western road access to the Londorossi/Lemosho side; descent finishes on the Mweka side.",
+      "camp_profile": "Camping route with a gradual western opening, Shira Plateau camps and later Southern Circuit camps.",
+      "acclimatisation_logic": "The route earns its place through time rather than speed: a lower western opening, progressive exposure across the Shira Plateau and a longer sequence before the Barafu summit approach. The exact response to altitude is individual; the route choice only creates more time and a less abrupt opening.",
+      "trail_character": "Forest at the western start, open Shira Plateau, volcanic high-altitude terrain and the Southern Circuit. It feels expansive early, then becomes busier after convergence with other southern routes.",
+      "operational_notes": "Start and finish are on different sides of the mountain. The route uses camping throughout and normally descends via Mweka. Later route sections are shared, so a quiet opening should not be sold as full-route solitude.",
+      "comparison_peers": [
+        {
+          "slug": "northern-circuit",
+          "reason": "Compare when more mountain time and quieter northern-traverse sections matter more than keeping the expedition to eight days."
+        },
+        {
+          "slug": "machame",
+          "reason": "Compare when seven mountain days is the practical ceiling and the climber accepts a busier southern route."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Londorossi / Lemosho trailhead",
+          "phase": "start"
+        },
+        {
+          "label": "Mti Mkubwa",
+          "phase": "camp"
+        },
+        {
+          "label": "Shira 1",
+          "phase": "camp"
+        },
+        {
+          "label": "Shira 2 / Moir option",
+          "phase": "camp"
+        },
+        {
+          "label": "Lava Tower",
+          "phase": "high-point"
+        },
+        {
+          "label": "Barranco",
+          "phase": "camp"
+        },
+        {
+          "label": "Karanga",
+          "phase": "camp"
+        },
+        {
+          "label": "Barafu",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Mweka Camp",
+          "phase": "descent"
+        },
+        {
+          "label": "Mweka Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     },
     {
       "slug": "northern-circuit",
@@ -75,9 +150,80 @@
         "Third Cave",
         "School Hut",
         "Uhuru Peak",
-        "Barafu / Mweka"
+        "Mweka Camp",
+        "Mweka Gate"
       ],
-      "fit": "Best for climbers who want the mountain itself to be the expedition, not merely the summit objective."
+      "fit": "Best for climbers who want the mountain itself to be the expedition, not merely the summit objective.",
+      "public_status": "verified",
+      "start_gate": "Londorossi Gate / Lemosho trailhead",
+      "start_altitude_m": null,
+      "summit_approach": "School Hut",
+      "route_merge_notes": "Shares the western Lemosho opening, then turns onto the quieter northern traverse from the Moir area before crossing toward School Hut.",
+      "season_notes": null,
+      "transfer_notes": "Western road access at the start; the long northern traverse ends with a Mweka-side descent.",
+      "camp_profile": "Camping route with a western opening, remote northern camps and an eastern summit approach from School Hut.",
+      "acclimatisation_logic": "The longest standard Enkiama route direction creates the most time before the summit approach. Multiple days are spent traversing the mountain rather than rushing upward, which is why we prefer it for climbers who can make the mountain itself the expedition.",
+      "trail_character": "Western forest and plateau first, then a quieter traverse across the northern slopes with broad views and fewer route convergences before the eastern summit approach.",
+      "operational_notes": "This is a time-rich route and should be chosen deliberately. It starts through the western corridor, diverges north, approaches the summit from School Hut and descends via Mweka.",
+      "comparison_peers": [
+        {
+          "slug": "lemosho",
+          "reason": "Compare when you want a preferred western route with less total mountain time and a more familiar Southern Circuit finish."
+        },
+        {
+          "slug": "rongai",
+          "reason": "Compare when a quieter northern character matters but nine mountain days is more than you want to allocate."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Londorossi / Lemosho trailhead",
+          "phase": "start"
+        },
+        {
+          "label": "Mti Mkubwa",
+          "phase": "camp"
+        },
+        {
+          "label": "Shira 1",
+          "phase": "camp"
+        },
+        {
+          "label": "Moir",
+          "phase": "camp"
+        },
+        {
+          "label": "Buffalo",
+          "phase": "camp"
+        },
+        {
+          "label": "Third Cave",
+          "phase": "camp"
+        },
+        {
+          "label": "School Hut",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Mweka Camp",
+          "phase": "descent"
+        },
+        {
+          "label": "Mweka Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     },
     {
       "slug": "machame",
@@ -111,9 +257,80 @@
         "Karanga",
         "Barafu",
         "Uhuru Peak",
-        "Mweka"
+        "Mweka Camp",
+        "Mweka Gate"
       ],
-      "fit": "Good for fit climbers who want a varied route and can accept a busier trail in exchange for a seven-day itinerary."
+      "fit": "Good for fit climbers who want a varied route and can accept a busier trail in exchange for a seven-day itinerary.",
+      "public_status": "verified",
+      "start_gate": "Machame Gate",
+      "start_altitude_m": null,
+      "summit_approach": "Barafu",
+      "route_merge_notes": "Southern approach crosses onto the shared Southern Circuit through the Shira / Lava Tower / Barranco sequence.",
+      "season_notes": null,
+      "transfer_notes": "Southern gate access; descent finishes separately via Mweka.",
+      "camp_profile": "Camping route with a compact seven-day rhythm and shared Southern Circuit camps before Barafu.",
+      "acclimatisation_logic": "The seven-day version keeps Karanga as its own stage and preserves more time before the summit than the compressed six-day pattern. It remains a faster overall route than Lemosho or Northern Circuit, so the seven-day version is our baseline rather than the minimum possible itinerary.",
+      "trail_character": "A varied southern line through forest, Shira terrain and the Southern Circuit. Scenery is strong, but traffic is also high because Machame is one of the mountain's most used approaches.",
+      "operational_notes": "Camping throughout, summit approach from Barafu and descent via Mweka. The route's strength is the amount of mountain compressed into seven days; its cost is crowd density.",
+      "comparison_peers": [
+        {
+          "slug": "lemosho",
+          "reason": "Compare when you can add a mountain day and prefer a more gradual western opening with lower traffic early."
+        },
+        {
+          "slug": "rongai",
+          "reason": "Compare when a quieter approach matters more than the classic southern scenery and route sequence."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Machame Gate",
+          "phase": "start"
+        },
+        {
+          "label": "Machame Camp",
+          "phase": "camp"
+        },
+        {
+          "label": "Shira 2",
+          "phase": "camp"
+        },
+        {
+          "label": "Lava Tower",
+          "phase": "high-point"
+        },
+        {
+          "label": "Barranco",
+          "phase": "camp"
+        },
+        {
+          "label": "Karanga",
+          "phase": "camp"
+        },
+        {
+          "label": "Barafu",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Mweka Camp",
+          "phase": "descent"
+        },
+        {
+          "label": "Mweka Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     },
     {
       "slug": "rongai",
@@ -142,12 +359,74 @@
         "Rongai Cave",
         "Second Cave / Kikelewa",
         "Mawenzi Tarn",
-        "Kibo",
+        "Kibo Hut",
         "Uhuru Peak",
-        "Horombo",
+        "Horombo Hut",
         "Marangu Gate"
       ],
-      "fit": "A considered alternative for climbers who value lower foot traffic and a different approach more than the classic southern scenery."
+      "fit": "A considered alternative for climbers who value lower foot traffic and a different approach more than the classic southern scenery.",
+      "public_status": "verified",
+      "start_gate": "Rongai Gate",
+      "start_altitude_m": null,
+      "summit_approach": "Kibo Hut",
+      "route_merge_notes": "Northern ascent remains distinct before crossing the Saddle toward Kibo; descent uses the Marangu corridor.",
+      "season_notes": null,
+      "transfer_notes": "Starts on the northern side and finishes at Marangu Gate, so start/finish vehicle logistics are deliberately different.",
+      "camp_profile": "Camping on the northern ascent; summit approach from Kibo; descent through the Marangu corridor.",
+      "acclimatisation_logic": "The seven-day version creates a steadier northern progression than the shorter variant and uses the Mawenzi/Saddle sequence before Kibo. It is still selected for a specific route character rather than as Enkiama's default acclimatisation choice.",
+      "trail_character": "Drier northern terrain, lower traffic and a strong Mawenzi/Saddle character. It feels more remote than Machame, with less of the western/southern scenic sequence.",
+      "operational_notes": "The expedition crosses the mountain operationally: ascent from the north, summit approach from Kibo and descent to Marangu Gate. That different-side finish should be planned from the start.",
+      "comparison_peers": [
+        {
+          "slug": "northern-circuit",
+          "reason": "Compare when you want quieter northern terrain but can give the mountain more time and value a broader traverse."
+        },
+        {
+          "slug": "marangu",
+          "reason": "Compare when the eastern/northern side appeals but hut accommodation is a decisive preference."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Rongai Gate",
+          "phase": "start"
+        },
+        {
+          "label": "Rongai Cave",
+          "phase": "camp"
+        },
+        {
+          "label": "Second Cave / Kikelewa",
+          "phase": "camp"
+        },
+        {
+          "label": "Mawenzi Tarn",
+          "phase": "camp"
+        },
+        {
+          "label": "Kibo Hut",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Horombo Hut",
+          "phase": "descent"
+        },
+        {
+          "label": "Marangu Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     },
     {
       "slug": "marangu",
@@ -177,10 +456,68 @@
         "Horombo Hut",
         "Kibo Hut",
         "Uhuru Peak",
-        "Horombo",
+        "Horombo Hut",
         "Marangu Gate"
       ],
-      "fit": "For climbers who strongly prefer huts over camping and understand the trade-off between infrastructure, crowds and route variety."
+      "fit": "For climbers who strongly prefer huts over camping and understand the trade-off between infrastructure, crowds and route variety.",
+      "public_status": "verified",
+      "start_gate": "Marangu Gate",
+      "start_altitude_m": null,
+      "summit_approach": "Kibo Hut",
+      "route_merge_notes": "The route largely uses the same corridor for ascent and descent rather than traversing to a separate descent line.",
+      "season_notes": null,
+      "transfer_notes": "Start and finish use the Marangu side, simplifying gate logistics compared with routes that descend via Mweka.",
+      "camp_profile": "The only route in the Enkiama seven-route catalogue using mountain huts instead of camping.",
+      "acclimatisation_logic": "The six-day version is the Enkiama baseline because it preserves an additional day around Horombo. The route is direct and the shorter five-day pattern leaves less time for gradual adaptation, which is why 'shorter' is not treated as a product advantage.",
+      "trail_character": "A direct south-eastern corridor through forest and moorland to Kibo, with hut infrastructure and more repeated scenery because much of the descent follows the same side.",
+      "operational_notes": "Hut accommodation is the defining operational difference. The route starts and finishes at Marangu Gate and uses Kibo for the summit approach.",
+      "comparison_peers": [
+        {
+          "slug": "rongai",
+          "reason": "Compare when you want a quieter eastern/northern-side experience and are comfortable camping rather than using huts."
+        },
+        {
+          "slug": "machame",
+          "reason": "Compare when seven days and camping are acceptable in exchange for a more varied southern route."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Marangu Gate",
+          "phase": "start"
+        },
+        {
+          "label": "Mandara Hut",
+          "phase": "camp"
+        },
+        {
+          "label": "Horombo Hut",
+          "phase": "camp"
+        },
+        {
+          "label": "Kibo Hut",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Horombo Hut",
+          "phase": "descent"
+        },
+        {
+          "label": "Marangu Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     },
     {
       "slug": "shira",
@@ -204,18 +541,88 @@
       "why_enkiama": "We keep it available for specific private cases, not as a default western route.",
       "caution": "Starting high removes one of Lemosho’s key advantages: a more gradual first exposure to altitude.",
       "stages": [
-        "Londorossi",
-        "Shira Gate / Simba",
-        "Shira Plateau",
+        "Shira Gate / Ridge access",
+        "Shira Plateau / Simba",
         "Moir option",
         "Lava Tower",
         "Barranco",
         "Karanga",
         "Barafu",
         "Uhuru Peak",
-        "Mweka"
+        "Mweka Camp",
+        "Mweka Gate"
       ],
-      "fit": "A specialist alternative where the high starting point is understood and justified."
+      "fit": "A specialist alternative where the high starting point is understood and justified.",
+      "public_status": "verified",
+      "start_gate": "Shira Gate / Shira Ridge access",
+      "start_altitude_m": null,
+      "summit_approach": "Barafu",
+      "route_merge_notes": "Begins high on the western plateau, then merges into the same Southern Circuit used by Lemosho and Machame.",
+      "season_notes": null,
+      "transfer_notes": "Vehicle access reaches the high western start; descent finishes via Mweka.",
+      "camp_profile": "Camping route beginning high on the Shira Plateau before joining the Southern Circuit.",
+      "acclimatisation_logic": "The route's defining weakness is the high vehicle-assisted start. Later days can create a strong mountain rhythm, but the itinerary cannot recreate the gradual lower-altitude opening that makes Lemosho preferable for most climbers.",
+      "trail_character": "Immediate high-plateau exposure, expansive western scenery and later Southern Circuit terrain. The rainforest opening of Lemosho is largely bypassed.",
+      "operational_notes": "This is kept for specific private cases, not positioned as a western default. Its route geometry is closely related to Lemosho after the high start.",
+      "comparison_peers": [
+        {
+          "slug": "lemosho",
+          "reason": "The primary comparison: similar western/Southern Circuit character, but Lemosho preserves the gradual lower-altitude opening."
+        },
+        {
+          "slug": "northern-circuit",
+          "reason": "Compare when a western start is attractive but you want more mountain time and a quieter northern traverse rather than the Southern Circuit."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Shira Gate / Ridge access",
+          "phase": "start"
+        },
+        {
+          "label": "Shira Plateau / Simba",
+          "phase": "camp"
+        },
+        {
+          "label": "Moir option",
+          "phase": "camp"
+        },
+        {
+          "label": "Lava Tower",
+          "phase": "high-point"
+        },
+        {
+          "label": "Barranco",
+          "phase": "camp"
+        },
+        {
+          "label": "Karanga",
+          "phase": "camp"
+        },
+        {
+          "label": "Barafu",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Mweka Camp",
+          "phase": "descent"
+        },
+        {
+          "label": "Mweka Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     },
     {
       "slug": "umbwe",
@@ -246,9 +653,95 @@
         "Karanga",
         "Barafu",
         "Uhuru Peak",
-        "Mweka"
+        "Mweka Camp",
+        "Mweka Gate"
       ],
-      "fit": "Experienced high-altitude trekkers seeking a steeper private ascent and accepting the acclimatisation trade-off."
+      "fit": "Experienced high-altitude trekkers seeking a steeper private ascent and accepting the acclimatisation trade-off.",
+      "public_status": "verified",
+      "start_gate": "Umbwe Gate",
+      "start_altitude_m": null,
+      "summit_approach": "Barafu",
+      "route_merge_notes": "Steep southern opening joins the shared Southern Circuit around Barranco before continuing through Karanga and Barafu.",
+      "season_notes": null,
+      "transfer_notes": "Southern gate access; descent finishes via Mweka.",
+      "camp_profile": "Camping route with a steep, low-traffic early line before joining the Southern Circuit.",
+      "acclimatisation_logic": "Umbwe gains altitude quickly in its opening stages and therefore gives less early adaptation time than Enkiama's preferred routes. It remains a specialist option for experienced trekkers with a specific reason to choose the steeper line.",
+      "trail_character": "Steep, dramatic and relatively quiet early terrain. Once it reaches Barranco, the experience becomes part of the shared Southern Circuit toward Karanga and Barafu.",
+      "operational_notes": "This is not a routine sales route. It is considered only after experience, itinerary length and the reason for choosing the steep opening are understood.",
+      "comparison_peers": [
+        {
+          "slug": "machame",
+          "reason": "Compare when you want a southern route in seven days but prefer a more balanced early profile and broader standard use."
+        },
+        {
+          "slug": "lemosho",
+          "reason": "Compare when acclimatisation margin and a gradual opening matter more than the steep, specialist character."
+        }
+      ],
+      "stage_trace": [
+        {
+          "label": "Umbwe Gate",
+          "phase": "start"
+        },
+        {
+          "label": "Umbwe Camp",
+          "phase": "camp"
+        },
+        {
+          "label": "Barranco",
+          "phase": "camp"
+        },
+        {
+          "label": "Karanga",
+          "phase": "camp"
+        },
+        {
+          "label": "Barafu",
+          "phase": "summit-camp"
+        },
+        {
+          "label": "Uhuru Peak",
+          "phase": "summit"
+        },
+        {
+          "label": "Mweka Camp",
+          "phase": "descent"
+        },
+        {
+          "label": "Mweka Gate",
+          "phase": "finish"
+        }
+      ],
+      "source_refs": [
+        "enkiama_internal_v1",
+        "ultimate_route_selection",
+        "ultimate_best_route"
+      ],
+      "source_updated_at": "2026-10-13",
+      "verification_notes": "General route geometry, typical days, overnight format and route relationships cross-checked against specialist route references. Partner-specific safety, premium-camp, exact altitude and seasonal operating claims remain outside this phase and require operating-partner / authoritative verification."
     }
-  ]
+  ],
+  "schema": "enkiama.kilimanjaro.routes.v2",
+  "sources": {
+    "enkiama_internal_v1": {
+      "type": "internal_source_of_truth",
+      "label": "Enkiama Kilimanjaro route catalogue v1",
+      "updated_at": "2026-10-07",
+      "note": "Enkiama stance, fit and product positioning. Operational partner-specific claims are intentionally excluded."
+    },
+    "ultimate_route_selection": {
+      "type": "specialist_benchmark",
+      "label": "Ultimate Kilimanjaro — route selection and comparison",
+      "url": "https://www.ultimatekilimanjaro.com/kilimanjaro-map-climbing-route-selection/",
+      "checked_at": "2026-10-13",
+      "note": "Used to cross-check route approach, typical route relationships, overnight format, broad crowd/scenery character and route convergence. It is not an Enkiama operating standard."
+    },
+    "ultimate_best_route": {
+      "type": "specialist_benchmark",
+      "label": "Ultimate Kilimanjaro — seven-route comparison",
+      "url": "https://www.ultimatekilimanjaro.com/what-is-the-best-route-to-climb-kilimanjaro/",
+      "checked_at": "2026-10-13",
+      "note": "Used as a secondary cross-check for seven-route taxonomy, typical day counts and relative route trade-offs."
+    }
+  }
 }
