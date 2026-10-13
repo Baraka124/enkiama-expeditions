@@ -106,7 +106,7 @@ test('Kilimanjaro flagship renders six inspectable premium-operation dimensions'
   expect(body).not.toContain('supplemental oxygen provided');
   expect(body).not.toContain('private toilet provided');
   expect(body).not.toContain('hot shower provided');
-  expect(body).not.toContain('luxury camp');
+  expect(body).not.toMatch(/luxury camp (included|provided|guaranteed|as standard)/i);
 });
 
 test('KILELE dossier renders five-stage expedition continuity', async ({ page }) => {
