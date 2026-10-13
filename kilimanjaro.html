@@ -1841,46 +1841,9 @@ body.eh-locked{overflow:hidden;}
 </section>
 </main>
 
-<script id="phase27c6-header-yield">
-(function(){
-  var bar=document.getElementById('ehBar');
-  var overlay=document.getElementById('ehOverlay');
-  if(!bar)return;
-  var lastY=window.scrollY||0;
-  var ticking=false;
 
-  function update(){
-    var y=window.scrollY||0;
-    var delta=y-lastY;
-    var menuOpen=overlay&&overlay.classList.contains('open');
 
-    if(menuOpen||y<90){
-      bar.classList.remove('km-yield');
-    }else if(delta>5){
-      bar.classList.add('km-yield');
-    }else if(delta<-5){
-      bar.classList.remove('km-yield');
-    }
-    lastY=y;
-    ticking=false;
-  }
-
-  window.addEventListener('scroll',function(){
-    if(!ticking){
-      ticking=true;
-      requestAnimationFrame(update);
-    }
-  },{passive:true});
-
-  bar.addEventListener('focusin',function(){bar.classList.remove('km-yield');});
-  if(overlay){
-    new MutationObserver(function(){
-      if(overlay.classList.contains('open'))bar.classList.remove('km-yield');
-    }).observe(overlay,{attributes:true,attributeFilter:['class']});
-  }
-})();
-</script>
-
+<script src="assets/js/kilimanjaro-reading-header.js" defer></script>
 <script src="assets/js/kilimanjaro-system.js" defer></script>
 
 <footer>
