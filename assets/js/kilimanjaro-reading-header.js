@@ -7,8 +7,8 @@
     var style=document.createElement('style');
     style.id='kilimanjaro-reading-header-style';
     style.textContent=
-      '.eh-bar,.exp-nav,.route-nav{will-change:transform;}'+
-      '.eh-bar.km-yield,.exp-nav.km-yield,.route-nav.km-yield{transform:translateY(calc(-100% - 12px))!important;pointer-events:none;}'+
+      '.eh-bar,.exp-nav,.route-nav{will-change:transform;transform:translate3d(0,0,0);transition:transform .28s cubic-bezier(.16,1,.3,1);}'+
+      '.eh-bar.km-yield,.exp-nav.km-yield,.route-nav.km-yield{transform:translate3d(0,calc(-100% - 12px),0)!important;pointer-events:none;}'+
       '@media(max-height:520px) and (orientation:landscape){.eh-bar,.exp-nav,.route-nav{position:absolute!important;transform:none!important;}}'+
       '@media(prefers-reduced-motion:reduce){.eh-bar,.exp-nav,.route-nav{transition:none!important;}}';
     document.head.appendChild(style);
@@ -18,22 +18,30 @@
   var lastY=window.scrollY||0;
   var ticking=false;
   var anchorLandingLocked=false;
+  var intent=0;
+  var INTENT_THRESHOLD=28;
 
   function update(){
     var y=window.scrollY||0;
     var delta=y-lastY;
     var menuOpen=overlay&&overlay.classList.contains('open');
 
+    if(Math.abs(delta)>1){
+      if((intent>0&&delta<0)||(intent<0&&delta>0))intent=0;
+      intent+=delta;
+      intent=Math.max(-INTENT_THRESHOLD*2,Math.min(INTENT_THRESHOLD*2,intent));
+    }
+
     if(anchorLandingLocked){
-      bar.classList.remove('km-yield');
+      bar.classList.remove('km-yield');intent=0;
     }else if(shortLandscape&&shortLandscape.matches){
-      bar.classList.remove('km-yield');
-    }else if(menuOpen||y<90){
-      bar.classList.remove('km-yield');
-    }else if(delta>4){
-      bar.classList.add('km-yield');
-    }else if(delta<-4){
-      bar.classList.remove('km-yield');
+      bar.classList.remove('km-yield');intent=0;
+    }else if(menuOpen||y<110){
+      bar.classList.remove('km-yield');intent=0;
+    }else if(intent>=INTENT_THRESHOLD){
+      bar.classList.add('km-yield');intent=0;
+    }else if(intent<=-INTENT_THRESHOLD){
+      bar.classList.remove('km-yield');intent=0;
     }
     lastY=y;
     ticking=false;
@@ -46,7 +54,7 @@
     }
   },{passive:true});
 
-  bar.addEventListener('focusin',function(){bar.classList.remove('km-yield');});
+  bar.addEventListener('focusin',function(){bar.classList.remove('km-yield');intent=0;});
 
   if(overlay){
     new MutationObserver(function(){
