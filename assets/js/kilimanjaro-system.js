@@ -26,7 +26,11 @@
 
   function renderRoute(r){
     if(!r||!panel)return;
-    document.querySelectorAll('.km-route').forEach(function(b){b.classList.toggle('active',b.dataset.slug===r.slug);});
+    document.querySelectorAll('.km-route').forEach(function(b){
+      var active=b.dataset.slug===r.slug;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-pressed',active?'true':'false');
+    });
     var shape=routeShape(r);
     panel.innerHTML=
       '<div class="km-route__identity">'+
@@ -63,7 +67,7 @@
     var primary=catalogue.routes.filter(function(r){return ['preferred','recommended'].includes(r.stance);});
     var specific=catalogue.routes.filter(function(r){return !['preferred','recommended'].includes(r.stance);});
     function button(r){
-      return '<button class="km-route" data-slug="'+esc(r.slug)+'"><span class="km-route__name">'+esc(r.name)+'</span><span class="km-route__days">'+esc(r.recommended_days)+' days</span><span class="km-route__meta">'+esc(r.badge)+'</span></button>';
+      return '<button class="km-route" type="button" aria-pressed="false" data-slug="'+esc(r.slug)+'"><span class="km-route__name">'+esc(r.name)+'</span><span class="km-route__days">'+esc(r.recommended_days)+' days</span><span class="km-route__meta">'+esc(r.badge)+'</span></button>';
     }
     nav.innerHTML=
       '<div class="km-route-group km-route-group--primary"><div class="km-route-group__head"><span>Start comparison here</span><small>Preferred / recommended</small></div><div class="km-route-group__list">'+primary.map(button).join('')+'</div></div>'+
