@@ -37,11 +37,31 @@
     }catch(e){}
     return draft;
   }
+  function comparable(draft){
+    if(!draft)return '';
+    return JSON.stringify({
+      preferences:draft.preferences||{},
+      labels:draft.labels||{},
+      route:Array.isArray(draft.route)?draft.route:[],
+      message:draft.message||'',
+      example_slug:draft.example_slug||null
+    });
+  }
   function read(){
-    var draft=safeParse(sessionStorage.getItem(KEY));
-    if(draft&&draft.schema==='enkiama.journey.draft.v1')return normalize(draft);
+    var canonical=safeParse(sessionStorage.getItem(KEY));
     var legacy=safeParse(sessionStorage.getItem(LEGACY_KEY));
-    if(legacy&&Array.isArray(legacy.route))return write(legacy);
+
+    /* During migration, older surfaces may still update the legacy key directly.
+       If the two payloads diverge, treat the legacy write as the newest user intent
+       and immediately promote it into the canonical draft. */
+    if(legacy&&Array.isArray(legacy.route)){
+      var normalizedLegacy=normalize(legacy);
+      var normalizedCanonical=canonical&&canonical.schema==='enkiama.journey.draft.v1'?normalize(canonical):null;
+      if(!normalizedCanonical||comparable(normalizedLegacy)!==comparable(normalizedCanonical)){
+        return write(legacy);
+      }
+    }
+    if(canonical&&canonical.schema==='enkiama.journey.draft.v1')return normalize(canonical);
     return null;
   }
   function clear(){
