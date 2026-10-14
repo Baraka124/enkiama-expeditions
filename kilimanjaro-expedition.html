@@ -388,6 +388,22 @@
   .exp-evidence__register article:first-child{border-top:0}
 }
 </style>
+<style id="phase28d-evidence-states">
+.exp-evidence-state{
+  display:grid;grid-template-columns:repeat(3,1fr);background:#121a14;
+  border-top:1px solid rgba(190,158,104,.12);border-bottom:1px solid rgba(190,158,104,.12)
+}
+.exp-evidence-state article{padding:1.35rem 1.5rem;border-right:1px solid rgba(190,158,104,.1)}
+.exp-evidence-state article:last-child{border-right:0}
+.exp-evidence-state span{display:block;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);margin-bottom:.45rem}
+.exp-evidence-state strong{display:block;font-family:'Fraunces',serif;font-size:20px;font-weight:300;line-height:1.15}
+.exp-evidence-state p{margin:.55rem 0 0;font-size:10.5px;line-height:1.6;color:rgba(237,230,214,.52);max-width:34ch}
+@media(max-width:700px){
+  .exp-evidence-state{display:block}
+  .exp-evidence-state article{border-right:0;border-bottom:1px solid rgba(190,158,104,.1)}
+  .exp-evidence-state article:last-child{border-bottom:0}
+}
+</style>
 </head>
 <body>
 <main id="expPage" hidden>
@@ -397,15 +413,20 @@
   <div><span class="eye">Evidence rule</span><strong>No outcome claims before the climb</strong></div>
   <div><span class="eye">Purpose</span><strong>Make the plan inspectable</strong></div>
 </section>
+<section class="exp-evidence-state" aria-label="Public evidence states">
+  <article><span>Known now</span><strong>Published facts</strong><p>Party format, intended period, selected route and planned mountain days may be shown where they are already part of the preparation record.</p></article>
+  <article><span>Being prepared</span><strong>Open operating record</strong><p>Training, gear, briefing, health-information process and wider-journey continuity remain visible as preparation work rather than completed claims.</p></article>
+  <article><span>Not yet evidenced</span><strong>Post-expedition record</strong><p>Summit outcome, altitude events, guide-team performance, crew-welfare evidence, testimonials and operated lessons remain unpublished until the climb has happened and the record is verified.</p></article>
+</section>
 <section class="exp-meta" id="expMeta"></section>
-<section class="exp-body"><div class="exp-body__left"><p class="eye">Status</p><h2 class="fr">Prepared openly, before it becomes a story.</h2><p>This dossier is intentionally different from an operated-journey story. It records a climb that is still being prepared. Route, pacing and wider journey context can be shown; summit outcome and lived experience cannot exist until after the expedition.</p></div><div class="exp-body__right"><p class="eye">Current shape</p><div class="exp-steps"><div class="exp-step"><span class="eye">01</span><strong>Seven mountain days</strong><p>Machame is treated as a seven-day climb rather than compressed to six days.</p></div><div class="exp-step"><span class="eye">02</span><strong>Father + adult son</strong><p>A shared summit objective, with individual altitude response and mountain decisions remaining separate.</p></div><div class="exp-step"><span class="eye">03</span><strong>Machame route</strong><p>Southern approach through rainforest, Shira, Lava Tower, Barranco and Karanga before Barafu.</p></div><div class="exp-step"><span class="eye">04</span><strong>Wider Tanzania</strong><p>The climb is designed as one chapter of a broader journey rather than the entire visit.</p></div></div></div></section>
+<section class="exp-body"><div class="exp-body__left"><p class="eye">Status</p><h2 class="fr">Prepared openly, before it becomes a story.</h2><p>This dossier is intentionally different from an operated-journey story. It records a climb that is still being prepared. Route, pacing and wider journey context can be shown as preparation facts; summit outcome, operated performance and lived experience cannot be inferred in advance.</p></div><div class="exp-body__right"><p class="eye">Current shape</p><div class="exp-steps"><div class="exp-step"><span class="eye">01</span><strong>Seven mountain days</strong><p>Machame is treated as a seven-day climb rather than compressed to six days.</p></div><div class="exp-step"><span class="eye">02</span><strong>Father + adult son</strong><p>A shared summit objective, with individual altitude response and mountain decisions remaining separate.</p></div><div class="exp-step"><span class="eye">03</span><strong>Machame route</strong><p>Southern approach through rainforest, Shira, Lava Tower, Barranco and Karanga before Barafu.</p></div><div class="exp-step"><span class="eye">04</span><strong>Wider Tanzania</strong><p>The climb is designed as one chapter of a broader journey rather than the entire visit.</p></div></div></div></section>
 <section class="exp-readiness" aria-label="KILELE preparation ledger">
   <div class="exp-readiness__head">
     <div>
       <p class="eye">Preparation ledger</p>
       <h2 class="fr">Readiness without pretending certainty.</h2>
     </div>
-    <p>Preparation is tracked by what is decided, what is being built and what still requires evidence. There is no percentage score and no summit prediction.</p>
+    <p>Preparation is tracked by evidence state: what is already decided, what is actively being prepared and what cannot be known before operation. There is no percentage score and no summit prediction.</p>
   </div>
   <div class="exp-readiness__list" id="expReadiness"></div>
   <p class="exp-readiness__note">Training and gear information is preparation guidance, not medical clearance or a guarantee of performance. Final requirements are reconciled with the operating partner before departure.</p>
