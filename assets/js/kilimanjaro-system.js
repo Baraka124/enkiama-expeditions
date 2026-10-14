@@ -214,19 +214,23 @@
     });
   }
 
-  document.querySelectorAll('[data-route-focus]').forEach(function(button){
-    button.addEventListener('click',function(){
-      var route=find(button.dataset.routeFocus);
-      if(!route)return;
-      renderRoute(route);
-      try{sessionStorage.setItem('enkiama.kilimanjaro.route',route.slug);}catch(e){}
-      var url=new URL(location.href);
-      url.searchParams.set('route',route.slug);
-      history.replaceState(null,'',url.pathname+url.search+'#routes');
-      var panel=document.getElementById('kmRoutePanel');
-      if(panel)panel.scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  function bindDecisionShortcuts(){
+    document.querySelectorAll('[data-route-focus]').forEach(function(button){
+      if(button.dataset.bound==='true')return;
+      button.dataset.bound='true';
+      button.addEventListener('click',function(){
+        var route=find(button.dataset.routeFocus);
+        if(!route)return;
+        renderRoute(route);
+        try{sessionStorage.setItem('enkiama.kilimanjaro.route',route.slug);}catch(e){}
+        var url=new URL(location.href);
+        url.searchParams.set('route',route.slug);
+        history.replaceState(null,'',url.pathname+url.search+'#routes');
+        var panel=document.getElementById('kmRoutePanel');
+        if(panel)panel.scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      });
     });
-  });
+  }
 
   document.querySelectorAll('.km-question').forEach(function(q){
     var key=q.dataset.key;
@@ -239,7 +243,7 @@
     });
   });
 
-  fetch('data/kilimanjaro-routes.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('route catalogue unavailable');return r.json();}).then(function(data){catalogue=data;renderNav();}).catch(function(){
+  fetch('data/kilimanjaro-routes.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('route catalogue unavailable');return r.json();}).then(function(data){catalogue=data;renderNav();bindDecisionShortcuts();}).catch(function(){
     if(nav)nav.innerHTML='<p style="padding:1rem;font-size:12px">Route catalogue could not be loaded.</p>';
   });
 })();
