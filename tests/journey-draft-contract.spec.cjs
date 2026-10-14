@@ -29,7 +29,30 @@ test.describe('Phase 30A · canonical journey draft contract', () => {
     }));
     await page.goto('/experience-view.html?from=compose',{waitUntil:'domcontentloaded'});
     await expect(page.locator('.ev')).toHaveClass(/composed-mode/);
-    await expect(page.locator('.ev-scene').first()).toHaveAttribute('data-route',/Arusha.*Tarangire.*Ngorongoro/);
+    await expect(page.locator('.ev-scene[data-scene-role="opening"]')).toHaveAttribute('data-route',/Arusha.*Tarangire.*Ngorongoro/);
+  });
+
+  test('legacy composition updates are promoted during migration', async ({ page }) => {
+    await page.goto('/compose.html',{waitUntil:'domcontentloaded'});
+    await page.evaluate(() => window.EnkiamaJourneyDraft.write({
+      source:'compose',
+      preferences:{pull:'stillness',time:'mid',season:'unsure',pace:'slow',coast:'yes',who:'couple'},
+      labels:{pull:'Space & quiet',time:'~10 days',season:'Timing open',pace:'Slow',coast:'Coast yes',who:'Two travellers'},
+      route:['Tarangire','Ngorongoro','Zanzibar'],
+      message:'Canonical first'
+    }));
+    await page.evaluate(() => sessionStorage.setItem('enkiama.composition', JSON.stringify({
+      version:1,
+      preferences:{pull:'spectacle',time:'short',season:'jun-oct',pace:'full',coast:'no',who:'friends'},
+      labels:{pull:'Wildlife',time:'About a week',season:'Jun–Oct',pace:'Active',coast:'Mainland only',who:'Friends'},
+      route:['Tarangire','Serengeti'],
+      message:'Legacy changed later'
+    })));
+    const draft=await page.evaluate(()=>window.EnkiamaJourneyDraft.read());
+    expect(draft.preferences.coast).toBe('no');
+    expect(draft.route).toEqual(['Tarangire','Serengeti']);
+    const canonical=await page.evaluate(()=>JSON.parse(sessionStorage.getItem('enkiama.journey.draft')));
+    expect(canonical.preferences.coast).toBe('no');
   });
 
   test('Begin reads the same draft without a giant composed URL payload', async ({ page }) => {
