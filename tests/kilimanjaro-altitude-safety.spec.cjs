@@ -92,13 +92,13 @@ test('Kilimanjaro premium operations registry preserves verification boundary', 
   }
 });
 
-test('Kilimanjaro flagship renders six inspectable premium-operation dimensions', async ({ page }) => {
+test('Kilimanjaro flagship renders six inspectable operating dimensions', async ({ page }) => {
   await page.setViewportSize({ width: 1366, height: 900 });
   await page.goto('/kilimanjaro.html', { waitUntil: 'domcontentloaded' });
 
   await expect(page.locator('#operations')).toBeVisible();
   await expect(page.locator('#operations .km-operation')).toHaveCount(6);
-  await expect(page.getByText('Specific enough to inspect.')).toBeVisible();
+  await expect(page.getByText('Provision should be inspectable.')).toBeVisible();
   await expect(page.getByText('What does the climber actually sleep in and on?')).toBeVisible();
   await expect(page.getByText('What actually changes when the climb is private?')).toBeVisible();
 
