@@ -6,6 +6,11 @@ test.describe('Phase 29B · Kilimanjaro mobile and motion stability', () => {
     await page.goto('/kilimanjaro.html?route=machame#routes', { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(180);
 
+    // Direct hash landings intentionally keep the reading header visible until
+    // real user intent is detected. Release that landing lock before testing
+    // directional hysteresis rather than relying on programmatic scroll alone.
+    await page.locator('body').dispatchEvent('pointerdown');
+
     await page.evaluate(() => window.scrollBy(0, 12));
     await page.waitForTimeout(80);
     await expect(page.locator('#ehBar')).not.toHaveClass(/km-yield/);

@@ -820,6 +820,7 @@ html,body,.ev{max-width:100%;overscroll-behavior:none}
 </main>
 
 <script src="assets/js/enkiama-live.js"></script>
+<script src="assets/js/journey-draft.js"></script>
 <script>
 (function(){
   var scenes=[];
@@ -844,7 +845,8 @@ html,body,.ev{max-width:100%;overscroll-behavior:none}
   var composeState=null;
   var fromCompose=new URLSearchParams(location.search).get('from')==='compose';
   if(fromCompose){
-    try{composeState=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){composeState=null;}
+    if(window.EnkiamaJourneyDraft)composeState=window.EnkiamaJourneyDraft.read();
+    else try{composeState=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){composeState=null;}
   }
   if(composeState&&Array.isArray(composeState.route)&&composeState.route.length){
     document.querySelector('.ev')?.classList.add('composed-mode');
@@ -928,7 +930,7 @@ html,body,.ev{max-width:100%;overscroll-behavior:none}
     else interval=10000;
 
     if(closeScene&&composeState.message){
-      closeScene.dataset.link='begin.html?composed='+encodeURIComponent(composeState.message);
+      closeScene.dataset.link='begin.html?draft=1';
       closeScene.dataset.linkLabel='Continue this conversation';
     }
     returnHref='compose.html#cmpResult';

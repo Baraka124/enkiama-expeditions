@@ -1721,8 +1721,10 @@ textarea
     b.disabled=true; b.textContent='Sending\u2026';
     var params=new URLSearchParams(window.location.search);
     var composed=params.get('composed')||'';
+    var draftMode=params.get('draft')==='1';
     var kiliMode=params.get('kilimanjaro')||'';
-    var carriedContext=composed||'';
+    var carriedDraft=draftMode&&window.EnkiamaJourneyDraft?window.EnkiamaJourneyDraft.read():null;
+    var carriedContext=carriedDraft&&window.EnkiamaJourneyDraft?window.EnkiamaJourneyDraft.summary(carriedDraft):(composed||'');
 
     if(kiliMode){
       try{
@@ -2121,13 +2123,15 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
 </script>
 <!-- ENKIAMA_LINES_END -->
 
+<script src="assets/js/journey-draft.js"></script>
 <script id="phase27f-carried-context">
 (function(){
   try{
     var params=new URLSearchParams(window.location.search);
     var composed=params.get('composed')||'';
+    var draftMode=params.get('draft')==='1';
     var kiliMode=params.get('kilimanjaro')||'';
-    if(!composed&&!kiliMode)return;
+    if(!composed&&!draftMode&&!kiliMode)return;
 
     var stored=null;
     var kili=null;
@@ -2135,7 +2139,8 @@ textarea.lf-in:focus{border-color:rgba(190,158,104,0.6);background:rgba(24,35,27
       try{kili=JSON.parse(sessionStorage.getItem('enkiama.kilimanjaro.direction')||'null');}catch(e){kili=null;}
       if(!kili||!kili.recommended)return;
     }else{
-      try{stored=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){stored=null;}
+      if(draftMode&&window.EnkiamaJourneyDraft)stored=window.EnkiamaJourneyDraft.read();
+      if(!stored)try{stored=JSON.parse(sessionStorage.getItem('enkiama.composition')||'null');}catch(e){stored=null;}
     }
 
     var heroIssue=document.getElementById('beginHeroIssue');
