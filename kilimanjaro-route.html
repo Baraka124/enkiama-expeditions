@@ -468,7 +468,7 @@
 <main class="route-page" id="routePage" hidden>
 <section class="route-hero">
   <div class="route-hero__img"></div><div class="route-hero__shade"></div>
-  <nav class="route-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama"></a><a href="kilimanjaro.html#routes">All Kilimanjaro routes</a></nav>
+  <nav class="route-nav"><a href="index.html"><img src="assets/logo-header.png" alt="Enkiama"></a><a href="kilimanjaro.html#routes" id="routeBackToAtlas">Route atlas</a></nav>
   <div class="route-hero__copy"><p class="route-eye" id="routeBadge"></p><h1 class="fr" id="routeTitle"></h1><p id="routeSummary"></p><div class="route-record" id="routeRecord"></div></div>
 </section>
 <section class="route-spine" aria-label="Route dossier summary">
@@ -492,7 +492,7 @@
   <div class="route-compare__head"><p class="route-eye">Compare intelligently</p><h2 class="fr">The nearest alternatives.</h2><p>Not every route deserves comparison with every other route. These are the two alternatives that most directly test the decision behind this one.</p></div>
   <div class="route-compare__list" id="routeCompare"></div>
 </section>
-<section class="route-actions"><a class="route-action" href="kilimanjaro.html#mountain-composer"><span>Compare before deciding</span><strong>Use the mountain composer →</strong></a><a class="route-action" href="compose.html"><span>Beyond Kilimanjaro</span><strong>Continue into Tanzania →</strong></a></section>
+<section class="route-actions"><a class="route-action" href="kilimanjaro.html#mountain-composer" id="routeComposerLink"><span>Compare before deciding</span><strong>Use the mountain composer →</strong></a><a class="route-action" href="compose.html"><span>Beyond Kilimanjaro</span><strong>Continue into Tanzania →</strong></a></section>
 </main>
 <div class="route-error" id="routeError" hidden><p>This Kilimanjaro route could not be loaded. <a href="kilimanjaro.html#routes">Return to the route atlas.</a></p></div>
 <script>
@@ -528,6 +528,11 @@
    }).join('');
    document.getElementById('routeCompare').innerHTML=peers;
    document.getElementById('routeRecord').innerHTML='<span><b>'+esc(x.stance)+'</b> stance</span><span>Record reviewed '+esc(x.source_updated_at||data.updated_at||'')+'</span>';
+   var atlasLink=document.getElementById('routeBackToAtlas');
+   var composerLink=document.getElementById('routeComposerLink');
+   if(atlasLink)atlasLink.href='kilimanjaro.html?route='+encodeURIComponent(x.slug)+'#routes';
+   if(composerLink)composerLink.href='kilimanjaro.html?route='+encodeURIComponent(x.slug)+'#mountain-composer';
+   try{sessionStorage.setItem('enkiama.kilimanjaro.route',x.slug);}catch(e){}
    document.getElementById('routePage').hidden=false;
  }).catch(()=>document.getElementById('routeError').hidden=false);
 })();

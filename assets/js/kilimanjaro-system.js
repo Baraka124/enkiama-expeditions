@@ -4,6 +4,7 @@
   var panel=document.getElementById('kmRoutePanel');
   var result=document.getElementById('kmResult');
   var answers={};
+  var requestedRoute=new URLSearchParams(location.search).get('route');
 
   function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(ch){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch];});}
   function find(slug){return catalogue&&catalogue.routes.find(function(r){return r.slug===slug;});}
@@ -67,8 +68,21 @@
     nav.innerHTML=
       '<div class="km-route-group km-route-group--primary"><div class="km-route-group__head"><span>Start comparison here</span><small>Preferred / recommended</small></div><div class="km-route-group__list">'+primary.map(button).join('')+'</div></div>'+
       '<div class="km-route-group km-route-group--specific"><div class="km-route-group__head"><span>Specific-fit routes</span><small>Different reasons to choose</small></div><div class="km-route-group__list">'+specific.map(button).join('')+'</div></div>';
-    nav.querySelectorAll('.km-route').forEach(function(b){b.addEventListener('click',function(){renderRoute(find(b.dataset.slug));});});
-    renderRoute(find('lemosho'));
+    nav.querySelectorAll('.km-route').forEach(function(b){b.addEventListener('click',function(){
+      var selected=find(b.dataset.slug);
+      renderRoute(selected);
+      if(selected){
+        try{sessionStorage.setItem('enkiama.kilimanjaro.route',selected.slug);}catch(e){}
+        var url=new URL(location.href);
+        url.searchParams.set('route',selected.slug);
+        history.replaceState(null,'',url.pathname+url.search+url.hash);
+      }
+    });});
+    var initial=find(requestedRoute);
+    if(!initial){
+      try{initial=find(sessionStorage.getItem('enkiama.kilimanjaro.route'));}catch(e){}
+    }
+    renderRoute(initial||find('lemosho'));
   }
 
   function score(r){
@@ -191,7 +205,13 @@
         '<a class="km-result__secondary" href="#routes" id="kmSeeRoute">Compare in atlas →</a>'+
       '</div>'+
       '<p class="km-result__boundary">Route direction only. Season and party format are intentionally not scored here yet, and this is not a fitness assessment or medical clearance.</p>';
-    var a=document.getElementById('kmSeeRoute');if(a)a.addEventListener('click',function(){renderRoute(top);});
+    var a=document.getElementById('kmSeeRoute');if(a)a.addEventListener('click',function(){
+      renderRoute(top);
+      try{sessionStorage.setItem('enkiama.kilimanjaro.route',top.slug);}catch(e){}
+      var url=new URL(location.href);
+      url.searchParams.set('route',top.slug);
+      history.replaceState(null,'',url.pathname+url.search+'#routes');
+    });
   }
 
   document.querySelectorAll('.km-question').forEach(function(q){

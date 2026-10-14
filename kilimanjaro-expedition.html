@@ -463,7 +463,7 @@
   <p class="exp-continuity__boundary">Exact hotel, transfer, briefing, gear-check and post-mountain service details remain subject to the confirmed 2027 operating plan.</p>
 </section>
 
-<section class="exp-action"><a href="kilimanjaro-route.html?route=machame"><span>Route dossier</span><strong>Study Machame →</strong></a><a href="kilimanjaro.html#mountain-composer"><span>Compare</span><strong>Use the mountain composer →</strong></a></section>
+<section class="exp-action"><a href="kilimanjaro-route.html?route=machame" id="expRouteLink"><span>Route dossier</span><strong id="expRouteLinkLabel">Study route →</strong></a><a href="kilimanjaro.html#mountain-composer" id="expComposerLink"><span>Compare</span><strong>Use the mountain composer →</strong></a></section>
 </main>
 <div class="err" id="expError" hidden><p>This expedition is not available for public viewing. <a href="kilimanjaro.html">Return to Kilimanjaro.</a></p></div>
 <script>
@@ -484,6 +484,14 @@
   document.getElementById('expSummary').textContent=x.summary;
   const meta=[['Period',x.period],['Route',x.route],['Mountain days',x.mountain_days],['Party','Father + adult son']];
   document.getElementById('expMeta').innerHTML=meta.map(v=>'<div><span>'+esc(v[0])+'</span><strong>'+esc(v[1])+'</strong></div>').join('');
+  var routeSlug=String(x.route||'').toLowerCase().replace(/\s+/g,'-');
+  var routeLink=document.getElementById('expRouteLink');
+  var routeLabel=document.getElementById('expRouteLinkLabel');
+  var composerLink=document.getElementById('expComposerLink');
+  if(routeLink)routeLink.href='kilimanjaro-route.html?route='+encodeURIComponent(routeSlug);
+  if(routeLabel)routeLabel.textContent='Study '+String(x.route||'route').replace(/\b\w/g,function(c){return c.toUpperCase();})+' →';
+  if(composerLink)composerLink.href='kilimanjaro.html?route='+encodeURIComponent(routeSlug)+'#mountain-composer';
+  try{sessionStorage.setItem('enkiama.kilimanjaro.route',routeSlug);}catch(e){}
 
   document.getElementById('expReadiness').innerHTML=readiness.tracks.map((track,i)=>
     '<article class="exp-track" data-track="'+esc(track.id)+'">'+
