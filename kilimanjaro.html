@@ -1534,6 +1534,41 @@ html{
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="phase29c-decision-usefulness">
+.km-decision-ledger{
+  margin:0 0 clamp(2.8rem,4vw,3.8rem);
+  padding:1.5rem 0 0;
+  border-top:1px solid rgba(15,23,18,.2);
+}
+.km-decision-ledger__head{
+  display:grid;grid-template-columns:minmax(220px,.58fr) minmax(0,1.42fr);
+  gap:clamp(1.5rem,4vw,4rem);align-items:baseline;margin-bottom:1.15rem
+}
+.km-decision-ledger__head h3{
+  font-family:'Fraunces',serif;font-size:clamp(26px,2.8vw,39px);font-weight:300;
+  line-height:1.05;letter-spacing:-.025em;max-width:21ch
+}
+.km-decision-ledger__rows{border-top:1px solid rgba(15,23,18,.14)}
+.km-decision-ledger__rows button{
+  width:100%;display:grid;grid-template-columns:minmax(130px,.42fr) minmax(160px,.48fr) minmax(0,1fr);
+  gap:clamp(1rem,3vw,3rem);align-items:baseline;padding:1rem 0 1.05rem;
+  border:0;border-bottom:1px solid rgba(15,23,18,.12);background:transparent;color:var(--ink);
+  text-align:left;cursor:pointer;font:inherit
+}
+.km-decision-ledger__rows span{font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#75603f}
+.km-decision-ledger__rows strong{font-family:'Fraunces',serif;font-size:clamp(20px,2vw,28px);font-weight:300}
+.km-decision-ledger__rows small{font-size:10.5px;line-height:1.5;color:rgba(15,23,18,.56)}
+.km-decision-ledger__rows button:hover strong,.km-decision-ledger__rows button:focus-visible strong{color:#435438}
+.km-decision-ledger__rows button:focus-visible{outline:1px solid rgba(85,107,68,.55);outline-offset:4px}
+.km-decision-ledger__note{margin:1rem 0 0;max-width:78ch;font-size:9px;line-height:1.65;color:rgba(15,23,18,.48)}
+@media(max-width:680px){
+  .km-decision-ledger__head{grid-template-columns:1fr;gap:.55rem}
+  .km-decision-ledger__rows button{grid-template-columns:1fr auto;gap:.35rem 1rem;padding:.9rem 0}
+  .km-decision-ledger__rows span{grid-column:1}
+  .km-decision-ledger__rows strong{grid-column:1;grid-row:2}
+  .km-decision-ledger__rows small{grid-column:2;grid-row:1 / span 2;max-width:15ch;text-align:right}
+}
+</style>
 </head>
 <body>
 <!-- ENKIAMA_HEADER_START -->
@@ -1921,6 +1956,21 @@ body.eh-locked{overflow:hidden;}
 <section class="km-atlas" id="routes">
   <div class="km-atlas__inner">
     <div class="km-atlas__head"><div><p class="km-compare__eyebrow">Route intelligence</p><h2>Seven routes. Different reasons to choose them.</h2></div><p>The atlas is intentionally selective. “Available” does not mean “recommended”. Route choice should make the acclimatisation profile, crowd pattern, overnight format and operational trade-off visible before a departure is discussed.</p></div>
+    <section class="km-decision-ledger" aria-labelledby="kmDecisionTitle">
+      <div class="km-decision-ledger__head">
+        <p class="km-compare__eyebrow">Decision shortcuts</p>
+        <h3 id="kmDecisionTitle">Start with the constraint that actually changes the route.</h3>
+      </div>
+      <div class="km-decision-ledger__rows">
+        <button type="button" data-route-focus="machame"><span>7 mountain days</span><strong>Machame</strong><small>Classic southern route · busier trail</small></button>
+        <button type="button" data-route-focus="lemosho"><span>8 mountain days</span><strong>Lemosho</strong><small>Gradual western opening · strong all-round fit</small></button>
+        <button type="button" data-route-focus="northern-circuit"><span>9 mountain days</span><strong>Northern Circuit</strong><small>More mountain time · quieter northern traverse</small></button>
+        <button type="button" data-route-focus="marangu"><span>Huts matter</span><strong>Marangu</strong><small>The only hut-based route in this atlas</small></button>
+        <button type="button" data-route-focus="rongai"><span>Quieter at 7 days</span><strong>Rongai</strong><small>Northern approach · lower early traffic</small></button>
+        <button type="button" data-route-focus="umbwe"><span>Specialist profile</span><strong>Umbwe</strong><small>Steeper opening · less acclimatisation margin</small></button>
+      </div>
+      <p class="km-decision-ledger__note">Shira remains a conditional western alternative where the high starting point is understood and justified. The atlas below keeps all seven routes available for direct comparison.</p>
+    </section>
     <div class="km-atlas__register" id="kmRouteNav" aria-label="Kilimanjaro route register"></div>
     <article class="km-route__panel" id="kmRoutePanel" aria-live="polite"></article>
   </div>
